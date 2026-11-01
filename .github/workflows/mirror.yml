@@ -2,7 +2,7 @@ name: mirror
 on:
   workflow_dispatch:
   push:
-    paths: ['tools/mirror.py', '.github/workflows/mirror.yml', 'clients/**', 'works/**']
+    paths: ['tools/mirror.py', 'tools/404.html', '.github/workflows/mirror.yml', 'clients/**', 'works/**']
 permissions:
   contents: write
 concurrency: { group: mirror, cancel-in-progress: false }
@@ -26,7 +26,8 @@ jobs:
           echo "ysdprojects.space" > CNAME
           touch .nojekyll
           printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://ysddev.com/#works"><title>YSD DEV</title><a href="https://ysddev.com/#works">ysddev.com</a>' > index.html
-          cp index.html 404.html
+          cp ../tools/404.html 404.html
+          mkdir -p d && cp ../tools/404.html d/index.html  # демо клиентов: /d/<проект>/ — с сервера бота
           printf 'User-agent: *\nDisallow: /\n' > robots.txt
           git init -q -b gh-pages
           git config user.name "ysd-mirror"
