@@ -418,6 +418,7 @@ section{position:relative}
         <h2 class="h2 rv" id="h-ba">Результаты учениц</h2>
         <p class="sub rv">Потяните ползунок и сравните: слева — до, справа — после. Выберите другую ученицу ниже.</p>
         <div class="thumbs rv" role="group" aria-label="Выбор ученицы"></div>
+        <div class="cta-row rv"><a class="btn" href="#prices">Хочу такой же результат</a></div>
       </div>
       <div class="cmp rv" id="cmp">
         <div class="half after"><img alt="" width="1200" height="1200"></div>
@@ -659,7 +660,7 @@ section{position:relative}
   if(/abon/.test(location.hash))show('abon',false);
 
   /* ---- до / после ---- */
-  var pairs=['tild6635-6132-4464-b039-333233306637/IMG_8571.png','tild6634-6236-4966-a630-656632313564/IMG_3058.png','tild6662-3762-4564-b738-323331633263/IMG_3059.png','tild3764-3563-4437-b433-346362306466/IMG_3061.png','tild6434-6563-4830-a537-393131366531/IMG_3062.png','tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png','tild6432-6130-4136-a537-313061646331/IMG_8519.png','tild6163-3232-4662-b063-666566333735/IMG_8567.png','tild3762-3930-4633-a235-633862386562/IMG_3064.png'];
+  var pairs=['tild6635-6132-4464-b039-333233306637/IMG_8571.png','tild6634-6236-4966-a630-656632313564/IMG_3058.png','tild6662-3762-4564-b738-323331633263/IMG_3059.png','tild3764-3563-4437-b433-346362306466/IMG_3061.png','tild6434-6563-4830-a537-393131366531/IMG_3062.png','tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png','tild6432-6130-4136-a537-313061646331/IMG_8519.png','tild6163-3232-4662-b063-666566333735/IMG_8567.png'];
   var cmp=document.getElementById('cmp'),imgs=cmp.querySelectorAll('.half img'),range=cmp.querySelector('input'),th=document.querySelector('.thumbs');
   function pick(i){
     var src=u(pairs[i],1200);
@@ -677,7 +678,7 @@ section{position:relative}
   pick(0);
 
   /* ---- отзывы + лайтбокс ---- */
-  var revs=['tild3837-6132-4635-b233-636162333430/IMG_3070.JPG','tild6232-3630-4535-b666-363034353230/IMG_3066.jpeg','tild3535-3634-4862-b239-613633393762/IMG_3067.jpeg','tild6364-3730-4232-a466-666131393066/IMG_3068.jpeg','tild6636-6162-4432-b439-613733363336/IMG_3069.jpeg'];
+  var revs=['tild3837-6132-4635-b233-636162333430/IMG_3070.JPG','tild3535-3634-4862-b239-613633393762/IMG_3067.jpeg','tild6364-3730-4232-a466-666131393066/IMG_3068.jpeg','tild6636-6162-4432-b439-613733363336/IMG_3069.jpeg'];
   var row=document.getElementById('revRow'),lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),last;
   revs.forEach(function(p,i){
     var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Открыть отзыв '+(i+1));
