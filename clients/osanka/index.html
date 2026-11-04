@@ -153,8 +153,8 @@ section{position:relative}
 
 /* до/после — живой блок */
 .ba{background:var(--mint);padding-block:clamp(64px,8vw,120px);margin-top:calc(var(--gap)/2)}
-.ba .in{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,5vw,96px);align-items:center}
-.cmp{position:relative;aspect-ratio:1.12/1;border-radius:var(--r);overflow:hidden;background:var(--ink);touch-action:pan-y;user-select:none}
+.ba .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:center}
+.cmp{position:relative;aspect-ratio:var(--ar,.5);height:min(78svh,780px);max-width:100%;justify-self:center;border-radius:var(--r);overflow:hidden;background:var(--ink);touch-action:pan-y;user-select:none}
 .cmp .half{position:absolute;inset:0;overflow:hidden}
 .cmp .half img{position:absolute;top:0;height:100%;width:200%;max-width:none;object-fit:cover}
 .cmp .after img{left:-100%}
@@ -172,7 +172,7 @@ section{position:relative}
 .thumb[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
 .thumb:active{transform:scale(.95)}
 @media (hover:hover) and (pointer:fine){.thumb:hover{transform:translateY(-4px)}}
-@media (max-width:900px){.ba .in{grid-template-columns:1fr}.cmp{aspect-ratio:.95/1}}
+@media (max-width:900px){.ba .in{grid-template-columns:1fr}.cmp{height:auto;width:100%;max-width:440px}}
 
 /* программа */
 .prog{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px)}
@@ -672,6 +672,7 @@ section{position:relative}
     b.innerHTML='<img src="'+u(p,240)+'" alt="" loading="lazy" width="240" height="240">';
     b.addEventListener('click',function(){pick(i);});th.appendChild(b);
   });
+  imgs[0].addEventListener('load',function(){if(imgs[0].naturalWidth)cmp.style.setProperty('--ar',(imgs[0].naturalWidth/2/imgs[0].naturalHeight).toFixed(3));});
   range.addEventListener('input',function(){cmp.style.setProperty('--x',range.value+'%');});
   pick(0);
 
