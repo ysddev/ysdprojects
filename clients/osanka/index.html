@@ -312,7 +312,7 @@ section{position:relative}
 
 /* появление */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.rv.in{opacity:1;transform:none}
+.rv.shown{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero-pic img{transition:none}}
 </style>
@@ -696,11 +696,11 @@ section{position:relative}
   }
 
   /* ---- появление ---- */
-  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'}):null;
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'}):null;
   function reveal(){
-    var els=[].slice.call(document.querySelectorAll('.rv:not(.in)')).filter(function(el){return el.offsetParent!==null;});
+    var els=[].slice.call(document.querySelectorAll('.rv:not(.shown)')).filter(function(el){return el.offsetParent!==null;});
     var groups=new Map();
-    els.forEach(function(el){var s=el.closest('section')||document.body;var n=groups.get(s)||0;el.style.transitionDelay=(Math.min(n,6)*75)+'ms';groups.set(s,n+1);if(io)io.observe(el);else el.classList.add('in');});
+    els.forEach(function(el){var s=el.closest('section')||document.body;var n=groups.get(s)||0;el.style.transitionDelay=(Math.min(n,6)*75)+'ms';groups.set(s,n+1);if(io)io.observe(el);else el.classList.add('shown');});
   }
   reveal();
 
