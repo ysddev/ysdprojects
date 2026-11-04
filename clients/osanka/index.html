@@ -33,7 +33,7 @@
   --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
   --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
   --step-head:clamp(2.1rem,1.3rem + 3.2vw,4rem);
-  --step-hero:clamp(2.6rem,1.2rem + 5.6vw,6.4rem);
+  --step-hero:clamp(2rem,.6rem + 4.2vw,4.6rem);
   --m:clamp(16px,3.2vw,40px);
   --gap:clamp(96px,12vw,200px);
   --ease:cubic-bezier(.23,1,.32,1);
@@ -85,11 +85,11 @@ ul{margin:0;padding:0;list-style:none}
 
 /* HERO */
 .hero{position:relative;overflow:hidden;padding-bottom:clamp(56px,7vw,110px)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:end;min-height:calc(100svh - 72px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,64px);align-items:end;min-height:calc(100svh - 72px)}
 .hero-shape{position:absolute;right:-12vw;bottom:-30vh;width:min(78vw,1100px);aspect-ratio:1/1.25;background:var(--mint);border-radius:999px 999px 0 0}
 .k-abon .hero-shape{background:var(--peach)}
 .hero-copy{position:relative;z-index:2;padding-block:clamp(40px,8vh,96px) 0}
-.hero h1{font-size:var(--step-hero);line-height:.94;letter-spacing:-.045em;max-width:11ch}
+.hero h1{font-size:var(--step-hero);line-height:.96;letter-spacing:-.045em;max-width:none}
 .hero .lead{margin-top:36px;font-size:var(--step-lead);line-height:1.35;max-width:30ch}
 .hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .hero .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:40px;font-size:var(--step-small);font-weight:500}
@@ -111,7 +111,9 @@ ul{margin:0;padding:0;list-style:none}
 /* разделы */
 section{position:relative}
 .sec{padding-block:calc(var(--gap)/2)}
-.h2{font-size:var(--step-head);line-height:.98;letter-spacing:-.04em;max-width:16ch}
+.h2{font-size:var(--step-head);line-height:.98;letter-spacing:-.04em;max-width:20ch}
+.kw{font-size:var(--step-lead);line-height:1.3;font-weight:500;letter-spacing:-.01em;margin-top:12px}
+.res-card .kw{margin-top:16px}
 .sub{font-size:var(--step-lead);line-height:1.35;max-width:36ch;margin-top:24px}
 .txt p+p{margin-top:1em}
 .txt{max-width:62ch}
@@ -131,7 +133,7 @@ section{position:relative}
 @media (max-width:900px){.about .in{grid-template-columns:1fr}}
 
 /* для кого */
-.for{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,96px)}
+.for{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px)}
 .for-list{display:grid;gap:10px}
 .for-item{background:var(--white);border-radius:var(--r);padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:auto 1fr;gap:20px}
 .for-item:nth-child(2){background:var(--mint-2)}
@@ -173,7 +175,7 @@ section{position:relative}
 @media (max-width:900px){.ba .in{grid-template-columns:1fr}.cmp{aspect-ratio:.95/1}}
 
 /* программа */
-.prog{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,96px)}
+.prog{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px)}
 .prog-list{margin-top:40px;display:grid;gap:0}
 .prog-list>li{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:22px 0}
 .prog-list>li+li{border-top:0}
@@ -240,14 +242,15 @@ section{position:relative}
 /* абонемент: блоки */
 .inside{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:48px}
 .box{border-radius:var(--r);padding:clamp(24px,3vw,40px);background:var(--white);grid-column:span 2}
-.box.w3{grid-column:span 3}
+.box.w3{grid-column:span 3}.box.s4{grid-column:span 4}
 .box.mint{background:var(--mint-2)}.box.peach{background:var(--peach-2)}.box.dark{background:var(--ink);color:var(--ground)}.box.dark p{color:#F3E9E0}
 .box h3{font-size:clamp(1.3rem,1rem + 1vw,1.9rem);line-height:1.1;letter-spacing:-.025em}
 .box p{margin-top:14px}
 .box .chips li{background:var(--white)}
 .box.pic{padding:0;overflow:hidden;background:var(--peach)}
 .box.pic img{width:100%;height:100%;object-fit:cover;min-height:280px}
-@media (max-width:1000px){.inside{grid-template-columns:1fr 1fr}.box,.box.w3{grid-column:span 1}.box.wide{grid-column:1/-1}}
+@media (max-width:1000px){.inside{grid-template-columns:1fr 1fr}.box,.box.w3{grid-column:span 1}.box.s4{grid-column:1/-1}}
+@media (max-width:620px){.box.s4{grid-column:auto}}
 @media (max-width:620px){.inside{grid-template-columns:1fr}.box.pic{display:none}}
 
 .need{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,96px);align-items:start}
@@ -267,7 +270,7 @@ section{position:relative}
 @media (max-width:900px){.gear .in{grid-template-columns:1fr}}
 
 /* вопросы */
-.faq .in{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,5vw,96px)}
+.faq .in{align-items:start;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,96px)}
 .qs{display:grid;gap:10px}
 .qs details{border-radius:var(--r);background:var(--white);overflow:hidden}
 .qs details:nth-child(3n+2){background:var(--mint-2)}
@@ -348,7 +351,7 @@ section{position:relative}
     <div class="hero-shape" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-copy">
-        <h1 id="h-kurs" class="rv">Научись чувствовать своё тело</h1>
+        <h1 id="h-kurs" class="rv">Научись чувствовать<br> своё тело</h1>
         <p class="lead rv">Лёгкость и пластичность внутри. Избавься от боли и стань бодрым и энергичным за 30 минут в день.</p>
         <div class="acts rv">
           <a class="btn" href="#prices">Присоединиться к курсу</a>
@@ -392,17 +395,17 @@ section{position:relative}
   <section class="sec" id="kurs-for" aria-labelledby="h-for">
     <div class="wrap for">
       <div class="for-aside">
-        <h2 class="h2 rv" id="h-for">Этот курс подходит вам, если…</h2>
+        <h2 class="h2 rv" id="h-for">Курс подходит вам, если…</h2>
         <div class="arch rv"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/700x/1_2.png" width="700" height="933" alt="Ольга Смыслова в светлом костюме" loading="lazy"></div>
       </div>
       <ul class="for-list">
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Сколиотическая деформация до 5-й степени, лордоз, сутулость, холмик на шее, диастаз 1 степени, искривления таза</h3>
-          <p>Если вам поставили сколиоз до 5-й степени, не спешите расстраиваться. Это всё можно исправить регулярными занятиями — на курсе много упражнений на восстановление отделов позвоночника. Лордоз, сутулость, холмик, искривления таза — всё это убирается с помощью упражнений на осанку. Я буду про каждое упражнение рассказывать и объяснять, для чего оно. Диастаз — только 1 степени: он убирается за счёт дыхания, и таких упражнений на курсе много.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы новичок и хотите почувствовать лёгкость и подвижность</h3>
+        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Сколиоз, лордоз, сутулость</h3>
+          <p class="kw">Сколиотическая деформация до 5-й степени, лордоз (излишний прогиб в пояснице), сутулость, холмик на шее, диастаз 1 степени, искривления в области таза.</p><p>Если вам поставили сколиоз до 5-й степени, не спешите расстраиваться. Это всё можно исправить регулярными занятиями — на курсе много упражнений на восстановление отделов позвоночника. Лордоз, сутулость, холмик, искривления таза — всё это убирается с помощью упражнений на осанку. Я буду про каждое упражнение рассказывать и объяснять, для чего оно. Диастаз — только 1 степени: он убирается за счёт дыхания, и таких упражнений на курсе много.</p></div></li>
+        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы новичок</h3><p class="kw">И хотите почувствовать лёгкость и подвижность.</p>
           <p>Хочется разбудить тело, похудеть и чтобы ушли отёки. Уже через неделю вы почувствуете, что тело стало подвижным, энергии становится больше, а отёки уходят на глазах.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы чувствуете боли и скованность</h3>
+        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Боли и скованность</h3>
           <p>Чаще всего это зажатость в шейном отделе, напряжение в трапеции, боли под лопаткой и в пояснице. В области таза — защемления, боль в коленях и суставах, нефункциональные стопы: плоскостопие, слишком жёсткая стопа.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы спортсменка и регулярно занимаетесь собой</h3>
+        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы спортсменка</h3>
           <p>Ходите в зал, изучаете своё тело и пытаетесь улучшить его с каждым разом.</p></div></li>
         <li class="cta-row rv"><a class="btn" href="#prices">Присоединиться к курсу</a></li>
       </ul>
@@ -462,18 +465,18 @@ section{position:relative}
 
   <section class="sec" id="kurs-after" aria-labelledby="h-after">
     <div class="wrap">
-      <h2 class="h2 rv" id="h-after">Какой будет результат после курса</h2>
+      <h2 class="h2 rv" id="h-after">Результат после курса</h2>
       <div class="res-grid">
-        <div class="res-card rv"><h3>Избавитесь от беспокоящих болей</h3>
+        <div class="res-card rv"><h3>Без болей</h3><p class="kw">Избавитесь от беспокоящих болей</p>
           <ul><li>Заранее предотвратите их появление</li><li>Уберёте проблемные зоны и сделаете фигуру подтянутой и стройной</li></ul></div>
-        <div class="res-card rv"><h3>Уберёте перекосы и асимметрию в осанке</h3>
+        <div class="res-card rv"><h3>Ровная осанка</h3><p class="kw">Уберёте перекосы и асимметрию в осанке</p>
           <ul><li>Поработаем со стопами (с вальгусом, с плоскостопием, большой косточкой на стопе)</li><li>С коленями (Х-образными, выгнутыми)</li><li>С искривлением таза (включим ягодицы в работу, уберём отёки под ягодицами, целлюлит и рыхлость)</li><li>С диафрагмой (уберём живот, нормализуем давление, включим мышцы пресса в работу)</li><li>С поясницей и грудной клеткой (уберём зажимы, лордоз, расправим плечи, подтянем грудь)</li><li>С шейным отделом (уберём холмик, вытянем шею, уберём отёки на лице, подтянем кожу лица)</li></ul></div>
-        <div class="res-card rv"><h3>Создадите красивые формы тела без изнурительных тренировок, больших весов и без диет</h3>
+        <div class="res-card rv"><h3>Красивое тело</h3><p class="kw">Создадите красивые формы тела без изнурительных тренировок, больших весов и без диет</p>
           <ul><li>Научитесь чувствовать своё тело, лёгкость и пластичность внутри</li><li>Получите удовольствие от тренировок, сформируете дисциплину</li></ul></div>
       </div>
       <div class="res-more">
         <div class="res-card rv"><h3>Моя поддержка</h3><p>Вы всегда сможете рассчитывать на мою поддержку в личных сообщениях. Технику выполнения так же проверяю я лично. Это важно!</p></div>
-        <div class="res-card rv"><h3>Личные 2 тренировки со мной (очно или онлайн)</h3><p>Если вы присылаете мне свой результат спустя 2 месяца в виде фотографий и мы отчётливо видим ваш результат и дисциплину в регулярности занятий — вам в подарок 2 тренировки со мной.</p></div>
+        <div class="res-card rv"><h3>2 тренировки в подарок</h3><p>Личные 2 тренировки со мной (очно или онлайн). Если вы присылаете мне свой результат спустя 2 месяца в виде фотографий и мы отчётливо видим ваш результат и дисциплину в регулярности занятий — вам в подарок 2 тренировки со мной.</p></div>
       </div>
     </div>
   </section>
@@ -512,11 +515,11 @@ section{position:relative}
         <div class="box mint w3 rv"><h3>Записи тренировок</h3><p>Возможность заниматься в удобное для вас время. Вам сразу доступны тренировки прошлых 14 дней.</p></div>
         <div class="box peach w3 rv"><h3>Питание в кайф</h3><p>Меню по неделям. Рецепты. Простая система питания, чтобы держать тело в форме, не срываться и кайфовать от процесса.</p></div>
         <div class="box rv"><h3>Диагностика осанки с эффективными тест-упражнениями</h3><p>Здесь вы узнаете, как тело искривляется и как продиагностировать себя и близких самостоятельно.</p></div>
-        <div class="box dark wide rv" style="grid-column:span 4"><h3>Тренировки под конкретную задачу</h3>
+        <div class="box dark s4 rv"><h3>Тренировки под конкретную задачу</h3>
           <ul class="chips"><li>комплекс от плоскостопия</li><li>от жёсткой стопы</li><li>от Х-образных коленей</li><li>от О-образных коленей</li><li>от банановых коленей</li><li>от крыловидных лопаток</li></ul></div>
-        <div class="box pic rv" style="grid-column:span 2"><img src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/700x/2_resized.jpg" width="700" height="933" alt="Ольга Смыслова сидит на полу" loading="lazy"></div>
-        <div class="box mint rv" style="grid-column:span 2"><h3>Чат поддержки и обратная связь от меня</h3><p>Исправление ошибок по технике. Ответы на вопросы. Общение и обмен опытом с единомышленниками.</p></div>
-        <div class="box peach rv" style="grid-column:span 2"><h3>Минимальный инвентарь</h3><p>Большинство тренировок остаются эффективными даже без специального оборудования.</p></div>
+        <div class="box pic rv"><img src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/700x/2_resized.jpg" width="700" height="933" alt="Ольга Смыслова сидит на полу" loading="lazy"></div>
+        <div class="box mint rv"><h3>Чат поддержки и обратная связь от меня</h3><p>Исправление ошибок по технике. Ответы на вопросы. Общение и обмен опытом с единомышленниками.</p></div>
+        <div class="box peach rv"><h3>Минимальный инвентарь</h3><p>Большинство тренировок остаются эффективными даже без специального оборудования.</p></div>
       </div>
       <div class="cta-row rv"><a class="btn" href="#prices">Выбрать абонемент</a></div>
     </div>
@@ -557,7 +560,7 @@ section{position:relative}
 <section class="sec rev" id="reviews" aria-labelledby="h-rev">
   <div class="wrap">
     <div class="head">
-      <h2 class="h2 rv" id="h-rev">Что говорят те, кто уже тренируется</h2>
+      <h2 class="h2 rv" id="h-rev">Что говорят ученицы</h2>
       <p class="note rv">Нажмите на отзыв, чтобы открыть крупно</p>
     </div>
     <div class="rev-row" id="revRow"></div>
