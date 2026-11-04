@@ -172,7 +172,7 @@ section{position:relative}
 .thumb[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
 .thumb:active{transform:scale(.95)}
 @media (hover:hover) and (pointer:fine){.thumb:hover{transform:translateY(-4px)}}
-@media (max-width:900px){.ba .in{grid-template-columns:1fr}.cmp{height:auto;width:100%;max-width:440px}}
+@media (max-width:900px){.ba .in{grid-template-columns:1fr}.cmp{height:min(66svh,600px)}.thumbs{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(var(--m)*-1);padding:4px var(--m) 8px}.thumb{flex:none;width:52px;height:68px}}
 
 /* программа */
 .prog{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px)}
