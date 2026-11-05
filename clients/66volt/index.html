@@ -368,7 +368,7 @@ body.lock{overflow:hidden}
 
 <section class="how" id="how">
  <div class="wrap">
-  <div class="sh rv"><h2>Как не ошибиться с выбором</h2><p>Главное — полярность и размер. Если перепутать полярность, провода не дотянутся до клемм. Посмотрите на свой аккумулятор под капотом.</p></div>
+  <div class="sh rv"><h2>Как не ошибиться с выбором</h2><p>Главное — полярность и размер. Если перепутать полярность, провода не дотянутся до клемм. Посмотрите на свой аккумулятор под капотом — у легковых и грузовых обозначения разные.</p></div>
   <div class="pol rv">
    <div class="polc" data-polc="R" aria-pressed="false">
     <div class="vis" data-vis="R"></div>
@@ -381,6 +381,18 @@ body.lock{overflow:hidden}
     <h3>Прямая полярность</h3>
     <p>Плюс слева. Обозначают «L», «п/п» или «прямая». Чаще встречается на старых отечественных машинах — например, классике и Ниве.</p>
     <button class="btn" type="button" data-polgo="L">Показать с прямой</button>
+   </div>
+   <div class="polc" data-polc="3" aria-pressed="false">
+    <div class="vis" data-vis="3"></div>
+    <h3>Грузовая, тип 3</h3>
+    <p>Обратная полярность у грузовых аккумуляторов: плюс справа. Обычно стоит на иномарках — Volvo, Scania, MAN, DAF, Mercedes. В прайсах пишут «тип 3», «евро», «обр.» или «ин. авто».</p>
+    <button class="btn" type="button" data-polgo="3">Показать тип 3</button>
+   </div>
+   <div class="polc" data-polc="4" aria-pressed="false">
+    <div class="vis" data-vis="4"></div>
+    <h3>Грузовая, тип 4</h3>
+    <p>Прямая полярность у грузовых: плюс слева. Чаще на отечественной технике — КАМАЗ, МАЗ, ГАЗ, но бывает по-разному, поэтому сверьтесь со старым аккумулятором. В прайсах — «тип 4», «прям.» или «отеч. авто».</p>
+    <button class="btn" type="button" data-polgo="4">Показать тип 4</button>
    </div>
   </div>
   <div class="tips rv">
@@ -580,9 +592,11 @@ let shown=24;
 $('#fTotal').textContent=D.length;
 const brands={};D.forEach(x=>brands[x.b]=(brands[x.b]||0)+1);
 // --- battery svg
-function bat(p,w=120){const plusR=(p==='R'||p==='3'),q=p==='?';const px=plusR?78:22,mx=plusR?22:78;
+function bat(p,w=120){if(p==='3'||p==='4'){const r=p==='3',px=r?118:22,mx=r?22:118;
+ return `<svg width="${Math.round(w*1.25)}" viewBox="0 0 140 70" aria-hidden="true"><rect x="4" y="16" width="132" height="50" rx="6" fill="#22252C"/><rect x="4" y="16" width="132" height="10" rx="4" fill="#2C3039"/><path d="M${px-8} 18 L${px-5} 5 H${px+5} L${px+8} 18Z" fill="#D93A2B"/><path d="M${mx-8} 18 L${mx-5} 5 H${mx+5} L${mx+8} 18Z" fill="#545A66"/><text x="${px}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#F5A524" font-family="Onest,sans-serif">+</text><text x="${mx}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><text x="70" y="49" text-anchor="middle" font-size="13" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">тип ${p}</text></svg>`;}
+ const plusR=(p==='R'),q=p==='?';const px=plusR?78:22,mx=plusR?22:78;
  return `<svg width="${w}" viewBox="0 0 100 70" aria-hidden="true"><rect x="6" y="16" width="88" height="50" rx="6" fill="#22252C"/><rect x="6" y="16" width="88" height="10" rx="4" fill="#2C3039"/><rect x="${px-9}" y="6" width="18" height="12" rx="3" fill="${q?'#9AA0AA':'#D93A2B'}"/><rect x="${mx-9}" y="6" width="18" height="12" rx="3" fill="#545A66"/><text x="${px}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="${q?'#9AA0AA':'#F5A524'}" font-family="Onest,sans-serif">+</text><text x="${mx}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><path d="M53 30l-8 13h5l-2 9 8-13h-5z" fill="#F5A524" opacity=".9"/></svg>`;}
-$$('[data-vis]').forEach(v=>v.innerHTML=bat(v.dataset.vis,190));
+$$('[data-vis]').forEach(v=>v.innerHTML=bat(v.dataset.vis,/[34]/.test(v.dataset.vis)?170:190));
 // --- chips
 function chips(el,list,set,onch){el.innerHTML=list.map(([v,t])=>`<button type="button" class="chip" aria-pressed="false" data-v="${v}">${t}</button>`).join('');
  el.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const v=b.dataset.v;set.has(v)?set.delete(v):set.add(v);b.setAttribute('aria-pressed',set.has(v));onch&&onch();});}
