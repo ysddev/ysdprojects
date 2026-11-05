@@ -74,7 +74,8 @@ button,input,textarea{font:inherit;color:inherit}
 .hd .tel{font-weight:500;text-decoration:none;white-space:nowrap}
 .hd .btn{min-height:44px;padding:0 20px;font-size:var(--s-small)}
 @media (max-width:980px){.hd nav{display:none}.hd .tel{margin-left:auto}}
-@media (max-width:560px){.hd .tel{display:none}.hd .btn{margin-left:auto;padding:0 16px}}
+.hd .hb-m{display:none}
+@media (max-width:560px){.hd .tel,.hd .hb-d{display:none}.hd .hb-m{display:inline-flex;margin-left:auto;padding:0 22px}}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 var(--m) var(--m);min-height:calc(100svh - 68px)}
@@ -89,7 +90,8 @@ button,input,textarea{font:inherit;color:inherit}
 .card .mark i{width:.62em;height:.62em}
 .card h1{font-size:var(--s-disp);letter-spacing:-.035em;line-height:.98}
 .card .sub{margin-top:32px;max-width:40ch;font-size:var(--s-body);color:var(--ink-d)}
-.card .btn{margin-top:32px}
+.acts{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.acts .alt{color:var(--ink-d);font-weight:500;text-underline-offset:5px;padding:6px 0}
 .facts{list-style:none;margin:44px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px clamp(24px,3vw,48px)}
 .facts li{display:grid;gap:2px;font-size:var(--s-small);color:var(--muted-d);text-align:center}
 .facts b{font-size:var(--s-lead);font-weight:500;color:var(--ink-d);letter-spacing:-.02em}
@@ -289,7 +291,12 @@ form .btn{width:100%;min-height:56px;margin-top:6px}
 form small{font-size:var(--s-small)}
 .ok{display:none;padding:48px;align-content:center;gap:16px}
 .ok h3{font-size:var(--s-head)}
-.sent form{display:none}.sent .ok{display:grid}
+.sent form,.manual-on form{display:none}.sent .ok{display:grid}
+.manual{display:none;padding:48px;align-content:center;gap:14px}
+.manual h3{font-size:var(--s-head)}
+.manual .copy{font-size:var(--s-small);background:#ffb27a;padding:14px 18px}
+.manual-on .manual{display:grid}
+@media (max-width:860px){.manual{padding:32px 20px}}
 @media (max-width:860px){
   .coupon{--cut:50%;grid-template-columns:1fr;
     -webkit-mask:radial-gradient(circle 14px at 0 var(--cy,38%),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% var(--cy,38%),#0000 98%,#000) right/51% 100% no-repeat; /* taste-skill-ignore */
@@ -342,7 +349,8 @@ form small{font-size:var(--s-small)}
     <a class="lnk" href="#voprosy">Вопросы</a>
   </nav>
   <a class="tel lnk" href="tel:+79998516317">+7 (999) 851-63-17</a>
-  <a class="btn" href="#zayavka">Вызвать на осмотр</a>
+  <a class="btn hb-d" href="#zayavka">Вызвать на осмотр</a>
+  <a class="btn hb-m" href="tel:+79998516317">Позвонить</a>
 </header>
 
 <main id="top">
@@ -352,7 +360,7 @@ form small{font-size:var(--s-small)}
     <div class="card-in" data-r>
       <h1 id="h1" style="--i:0">Сухой подвал без&nbsp;раскопки</h1>
       <p class="sub" style="--i:2">Инъекционная гидроизоляция бетона в Москве и области: швы, трещины, вводы коммуникаций, паркинги. Работаем изнутри, даже когда вода идёт прямо сейчас.</p>
-      <a class="btn" href="#zayavka" style="--i:3">Вызвать на осмотр <span class="dot"></span></a>
+      <div class="acts" style="--i:3"><a class="btn" href="tel:+79998516317">Позвонить мастеру <span class="dot"></span></a><a class="alt" href="#zayavka">или пришлите фото протечки</a></div>
       <ul class="facts" style="--i:4">
         <li><b>от 8 000 ₽</b>за метр шва</li>
         <li><b>Изнутри</b>без вскрытия фундамента</li>
@@ -505,7 +513,14 @@ form small{font-size:var(--s-small)}
       </form>
       <div class="ok" role="status">
         <h3>Заявка принята</h3>
-        <p>Перезвоним в течение рабочего дня и договоримся об осмотре.</p>
+        <p>Мастер перезвонит вам в рабочее время и договорится об осмотре.</p>
+      </div>
+      <div class="manual" role="status">
+        <h3>Остался один шаг</h3>
+        <p>Позвоните мастеру или отправьте ему фото протечки в Telegram: так он увидит заявку сразу.</p>
+        <a class="btn btn--dark" href="tel:+79998516317">Позвонить +7 (999) 851-63-17</a>
+        <a class="btn btn--dark" href="https://t.me/+79998516317" target="_blank" rel="noopener">Написать в Telegram</a>
+        <p class="copy" id="m-text"></p>
       </div>
     </div>
   </div>
@@ -635,12 +650,22 @@ d.querySelectorAll('.fc button').forEach(function(b){b.addEventListener('click',
   if(!open){b.parentNode.classList.add('open');b.setAttribute('aria-expanded','true')}
 })});
 
-/* form (prototype: no sending yet) */
-var form=d.getElementById('form');
+/* form: sends to LEAD_URL when it is set; until then hands the lead to phone / Telegram */
+var LEAD_URL=''; // [адрес приёма заявок: POST multipart → сообщение мастеру в Telegram]
+var form=d.getElementById('form'), coupon=d.getElementById('coupon');
 d.getElementById('f-photo').addEventListener('change',function(){d.getElementById('f-photo-t').textContent=this.files.length?'Фото: '+this.files.length+' шт.':'Прикрепить фото протечки'});
-form.addEventListener('submit',function(e){e.preventDefault();var tel=form.querySelector('[name=tel]');
-  if(tel.value.replace(/\D/g,'').length<10){d.getElementById('f-err').textContent='Укажите телефон, чтобы мы могли перезвонить.';tel.focus();return}
-  d.getElementById('coupon').classList.add('sent');goal('lead');});
+function manual(){var f=function(n){return (form.querySelector('[name='+n+']').value||'').trim()};
+  d.getElementById('m-text').textContent='Заявка с сайта: '+[f('name'),f('tel'),f('place'),f('msg')].filter(Boolean).join(', ');
+  coupon.classList.add('manual-on');goal('lead_manual');}
+form.addEventListener('submit',function(e){e.preventDefault();var tel=form.querySelector('[name=tel]'),btn=form.querySelector('[type=submit]');
+  if(tel.value.replace(/\D/g,'').length<10){d.getElementById('f-err').textContent='Укажите телефон, чтобы мастер мог перезвонить.';tel.focus();return}
+  if(!LEAD_URL){manual();return}
+  var fd=new FormData(form);[].forEach.call(d.getElementById('f-photo').files,function(x){fd.append('photo',x)});
+  btn.disabled=true;btn.firstChild.textContent='Отправляем… ';
+  fetch(LEAD_URL,{method:'POST',body:fd}).then(function(r){if(!r.ok)throw 0;coupon.classList.add('sent');goal('lead');})
+  .catch(manual).finally(function(){btn.disabled=false;btn.firstChild.textContent='Вызвать на осмотр '});});
+
+
 
 })();
 </script>
