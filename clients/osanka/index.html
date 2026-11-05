@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 64V32a24 24 0 0 1 48 0v32z' fill='%232F7D6D'/%3E%3Cpath d='M22 64V36a10 10 0 0 1 20 0v28z' fill='%23FFB38A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,600&display=swap&subset=cyrillic" rel="stylesheet">
 <link rel="preload" as="image" href="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/900x/2_resized.jpg" fetchpriority="high">
 <style>
 :root{
@@ -308,7 +308,7 @@ section{position:relative}
 /* лайтбокс */
 .lb{position:fixed;inset:0;z-index:60;background:rgba(18,32,29,.92);display:none;align-items:center;justify-content:center;padding:20px}
 .lb.on{display:flex}
-.lb img{max-height:90svh;max-width:min(92vw,720px);border-radius:16px}
+.lb img{max-height:90svh;max-width:min(94vw,1200px);border-radius:16px}
 .lb button{position:absolute;top:14px;right:14px;width:52px;height:52px;border-radius:50%;border:0;background:var(--ground);font-size:28px;cursor:pointer}
 
 /* появление */
@@ -316,6 +316,58 @@ section{position:relative}
 .rv.shown{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero-pic img{transition:none}}
+
+/* v2: правки Ольги */
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:1.18em;letter-spacing:-.01em;color:var(--deep);text-decoration:underline;text-decoration-color:var(--peach);text-decoration-thickness:.07em;text-underline-offset:.14em}
+.caps{margin-top:32px;font-size:clamp(1rem,.9rem + .4vw,1.25rem);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.hero .lead{margin-top:14px}
+mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em .3em;border-radius:8px;font-weight:600;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero .wrap{min-height:calc(100svh - 72px - 150px)}
+.hero .wrap.facts-wrap{display:block;min-height:0;position:relative;z-index:3;margin-top:28px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.hero .facts li{background:var(--white);border-radius:999px;padding:10px 18px;font-size:var(--step-small);font-weight:500;display:block}
+.hero .facts li:nth-child(3n+2){background:var(--mint-2)}.hero .facts li:nth-child(3n){background:var(--peach-2)}
+.hero .facts b{font-weight:700;color:var(--deep)}
+@media (max-width:900px){.hero .wrap{min-height:0}}
+
+.mine{grid-template-columns:1fr 1fr;gap:14px;align-content:center}
+.frame{display:block;width:100%;padding:0;border:0;background:var(--white);border-radius:20px;overflow:hidden;cursor:zoom-in;transition:transform .3s var(--ease)}
+.frame img{width:100%;height:auto}
+@media (hover:hover) and (pointer:fine){.frame:hover{transform:translateY(-4px)}}
+.mine figcaption{display:flex;justify-content:space-around;font-weight:600;color:var(--mint);font-size:var(--step-small)}
+@media (max-width:620px){.mine{grid-template-columns:1fr}}
+
+.rail-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.arrows{display:flex;gap:8px}
+.arr{width:56px;height:56px;border-radius:50%;border:0;background:var(--ink);color:var(--ground);font:600 1.4rem/1 var(--font);cursor:pointer;transition:transform .2s var(--ease),opacity .2s}
+.arr:active{transform:scale(.94)}.arr:disabled{opacity:.25;cursor:default}
+.ba .arr{background:var(--ground);color:var(--ink)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(380px,84vw);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);padding:40px var(--m) 8px;margin-inline:calc(var(--m)*-1);scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.rail.wide{grid-auto-columns:auto}
+.card{border-radius:var(--r);padding:clamp(22px,2.4vw,32px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;background:var(--white)}
+.card h3{font-size:clamp(1.35rem,1.1rem + .8vw,1.8rem);letter-spacing:-.025em;line-height:1.1}
+.card .kw{margin-top:0}
+.c-mint{background:var(--mint-2)}.c-peach{background:var(--peach-2)}.c-dark{background:var(--ink);color:var(--ground)}.c-deep{background:var(--deep);color:var(--ground)}
+.c-dark p,.c-deep p{color:#F1E8DF}
+.c-dark .chips li{background:#2F5249}
+.ill{border-radius:18px;background:transparent;margin-bottom:6px}
+.ill svg{width:100%;height:auto;display:block;max-height:190px}
+.pcard .pic{aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:var(--white);margin-bottom:6px}
+.pcard .pic img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.num{font-weight:650;font-size:var(--step-lead);color:var(--deep);letter-spacing:-.02em}
+.c-dark .num,.c-deep .num{color:var(--mint)}
+.ticks{display:grid;gap:10px}
+.ticks li{display:grid;grid-template-columns:auto 1fr;gap:12px}
+.ticks li::before{content:"";width:10px;height:14px;margin-top:.4em;border-radius:999px 999px 0 0;background:var(--deep)}
+.ba-item{scroll-snap-align:start;margin:0}
+.ba-item .frame{height:min(64svh,600px);width:auto;background:var(--ground)}
+.ba-item .frame img{height:100%;width:auto;max-width:none}
+.ba-item figcaption{display:flex;justify-content:space-around;margin-top:10px;font-weight:600}
+@media (max-width:620px){.ba-item .frame{height:auto;width:84vw}.ba-item .frame img{width:100%;height:auto}}
+.contact .side{background:var(--peach-2);display:flex;align-items:center;justify-content:center;padding:clamp(20px,3vw,40px)}
+.contact .side .arch{width:min(100%,420px);aspect-ratio:3/4;background:var(--mint-2)}
+.contact .side .arch img{object-fit:contain;object-position:center bottom;min-height:0}
 </style>
 </head>
 <body class="k-kurs">
@@ -352,17 +404,13 @@ section{position:relative}
     <div class="hero-shape" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-copy">
-        <h1 id="h-kurs" class="rv">Научись чувствовать<br> своё тело</h1>
-        <p class="lead rv">Лёгкость и пластичность внутри. Избавься от боли и стань бодрым и энергичным за 30 минут в день.</p>
+        <h1 id="h-kurs" class="rv">Научись чувствовать<br> <em class="serif">своё тело</em></h1>
+        <p class="caps rv">Лёгкость и пластичность внутри</p>
+        <p class="lead rv">Избавься от боли и стань бодрым и энергичным <mark>за 30 минут в день</mark></p>
         <div class="acts rv">
           <a class="btn" href="#prices">Присоединиться к курсу</a>
           <a class="btn alt" href="#kurs-program">Что будет на курсе</a>
         </div>
-        <ul class="facts rv">
-          <li><span class="dot" aria-hidden="true"></span>12 тренировок на осанку</li>
-          <li><span class="dot" aria-hidden="true"></span>30–40 минут, 2 раза в неделю</li>
-          <li><span class="dot" aria-hidden="true"></span>МФР к каждой тренировке</li>
-        </ul>
       </div>
       <div class="hero-pic rv">
         <div class="arch" style="position:relative">
@@ -371,6 +419,18 @@ section{position:relative}
           <img src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/900x/3_2.png" width="900" height="1200" alt="Ольга Смыслова выполняет упражнение лёжа" loading="lazy" style="object-fit:contain;object-position:center">
         </div>
       </div>
+    </div>
+    <div class="wrap facts-wrap">
+      <ul class="facts rv" aria-label="Коротко о курсе">
+        <li><b>12</b> тренировок на осанку</li>
+        <li><b>30–40</b> минут, 2 раза в неделю</li>
+        <li>Техники МФР на валиках к каждой тренировке</li>
+        <li>Упражнения на дыхание, спину, лопатки, тазовое дно</li>
+        <li>Новые тренировки каждые 2 недели</li>
+        <li>Видео-диагностика вашей осанки</li>
+        <li>Тренировки под конкретную задачу</li>
+        <li>Чат поддержки и проверка техники</li>
+      </ul>
     </div>
   </section>
 
@@ -387,68 +447,78 @@ section{position:relative}
       </div>
       <div class="mine">
         <h3 class="rv">Мой результат</h3>
-        <figure class="rv"><div class="arch"><img src="https://thb.tildacdn.com/tild3335-6361-4366-b433-643539653266/-/resize/700x/1.PNG" width="700" height="546" alt="Результат Ольги: фото до и после, вид сбоку" loading="lazy" style="object-position:30% 50%"></div><figcaption>До и после — вид сбоку</figcaption></figure>
-        <figure class="rv"><div class="arch"><img src="https://thb.tildacdn.com/tild6535-6565-4232-a134-353261626138/-/resize/700x/photo.png" width="700" height="692" alt="Результат Ольги: фото до и после, вид сзади" loading="lazy" style="object-position:70% 50%"></div><figcaption>До и после — вид сзади</figcaption></figure>
+        <figure class="rv"><button type="button" class="frame zoom" data-full="tild3335-6361-4366-b433-643539653266/1.PNG" aria-label="Открыть крупно: мой результат, вид сбоку"><img src="https://thb.tildacdn.com/tild3335-6361-4366-b433-643539653266/-/resize/900x/1.PNG" width="900" height="702" alt="Результат Ольги: до и после, вид сбоку" loading="lazy"></button><figcaption><span>До</span><span>После</span></figcaption></figure>
+        <figure class="rv"><button type="button" class="frame zoom" data-full="tild6535-6565-4232-a134-353261626138/photo.png" aria-label="Открыть крупно: мой результат, вид сзади"><img src="https://thb.tildacdn.com/tild6535-6565-4232-a134-353261626138/-/resize/900x/photo.png" width="900" height="890" alt="Результат Ольги: до и после, вид сзади" loading="lazy"></button><figcaption><span>До</span><span>После</span></figcaption></figure>
       </div>
     </div>
   </section>
 
   <section class="sec" id="kurs-for" aria-labelledby="h-for">
-    <div class="wrap for">
-      <div class="for-aside">
+    <div class="wrap">
+      <div class="rail-head">
         <h2 class="h2 rv" id="h-for">Курс подходит вам, если…</h2>
-        <div class="arch rv"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/700x/1_2.png" width="700" height="933" alt="Ольга Смыслова в светлом костюме" loading="lazy"></div>
+        <div class="arrows" data-for="rail-for"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
       </div>
-      <ul class="for-list">
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Сколиоз, лордоз, сутулость</h3>
-          <p class="kw">Сколиотическая деформация до 5-й степени, лордоз (излишний прогиб в пояснице), сутулость, холмик на шее, диастаз 1 степени, искривления в области таза.</p><p>Если вам поставили сколиоз до 5-й степени, не спешите расстраиваться. Это всё можно исправить регулярными занятиями — на курсе много упражнений на восстановление отделов позвоночника. Лордоз, сутулость, холмик, искривления таза — всё это убирается с помощью упражнений на осанку. Я буду про каждое упражнение рассказывать и объяснять, для чего оно. Диастаз — только 1 степени: он убирается за счёт дыхания, и таких упражнений на курсе много.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы новичок</h3><p class="kw">И хотите почувствовать лёгкость и подвижность.</p>
-          <p>Хочется разбудить тело, похудеть и чтобы ушли отёки. Уже через неделю вы почувствуете, что тело стало подвижным, энергии становится больше, а отёки уходят на глазах.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Боли и скованность</h3>
-          <p>Чаще всего это зажатость в шейном отделе, напряжение в трапеции, боли под лопаткой и в пояснице. В области таза — защемления, боль в коленях и суставах, нефункциональные стопы: плоскостопие, слишком жёсткая стопа.</p></div></li>
-        <li class="for-item rv"><span class="ic" aria-hidden="true"></span><div><h3>Вы спортсменка</h3>
-          <p>Ходите в зал, изучаете своё тело и пытаетесь улучшить его с каждым разом.</p></div></li>
-        <li class="cta-row rv"><a class="btn" href="#prices">Присоединиться к курсу</a></li>
-      </ul>
+      <div class="rail" id="rail-for">
+        <article class="card c-white rv">
+          <div class="ill" aria-hidden="true"><svg viewBox="0 0 240 180"><path d="M60 180V90a60 60 0 0 1 120 0v90z" fill="#FFE1CF"/><g fill="#2F7D6D"><ellipse cx="120" cy="34" rx="15" ry="7"/><ellipse cx="128" cy="52" rx="16" ry="7"/><ellipse cx="135" cy="70" rx="17" ry="7.5"/><ellipse cx="137" cy="89" rx="18" ry="8"/><ellipse cx="132" cy="108" rx="19" ry="8"/><ellipse cx="122" cy="127" rx="20" ry="8.5"/><ellipse cx="112" cy="146" rx="21" ry="9"/><ellipse cx="106" cy="165" rx="22" ry="9"/></g><path d="M178 26c10 20 12 40 6 62" fill="none" stroke="#FFB38A" stroke-width="7" stroke-linecap="round"/><path d="M184 88l-10-8m10 8l6-11" fill="none" stroke="#FFB38A" stroke-width="7" stroke-linecap="round"/></svg></div>
+          <h3>Сколиоз, лордоз, сутулость</h3>
+          <p class="kw">Сколиотическая деформация до 5-й степени, лордоз, сутулость, холмик на шее, диастаз 1 степени, искривления таза.</p>
+          <p>Если вам поставили сколиоз, не спешите расстраиваться — это можно исправить регулярными занятиями. На курсе много упражнений на восстановление отделов позвоночника, и про каждое я объясняю, для чего оно. Диастаз 1 степени убирается за счёт дыхания — таких упражнений на курсе много.</p>
+        </article>
+        <article class="card c-mint rv">
+          <div class="ill" aria-hidden="true"><svg viewBox="0 0 240 180"><circle cx="120" cy="90" r="78" fill="#FFF6EE"/><g fill="none" stroke="#1D3832" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M120 66v50"/><path d="M120 76 92 38M120 76l28-38"/><path d="M120 116l-20 46M120 116l24 42"/></g><circle cx="120" cy="50" r="13" fill="#1D3832"/><g fill="#FFB38A"><circle cx="72" cy="58" r="6"/><circle cx="170" cy="62" r="5"/><circle cx="160" cy="28" r="4"/><circle cx="80" cy="26" r="4"/></g></svg></div>
+          <h3>Вы новичок</h3>
+          <p class="kw">И хотите почувствовать лёгкость и подвижность, похудеть и убрать отёки.</p>
+          <p>Уже через неделю вы почувствуете, что тело стало подвижным, энергии становится больше, а отёки уходят на глазах.</p>
+        </article>
+        <article class="card c-peach rv">
+          <div class="ill" aria-hidden="true"><svg viewBox="0 0 240 180"><path d="M50 180V100a70 70 0 0 1 140 0v80z" fill="#FFF6EE"/><g fill="none" stroke="#1D3832" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M120 62v58"/><path d="M120 74l-26 38M120 74l26 38"/><path d="M120 120l-16 52M120 120l16 52"/></g><circle cx="120" cy="44" r="14" fill="#1D3832"/><g fill="#FF8A5B" opacity=".9"><circle cx="120" cy="64" r="10"/><circle cx="120" cy="108" r="10"/><circle cx="110" cy="150" r="9"/><circle cx="130" cy="150" r="9"/></g></svg></div>
+          <h3>Боли и скованность</h3>
+          <p class="kw">Шея, трапеция, лопатки, поясница, таз, колени, стопы.</p>
+          <p>Чаще всего это зажатость в шейном отделе, напряжение в трапеции, боли под лопаткой и в пояснице. В области таза — защемления, боль в коленях и суставах, нефункциональные стопы: плоскостопие, слишком жёсткая стопа.</p>
+        </article>
+        <article class="card c-dark rv">
+          <div class="ill" aria-hidden="true"><svg viewBox="0 0 240 180"><circle cx="120" cy="92" r="78" fill="#2F5249"/><g fill="none" stroke="#FFF6EE" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M118 62l4 50"/><path d="M120 76l-40-6M120 76l40-6"/><path d="M122 112l-34 26 4 26M122 112l30 20 22 26"/></g><circle cx="116" cy="44" r="13" fill="#FFF6EE"/><g fill="#A8E6CF"><rect x="62" y="58" width="12" height="26" rx="4"/><rect x="166" y="58" width="12" height="26" rx="4"/></g></svg></div>
+          <h3>Вы спортсменка</h3>
+          <p class="kw">Регулярно занимаетесь собой и ходите в зал.</p>
+          <p>Изучаете своё тело и пытаетесь улучшить его с каждым разом — курс добавит работу с осанкой, мобильностью и глубокими мышцами.</p>
+        </article>
+      </div>
+      <div class="cta-row rv"><a class="btn" href="#prices">Присоединиться к курсу</a></div>
     </div>
   </section>
 
   <section class="ba" id="kurs-results" aria-labelledby="h-ba">
-    <div class="wrap in">
-      <div>
-        <h2 class="h2 rv" id="h-ba">Результаты учениц</h2>
-        <p class="sub rv">Потяните ползунок и сравните: слева — до, справа — после. Выберите другую ученицу ниже.</p>
-        <div class="thumbs rv" role="group" aria-label="Выбор ученицы"></div>
-        <div class="cta-row rv"><a class="btn" href="#prices">Хочу такой же результат</a></div>
+    <div class="wrap">
+      <div class="rail-head">
+        <div>
+          <h2 class="h2 rv" id="h-ba">Результаты учениц</h2>
+          <p class="sub rv">Листайте вбок: на каждом фото слева — до, справа — после. Нажмите, чтобы открыть крупно.</p>
+        </div>
+        <div class="arrows" data-for="rail-ba"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
       </div>
-      <div class="cmp rv" id="cmp">
-        <div class="half after"><img alt="" width="1200" height="1200"></div>
-        <div class="half before"><img alt="" width="1200" height="1200"></div>
-        <span class="line" aria-hidden="true"></span>
-        <span class="lbl l" aria-hidden="true">До</span><span class="lbl r" aria-hidden="true">После</span>
-        <input type="range" min="0" max="100" value="50" aria-label="Сравнить фото до и после">
-        <span class="knob" aria-hidden="true"><svg width="26" height="14" viewBox="0 0 26 14"><path d="M7 1 1 7l6 6M19 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </div>
+      <div class="rail wide" id="rail-ba"></div>
+      <div class="cta-row rv"><a class="btn" href="#prices">Хочу такой же результат</a></div>
     </div>
   </section>
 
   <section class="sec" id="kurs-program" aria-labelledby="h-prog">
-    <div class="wrap prog">
-      <div>
+    <div class="wrap">
+      <div class="rail-head">
         <h2 class="h2 rv" id="h-prog">Что будет на курсе</h2>
-        <ul class="prog-list">
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>12 тренировок на осанку</h3><p>Начиная с лёгких, заканчивая более сложными. Удобный формат видео: тренировки по 30–40 минут 2 раза в неделю. Занимайтесь когда удобно и где удобно.</p></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Эффективные техники МФР на валиках к каждой тренировке</h3></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Упражнения</h3>
-            <ul class="chips"><li>на дыхание</li><li>на мышцы тазового дна</li><li>спины</li><li>лопаток</li><li>коррекции осанки</li><li>второго подбородка</li><li>от холмика на шее</li><li>от отёков</li><li>для снятия спазмов и зажимов в теле</li><li>на мобильность</li></ul></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Дополнительные тренировки на разные группы мышц и на осанку</h3><p>Обновляются каждые 2 недели. Выполняйте их вместе со мной по 30 минут.</p></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Подробное видео диагностики вашей осанки</h3></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Тренировки под конкретную задачу и цель</h3></div></li>
-          <li class="rv"><span class="dot" aria-hidden="true"></span><div><h3>Чат поддержки</h3><p>Где вы можете скидывать свою технику выполнения упражнений и задавать вопросы.</p></div></li>
-        </ul>
-        <div class="cta-row rv"><a class="btn" href="#prices">Хочу присоединиться</a></div>
+        <div class="arrows" data-for="rail-prog"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
       </div>
-      <div class="prog-pic rv"><div class="arch"><img src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/800x/3_2.png" width="800" height="1066" alt="Ольга Смыслова выполняет упражнение на коврике" loading="lazy"></div></div>
+      <div class="rail" id="rail-prog">
+        <article class="card c-mint pcard rv"><div class="pic"><img src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/700x/2_resized.jpg" width="700" height="933" alt="Ольга Смыслова на тренировке" loading="lazy"></div><h3>12 тренировок на осанку</h3><p>Начиная с лёгких, заканчивая более сложными. Видео по 30–40 минут 2 раза в неделю — занимайтесь когда удобно и где удобно.</p></article>
+        <article class="card c-peach pcard rv"><div class="pic"><img src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/700x/3_2.png" width="700" height="933" alt="Ольга Смыслова выполняет упражнение" loading="lazy" style="object-fit:contain"></div><h3>Техники МФР на валиках</h3><p>Эффективный миофасциальный релиз к каждой тренировке.</p></article>
+        <article class="card c-white rv"><h3>Упражнения</h3><ul class="chips"><li>на дыхание</li><li>на мышцы тазового дна</li><li>спины</li><li>лопаток</li><li>коррекции осанки</li><li>второго подбородка</li><li>от холмика на шее</li><li>от отёков</li><li>для снятия спазмов и зажимов в теле</li><li>на мобильность</li></ul></article>
+        <article class="card c-dark rv"><p class="num">каждые 2 недели</p><h3>Дополнительные тренировки</h3><p>На разные группы мышц и на осанку — выполняйте их вместе со мной по 30 минут.</p></article>
+        <article class="card c-mint rv"><p class="num">видео</p><h3>Диагностика вашей осанки</h3><p>Узнаете, на что именно в вашем теле нужно сделать акцент.</p></article>
+        <article class="card c-peach rv"><p class="num">под цель</p><h3>Тренировки под конкретную задачу</h3><p>Плоскостопие, жёсткая стопа, Х- и О-образные колени, крыловидные лопатки и другие.</p></article>
+        <article class="card c-white rv"><p class="num">чат</p><h3>Чат поддержки</h3><p>Скидывайте свою технику выполнения упражнений и задавайте вопросы — я отвечаю лично.</p></article>
+      </div>
+      <div class="cta-row rv"><a class="btn" href="#prices">Хочу присоединиться</a></div>
     </div>
   </section>
 
@@ -467,18 +537,17 @@ section{position:relative}
 
   <section class="sec" id="kurs-after" aria-labelledby="h-after">
     <div class="wrap">
-      <h2 class="h2 rv" id="h-after">Результат после курса</h2>
-      <div class="res-grid">
-        <div class="res-card rv"><h3>Без болей</h3><p class="kw">Избавитесь от беспокоящих болей</p>
-          <ul><li>Заранее предотвратите их появление</li><li>Уберёте проблемные зоны и сделаете фигуру подтянутой и стройной</li></ul></div>
-        <div class="res-card rv"><h3>Ровная осанка</h3><p class="kw">Уберёте перекосы и асимметрию в осанке</p>
-          <ul><li>Поработаем со стопами (с вальгусом, с плоскостопием, большой косточкой на стопе)</li><li>С коленями (Х-образными, выгнутыми)</li><li>С искривлением таза (включим ягодицы в работу, уберём отёки под ягодицами, целлюлит и рыхлость)</li><li>С диафрагмой (уберём живот, нормализуем давление, включим мышцы пресса в работу)</li><li>С поясницей и грудной клеткой (уберём зажимы, лордоз, расправим плечи, подтянем грудь)</li><li>С шейным отделом (уберём холмик, вытянем шею, уберём отёки на лице, подтянем кожу лица)</li></ul></div>
-        <div class="res-card rv"><h3>Красивое тело</h3><p class="kw">Создадите красивые формы тела без изнурительных тренировок, больших весов и без диет</p>
-          <ul><li>Научитесь чувствовать своё тело, лёгкость и пластичность внутри</li><li>Получите удовольствие от тренировок, сформируете дисциплину</li></ul></div>
+      <div class="rail-head">
+        <h2 class="h2 rv" id="h-after">Результат после курса</h2>
+        <div class="arrows" data-for="rail-after"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
       </div>
-      <div class="res-more">
-        <div class="res-card rv"><h3>Моя поддержка</h3><p>Вы всегда сможете рассчитывать на мою поддержку в личных сообщениях. Технику выполнения так же проверяю я лично. Это важно!</p></div>
-        <div class="res-card rv"><h3>2 тренировки в подарок</h3><p>Личные 2 тренировки со мной (очно или онлайн). Если вы присылаете мне свой результат спустя 2 месяца в виде фотографий и мы отчётливо видим ваш результат и дисциплину в регулярности занятий — вам в подарок 2 тренировки со мной.</p></div>
+      <div class="rail" id="rail-after">
+        <article class="card c-white rv"><h3>Без болей</h3><p class="kw">Избавитесь от беспокоящих болей</p><ul class="ticks"><li>Заранее предотвратите их появление</li><li>Уберёте проблемные зоны и сделаете фигуру подтянутой и стройной</li></ul></article>
+        <article class="card c-mint rv"><h3>Ровная осанка</h3><p class="kw">Уберёте перекосы и асимметрию в осанке</p><ul class="ticks"><li>Стопы — вальгус, плоскостопие, косточка на стопе</li><li>Колени — Х-образные, выгнутые</li><li>Таз — включим ягодицы в работу, уберём отёки под ягодицами, целлюлит и рыхлость</li></ul></article>
+        <article class="card c-peach rv"><h3>Свободный корпус и шея</h3><p class="kw">Уберёте зажимы от живота до шеи</p><ul class="ticks"><li>Диафрагма — уберём живот, нормализуем давление, включим мышцы пресса</li><li>Поясница и грудная клетка — уберём зажимы, лордоз, расправим плечи, подтянем грудь</li><li>Шейный отдел — уберём холмик, вытянем шею, уберём отёки и подтянем кожу лица</li></ul></article>
+        <article class="card c-mint rv"><h3>Красивое тело</h3><p class="kw">Создадите красивые формы тела без изнурительных тренировок, больших весов и без диет</p><ul class="ticks"><li>Научитесь чувствовать своё тело, лёгкость и пластичность внутри</li><li>Получите удовольствие от тренировок, сформируете дисциплину</li></ul></article>
+        <article class="card c-dark rv"><h3>Моя поддержка</h3><p>Вы всегда сможете рассчитывать на мою поддержку в личных сообщениях. Технику выполнения так же проверяю я лично. Это важно!</p></article>
+        <article class="card c-deep rv"><h3>2 тренировки в подарок</h3><p>Личные 2 тренировки со мной (очно или онлайн). Если вы присылаете мне свой результат спустя 2 месяца в виде фотографий и мы отчётливо видим ваш результат и дисциплину в регулярности занятий — вам в подарок 2 тренировки со мной.</p></article>
       </div>
     </div>
   </section>
@@ -610,7 +679,7 @@ section{position:relative}
         <a class="btn alt" href="#max" data-max>MAX</a>
       </div>
     </div>
-    <div class="side rv"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/800x/1_2.png" width="800" height="1066" alt="Ольга Смыслова" loading="lazy" style="object-fit:contain;object-position:bottom"></div>
+    <div class="side rv"><div class="arch"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/800x/1_2.png" width="800" height="1066" alt="Ольга Смыслова" loading="lazy"></div></div>
   </div>
 </section>
 
@@ -636,7 +705,7 @@ section{position:relative}
 
 <div class="fab" id="fab"><a class="btn" href="#prices">Присоединиться</a></div>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Отзыв"><button type="button" aria-label="Закрыть">×</button><img alt="Отзыв ученицы"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото крупно"><button type="button" aria-label="Закрыть">×</button><img alt="Отзыв ученицы"></div>
 
 <script>
 (function(){
@@ -660,23 +729,22 @@ section{position:relative}
   document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-go'));window.scrollTo({top:0,behavior:'smooth'});});});
   if(/abon/.test(location.hash))show('abon',false);
 
-  /* ---- до / после ---- */
-  var pairs=['tild6635-6132-4464-b039-333233306637/IMG_8571.png','tild6634-6236-4966-a630-656632313564/IMG_3058.png','tild6662-3762-4564-b738-323331633263/IMG_3059.png','tild3764-3563-4437-b433-346362306466/IMG_3061.png','tild6434-6563-4830-a537-393131366531/IMG_3062.png','tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png','tild6432-6130-4136-a537-313061646331/IMG_8519.png','tild6163-3232-4662-b063-666566333735/IMG_8567.png'];
-  var cmp=document.getElementById('cmp'),imgs=cmp.querySelectorAll('.half img'),range=cmp.querySelector('input'),th=document.querySelector('.thumbs');
-  function pick(i){
-    var src=u(pairs[i],1200);
-    imgs[0].src=src;imgs[1].src=src;
-    imgs[0].alt='Ученица '+(i+1)+' после курса';imgs[1].alt='Ученица '+(i+1)+' до курса';
-    th.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i);});
-  }
+  /* ---- результаты учениц: лента ---- */
+  var pairs=['tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png','tild6432-6130-4136-a537-313061646331/IMG_8519.png','tild6163-3232-4662-b063-666566333735/IMG_8567.png','tild3764-3563-4437-b433-346362306466/IMG_3061.png','tild6434-6563-4830-a537-393131366531/IMG_3062.png','tild6662-3762-4564-b738-323331633263/IMG_3059.png','tild6239-6264-4137-a165-393662343262/IMG_8565.png','tild3536-3735-4938-b239-633965663664/IMG_8520.png','tild6634-6236-4966-a630-656632313564/IMG_3058.png','tild6635-6132-4464-b039-333233306637/IMG_8571.png','tild3065-3236-4131-a632-346530393733/IMG_3065.png'];
+  var baRail=document.getElementById('rail-ba');
   pairs.forEach(function(p,i){
-    var b=document.createElement('button');b.type='button';b.className='thumb';b.setAttribute('aria-label','Ученица '+(i+1));
-    b.innerHTML='<img src="'+u(p,240)+'" alt="" loading="lazy" width="240" height="240">';
-    b.addEventListener('click',function(){pick(i);});th.appendChild(b);
+    var f=document.createElement('figure');f.className='ba-item';
+    f.innerHTML='<button type="button" class="frame zoom" data-full="'+p+'" aria-label="Открыть крупно: результат ученицы '+(i+1)+'"><img src="'+u(p,900)+'" alt="Результат ученицы '+(i+1)+': слева до, справа после" loading="lazy"></button><figcaption><span>До</span><span>После</span></figcaption>';
+    baRail.appendChild(f);
   });
-  imgs[0].addEventListener('load',function(){if(imgs[0].naturalWidth)cmp.style.setProperty('--ar',(imgs[0].naturalWidth/2/imgs[0].naturalHeight).toFixed(3));});
-  range.addEventListener('input',function(){cmp.style.setProperty('--x',range.value+'%');});
-  pick(0);
+
+  /* ---- стрелки лент ---- */
+  document.querySelectorAll('.arrows').forEach(function(box){
+    var r=document.getElementById(box.getAttribute('data-for')),bs=box.querySelectorAll('.arr');
+    function upd(){bs[0].disabled=r.scrollLeft<8;bs[1].disabled=r.scrollLeft+r.clientWidth>=r.scrollWidth-8;}
+    bs.forEach(function(b){b.addEventListener('click',function(){var c=r.firstElementChild;var w=c?c.getBoundingClientRect().width+12:300;r.scrollBy({left:w*Number(b.getAttribute('data-dir')),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});});
+    r.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setTimeout(upd,600);upd();
+  });
 
   /* ---- отзывы + лайтбокс ---- */
   var revs=['tild3837-6132-4635-b233-636162333430/IMG_3070.JPG','tild3535-3634-4862-b239-613633393762/IMG_3067.jpeg','tild6364-3730-4232-a466-666131393066/IMG_3068.jpeg','tild6636-6162-4432-b439-613733363336/IMG_3069.jpeg'];
@@ -687,6 +755,7 @@ section{position:relative}
     b.addEventListener('click',function(){last=b;lbImg.src=u(p,1100);lb.classList.add('on');lb.querySelector('button').focus();});
     row.appendChild(b);
   });
+  document.addEventListener('click',function(e){var z=e.target.closest('.zoom');if(!z)return;last=z;lbImg.src=u(z.getAttribute('data-full'),1400);lbImg.alt=(z.querySelector('img')||{}).alt||'';lb.classList.add('on');lb.querySelector('button').focus();});
   function closeLb(){lb.classList.remove('on');if(last)last.focus();}
   lb.addEventListener('click',function(e){if(e.target!==lbImg)closeLb();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))closeLb();});
