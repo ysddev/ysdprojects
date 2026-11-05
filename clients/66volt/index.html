@@ -389,8 +389,8 @@ body.lock{overflow:hidden}
     <h3>Грузовые аккумуляторы</h3>
     <p>У грузовых обе клеммы стоят у короткого торца, одна за другой. Вид сверху, длинной стороной к себе. Полярность обозначают типом: 3 или 4.</p>
     <div class="pair">
-     <div class="pv"><div class="vis" data-vis="3"></div><b>Обратная (3)</b><span>Плюс у дальней стенки, минус ближе к вам. В прайсах: «тип 3», «обр.», «ин. авто». Обычно иномарки: Volvo, Scania, MAN, DAF.</span><button class="btn sm" type="button" data-polgo="3">Показать тип 3</button></div>
-     <div class="pv"><div class="vis" data-vis="4"></div><b>Прямая (4)</b><span>Минус у дальней стенки, плюс ближе к вам. В прайсах: «тип 4», «прям.», «отеч. авто». Чаще отечественная техника: КАМАЗ, МАЗ.</span><button class="btn sm" type="button" data-polgo="4">Показать тип 4</button></div>
+     <div class="pv"><div class="vis" data-vis="3"></div><b>Обратная (3)</b><span>В прайсах: «тип 3», «обр.», «ин. авто». Обычно иномарки: Volvo, Scania, MAN, DAF.</span><button class="btn sm" type="button" data-polgo="3">Показать тип 3</button></div>
+     <div class="pv"><div class="vis" data-vis="4"></div><b>Прямая (4)</b><span>В прайсах: «тип 4», «прям.», «отеч. авто». Чаще отечественная техника: КАМАЗ, МАЗ.</span><button class="btn sm" type="button" data-polgo="4">Показать тип 4</button></div>
     </div>
    </div>
   </div>
@@ -539,7 +539,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const rub=n=>n.toLocaleString('ru-RU')+' ₽';
 const POL={R:'Обратная',L:'Прямая','3':'Обратная, тип 3','4':'Прямая, тип 4','?':'Уточните'};
-const POLS={R:'+ справа',L:'+ слева','3':'клеммы у торца, + у дальней стенки','4':'клеммы у торца, + ближе к вам','?':''};
+const POLS={R:'+ справа',L:'+ слева','3':'','4':'','?':''};
 const BODY={E:'Европейский',A:'Азиатский',T:'Грузовой',M:'Морской'};
 const CAPS=[['s','до 50',0,50],['m','55–66',51,66],['l','70–80',67,85],['x','90–110',86,125],['t1','132–145',126,160],['t2','180–240',161,999]];
 // Применяемость АКБ — по стандартным типоразмерам (Евро L1–L6 / LB — низкие, Азия B19–D31, грузовые).
