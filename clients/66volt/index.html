@@ -303,7 +303,7 @@ body.lock{overflow:hidden}
  <div class="wrap">
   <div>
    <a href="#delivery" class="promo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>Бесплатная доставка по Екатеринбургу</a>
-   <h1>Аккумулятор на ваш авто <em>за&nbsp;минуту</em></h1>
+   <h1>Аккумулятор для вашего авто <em>за&nbsp;минуту</em></h1>
    <p class="lead">Выберите марку и модель или задайте параметры — покажем только подходящие АКБ с правильной полярностью и габаритами. Бесплатно привезём по Екатеринбургу или выдадим в пункте выдачи.</p>
    <div class="acts">
     <a href="#picker" class="btn">Подобрать по авто</a>
@@ -387,10 +387,10 @@ body.lock{overflow:hidden}
    </div>
    <div class="polc">
     <h3>Грузовые аккумуляторы</h3>
-    <p>У грузовых полярность обозначают типом: 3 или 4. Если сомневаетесь — сверьтесь со старым аккумулятором.</p>
+    <p>У грузовых обе клеммы стоят у короткого торца, одна за другой. Вид сверху, длинной стороной к себе. Полярность обозначают типом: 3 или 4.</p>
     <div class="pair">
-     <div class="pv"><div class="vis" data-vis="3"></div><b>Тип 3 — плюс справа</b><span>В прайсах: «тип 3», «евро», «обр.», «ин. авто». Обычно иномарки: Volvo, Scania, MAN, DAF.</span><button class="btn sm" type="button" data-polgo="3">Показать тип 3</button></div>
-     <div class="pv"><div class="vis" data-vis="4"></div><b>Тип 4 — плюс слева</b><span>В прайсах: «тип 4», «прям.», «отеч. авто». Чаще отечественная техника: КАМАЗ, МАЗ.</span><button class="btn sm" type="button" data-polgo="4">Показать тип 4</button></div>
+     <div class="pv"><div class="vis" data-vis="3"></div><b>Обратная (3)</b><span>Плюс у дальней стенки, минус ближе к вам. В прайсах: «тип 3», «обр.», «ин. авто». Обычно иномарки: Volvo, Scania, MAN, DAF.</span><button class="btn sm" type="button" data-polgo="3">Показать тип 3</button></div>
+     <div class="pv"><div class="vis" data-vis="4"></div><b>Прямая (4)</b><span>Минус у дальней стенки, плюс ближе к вам. В прайсах: «тип 4», «прям.», «отеч. авто». Чаще отечественная техника: КАМАЗ, МАЗ.</span><button class="btn sm" type="button" data-polgo="4">Показать тип 4</button></div>
     </div>
    </div>
   </div>
@@ -539,7 +539,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const rub=n=>n.toLocaleString('ru-RU')+' ₽';
 const POL={R:'Обратная',L:'Прямая','3':'Обратная, тип 3','4':'Прямая, тип 4','?':'Уточните'};
-const POLS={R:'+ справа',L:'+ слева','3':'груз., тип 3','4':'груз., тип 4','?':''};
+const POLS={R:'+ справа',L:'+ слева','3':'клеммы у торца, + у дальней стенки','4':'клеммы у торца, + ближе к вам','?':''};
 const BODY={E:'Европейский',A:'Азиатский',T:'Грузовой',M:'Морской'};
 const CAPS=[['s','до 50',0,50],['m','55–66',51,66],['l','70–80',67,85],['x','90–110',86,125],['t1','132–145',126,160],['t2','180–240',161,999]];
 // Применяемость АКБ — по стандартным типоразмерам (Евро L1–L6 / LB — низкие, Азия B19–D31, грузовые).
@@ -591,8 +591,8 @@ let shown=24;
 $('#fTotal').textContent=D.length;
 const brands={};D.forEach(x=>brands[x.b]=(brands[x.b]||0)+1);
 // --- battery svg
-function bat(p,w=120){if(p==='3'||p==='4'){const r=p==='3',px=r?118:22,mx=r?22:118;
- return `<svg width="${Math.round(w*1.25)}" viewBox="0 0 140 70" aria-hidden="true"><rect x="4" y="16" width="132" height="50" rx="6" fill="#22252C"/><rect x="4" y="16" width="132" height="10" rx="4" fill="#2C3039"/><path d="M${px-8} 18 L${px-5} 5 H${px+5} L${px+8} 18Z" fill="#D93A2B"/><path d="M${mx-8} 18 L${mx-5} 5 H${mx+5} L${mx+8} 18Z" fill="#545A66"/><text x="${px}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#F5A524" font-family="Onest,sans-serif">+</text><text x="${mx}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><text x="70" y="49" text-anchor="middle" font-size="13" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">тип ${p}</text></svg>`;}
+function bat(p,w=120){if(p==='3'||p==='4'){const t3=p==='3',bk=t3?'#D93A2B':'#545A66',fr=t3?'#545A66':'#D93A2B',bs=t3?'+':'−',fs=t3?'−':'+',bc=t3?'#F5A524':'#9AA0AA',fc=t3?'#9AA0AA':'#F5A524';
+ return `<svg width="${Math.round(w*1.25)}" viewBox="0 0 140 84" aria-hidden="true"><rect x="4" y="8" width="132" height="68" rx="6" fill="#22252C"/><rect x="44" y="20" width="84" height="44" rx="4" fill="#2C3039"/><g stroke="#22252C" stroke-width="2"><path d="M65 20v44M86 20v44M107 20v44"/></g><circle cx="22" cy="24" r="8" fill="${bk}"/><circle cx="22" cy="60" r="8" fill="${fr}"/><text x="22" y="29.5" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Onest,sans-serif">${bs}</text><text x="22" y="65.5" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Onest,sans-serif">${fs}</text><text x="86" y="47" text-anchor="middle" font-size="13" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">(${p})</text></svg>`;}
  const plusR=(p==='R'),q=p==='?';const px=plusR?78:22,mx=plusR?22:78;
  return `<svg width="${w}" viewBox="0 0 100 70" aria-hidden="true"><rect x="6" y="16" width="88" height="50" rx="6" fill="#22252C"/><rect x="6" y="16" width="88" height="10" rx="4" fill="#2C3039"/><rect x="${px-9}" y="6" width="18" height="12" rx="3" fill="${q?'#9AA0AA':'#D93A2B'}"/><rect x="${mx-9}" y="6" width="18" height="12" rx="3" fill="#545A66"/><text x="${px}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="${q?'#9AA0AA':'#F5A524'}" font-family="Onest,sans-serif">+</text><text x="${mx}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><path d="M53 30l-8 13h5l-2 9 8-13h-5z" fill="#F5A524" opacity=".9"/></svg>`;}
 $$('[data-vis]').forEach(v=>v.innerHTML=bat(v.dataset.vis,/[34]/.test(v.dataset.vis)?140:160));
