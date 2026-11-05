@@ -158,7 +158,14 @@ section{padding:72px 0}
 .pol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .polc{background:var(--d2);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px;border:1.5px solid transparent;transition:border-color .25s}
 .polc[aria-pressed=true]{border-color:var(--a)}
-.polc .vis{background:var(--d3);border-radius:14px;height:170px;display:grid;place-items:center}
+.polc .vis{background:var(--d3);border-radius:14px;height:150px;display:grid;place-items:center}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pv{display:flex;flex-direction:column;gap:8px}
+.pv b{font-size:16px;color:#fff;margin-top:4px}
+.pv span{font-size:14px;color:#C3C7CF;flex:1}
+.pv .btn{align-self:start;margin-top:4px}
+.polc .vis svg{max-width:92%;height:auto}
+@media (max-width:640px){.pair{gap:10px}.polc{padding:18px}.polc .vis{height:124px}.pv b{font-size:14.5px}.pv span{font-size:13px}.pv .btn{width:100%;padding:0 8px;font-size:13.5px;white-space:normal;text-align:center;line-height:1.2}}
 .polc h3{font-size:20px}
 .polc p{color:#C3C7CF;font-size:15px}
 .polc .btn{align-self:start}
@@ -370,34 +377,26 @@ body.lock{overflow:hidden}
  <div class="wrap">
   <div class="sh rv"><h2>Как не ошибиться с выбором</h2><p>Главное — полярность и размер. Если перепутать полярность, провода не дотянутся до клемм. Посмотрите на свой аккумулятор под капотом — у легковых и грузовых обозначения разные.</p></div>
   <div class="pol rv">
-   <div class="polc" data-polc="R" aria-pressed="false">
-    <div class="vis" data-vis="R"></div>
-    <h3>Обратная полярность</h3>
-    <p>Плюс справа, если смотреть на аккумулятор клеммами к себе. В прайсах её пишут «Euro», «R» или «о/п». Так стоит в большинстве иномарок и современных Lada.</p>
-    <button class="btn" type="button" data-polgo="R">Показать с обратной</button>
+   <div class="polc">
+    <h3>Легковые аккумуляторы</h3>
+    <p>Смотрите на аккумулятор клеммами к себе: с какой стороны плюс.</p>
+    <div class="pair">
+     <div class="pv"><div class="vis" data-vis="R"></div><b>Обратная — плюс справа</b><span>В прайсах: «Euro», «R», «о/п». Большинство иномарок и современных Lada.</span><button class="btn sm" type="button" data-polgo="R">Показать обратную</button></div>
+     <div class="pv"><div class="vis" data-vis="L"></div><b>Прямая — плюс слева</b><span>В прайсах: «L», «п/п», «прямая». Чаще старые отечественные — классика, Нива.</span><button class="btn sm" type="button" data-polgo="L">Показать прямую</button></div>
+    </div>
    </div>
-   <div class="polc" data-polc="L" aria-pressed="false">
-    <div class="vis" data-vis="L"></div>
-    <h3>Прямая полярность</h3>
-    <p>Плюс слева. Обозначают «L», «п/п» или «прямая». Чаще встречается на старых отечественных машинах — например, классике и Ниве.</p>
-    <button class="btn" type="button" data-polgo="L">Показать с прямой</button>
-   </div>
-   <div class="polc" data-polc="3" aria-pressed="false">
-    <div class="vis" data-vis="3"></div>
-    <h3>Грузовая, тип 3</h3>
-    <p>Обратная полярность у грузовых аккумуляторов: плюс справа. Обычно стоит на иномарках — Volvo, Scania, MAN, DAF, Mercedes. В прайсах пишут «тип 3», «евро», «обр.» или «ин. авто».</p>
-    <button class="btn" type="button" data-polgo="3">Показать тип 3</button>
-   </div>
-   <div class="polc" data-polc="4" aria-pressed="false">
-    <div class="vis" data-vis="4"></div>
-    <h3>Грузовая, тип 4</h3>
-    <p>Прямая полярность у грузовых: плюс слева. Чаще на отечественной технике — КАМАЗ, МАЗ, ГАЗ, но бывает по-разному, поэтому сверьтесь со старым аккумулятором. В прайсах — «тип 4», «прям.» или «отеч. авто».</p>
-    <button class="btn" type="button" data-polgo="4">Показать тип 4</button>
+   <div class="polc">
+    <h3>Грузовые аккумуляторы</h3>
+    <p>У грузовых полярность обозначают типом: 3 или 4. Если сомневаетесь — сверьтесь со старым аккумулятором.</p>
+    <div class="pair">
+     <div class="pv"><div class="vis" data-vis="3"></div><b>Тип 3 — плюс справа</b><span>В прайсах: «тип 3», «евро», «обр.», «ин. авто». Обычно иномарки: Volvo, Scania, MAN, DAF.</span><button class="btn sm" type="button" data-polgo="3">Показать тип 3</button></div>
+     <div class="pv"><div class="vis" data-vis="4"></div><b>Тип 4 — плюс слева</b><span>В прайсах: «тип 4», «прям.», «отеч. авто». Чаще отечественная техника: КАМАЗ, МАЗ.</span><button class="btn sm" type="button" data-polgo="4">Показать тип 4</button></div>
+    </div>
    </div>
   </div>
   <div class="tips rv">
    <div class="tip"><b>Ач — ёмкость</b><span>Берите как на старом аккумуляторе или чуть больше. Сильно больше — генератор может не дозаряжать.</span></div>
-   <div class="tip"><b>А — пусковой ток</b><span>Чем больше, тем увереннее старт в мороз. Для Урала это важно.</span></div>
+   <div class="tip"><b>Ток, А (EN)</b><span>Пусковой ток по стандарту EN. Чем больше, тем увереннее старт в мороз — для Урала это важно.</span></div>
    <div class="tip"><b>Д×Ш×В — габариты</b><span>Должен встать на штатное место и закрепиться планкой. Измерьте старый АКБ рулеткой.</span></div>
    <div class="tip"><b>AGM / EFB</b><span>Нужны машинам с системой старт-стоп. Если она есть — обычный АКБ не ставьте.</span></div>
   </div>
@@ -596,7 +595,7 @@ function bat(p,w=120){if(p==='3'||p==='4'){const r=p==='3',px=r?118:22,mx=r?22:1
  return `<svg width="${Math.round(w*1.25)}" viewBox="0 0 140 70" aria-hidden="true"><rect x="4" y="16" width="132" height="50" rx="6" fill="#22252C"/><rect x="4" y="16" width="132" height="10" rx="4" fill="#2C3039"/><path d="M${px-8} 18 L${px-5} 5 H${px+5} L${px+8} 18Z" fill="#D93A2B"/><path d="M${mx-8} 18 L${mx-5} 5 H${mx+5} L${mx+8} 18Z" fill="#545A66"/><text x="${px}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#F5A524" font-family="Onest,sans-serif">+</text><text x="${mx}" y="47" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><text x="70" y="49" text-anchor="middle" font-size="13" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">тип ${p}</text></svg>`;}
  const plusR=(p==='R'),q=p==='?';const px=plusR?78:22,mx=plusR?22:78;
  return `<svg width="${w}" viewBox="0 0 100 70" aria-hidden="true"><rect x="6" y="16" width="88" height="50" rx="6" fill="#22252C"/><rect x="6" y="16" width="88" height="10" rx="4" fill="#2C3039"/><rect x="${px-9}" y="6" width="18" height="12" rx="3" fill="${q?'#9AA0AA':'#D93A2B'}"/><rect x="${mx-9}" y="6" width="18" height="12" rx="3" fill="#545A66"/><text x="${px}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="${q?'#9AA0AA':'#F5A524'}" font-family="Onest,sans-serif">+</text><text x="${mx}" y="45" text-anchor="middle" font-size="18" font-weight="700" fill="#9AA0AA" font-family="Onest,sans-serif">−</text><path d="M53 30l-8 13h5l-2 9 8-13h-5z" fill="#F5A524" opacity=".9"/></svg>`;}
-$$('[data-vis]').forEach(v=>v.innerHTML=bat(v.dataset.vis,/[34]/.test(v.dataset.vis)?170:190));
+$$('[data-vis]').forEach(v=>v.innerHTML=bat(v.dataset.vis,/[34]/.test(v.dataset.vis)?140:160));
 // --- chips
 function chips(el,list,set,onch){el.innerHTML=list.map(([v,t])=>`<button type="button" class="chip" aria-pressed="false" data-v="${v}">${t}</button>`).join('');
  el.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const v=b.dataset.v;set.has(v)?set.delete(v):set.add(v);b.setAttribute('aria-pressed',set.has(v));onch&&onch();});}
@@ -640,7 +639,7 @@ function short(x){let r=x.t;const bl=x.b.toLowerCase(),b=bl.split(' ')[0];if(r.t
 function card(x){const inC=cart[x.id];
  return `<article class="card"><button class="pic" type="button" data-info="${x.id}" aria-label="Подробнее: ${x.t}">${bat(x.p)}</button>
  <div class="brand">${x.b}</div><h3><button type="button" data-info="${x.id}">${short(x)}</button></h3>
- <div class="specs">${x.a?`<span class="sp">${x.a} А</span>`:''}<span class="sp">${POL[x.p]}</span>${x.d?`<span class="sp">${x.d.join('×')}</span>`:''}${x.te!=='Стандарт'?`<span class="sp">${x.te}</span>`:''}${x.lo?'<span class="sp">низкий</span>':''}</div>
+ <div class="specs">${x.a?`<span class="sp">${x.a} А (EN)</span>`:''}<span class="sp">${POL[x.p]}</span>${x.d?`<span class="sp">${x.d.join('×')}</span>`:''}${x.te!=='Стандарт'?`<span class="sp">${x.te}</span>`:''}${x.lo?'<span class="sp">низкий</span>':''}</div>
  <div class="buy"><span class="price">${rub(x.pr)}</span><button type="button" class="add${inC?' in':''}" data-add="${x.id}">${inC?'В корзине':'В корзину'}</button></div></article>`;}
 function render(){$('#grid').innerHTML=list.slice(0,shown).map(card).join('');
  $('#found').textContent=`Найдено: ${list.length}`;
@@ -668,7 +667,7 @@ $('#pGo').addEventListener('click',()=>{const m=CARS[mk.value];if(!m){mk.focus()
  $('#carSub').textContent=`Типоразмер ${c.g.map(g=>GNAME[g]).join(' / ')} · ${pt}${c.ss?' · нужен EFB или AGM (старт-стоп)':''}`;$('#carBan').classList.add('on');goCat();});
 $('#carOff').addEventListener('click',()=>{F.car=null;$('#carBan').classList.remove('on');apply();});
 $('#qGo').addEventListener('click',()=>{resetF();F.car=null;$('#carBan').classList.remove('on');Q.cap.forEach(v=>F.cap.add(v));Q.pol.forEach(v=>F.pol.add(v));Q.body.forEach(v=>F.body.add(v));syncChips();apply();goCat();});
-$$('[data-polgo]').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.polgo;resetF();F.car=null;$('#carBan').classList.remove('on');F.pol.add(p);syncChips();$$('[data-polc]').forEach(c=>c.setAttribute('aria-pressed',c.dataset.polc===p));apply();goCat();}));
+$$('[data-polgo]').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.polgo;resetF();F.car=null;$('#carBan').classList.remove('on');F.pol.add(p);syncChips();apply();goCat();}));
 // --- cart
 let cart={};try{cart=JSON.parse(localStorage.getItem('v66cart')||'{}')||{}}catch(e){cart={}}
 const byId={};D.forEach(x=>byId[x.id]=x);Object.keys(cart).forEach(k=>{if(!byId[k])delete cart[k]});
@@ -690,7 +689,7 @@ function modal(id){closeAll();$(id).classList.add('on');$('#ov').classList.add('
 function info(id){const x=byId[id];const inC=cart[id];
  $('#pmodal').innerHTML=`<div class="mh"><div><div class="brand" style="font-size:13px;font-weight:700;color:var(--m);text-transform:uppercase;letter-spacing:.05em">${x.b}</div><h3 id="pmTitle">${short(x)}</h3></div><button class="x" type="button" data-close aria-label="Закрыть"><svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" fill="none"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div>
  <div style="background:var(--l);border-radius:14px;display:grid;place-items:center;padding:18px">${bat(x.p,200)}</div>
- <table class="tbl"><tr><td>Производитель</td><td>${x.mf||x.b}</td></tr><tr><td>Ёмкость</td><td>${x.c} Ач</td></tr><tr><td>Пусковой ток</td><td>${x.a?x.a+' А':'уточняется'}</td></tr><tr><td>Полярность</td><td>${POL[x.p]} ${POLS[x.p]?'('+POLS[x.p]+')':''}</td></tr><tr><td>Габариты Д×Ш×В</td><td>${x.d?x.d.join(' × ')+' мм':'уточняются'}</td></tr><tr><td>Тип корпуса</td><td>${BODY[x.k]}${x.lo?', низкий':''}</td></tr><tr><td>Клеммы</td><td>${x.tm}</td></tr><tr><td>Технология</td><td>${x.te==='Стандарт'?'Обычный (жидкостный)':x.te}</td></tr><tr><td>Подходит для</td><td style="color:var(--m)">[список авто добавим из каталогов производителей]</td></tr></table>
+ <table class="tbl"><tr><td>Производитель</td><td>${x.mf||x.b}</td></tr><tr><td>Ёмкость</td><td>${x.c} Ач</td></tr><tr><td>Ток, А (EN)</td><td>${x.a?x.a:'уточняется'}</td></tr><tr><td>Полярность</td><td>${POL[x.p]} ${POLS[x.p]?'('+POLS[x.p]+')':''}</td></tr><tr><td>Габариты Д×Ш×В</td><td>${x.d?x.d.join(' × ')+' мм':'уточняются'}</td></tr><tr><td>Тип корпуса</td><td>${BODY[x.k]}${x.lo?', низкий':''}</td></tr><tr><td>Клеммы</td><td>${x.tm}</td></tr><tr><td>Технология</td><td>${x.te==='Стандарт'?'Обычный (жидкостный)':x.te}</td></tr><tr><td>Подходит для</td><td style="color:var(--m)">[список авто добавим из каталогов производителей]</td></tr></table>
  <div class="buy" style="margin-top:18px"><span class="price" style="font-size:24px">${rub(x.pr)}</span><button type="button" class="add${inC?' in':''}" data-add="${x.id}" style="min-height:48px;padding:0 22px">${inC?'В корзине':'В корзину'}</button></div>`;
  modal('#pmodal');}
 $('#toCheckout').addEventListener('click',()=>{$('#coForm').hidden=false;$('#coOk').classList.remove('on');payLbl();modal('#cmodal');});
