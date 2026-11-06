@@ -70,6 +70,7 @@ nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:12px 0}
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(28px,4vw,56px) clamp(56px,7vw,96px)}
 .hero h1{font-size:var(--s-hero);line-height:.95;letter-spacing:-.045em}
 .hero h1 span{display:block}
+@media (min-width:901px){.hero h1{font-size:clamp(2.6rem,.6rem + 4.6vw,5.6rem)}.hero h1 span{white-space:nowrap}}
 .hero .lead{margin-top:32px;max-width:34ch}
 .hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .hero-pic{position:relative;min-width:0}
@@ -141,7 +142,7 @@ nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:12px 0}
 
 /* frame houses band */
 .band{background:var(--night);color:var(--night-ink)}
-.band .in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:center}
+.band-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:center}
 .band .g{clip-path:var(--gable);aspect-ratio:1/1;overflow:hidden;background:#173257}
 .band .g img{width:100%;height:100%;object-fit:cover}
 .band p{color:var(--night-mut);margin-top:24px;max-width:44ch}
@@ -149,7 +150,7 @@ nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:12px 0}
 .band .chips span{background:#173257;padding:10px 14px;font-size:.98rem}
 .band .btn{margin-top:32px}
 .band figcaption{color:var(--night-mut);margin-top:10px}
-@media (max-width:900px){.band .in{grid-template-columns:1fr}.band .g{max-width:480px}}
+@media (max-width:900px){.band-in{grid-template-columns:1fr}.band .g{max-width:480px}}
 
 /* photo report */
 .rep{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:center}
@@ -226,7 +227,7 @@ nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:12px 0}
 .cp-l{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;border-right:5px dotted var(--heat)}
 .cp-l h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.2rem)}
 .cp-sum{background:var(--heat-f);padding:18px 20px;font-size:.98rem}
-.cp-sum b{display:block;font-size:1.3rem;margin-top:2px}
+.cp-sum b{display:block;font-size:1.3rem;margin-top:2px}.cp-sum span{display:block;margin-top:4px;color:var(--muted)}
 .cp-r{padding:clamp(28px,4vw,56px);display:grid;gap:10px;align-content:center}
 .fld{display:block}
 .fld span{display:block;font-size:.92rem;font-weight:500;margin-bottom:6px}
@@ -407,7 +408,7 @@ footer{background:var(--night);color:var(--night-ink);padding-block:clamp(64px,8
 </section>
 
 <section class="band" id="frame" aria-labelledby="frame-h">
-  <div class="wrap sec in">
+  <div class="wrap sec band-in">
     <figure class="rv"><div class="g"><img src="https://images.unsplash.com/photo-1787422660647-3be04b53f8d2?auto=format&fit=crop&w=900&h=900&q=72" width="900" height="900" loading="lazy" alt="Монтаж каркасной стены дома"></div><figcaption class="note">Фото-пример</figcaption></figure>
     <div>
       <h2 id="frame-h" class="rv">Каркасные дома под ключ</h2>
