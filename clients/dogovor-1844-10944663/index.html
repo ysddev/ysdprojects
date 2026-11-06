@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Договор № 1844 — YSD DEV</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232446b8'/%3E%3Cpath d='M9 8h10l5 5v11H9z' fill='%23fff'/%3E%3Cpath d='M12 17h9M12 20.5h6' stroke='%232446b8' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#eef0f4; --surface:#ffffff; --line:#d7dbe4; --fg:#161a24; --muted:#5b6274;
+  --accent:#2446b8; --accent-fg:#ffffff; --ok:#1d7a4a;
+  --f-ui:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#121419; --surface:#1b1e26; --line:#2d3240; --fg:#e8eaf0; --muted:#9aa1b2;
+  --accent:#7d97ff; --accent-fg:#0d1020; --ok:#5fcf95; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-ui);
+  padding:24px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.head{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-size:24px;line-height:1.25;font-weight:700;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.chip.ok{color:var(--ok);border-color:currentColor}
+.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;max-width:65ch}
+.steps b{font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--f-ui);border-radius:9px;padding:12px 20px;min-height:44px;text-decoration:none;background:var(--accent);color:var(--accent-fg);align-self:flex-start}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pages{display:flex;flex-direction:column;gap:16px;align-items:center}
+.page{position:relative;background:#fff;box-shadow:0 1px 3px rgba(10,15,30,.18),0 6px 24px rgba(10,15,30,.08);max-width:100%}
+.page canvas{display:block;width:100%;height:auto}
+.pno{position:absolute;right:8px;top:6px;font:11px var(--f-mono);color:#8a90a0}
+.note{color:var(--muted);text-align:center;padding:40px 16px}
+footer{color:var(--muted);font-size:13px;text-align:center}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="head">
+    <div class="eyebrow">Договор и Приложение № 1 · 7 страниц</div>
+    <div>
+      <h1>Договор возмездного оказания услуг № 1844 от 6&nbsp;ноября 2026&nbsp;г.</h1>
+      <p class="sub">Instagram-бот с промокодами Ozon и Wildberries, страница со ссылками, QR-код и домен. Стоимость 18&nbsp;000&nbsp;₽.</p>
+    </div>
+    <div class="meta">
+      <span class="chip ok">Подписан исполнителем</span>
+      <span class="chip">Ждёт подписи заказчика</span>
+    </div>
+    <ol class="steps">
+      <li>Скачайте PDF и распечатайте.</li>
+      <li>Впишите реквизиты заказчика: <b>стр. 1</b> (раздел 1) и <b>стр. 5</b> (раздел 13).</li>
+      <li>Подпишите <b>стр. 5</b> (договор) и <b>стр. 7</b> (техническое задание).</li>
+      <li>Пришлите скан или фото подписанных страниц в чат. По п. 12.4 скан имеет силу оригинала.</li>
+    </ol>
+    <a class="btn" href="dogovor-1844.pdf" download="Договор_1844_ysddev.pdf">Скачать PDF</a>
+  </section>
+  <div class="pages" id="pages"><div class="note">Загружаю страницы…</div></div>
+  <footer>Хрипунова С. М., YSD DEV · <a href="https://ysddev.com">ysddev.com</a> · ysddev@yandex.ru</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(() => {
+const box = document.getElementById("pages");
+const fail = () => { box.innerHTML = '<div class="note">Не получилось показать страницы. Нажмите «Скачать PDF».</div>'; };
+if (!window.pdfjsLib) return fail();
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+let doc = null, lastW = 0, t;
+async function render(){
+  if (!doc) return;
+  const avail = Math.min(box.clientWidth || 800, 860), d = window.devicePixelRatio || 1;
+  box.innerHTML = "";
+  for (let n = 1; n <= doc.numPages; n++){
+    const page = await doc.getPage(n), base = page.getViewport({scale: 1});
+    const scale = avail / base.width;
+    const wrap = document.createElement("div"); wrap.className = "page"; wrap.style.width = base.width * scale + "px";
+    const c = document.createElement("canvas"); const vp = page.getViewport({scale: scale * d});
+    c.width = Math.floor(vp.width); c.height = Math.floor(vp.height); c.setAttribute("aria-label", "Страница " + n);
+    const no = document.createElement("span"); no.className = "pno"; no.textContent = n + " / " + doc.numPages;
+    wrap.append(c, no); box.append(wrap);
+    page.render({canvasContext: c.getContext("2d"), viewport: vp});
+  }
+}
+pdfjsLib.getDocument({url: "dogovor-1844.pdf", isEvalSupported: false}).promise
+  .then(d => { doc = d; return render(); })
+  .then(() => new ResizeObserver(es => { const w = es[0].contentRect.width; if (Math.abs(w - lastW) < 20) return; lastW = w; clearTimeout(t); t = setTimeout(render, 200); }).observe(box))
+  .catch(fail);
+})();
+</script>
+</body>
+</html>
