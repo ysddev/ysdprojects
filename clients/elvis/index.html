@@ -67,13 +67,17 @@ p{margin:0}
 
 /* Hero — tabbed folder stack */
 .hero{position:relative;background:var(--navy);color:#fff;min-height:max(100svh,760px);overflow:hidden}
-.hero-text{padding-top:clamp(132px,15vh,170px);position:relative;z-index:2}
-.hero h1{font-size:var(--step-hero);font-weight:600;letter-spacing:-.04em;line-height:.96;max-width:12ch}
-.hero .lead{margin-top:36px;font-size:var(--step-lead);line-height:1.4;max-width:44ch;color:#fff}
-.stack{position:absolute;left:0;right:0;bottom:0;top:min(60%,calc(100% - 300px))}
+.hero-text{padding-top:clamp(120px,14vh,160px);position:relative;z-index:2;width:100%}
+.hero h1{font-size:var(--step-hero);font-weight:600;letter-spacing:-.04em;line-height:.96}
+.hero-text{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 48px;align-items:end}
+.hero-text .side{padding-bottom:10px}
+@media (max-width:1000px){.hero-text{grid-template-columns:1fr}}
+.hero .lead{margin-top:0;font-size:var(--step-lead);line-height:1.4;max-width:44ch;color:#fff}
+.hero{display:flex;flex-direction:column}
+.stack{position:relative;flex:1;min-height:380px;margin-top:clamp(56px,7vh,96px)}
 .folder{position:absolute;left:var(--m);right:var(--m);bottom:-40px;text-decoration:none;display:block;transition:transform .35s var(--ease)}
 .folder .tab{position:absolute;top:-42px;height:43px;padding:0 34px;display:flex;align-items:center;font-size:1.0625rem;font-weight:600;clip-path:polygon(22px 0,calc(100% - 22px) 0,100% 100%,0 100%);white-space:nowrap}
-.f1{top:0}.f2{top:58px}.f3{top:116px}.f4{top:174px}.f5{top:232px}
+.f1{top:0}.f2{top:52px}.f3{top:104px}.f4{top:156px}.f5{top:208px}
 .f1,.f1 .tab{background:#1D3657;color:#fff}.f1 .tab{left:62%}
 .f2,.f2 .tab{background:#264670;color:#fff}.f2 .tab{left:44%}
 .f3,.f3 .tab{background:#2E5584;color:#fff}.f3 .tab{left:24%}
@@ -87,10 +91,11 @@ p{margin:0}
 .cert{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:var(--step-small);color:var(--on-dark-2)}
 .cert img{width:40px;height:40px;border-radius:50%;background:#fff}
 @media (max-width:760px){
-  .hero{min-height:860px}
+  .hero{min-height:0}
   .hero h1{font-size:13vw}
   .hero .lead{font-size:1.0625rem;margin-top:24px}
-  .stack{top:auto;height:430px}
+  .stack{flex:none;height:560px;min-height:0;margin-top:48px}
+  .f5 .facts b{font-size:1.5rem}.f5 .facts span{max-width:14ch}
   .folder .tab{height:34px;top:-33px;padding:0 20px;font-size:.9375rem}
   .f1{top:0}.f2{top:46px}.f3{top:92px}.f4{top:138px}.f5{top:184px}
   .f1 .tab{left:auto;right:4%}.f2 .tab{left:30%}.f3 .tab{left:4%}.f4 .tab{left:auto;right:6%}.f5 .tab{left:4%}
@@ -105,6 +110,7 @@ section{scroll-margin-top:20px}
 .muted{color:var(--muted)}
 
 /* Showcase — object on a chevron stage */
+.show>*,.calc>*,.svc>*,.part>*,.grow>*{min-width:0}
 .show{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--m);align-items:end;min-height:min(100svh,900px)}
 .show-list{display:flex;flex-direction:column;gap:2px}
 .show-list h2{font-size:clamp(1.75rem,1.1rem + 2.2vw,2.75rem);color:var(--muted);font-weight:600;margin-bottom:10px}
@@ -310,9 +316,9 @@ footer{background:var(--deep);color:#fff;padding-top:clamp(64px,8vw,120px);paddi
 <main id="main">
 <section class="hero" id="top">
   <div class="wrap hero-text">
-    <h1>Защита сетей с&nbsp;1991&nbsp;года</h1>
-    <p class="lead">«Элвис-Плюс» — российский разработчик VPN-шлюзов ЗАСТАВА и Базового доверенного модуля. Внедряем защиту для госсектора и бизнеса под ключ.</p>
-    <div class="cert"><img src="https://static.tildacdn.com/tild6361-6462-4561-a537-313935653438/1.png" alt="Эмблема ФСТЭК России" width="40" height="40"><img src="https://static.tildacdn.com/tild3338-3034-4361-b064-663634363765/2.png" alt="Эмблема ФСБ России" width="40" height="40"><span>Продукты сертифицированы ФСТЭК и&nbsp;ФСБ России</span></div>
+    <h1>Защита сетей<br>с&nbsp;1991&nbsp;года</h1>
+    <div class="side"><p class="lead">«Элвис-Плюс» — российский разработчик VPN-шлюзов ЗАСТАВА и Базового доверенного модуля. Внедряем защиту для госсектора и бизнеса под ключ.</p>
+    <div class="cert"><img src="https://static.tildacdn.com/tild6361-6462-4561-a537-313935653438/1.png" alt="Эмблема ФСТЭК России" width="40" height="40"><img src="https://static.tildacdn.com/tild3338-3034-4361-b064-663634363765/2.png" alt="Эмблема ФСБ России" width="40" height="40"><span>Продукты сертифицированы ФСТЭК и&nbsp;ФСБ России</span></div></div>
   </div>
   <div class="stack" aria-label="Разделы сайта">
     <a class="folder f1" href="#docs"><span class="tab">Документы</span></a>
@@ -434,7 +440,9 @@ footer{background:var(--deep);color:#fff;padding-top:clamp(64px,8vw,120px);paddi
     <div class="t rv"><h3>Система менеджмента качества по ГОСТ Р ИСО 9001</h3><time datetime="2026-09-08">08.09.2026</time><a href="#docs">Скачать PDF</a></div>
     <div class="t rv"><h3>ЗАСТАВА версии 8 в Реестре российского ПО</h3><time datetime="2026-02-05">05.02.2026</time><a href="#docs">Скачать PDF</a></div>
     <div class="t ph rv"><img src="https://static.tildacdn.com/tild3062-6164-4632-b637-633432613032/sertifikat-sovmestim.png" alt="Сертификат совместимости ЗАСТАВА и РЕД АДМ" width="1680" height="1342" loading="lazy"></div>
+    <div class="t rv"><h3>Совместимость ЗАСТАВА 9 с РЕД АДМ</h3><time datetime="2026-02-13">13.02.2026</time><a href="#docs">Скачать PDF</a></div>
     <div class="t rv"><h3>ЗАСТАВА-1500, 6000 и 10000 в реестре РЭП Минпромторга</h3><time datetime="2025-03-03">03.03.2025</time><a href="#docs">Скачать PDF</a></div>
+    <div class="t rv"><h3>Статус Gold Partner «Лаборатории Касперского»</h3><time datetime="2025-01-24">24.01.2025</time><a href="#docs">Скачать PDF</a></div>
   </div>
 </section>
 
