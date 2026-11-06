@@ -56,12 +56,11 @@ footer a{color:inherit}
       <span class="chip">Ждёт подписи заказчика</span>
     </div>
     <ol class="steps">
-      <li>Скачайте PDF и распечатайте.</li>
-      <li>Впишите реквизиты заказчика: <b>стр. 1</b> (раздел 1) и <b>стр. 5</b> (раздел 13).</li>
+      <li>Скачайте PDF и распечатайте. Реквизиты ИП Семисотова А.&nbsp;В. уже вписаны.</li>
       <li>Подпишите <b>стр. 5</b> (договор) и <b>стр. 7</b> (техническое задание).</li>
       <li>Пришлите скан или фото подписанных страниц в чат. По п. 12.4 скан имеет силу оригинала.</li>
     </ol>
-    <a class="btn" href="dogovor-1844.pdf" download="Договор_1844_ysddev.pdf">Скачать PDF</a>
+    <a class="btn" id="dl" href="#" hidden>Скачать PDF</a>
   </section>
   <div class="pages" id="pages"><div class="note">Загружаю страницы…</div></div>
   <footer>Хрипунова С. М., YSD DEV · <a href="https://ysddev.com">ysddev.com</a> · ysddev@yandex.ru</footer>
@@ -71,7 +70,8 @@ footer a{color:inherit}
 <script>
 (() => {
 const box = document.getElementById("pages");
-const fail = () => { box.innerHTML = '<div class="note">Не получилось показать страницы. Нажмите «Скачать PDF».</div>'; };
+const note = t => { box.innerHTML = '<div class="note"></div>'; box.firstChild.textContent = t; };
+const fail = () => note("Не получилось показать страницы. Нажмите «Скачать PDF».");
 if (!window.pdfjsLib) return fail();
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 let doc = null, lastW = 0, t;
@@ -90,10 +90,23 @@ async function render(){
     page.render({canvasContext: c.getContext("2d"), viewport: vp});
   }
 }
-pdfjsLib.getDocument({url: "dogovor-1844.pdf", isEvalSupported: false}).promise
+async function decrypt(){
+  const k = (location.hash.match(/k=([A-Za-z0-9_-]{43})/) || [])[1];
+  if (!k) throw new Error("nokey");
+  const raw = Uint8Array.from(atob(k.replace(/-/g, "+").replace(/_/g, "/") + "="), c => c.charCodeAt(0));
+  const key = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+  const buf = new Uint8Array(await (await fetch("d.bin", {cache: "no-store"})).arrayBuffer());
+  const pdf = new Uint8Array(await crypto.subtle.decrypt({name: "AES-GCM", iv: buf.slice(0, 12)}, key, buf.slice(12)));
+  const a = document.getElementById("dl");
+  a.href = URL.createObjectURL(new Blob([pdf], {type: "application/pdf"}));
+  a.download = "Договор_1844_ИП_Семисотов.pdf"; a.hidden = false;
+  return pdf;
+}
+decrypt().catch(e => { note(e.message === "nokey" ? "Ссылка открыта не полностью. Скопируйте её целиком, вместе с частью после знака #." : "Не получилось открыть договор по этой ссылке. Попросите прислать её ещё раз."); throw "stop"; })
+  .then(pdf => pdfjsLib.getDocument({data: pdf, isEvalSupported: false}).promise)
   .then(d => { doc = d; return render(); })
   .then(() => new ResizeObserver(es => { const w = es[0].contentRect.width; if (Math.abs(w - lastW) < 20) return; lastW = w; clearTimeout(t); t = setTimeout(render, 200); }).observe(box))
-  .catch(fail);
+  .catch(e => { if (e !== "stop") fail(); });
 })();
 </script>
 </body>
