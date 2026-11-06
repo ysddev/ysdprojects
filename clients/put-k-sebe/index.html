@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>История меня. Путь к себе — автобиографическая книга Елены</title>
-<meta name="description" content="Автобиографическая книга Елены «История меня. Путь к себе». 180 страниц о самом личном: о потере, поддержке и о том, как снова учиться радоваться жизни.">
+<title>История меня. Путь к себе — автобиографическая книга</title>
+<meta name="description" content="Автобиографическая книга «История меня. Путь к себе». 180 страниц о самом личном: о потере, поддержке и о том, как снова учиться радоваться жизни.">
 <meta property="og:title" content="История меня. Путь к себе">
 <meta property="og:description" content="Автобиографическая книга. 180 страниц о самом личном.">
 <meta property="og:type" content="website">
@@ -91,24 +91,26 @@ a{color:inherit}
 .who h2,.toc h2{font-size:var(--step-head);max-width:14ch}
 .who ul{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:40px;max-width:40ch}
 .who li{font-family:var(--display);font-weight:500;font-size:var(--step-lead);line-height:1.25;letter-spacing:-.005em}
-.posts-photo{margin:64px 0 0;width:min(255px,62%)}
-.posts-photo img{width:100%;height:auto}
+.who li{display:grid;grid-template-columns:10px 1fr;gap:18px;align-items:start}
+.who li::before{content:"";width:10px;height:.9em;margin-top:.2em;background:var(--ink)}
+.who-photo{display:none}
 .who li small{display:block;margin-top:10px;font:400 var(--step-body)/1.55 var(--text);color:var(--muted);letter-spacing:.005em}
 
 /* ---------- содержание ---------- */
 .toc{padding:clamp(80px,9vw,140px) var(--pad) clamp(120px,12vw,200px)}
 .toc .intro{margin-top:24px;max-width:40ch}
-.walk{margin-top:56px;background:var(--surface);padding:28px 28px 24px}
-.walk .row{display:flex;align-items:flex-end;gap:3px;height:72px}
+.walk{margin-top:56px;background:var(--surface);padding:36px 32px 32px}
+.walk-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.walk .row{display:flex;align-items:flex-end;gap:4px;height:clamp(120px,14vw,200px)}
 .walk .row i{flex:1 1 0;background:var(--ink);opacity:.28;transition:opacity .25s var(--ease),transform .35s var(--ease);transform-origin:bottom}
 .walk .row i.pr{background:var(--sea)}
 .walk .row i.end{background:var(--muted)}
 .walk .row i.past{opacity:.6}
 .walk .row i.now{opacity:1;transform:scaleY(1.14)}
 .walk input{width:100%;margin:18px 0 0;height:44px;accent-color:var(--ink);cursor:pointer}
-.walk output{display:block;min-height:3.2em;margin-top:8px}
-.walk output b{font-weight:500;color:var(--muted)}
-.walk output{font-family:var(--display);font-weight:500;font-size:var(--step-lead);line-height:1.2;letter-spacing:-.005em}
+.walk .walk-out{display:block;min-height:2.6em;margin-top:16px}
+.walk .walk-out b{font-weight:500;color:var(--muted)}
+.walk .walk-out{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,1.1rem + 1.1vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
 .chapters{margin-top:64px}
 .chapters h3{font:400 var(--step-body)/1.4 var(--text);color:var(--muted);letter-spacing:.005em;margin:0 0 12px}
 .chapters ol{list-style:none;margin:0 0 40px;padding:0}
@@ -133,7 +135,7 @@ a{color:inherit}
 .plan.self{background:var(--surface)}
 .plan.sea-field{background:var(--sea);color:var(--sea-ink)}
 .plan h3{font-size:var(--step-head)}
-.plan .for{margin-top:24px;font-size:var(--step-lead);font-family:var(--display);font-weight:500;line-height:1.3;max-width:28ch;letter-spacing:-.005em}
+.plan .for{margin-top:24px;font-size:var(--step-lead);font-family:var(--display);font-weight:500;line-height:1.3;max-width:36ch;letter-spacing:-.005em}
 .plan .incl{margin-top:20px;max-width:36ch}
 .plan.self .incl{color:var(--muted)}
 .plan .foot{margin-top:auto;padding-top:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -177,10 +179,13 @@ footer .r{text-align:right}
   .who ul{margin-top:40px;gap:32px;max-width:none}
   .who h2{max-width:none}
   .toc{padding:72px 20px 96px}
+  .who-photo{display:block;margin:48px 0 0;aspect-ratio:4/5;overflow:hidden}
+  .who-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
   .toc .inline-photo{display:block;margin:40px 0 0;aspect-ratio:4/5;overflow:hidden}
   .toc .inline-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
   .walk{padding:20px 16px 16px;margin-top:40px}
-  .walk .row{height:56px;gap:2px}
+  .walk .row{height:96px;gap:2px}
+  .walk .walk-out{font-size:1.5rem}
   .chapters li{min-height:44px}
   .plans{padding-top:96px}
   .plans-head{padding:0 20px;margin-bottom:32px}
@@ -212,7 +217,7 @@ footer .r{text-align:right}
       <div class="posts" aria-hidden="true" id="heroPosts"></div>
       <div class="hero-copy">
         <h1 id="h1" class="rise"><span>История меня.</span> <span>Путь к&nbsp;себе</span></h1>
-        <p class="lead rise" style="--d:90ms">Автобиографическая книга Елены. 180&nbsp;страниц о&nbsp;самом личном.</p>
+        <p class="lead rise" style="--d:90ms">Автобиографическая книга. 180&nbsp;страниц о&nbsp;самом личном.</p>
         <a class="btn rise" style="--d:180ms" href="#tarify">Выбрать тариф</a>
       </div>
       <nav aria-label="Разделы">
@@ -222,31 +227,32 @@ footer .r{text-align:right}
       </nav>
     </section>
 
-    <section class="who" id="dlya" data-photo="0" aria-labelledby="h-who">
+    <section class="who" id="dlya" data-photo="1" aria-labelledby="h-who">
       <h2 id="h-who" class="rise">Эта книга для тех, кто</h2>
       <ul>
-        <li class="rise">проживает горе и не знает, как жить дальше</li>
-        <li class="rise" style="--d:80ms">нуждается в поддержке</li>
-        <li class="rise" style="--d:160ms">проходит сложный этап (горе, развод, увольнение, любые потери) и хочет разделить свою боль</li>
+        <li class="rise">хочет узнать, о чём я молчала</li>
+        <li class="rise" style="--d:60ms">проживает горе и не знает, как жить дальше</li>
+        <li class="rise" style="--d:120ms">нуждается в поддержке</li>
+        <li class="rise" style="--d:180ms">проходит сложный этап (горе, развод, увольнение, любые потери) и хочет разделить свою боль</li>
         <li class="rise" style="--d:240ms">не знает, как начать снова радоваться жизни</li>
       </ul>
-      <figure class="posts-photo rise" style="--d:320ms"><img src="img/posts.jpg" width="255" height="340" alt="Деревянные столбики уходят в море" loading="lazy"></figure>
+      <figure class="who-photo"><img src="img/elena-shore.jpg" width="717" height="1030" alt="Автор книги в белом стоит у моря рядом с деревянными столбиками" loading="lazy"></figure>
     </section>
 
-    <section class="toc" id="soderzhanie" data-photo="1" aria-labelledby="h-toc">
+    <section class="toc" id="soderzhanie" data-photo="2" aria-labelledby="h-toc">
       <h2 id="h-toc" class="rise">Содержание</h2>
-      <p class="intro rise" style="--d:80ms">Двадцать три главы истории и десять глав с практическими заданиями.</p>
+      <p class="intro rise" style="--d:80ms">Двадцать три главы истории и десять глав с практическими заданиями. Ведите ползунок, чтобы пройти по главам.</p>
 
       <div class="walk rise" style="--d:160ms">
         <div class="row" id="walkRow" aria-hidden="true"></div>
-        <label for="walkInput" class="tlink" style="text-decoration:none;min-height:0;margin-top:14px;font-size:var(--step-small);color:var(--muted)">Пройти по главам</label>
+        <label for="walkInput" class="walk-label">Пройти по главам</label>
         <input type="range" id="walkInput" min="1" max="34" value="1" aria-describedby="walkOut">
-        <output id="walkOut" for="walkInput" aria-live="polite"><b>Глава 1.</b> Девочка, с которой всё началось</output>
+        <p class="walk-out" id="walkOut" aria-live="polite"><b>Глава 1.</b> Девочка, с которой всё началось</p>
       </div>
 
-      <figure class="inline-photo"><img src="img/elena-son.jpg" width="720" height="978" alt="Елена обнимает сына, оба в белых свитерах" loading="lazy"></figure>
+      <figure class="inline-photo"><img src="img/elena-son.jpg" width="720" height="978" alt="Автор книги обнимает сына, оба в белых свитерах" loading="lazy"></figure>
 
-      <div class="chapters" id="chapters">
+      <div class="chapters" id="chapters" hidden>
         <h3>История</h3>
         <ol class="story">
           <li><span class="t">Девочка, с которой всё началось</span><span class="n">Глава 1</span></li>
@@ -293,27 +299,27 @@ footer .r{text-align:right}
             <li><span class="t">Жизнь продолжается. Любовь остаётся</span><span class="n">Заключение</span></li>
           </ol>
         </div>
-        <button class="btn open-toc" id="openToc" type="button" aria-expanded="true" aria-controls="tocMore" hidden>Открыть всё содержание</button>
       </div>
     </section>
   </main>
 
   <div class="stage" id="stage">
-    <figure class="on" data-i="0"><img class="drift" src="img/elena-sea.jpg" width="717" height="1028" alt="Елена в белом вязаном свитере сидит на деревянном столбике у моря на закате" fetchpriority="high"></figure>
-    <figure data-i="1"><img class="drift" src="img/elena-son.jpg" width="720" height="978" alt="Елена обнимает сына, оба в белых свитерах" loading="lazy"></figure>
-    <figure data-i="2"><img class="drift" src="img/son.jpg" width="717" height="978" alt="Сын Елены с цветком герберы за ухом" loading="lazy"></figure>
+    <figure class="on" data-i="0"><img class="drift" src="img/elena-sea.jpg" width="717" height="1028" alt="Автор книги в белом вязаном свитере сидит на деревянном столбике у моря на закате" fetchpriority="high"></figure>
+    <figure data-i="1"><img class="drift" src="img/elena-shore.jpg" width="717" height="1030" alt="Автор книги в белом стоит у моря рядом с деревянными столбиками" loading="lazy"></figure>
+    <figure data-i="2"><img class="drift" src="img/elena-son.jpg" width="720" height="978" alt="Автор книги обнимает сына, оба в белых свитерах" loading="lazy"></figure>
+    <figure data-i="3"><img class="drift" src="img/son.jpg" width="717" height="978" alt="Сын автора с цветком герберы за ухом" loading="lazy"></figure>
   </div>
 </div>
 
 <section class="plans" id="tarify" aria-labelledby="h-plans">
   <div class="plans-head">
     <h2 id="h-plans" class="rise">Тарифы</h2>
-    <p class="rise" style="--d:80ms">Книгу можно прочитать самостоятельно, а можно пройти этот путь вместе с Еленой.</p>
+    <p class="rise" style="--d:80ms">Книгу можно прочитать самостоятельно, а можно пройти этот путь вместе с автором.</p>
   </div>
   <div class="fields">
     <article class="plan self" aria-labelledby="p1">
       <h3 id="p1" class="rise">Я сама</h3>
-      <p class="for rise" style="--d:80ms">Просто книга, без обратной связи и практических заданий.</p>
+      <p class="for rise" style="--d:80ms">Просто книга, без обратной связи и практических заданий. Книга остаётся у вас навсегда.</p>
       <div class="foot">
         <p class="price rise" style="--d:200ms">1090<small>₽</small></p>
         <a class="btn buy" href="#oplata" data-plan="Я сама, 1090 ₽">Купить</a>
@@ -321,7 +327,7 @@ footer .r{text-align:right}
     </article>
     <article class="plan sea-field" aria-labelledby="p2">
       <h3 id="p2" class="rise">С моей поддержкой</h3>
-      <p class="for rise" style="--d:80ms">Книга, практические задания и чат с моей поддержкой: доступ на три месяца.</p>
+      <p class="for rise" style="--d:80ms">Книга, практические задания и чат с моей поддержкой: доступ на месяц. Книга остаётся у вас навсегда.</p>
       <div class="foot">
         <p class="price rise" style="--d:200ms">2990<small>₽</small></p>
         <a class="btn on-sea buy" href="#oplata" data-plan="С моей поддержкой, 2990 ₽">Купить</a>
@@ -379,16 +385,6 @@ footer .r{text-align:right}
   input.addEventListener('input', function(){ show(+input.value); });
   show(1);
 
-  /* кнопка «Открыть всё содержание» */
-  var more = document.getElementById('tocMore'), open = document.getElementById('openToc');
-  more.hidden = true; open.hidden = false; open.setAttribute('aria-expanded','false');
-  open.addEventListener('click', function(){
-    var isOpen = open.getAttribute('aria-expanded') === 'true';
-    more.hidden = isOpen; open.setAttribute('aria-expanded', String(!isOpen));
-    open.textContent = isOpen ? 'Открыть всё содержание' : 'Свернуть содержание';
-    if (isOpen) document.getElementById('soderzhanie').scrollIntoView({behavior: reduce?'auto':'smooth'});
-  });
-  input.addEventListener('change', function(){ if (+input.value>6 && more.hidden) open.click(); });
 
   /* фото справа меняется вместе с разделом */
   var figs = [].slice.call(document.querySelectorAll('#stage figure'));
@@ -400,7 +396,7 @@ footer .r{text-align:right}
   function loop(on){
     clearInterval(loopT); loopT = null;
     if (!on || reduce) return;
-    loopT = setInterval(function(){ if(!document.hidden) setPhoto(current===1?2:1); }, 6000);
+    loopT = setInterval(function(){ if(!document.hidden) setPhoto(current===2?3:2); }, 6000);
   }
   var secs = [].slice.call(document.querySelectorAll('[data-photo]'));
   if ('IntersectionObserver' in window){
@@ -408,7 +404,7 @@ footer .r{text-align:right}
       es.forEach(function(e){
         if (!e.isIntersecting) return;
         var p = +e.target.dataset.photo;
-        setPhoto(p); loop(p===1);
+        setPhoto(p); loop(p===2);
       });
     }, {rootMargin:'-45% 0px -45% 0px'});
     secs.forEach(function(s){ io.observe(s); });
