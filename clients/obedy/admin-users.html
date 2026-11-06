@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Сотрудники · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-users.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a aria-current="page" href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="page-head">
+<div><h1>Сотрудники</h1><p class="mut">Учётные записи создаёте вы. Саморегистрации на сайте нет.</p></div>
+<span class="spacer"></span>
+<div class="actions">
+<a class="btn ghost" href="admin-import.html">Загрузить списком</a>
+<a class="btn" href="admin-user-new.html">Добавить сотрудника</a>
+</div>
+</div>
+<form action="#" class="filters" data-msg="В макете фильтры не работают — показан пример на сегодня" data-to="stay" method="get">
+<input name="p" type="hidden" value="a-users"/>
+<label class="field"><span>Компания</span><select data-mock-auto="" name="company"><option value="">Все</option><option value="2">АО «Томскнефтесервис»</option><option value="3">Клиника «Здоровье+»</option><option value="1">ООО «Сибирь-Софт»</option></select></label>
+<label class="field"><span>Поиск</span><input name="s" placeholder="ФИО или логин" value=""/></label>
+<button class="btn dark" type="submit">Найти</button>
+</form>
+<div class="tbl-wrap">
+<table class="tbl stackable">
+<thead><tr><th>ФИО</th><th>Логин</th><th>Компания</th><th>Последний вход</th><th></th></tr></thead>
+<tbody>
+<tr class="">
+<td><a href="admin-user.html">Ольга</a>
+<span class="badge accepted">админ</span> <div class="tiny">olga@example.ru</div></td>
+<td data-l="Логин"><code>olga</code></td>
+<td data-l="Компания">—</td>
+<td data-l="Вход">6 ноября, 07:43</td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Кузнецова Мария Олеговна</a>
+</td>
+<td data-l="Логин"><code>maria.kuznetsova</code></td>
+<td data-l="Компания">АО «Томскнефтесервис»</td>
+<td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Орлов Дмитрий Игоревич</a>
+</td>
+<td data-l="Логин"><code>dmitry.orlov</code></td>
+<td data-l="Компания">АО «Томскнефтесервис»</td>
+<td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Белова Елена Викторовна</a>
+</td>
+<td data-l="Логин"><code>elena.belova</code></td>
+<td data-l="Компания">Клиника «Здоровье+»</td>
+<td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Иванов Пётр Сергеевич</a>
+</td>
+<td data-l="Логин"><code>petr.ivanov</code></td>
+<td data-l="Компания">ООО «Сибирь-Софт»</td>
+<td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Петров Олег Иванович</a>
+</td>
+<td data-l="Логин"><code>oleg.petrov</code></td>
+<td data-l="Компания">ООО «Сибирь-Софт»</td>
+<td data-l="Вход">6 ноября, 07:43</td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-user.html">Смирнова Анна Петровна</a>
+<div class="tiny">anna@example.ru</div></td>
+<td data-l="Логин"><code>anna.smirnova</code></td>
+<td data-l="Компания">ООО «Сибирь-Софт»</td>
+<td data-l="Вход">6 ноября, 07:43</td>
+<td><a class="btn soft sm" href="admin-user.html">Изменить</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body>
+</html>

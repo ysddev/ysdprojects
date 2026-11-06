@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Комплекс «Сибирский» · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-dish.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a aria-current="page" href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="narrow stack">
+<p><a href="admin-dishes.html">← Меню</a></p>
+<form action="#" class="panel stack" data-to="admin-dishes.html" enctype="multipart/form-data" method="post" novalidate="">
+ <h1 style="font-size:26px">Комплекс «Сибирский»</h1>
+<label class="field"><span>Название</span><input name="title" placeholder="Комплекс «Сибирский»" required="" value="Комплекс «Сибирский»"/></label>
+<label class="field"><span>Состав</span><textarea name="composition" placeholder="Борщ с говядиной, гречка с котлетой, салат из капусты, морс" rows="3">Борщ с говядиной и сметаной, гречка с куриной котлетой, салат из свежей капусты, морс клюквенный</textarea></label>
+<div class="grid2">
+<label class="field"><span>Цена, ₽</span><input inputmode="decimal" name="price" placeholder="390" required="" value="390"/></label>
+<label class="field"><span>Вес / выход</span><input name="weight" placeholder="250 / 200 / 100 г" value="250 / 200 / 100 г"/></label>
+<label class="field"><span>Калории</span><input inputmode="numeric" name="calories" placeholder="необязательно" value="820"/></label>
+</div>
+<fieldset class="field" style="border:0;padding:0;margin:0"><legend style="font-size:14px;font-weight:500;margin-bottom:6px">Метки для фильтра</legend>
+<div class="days"><label><input name="tags[]" type="checkbox" value="light"/><span>Лёгкий</span></label><label><input name="tags[]" type="checkbox" value="nomeat"/><span>Без мяса</span></label><label><input name="tags[]" type="checkbox" value="fish"/><span>С рыбой</span></label><label><input name="tags[]" type="checkbox" value="spicy"/><span>Острое</span></label></div>
+</fieldset>
+<fieldset class="field" style="border:0;padding:0;margin:0"><legend style="font-size:14px;font-weight:500;margin-bottom:6px">В какие дни в меню</legend>
+<div class="days"><label><input checked="" name="days[]" type="checkbox" value="1"/><span>пн</span></label><label><input checked="" name="days[]" type="checkbox" value="2"/><span>вт</span></label><label><input checked="" name="days[]" type="checkbox" value="3"/><span>ср</span></label><label><input checked="" name="days[]" type="checkbox" value="4"/><span>чт</span></label><label><input checked="" name="days[]" type="checkbox" value="5"/><span>пт</span></label><label><input checked="" name="days[]" type="checkbox" value="6"/><span>сб</span></label><label><input checked="" name="days[]" type="checkbox" value="7"/><span>вс</span></label></div>
+<small class="hint">Постоянное меню — отметьте все дни. Меню по дням недели — только нужные.</small>
+</fieldset>
+<div class="field"><span>Фото</span>
+<img alt="" src="https://images.unsplash.com/photo-1648726445011-9fbf3a5ddb90?auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=72" style="width:100%;max-width:360px;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:10px"/>
+<label class="check" style="padding-top:0;min-height:0;margin-bottom:10px"><input name="remove_photo" type="checkbox" value="1"/><span>Убрать фото</span></label>
+<input accept="image/jpeg,image/png,image/webp" name="photo" type="file"/>
+<small class="hint">JPG, PNG или WEBP до 10 МБ. Лучше горизонтальное, 4:3. Уменьшим сами.</small>
+</div>
+<div class="row"><button class="btn" type="submit">Сохранить</button><a class="btn ghost" href="admin-dishes.html">Отмена</a></div>
+</form>
+<form action="#" class="panel flat row" data-to="admin-dishes.html" method="post"><input name="action" type="hidden" value="delete"/>
+<p class="small" style="flex:1;min-width:220px">Чтобы временно убрать обед, лучше нажмите «Скрыть» в списке. Удаление нельзя отменить.</p>
+<button class="btn danger" data-confirm="Удалить насовсем?" type="submit">Удалить обед</button>
+</form>
+</div>
+</div>
+</main>
+</body>
+</html>

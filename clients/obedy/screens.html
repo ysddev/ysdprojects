@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Макет: все экраны · Обеды</title>
+<meta name="description" content="Кликабельный макет закрытого сайта заказа обедов для сотрудников компаний-партнёров">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/app.css?v=m1">
+<style>
+  .scr{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0 34px}
+  .scr a{display:block;background:var(--card);border-radius:var(--r-s);box-shadow:var(--sh);padding:14px 16px;text-decoration:none;transition:transform .25s var(--e),box-shadow .25s var(--e)}
+  .scr a b{display:block;font-weight:600}
+  .scr a span{display:block;font-size:14px;color:var(--mut);margin-top:4px;line-height:1.4}
+  @media (hover:hover) and (pointer:fine){.scr a:hover{transform:translateY(-2px)}}
+  .lead{max-width:62ch;font-size:17px;color:var(--mut);margin-top:12px}
+  .hero{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap;margin-bottom:28px}
+</style>
+</head>
+<body>
+<header class="atop"><div class="wrap">
+  <a class="brand" href="index.html"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="12" y="2.5" width="10" height="4" rx="2" fill="none" stroke="#EEF2EC" stroke-width="2"/><rect x="5" y="7" width="24" height="9" rx="3.5" fill="#F08A24"/><rect x="5" y="17.5" width="24" height="7" rx="3" fill="#EEF2EC"/><rect x="5" y="26" width="24" height="6" rx="3" fill="#C3CEC6"/></svg><span><b>Обеды</b><small>Макет сайта</small></span></a>
+</div></header>
+<main><div class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Макет: все экраны</h1>
+      <p class="lead">Кликабельный макет закрытого сайта заказа обедов. Всё нажимается: можно собрать судок, оформить заказ, отменить его, принять заказы в управлении. Данные, названия компаний и фото — примеры. Время — томское.</p>
+    </div>
+    <span class="spacer"></span>
+    <a class="btn" href="index.html">Начать со входа</a>
+  </div>
+
+  <h2>Сотрудник компании</h2>
+  <div class="scr">
+    <a href="index.html"><b>Вход</b><span>Единственная открытая страница. Регистрации нет, логин выдаёт служба обедов.</span></a>
+    <a href="welcome.html"><b>Первый вход</b><span>Свой пароль вместо временного и согласие на обработку данных.</span></a>
+    <a href="menu.html"><b>Меню и судок</b><span>Дата доставки, фильтр, карточки с фото, составом, весом и ценой. На телефоне судок — нижняя шторка.</span></a>
+    <a href="done.html"><b>Заказ принят</b><span>Номер, состав, сумма, до какого времени можно отменить.</span></a>
+    <a href="orders.html"><b>Мои заказы</b><span>История со статусами и отменой, пока идёт приём.</span></a>
+    <a href="policy.html"><b>Политика данных</b><span>Шаблон по 152-ФЗ, реквизиты подставляются из настроек.</span></a>
+  </div>
+
+  <h2>Управление (Ольга)</h2>
+  <div class="scr">
+    <a href="admin-orders.html"><b>Заказы за день</b><span>Список, статусы, «Принять все новые», сводка «На кухню» и «Доставка».</span></a>
+    <a href="admin-dishes.html"><b>Меню</b><span>Порядок карточек, скрыть или показать обед.</span></a>
+    <a href="admin-dish.html"><b>Карточка обеда</b><span>Фото, состав, вес, калории, цена, метки, дни недели.</span></a>
+    <a href="admin-companies.html"><b>Компании</b><span>Партнёры и адреса доставки, отключение компании.</span></a>
+    <a href="admin-users.html"><b>Сотрудники</b><span>Учётки по компаниям, поиск, последний вход.</span></a>
+    <a href="admin-user.html"><b>Карточка сотрудника</b><span>Новый пароль, отключение доступа, отметка о согласии.</span></a>
+    <a href="admin-import.html"><b>Загрузка списком</b><span>Список из Excel — логины и пароли создаются сами.</span></a>
+    <a href="admin-users-new.html"><b>Выданные пароли</b><span>Показываются один раз, скачиваются таблицей для рассылки.</span></a>
+    <a href="admin-report.html"><b>Отчёт в Excel</b><span>Период и компания. <u>Пример файла</u> скачивается по кнопке.</span></a>
+    <a href="admin-settings.html"><b>Настройки</b><span>Время приёма, дни доставки, лимиты, отмена, почта, реквизиты.</span></a>
+    <a href="admin-help.html"><b>Инструкция</b><span>Как заводить сотрудников, менять меню, скачивать отчёт.</span></a>
+  </div>
+  <p class="tiny">Фото блюд — Unsplash, примеры. В рабочей версии — ваши фото.</p>
+</div></main>
+</body>
+</html>
