@@ -72,7 +72,7 @@ em{font-style:italic}
 .slides .s1 img{object-position:72% 50%}.slides .s2 img{object-position:70% 50%}.slides .s3 img{object-position:62% 50%}
 .scrim{position:absolute;inset:0 auto 0 0;width:62%;background:linear-gradient(90deg,rgba(8,16,30,.78) 0%,rgba(8,16,30,.55) 55%,rgba(8,16,30,0) 100%)} /* taste-skill-ignore: neutral scrim under text on a photo */
 .hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
-.hero h1{font-size:clamp(3rem,1.6rem + 4.6vw,6rem);line-height:.96;letter-spacing:-.025em;max-width:9ch}
+.hero h1{font-size:clamp(3rem,1.6rem + 4.6vw,6rem);line-height:.96;letter-spacing:-.025em;max-width:14ch}
 .hero .lead{margin-top:28px;font-size:var(--step-lead);line-height:1.4;max-width:34ch}
 .pin{position:absolute;z-index:2;right:21%;top:34%;display:flex;align-items:center;gap:12px;font-size:1rem;max-width:22ch;line-height:1.35;transition:opacity .8s}
 .pin::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--teal)}
@@ -98,10 +98,10 @@ em{font-style:italic}
 .twin-top{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--m);align-items:start}
 .twin-top h2{font-size:clamp(1.75rem,1.2rem + 1.6vw,2.5rem)}
 .twin-top p{max-width:52ch}
-.specimens{margin-top:12vh;display:grid;grid-template-columns:1fr 1fr;gap:var(--m);height:calc(min(13.5vw,15rem) * .62 + 34px);overflow:hidden}
+.specimens{margin-top:12vh;display:grid;grid-template-columns:1fr 1fr;gap:var(--m);height:calc(min(10.5vw,12rem) * .62 + 34px);overflow:hidden}
 .spec small{display:block;font-size:1rem;color:var(--muted);margin-bottom:10px}
 .spec{min-width:0;overflow:hidden}
-.spec b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(4rem,13.5vw,15rem);line-height:.8;letter-spacing:-.03em}
+.spec b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(4rem,10.5vw,12rem);line-height:.8;letter-spacing:-.03em}
 @media (max-width:760px){
   .twin-top{grid-template-columns:1fr}
   .specimens{grid-template-columns:1fr;height:auto;gap:0;margin-top:48px}
@@ -132,7 +132,7 @@ em{font-style:italic}
 /* Calculator — colour page */
 .calc{background:var(--teal);color:var(--navy)}
 .calc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
-.calc h2{max-width:11ch}
+.calc h2{max-width:none}
 .calc .intro{margin-top:24px;max-width:40ch}
 .fields{margin-top:40px;display:grid;gap:28px}
 .field label{display:flex;justify-content:space-between;gap:12px;font-weight:500}
@@ -257,6 +257,7 @@ em{font-style:italic}
 
 /* Footer — contact as the headline */
 footer{background:var(--teal);color:var(--navy);min-height:90svh;display:flex;flex-direction:column;padding-block:40px}
+footer>.wrap{width:100%}
 footer .top{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-start;font-size:.9375rem}
 footer .top img{height:26px;width:auto;background:var(--navy);padding:6px 10px;box-sizing:content-box}
 footer .top p{max-width:28ch;line-height:1.4}
@@ -331,7 +332,7 @@ footer .meta a{min-height:32px;display:inline-flex;align-items:center}
 <section class="calc sec" id="calc" aria-labelledby="calc-h">
   <div class="wrap calc-grid">
     <div class="rv">
-      <h2 class="h2" id="calc-h">Сколько стоит защитить вашу сеть</h2>
+      <h2 class="h2" id="calc-h">Расчёт защиты сети</h2>
       <p class="intro">Укажите офисы и удалённых сотрудников. Схема и состав комплекта пересчитываются сразу.</p>
       <form class="fields" onsubmit="return false">
         <div class="field"><label for="offices">Офисы и филиалы <output id="oOut" for="offices">5</output></label><input type="range" id="offices" min="1" max="40" value="5"></div>
@@ -377,6 +378,7 @@ footer .meta a{min-height:32px;display:inline-flex;align-items:center}
   <figure><img src="img/lights.jpg" alt="Световоды крупным планом" width="1400" height="1050" loading="lazy"></figure>
   <div class="num n3 rv"><b>10+</b><span>сертифицированных специалистов</span></div>
   <figure><img src="img/rack.jpg" alt="Коммутаторы с патч-кордами в стойке" width="1400" height="1050" loading="lazy"></figure>
+  <figure><img src="https://static.tildacdn.com/tild6632-3739-4636-b138-613261623561/__.jpg" alt="Устройство ЗАСТАВА" width="1525" height="802" loading="lazy"></figure>
 </section>
 
 <section class="sec svc" id="services" aria-labelledby="svc-h">
