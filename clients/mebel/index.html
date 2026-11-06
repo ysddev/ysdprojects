@@ -133,7 +133,7 @@ section{margin-top:72px}
 /* categories */
 .cats{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
 .cat{background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s var(--ease)}
-.cat img{aspect-ratio:1;object-fit:cover;width:100%;transition:transform .5s var(--ease)}
+.cat img{aspect-ratio:1;object-fit:cover;width:100%;height:auto;flex:none;transition:transform .5s var(--ease)}
 .cat span{padding:12px 14px 14px;font-weight:600;line-height:1.25}
 .cat small{display:block;color:var(--muted);font-weight:400;font-size:14px}
 @media (hover:hover) and (pointer:fine){.cat:hover img{transform:scale(1.05)}}
@@ -386,7 +386,7 @@ dialog form{display:grid;gap:12px;margin-top:18px}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .page-in{animation:pin .45s var(--ease) both}
-@keyframes pin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pin{from{opacity:0}to{opacity:1}}
 
 @media (max-width:1200px){
   .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -448,9 +448,16 @@ dialog form{display:grid;gap:12px;margin-top:18px}
   .hero-side{grid-template-columns:1fr}
   .deal{grid-template-columns:1.1fr 1fr}
   .promo{min-height:200px}
-  .cats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gut));padding:0 var(--gut)}
+  .cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 116px}
   .cat span{padding:10px;font-size:14px}
   .cat small{display:none}
+  .toolbar{gap:8px}
+  .toolbar .sp{display:none}
+  .toolbar select{flex:1;min-width:0}
+  .chips{order:3;width:100%}
+  .chips:empty{display:none}
   .grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 10px}
   .card-price b{font-size:18px}
   .card-name{font-size:15px}
@@ -998,7 +1005,7 @@ function reveal(){
 /* router */
 let lastKey='';
 function route(keep){
-  megaToggle(false);
+  megaToggle(false);closeFilters();
   const h=location.hash.slice(1)||'/';const[path,qs]=h.split('?');const seg=path.split('/').filter(Boolean);
   const key=h;
   if(seg[0]==='catalog')catalog(seg[1]||'all',qs);
