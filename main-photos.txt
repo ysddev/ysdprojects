@@ -1,0 +1,19 @@
+<style>
+#arxh{--sans:"TildaSans",Arial,sans-serif;--ease:cubic-bezier(.23,1,.32,1)}
+#arxh *{box-sizing:border-box;margin:0;padding:0}
+#arxh .tri{display:flex}
+#arxh .tri a{flex:1 1 0;min-width:0;display:block;position:relative;color:#fff;text-decoration:none}
+#arxh figure{aspect-ratio:3/4;background:#dedbd6;overflow:hidden}
+#arxh img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+#arxh .cap{position:absolute;left:0;right:0;bottom:28px;text-align:center;font:500 12px/1 var(--sans);letter-spacing:.3em;margin-right:-.3em;text-transform:uppercase;text-shadow:0 0 12px rgba(0,0,0,.35)}
+@media (hover:hover) and (pointer:fine){#arxh a:hover img{transform:scale(1.02)}}
+@media (max-width:600px){#arxh .tri{flex-direction:column}#arxh .tri a{flex:none}}
+@media (prefers-reduced-motion:reduce){#arxh img{transition:none}}
+</style>
+<section id="arxh" aria-label="Новая коллекция">
+  <div class="tri">
+    <a href="/catalog"><figure><img src="https://static.tildacdn.com/tila6637-3039-4235-b433-663131373566/anna-hero-1.jpg" width="1200" height="1600" alt="Девушка в белом меховом палантине и брюках из кожи питона идёт по улице"></figure><span class="cap">Каталог</span></a>
+    <a href="/catalog"><figure><img src="https://static.tildacdn.com/tila6537-6166-4765-b932-623337303334/anna-hero-2.jpg" width="1200" height="1600" alt="Мех и кожа питона крупным планом"></figure><span class="cap">Каталог</span></a>
+    <a href="/catalog"><figure><img src="https://static.tildacdn.com/tila3537-6436-4439-b631-396330623861/anna-hero-3.jpg" width="1200" height="1600" alt="Образ из меха и кожи питона у витрины"></figure><span class="cap">Каталог</span></a>
+  </div>
+</section>

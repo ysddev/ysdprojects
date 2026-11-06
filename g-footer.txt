@@ -1,0 +1,26 @@
+<style>
+#arxf{--ink:#141413;--m:clamp(16px,2.8vw,40px);font:500 12px/1.4 "TildaSans",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);padding:56px var(--m) 40px;text-align:center}
+#arxf *{box-sizing:border-box;margin:0;padding:0}
+#arxf a{color:inherit;text-decoration:none;padding:8px 0;display:inline-block}
+#arxf .line{height:1px;background:var(--ink);opacity:.85;margin:0 0 40px}
+#arxf h2{font:inherit;letter-spacing:inherit;margin-bottom:12px}
+#arxf .row{display:flex;flex-wrap:wrap;justify-content:center;gap:0 32px}
+#arxf .row + .row{margin-top:4px}
+@media (hover:hover) and (pointer:fine){#arxf a:hover{opacity:.55}}
+@media (max-width:600px){#arxf{font-size:11px}#arxf .row{gap:0 20px}}
+</style>
+<footer id="arxf">
+  <div class="line"></div>
+  <h2>Клиентский сервис</h2>
+  <nav class="row" aria-label="Клиентский сервис">
+    <a href="/page52559643.html">Доставка</a>
+    <a href="/page52561461.html">Обмен и возврат</a>
+    <a href="/page52562425.html">Контакты</a>
+    <a href="/page52562659.html">Оплата</a>
+  </nav>
+  <div class="row">
+    <a href="/page54429479.html">Политика конфиденциальности</a>
+    <a href="/page54431185.html">Публичная оферта</a>
+    <a href="/">© 2024 Russki</a>
+  </div>
+</footer>
