@@ -106,23 +106,23 @@ section{margin-top:72px}
 .sec-h a{color:var(--accent);font-weight:600}
 
 /* hero */
-.hero{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:8px}
-.hero-main{position:relative;border-radius:var(--r);overflow:hidden;min-height:460px;color:#fff;display:flex;align-items:flex-end}
+.hero{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:8px;height:clamp(440px,calc(100svh - 200px),540px)}
+.hero-main{position:relative;border-radius:var(--r);overflow:hidden;min-height:0;color:#fff;display:flex;align-items:flex-end}
 .hero-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 18s var(--ease) both}
 @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
 .hero-main::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,17,.72) 0%,rgba(20,19,17,.25) 55%,rgba(20,19,17,0) 80%)} /* taste-skill-ignore: scrim over photo */
-.hero-txt{position:relative;z-index:1;padding:40px;max-width:640px}
+.hero-txt{position:relative;z-index:1;padding:40px;max-width:880px}
 .hero-txt h1{font-size:clamp(32px,3.6vw,52px);line-height:1.04}
 .hero-txt p{margin-top:16px;font-size:18px;max-width:30em;opacity:.92}
 .hero-txt .acts{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 .hero-txt .btn-ghost{background:rgba(255,255,255,.94)}
-.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
-.deal{background:var(--surface);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:12px;overflow:hidden}
+.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:16px;min-height:0}
+.deal{background:var(--surface);border-radius:var(--r);padding:20px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:12px;overflow:hidden;min-height:0}
 .deal h2{font-size:22px}
 .deal .lbl{font-weight:600;color:var(--sale)}
 .deal .pr{font-size:28px;font-weight:700;margin-top:10px;color:var(--sale);letter-spacing:-0.02em}
 .deal s{color:var(--muted);font-size:15px}
-.deal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
+.deal img{width:100%;height:100%;max-height:220px;object-fit:cover;border-radius:10px}
 .promo{position:relative;border-radius:var(--r);overflow:hidden;color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:flex-end}
 .promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .promo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,17,.7),rgba(20,19,17,0) 70%)} /* taste-skill-ignore: scrim over photo */
@@ -174,7 +174,7 @@ section{margin-top:72px}
 .bens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .ben{background:var(--surface);border-radius:var(--r);padding:24px;min-height:180px;display:flex;flex-direction:column}
 .ben svg{width:36px;height:36px;color:var(--accent)}
-.ben b{display:block;margin-top:auto;padding-top:20px;font-size:19px;letter-spacing:-0.01em}
+.ben b{display:block;margin-top:28px;font-size:19px;letter-spacing:-0.01em}
 .ben p{color:var(--muted);margin-top:6px;font-size:15px}
 
 /* rooms */
@@ -396,6 +396,9 @@ dialog form{display:grid;gap:12px;margin-top:18px}
 }
 @media (max-width:960px){
   :root{--gut:16px}
+  .hero{height:auto}
+  .hero-main{min-height:460px}
+  .deal img{aspect-ratio:1;height:auto}
   .topbar nav{display:none}
   .hero{grid-template-columns:1fr}
   .hero-side{grid-template-rows:none;grid-template-columns:1fr 1fr}
@@ -559,14 +562,14 @@ const P=[
  {id:3,c:'divany',n:'Угловой диван «Лофт» с механизмом «дельфин»',p:64990,o:79990,img:'1759722668087-efcc63c91ed2',col:'Серый',hex:'#9c9c98',mat:'Велюр',w:280,d:180,h:85,st:0,mech:'Дельфин',big:1,hit:0,nw:1},
  {id:4,c:'kresla',n:'Кресло «Бержер» песочное',p:24990,o:0,img:'1722357533644-9b20e356ba5f',col:'Бежевый',hex:'#e0b88d',mat:'Велюр',w:86,d:84,h:104,st:5,big:1,hit:1,nw:0},
  {id:5,c:'kresla',n:'Кресло «Дюна» молочное, букле',p:18490,o:21990,img:'1567538096630-e0c55bd6374c',col:'Белый',hex:'#efeae2',mat:'Букле',w:68,d:66,h:78,st:9,big:1,hit:0,nw:1},
- {id:6,c:'kresla',n:'Кресло «Орбита» на металлических ножках',p:15990,o:0,img:'1683342952214-7a16488a2876',col:'Бежевый',hex:'#d8b49a',mat:'Экокожа',w:74,d:70,h:76,st:3,big:1,hit:0,nw:0},
+ {id:6,c:'kresla',n:'Кресло «Орбита» на металлических ножках',p:15990,o:0,img:'1683342952214-7a16488a2876',col:'Бежевый',hex:'#d8b49a',mat:'Экокожа',w:74,d:70,h:76,st:3,big:1,hit:0,nw:1},
  {id:7,c:'stulya',n:'Стул «Эймс» белый, ножки бук',p:4290,o:5490,img:'1505843490538-5133c6c7d0e1',col:'Белый',hex:'#f2f2f0',mat:'Пластик',w:46,d:53,h:81,st:48,big:0,hit:1,nw:0},
  {id:8,c:'stulya',n:'Стул «Ретро» синий, металл',p:3590,o:0,img:'1691380302791-7a0be56f28fd',col:'Синий',hex:'#3b6d8c',mat:'Металл',w:42,d:48,h:84,st:30,big:0,hit:0,nw:1},
  {id:9,c:'stulya',n:'Стул «Прованс» зелёный, массив',p:5990,o:6990,img:'1659729927017-b2d4fd4b3698',col:'Зелёный',hex:'#4f8d6e',mat:'Массив дерева',w:44,d:46,h:88,st:16,big:0,hit:0,nw:0},
  {id:10,c:'stulya',n:'Барный стул «Твист» белый',p:6490,o:0,img:'1551459456-12c91f20a130',col:'Белый',hex:'#f2f2f0',mat:'Экокожа',w:44,d:48,h:96,st:0,big:0,hit:0,nw:1},
  {id:11,c:'krovati',n:'Кровать «Тоскана» 160×200 с мягким изголовьем',p:36990,o:44990,img:'1717930290246-53c32a1184ca',col:'Дуб',hex:'#b58550',mat:'ЛДСП',w:176,d:212,h:110,st:4,big:1,hit:1,nw:0},
  {id:12,c:'krovati',n:'Кровать «Неаполь» 160×200 с подъёмным механизмом',p:28990,o:0,img:'1586310520462-658e93388399',col:'Венге',hex:'#3a2b24',mat:'ЛДСП',w:170,d:210,h:100,st:6,big:1,hit:0,nw:0},
- {id:13,c:'komody',n:'Комод «Лайт» белый, 3 ящика и 2 дверцы',p:17990,o:0,img:'1721119211162-2c3f2809d190',col:'Белый',hex:'#f4f2ee',mat:'ЛДСП',w:140,d:45,h:85,st:11,big:1,hit:0,nw:0},
+ {id:13,c:'komody',n:'Комод «Лайт» белый, 3 ящика и 2 дверцы',p:17990,o:0,img:'1721119211162-2c3f2809d190',col:'Белый',hex:'#f4f2ee',mat:'ЛДСП',w:140,d:45,h:85,st:11,big:1,hit:1,nw:0},
  {id:14,c:'komody',n:'Комод «Марбл» дуб и белый, 6 ящиков',p:21490,o:25990,img:'1719035271030-c4f941639aaf',col:'Дуб',hex:'#a87a52',mat:'МДФ',w:150,d:45,h:80,st:8,big:1,hit:1,nw:0},
  {id:15,c:'komody',n:'Комод «Аква» голубой, 4 ящика',p:13990,o:0,img:'1705719615955-41887e3a5750',col:'Голубой',hex:'#bcd6de',mat:'МДФ',w:90,d:45,h:90,st:0,big:1,hit:0,nw:1},
  {id:16,c:'komody',n:'Комод высокий «Вермонт» орех, 5 ящиков',p:23990,o:0,img:'1786953835509-950e265ed7c8',col:'Орех',hex:'#6f4630',mat:'Массив дерева',w:80,d:45,h:130,st:2,big:1,hit:0,nw:0},
@@ -576,7 +579,7 @@ const P=[
  {id:20,c:'komody',n:'Тумба прикроватная «Джут» шпон дуба',p:7490,o:8490,img:'1630835016348-ba2854bbf78b',col:'Дуб',hex:'#c99a5b',mat:'Шпон',w:50,d:40,h:55,st:10,big:0,hit:0,nw:1},
  {id:21,c:'shkafy',n:'Шкаф-купе «Милан» с зеркалом, 2 двери',p:54990,o:62990,img:'1672137233327-37b0c1049e77',col:'Серый',hex:'#9a958d',mat:'ЛДСП',w:200,d:60,h:240,st:3,big:1,hit:1,nw:0},
  {id:22,c:'shkafy',n:'Гардеробная система «Ривьера» открытая',p:39990,o:0,img:'1631048499455-4f9e26f23b9f',col:'Белый',hex:'#f4f2ee',mat:'ЛДСП',w:180,d:50,h:220,st:0,big:1,hit:0,nw:1},
- {id:23,c:'stoly',n:'Стол обеденный круглый «Бук» Ø100',p:18990,o:0,img:'1605239435870-67df4c54a0b3',col:'Бук',hex:'#c58e5c',mat:'Массив дерева',w:100,d:100,h:75,st:5,big:1,hit:0,nw:0},
+ {id:23,c:'stoly',n:'Стол обеденный круглый «Бук» Ø100',p:18990,o:0,img:'1605239435870-67df4c54a0b3',col:'Бук',hex:'#c58e5c',mat:'Массив дерева',w:100,d:100,h:75,st:5,big:1,hit:1,nw:0},
  {id:24,c:'stoly',n:'Обеденная группа «Тоскана»: стол и 6 стульев',p:49990,o:59990,img:'1758977404683-d04c315a005b',col:'Орех',hex:'#8a5631',mat:'Массив дерева',w:180,d:90,h:76,st:2,big:1,hit:1,nw:0},
  {id:25,c:'stoly',n:'Обеденная группа «Сити»: стол и 4 стула',p:44990,o:0,img:'1758977403341-0104135995af',col:'Серый',hex:'#8c8a86',mat:'МДФ',w:140,d:80,h:76,st:7,big:1,hit:0,nw:1}
 ];
@@ -682,7 +685,7 @@ function home(){
     </div>
     <div class="hero-side">
       <a class="deal" href="#/p/${deal.id}"><div><span class="lbl">Товар недели</span><h2>Комод «Марбл»</h2><div class="pr">${fmt(deal.p)}</div><s>${fmt(deal.o)}</s></div><img src="${U(deal.img,360,360)}" alt="${esc(deal.n)}" width="360" height="360"></a>
-      <a class="promo" href="#/catalog/krovati"><img src="${U('1589271243958-d61e12b61b97',640,400)}" alt="Спальня с белым постельным бельём" width="640" height="400" loading="lazy"><b>Кровати и тумбы для спальни</b><span>Сборка в день доставки</span></a>
+      <a class="promo" href="#/catalog/krovati"><img src="${U('1680210849951-34d1a56eb7aa',640,400)}" alt="Спальня с кроватью и прикроватными тумбами" width="640" height="400" loading="lazy"><b>Кровати и тумбы для спальни</b><span>Сборка в день доставки</span></a>
     </div>
   </div>
 
@@ -712,7 +715,7 @@ function home(){
     </div>
   </section>
 
-  <section><div class="sub rv"><div><h2>Скидки раньше, чем на маркетплейсах</h2><p>Пришлём письмо, когда на сайте начнётся распродажа. Не чаще раза в неделю.</p></div>
+  <section><div class="sub rv"><div><h2>Узнавайте о распродажах первыми</h2><p>Пришлём письмо, когда на сайте начнётся распродажа. Не чаще раза в неделю.</p></div>
     <form id="subForm" novalidate><label class="sr" for="subMail">Электронная почта</label><input id="subMail" type="email" placeholder="Ваша почта" autocomplete="email" required><button class="btn" type="submit">Подписаться</button><p class="note">Нажимая кнопку, вы соглашаетесь с <a href="#/info/privacy">политикой обработки персональных данных</a>.</p></form></div></section>
   </div>`;
   const draw=t=>{const L=t=='hit'?P.filter(x=>x.hit):t=='new'?P.filter(x=>x.nw):P.filter(x=>x.o).sort((a,b)=>pct(b)-pct(a));document.getElementById('topGrid').innerHTML=L.slice(0,10).map(card).join('');reveal()};
