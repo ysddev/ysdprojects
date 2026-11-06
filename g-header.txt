@@ -72,17 +72,16 @@ body.arx-locked{overflow:hidden}
   <div class="menu-mid">
     <a class="menu-cat" href="/catalog">Каталог</a>
     <ul class="svc-list">
-      <li class="svc-title">Клиентский сервис</li>
+      <li class="svc-title">Информация</li>
       <li><a href="/page52559643.html">Доставка</a></li>
       <li><a href="/page52561461.html">Обмен и возврат</a></li>
       <li><a href="/page52562659.html">Оплата</a></li>
-      <li><a href="/page52562659.html">Оплата Долями</a></li>
       <li><a href="/page52562425.html">Контакты</a></li>
       <li><a href="/page54429479.html">Политика конфиденциальности</a></li>
       <li><a href="/page54431185.html">Публичная оферта</a></li>
     </ul>
   </div>
-  <div class="menu-foot"><a href="/page52562425.html">Контакты</a><button id="arxSvc">Клиентский сервис</button></div>
+  <div class="menu-foot"><a href="/page52562425.html">Контакты</a><button id="arxSvc">Информация</button></div>
 </div>
 
 </div>
