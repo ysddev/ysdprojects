@@ -111,7 +111,7 @@ section{scroll-margin-top:20px}
 
 /* Showcase — object on a chevron stage */
 .show>*,.calc>*,.svc>*,.part>*,.grow>*{min-width:0}
-.show{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--m);align-items:end;min-height:min(100svh,900px)}
+.show{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--m);align-items:center}
 .show-list{display:flex;flex-direction:column;gap:2px}
 .show-list h2{font-size:clamp(1.75rem,1.1rem + 2.2vw,2.75rem);color:var(--muted);font-weight:600;margin-bottom:10px}
 .show-list button{all:unset;cursor:pointer;font-size:clamp(1.75rem,1.1rem + 2.2vw,2.75rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;color:var(--muted);padding:6px 0;transition:color .24s,transform .24s var(--ease)}
@@ -122,6 +122,8 @@ section{scroll-margin-top:20px}
 .stage{position:relative;aspect-ratio:1/1;max-height:76svh;justify-self:end;width:100%}
 .stage .shape{position:absolute;inset:0;background:var(--navy);clip-path:polygon(0 30%,50% 0,100% 30%,100% 100%,0 100%);transition:background-color .3s}
 .stage img{position:absolute;left:50%;top:44%;width:78%;height:auto;transform:translate(-50%,-50%);transition:opacity .3s}
+.stage.full img{inset:0;left:0;top:0;width:100%;height:100%;object-fit:cover;transform:none;clip-path:polygon(0 30%,50% 0,100% 30%,100% 100%,0 100%)}
+.stage.full .fact{background:var(--navy);padding:16px 20px;right:0;bottom:0;max-width:44ch}
 .stage .fact{position:absolute;right:28px;bottom:28px;left:28px;color:#fff;font-size:1.0625rem;max-width:38ch;margin-left:auto}
 .stage .fact b{display:block;font-size:var(--step-lead);margin-bottom:6px;font-weight:600}
 .show-more{margin-top:28px}
@@ -545,18 +547,18 @@ document.body.classList.remove('no-js');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Entrances, staggered within each section
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('section,footer').forEach(function(s){s.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,8)*70)+'ms';io.observe(el)})});
+  document.querySelectorAll('section,footer').forEach(function(s){s.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,5)*60)+'ms';io.observe(el)})});
 
   // Products showcase
   var items=[
     {img:'https://static.tildacdn.com/tild3063-3239-4366-b365-373564643365/_.png',alt:'Устройство ЗАСТАВА',t:'Семейство ЗАСТАВА',f:'VPN-шлюзы, межсетевые экраны и системы управления: шифрование трафика и контроль доступа для офисов, удалённых сотрудников и мобильных устройств.',c:'#132440'},
-    {img:'https://static.tildacdn.com/tild6163-6337-4336-b663-653932356465/_6000.jpg',alt:'Стоечный комплекс ЗАСТАВА-6000',t:'ЗАСТАВА-6000',f:'Аппаратно-программный комплекс в реестре российской радиоэлектронной продукции Минпромторга.',c:'#1D3657'},
+    {img:'https://static.tildacdn.com/tild6163-6337-4336-b663-653932356465/_6000.jpg',alt:'Стоечный комплекс ЗАСТАВА-6000',full:1,t:'ЗАСТАВА-6000',f:'Аппаратно-программный комплекс в реестре российской радиоэлектронной продукции Минпромторга.',c:'#1D3657'},
     {img:'https://static.tildacdn.com/tild6665-3565-4435-b837-666665353664/Group_47288.png',alt:'Знак технологии БДМ',t:'Базовый доверенный модуль',f:'Доверенная среда на устройствах Intel x64 без аппаратных модулей: многофакторная аутентификация, контроль целостности, шифрование всех данных.',c:'#0A7C80'},
-    {img:'https://static.tildacdn.com/tild6465-3364-4666-a237-363162353236/97922.jpg',alt:'Защищённое рабочее место',t:'МЗ АРМ «БДМ»',f:'Мобильное защищённое автоматизированное рабочее место. Сертификаты ФСБ России получены в июле 2026 года.',c:'#2E5584'}
+    {img:'https://static.tildacdn.com/tild6465-3364-4666-a237-363162353236/97922.jpg',alt:'Защищённое рабочее место',full:1,t:'МЗ АРМ «БДМ»',f:'Мобильное защищённое автоматизированное рабочее место. Сертификаты ФСБ России получены в июле 2026 года.',c:'#2E5584'}
   ];
   var btns=document.querySelectorAll('.show-list button'),img=document.getElementById('stImg'),fact=document.getElementById('stFact'),shape=document.getElementById('stShape');
   function pick(i){var it=items[i];btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.i==i)});img.style.opacity=0;
-    setTimeout(function(){img.src=it.img;img.alt=it.alt;img.style.opacity=1},reduce?0:220);
+    setTimeout(function(){img.src=it.img;img.alt=it.alt;img.parentNode.classList.toggle('full',!!it.full);img.style.opacity=1},reduce?0:220);
     fact.innerHTML='<b>'+it.t+'</b>'+it.f;shape.style.backgroundColor=it.c}
   btns.forEach(function(b){b.addEventListener('click',function(){pick(+b.dataset.i)});b.addEventListener('mouseenter',function(){if(matchMedia('(hover:hover)').matches)pick(+b.dataset.i)})});
 
