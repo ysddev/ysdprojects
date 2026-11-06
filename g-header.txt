@@ -15,6 +15,18 @@
 #arx .mark{font:400 clamp(1.125rem,.9rem + .9vw,1.625rem)/1 var(--serif);letter-spacing:.42em;margin-right:-.42em;white-space:nowrap;transition:color .45s var(--ease)}
 /* header: white + difference blend = colour inverts against whatever is under it (как у ugulwan) */
 #allrecords{background-color:#fff}
+/* убрать плавающую корзину и кнопку WhatsApp: корзина в шапке */
+.t706__carticon{display:none!important}
+.t825{display:none!important}
+/* иконки соцсетей в стиле корзины, без кружков */
+.t-sociallinks__item a svg{display:none!important}
+.t-sociallinks__item a{display:inline-block!important;width:44px;height:44px;background:center/28px no-repeat}
+.t-sociallinks__item_instagram a{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141413' stroke-width='1.6'%3E%3Crect x='3.5' y='3.5' width='17' height='17' rx='4.5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Ccircle cx='17.2' cy='6.8' r='.6' fill='%23141413' stroke='none'/%3E%3C/svg%3E")}
+.t-sociallinks__item_whatsapp a{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141413' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M4.2 19.8l1.1-3.9A8.4 8.4 0 1 1 8.4 19z'/%3E%3Cpath d='M9.2 8.6c.2-.4.6-.4.8 0l.7 1.5c.1.3 0 .6-.2.8l-.5.5c.6 1.2 1.6 2.2 2.8 2.8l.5-.5c.2-.2.5-.3.8-.2l1.5.7c.4.2.4.6 0 .8-.8.8-2 1-3 .5-2-1-3.6-2.6-4.6-4.6-.5-1-.3-2.2.5-3z' stroke-width='1.2'/%3E%3C/svg%3E")}
+@media (hover:hover) and (pointer:fine){.t-sociallinks__item a:hover{opacity:.55}}
+#arx .cart{position:relative}
+#arx .cnt{position:absolute;top:7px;right:3px;font:600 10px/1 var(--sans)}
+
 #arx .bar{mix-blend-mode:difference;color:#fff}
 #arx .bar .mark{font-weight:500;-webkit-text-stroke:.35px currentColor}
 #arx .bar [data-adapt]{color:#fff}
@@ -51,7 +63,7 @@ body.arx-locked{overflow:hidden}
 <header class="bar" id="arxBar">
   <button class="icon burger" data-adapt aria-label="Открыть меню" aria-expanded="false" id="arxOpen"><svg viewBox="0 0 24 24"><path d="M3 8.5h18M3 15.5h18"/></svg></button>
   <a class="mark" href="/" data-adapt aria-label="ANNA RUSSKI, на главную">ANNA RUSSKI</a>
-  <a class="icon cart" href="#order" data-adapt aria-label="Корзина"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></a>
+  <a class="icon cart" href="#order" data-adapt aria-label="Корзина"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="cnt" id="arxCnt"></span></a>
 </header>
 <div class="menu" id="arxMenu" role="dialog" aria-modal="true" aria-label="Меню">
   <div class="menu-bg"><img src="https://static.tildacdn.com/tila6537-6166-4765-b932-623337303334/anna-hero-2.jpg" alt="" loading="lazy"></div>
@@ -83,6 +95,8 @@ body.arx-locked{overflow:hidden}
   document.getElementById('arxClose').addEventListener('click',hide);
   document.getElementById('arxSvc').addEventListener('click',function(){menu.classList.add('svc')});
   document.getElementById('arxBack').addEventListener('click',function(){menu.classList.remove('svc')});
+  /* счётчик корзины Tilda в шапке */
+  setInterval(function(){var c=document.querySelector('.js-carticon-counter'),n=c?parseInt(c.textContent,10)||0:0,el=document.getElementById('arxCnt');if(el)el.textContent=n>0?n:'';},800);
   addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
 })();
 </script>
