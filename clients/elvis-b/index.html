@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Элвис-Плюс — защищаем сети с 1991 года</title>
+<meta name="description" content="АО «Элвис-Плюс»: VPN-шлюзы и межсетевые экраны ЗАСТАВА, Базовый доверенный модуль, услуги информационной безопасности. Продукты сертифицированы ФСТЭК и ФСБ России.">
+<meta property="og:title" content="Элвис-Плюс — защищаем сети с 1991 года">
+<meta property="og:description" content="Российские средства защиты информации: ЗАСТАВА, БДМ, услуги ИБ под ключ.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero-night.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23132440'/%3E%3Ccircle cx='16' cy='13' r='4' fill='%2300B3B3'/%3E%3Crect x='13' y='17' width='6' height='10' fill='%2300B3B3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-night.jpg" media="(min-width:761px)">
+<style>
+/* The printed annual: one axis at 42%, solid colour pages, the lighthouse as masthead */
+:root{
+  --navy:#132440; --navy-2:#1A2F52; --navy-3:#24406A; --deep:#0B1628;
+  --teal:#00B3B3; --teal-ink:#006E72; --teal-soft:#7FD9D9;
+  --paper:#F4F6F8; --paper-2:#E7ECF1; --ink:#132440; --muted:#43546F; --pale:#DCE6F0; --pale-2:#AFC0D6;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step-small:clamp(.875rem,.85rem + .1vw,.9375rem);
+  --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --step-head:clamp(2.25rem,1.3rem + 3.4vw,4.5rem);
+  --m:clamp(16px,2.6vw,40px);
+  --axis:42%;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--step-body)/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:.98;text-wrap:balance}
+p{margin:0}
+.wrap{padding-inline:var(--m);max-width:1600px;margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.skip{position:absolute;left:var(--m);top:-60px;background:var(--teal);color:var(--navy);padding:10px 16px;z-index:50}.skip:focus{top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:0;cursor:pointer;font:500 1rem/1 var(--sans);text-decoration:none;transition:transform .16s var(--ease),background-color .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.b-teal{background:var(--teal);color:var(--navy)}.b-navy{background:var(--navy);color:#fff}.b-paper{background:#fff;color:var(--navy)}
+@media (hover:hover) and (pointer:fine){.b-teal:hover{background:#2BCACA}.b-navy:hover{background:var(--navy-3)}.b-paper:hover{background:var(--pale)}}
+.axis{padding-left:var(--axis)}
+@media (max-width:860px){.axis{padding-left:0}}
+.sec{padding-block:clamp(96px,10vw,176px)}
+.h2{font-size:var(--step-head)}
+em{font-style:italic}
+
+/* Nav */
+.nav{position:absolute;inset:0 0 auto;z-index:10;color:#fff}
+.nav .wrap{display:flex;align-items:center;gap:28px;min-height:88px}
+.nav .logo img{height:32px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-size:var(--step-small);padding:12px 0;transition:color .2s}
+@media (hover:hover) and (pointer:fine){.nav ul a:hover{color:var(--teal-soft)}}
+.nav .btn{min-height:46px;padding:0 20px;font-size:.9375rem}
+@media (max-width:1060px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:420px){.nav .logo img{height:26px}.nav .btn{padding:0 14px}}
+
+/* Hero — the light keeps turning */
+.hero{position:relative;height:100svh;min-height:680px;max-height:1100px;color:#fff;overflow:hidden;background:var(--deep)}
+.slides{position:absolute;inset:0}
+.slides picture,.slides img{position:absolute;inset:0;width:100%;height:100%}
+.slides img{object-fit:cover}
+.slides picture{opacity:0;transition:opacity 1.6s ease}
+.slides picture.on{opacity:1}
+.slides .s1 img{object-position:72% 50%}.slides .s2 img{object-position:70% 50%}.slides .s3 img{object-position:62% 50%}
+.scrim{position:absolute;inset:0 auto 0 0;width:62%;background:linear-gradient(90deg,rgba(8,16,30,.78) 0%,rgba(8,16,30,.55) 55%,rgba(8,16,30,0) 100%)} /* taste-skill-ignore: neutral scrim under text on a photo */
+.hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(3rem,1.6rem + 4.6vw,6rem);line-height:.96;letter-spacing:-.025em;max-width:14ch}
+.hero .lead{margin-top:28px;font-size:var(--step-lead);line-height:1.4;max-width:34ch}
+.pin{position:absolute;z-index:2;right:21%;top:34%;display:flex;align-items:center;gap:12px;font-size:1rem;max-width:22ch;line-height:1.35;transition:opacity .8s}
+.pin::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--teal)}
+.cards{position:absolute;z-index:3;right:var(--m);bottom:var(--m);display:flex;gap:16px}
+.card{width:clamp(180px,15vw,240px);text-decoration:none;color:var(--navy);display:block}
+.card img{width:100%;aspect-ratio:3/2;object-fit:cover;background:#fff}
+.card span{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--paper);min-height:44px;padding:8px 12px;font-size:.9375rem;font-weight:500;line-height:1.25}
+.card span::after{content:"\2192";transition:transform .2s var(--ease)}
+@media (hover:hover) and (pointer:fine){.card:hover span::after{transform:translateX(4px)}}
+@media (max-width:760px){
+  .hero{height:auto;min-height:780px;max-height:none}
+  .hero-in{justify-content:flex-start;padding-top:38svh}
+  .hero h1{font-size:12.5vw}
+  .hero .lead{font-size:1.0625rem;max-width:30ch}
+  .scrim{width:100%;background:linear-gradient(0deg,rgba(8,16,30,.86) 0%,rgba(8,16,30,.6) 60%,rgba(8,16,30,.2) 100%)} /* taste-skill-ignore: neutral scrim under text on a photo */
+  .pin{display:none}
+  .cards{left:16px;right:16px;bottom:16px;gap:10px}.card{flex:1;width:auto;min-width:0}
+  .card span{font-size:.875rem;padding:8px 10px}
+}
+
+/* Showcase — two regulators */
+.twin{background:var(--paper)}
+.twin-top{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--m);align-items:start}
+.twin-top h2{font-size:clamp(1.75rem,1.2rem + 1.6vw,2.5rem)}
+.twin-top p{max-width:52ch}
+.specimens{margin-top:12vh;display:grid;grid-template-columns:1fr 1fr;gap:var(--m);height:calc(min(10.5vw,12rem) * .62 + 34px);overflow:hidden}
+.spec small{display:block;font-size:1rem;color:var(--muted);margin-bottom:10px}
+.spec{min-width:0;overflow:hidden}
+.spec b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(4rem,10.5vw,12rem);line-height:.8;letter-spacing:-.03em}
+@media (max-width:760px){
+  .twin-top{grid-template-columns:1fr}
+  .specimens{grid-template-columns:1fr;height:auto;gap:0;margin-top:48px}
+  .spec{height:34svh;max-height:240px;overflow:hidden;padding:20px 16px 0}
+  .spec b{font-size:21vw}
+  .spec+.spec{background:var(--navy);color:#fff}.spec+.spec small{color:var(--pale-2)}
+}
+
+/* Products — rows hanging from the axis, margin photographs */
+.rows{background:var(--navy);color:var(--pale)}
+.rows .h2{color:#fff;padding-block:12vh 4vh}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--m);align-items:start;padding-left:var(--axis);margin-top:clamp(64px,7vw,112px)}
+.row h3{font-size:clamp(1.75rem,1.1rem + 1.9vw,3rem);color:#fff}
+.row p{margin-top:16px;max-width:36ch}
+.row .facts{margin-top:14px;color:var(--teal-soft);font-size:var(--step-small)}
+.row figure{margin:0;background:#fff}
+.row figure img{width:100%;height:100%;object-fit:cover}
+.r1 figure{width:300px;aspect-ratio:3/2}.r1 figure img{object-fit:contain;padding:10px}
+.r2 figure{width:240px;aspect-ratio:4/5}
+.r3 figure{width:180px;aspect-ratio:1}.r3 figure img{object-fit:contain;padding:18px}
+.r4 figure{width:260px;aspect-ratio:3/2}
+@media (max-width:860px){
+  .rows .h2{padding-block:48px 0}
+  .row{grid-template-columns:1fr;padding-left:0}
+  .r1 figure{width:100%}.r2 figure{width:70%;margin-left:auto}.r3 figure{width:55%}.r4 figure{width:100%}
+}
+
+/* Calculator — colour page */
+.calc{background:var(--teal);color:var(--navy)}
+.calc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
+.calc h2{max-width:none}
+.calc .intro{margin-top:24px;max-width:40ch}
+.fields{margin-top:40px;display:grid;gap:28px}
+.field label{display:flex;justify-content:space-between;gap:12px;font-weight:500}
+.field output{font:400 var(--step-lead)/1 var(--serif);font-variant-numeric:tabular-nums}
+.field input[type=range]{width:100%;margin-top:10px;accent-color:var(--navy);height:28px}
+.toggle{display:flex;gap:12px;align-items:center;cursor:pointer;font-weight:500}
+.toggle input{width:24px;height:24px;accent-color:var(--navy)}
+.panel{background:var(--navy);color:#fff}
+.panel svg{width:100%;height:auto;display:block;aspect-ratio:16/10}
+.kit{margin:0;padding:24px 28px 28px;display:grid;grid-template-columns:1fr auto;gap:10px 24px;align-items:baseline;font-variant-numeric:tabular-nums}
+.kit dd{margin:0;text-align:right}
+.kit .sum{font:400 var(--step-lead)/1.2 var(--serif);color:var(--teal-soft);padding-top:12px}
+.kit .note{grid-column:1/-1;font-size:var(--step-small);color:var(--pale-2)}
+.lead-mini{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;padding:0 28px 28px}
+.lead-mini input{font:inherit;font-size:1rem;background:var(--navy-3);color:#fff;border:0;min-height:52px;padding:0 14px;min-width:0}
+.lead-mini input::placeholder{color:var(--pale-2)}
+.lead-mini .ok{grid-column:1/-1;color:var(--teal-soft);min-height:1.4em}
+@media (max-width:900px){.calc-grid{grid-template-columns:1fr}.lead-mini{grid-template-columns:1fr}}
+
+/* How it works — many into one */
+.flow-head{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--m)}
+.flow-head p{max-width:44ch;align-self:end}
+.flow svg{width:100%;height:auto;display:block;margin-top:56px}
+.flow svg rect{transition:x 1.4s var(--ease),y 1.4s var(--ease)}
+.flow-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--m);margin-top:28px}
+.flow-cols h3{font:500 1.25rem/1.3 var(--sans);letter-spacing:-.01em}
+.flow-cols p{margin-top:8px;color:var(--muted);font-size:1rem;max-width:34ch}
+@media (max-width:760px){.flow-head,.flow-cols{grid-template-columns:1fr}.flow-cols{gap:24px}}
+
+/* Mosaic — colour page */
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(180px,22vw,340px)}
+.mosaic>*{overflow:hidden;margin:0;min-width:0}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+@media (hover:hover) and (pointer:fine){.mosaic figure:hover img{transform:scale(1.04)}}
+.mosaic .tall{grid-row:span 2}
+.mosaic .num{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2vw,32px)}
+.mosaic .num b{font:400 clamp(3rem,1.4rem + 4.4vw,6.5rem)/.9 var(--serif);letter-spacing:-.03em}
+.mosaic .num span{margin-top:10px;font-size:var(--step-small);max-width:22ch;line-height:1.35}
+.n1{background:var(--teal);color:var(--navy)}.n2{background:var(--navy);color:#fff}.n3{background:var(--paper-2);color:var(--navy)}
+@media (max-width:760px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:46vw}.mosaic .tall{grid-row:span 2}}
+
+/* Services — text page on the axis */
+.svc .h2{padding-left:var(--axis)}
+.svc .sub{padding-left:var(--axis);margin-top:22px;max-width:calc(var(--axis) + 46ch)}
+.svc-body{display:grid;grid-template-columns:calc(var(--axis) - var(--m)) minmax(0,1fr);gap:var(--m);margin-top:64px;align-items:start}
+.svc ul{list-style:none;margin:0;padding:0;columns:2;column-gap:clamp(28px,4vw,64px)}
+.svc li{break-inside:avoid;margin-bottom:30px}
+.svc li h3{font:500 1.125rem/1.3 var(--sans);letter-spacing:-.005em}
+.svc li p{margin-top:6px;color:var(--muted);font-size:1rem;max-width:38ch}
+.svc .side{margin:0;padding-right:clamp(0px,4vw,64px)}
+.svc .side img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.svc .side figcaption{margin-top:10px;font-size:var(--step-small);color:var(--muted)}
+@media (max-width:860px){.svc .h2,.svc .sub{padding-left:0}.svc-body{grid-template-columns:1fr}.svc ul{columns:1}.svc .side{width:80%;padding:0}}
+
+/* Partners — plain names in columns */
+.names{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:var(--m);align-items:start}
+.names h2{font-size:clamp(1.75rem,1.2rem + 1.6vw,2.5rem)}
+.names .cols{columns:4;column-gap:32px;font-size:clamp(1.0625rem,.95rem + .35vw,1.3125rem);line-height:1.5}
+.names .cols p{break-inside:avoid}
+.names .kind{color:var(--muted);margin-top:32px}
+.names .kind:first-child{margin-top:0}
+@media (max-width:980px){.names{grid-template-columns:1fr}.names .cols{columns:2}}
+
+/* Documents — statement, table pushed right */
+.docs{background:#fff}
+.docs .h2{text-indent:3vw;line-height:.98;max-width:18ch}
+.docs-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--m);margin-top:96px;align-items:end}
+.docs figure{grid-column:1/5;margin:0}
+.docs figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:var(--paper)}
+.docs figure figcaption{margin-top:10px;font-size:var(--step-small);color:var(--muted)}
+.docs .word{grid-column:7;align-self:start;font-size:.875rem;color:var(--muted)}
+.docs table{grid-column:8/13;width:100%;border-collapse:collapse;font-size:1rem;align-self:start}
+.docs td{padding:13px 0;vertical-align:top}
+.docs tr.g td{padding-top:30px}
+.docs td:first-child{color:var(--muted);width:6.5em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.docs td:last-child{text-align:right;white-space:nowrap;padding-left:16px}
+.docs td a{color:var(--teal-ink);font-weight:500;text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+@media (hover:hover) and (pointer:fine){.docs td a:hover{text-decoration:underline}}
+@media (max-width:900px){
+  .docs .h2{text-indent:0}
+  .docs-grid{grid-template-columns:1fr;margin-top:48px}
+  .docs figure,.docs table{grid-column:1}.docs .word{display:none}
+  .docs figure{order:2;width:60%;margin-left:auto}
+}
+
+/* Partner cabinet — colour page with interface fragment */
+.cab{background:var(--navy-2);color:#fff}
+.cab-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:center}
+.cab ul{list-style:none;padding:0;margin:28px 0 36px;display:grid;gap:12px;color:var(--pale)}
+.cab ul li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:12px;vertical-align:.15em}
+.cab .acts{display:flex;flex-wrap:wrap;gap:10px}
+.ui{background:#fff;color:var(--ink);font:400 .9375rem/1.45 var(--sans)}
+.ui .bar{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--deep);color:#fff;font-weight:500}
+.ui .bar span{margin-left:auto;font-weight:400;font-size:.875rem;color:var(--pale-2)}
+.ui .body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.ui form{padding:20px;display:grid;gap:12px;border-right:1px solid #D6DFE8;align-content:start} /* taste-skill-ignore: data-ui */
+.ui label{display:grid;gap:4px;font-size:.8125rem;font-weight:500;color:var(--muted)}
+.ui input{font:inherit;color:var(--ink);padding:10px 12px;border:1px solid #C8D4E0;background:#F7FAFC;min-height:42px} /* taste-skill-ignore: data-ui */
+.ui input:focus{outline:2px solid var(--teal);outline-offset:0}
+.ui .err{font-size:.8125rem;color:#A3261B;min-height:1.2em}
+.ui table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ui th{text-align:left;font-size:.8125rem;font-weight:500;color:var(--muted);padding:12px 14px;border-bottom:1px solid #D6DFE8} /* taste-skill-ignore: data-ui */
+.ui td{padding:12px 14px;border-bottom:1px solid #E6ECF2;vertical-align:top} /* taste-skill-ignore: data-ui */
+.ui td small{display:block;color:var(--muted);font-size:.8125rem}
+.pill{display:inline-block;padding:3px 8px;font-size:.8125rem;font-weight:500;white-space:nowrap}
+.p-ok{background:#DDF3EC;color:#0F5E46}.p-wait{background:#FFF1D6;color:#7A4B00}.p-no,.p-warn{background:#FBE3E0;color:#8E2418}
+.ui tr.new td{animation:rowIn .5s var(--ease)}
+@keyframes rowIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (max-width:1180px){.cab-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.ui .body{grid-template-columns:1fr}.ui form{border-right:0}.ui th:nth-child(2),.ui td:nth-child(2){display:none}}
+
+/* Contact — sentence, photograph, two links */
+.contact{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--m);align-items:start}
+.contact .say{grid-column:1/6;font:400 clamp(1.5rem,1rem + 1.4vw,2.25rem)/1.15 var(--serif);letter-spacing:-.01em}
+.contact figure{grid-column:8/10;margin:0}
+.contact figure img{width:100%;aspect-ratio:1;object-fit:cover}
+.contact .ways{grid-column:10/13}
+.contact .ways h2{font:500 1.125rem/1.3 var(--sans);letter-spacing:0}
+.contact .ways a{display:block;margin-top:14px;font-size:1.125rem;font-weight:500;min-height:32px}
+.contact .ways p{margin-top:18px;font-size:.9375rem;color:var(--muted)}
+@media (max-width:900px){.contact{grid-template-columns:96px minmax(0,1fr);gap:20px}.contact .say{grid-column:1/-1;font-size:7vw}.contact figure{grid-column:1}.contact .ways{grid-column:2}}
+
+/* Footer — contact as the headline */
+footer{background:var(--teal);color:var(--navy);min-height:90svh;display:flex;flex-direction:column;padding-block:40px}
+footer>.wrap{width:100%}
+footer .top{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-start;font-size:.9375rem}
+footer .top img{height:26px;width:auto;background:var(--navy);padding:6px 10px;box-sizing:content-box}
+footer .top p{max-width:28ch;line-height:1.4}
+footer .top .up{margin-left:auto;font-weight:500;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer .big{margin-top:auto;display:block;font:400 min(12vw,14rem)/.95 var(--serif);letter-spacing:-.035em;text-decoration:none;white-space:nowrap}
+@media (hover:hover) and (pointer:fine){footer .big:hover{color:#fff}}
+footer .meta{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:.875rem}
+footer .meta a{min-height:32px;display:inline-flex;align-items:center}
+@media (max-width:760px){footer{min-height:70svh}footer .big{font-size:12vw}footer .meta{flex-direction:column}}
+
+/* Entrances */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">К основному содержанию</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Элвис-Плюс, на главную"><img src="https://static.tildacdn.com/tila3531-3465-4136-b563-356662383731/__2026-11-03_141554_.png" alt="Элвис-Плюс" width="112" height="32"></a>
+    <nav aria-label="Основная навигация"><ul>
+      <li><a href="#products">Продукты</a></li><li><a href="#calc">Подбор</a></li><li><a href="#services">Услуги</a></li><li><a href="#docs">Документы</a></li><li><a href="#partners">Партнёрам</a></li><li><a href="tel:+74952760211">+7 (495) 276-02-11</a></li>
+    </ul></nav>
+    <a class="btn b-teal" href="#calc">Рассчитать защиту</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="slides" aria-hidden="true">
+    <picture class="s1 on"><img src="img/hero-night.jpg" alt="" width="2400" height="1500" fetchpriority="high"></picture>
+    <picture class="s2"><source media="(max-width:760px)" srcset="img/hero-storm-m.jpg"><img src="img/hero-storm.jpg" alt="" width="2400" height="1500" loading="lazy"></picture>
+    <picture class="s3"><source media="(max-width:760px)" srcset="img/hero-beam-m.jpg"><img src="img/hero-beam.jpg" alt="" width="2400" height="1500" loading="lazy"></picture>
+  </div>
+  <div class="scrim"></div>
+  <div class="wrap hero-in">
+    <h1 id="hero-h">Защищаем сети с&nbsp;1991&nbsp;года</h1>
+    <p class="lead">«Элвис-Плюс» — российский разработчик VPN-шлюзов ЗАСТАВА и Базового доверенного модуля. 35 лет в море ИТ.</p>
+  </div>
+  <p class="pin">Продукты сертифицированы ФСТЭК и&nbsp;ФСБ России</p>
+  <div class="cards">
+    <a class="card" href="#products"><img src="https://static.tildacdn.com/tild6632-3739-4636-b138-613261623561/__.jpg" alt="Устройство ЗАСТАВА" width="1525" height="802"><span>Вышла ЗАСТАВА 9</span></a>
+    <a class="card" href="#partners"><img src="img/rack.jpg" alt="Стойка с сетевым оборудованием" width="1400" height="1050"><span>Кабинет партнёра</span></a>
+  </div>
+</section>
+
+<section class="sec twin" aria-labelledby="twin-h">
+  <div class="wrap">
+    <div class="twin-top rv">
+      <h2 id="twin-h">Два регулятора — одна защита</h2>
+      <p>Продукты «Элвис-Плюс» сертифицированы ФСТЭК и ФСБ России. Поэтому их применяют в государственных информационных системах и на объектах критической инфраструктуры.</p>
+    </div>
+    <div class="specimens">
+      <div class="spec rv"><small>Сертификаты ФСТЭК России</small><b>ФСТЭК</b></div>
+      <div class="spec rv"><small>Сертификаты ФСБ России</small><b>ФСБ</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="rows sec" id="products" aria-labelledby="prod-h">
+  <div class="wrap">
+    <h2 class="h2 axis rv" id="prod-h">Своё железо и&nbsp;свой код</h2>
+    <article class="row r1 rv"><div><h3>Семейство ЗАСТАВА</h3><p>VPN-шлюзы, межсетевые экраны и системы управления. Шифруют трафик и контролируют доступ для офисов, удалённых сотрудников и мобильных устройств.</p><p class="facts">Версии 6, 8 и 9 · Реестр российского ПО</p></div><figure><img src="https://static.tildacdn.com/tild3063-3239-4366-b365-373564643365/_.png" alt="Устройство ЗАСТАВА" width="1400" height="600" loading="lazy"></figure></article>
+    <article class="row r2 rv"><div><h3>ЗАСТАВА-6000</h3><p>Стоечный аппаратно-программный комплекс для центрального офиса и ЦОД. Вместе с ЗАСТАВА-1500 и ЗАСТАВА-10000 внесён в реестр российской радиоэлектроники.</p><p class="facts">Реестр РЭП Минпромторга, 2025</p></div><figure><img src="https://static.tildacdn.com/tild6163-6337-4336-b663-653932356465/_6000.jpg" alt="Стоечный комплекс ЗАСТАВА-6000" width="1680" height="1119" loading="lazy" style="object-position:30% 50%"></figure></article>
+    <article class="row r3 rv"><div><h3>Базовый доверенный модуль</h3><p>Доверенная среда на устройствах Intel x64 без аппаратных модулей безопасности: многофакторная аутентификация, контроль целостности, шифрование всех данных.</p><p class="facts">Сертификаты ФСБ России, июль 2026</p></div><figure><img src="https://static.tildacdn.com/tild6438-6530-4662-b737-376465666462/zastava_2.png" alt="Знак технологии БДМ" width="400" height="400" loading="lazy"></figure></article>
+    <article class="row r4 rv"><div><h3>МЗ АРМ «БДМ» и&nbsp;СКЗИ «БДМ-АРМ-ФК»</h3><p>Мобильное защищённое рабочее место и рабочее место формирования ключей на технологии БДМ.</p></div><figure><img src="https://static.tildacdn.com/tild6465-3364-4666-a237-363162353236/97922.jpg" alt="Защищённое рабочее место" width="1200" height="800" loading="lazy"></figure></article>
+  </div>
+</section>
+
+<section class="calc sec" id="calc" aria-labelledby="calc-h">
+  <div class="wrap calc-grid">
+    <div class="rv">
+      <h2 class="h2" id="calc-h">Расчёт защиты сети</h2>
+      <p class="intro">Укажите офисы и удалённых сотрудников. Схема и состав комплекта пересчитываются сразу.</p>
+      <form class="fields" onsubmit="return false">
+        <div class="field"><label for="offices">Офисы и филиалы <output id="oOut" for="offices">5</output></label><input type="range" id="offices" min="1" max="40" value="5"></div>
+        <div class="field"><label for="remote">Удалённые сотрудники <output id="rOut" for="remote">60</output></label><input type="range" id="remote" min="0" max="1000" step="10" value="60"></div>
+        <label class="toggle"><input type="checkbox" id="central" checked> Централизованное управление</label>
+      </form>
+    </div>
+    <div class="panel rv">
+      <svg id="net" viewBox="0 0 640 400" role="img" aria-label="Схема защищённой сети"></svg>
+      <dl class="kit" id="kit"></dl>
+      <form class="lead-mini" id="calcLead">
+        <label class="sr" for="cl-name">Имя</label><input id="cl-name" placeholder="Имя" required autocomplete="name">
+        <label class="sr" for="cl-tel">Телефон</label><input id="cl-tel" placeholder="Телефон" required type="tel" autocomplete="tel">
+        <button class="btn b-teal" type="submit">Получить точный расчёт</button>
+        <p class="ok" role="status" id="clOk"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec flow" id="how" aria-labelledby="flow-h">
+  <div class="wrap">
+    <div class="flow-head rv">
+      <h2 class="h2" id="flow-h">Как работает ЗАСТАВА</h2>
+      <p class="muted">Трафик из всех офисов и от каждого сотрудника идёт через один шифрованный туннель и попадает в сеть только после проверки.</p>
+    </div>
+    <svg id="flowSvg" viewBox="0 0 1200 270" role="img" aria-label="Разрозненные потоки данных сходятся в туннель и выходят упорядоченными"></svg>
+    <div class="flow-cols">
+      <div class="rv"><h3>Офисы и сотрудники</h3><p>Филиалы, удалённые рабочие места и мобильные устройства подключаются откуда угодно.</p></div>
+      <div class="rv"><h3>Шифрованный туннель</h3><p>ЗАСТАВА шифрует каналы связи и пропускает только разрешённые соединения.</p></div>
+      <div class="rv"><h3>Ваша сеть под контролем</h3><p>Доступы, политики и журналы собраны в одном центре управления.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mosaic" aria-label="Элвис-Плюс в цифрах">
+  <figure class="tall"><img src="img/city.jpg" alt="Деловой центр Москвы ночью" width="1400" height="1750" loading="lazy"></figure>
+  <div class="num n1 rv"><b>35 лет</b><span>в информационной безопасности</span></div>
+  <figure><img src="img/cables.jpg" alt="Пучок сетевых кабелей в серверной" width="1400" height="1050" loading="lazy"></figure>
+  <figure class="tall"><img src="img/hall.jpg" alt="Коридор центра обработки данных" width="1400" height="1050" loading="lazy"></figure>
+  <figure><img src="img/fiber.jpg" alt="Оптоволокно со светящимися торцами" width="1400" height="1050" loading="lazy"></figure>
+  <div class="num n2 rv"><b>100+</b><span>проектов для госсектора и бизнеса</span></div>
+  <figure><img src="img/lights.jpg" alt="Световоды крупным планом" width="1400" height="1050" loading="lazy"></figure>
+  <div class="num n3 rv"><b>10+</b><span>сертифицированных специалистов</span></div>
+  <figure><img src="img/rack.jpg" alt="Коммутаторы с патч-кордами в стойке" width="1400" height="1050" loading="lazy"></figure>
+  <figure><img src="https://static.tildacdn.com/tild6632-3739-4636-b138-613261623561/__.jpg" alt="Устройство ЗАСТАВА" width="1525" height="802" loading="lazy"></figure>
+</section>
+
+<section class="sec svc" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <h2 class="h2 rv" id="svc-h">Защита под ключ</h2>
+    <p class="sub muted rv">От анализа рисков до внедрения и поддержки: обследуем, проектируем, ставим и сопровождаем без вашего штата ИБ.</p>
+    <div class="svc-body">
+    <figure class="side rv"><img src="https://static.tildacdn.com/tild6264-6136-4234-b136-396331303235/106918.jpg" alt="Центр мониторинга с рабочими станциями" width="1500" height="844" loading="lazy"><figcaption>Центр мониторинга</figcaption></figure>
+    <ul>
+      <li class="rv"><h3>Защита ГИС</h3><p>Приводим государственные системы в соответствие требованиям законодательства.</p></li>
+      <li class="rv"><h3>Защита АСУ ТП</h3><p>Комплексная защита систем управления технологическими процессами.</p></li>
+      <li class="rv"><h3>Сетевая безопасность</h3><p>Межсетевое экранирование и защищённые каналы между офисами.</p></li>
+      <li class="rv"><h3>Управление доступом</h3><p>Контроль учётных записей и автоматизация доступа к системам.</p></li>
+      <li class="rv"><h3>Защита от вредоносного ПО</h3><p>Многоуровневая защита рабочих станций, серверов и сети.</p></li>
+      <li class="rv"><h3>Защита приложений</h3><p>Критичная информация в ключевых бизнес-приложениях под защитой.</p></li>
+      <li class="rv"><h3>Облака и виртуализация</h3><p>Инфраструктура в облаке без новых рисков.</p></li>
+      <li class="rv"><h3>Аудит ИБ</h3><p>Оценка защищённости и поиск уязвимостей.</p></li>
+      <li class="rv"><h3>Соответствие требованиям</h3><p>Экспертиза систем на соответствие нормативам и лучшим практикам.</p></li>
+      <li class="rv"><h3>Управление ИБ</h3><p>Процессы и политики безопасности, понятные руководству.</p></li>
+      <li class="rv"><h3>Поддержка и аутсорсинг</h3><p>Сопровождение и обновление систем без штатных специалистов.</p></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec docs" id="docs" aria-labelledby="docs-h">
+  <div class="wrap">
+    <h2 class="h2 rv" id="docs-h">Сертификаты и документы для закупки</h2>
+    <div class="docs-grid">
+      <figure class="rv"><img src="https://static.tildacdn.com/tild6565-6230-4435-b334-386138306131/2025-10-01_15-57-25.jpg" alt="Сертификат соответствия ФСБ России" width="800" height="891" loading="lazy"><figcaption>Сертификат соответствия ФСБ России</figcaption></figure>
+      <p class="word">Документы</p>
+      <table class="rv"><caption class="sr">Документы для скачивания</caption><tbody>
+        <tr><td>08.09.2026</td><td>СМК по ГОСТ Р ИСО 9001</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>24.08.2026</td><td>Сертификаты ФСБ на ЗАСТАВА 6</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>27.07.2026</td><td>Сертификаты ФСБ на БДМ</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>12.05.2026</td><td>Сертификаты ФСБ на ЗАСТАВА 8</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr class="g"><td>13.02.2026</td><td>Совместимость ЗАСТАВА 9 и РЕД АДМ</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>05.02.2026</td><td>ЗАСТАВА 8 в Реестре российского ПО</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>03.03.2025</td><td>ЗАСТАВА-1500, 6000, 10000 в реестре РЭП</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr><td>20.02.2025</td><td>ЗАСТАВА-Клиент и РЕД ОС</td><td><a href="#docs">PDF ↓</a></td></tr>
+        <tr class="g"><td>24.01.2025</td><td>Gold Partner «Лаборатории Касперского»</td><td><a href="#docs">PDF ↓</a></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="names-h">
+  <div class="wrap names">
+    <h2 id="names-h" class="rv">С нами работают</h2>
+    <div class="cols rv">
+      <p class="kind">Технологические партнёры</p><p>Лаборатория Касперского</p><p>Dr.Web</p><p>Код безопасности</p><p>Гарда</p><p>Конфидент</p><p>Базальт СПО</p><p>Айтибастион</p>
+      <p>Аладдин</p><p>Staffcop</p><p>Ideco</p><p>Компания «Актив»</p><p>АЛТЭКС-СОФТ</p><p>Avanpost</p><p>Киберпротект</p><p>Aquarius</p><p>Газинформсервис</p>
+      <p class="kind">Соглашения</p><p>IT Expertise</p><p>PROWAY</p><p>РЕД СОФТ</p>
+      <p class="kind">Реестры</p><p>Реестр российского ПО</p><p>Реестр РЭП Минпромторга</p>
+    </div>
+  </div>
+</section>
+
+<section class="cab sec" id="partners" aria-labelledby="cab-h">
+  <div class="wrap cab-grid">
+    <div class="rv">
+      <h2 class="h2" id="cab-h">Кабинет партнёра</h2>
+      <ul><li>Прайсы и документы, открытые именно вам</li><li>Заявка на защиту сделки за минуту</li><li>Статус и уведомление на почту</li></ul>
+      <div class="acts"><a class="btn b-teal" href="#partners">Войти в кабинет</a><a class="btn b-paper" href="#contact">Стать партнёром</a></div>
+    </div>
+    <div class="ui rv" data-ui>
+      <div class="bar">Защита сделок<span>ООО «Партнёр-пример»</span></div>
+      <div class="body">
+        <form id="dealForm" novalidate>
+          <b>Новая заявка</b>
+          <label>Компания клиента<input name="company" placeholder="ООО «Клиент»"></label>
+          <label>ИНН клиента<input name="inn" inputmode="numeric" placeholder="10 или 12 цифр" aria-describedby="innErr"></label>
+          <label>Сумма сделки, ₽<input name="sum" inputmode="numeric" placeholder="1 500 000"></label>
+          <p class="err" id="innErr" aria-live="polite"></p>
+          <button class="btn b-teal" type="submit">Подать заявку</button>
+        </form>
+        <table><thead><tr><th>Клиент</th><th>Сумма</th><th>Статус</th></tr></thead>
+          <tbody id="deals">
+            <tr><td>ООО «Север-Телеком»<small>ИНН 7701000001</small></td><td>2 400 000 ₽</td><td><span class="pill p-ok">Защищена до 31.03</span></td></tr>
+            <tr><td>АО «Энергосеть»<small>ИНН 5401000002</small></td><td>860 000 ₽</td><td><span class="pill p-wait">На рассмотрении</span></td></tr>
+            <tr><td>ГБУ «Цифровой центр»<small>ИНН 1655000003</small></td><td>1 150 000 ₽</td><td><span class="pill p-no">Отклонена</span></td></tr>
+          </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" aria-label="Контакты">
+  <div class="wrap contact">
+    <p class="say rv">Расскажите о задаче: аттестация ГИС, защита каналов между офисами или замена иностранного решения — подберём и внедрим.</p>
+    <figure class="rv"><img src="https://static.tildacdn.com/tild6232-3932-4736-b130-393533326233/__.jpg" alt="Подписание партнёрского соглашения" width="1680" height="1120" loading="lazy"></figure>
+    <div class="ways rv">
+      <h2>Как с нами связаться?</h2>
+      <a href="mailto:info@elvis.ru">info@elvis.ru</a>
+      <a href="tel:+74952760211">+7 (495) 276-02-11</a>
+      <p>Москва, Зеленоград. Отвечаем в рабочее время, пн–пт с 9:00 до 18:00.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap top">
+    <img src="https://static.tildacdn.com/tila3531-3465-4136-b563-356662383731/__2026-11-03_141554_.png" alt="Элвис-Плюс" width="91" height="26">
+    <p>Солнечная аллея, д. 6, помещение VI, офис 7, Зеленоград, Москва</p>
+    <p>Пн–пт с 9:00 до 18:00</p>
+    <a class="up" href="#top">Наверх ↑</a>
+  </div>
+  <div class="wrap" style="margin-top:auto">
+    <a class="big" href="tel:+74952760211">+7 495 276-02-11</a>
+    <div class="meta"><span><a href="#">Политика конфиденциальности</a> · <a href="#">Пользовательское соглашение</a></span><span>Фото: Unsplash, сайт elvis.ru</span><span>© АО «ЭЛВИС-ПЛЮС», 1991–2026</span></div>
+  </div>
+</footer>
+
+<script>
+document.body.classList.remove('no-js');
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('section').forEach(function(s){s.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,5)*70)+'ms';io.observe(el)})});
+
+  // Hero: the light keeps turning
+  var sl=document.querySelectorAll('.slides picture'),k=0,timer;
+  function next(){sl[k].classList.remove('on');k=(k+1)%sl.length;sl[k].classList.add('on')}
+  function start(){if(!reduce&&!timer)timer=setInterval(next,5600)}
+  function stop(){clearInterval(timer);timer=null}
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});start();
+
+  // Calculator
+  var P={office:120000,client:6000,mgmt:250000}; // условные цены — заменить на прайс
+  var o=document.getElementById('offices'),r=document.getElementById('remote'),c=document.getElementById('central'),svg=document.getElementById('net'),kit=document.getElementById('kit');
+  var fmt=function(n){return n.toLocaleString('ru-RU')},NS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var x in a)e.setAttribute(x,a[x]);return e}
+  function draw(){
+    var no=+o.value,nr=+r.value,cen=c.checked;document.getElementById('oOut').textContent=no;document.getElementById('rOut').textContent=fmt(nr);
+    svg.innerHTML='';var cx=320,cy=200,shown=Math.min(no,16);
+    for(var i=0;i<shown;i++){var a=-Math.PI/2+(i/shown)*Math.PI*2,x=cx+Math.cos(a)*230,y=cy+Math.sin(a)*150;
+      svg.appendChild(el('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:'#2E5584','stroke-width':2}));svg.appendChild(el('rect',{x:x-18,y:y-12,width:36,height:24,fill:'#2E5584'}));svg.appendChild(el('rect',{x:x-6,y:y-4,width:12,height:8,fill:'#00B3B3'}))}
+    if(no>shown){var t=el('text',{x:cx,y:26,fill:'#AFC0D6','text-anchor':'middle','font-size':15});t.textContent='и ещё '+(no-shown)+' офисов';svg.appendChild(t)}
+    var dots=Math.min(Math.ceil(nr/10),60);for(var j=0;j<dots;j++){var b=(j/dots)*Math.PI*2+.3,rr=66+(j%3)*12;svg.appendChild(el('circle',{cx:cx+Math.cos(b)*rr*1.3,cy:cy+Math.sin(b)*rr*.8,r:3.2,fill:'#7FD9D9'}))}
+    svg.appendChild(el('circle',{cx:cx,cy:cy,r:38,fill:cen?'#00B3B3':'#2E5584'}));
+    var lab=el('text',{x:cx,y:cy+62,fill:'#fff','text-anchor':'middle','font-size':15});lab.textContent=cen?'Центр управления':'Головной офис';svg.appendChild(lab);
+    var sum=no*P.office+nr*P.client+(cen?P.mgmt:0);
+    kit.innerHTML='<dt>ЗАСТАВА-Офис, шлюзы × '+no+'</dt><dd>'+fmt(no*P.office)+' ₽</dd><dt>ЗАСТАВА-Клиент, лицензии × '+fmt(nr)+'</dt><dd>'+fmt(nr*P.client)+' ₽</dd>'+(cen?'<dt>ЗАСТАВА-Управление</dt><dd>'+fmt(P.mgmt)+' ₽</dd>':'')+'<dt class="sum">Ориентировочно</dt><dd class="sum">'+fmt(sum)+' ₽</dd><p class="note">Цены условные, подставим ваш прайс. Точный расчёт делает инженер.</p>';
+  }
+  [o,r,c].forEach(function(x){x.addEventListener('input',draw)});draw();
+  var cl=document.getElementById('calcLead');cl.addEventListener('submit',function(e){e.preventDefault();if(!cl.checkValidity()){cl.reportValidity();return}document.getElementById('clOk').textContent='Заявка принята. Инженер перезвонит в рабочее время.';cl.querySelectorAll('input').forEach(function(i){i.value=''})});
+
+  // Flow: many into one
+  var fs=document.getElementById('flowSvg'),N=150,rects=[];
+  function rnd(s){var x=Math.sin(s*9301+49297)*233280;return x-Math.floor(x)}
+  for(var q=0;q<N;q++){var rc=el('rect',{width:11,height:11,fill:'#AFC0D6'});fs.appendChild(rc);rects.push(rc)}
+  function layout(ordered){rects.forEach(function(rc,q){var zone=q%3,x,y,f;
+    if(!ordered){x=20+rnd(q)*1160;y=20+rnd(q+500)*230;f=q%2?'#AFC0D6':'#DCE6F0'}
+    else if(zone===0){x=20+rnd(q)*340;y=20+rnd(q+500)*230;f=q%2?'#AFC0D6':'#DCE6F0'}
+    else if(zone===1){var p=Math.floor(q/3);x=420+(p%25)*14;y=114+Math.floor(p/25)*14;f='#132440'}
+    else{var p2=Math.floor(q/3);x=820+(p2%10)*36;y=30+Math.floor(p2/10)*44;f='#00B3B3'}
+    rc.setAttribute('x',x);rc.setAttribute('y',y);rc.setAttribute('fill',f)})}
+  layout(reduce);if(!reduce){new IntersectionObserver(function(es,ob){if(es[0].isIntersecting){setTimeout(function(){layout(true)},200);ob.disconnect()}},{threshold:.4}).observe(fs)}
+
+  // Partner deal protection demo
+  var df=document.getElementById('dealForm'),err=document.getElementById('innErr'),tb=document.getElementById('deals');
+  df.addEventListener('submit',function(e){e.preventDefault();
+    var co=df.querySelector('[name=company]').value.trim(),inn=df.querySelector('[name=inn]').value.replace(/\D/g,''),sm=df.querySelector('[name=sum]').value.replace(/\D/g,'');
+    if(!co){err.textContent='Укажите компанию клиента';return}
+    if(!(inn.length===10||inn.length===12)){err.textContent='ИНН: 10 или 12 цифр';return}
+    var dup=[].some.call(tb.querySelectorAll('small'),function(s){return s.textContent.indexOf(inn)>-1});err.textContent='';
+    var tr=document.createElement('tr');tr.className='new';tr.innerHTML='<td></td><td>'+(sm?fmt(+sm)+' ₽':'—')+'</td><td><span class="pill '+(dup?'p-warn':'p-wait')+'">'+(dup?'Пересечение по ИНН':'На рассмотрении')+'</span></td>';
+    tr.firstChild.textContent=co;var s=document.createElement('small');s.textContent='ИНН '+inn;tr.firstChild.appendChild(s);tb.insertBefore(tr,tb.firstChild);df.reset()});
+})();
+</script>
+</body>
+</html>

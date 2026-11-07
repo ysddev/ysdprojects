@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Отопление и водоснабжение частного дома в Раменском | Стройка Тепла</title>
+<meta name="description" content="Монтаж отопления, водоснабжения, канализации, тёплого пола и электрики в частных домах Раменского и окрестностей. Десантная ул., 1, Раменское. Калькулятор стоимости, смета до начала работ, ежедневно 8:00–20:00.">
+<meta property="og:title" content="Стройка Тепла — инженерные системы частного дома">
+<meta property="og:description" content="Отопление, вода, канализация, тёплый пол и электрика под ключ. Посчитайте стоимость за минуту.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XXL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 30 13v16H2V13z' fill='%23E5420E'/%3E%3Cpath d='M16 11c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1.4-3.4 2-4 0 1.4.7 2 1.4 2 0-3 .8-5 1.6-7z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://avatars.mds.yandex.net">
+<link rel="preload" as="image" href="https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XXL">
+<style>
+:root{
+  --bg:#F6F8FB; --surface:#FFFFFF; --ink:#101826; --muted:#3B475A;
+  --heat:#D6390A; --heat-d:#B02E06; --heat-f:#FFE6DA; --heat-f2:#FFF1EA;
+  --water:#1565E0; --water-f:#DCEAFF;
+  --sewer:#7A5A3A; --elec:#F2A900; --floor:#FF7A3D;
+  --night:#0B1F3A; --night-ink:#EEF3FA; --night-mut:#B9C6D8;
+  --e:cubic-bezier(.23,1,.32,1);
+  --pad:clamp(16px,4.4vw,64px);
+  --gable:polygon(50% 0,100% 30%,100% 100%,0 100%,0 30%);
+  --s-small:clamp(.875rem,.85rem + .1vw,.9375rem);
+  --s-body:clamp(1rem,.97rem + .2vw,1.125rem);
+  --s-lead:clamp(1.2rem,1.1rem + .6vw,1.5rem);
+  --s-head:clamp(2rem,1.3rem + 3vw,3.75rem);
+  --s-hero:clamp(2.6rem,1.4rem + 5.2vw,6rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+section,footer{scroll-margin-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 var(--s-body)/1.55 Onest,system-ui,sans-serif;letter-spacing:-.005em;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1}
+h2{font-size:var(--s-head)}
+h3{font-size:var(--s-lead);letter-spacing:-.02em;line-height:1.15}
+.wrap{padding-inline:var(--pad);max-width:1480px;margin-inline:auto}
+.sec{padding-block:clamp(72px,10vw,150px)}
+.lead{font-size:var(--s-lead);line-height:1.4}
+.note{font-size:var(--s-small);color:var(--muted)}
+:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+::selection{background:var(--heat);color:#fff}
+
+/* buttons: one shape — square corners, gable tip on the right is the motif */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 26px;border:0;cursor:pointer;font-weight:600;font-size:1rem;text-decoration:none;background:var(--heat);color:#fff;transition:transform .2s var(--e),background-color .2s var(--e)}
+.btn:active{transform:scale(.97)}
+.btn.dark{background:var(--ink)}
+.btn.light{background:#fff;color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--heat-d)}.btn.dark:hover{background:#26324a}.btn.light:hover{background:var(--heat-f)}}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(246,248,251,.97)}
+.bar{display:flex;align-items:center;gap:28px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+.logo svg{width:30px;height:30px}
+.logo small{display:block;font-weight:500;font-size:.8rem;color:var(--muted);letter-spacing:0}
+nav{display:flex;gap:24px;margin-left:auto}
+nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:12px 0}
+@media (hover:hover) and (pointer:fine){nav a:hover{color:var(--heat)}}
+.tel{font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:1060px){nav{display:none}.tel{margin-left:auto}}
+@media (max-width:560px){.bar .btn{display:none}.logo small{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(28px,4vw,56px) clamp(56px,7vw,96px)}
+.hero h1{font-size:var(--s-hero);line-height:.95;letter-spacing:-.045em}
+.hero h1 span{display:block}
+@media (min-width:901px){.hero h1{font-size:clamp(2.6rem,.6rem + 4.6vw,5.6rem)}.hero h1 span{white-space:nowrap}}
+.hero .lead{margin-top:32px;max-width:34ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero-pic{position:relative;min-width:0}
+.hero-pic .g{clip-path:var(--gable);background:var(--heat-f);aspect-ratio:1/1.02;overflow:hidden}
+.hero-pic img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.6s var(--e)}
+.hero-pic.in img{transform:scale(1)}
+.hero-pic figcaption{margin-top:10px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.fact{background:var(--surface);padding:22px 22px 24px}
+.fact b{display:block;font-size:1.12rem;letter-spacing:-.015em;margin-bottom:6px}
+.fact p{font-size:.98rem;color:var(--muted)}
+.fact:nth-child(1){background:var(--heat-f)}
+.fact:nth-child(2){background:var(--water-f)}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.hero-pic{max-width:520px}.facts{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}}
+
+.ya{display:inline-flex;align-items:center;gap:10px;margin-top:28px;text-decoration:none;font-weight:600;min-height:44px}
+.ya svg{width:20px;height:20px}
+.ya span{color:var(--muted);font-weight:500}
+@media (hover:hover) and (pointer:fine){.ya:hover span{color:var(--heat)}}
+
+/* calculator — the live thing */
+.calc{background:var(--surface)}
+.calc-head{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:48px}
+.calc-head p{max-width:46ch}
+.calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3vw,48px);align-items:start}
+.scheme{background:var(--bg);padding:clamp(12px,2vw,28px);position:sticky;top:88px}
+.scheme svg{width:100%;height:auto;display:block}
+.lyr{opacity:.08;transition:opacity .45s var(--e)}
+.lyr.on{opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:.92rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px;clip-path:var(--gable)}
+.ctl h3{margin-bottom:14px}
+.svc{display:grid;gap:8px}
+.svc label{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:12px;min-height:60px;padding:10px 16px;background:var(--bg);cursor:pointer;transition:background-color .2s var(--e),transform .2s var(--e)}
+.svc label:active{transform:scale(.99)}
+.svc input{position:absolute;opacity:0;pointer-events:none}
+.svc .box{width:28px;height:28px;background:#fff;display:grid;place-items:center;clip-path:var(--gable);transition:background-color .2s var(--e)}
+.svc .box svg{width:14px;height:14px;opacity:0;transition:opacity .2s var(--e);margin-top:4px}
+.svc input:checked + .box{background:var(--c)}
+.svc input:checked + .box svg{opacity:1}
+.svc input:focus-visible + .box{outline:3px solid var(--water);outline-offset:3px}
+.svc label:has(input:checked){background:var(--cf)}
+.svc .nm{font-weight:600}
+.svc .pr{font-size:.95rem;color:var(--muted);white-space:nowrap}
+.area{margin-top:28px}
+.area-row{display:flex;align-items:center;gap:16px}
+.area input[type=range]{flex:1;accent-color:var(--heat);height:44px}
+.area output{font-weight:700;font-size:1.4rem;min-width:5.5ch;text-align:right}
+.area .num{width:110px;height:48px;padding:0 12px;border:2px solid #CFD7E3;background:#fff}
+.total{margin-top:28px;background:var(--night);color:var(--night-ink);padding:26px 26px 28px}
+.total .sum{font-size:clamp(2.2rem,1.6rem + 2.4vw,3.4rem);font-weight:700;letter-spacing:-.04em;line-height:1;margin:6px 0 16px;font-variant-numeric:tabular-nums}
+.total ul{list-style:none;display:grid;gap:6px;font-size:.98rem;color:var(--night-mut);margin-bottom:20px}
+.total li{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.total li b{color:var(--night-ink);font-weight:500}
+.total .note{color:var(--night-mut);margin-top:14px}
+@media (max-width:900px){.calc-head,.calc-grid{grid-template-columns:1fr}.scheme{position:static}}
+
+/* directions — specimens on colour tiles */
+.dir{display:grid;grid-template-columns:3fr 9fr;gap:clamp(24px,3vw,48px)}
+.dir-intro p{margin-top:20px;max-width:30ch}
+.dir-intro .btn{margin-top:28px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile .ph{aspect-ratio:4/5;overflow:hidden;background:var(--heat-f)}
+.tile .price{display:inline-block;margin-top:8px;font-weight:700;color:var(--heat-d)}
+.tile .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--e)}
+@media (hover:hover) and (pointer:fine){.tile:hover .ph img{transform:scale(1.04)}}
+.tile:nth-child(3n+2) .ph{background:var(--water-f)}
+.tile h3{margin-top:14px;font-size:1.25rem}
+.tile p{margin-top:4px;color:var(--muted);font-size:1rem;max-width:36ch}
+@media (max-width:1000px){.dir{grid-template-columns:1fr}}
+@media (max-width:640px){.tiles{grid-template-columns:1fr 1fr;gap:8px}.tile h3{font-size:1.05rem}.tile p{font-size:.95rem}}
+
+/* frame houses band */
+.band{background:var(--night);color:var(--night-ink)}
+.band-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:center}
+.band .g{clip-path:var(--gable);aspect-ratio:1/1;overflow:hidden;background:#173257}
+.band .g img{width:100%;height:100%;object-fit:cover}
+.band p{color:var(--night-mut);margin-top:24px;max-width:44ch}
+.band .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.band .chips span{background:#173257;padding:10px 14px;font-size:.98rem}
+.band .btn{margin-top:32px}
+.band figcaption{color:var(--night-mut);margin-top:10px}
+@media (max-width:900px){.band-in{grid-template-columns:1fr}.band .g{max-width:480px}}
+
+/* photo report */
+.rep{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:center}
+.rep-list{list-style:none;margin-top:36px;display:grid;gap:22px}
+.rep-list li{display:grid;grid-template-columns:22px 1fr;gap:16px}
+.rep-list li::before{content:"";width:18px;height:18px;margin-top:6px;background:var(--heat);clip-path:var(--gable)}
+.rep-list li:nth-child(2)::before{background:var(--water)}
+.rep-list li:nth-child(3)::before{background:var(--ink)}
+.rep-list b{display:block;font-size:1.15rem;letter-spacing:-.015em}
+.rep-list span{color:var(--muted)}
+.chat{background:var(--water-f);padding:clamp(16px,2.4vw,32px);max-width:560px;justify-self:end;width:100%}
+.chat-top{display:flex;align-items:center;gap:12px;background:#fff;padding:12px 14px}
+.chat-top .av{width:40px;height:40px;background:var(--heat);color:#fff;display:grid;place-items:center;font-weight:700;clip-path:var(--gable);padding-top:6px}
+.chat-top b{display:block;font-size:1rem}
+.chat-top span{font-size:.88rem;color:var(--muted)}
+.msgs{display:grid;gap:10px;margin-top:14px}
+.m{max-width:84%;background:#fff;padding:10px 14px;font-size:.98rem;line-height:1.45}
+.m.me{justify-self:end;background:#E8F7DF}
+.m img{margin:-4px -8px 8px;width:calc(100% + 16px);aspect-ratio:16/10;object-fit:cover}
+.m time{display:block;text-align:right;font-size:.8rem;color:var(--muted);margin-top:2px}
+@media (max-width:900px){.rep{grid-template-columns:1fr}.chat{justify-self:stretch}}
+
+/* how — accordion of tinted panels */
+.how-head{display:grid;grid-template-columns:5fr 6fr;gap:32px;align-items:end;margin-bottom:56px}
+.acc{display:flex;height:480px;gap:0}
+.st{position:relative;flex:1 1 0;min-width:0;border:0;text-align:left;cursor:pointer;overflow:hidden;transition:flex-grow .45s var(--e);background:var(--c);color:var(--t)}
+.st.open{flex-grow:6;cursor:default}
+.st .vn{position:absolute;left:18px;bottom:20px;transform-origin:left bottom;transform:rotate(-90deg) translateY(100%);white-space:nowrap;font-weight:700;font-size:1.15rem;transition:opacity .25s var(--e)}
+.st.open .vn{opacity:0}
+.st .body{position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transition:opacity .3s var(--e);pointer-events:none;min-width:340px}
+.st.open .body{opacity:1;transition-delay:.18s}
+.st .body h3{font-size:clamp(1.8rem,1.4rem + 1.4vw,2.6rem);letter-spacing:-.03em}
+.st .body p{max-width:36ch;font-size:1.06rem}
+@media (max-width:900px){
+  .how-head{grid-template-columns:1fr}
+  .acc{flex-direction:column;height:auto}
+  .st{flex:none;min-height:64px}
+  .st .vn{position:static;transform:none;display:block;padding:20px}
+  .st.open .vn{display:none}
+  .st .body{position:static;opacity:1;display:none;min-width:0;padding:20px 20px 24px;gap:12px}
+  .st.open .body{display:flex}
+}
+
+/* objects */
+.obj-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.obj-head p{max-width:40ch}
+.objs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.obj .g{clip-path:var(--gable);aspect-ratio:4/5;overflow:hidden;background:var(--heat-f)}
+.obj:nth-child(even) .g{background:var(--water-f)}
+.obj img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--e)}
+@media (hover:hover) and (pointer:fine){.obj:hover img{transform:scale(1.05)}}
+.obj button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;text-align:left}
+.obj b{display:block;margin-top:12px;font-size:1.05rem;letter-spacing:-.01em}
+.obj span{font-size:.95rem;color:var(--muted)}
+@media (max-width:900px){.objs{grid-template-columns:1fr 1fr;gap:10px}.obj b{font-size:.98rem}}
+
+/* reviews */
+.rev-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.score{display:flex;align-items:center;gap:20px}
+.score > b{font-size:clamp(4rem,2rem + 6vw,7.5rem);font-weight:700;letter-spacing:-.06em;line-height:.85;color:var(--heat)}
+.score > span{font-size:1.05rem;color:var(--muted);line-height:1.5}
+.stars{display:flex;gap:4px;margin-bottom:6px}.stars svg{width:22px;height:22px}
+.revs{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
+.rev{background:var(--surface);padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.rev:nth-child(1){background:var(--heat-f)}
+.rev:nth-child(2){background:var(--water-f)}
+.rev blockquote{font-size:1.06rem;line-height:1.55}
+.rev figcaption{font-size:.95rem;color:var(--muted)}
+.rev figcaption b{display:block;color:var(--ink);font-size:1rem}
+@media (max-width:1000px){.revs{grid-template-columns:1fr}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,14,26,.94);display:none;align-items:center;justify-content:center;padding:64px 16px 72px}
+.lb.open{display:flex}
+.lb img{max-width:min(1100px,100%);max-height:100%;object-fit:contain;width:auto;height:auto}
+.lb p{position:absolute;left:16px;right:16px;bottom:22px;text-align:center;color:#fff;font-size:1rem}
+.lb button{position:absolute;width:52px;height:52px;border:0;background:#fff;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.lb .x{top:12px;right:12px}.lb .pv{left:12px;top:50%;margin-top:-26px}.lb .nx{right:12px;top:50%;margin-top:-26px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:4fr 8fr;gap:clamp(24px,4vw,64px)}
+.faq-intro p{margin-top:20px;max-width:30ch}
+.qs{display:grid;gap:8px}
+.q{background:var(--surface)}
+.q:nth-child(odd){background:var(--heat-f2)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:72px;padding:18px 24px;background:none;border:0;cursor:pointer;text-align:left;font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+.q button .pl{flex:none;width:22px;height:22px;background:var(--heat);clip-path:var(--gable);transition:transform .3s var(--e)}
+.q.open button .pl{transform:rotate(180deg)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--e)}
+.q.open .a{grid-template-rows:1fr}
+.q .a > div{overflow:hidden}
+.q .a p{padding:0 24px 24px;max-width:58ch}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+
+/* form — coupon */
+.lead-sec{background:var(--heat)}
+.coupon{display:grid;grid-template-columns:46fr 54fr;background:#fff;-webkit-mask:radial-gradient(circle 16px at 46% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 16px at 46% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 16px at 46% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 16px at 46% 100%,#0000 98%,#000) bottom/100% 51% no-repeat} /* taste-skill-ignore */
+.cp-l{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;border-right:5px dotted var(--heat)}
+.cp-l h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.2rem)}
+.cp-sum{background:var(--heat-f);padding:18px 20px;font-size:.98rem}
+.cp-sum b{display:block;font-size:1.3rem;margin-top:2px}.cp-sum span{display:block;margin-top:4px;color:var(--muted)}
+.cp-r{padding:clamp(28px,4vw,56px);display:grid;gap:10px;align-content:center}
+.fld{display:block}
+.fld span{display:block;font-size:.92rem;font-weight:500;margin-bottom:6px}
+.fld input,.fld textarea{width:100%;min-height:54px;padding:14px 16px;border:0;background:#F1F4F8}
+.fld textarea{min-height:96px;resize:vertical}
+.cp-r .btn{min-height:58px;margin-top:6px;width:100%}
+.ok{display:none;text-align:left;padding:clamp(28px,4vw,56px);align-content:center;gap:12px}
+.ok.show-ok{display:grid}
+.ok svg{width:56px;height:56px}
+@media (max-width:800px){.coupon{grid-template-columns:1fr;-webkit-mask:none;mask:none}.cp-l{border-right:0;border-bottom:5px dotted var(--heat)}}
+
+/* footer */
+footer{background:var(--night);color:var(--night-ink);padding-block:clamp(64px,8vw,110px) 28px}
+.f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.f-grid h3{font-size:1.1rem;margin-bottom:10px;color:var(--night-mut);font-weight:500;letter-spacing:0}
+.f-grid a,.f-grid p{font-size:1.1rem;text-decoration:none;line-height:1.6}
+.f-name{font-size:clamp(3rem,1rem + 9vw,10rem);font-weight:700;letter-spacing:-.055em;line-height:.9;margin-top:clamp(48px,7vw,96px);color:#fff}
+.f-name span{color:var(--heat)}
+.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px;font-size:.88rem;color:var(--night-mut)}
+@media (max-width:760px){.f-grid{grid-template-columns:1fr}}
+
+/* mobile action */
+.fab{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;grid-template-columns:1fr 1fr 1.25fr;gap:6px;box-shadow:0 8px 24px rgba(16,24,38,.25)} /* taste-skill-ignore */
+.fab .btn{min-height:54px;padding:0 8px;font-size:.95rem}
+.fab .wa{background:#16803F}
+@media (max-width:760px){.fab{display:grid}footer{padding-bottom:110px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--e),transform .7s var(--e);transition-delay:calc(var(--i,0) * 75ms)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-pic img,.tile .ph img,.obj img{transform:none!important;transition:none}
+  .st,.st .body,.st .vn,.lyr,.q .a,.q button .pl{transition:none!important}
+}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js')</script>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Стройка Тепла — на главную">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 30 13v16H2V13z" fill="#E5420E"/><path d="M16 11c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1.4-3.4 2-4 0 1.4.7 2 1.4 2 0-3 .8-5 1.6-7z" fill="#fff"/></svg>
+      <span>Стройка Тепла<small>инженерные системы частных домов</small></span>
+    </a>
+    <nav aria-label="Разделы">
+      <a href="#calc">Калькулятор</a>
+      <a href="#dir">Услуги</a>
+      <a href="#how">Как работаем</a>
+      <a href="#obj">Объекты</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79299093050">+7 (929) 909-30-50</a>
+    <a class="btn" href="#calc">Рассчитать стоимость</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="wrap">
+  <div class="hero">
+    <div>
+      <h1 class="rv"><span>Тепло и вода</span><span>в&nbsp;частном доме</span></h1>
+      <p class="lead rv" style="--i:1">Монтируем отопление, водоснабжение, канализацию, тёплый пол и электрику в домах Раменского и окрестностей. Стоимость видно сразу, смета до начала работ.</p>
+      <div class="acts rv" style="--i:2">
+        <a class="btn" href="#calc">Рассчитать стоимость</a>
+        <a class="btn dark" href="#form">Вызвать замерщика</a>
+      </div>
+      <a class="ya rv" style="--i:3" href="https://yandex.ru/profile/152301156632" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" fill="#F2A900"/></svg>4,5 на Яндекс Картах <span>· 8 оценок</span></a>
+    </div>
+    <figure class="hero-pic rv" style="--i:1" id="heroPic">
+      <div class="g"><img src="https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XXL" srcset="https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XL 600w, https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XXL 768w, https://avatars.mds.yandex.net/get-altay/21078505/2a000001a18e19db4b7d50eb57ed88d1bb10/XXXL 960w" sizes="(max-width:900px) 92vw, 46vw" width="768" height="1024" alt="Котельная частного дома: красные расширительные баки, насосы и обвязка" fetchpriority="high"></div>
+      <figcaption class="note">Котельная, наш объект</figcaption>
+    </figure>
+  </div>
+  <div class="facts">
+    <div class="fact rv"><b>Смета до начала работ</b><p>Работы и материалы по пунктам. Сумма не меняется, пока не меняется задача.</p></div>
+    <div class="fact rv" style="--i:1"><b>Фотоотчёт каждый день</b><p>После смены — фото и пара строк в общей группе в мессенджере.</p></div>
+    <div class="fact rv" style="--i:2"><b>Работаем по договору</b><p>Состав работ, сроки, гарантия и оплата этапами — на бумаге.</p></div>
+    <div class="fact rv" style="--i:3"><b>Один подрядчик</b><p>Отопление, вода, канализация и электрика без стыков между бригадами.</p></div>
+  </div>
+</section>
+
+<section class="sec calc" id="calc" aria-labelledby="calc-h">
+  <div class="wrap">
+    <div class="calc-head">
+      <h2 id="calc-h" class="rv">Сколько стоит ваш дом</h2>
+      <p class="lead rv" style="--i:1">Отметьте нужные системы и площадь — схема покажет, где пройдут трубы, а калькулятор посчитает примерную стоимость монтажа.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="scheme rv">
+        <svg viewBox="0 0 640 480" role="img" aria-label="Схема инженерных систем частного дома">
+          <rect x="0" y="390" width="640" height="90" fill="#E9DCCB"/>
+          <rect x="0" y="384" width="640" height="8" fill="#9BC37A"/>
+          <!-- house -->
+          <path d="M110 170 320 40 530 170 V388 H110 Z" fill="#fff"/>
+          <path d="M96 176 320 34 544 176" fill="none" stroke="#101826" stroke-width="10" stroke-linejoin="round"/>
+          <rect x="110" y="276" width="420" height="8" fill="#101826"/>
+          <rect x="110" y="380" width="420" height="10" fill="#101826"/>
+          <rect x="104" y="170" width="12" height="218" fill="#101826"/><rect x="524" y="170" width="12" height="218" fill="#101826"/>
+          <rect x="410" y="70" width="34" height="60" fill="#101826"/>
+          <!-- windows -->
+          <g fill="#DCEAFF"><rect x="150" y="200" width="70" height="52"/><rect x="420" y="200" width="70" height="52"/><rect x="290" y="306" width="60" height="44"/></g>
+          <!-- floor heating -->
+          <g class="lyr" data-l="floor"><path d="M130 368 h380 v-6 h-380 v-6 h380 v-6 h-380" fill="none" stroke="#FF7A3D" stroke-width="3.5"/></g>
+          <!-- electric -->
+          <g class="lyr" data-l="elec" fill="none" stroke="#F2A900" stroke-width="4">
+            <path d="M126 186 h390"/><path d="M126 290 h390"/><path d="M126 186 v190 h-34 v-60"/>
+            <circle cx="210" cy="186" r="9" fill="#F2A900"/><circle cx="430" cy="186" r="9" fill="#F2A900"/><circle cx="320" cy="290" r="9" fill="#F2A900"/>
+            <rect x="80" y="300" width="22" height="30" fill="#F2A900" stroke="none"/>
+          </g>
+          <!-- heating -->
+          <g class="lyr" data-l="heat">
+            <rect x="140" y="300" width="44" height="64" fill="#E5420E"/><rect x="148" y="312" width="28" height="8" fill="#fff"/>
+            <path d="M184 336 H470 V262 M184 348 H480 V262" fill="none" stroke="#E5420E" stroke-width="5"/>
+            <path d="M162 300 V236 H400" fill="none" stroke="#E5420E" stroke-width="5"/>
+            <path d="M176 300 V246 H400" fill="none" stroke="#E5420E" stroke-width="5"/>
+            <g fill="#E5420E"><rect x="150" y="254" width="70" height="16"/><rect x="420" y="254" width="70" height="16"/><rect x="430" y="358" width="60" height="16"/><rect x="290" y="358" width="60" height="16"/></g>
+            <path d="M420 254 V236 H400 M430 246 V254" fill="none" stroke="#E5420E" stroke-width="5"/>
+          </g>
+          <!-- water -->
+          <g class="lyr" data-l="water" fill="none" stroke="#1565E0" stroke-width="5">
+            <path d="M40 470 V400 H140 V384"/>
+            <rect x="26" y="400" width="28" height="78" fill="#1565E0" stroke="none" opacity=".25"/>
+            <path d="M140 384 V310 H240 V350"/><path d="M240 310 H380 V214 H330 V246"/>
+            <rect x="225" y="350" width="40" height="22" fill="#1565E0" stroke="none"/>
+            <rect x="316" y="246" width="40" height="18" fill="#1565E0" stroke="none"/>
+          </g>
+          <!-- sewer -->
+          <g class="lyr" data-l="sewer" fill="none" stroke="#7A5A3A" stroke-width="7">
+            <path d="M260 372 V412 H600"/><path d="M370 264 V412"/>
+            <rect x="578" y="412" width="44" height="54" fill="#7A5A3A" stroke="none"/>
+          </g>
+        </svg>
+        <div class="legend" aria-hidden="true">
+          <span><i style="background:#E5420E"></i>отопление</span><span><i style="background:#1565E0"></i>вода</span><span><i style="background:#7A5A3A"></i>канализация</span><span><i style="background:#FF7A3D"></i>тёплый пол</span><span><i style="background:#F2A900"></i>электрика</span>
+        </div>
+      </div>
+
+      <form class="ctl rv" style="--i:1" id="calcForm" aria-describedby="calcNote">
+        <fieldset style="border:0">
+          <legend><h3>Что нужно сделать</h3></legend>
+          <div class="svc" id="svc"></div>
+        </fieldset>
+        <div class="area">
+          <h3><label for="areaR">Площадь дома, м²</label></h3>
+          <div class="area-row">
+            <input type="range" id="areaR" min="40" max="400" step="5" value="150">
+            <input class="num" type="number" id="areaN" min="20" max="1000" value="150" aria-label="Площадь дома в квадратных метрах">
+          </div>
+        </div>
+        <div class="total" aria-live="polite">
+          <span>Примерно, работа без материалов</span>
+          <div class="sum" id="sum">0 ₽</div>
+          <ul id="rows"></ul>
+          <a class="btn light" href="#form" id="toForm">Получить точную смету</a>
+          <p class="note" id="calcNote">Цены — ориентировочные средние за м². Точную смету с материалами считаем после бесплатного замера.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="dir" aria-labelledby="dir-h">
+  <div class="dir">
+    <div class="dir-intro">
+      <h2 id="dir-h" class="rv">Что делаем</h2>
+      <p class="rv" style="--i:1">Новый дом или замена старой системы: монтируем отопление, воду, канализацию и тёплый пол, а электрику делаем вместе с инженеркой.</p>
+      <a class="btn rv" style="--i:2" href="#calc">Посчитать свой дом</a>
+    </div>
+    <div class="tiles">
+      <article class="tile rv"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/20692571/2a000001a18e19d1fa3bbd1d367148a99dcc/XL" width="600" height="800" loading="lazy" alt="Котельная с гидрострелкой и насосными группами"></div><h3>Отопление</h3><p>Котёл, обвязка котельной, разводка и радиаторы под площадь дома.</p></article>
+      <article class="tile rv" style="--i:1"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/18111423/2a0000019cc39e522790cd82a4ec2466e990/XL" width="600" height="800" loading="lazy" alt="Кессон скважины с насосом и гидроаккумулятором"></div><h3>Водоснабжение</h3><p>От скважины или колодца, насосная группа, разводка до каждого крана.</p></article>
+      <article class="tile rv" style="--i:2"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/19555618/2a0000019cc39e51104b54a06d3e8484ae59/XL" width="600" height="800" loading="lazy" alt="Септик в котловане перед засыпкой"></div><h3>Канализация</h3><p>Разводка в доме, выпуск на улицу, монтаж септика.</p></article>
+      <article class="tile rv" style="--i:3"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/17677530/2a0000019caa88b4b362bc1b502614f3d171/XL" width="600" height="800" loading="lazy" alt="Контуры тёплого пола перед заливкой стяжки"></div><h3>Тёплый пол</h3><p>Водяной контур в отдельных комнатах или на весь этаж.</p></article>
+      <article class="tile rv" style="--i:4"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/21074029/2a000001a18e19d230f75f72d1a6df0b1e83/XL" width="600" height="800" loading="lazy" alt="Котельная с двумя напольными котлами"></div><h3>Котельные</h3><p>Подбор котла, бойлер, насосные группы и обвязка под ключ.</p></article>
+      <article class="tile rv" style="--i:5"><div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/22069399/2a000001a18e19d9e036af6e4ce7b8253f0b/XL" width="600" height="800" loading="lazy" alt="Обвязка котельной красными и синими трубами"></div><h3>Промывка отопления</h3><p>Пять этапов: вода, химсостав, гидроимпульс, ингибитор и снова вода.</p><span class="price">от 5 000 ₽</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="frame" aria-labelledby="frame-h">
+  <div class="wrap sec band-in">
+    <figure class="rv"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/19613367/2a0000019cc39e4e5a3588ccfbf968d33d75/XXL" width="1024" height="768" loading="lazy" alt="Контуры тёплого пола в новом доме до стяжки"></div><figcaption class="note">Тёплый пол в новом доме, наш объект</figcaption></figure>
+    <div>
+      <h2 id="frame-h" class="rv">Каркасные дома под ключ</h2>
+      <p class="lead rv" style="--i:1">Строим каркасный дом и сразу закладываем в него отопление, воду, канализацию и электрику. За дом и за инженерку отвечает один подрядчик — ничего не приходится переделывать.</p>
+      <div class="chips rv" style="--i:2"><span>Фундамент</span><span>Каркас и кровля</span><span>Утепление</span><span>Инженерные системы</span></div>
+      <a class="btn rv" style="--i:3" href="#form">Обсудить проект дома</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="report" aria-labelledby="rep-h">
+  <div class="rep">
+    <div>
+      <h2 id="rep-h" class="rv">Видно, даже когда вас нет на участке</h2>
+      <ul class="rep-list">
+        <li class="rv" style="--i:1"><div><b>Фотоотчёт после каждой смены</b><span>В общей группе в мессенджере: фото, что сделано и что в плане на завтра.</span></div></li>
+        <li class="rv" style="--i:2"><div><b>Смета до начала работ</b><span>Работы и материалы по пунктам, с ценами. Без «доплат по ходу».</span></div></li>
+        <li class="rv" style="--i:3"><div><b>Оплата этапами</b><span>Платите за выполненный этап, порядок записан в договоре.</span></div></li>
+      </ul>
+    </div>
+    <div class="chat rv" style="--i:1" data-ui aria-label="Пример переписки в группе с фотоотчётом">
+      <div class="chat-top"><div class="av" aria-hidden="true">СТ</div><div><b>Дом · отчёт о работах</b><span>группа в мессенджере</span></div></div>
+      <div class="msgs">
+        <div class="m"><img src="https://avatars.mds.yandex.net/get-altay/16341471/2a0000019cc39e522f72ce22f6866961abe1/XL" width="600" height="375" loading="lazy" alt="Фото разводки водоснабжения из отчёта">Развели воду по дому и подключили фильтры. Завтра ставим бойлер.<time>18:40</time></div>
+        <div class="m">Мойку на кухне ставим у окна, как на схеме?<time>18:42</time></div>
+        <div class="m me">Да, у окна. Спасибо за фото!<time>19:05</time></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="how" aria-labelledby="how-h" style="padding-top:0">
+  <div class="how-head">
+    <h2 id="how-h" class="rv">Как работаем</h2>
+    <p class="lead rv" style="--i:1">От заявки до запуска системы, семь шагов. Нажмите на этап, чтобы прочитать подробнее.</p>
+  </div>
+  <div class="acc rv" id="acc"></div>
+</section>
+
+<section class="sec wrap" id="obj" aria-labelledby="obj-h" style="padding-top:0">
+  <div class="obj-head">
+    <h2 id="obj-h" class="rv">Объекты</h2>
+    <p class="rv" style="--i:1">Котельные, вода, септики и тёплые полы, которые мы смонтировали. Нажмите на фото, чтобы открыть крупно.</p>
+  </div>
+  <div class="objs" id="objs">
+    <figure class="obj rv" style="--i:0"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/21074029/2a000001a18e19d230f75f72d1a6df0b1e83/XXXL" data-cap="Котельная с двумя котлами" aria-label="Открыть фото: Котельная с двумя котлами"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/21074029/2a000001a18e19d230f75f72d1a6df0b1e83/XL" width="600" height="800" loading="lazy" alt="Котельная с двумя котлами"></div><b>Котельная с двумя котлами</b></button></figure>
+    <figure class="obj rv" style="--i:1"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/20692571/2a000001a18e19d1c350f7188d9dcd3b1e2a/XXXL" data-cap="Распределительные коллекторы" aria-label="Открыть фото: Распределительные коллекторы"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/20692571/2a000001a18e19d1c350f7188d9dcd3b1e2a/XL" width="600" height="800" loading="lazy" alt="Распределительные коллекторы"></div><b>Распределительные коллекторы</b></button></figure>
+    <figure class="obj rv" style="--i:2"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/22243000/2a000001a18e19f442b04fa8e25a944d9ce7/XXXL" data-cap="Настенный котёл и насосные группы" aria-label="Открыть фото: Настенный котёл и насосные группы"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/22243000/2a000001a18e19f442b04fa8e25a944d9ce7/XL" width="600" height="800" loading="lazy" alt="Настенный котёл и насосные группы"></div><b>Настенный котёл и насосные группы</b></button></figure>
+    <figure class="obj rv" style="--i:3"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/21959253/2a000001a18e19ee03cf8cdf4ab0ddefe1bd/XXXL" data-cap="Гребёнка отопления с насосами" aria-label="Открыть фото: Гребёнка отопления с насосами"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/21959253/2a000001a18e19ee03cf8cdf4ab0ddefe1bd/XL" width="600" height="800" loading="lazy" alt="Гребёнка отопления с насосами"></div><b>Гребёнка отопления с насосами</b></button></figure>
+    <figure class="obj rv" style="--i:0"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/19521209/2a0000019caa88c477eb1dfa9aada699a3c5/XXXL" data-cap="Коллекторный шкаф тёплого пола" aria-label="Открыть фото: Коллекторный шкаф тёплого пола"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/19521209/2a0000019caa88c477eb1dfa9aada699a3c5/XL" width="600" height="800" loading="lazy" alt="Коллекторный шкаф тёплого пола"></div><b>Коллекторный шкаф тёплого пола</b></button></figure>
+    <figure class="obj rv" style="--i:1"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/17677530/2a0000019caa88b7d90280eb29e7c7d59c2a/XXXL" data-cap="Бойлер и коллектор тёплого пола" aria-label="Открыть фото: Бойлер и коллектор тёплого пола"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/17677530/2a0000019caa88b7d90280eb29e7c7d59c2a/XL" width="600" height="800" loading="lazy" alt="Бойлер и коллектор тёплого пола"></div><b>Бойлер и коллектор тёплого пола</b></button></figure>
+    <figure class="obj rv" style="--i:2"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/21324406/2a000001a18e19d1e460fb859071bbefd71e/XXXL" data-cap="Два настенных котла в котельной" aria-label="Открыть фото: Два настенных котла в котельной"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/21324406/2a000001a18e19d1e460fb859071bbefd71e/XL" width="600" height="800" loading="lazy" alt="Два настенных котла в котельной"></div><b>Два настенных котла в котельной</b></button></figure>
+    <figure class="obj rv" style="--i:3"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/16415892/2a0000019cc39e55a8b4dba8275c452a5a70/XXXL" data-cap="Насосная станция и фильтр" aria-label="Открыть фото: Насосная станция и фильтр"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/16415892/2a0000019cc39e55a8b4dba8275c452a5a70/XL" width="600" height="800" loading="lazy" alt="Насосная станция и фильтр"></div><b>Насосная станция и фильтр</b></button></figure>
+    <figure class="obj rv" style="--i:0"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/18112381/2a0000019caa88bcf3603f3e88f8ec17443e/XXXL" data-cap="Монтаж ёмкости септика" aria-label="Открыть фото: Монтаж ёмкости септика"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/18112381/2a0000019caa88bcf3603f3e88f8ec17443e/XL" width="600" height="800" loading="lazy" alt="Монтаж ёмкости септика"></div><b>Монтаж ёмкости септика</b></button></figure>
+    <figure class="obj rv" style="--i:1"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/16138055/2a0000019caa88ba449fecef8ec692f9fc11/XXXL" data-cap="Септик в котловане" aria-label="Открыть фото: Септик в котловане"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/16138055/2a0000019caa88ba449fecef8ec692f9fc11/XL" width="600" height="800" loading="lazy" alt="Септик в котловане"></div><b>Септик в котловане</b></button></figure>
+    <figure class="obj rv" style="--i:2"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/17773264/2a0000019cc39e4b1ce07533f275a9cde752/XXXL" data-cap="Колодцы и выпуск канализации" aria-label="Открыть фото: Колодцы и выпуск канализации"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/17773264/2a0000019cc39e4b1ce07533f275a9cde752/XL" width="600" height="800" loading="lazy" alt="Колодцы и выпуск канализации"></div><b>Колодцы и выпуск канализации</b></button></figure>
+    <figure class="obj rv" style="--i:3"><button type="button" data-full="https://avatars.mds.yandex.net/get-altay/19695432/2a0000019caa88bcbbeffc8ed24e71f18853/XXXL" data-cap="Тёплый пол перед стяжкой" aria-label="Открыть фото: Тёплый пол перед стяжкой"><div class="g"><img src="https://avatars.mds.yandex.net/get-altay/19695432/2a0000019caa88bcbbeffc8ed24e71f18853/XL" width="600" height="800" loading="lazy" alt="Тёплый пол перед стяжкой"></div><b>Тёплый пол перед стяжкой</b></button></figure>
+  </div>
+</section>
+
+<section class="sec wrap" id="reviews" aria-labelledby="rev-h" style="padding-top:0">
+  <div class="rev-head">
+    <h2 id="rev-h" class="rv">Отзывы клиентов</h2>
+    <div class="score rv" style="--i:1"><b>4,5</b><span><span class="stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" fill="#F2A900"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" fill="#F2A900"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" fill="#F2A900"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" fill="#F2A900"/></svg></span>8 оценок на Яндекс Картах<br><a href="https://yandex.ru/profile/152301156632" target="_blank" rel="noopener">Все отзывы</a></span></div>
+  </div>
+  <div class="revs">
+    <figure class="rev rv" style="--i:0"><blockquote>Заказывали у Константина монтаж всей сантехники в квартире: разводка труб, установка унитаза, раковины, смесителя, водонагревателя. Всё сделано по нормативам, трубы проложены ровно, крепления надёжные, герметизация качественная. Константин сам помог подобрать нужные комплектующие, ничего лишнего не навязывал. После работы прибрал за собой мусор — это отдельный плюс. Результатом очень довольны!</blockquote><figcaption><b>Анна В.</b>10 августа, Яндекс Карты</figcaption></figure>
+    <figure class="rev rv" style="--i:1"><blockquote>Отличная компания! Нужно было срочно переделать сантехнику в доме и заменить котел. Приехали, замерили, посчитали, по цене договорились. Назначили дату, в мое отсутствие сделали все по лучшему разряду, приехала с работы- у меня новая котельная. Сделали всё очень четко, ровно, красиво, мусор за собой убрали!Не нарадуюсь! Ооочень рекомендую! Спасибо за качественную работу!</blockquote><figcaption><b>Анонимный отзыв</b>31 июля, Яндекс Карты</figcaption></figure>
+    <figure class="rev rv" style="--i:2"><blockquote>Спасибо онромное Константину за его профессионализм и скорость работы. Оьратился к нему с проблемой ввода воды в дом. Константин приехал, все обьяснил как надо сделать и какой нужен материал. Сам купил необходимый материал и сделал всю работу быстро и качественно. Все цены были озвучены до начала работ, и не было никаких скрытых цен, что у многих к можалению не так.</blockquote><figcaption><b>Артем Козулин</b>30 июля, Яндекс Карты</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec wrap" id="faq" aria-labelledby="faq-h" style="padding-top:0">
+  <div class="faq">
+    <div class="faq-intro">
+      <h2 id="faq-h" class="rv">Вопросы</h2>
+      <p class="rv" style="--i:1">Не нашли ответа — напишите, ответим в течение дня.</p>
+    </div>
+    <div class="qs" id="qs"></div>
+  </div>
+</section>
+
+<section class="sec lead-sec" id="form" aria-labelledby="form-h">
+  <div class="wrap">
+    <div class="coupon rv">
+      <div class="cp-l">
+        <h2 id="form-h">Бесплатный замер и смета</h2>
+        <div class="cp-sum" id="cpSum">Ваш расчёт: <b>—</b></div>
+        <p class="note" style="color:var(--muted)">Перезвоним, уточним детали и договоримся о выезде. Точную смету считаем после замера.<br>Или позвоните сами: <a href="tel:+79299093050"><b>+7 (929) 909-30-50</b></a>, ежедневно 8:00–20:00.</p>
+      </div>
+      <form class="cp-r" id="leadForm" novalidate>
+        <label class="fld"><span>Имя</span><input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+        <label class="fld"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+7" required aria-describedby="phErr"></label>
+        <label class="fld"><span>Адрес или посёлок</span><input name="addr" placeholder="Например, Раменское"></label>
+        <label class="fld"><span>Комментарий</span><textarea name="msg" id="msg" placeholder="Что нужно сделать"></textarea></label>
+        <p class="note" id="phErr" role="alert" hidden style="color:var(--heat-d)">Укажите телефон, чтобы мы могли перезвонить.</p>
+        <button class="btn dark" type="submit">Записаться на замер</button>
+        <p class="note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+      </form>
+      <div class="ok" id="ok" role="status">
+        <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 2 54 20v34H2V20z" fill="#E5420E"/><path d="M17 34l8 8 15-17" fill="none" stroke="#fff" stroke-width="5"/></svg>
+        <h3>Заявка принята</h3>
+        <p>Перезвоним в течение рабочего дня и договоримся о замере.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><h3>Телефон</h3><a href="tel:+79299093050">+7 (929) 909-30-50</a><p>Ежедневно, 8:00–20:00</p><p><a href="https://wa.me/79299093050" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/+79299093050" target="_blank" rel="noopener">Telegram</a></p></div>
+      <div><h3>Адрес</h3><p>Десантная ул., 1, Раменское</p><p><a href="https://yandex.ru/profile/152301156632" target="_blank" rel="noopener">Мы на Яндекс Картах</a></p></div>
+      <div><h3>Работаем</h3><p>Раменское и район</p><p>[ИП / ООО Название], ИНН [__________]</p></div>
+    </div>
+    <p class="f-name">Стройка <span>Тепла</span></p>
+    <div class="f-bot"><span>© 2026 Стройка Тепла</span><span>Фото: объекты Stroikatepla</span></div>
+  </div>
+</footer>
+
+<div class="fab" aria-label="Связаться">
+  <a class="btn dark" href="tel:+79299093050">Позвонить</a>
+  <a class="btn wa" href="https://wa.me/79299093050" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn" href="#calc">Рассчитать</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото объекта">
+  <button type="button" class="x" aria-label="Закрыть">×</button>
+  <button type="button" class="pv" aria-label="Предыдущее фото">‹</button>
+  <img alt="">
+  <button type="button" class="nx" aria-label="Следующее фото">›</button>
+  <p></p>
+</div>
+
+<script>
+(function(){
+  /* ЦЕНЫ ЗА М² (работа, ориентир). Меняются здесь. */
+  var SVC=[
+    {k:'heat', n:'Отопление', p:1500, c:'#E5420E', cf:'#FFE6DA', on:true},
+    {k:'water',n:'Водоснабжение', p:700, c:'#1565E0', cf:'#DCEAFF', on:true},
+    {k:'sewer',n:'Канализация', p:600, c:'#7A5A3A', cf:'#EFE4D8', on:false},
+    {k:'floor',n:'Тёплый пол', p:1100, c:'#FF7A3D', cf:'#FFEBDF', on:false},
+    {k:'elec', n:'Электромонтаж', p:900, c:'#B97F00', cf:'#FFF2CC', on:false}
+  ];
+  var fmt=function(n){return Math.round(n).toLocaleString('ru-RU').replace(/ /g,' ')+' ₽'};
+  var svc=document.getElementById('svc');
+  SVC.forEach(function(s){
+    var l=document.createElement('label');
+    l.style.setProperty('--c',s.c); l.style.setProperty('--cf',s.cf);
+    l.innerHTML='<input type="checkbox" value="'+s.k+'"'+(s.on?' checked':'')+'><span class="box"><svg viewBox="0 0 14 14"><path d="M2 7l3.5 3.5L12 3" fill="none" stroke="#fff" stroke-width="2.4"/></svg></span><span class="nm">'+s.n+'</span><span class="pr">'+s.p.toLocaleString('ru-RU')+' ₽/м²</span>';
+    svc.appendChild(l);
+  });
+  var R=document.getElementById('areaR'),N=document.getElementById('areaN');
+  var sumEl=document.getElementById('sum'),rows=document.getElementById('rows'),cp=document.getElementById('cpSum'),msg=document.getElementById('msg');
+  var last='';
+  function calc(){
+    var a=Math.max(20,Math.min(1000,+N.value||0)),t=0,parts=[];
+    rows.innerHTML='';
+    SVC.forEach(function(s){
+      var on=svc.querySelector('input[value='+s.k+']').checked;
+      document.querySelectorAll('.lyr[data-l='+s.k+']').forEach(function(g){g.classList.toggle('on',on)});
+      if(on){var v=s.p*a;t+=v;parts.push(s.n.toLowerCase());rows.insertAdjacentHTML('beforeend','<li><span>'+s.n+' · '+a+' м² × '+s.p.toLocaleString('ru-RU')+' ₽</span><b>'+fmt(v)+'</b></li>')}
+    });
+    if(!parts.length) rows.innerHTML='<li><span>Отметьте хотя бы одну систему</span></li>';
+    sumEl.textContent=fmt(t);
+    var line=parts.length?('Дом '+a+' м²: '+parts.join(', ')+' — примерно '+fmt(t)):'';
+    cp.innerHTML='Ваш расчёт: <b>'+(parts.length?fmt(t):'—')+'</b>'+(parts.length?'<span>'+a+' м² · '+parts.join(', ')+'</span>':'');
+    if(!msg.value||msg.value===last){msg.value=line;last=line}
+  }
+  R.addEventListener('input',function(){N.value=R.value;calc()});
+  N.addEventListener('input',function(){R.value=Math.min(400,Math.max(40,+N.value||40));calc()});
+  svc.addEventListener('change',calc);
+  calc();
+
+  /* accordion */
+  var ST=[
+    ['Заявка','Оставляете заявку на сайте или пишете в мессенджер. Задаём пару вопросов о доме.'],
+    ['Замер','Приезжаем, смотрим дом и участок, обсуждаем, где пройдут трубы и где встанет котёл.'],
+    ['Смета','Расписываем работы и материалы по пунктам, с ценами. Ничего не прячем в «прочее».'],
+    ['Договор','Фиксируем смету, сроки, гарантию и оплату этапами.'],
+    ['Монтаж','Бригада работает по согласованной схеме. Материалы закупаем сами или берём ваши.'],
+    ['Фотоотчёт','Каждый день в общей группе: фото и короткий комментарий, что дальше.'],
+    ['Сдача','Запускаем систему, проверяем вместе с вами и показываем, как ей пользоваться.']
+  ];
+  var CL=['#8E2306','#B32E08','#D6390A','#F2683A','#F99068','#FCB79B','#FFD9C8'];
+  var acc=document.getElementById('acc');
+  ST.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='st'+(i===0?' open':'');
+    b.style.setProperty('--c',CL[i]);b.style.setProperty('--t',i<3?'#fff':'#101826');
+    b.setAttribute('aria-expanded',i===0?'true':'false');
+    b.innerHTML='<span class="vn">'+s[0]+'</span><span class="body"><h3>'+s[0]+'</h3><p>'+s[1]+'</p></span>';
+    b.addEventListener('click',function(){acc.querySelectorAll('.st').forEach(function(x){x.classList.remove('open');x.setAttribute('aria-expanded','false')});b.classList.add('open');b.setAttribute('aria-expanded','true')});
+    acc.appendChild(b);
+  });
+
+  /* faq */
+  var Q=[
+    ['Сколько времени занимает монтаж?','Зависит от площади дома и состава работ. Точный срок пишем в смете и договоре до начала монтажа.'],
+    ['Можно ли делать отопление зимой?','Работы внутри дома от сезона почти не зависят. Когда лучше делать уличную часть — ввод воды или септик, — подскажем на замере.'],
+    ['Чьи материалы?','Можем закупить сами по смете или работать с вашими. Что и в каком количестве нужно, видно в смете заранее.'],
+    ['Как оплачивать?','Этапами, по мере выполнения работ. Порядок оплаты записываем в договоре.'],
+    ['Почему в калькуляторе цена без материалов?','Материалы сильно зависят от выбора котла, труб и радиаторов. Их считаем в смете после замера, по пунктам.']
+  ];
+  var qs=document.getElementById('qs');
+  Q.forEach(function(q,i){
+    var d=document.createElement('div');d.className='q rv'+(i===0?' open':'');d.style.setProperty('--i',i);
+    var id='qa'+i;
+    d.innerHTML='<button type="button" aria-expanded="'+(i===0)+'" aria-controls="'+id+'">'+q[0]+'<span class="pl" aria-hidden="true"></span></button><div class="a" id="'+id+'"><div><p>'+q[1]+'</p></div></div>';
+    d.querySelector('button').addEventListener('click',function(){var o=d.classList.toggle('open');this.setAttribute('aria-expanded',o)});
+    qs.appendChild(d);
+  });
+
+  /* form (prototype: no sending) */
+  var f=document.getElementById('leadForm');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ph=f.querySelector('[name=phone]'),err=document.getElementById('phErr');
+    if((ph.value.replace(/\D/g,'')).length<10){err.hidden=false;ph.focus();return}
+    err.hidden=true;f.style.display='none';document.getElementById('ok').classList.add('show-ok');
+  });
+
+  /* lightbox */
+  var lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
+  var items=[].slice.call(document.querySelectorAll('#objs button')),cur=0,opener=null;
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur];lbImg.src=b.getAttribute('data-full');lbImg.alt=b.getAttribute('data-cap');lbCap.textContent=b.getAttribute('data-cap')+' · '+(cur+1)+' из '+items.length}
+  items.forEach(function(b,i){b.addEventListener('click',function(){opener=b;show(i);lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus()})});
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus()}
+  lb.querySelector('.x').addEventListener('click',close);
+  lb.querySelector('.pv').addEventListener('click',function(){show(cur-1)});
+  lb.querySelector('.nx').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+
+  /* reveal */
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  } else els.forEach(function(e){e.classList.add('in')});
+})();
+</script>
+</body>
+</html>
