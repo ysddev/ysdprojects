@@ -338,6 +338,10 @@ body.k-abon .f-media .for-abon{display:block}
 .in-ic{width:clamp(64px,6vw,88px);display:block}
 .in-ic svg{width:100%;height:auto}
 
+.need-list li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.need-list li::before{content:"";width:12px;height:16px;margin-top:.45em;border-radius:999px 999px 0 0;background:var(--peach)}
+.need-list li:nth-child(even)::before{background:var(--mint)}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -503,12 +507,7 @@ body.k-abon .f-media .for-abon{display:block}
   <section class="sec need" aria-labelledby="h-need">
     <div class="wrap">
       <div class="sec-head"><h2 class="h2" id="h-need">Абонемент нужен вам, если…</h2></div>
-      <ul class="need-list">
-        <li><span class="ph">[Тезис 1 — Ольга пришлёт]</span></li>
-        <li><span class="ph">[Тезис 2 — Ольга пришлёт]</span></li>
-        <li><span class="ph">[Тезис 3 — Ольга пришлёт]</span></li>
-        <li><span class="ph">[Тезис 4 — Ольга пришлёт]</span></li>
-      </ul>
+      <ul class="need-list"><li>Мечтаете чувствовать своё тело легче и свободнее</li><li>Не хватает сил на тренировки после рабочего дня, но нужна здоровая активность</li><li>Ощущаете скованность и зажатость в движениях и суставах</li><li>Устали убиваться на тренировках и не видите результатов</li><li>Хотите плоский живот без диет</li><li>Имеете проблемы с мышцами тазового дна, которые портят качество вашей жизни</li><li>Хотите выглядеть молодо — и лицом, и телом</li></ul>
     </div>
   </section>
 
