@@ -17,6 +17,19 @@ jobs:
       - name: Add new works (hosted only here)
         run: |
           for d in works/*/; do [ -f "$d/index.html" ] && mkdir -p "site/$(basename $d)" && cp -R "$d". "site/$(basename $d)/"; done; true
+      - name: Client photos to webp on our domain (clients/*/images.txt)
+        run: |
+          # строка: имя unsplash-id ширина высота w1,w2 → clients/<slug>/img/<имя>-<w>.webp (быстро и из РФ, без внешних CDN)
+          for f in clients/*/images.txt; do
+            [ -f "$f" ] || continue; d="$(dirname "$f")/img"; mkdir -p "$d"
+            grep -v '^#' "$f" | while read -r name id a b widths; do
+              [ -n "$name" ] || continue
+              for w in $(echo "$widths" | tr , ' '); do
+                h=$((w*b/a))
+                curl -fsSL --retry 3 "https://images.unsplash.com/photo-$id?fm=webp&q=80&fit=crop&w=$w&h=$h" -o "$d/$name-$w.webp" || echo "::warning::нет фото $name $w"
+              done
+            done
+          done
       - name: Add temporary client sites
         run: |
           if [ -d clients ]; then mkdir -p site/clients && cp -R clients/. site/clients/; fi
