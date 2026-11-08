@@ -42,29 +42,22 @@ p{margin:0}
 :focus-visible{outline:3px solid var(--l8);outline-offset:3px}
 @media (hover:hover) and (pointer:fine){.btn:hover{background:var(--l3)}.btn.light:hover{background:var(--l10)}}
 
-/* ---------- шапка + первый экран: стопка «папок» от тёмного тона к блонду ---------- */
-.hero{background:var(--l1);color:#fff;min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px var(--pad)}
-.top .mark{grid-column:2;font-weight:700;letter-spacing:-.03em;text-decoration:none;font-size:1.125rem}
-.top .go{justify-self:end;font-size:15px;text-decoration:none;color:var(--l10)}
+.hero{background:var(--l1);color:#fff;min-height:100svh;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad)}
+.top .mark{font-weight:700;letter-spacing:-.03em;text-decoration:none;font-size:1.125rem}
+.top .go{font-size:15px;text-decoration:none;color:var(--l10)}
 .top .go:hover{color:#fff}
-.lead-block{text-align:center;padding:clamp(48px,9vh,110px) var(--pad) 0}
-.hero h1{font-size:clamp(68px,10vw,160px);font-weight:800;letter-spacing:-.05em;line-height:.9}
-.hero .sub{max-width:46ch;margin:28px auto 0;font-size:var(--step-lead);line-height:1.35;color:var(--l10)}
-.folders{position:relative;margin-top:auto;height:min(52vh,470px);min-height:330px}
-.folder{position:absolute;left:7%;right:7%;bottom:0;border-radius:0;transition:transform .45s var(--ease)}
-.folder .tab{position:absolute;top:-40px;height:41px;min-width:150px;padding:0 26px;display:flex;align-items:center;font-size:18px;font-weight:600;text-decoration:none;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 100%,0 100%);background:inherit;color:inherit}
-.folder:nth-child(1){top:0;background:var(--l3);color:var(--l10)}
-.folder:nth-child(2){top:64px;background:var(--l5);color:#fff}
-.folder:nth-child(3){top:128px;background:var(--l7);color:#fff}
-.folder:nth-child(4){top:192px;background:var(--l8);color:var(--l1)}
-.folder:nth-child(5){top:256px;background:var(--l10);color:var(--l1);padding:32px clamp(20px,4vw,48px)}
-.folder:nth-child(1) .tab{left:4%}.folder:nth-child(2) .tab{left:24%}.folder:nth-child(3) .tab{left:44%}.folder:nth-child(4) .tab{left:64%}.folder:nth-child(5) .tab{left:auto;right:4%}
-.front{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;max-width:56%}
-.hero-pic{position:absolute;right:clamp(20px,4vw,48px);top:28px;bottom:0;width:36%;margin:0}
-.hero-pic img{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 0 0}
-.front p{font-size:var(--step-body);max-width:40ch}
-@media (hover:hover) and (pointer:fine){.folder:not(:last-child):hover{transform:translateY(-10px)}}
+.hero-grid{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,80px);align-items:end;padding:clamp(32px,6vh,72px) var(--pad) 0}
+.hero-txt{padding-bottom:clamp(40px,8vh,96px)}
+.hero h1{font-size:clamp(64px,8.6vw,140px);font-weight:800;letter-spacing:-.05em;line-height:.9}
+.hero .sub{max-width:34ch;margin-top:28px;font-size:var(--step-lead);line-height:1.35;color:var(--l10)}
+.acts{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:40px}
+.acts .link{color:var(--l9);font-weight:600;text-underline-offset:5px}
+.acts .link:hover{color:#fff}
+.quote{margin-top:48px;font-size:17px;color:#cbbba8;max-width:36ch}
+.hero-photo{margin:0;align-self:stretch;min-height:440px;position:relative}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:999px 999px 0 0}
+.ramp{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));height:clamp(28px,5vh,48px)}
 
 /* ---------- разделы ---------- */
 section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
@@ -143,22 +136,17 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 .plan .buy:active{transform:scale(.99)}
 @media (hover:hover) and (pointer:fine){.plan .buy:hover{filter:brightness(.92)}}
 
-/* вопросы — карточки с вкладками */
-.faq .h2{margin-bottom:56px}
-.cards{position:relative}
-.card{position:relative;margin-top:-28px;padding-top:40px}
-.card:first-child{margin-top:0}
-.card .ctab{position:absolute;top:0;height:41px;width:220px;display:flex;align-items:center;padding:0 22px;font-size:16px;font-weight:600;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 100%,0 100%)}
-.card .q{display:block;width:100%;text-align:left;border:0;cursor:pointer;font:500 20px/1.3 var(--f);padding:22px 28px 44px;letter-spacing:-.01em;color:inherit;background:inherit}
-.card .a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
-.card .a p{padding:0 28px 48px;max-width:50ch;font-size:17px}
-.card .panel{background:inherit}
-.c1{color:var(--l1)}.c1 .ctab,.c1 .panel{background:var(--l10)}
-.c2{color:var(--l1)}.c2 .ctab,.c2 .panel{background:var(--l9)}
-.c3{color:var(--l1)}.c3 .ctab,.c3 .panel{background:var(--l8)}
-.c4{color:#fff}.c4 .ctab,.c4 .panel{background:var(--l7)}
-.c5{color:#fff}.c5 .ctab,.c5 .panel{background:var(--l5)}
-.card:nth-child(1) .ctab{left:0}.card:nth-child(2) .ctab{left:150px}.card:nth-child(3) .ctab{left:300px}.card:nth-child(4) .ctab{left:450px}.card:nth-child(5) .ctab{left:600px}
+/* вопросы — простые раскрывающиеся строки */
+.faq .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.faq .h2{grid-column:1/5}
+.qlist{grid-column:6/13}
+.qa{background:var(--surface);margin-bottom:6px;transition:background .3s}
+.qa.open{background:var(--l10)}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:24px;width:100%;min-height:72px;padding:22px 28px;background:none;border:0;cursor:pointer;color:inherit;text-align:left;font:500 20px/1.3 var(--f);letter-spacing:-.01em}
+.qa .q i{flex:none;width:14px;height:18px;border-radius:0 0 999px 999px;background:var(--l7);transition:transform .3s var(--ease)}
+.qa .q[aria-expanded=true] i{transform:rotate(180deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.qa .a p{padding:0 28px 28px;max-width:56ch;font-size:17px}
 
 /* финал: одно слово — кнопка */
 .cta{display:block;margin-top:clamp(96px,14vw,200px);background:var(--l9);color:var(--l1);text-decoration:none;min-height:60svh;position:relative;border-radius:0 0 0 0;padding:28px var(--pad);overflow:hidden;transition:background .2s,color .2s}
@@ -208,25 +196,21 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   .price .ph,.plan{grid-column:1/-1}
   .plan.p1,.plan.p2{min-height:0}
   .plan .cost{font-size:44px}
-  .card .ctab{width:auto;padding:0 18px;white-space:nowrap;font-size:14px}
-  .card:nth-child(2) .ctab{left:48px}.card:nth-child(3) .ctab{left:96px}.card:nth-child(4) .ctab{left:144px}.card:nth-child(5) .ctab{left:192px}
-  .card .q{font-size:18px;padding:20px 20px 40px}
-  .card .a p{padding:0 20px 40px;font-size:16px}
+  .hero-grid{grid-template-columns:1fr;gap:0}
+  .hero-txt{padding-bottom:36px}
+  .hero-photo{min-height:340px}
+  .faq .h2,.qlist{grid-column:1/-1}
+  .qa .q{font-size:18px;padding:18px 20px}
+  .qa .a p{padding:0 20px 24px;font-size:16px}
   .foot nav,.foot .contacts,.foot .last{grid-column:1/-1}
   .float{display:flex}
   footer{padding-bottom:100px}
 }
 @media (max-width:600px){
-  .hero h1{font-size:17vw}
-  .hero .sub{font-size:17px}
-  .folders{height:auto;min-height:0;display:flex;flex-direction:column}
-  .folder{position:relative;left:0;right:0;top:auto!important;height:52px;margin-top:-6px}
-  .folder .tab{top:-32px;height:33px;min-width:0;padding:0 14px;font-size:15px}
-  .folder:nth-child(1){margin-top:40px}
-  .folder:nth-child(5){height:auto;padding:24px 16px 28px}
-  .front{max-width:none}
-  .front .btn{width:100%}
-  .hero-pic{position:relative;right:auto;top:auto;width:100%;height:220px;margin-top:20px}
+  .hero h1{font-size:19vw}
+  .hero .sub{font-size:18px}
+  .acts .btn{width:100%}
+  .quote{margin-top:28px}
   .swatches{grid-template-columns:repeat(5,minmax(0,1fr))}
   .sw{min-height:84px}
   .blocks{height:22svh;flex-wrap:wrap}
@@ -247,23 +231,16 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
     <a class="mark" href="#top">Крашу сама</a>
     <a class="go" href="#price">Купить урок</a>
   </div>
-  <div class="lead-block">
-    <h1>Крашу сама</h1>
-    <p class="sub">Онлайн-урок колориста Надежды Егоровой: как окрасить волосы в&nbsp;блонд самой, без обламывания и&nbsp;потери длины.</p>
-  </div>
-  <div class="folders" aria-label="Разделы">
-    <div class="folder"><a class="tab" href="#about">Обо мне</a></div>
-    <div class="folder"><a class="tab" href="#inside">Что внутри</a></div>
-    <div class="folder"><a class="tab" href="#tone">Ваш тон</a></div>
-    <div class="folder"><a class="tab" href="#faq">Вопросы</a></div>
-    <div class="folder"><a class="tab" href="#price">Цены</a>
-      <figure class="hero-pic"><img src="https://images.unsplash.com/photo-1707812343087-c9ff9e5abb43?auto=format&fit=crop&w=900&h=700&q=72" width="900" height="700" fetchpriority="high" alt="Окрашивание прядей в фольге"></figure>
-      <div class="front">
-        <a class="btn" href="#price">Купить урок</a>
-        <p>Хватит экспериментировать! Красота и длина волос в&nbsp;твоих руках.</p>
-      </div>
+  <div class="hero-grid">
+    <div class="hero-txt">
+      <h1>Крашу сама</h1>
+      <p class="sub">Онлайн-урок колориста Надежды Егоровой: как окрасить волосы в&nbsp;блонд самой, без обламывания и&nbsp;потери длины.</p>
+      <div class="acts"><a class="btn light" href="#price">Купить урок</a><a class="link" href="#tone">Какой у меня тон?</a></div>
+      <p class="quote">«Хватит экспериментировать! Красота и длина волос в&nbsp;твоих руках!»</p>
     </div>
+    <figure class="hero-photo"><img src="https://images.unsplash.com/photo-1707812343087-c9ff9e5abb43?auto=format&fit=crop&w=1000&h=1250&q=72" width="1000" height="1250" fetchpriority="high" alt="Окрашивание прядей в фольге"></figure>
   </div>
+  <div class="ramp" aria-hidden="true"><span style="background:#0f0c0b"></span><span style="background:#1b1512"></span><span style="background:#3b2619"></span><span style="background:#523422"></span><span style="background:#6a4329"></span><span style="background:#86592f"></span><span style="background:#a3713f"></span><span style="background:#c49660"></span><span style="background:#e2c28c"></span><span style="background:#f3e6c9"></span></div>
 </header>
 
 <main>
@@ -365,12 +342,12 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 <section id="faq" class="faq" aria-labelledby="faq-h">
   <div class="wrap">
     <h2 id="faq-h" class="h2 rv">Частые вопросы</h2>
-    <div class="cards">
-      <div class="card c1"><span class="ctab">Без опыта</span><div class="panel"><button class="q" aria-expanded="true" aria-controls="a1">Подойдёт, если я никогда не красилась сама?</button><div class="a" id="a1"><p>Да. Урок для девушек, которые хотят красить дома, и для мастеров. Всё показано по шагам, без профессиональных слов.</p></div></div></div>
-      <div class="card c2"><span class="ctab">Тёмные волосы</span><div class="panel"><button class="q" aria-expanded="false" aria-controls="a2">У меня тёмные или уже окрашенные волосы, получится блонд?</button><div class="a" id="a2"><p>Краска не осветляет ранее окрашенные волосы, поэтому путь из тёмного в блонд обычно в несколько этапов. Лучше начать с консультации: посмотрю ваши волосы и скажу, с чего начать.</p></div></div></div>
-      <div class="card c3"><span class="ctab">Доступ</span><div class="panel"><button class="q" aria-expanded="false" aria-controls="a3">Как я получу урок?</button><div class="a" id="a3"><p>Сразу после оплаты вам придёт доступ к видео, смотреть можно с телефона в любое время. [Срок доступа уточняется.]</p></div></div></div>
-      <div class="card c4"><span class="ctab">Средства</span><div class="panel"><button class="q" aria-expanded="false" aria-controls="a4">Что нужно купить для окрашивания?</button><div class="a" id="a4"><p>Список средств есть в уроке, под ваш исходный цвет. Покупать заранее ничего не нужно.</p></div></div></div>
-      <div class="card c5"><span class="ctab">Консультация</span><div class="panel"><button class="q" aria-expanded="false" aria-controls="a5">Чем консультация отличается от урока?</button><div class="a" id="a5"><p>Урок учит методу. На консультации я разбираю именно ваши волосы и даю рекомендации вам или вашему мастеру.</p></div></div></div>
+    <div class="qlist">
+      <div class="qa open"><button class="q" aria-expanded="true" aria-controls="a1"><span>Подойдёт, если я никогда не красилась сама?</span><i aria-hidden="true"></i></button><div class="a" id="a1"><p>Да. Урок для девушек, которые хотят красить дома, и для мастеров. Всё показано по шагам, без профессиональных слов.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a2"><span>У меня тёмные или уже окрашенные волосы, получится блонд?</span><i aria-hidden="true"></i></button><div class="a" id="a2"><p>Краска не осветляет ранее окрашенные волосы, поэтому путь из тёмного в блонд обычно в несколько этапов. Лучше начать с консультации: посмотрю ваши волосы и скажу, с чего начать.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a3"><span>Как я получу урок?</span><i aria-hidden="true"></i></button><div class="a" id="a3"><p>Сразу после оплаты вам придёт доступ к видео, смотреть можно с телефона в любое время. [Срок доступа уточняется.]</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a4"><span>Что нужно купить для окрашивания?</span><i aria-hidden="true"></i></button><div class="a" id="a4"><p>Список средств есть в уроке, под ваш исходный цвет. Покупать заранее ничего не нужно.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a5"><span>Чем консультация отличается от урока?</span><i aria-hidden="true"></i></button><div class="a" id="a5"><p>Урок учит методу. На консультации я разбираю именно ваши волосы и даю рекомендации вам или вашему мастеру.</p></div></div>
     </div>
   </div>
 </section>
@@ -452,11 +429,11 @@ stages.forEach((s) => s.addEventListener('click', () => {
   stages.forEach((x) => x.setAttribute('aria-expanded', String(x === s)));
 }));
 // вопросы
-const qs = document.querySelectorAll('.card .q');
+const qs = document.querySelectorAll('.qa .q');
 function openQ(q) {
   qs.forEach((x) => {
     const on = x === q, a = document.getElementById(x.getAttribute('aria-controls'));
-    x.setAttribute('aria-expanded', String(on));
+    x.setAttribute('aria-expanded', String(on)); x.parentElement.classList.toggle('open', on);
     a.style.maxHeight = on ? a.scrollHeight + 'px' : '0px';
   });
 }
