@@ -424,6 +424,26 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
 @media (hover:hover) and (pointer:fine){.soc a:hover{transform:translateY(-3px)}}
 @media (max-width:900px){.contact2{grid-template-columns:1fr}}
 @media (max-width:420px){.soc{grid-template-columns:1fr}}
+
+/* ---- правки 08.11 ---- */
+.card h3,.box h3{font-family:var(--font);text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:clamp(1.05rem,.95rem + .45vw,1.3rem);line-height:1.25}
+.plan .cost small{font-size:.42em;font-weight:600;letter-spacing:0;color:inherit;opacity:.75}
+.plan .buy2{background:var(--deep);border-top:1px solid rgba(255,255,255,.14)}
+@media (hover:hover) and (pointer:fine){.plan .buy2:hover{background:var(--ink)}}
+.pimg.svg.roll{height:84px}.pimg.svg.roll svg{height:100%;width:auto}
+.pcard .rpic{display:grid;place-items:center;background:var(--peach-2)}
+.pcard .rpic svg{width:78%;height:auto}
+.about .me{align-self:center;display:flex;justify-content:center;padding:56px 0 24px}
+.me3d{position:relative;width:min(400px,100%);aspect-ratio:490/566;perspective:1000px}
+.me-arch{position:absolute;left:-4%;right:-4%;top:24%;bottom:0;border-radius:999px 999px 26px 26px;background:linear-gradient(165deg,#BDEFDB 0%,#A8E6CF 30%,#2F7D6D 100%);box-shadow:inset 0 -40px 70px rgba(29,56,50,.45),inset 0 10px 30px rgba(255,255,255,.35),0 34px 60px rgba(0,0,0,.4);transform:rotateY(-10deg) rotateX(4deg);transform-origin:center bottom}
+.me-floor{position:absolute;left:12%;right:6%;bottom:2%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.5),rgba(0,0,0,0));z-index:1}
+.me-fig{position:absolute;inset:0;z-index:2}
+.me-fig img{position:absolute;max-width:none;max-height:none;width:195.9%;height:auto;left:-47.3%;top:-75.6%;filter:drop-shadow(-14px 20px 16px rgba(0,0,0,.45));transform:translateZ(40px)}
+@media (hover:hover) and (pointer:fine){.me3d{transition:transform .5s var(--ease)}.me3d:hover{transform:translateY(-6px)}}
+.rail,.rev-row{cursor:grab}
+.rail.drag,.rev-row.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.rail.drag *,.rev-row.drag *{pointer-events:none}
+@media (hover:hover) and (pointer:fine){.rail{scrollbar-width:thin;scrollbar-color:var(--deep) transparent;padding-bottom:16px}}
 </style>
 </head>
 <body class="k-kurs">
@@ -469,7 +489,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
       </div>
       <div class="hero-pic rv">
         <div class="arch" style="position:relative">
-          <img class="on" src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/900x/3_2.png" width="900" height="1200" alt="Ольга Смыслова выполняет упражнение лёжа" fetchpriority="high" style="object-fit:contain;object-position:center">
+          <img class="on" src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/900x/2_resized.jpg" width="900" height="1200" alt="Ольга Смыслова сидит на полу в светлом спортивном костюме" fetchpriority="high" style="object-fit:cover;object-position:center 40%">
         </div>
       </div>
     </div>
@@ -478,10 +498,10 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
 
   <section class="sec list-sec" id="kurs-list" aria-labelledby="h-list">
     <div class="wrap">
-      <h2 class="h2 rv" id="h-list">Что будет на курсе</h2>
+      <h2 class="h2 rv" id="h-list">Коротко о курсе</h2>
       <ul class="plist">
         <li class="pk rv"><span class="pill"><b>12 тренировок на осанку</b> (30–40 минут, 2 раза в неделю)</span><img class="pimg" src="img/yoga.png" width="243" height="300" alt="" loading="lazy"></li>
-        <li class="mt rv"><span class="pill">Техники МФР на валиках к каждой тренировке</span><img class="pimg roll" src="img/roller.png" width="201" height="96" alt="" loading="lazy"></li>
+        <li class="mt rv"><span class="pill">Техники МФР на валиках к каждой тренировке</span><span class="pimg svg roll" aria-hidden="true"><svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E3C8"/><stop offset=".45" stop-color="#E4BC8E"/><stop offset="1" stop-color="#B98957"/></linearGradient><pattern id="rp1" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r="2" fill="#fff" opacity=".35"/></pattern></defs><ellipse cx="124" cy="92" rx="96" ry="5.5" fill="#1D3832" opacity=".13"/><path d="M42 14 H198 A18 36 0 0 1 198 86 H42 Z" fill="url(#rg1)"/><path d="M42 14 H198 A18 36 0 0 1 198 86 H42 Z" fill="url(#rp1)"/><ellipse cx="42" cy="50" rx="18" ry="36" fill="#EDCDA3" stroke="#B98957" stroke-width="2"/><ellipse cx="42" cy="50" rx="8" ry="17" fill="#D6AA78"/></svg></span></li>
         <li class="pk rv"><span class="pill">Упражнения на дыхание, спину, лопатки, тазовое дно</span></li>
         <li class="mt rv"><span class="pill">Новые тренировки каждые 2 недели</span></li>
         <li class="pk rv"><span class="pill">Видео-диагностика вашей осанки</span><span class="pimg svg sp" aria-hidden="true"><svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="22" rx="14" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="64" cy="40" rx="15" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="67" cy="58" rx="16" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="68" cy="76" rx="17" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="66" cy="94" rx="18" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="62" cy="112" rx="19" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="58" cy="130" rx="20" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="55" cy="148" rx="21" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/><ellipse cx="54" cy="166" rx="22" ry="7" fill="#FFF3DC" stroke="#B88B5E" stroke-width="2"/></svg></span></li>
@@ -502,7 +522,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
           <p>Теперь я создала этот курс, чтобы вы научились чувствовать своё тело, лёгкость и пластичность внутри без изнуряющих тренировок, поднятия тяжестей и жёстких диет.</p>
         </div>
       </div>
-      <div class="me rv"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/900x/1_2.png" width="900" height="1200" alt="Ольга Смыслова" loading="lazy"></div>
+      <div class="me rv"><div class="me3d"><span class="me-arch" aria-hidden="true"></span><span class="me-floor" aria-hidden="true"></span><div class="me-fig"><img src="https://thb.tildacdn.com/tild6234-3765-4930-b261-613936333861/-/resize/900x/1_2.png" width="960" height="1280" alt="Ольга Смыслова" loading="lazy"></div></div></div>
       <div class="mine">
         <h3 class="rv">Мой результат</h3>
         <figure class="rv"><button type="button" class="frame zoom" data-full="tild3335-6361-4366-b433-643539653266/1.PNG" aria-label="Открыть крупно: мой результат, вид сбоку"><img src="https://thb.tildacdn.com/tild3335-6361-4366-b433-643539653266/-/resize/900x/1.PNG" width="900" height="702" alt="Результат Ольги: до и после, вид сбоку" loading="lazy"></button><figcaption><span>До</span><span>После</span></figcaption></figure>
@@ -554,13 +574,13 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
       <div class="arrows arrows-m" data-for="rail-prices"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
     </div>
     <div class="plans rail" id="rail-prices">
-      <article class="plan p1 rv"><div class="body"><h3>Курс «Философия тела»</h3><p class="cost">9 990 ₽</p>
+      <article class="plan p1 rv"><div class="body"><h3>Курс «Философия тела»</h3><p class="cost">9 990 ₽ <small>/ 2 месяца</small></p>
         <ul>
           <li>Доступ к курсу на 2 месяца</li>
           <li>Доступ ко всем блокам из тарифа «Абонемент» на 2 месяца</li>
           <li>После завершения курса — возможность продлить подписку за 2 990 ₽</li>
           <li class="gift"><span><b>Подарок.</b> 2 личные тренировки с Ольгой при выполнении <a href="#gift">условий</a></span></li>
-        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a></article>
+        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay>Купить в рассрочку <span aria-hidden="true">→</span></a></article>
       <article class="plan p2 rv"><div class="body"><h3>Абонемент</h3><p class="cost">2 990 ₽ <small>/ месяц</small></p>
         <ul>
           <li>Доступ на 1 месяц</li>
@@ -572,7 +592,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
           <li class="no"><span><s>Курс «Философия тела»</s></span></li>
           <li class="no"><span><s>Подарок. 2 личные тренировки с Ольгой</s></span></li>
         </ul></div><a class="buy" href="#pay-abon" data-pay>Купить <span aria-hidden="true">→</span></a></article>
-      <article class="plan p3 rv"><div class="body"><h3>Лично с Ольгой</h3><p class="cost">99 990 ₽</p>
+      <article class="plan p3 rv"><div class="body"><h3>Лично с Ольгой</h3><p class="cost">99 990 ₽ <small>/ 12 месяцев</small></p>
         <ul>
           <li>Доступ к курсу «Философия тела» на 12 месяцев</li>
           <li>Доступ к общему чату на 12 месяцев</li>
@@ -601,12 +621,12 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
   <section class="sec" id="kurs-program" aria-labelledby="h-prog">
     <div class="wrap">
       <div class="rail-head">
-        <h2 class="h2 rv" id="h-prog">Как устроен курс</h2>
+        <h2 class="h2 rv" id="h-prog">Что будет на курсе?</h2>
         <div class="arrows" data-for="rail-prog"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
       </div>
       <div class="rail" id="rail-prog">
         <article class="card c-mint pcard rv"><div class="pic"><img src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/700x/2_resized.jpg" width="700" height="933" alt="Ольга Смыслова на тренировке" loading="lazy"></div><h3>12 тренировок на осанку</h3><p>Начиная с лёгких, заканчивая более сложными. Видео по 30–40 минут 2 раза в неделю — занимайтесь когда удобно и где удобно.</p></article>
-        <article class="card c-peach pcard rv"><div class="pic"><img src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/700x/3_2.png" width="700" height="933" alt="Ольга Смыслова выполняет упражнение" loading="lazy" style="object-fit:contain"></div><h3>Техники МФР на валиках</h3><p>Эффективный миофасциальный релиз к каждой тренировке.</p></article>
+        <article class="card c-peach pcard rv"><div class="pic rpic" aria-hidden="true"><svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E3C8"/><stop offset=".45" stop-color="#E4BC8E"/><stop offset="1" stop-color="#B98957"/></linearGradient><pattern id="rp2" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r="2" fill="#fff" opacity=".35"/></pattern></defs><ellipse cx="124" cy="92" rx="96" ry="5.5" fill="#1D3832" opacity=".13"/><path d="M42 14 H198 A18 36 0 0 1 198 86 H42 Z" fill="url(#rg2)"/><path d="M42 14 H198 A18 36 0 0 1 198 86 H42 Z" fill="url(#rp2)"/><ellipse cx="42" cy="50" rx="18" ry="36" fill="#EDCDA3" stroke="#B98957" stroke-width="2"/><ellipse cx="42" cy="50" rx="8" ry="17" fill="#D6AA78"/></svg></div><h3>Техники МФР на валиках</h3><p>Эффективный миофасциальный релиз к каждой тренировке.</p></article>
         <article class="card c-white rv"><h3>Упражнения</h3><ul class="chips"><li>на дыхание</li><li>на мышцы тазового дна</li><li>спины</li><li>лопаток</li><li>коррекции осанки</li><li>второго подбородка</li><li>от холмика на шее</li><li>от отёков</li><li>для снятия спазмов и зажимов в теле</li><li>на мобильность</li></ul></article>
         <article class="card c-dark rv"><p class="num">каждые 2 недели</p><h3>Дополнительные тренировки</h3><p>На разные группы мышц и на осанку — выполняйте их вместе со мной по 30 минут.</p></article>
         <article class="card c-mint rv"><p class="num">видео</p><h3>Диагностика вашей осанки</h3><p>Узнаете, на что именно в вашем теле нужно сделать акцент.</p></article>
@@ -726,13 +746,13 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
       <div class="arrows arrows-m" data-for="rail-prices-ab"><button type="button" class="arr" data-dir="-1" aria-label="Назад">←</button><button type="button" class="arr" data-dir="1" aria-label="Листать дальше">→</button></div>
     </div>
     <div class="plans rail" id="rail-prices-ab">
-      <article class="plan p1 rv"><div class="body"><h3>Курс «Философия тела»</h3><p class="cost">9 990 ₽</p>
+      <article class="plan p1 rv"><div class="body"><h3>Курс «Философия тела»</h3><p class="cost">9 990 ₽ <small>/ 2 месяца</small></p>
         <ul>
           <li>Доступ к курсу на 2 месяца</li>
           <li>Доступ ко всем блокам из тарифа «Абонемент» на 2 месяца</li>
           <li>После завершения курса — возможность продлить подписку за 2 990 ₽</li>
           <li class="gift"><span><b>Подарок.</b> 2 личные тренировки с Ольгой при выполнении <a href="#gift">условий</a></span></li>
-        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a></article>
+        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay>Купить в рассрочку <span aria-hidden="true">→</span></a></article>
       <article class="plan p2 rv"><div class="body"><h3>Абонемент</h3><p class="cost">2 990 ₽ <small>/ месяц</small></p>
         <ul>
           <li>Доступ на 1 месяц</li>
@@ -744,7 +764,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
           <li class="no"><span><s>Курс «Философия тела»</s></span></li>
           <li class="no"><span><s>Подарок. 2 личные тренировки с Ольгой</s></span></li>
         </ul></div><a class="buy" href="#pay-abon" data-pay>Купить <span aria-hidden="true">→</span></a></article>
-      <article class="plan p3 rv"><div class="body"><h3>Лично с Ольгой</h3><p class="cost">99 990 ₽</p>
+      <article class="plan p3 rv"><div class="body"><h3>Лично с Ольгой</h3><p class="cost">99 990 ₽ <small>/ 12 месяцев</small></p>
         <ul>
           <li>Доступ к курсу «Философия тела» на 12 месяцев</li>
           <li>Доступ к общему чату на 12 месяцев</li>
@@ -855,7 +875,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
   document.addEventListener('click',function(e){var a=e.target.closest('a[href="#prices"]');if(!a)return;if(document.body.className==='k-abon'){e.preventDefault();document.getElementById('prices-ab').scrollIntoView({behavior:'smooth'});}});
 
   /* ---- результаты учениц: лента ---- */
-  var pairs=['img/st1.jpg','img/st2.jpg','img/st3.jpg','img/st4.jpg','img/st5.jpg','tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png'];
+  var pairs=['tild3366-3330-4461-b036-656134636234/IMG_3063.png','tild6633-3335-4638-a437-316161396233/IMG_8515.png','img/st5.jpg','img/st3.jpg','img/st2.jpg','img/st4.jpg','img/st1.jpg'];
   var baRail=document.getElementById('rail-ba');
   pairs.forEach(function(p,i){
     var f=document.createElement('figure');f.className='ba-item';
@@ -869,6 +889,16 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
     function upd(){bs[0].disabled=r.scrollLeft<8;bs[1].disabled=r.scrollLeft+r.clientWidth>=r.scrollWidth-8;}
     bs.forEach(function(b){b.addEventListener('click',function(){var c=r.firstElementChild;var w=c?c.getBoundingClientRect().width+12:300;r.scrollBy({left:w*Number(b.getAttribute('data-dir')),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});});
     r.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setTimeout(upd,600);upd();
+  });
+
+
+  /* ---- листание лент мышью на компьютере ---- */
+  document.querySelectorAll('.rail,.rev-row').forEach(function(r){
+    var down=false,moved=false,x0=0,s0=0;
+    r.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;x0=e.clientX;s0=r.scrollLeft;});
+    addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-x0;if(!moved&&Math.abs(dx)>6){moved=true;r.classList.add('drag');}if(moved){r.scrollLeft=s0-dx;e.preventDefault();}});
+    addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var w=(r.firstElementChild&&r.firstElementChild.getBoundingClientRect().width+12)||300;var t=Math.round(r.scrollLeft/w)*w;r.classList.remove('drag');r.scrollTo({left:t,behavior:'smooth'});var k=function(ev){ev.stopPropagation();ev.preventDefault();};r.addEventListener('click',k,true);setTimeout(function(){r.removeEventListener('click',k,true);},60);setTimeout(function(){moved=false;},0);}});
+    r.addEventListener('dragstart',function(e){e.preventDefault();});
   });
 
   /* ---- отзывы + лайтбокс ---- */
