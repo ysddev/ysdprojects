@@ -428,7 +428,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
 /* ---- правки 08.11 ---- */
 .card h3,.box h3{font-family:var(--font);text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:clamp(1.05rem,.95rem + .45vw,1.3rem);line-height:1.25}
 .plan .cost small{font-size:.42em;font-weight:600;letter-spacing:0;color:inherit;opacity:.75}
-.plan .buy2{background:var(--deep);border-top:1px solid rgba(255,255,255,.14)}
+.plan .buys{display:grid;grid-template-columns:1fr 1fr}.plan .buys .buy{padding:0 clamp(14px,2vw,28px)}.plan .buy2{background:var(--deep);border-left:1px solid rgba(255,255,255,.16)}
 @media (hover:hover) and (pointer:fine){.plan .buy2:hover{background:var(--ink)}}
 .pimg.svg.roll{height:84px}.pimg.svg.roll svg{height:100%;width:auto}
 .pcard .rpic{display:grid;place-items:center;background:var(--peach-2)}
@@ -580,7 +580,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
           <li>Доступ ко всем блокам из тарифа «Абонемент» на 2 месяца</li>
           <li>После завершения курса — возможность продлить подписку за 2 990 ₽</li>
           <li class="gift"><span><b>Подарок.</b> 2 личные тренировки с Ольгой при выполнении <a href="#gift">условий</a></span></li>
-        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay>Купить в рассрочку <span aria-hidden="true">→</span></a></article>
+        </ul></div><div class="buys"><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay aria-label="Купить в рассрочку">В рассрочку <span aria-hidden="true">→</span></a></div></article>
       <article class="plan p2 rv"><div class="body"><h3>Абонемент</h3><p class="cost">2 990 ₽ <small>/ месяц</small></p>
         <ul>
           <li>Доступ на 1 месяц</li>
@@ -752,7 +752,7 @@ mark{white-space:nowrap;background:var(--peach-2);color:var(--ink);padding:.05em
           <li>Доступ ко всем блокам из тарифа «Абонемент» на 2 месяца</li>
           <li>После завершения курса — возможность продлить подписку за 2 990 ₽</li>
           <li class="gift"><span><b>Подарок.</b> 2 личные тренировки с Ольгой при выполнении <a href="#gift">условий</a></span></li>
-        </ul></div><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay>Купить в рассрочку <span aria-hidden="true">→</span></a></article>
+        </ul></div><div class="buys"><a class="buy" href="#pay-kurs" data-pay>Купить <span aria-hidden="true">→</span></a><a class="buy buy2" href="#pay-kurs-parts" data-pay aria-label="Купить в рассрочку">В рассрочку <span aria-hidden="true">→</span></a></div></article>
       <article class="plan p2 rv"><div class="body"><h3>Абонемент</h3><p class="cost">2 990 ₽ <small>/ месяц</small></p>
         <ul>
           <li>Доступ на 1 месяц</li>
