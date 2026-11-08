@@ -312,6 +312,11 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
   .m-ill svg{animation:bob 3.6s ease-in-out infinite}
 }
 
+/* финал: своё фото для каждой вкладки, чтобы не повторять первый экран */
+.f-media .for-abon{display:none}
+body.k-abon .f-media .for-kurs{display:none}
+body.k-abon .f-media .for-abon{display:block}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -448,7 +453,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 
 <div data-panel id="p-abon" role="tabpanel" aria-labelledby="t-abon" hidden>
   <section class="hero ab" aria-labelledby="h-abon">
-    <div class="h-media"><img src="img/side.jpg" width="845" height="900" alt="Ольга Смыслова дома у лестницы показывает ровную осанку" style="object-position:40% 40%"></div>
+    <div class="h-media"><img src="img/bridge.jpg" width="1200" height="1600" alt="Ольга Смыслова в белом боди выполняет мостик с поднятой ногой" style="object-position:50% 52%"></div>
     <div class="h-copy">
       <p class="brand" aria-hidden="true"><span class="ln"><span>Абонемент</span></span></p>
       <h1 id="h-abon" class="h-title">Личный тренер у вас дома</h1>
@@ -554,7 +559,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 
 <section class="final" id="contacts" aria-labelledby="h-contacts">
  <div class="final-in">
-  <div class="f-media reveal"><img src="img/bridge.jpg" width="1200" height="1600" alt="Ольга Смыслова в белом боди выполняет мостик с поднятой ногой" loading="lazy"></div>
+  <div class="f-media reveal"><img class="for-kurs" src="img/bridge.jpg" width="1200" height="1600" alt="Ольга Смыслова в белом боди выполняет мостик с поднятой ногой" loading="lazy"><img class="for-abon" src="https://thb.tildacdn.com/tild6166-3566-4335-b538-333831626364/-/resize/1200x/2_resized.jpg" width="1200" height="1600" alt="Ольга Смыслова сидит на полу в белом боди" loading="lazy"></div>
   <div class="f-copy">
     <h2 class="h2" id="h-contacts">Остались вопросы?</h2>
     <p class="sub">Напишите мне в WhatsApp — отвечу лично и помогу выбрать тариф.</p>
