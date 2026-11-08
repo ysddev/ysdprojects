@@ -2,7 +2,7 @@ name: mirror
 on:
   workflow_dispatch:
   push:
-    paths: ['tools/mirror.py', 'tools/404.html', '.github/workflows/mirror.yml', 'clients/**', 'works/**']
+    paths: ['tools/mirror.py', 'tools/404.html', 'home/**', '.github/workflows/mirror.yml', 'clients/**', 'works/**']
 permissions:
   contents: write
 concurrency: { group: mirror, cancel-in-progress: false }
@@ -25,10 +25,11 @@ jobs:
           cd site
           echo "ysdprojects.space" > CNAME
           touch .nojekyll
-          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://ysddev.com/#works"><title>YSD DEV</title><a href="https://ysddev.com/#works">ysddev.com</a>' > index.html
+          cp -R ../home/. . && rm -f works.json ysdmk-symbol.svg  # главная: витрина живых проектов (tools/build_home.py)
           cp ../tools/404.html 404.html
           mkdir -p d && cp ../tools/404.html d/index.html  # демо клиентов: /d/<проект>/ — с сервера бота
-          printf 'User-agent: *\nDisallow: /\n' > robots.txt
+          printf 'User-agent: *\nDisallow: /d/\nDisallow: /clients/\nSitemap: https://ysdprojects.space/sitemap.xml\n' > robots.txt
+          printf '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://ysdprojects.space/</loc></url></urlset>' > sitemap.xml
           git init -q -b gh-pages
           git config user.name "ysd-mirror"
           git config user.email "actions@users.noreply.github.com"

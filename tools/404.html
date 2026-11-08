@@ -7,15 +7,15 @@
 <title>YSD DEV</title>
 <script>
 // Демо-сайты клиентов: https://ysdprojects.space/d/<проект>/ (и /d/?p=<проект>).
-// Сам сайт лежит на сервере бота (app.ysddev.com/p/<проект>/) — страница подгружает его и показывает здесь,
+// Сам сайт лежит на сервере бота (app.ysdprojects.space/p/<проект>/) — страница подгружает его и показывает здесь,
 // чтобы клиент видел адрес ysdprojects.space и сайт открывался в России (GitHub Pages, без Cloudflare).
 // Всё остальное, чего нет, — на портфолио.
 (function () {
   var path = location.pathname, slug = null, m = path.match(/^\/d\/([a-z0-9-]{3,80})\/?$/);
   if (m) slug = m[1];
   else if (/^\/d\/?(index\.html)?$/.test(path)) slug = new URLSearchParams(location.search).get('p');
-  if (!slug || !/^[a-z0-9-]{3,80}$/.test(slug)) { location.replace('https://ysddev.com/#works'); return; }
-  var src = 'https://app.ysddev.com/p/' + slug + '/';
+  if (!slug || !/^[a-z0-9-]{3,80}$/.test(slug)) { location.replace('https://ysdprojects.space/'); return; }
+  var src = 'https://app.ysdprojects.space/p/' + slug + '/';
   fetch(src, { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
     .then(function (html) {
@@ -28,7 +28,7 @@
       html = /<head[^>]*>/i.test(html) ? html.replace(/<head([^>]*)>/i, '<head$1>' + fix) : fix + html;
       document.open(); document.write(html); document.close();
     })
-    .catch(function (e) { location.replace(e && e.message === '404' ? 'https://ysddev.com/#works' : src); });
+    .catch(function (e) { location.replace(e && e.message === '404' ? 'https://ysdprojects.space/' : src); });
 })();
 </script>
 </head>
