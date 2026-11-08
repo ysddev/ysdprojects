@@ -82,8 +82,11 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 /* обо мне — тёмная панель и фото в форме пряди */
 .about{margin:0 20px;background:var(--l1);color:#fff;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;padding:56px;overflow:hidden;min-height:96svh}
 .about h2{font-size:clamp(40px,4.4vw,64px);color:var(--l10);max-width:14ch}
-.about .shape{margin-top:56px;width:min(38vw,520px);aspect-ratio:3/4;border-radius:var(--swatch);overflow:hidden;margin-bottom:-120px}
-.about .shape img{width:100%;height:100%;object-fit:cover}
+.about .shape{position:relative;margin-top:56px;width:min(34vw,460px);aspect-ratio:9/16;border-radius:var(--swatch);overflow:hidden;margin-bottom:-120px}
+.about .shape video{width:100%;height:100%;object-fit:cover;display:block;background:var(--l3)}
+.snd{position:absolute;left:50%;top:16px;transform:translateX(-50%);min-height:44px;padding:0 20px;border:0;border-radius:999px;background:rgba(27,21,18,.72);color:#fff;font:600 15px/1 var(--f);cursor:pointer;transition:transform .2s var(--ease),background .2s}
+.snd:active{transform:translateX(-50%) scale(.97)}
+@media (hover:hover) and (pointer:fine){.snd:hover{background:var(--l1)}}
 .about .col{display:flex;flex-direction:column;gap:56px;padding-top:8px;max-width:440px}
 .about h3{font-size:22px;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;color:var(--l9)}
 .about .col p{color:#efe7dc;font-size:17px}
@@ -209,7 +212,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 @media (max-width:900px){
   .about{grid-template-columns:1fr;margin:0 10px;padding:28px;min-height:0}
   .about h2{font-size:8.5vw}
-  .about .shape{width:86vw;max-width:420px;justify-self:center;margin-bottom:-28%}
+  .about .shape{width:100%;max-width:380px;margin:32px auto 0}
   .about .col{gap:32px;order:2}
   .about .shape{order:3}
   .inside .intro,.tiles{grid-column:1/-1}
@@ -280,7 +283,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   <div class="about">
     <div>
       <h2 id="about-h" class="rv">18 лет красила других. Теперь крашу себя сама</h2>
-      <div class="shape rv"><img src="img/about-1200.webp" srcset="img/about-800.webp 800w, img/about-1200.webp 1200w" sizes="(max-width:900px) 90vw, 38vw" width="900" height="1200" loading="lazy" alt="Девушка укладывает свои светлые волосы"></div>
+      <div class="shape rv"><video src="video/nadezhda.mp4" poster="video/nadezhda.webp" muted loop playsinline preload="metadata" width="540" height="960" aria-label="Надежда: раньше красилась в парикмахерской, теперь красит сама"></video><button class="snd" type="button" aria-pressed="false">Включить звук</button></div>
     </div>
     <div class="col">
       <div class="rv">
@@ -292,7 +295,6 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
         <p>Раньше, когда я ходила краситься к другим мастерам, мои волосы ломались, не успевая отрастать. Сейчас я крашу свои волосы сама. И тебя научу.</p>
       </div>
       <a class="btn light rv" href="#price">Хочу научиться</a>
-      <p class="cap">Фото-пример, заменим на ваше</p>
     </div>
   </div>
 </section>
@@ -432,6 +434,10 @@ function stagger(box, sel, step) {
   const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { go(); o.disconnect(); } }, { rootMargin: '0px 0px -10% 0px' });
   o.observe(box);
 }
+// видео Надежды: играет, когда видно; звук по кнопке
+const vid = document.querySelector('.about video'), snd = document.querySelector('.snd');
+if (io) new IntersectionObserver(([e]) => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }, { threshold: 0.35 }).observe(vid);
+snd.addEventListener('click', () => { vid.muted = !vid.muted; if (!vid.muted) { vid.currentTime = 0; vid.play().catch(() => {}); } snd.setAttribute('aria-pressed', String(!vid.muted)); snd.textContent = vid.muted ? 'Включить звук' : 'Выключить звук'; });
 // мобильная кнопка: появляется после первого экрана
 const fl = document.querySelector('.float'), hero = document.querySelector('.hero');
 if (io) new IntersectionObserver(([e]) => fl.classList.toggle('off', e.isIntersecting)).observe(hero); else fl.classList.remove('off');
