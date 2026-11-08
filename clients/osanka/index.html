@@ -997,7 +997,7 @@ a{text-underline-offset:3px}
         .from('#p-kurs .hero h1 .ln>*',{yPercent:110,duration:1.1,stagger:.12},0.1)
         .from('#p-kurs .hero-pic .arch',{clipPath:'inset(100% 0% 0% 0%)',duration:1.3,clearProps:'clipPath'},0.15)
         .from('#p-kurs .hero-pic img',{scale:1.12,duration:1.8},0.15)
-        .from('#p-kurs .hero .caps, #p-kurs .hero .lead, #p-kurs .hero .acts',{y:18,opacity:0,duration:.8,stagger:.08},0.55);
+        .fromTo('#p-kurs .hero .caps, #p-kurs .hero .lead, #p-kurs .hero .acts',{y:18,opacity:0},{y:0,opacity:1,duration:.8,stagger:.08,clearProps:'transform,opacity',onStart:function(){document.querySelectorAll('#p-kurs .hero .rv').forEach(function(e){e.classList.add('shown');});}},0.55);
       gsap.to('#p-kurs .hero-pic img.on',{yPercent:5,ease:'none',scrollTrigger:{trigger:'#p-kurs .hero',start:'top top',end:'bottom top',scrub:true}});
       gsap.utils.toArray('.reveal').forEach(function(el){
         gsap.from(el,{clipPath:'inset(100% 0% 0% 0%)',duration:1.1,ease:'power3.out',clearProps:'clipPath',scrollTrigger:{trigger:el,start:'top 90%',once:true}});
