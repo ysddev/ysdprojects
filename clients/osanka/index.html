@@ -190,6 +190,8 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 .a-m{aspect-ratio:5/4;border-radius:200px 200px var(--r) var(--r);overflow:hidden;margin-bottom:22px;display:grid;place-items:center}
 .ai.pk .a-m{background:var(--peach-2)}.ai.mt .a-m{background:var(--mint-2)}
 .a-m img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.a-m{position:relative}
+.a-m>img:not(.contain):not(.low){position:absolute;inset:0}
 .a-m img.contain{object-fit:contain;padding:10% 8% 0;object-position:center bottom}
 .a-m img.low{object-fit:contain;width:auto;height:94%;align-self:end;mix-blend-mode:multiply}
 .a-m .svgwrap{width:80%}.a-m .svgwrap svg{width:100%;height:auto}
