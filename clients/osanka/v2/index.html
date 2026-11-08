@@ -72,6 +72,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 .h-media{grid-column:2;grid-row:1;position:relative;overflow:hidden;border-top-left-radius:min(26vw,420px) min(30vw,520px);background:var(--mint-2)}
 .h-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%}
 .h-media.cut{background:linear-gradient(170deg,var(--peach-2),var(--peach))}
+.hero.ab .brand{font-size:clamp(3rem,1.6rem + 5vw,7.2rem)}
 .h-media.cut img{object-fit:contain;object-position:50% 70%;padding:6% 4% 0}
 .brand{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--deep);font-size:clamp(3.6rem,2rem + 6.4vw,9rem);line-height:.86;letter-spacing:-.02em;margin-left:-.04em}
 .brand .ln{display:block;overflow:hidden;padding:0 .06em .16em 0;margin-bottom:-.1em}
@@ -232,7 +233,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 /* абонемент */
 .inside{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,80px);align-items:start}
 .in-pic{position:sticky;top:calc(var(--head) + 24px);aspect-ratio:4/5;border-radius:999px 999px var(--r) var(--r);overflow:hidden;background:var(--mint-2)}
-.in-pic img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.in-pic img,.in-pic video{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .in-list li{padding:24px 0;border-top:1px solid rgba(29,56,50,.16)}
 .in-list li:last-child{border-bottom:1px solid rgba(29,56,50,.16)}
 .in-list p{margin-top:10px;max-width:56ch}
@@ -438,7 +439,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
 
 <div data-panel id="p-abon" role="tabpanel" aria-labelledby="t-abon" hidden>
   <section class="hero ab" aria-labelledby="h-abon">
-    <div class="h-media cut"><img src="https://thb.tildacdn.com/tild3131-6635-4662-b336-376233613165/-/resize/1200x/3_2.png" width="1200" height="1600" alt="Ольга Смыслова выполняет упражнение на коврике"></div>
+    <div class="h-media"><img src="../img/side.jpg" width="845" height="900" alt="Ольга Смыслова дома у лестницы показывает ровную осанку" style="object-position:40% 40%"></div>
     <div class="h-copy">
       <p class="brand" aria-hidden="true"><span class="ln"><span>Абонемент</span></span></p>
       <h1 id="h-abon" class="h-title">Личный тренер у вас дома</h1>
@@ -451,7 +452,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
     <div class="wrap">
       <div class="sec-head"><h2 class="h2" id="h-inside">Что входит в абонемент</h2></div>
       <div class="inside">
-        <figure class="in-pic reveal"><img src="../img/bend.jpg" width="707" height="900" alt="Ольга показывает упражнение дома" loading="lazy"></figure>
+        <figure class="in-pic vid reveal"><video muted loop playsinline preload="none" poster="../vid/extra.jpg" data-src="../vid/extra.mp4" aria-label="Видео: тренировка из абонемента" style="object-position:center"></video><span class="vtag" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>видео</span></figure>
         <ul class="in-list">
           <li><h3 class="cap">Записи тренировок</h3><p>Возможность заниматься в удобное для вас время. Вам сразу доступны тренировки прошлых 14 дней.</p></li>
           <li><h3 class="cap">Питание в кайф</h3><p>Меню по неделям. Рецепты. Простая система питания, чтобы держать тело в форме, не срываться и кайфовать от процесса.</p></li>
@@ -642,7 +643,7 @@ mark{background:var(--peach-2);color:var(--ink);padding:.04em .28em;border-radiu
   /* ---- видео: грузятся и играют, только когда видны ---- */
   function vload(v){if(!v.getAttribute('src'))v.src=v.getAttribute('data-src');}
   function vplay(v){vload(v);if(RM)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
-  var vids=[].slice.call(document.querySelectorAll('.mi video'));
+  var vids=[].slice.call(document.querySelectorAll('.mi video, .in-pic video'));
   if('IntersectionObserver' in window){
     var vio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vplay(e.target);else e.target.pause();});},{threshold:.4});
     vids.forEach(function(v){vio.observe(v);});
