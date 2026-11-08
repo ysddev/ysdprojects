@@ -190,6 +190,21 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
+/* загрузка первого экрана */
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .06em .12em 0;margin-bottom:-.12em}
+.js .hero h1 .w>*{display:inline-block;transform:translateY(110%);transition:transform 1.2s var(--ease)}
+.js .hero h1 .w+.w>*{transition-delay:.12s}
+.js .hero .mark,.js .hero .sub,.js .acts,.js .quote,.js .hero-photo .go{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .hero .sub{transition-delay:.35s}.js .acts{transition-delay:.5s}.js .quote{transition-delay:.65s}.js .hero-photo .go{transition-delay:.8s}
+.js .hero-photo img{opacity:0;transform:scale(1.12);transition:opacity 1.2s var(--ease),transform 2.4s var(--ease)}
+.js .ramp span{transform:scaleY(0);transform-origin:bottom;transition:transform .9s var(--ease)}
+.loaded .hero h1 .w>*,.loaded .hero .mark,.loaded .hero .sub,.loaded .acts,.loaded .quote,.loaded .hero-photo .go,.loaded .hero-photo img,.loaded .ramp span{opacity:1;transform:none}
+/* ступеньки внутри блоков */
+.js .swatches .sw,.js .blocks span{opacity:0;transform:translateY(36px)}
+.js .swatches .sw{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js .blocks span{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .swatches.in .sw,.js .blocks.in span{opacity:1;transform:none}
+.js .swatches.in .sw[aria-pressed=true]{transform:translateY(-14px)}
 
 @media (max-width:900px){
   .about{grid-template-columns:1fr;margin:0 10px;padding:28px;min-height:0}
@@ -238,9 +253,10 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important}
-  .rv{opacity:1;transform:none}
+  .rv,.js .hero *,.js .swatches .sw,.js .blocks span,.js .ramp span{opacity:1!important;transform:none!important}
 }
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body class="no-js">
 <header class="hero" id="top">
@@ -248,7 +264,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
     <div class="hero-txt">
       <a class="mark" href="#top">Крашу сама</a>
       <div>
-      <h1>Крашу <em>сама</em></h1>
+      <h1><span class="w"><span>Крашу</span></span> <span class="w"><em>сама</em></span></h1>
       <p class="sub">Онлайн-урок колориста Надежды Егоровой: как окрасить волосы в&nbsp;блонд самой, без обламывания и&nbsp;потери длины.</p>
       <div class="acts"><a class="btn light" href="#price">Купить урок</a><a class="link" href="#tone">Какой у меня тон?</a></div>
       <p class="quote">«Хватит экспериментировать! Красота и длина волос в&nbsp;твоих руках!»<span>Надежда Егорова, колорист, 18&nbsp;лет стажа</span></p>
@@ -399,6 +415,23 @@ document.querySelectorAll('.rv').forEach((el, i) => {
   el.style.transitionDelay = (Math.max(0, sib) * 75) + 'ms';
   io ? io.observe(el) : el.classList.add('in');
 });
+// первый экран: старт после загрузки главного фото (не дольше 1.2 с)
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heroImg = document.querySelector('.hero-photo img');
+document.querySelectorAll('.ramp span').forEach((x, i) => { x.style.transitionDelay = (0.3 + i * 0.06) + 's'; });
+Promise.race([heroImg.decode ? heroImg.decode().catch(() => {}) : 0, new Promise((r) => setTimeout(r, 1200))])
+  .then(() => requestAnimationFrame(() => document.documentElement.classList.add('loaded')));
+// параллакс главного фото
+if (!RM) { let tick = false; addEventListener('scroll', () => { if (tick) return; tick = true; requestAnimationFrame(() => { const y = scrollY; if (y < innerHeight * 1.2) heroImg.style.translate = `0 ${y * 0.14}px`; tick = false; }); }, { passive: true }); }
+// ступеньки: образцы тона и буквы в подвале
+function stagger(box, sel, step) {
+  const els = box.querySelectorAll(sel);
+  els.forEach((x, i) => { x.style.transitionDelay = (i * step) + 'ms'; });
+  const go = () => { box.classList.add('in'); setTimeout(() => els.forEach((x) => { x.style.transitionDelay = ''; }), 1200 + els.length * step); };
+  if (!io) return go();
+  const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { go(); o.disconnect(); } }, { rootMargin: '0px 0px -10% 0px' });
+  o.observe(box);
+}
 // мобильная кнопка: появляется после первого экрана
 const fl = document.querySelector('.float'), hero = document.querySelector('.hero');
 if (io) new IntersectionObserver(([e]) => fl.classList.toggle('off', e.isIntersecting)).observe(hero); else fl.classList.remove('off');
@@ -420,7 +453,9 @@ document.querySelectorAll('.swatches').forEach((row) => {
     });
     row.appendChild(b);
   }
+  stagger(row, '.sw', 45);
 });
+stagger(document.querySelector('.blocks'), 'span', 70);
 function tone() {
   const big = document.getElementById('r-big'), txt = document.getElementById('r-txt'), btn = document.getElementById('r-btn');
   if (!sel.now || !sel.want) return;
