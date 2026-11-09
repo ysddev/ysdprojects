@@ -68,7 +68,10 @@
         if (q > 0) lines.push([c.getAttribute('data-title'), q, parseInt(c.getAttribute('data-price'), 10) * q]);
       });
       var loc = $('select[name=location_id]', f);
+      var cur = $('.date[aria-current=true]');
+      var when = cur ? cur.innerText.split('\n').filter(Boolean).pop() : '';
       store.set('mock-order', {
+        when: when,
         lines: lines,
         comment: ($('textarea[name=comment]', f) || {}).value || '',
         place: loc && loc.value ? loc.options[loc.selectedIndex].text : ''
@@ -107,6 +110,8 @@
     var cm = $('.receipt .comment');
     if (cm) { if (o.comment) cm.textContent = o.comment; else cm.remove(); }
     else if (o.comment) { var p = document.createElement('p'); p.className = 'comment'; p.textContent = o.comment; k.after(p); }
+    var no = $('.receipt > p.mut');
+    if (no && o.when) no.textContent = no.textContent.replace(/доставка .*/, 'доставка ' + o.when);
     if (o.place) {
       $$('.receipt .meta div').forEach(function (d) {
         var s = $('span', d);

@@ -1,3 +1,969 @@
-﻿ФИО;Логин;"Временный пароль";"Адрес сайта"
-"Сидоров Алексей Николаевич";02501;02501;https://вместоресто.рф/
-"Ёлкина Юлия Андреевна";02502;02502;https://вместоресто.рф/
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="same-origin">
+<meta name="theme-color" content="#f7f7ef">
+<title>Сотрудники · Вместо Ресто</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/manrope-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/pacifico-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/app.css?v=1794230074">
+<script src="assets/app.js?v=1794230495" defer></script>
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a class="brand" href="index.php?p=a-orders" aria-label="Вместо Ресто — на главную"><strong>Вместо Ресто</strong><small>обед по плану</small></a>
+    <div class="sidebar-label">Управление</div>
+    <nav aria-label="Разделы управления">
+            <a href="index.php?p=a-orders" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Заказы</a>
+            <a href="index.php?p=a-dishes" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg>Меню</a>
+            <a href="index.php?p=a-companies" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>Компании</a>
+            <a href="index.php?p=a-users" aria-current="page"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Сотрудники</a>
+            <a href="index.php?p=a-report" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg>Отчёты</a>
+            <a href="index.php?p=a-settings" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>Настройки</a>
+            <a href="index.php?p=a-help" ><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Инструкция</a>
+          </nav>
+    <div class="sidebar-foot">
+      <a href="index.php?p=menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>Меню глазами сотрудника</a>
+      <form method="post" action="index.php?p=logout"><input type="hidden" name="_csrf" value="4e6d513ef76cc5aee26ec9315c15dd9a"><button type="submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>Выйти</button></form>
+    </div>
+  </aside>
+  <div>
+    <div class="admin-top">
+      <a class="text-btn" href="index.php?p=menu">Меню глазами сотрудника</a>
+      <form method="post" action="index.php?p=logout" class="inline"><input type="hidden" name="_csrf" value="4e6d513ef76cc5aee26ec9315c15dd9a"><button class="text-btn" type="submit">Выйти</button></form>
+    </div>
+    <main class="admin-main">
+            <div class="admin-heading">
+  <div><h1>Сотрудники</h1><p>Учётные записи создаёте вы. Саморегистрации на сайте нет.</p></div>
+  <div class="actions">
+    <a class="btn secondary" href="index.php?p=a-import">Загрузить ведомость</a>
+    <a class="btn" href="index.php?p=a-user">Добавить сотрудника</a>
+  </div>
+</div>
+<form class="filters" method="get">
+  <input type="hidden" name="p" value="a-users">
+  <label class="field"><span>Компания</span><select name="company" data-autosubmit><option value="">Все</option><option value="2" >Компания А</option><option value="1" >Компания М</option><option value="3" >Компания Т</option><option value="4" >ООО «Тест»</option></select></label>
+  <label class="field"><span>Поиск</span><input name="s" value="" placeholder="ФИО, логин или табельный"></label>
+  <button class="btn dark" type="submit">Найти</button>
+  <span class="tiny" style="padding-bottom:12px">Найдено: 260</span>
+</form>
+<div class="table-wrap">
+  <table class="tbl stackable">
+    <thead><tr><th>ФИО</th><th>Табельный</th><th>Логин</th><th>Компания</th><th>Последний вход</th><th></th></tr></thead>
+    <tbody>
+            <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=1">Рабе Ольга Владимировна</a>
+         <span class="status accepted">админ</span></td>
+      <td data-l="Табельный">—</td>
+      <td data-l="Логин"><code>olga</code></td>
+      <td data-l="Компания">—</td>
+      <td data-l="Вход">9 ноября, 22:04</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=1">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=4">Кузнецова Мария Олеговна</a>
+        </td>
+      <td data-l="Табельный">11032</td>
+      <td data-l="Логин"><code>11032</code></td>
+      <td data-l="Компания">Компания А</td>
+      <td data-l="Вход">9 ноября, 20:15</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=4">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=5">Орлов Дмитрий Игоревич</a>
+        </td>
+      <td data-l="Табельный">11040</td>
+      <td data-l="Логин"><code>11040</code></td>
+      <td data-l="Компания">Компания А</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=5">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=260">Ёлкина Юлия Андреевна</a>
+        </td>
+      <td data-l="Табельный">02502</td>
+      <td data-l="Логин"><code>02502</code></td>
+      <td data-l="Компания">Компания М</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=260">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=3">Иванов Пётр Сергеевич</a>
+        </td>
+      <td data-l="Табельный">02477</td>
+      <td data-l="Логин"><code>02477</code></td>
+      <td data-l="Компания">Компания М</td>
+      <td data-l="Вход">9 ноября, 20:15</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=3">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=258">Новиков Сергей Андреевич</a>
+        </td>
+      <td data-l="Табельный">40001</td>
+      <td data-l="Логин"><code>new</code></td>
+      <td data-l="Компания">Компания М</td>
+      <td data-l="Вход">9 ноября, 22:04</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=258">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=259">Сидоров Алексей Николаевич</a>
+        </td>
+      <td data-l="Табельный">02501</td>
+      <td data-l="Логин"><code>02501</code></td>
+      <td data-l="Компания">Компания М</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=259">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=2">Смирнова Анна Петровна</a>
+        </td>
+      <td data-l="Табельный">02476</td>
+      <td data-l="Логин"><code>02476</code></td>
+      <td data-l="Компания">Компания М</td>
+      <td data-l="Вход">9 ноября, 22:04</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=2">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=6">Белова Елена Викторовна</a>
+        </td>
+      <td data-l="Табельный">30115</td>
+      <td data-l="Логин"><code>30115</code></td>
+      <td data-l="Компания">Компания Т</td>
+      <td data-l="Вход">9 ноября, 20:15</td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=6">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=257">Смирнова Анна Петровна</a>
+        </td>
+      <td data-l="Табельный">02476</td>
+      <td data-l="Логин"><code>02476-2</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=257">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=7">Тестов1 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50001</td>
+      <td data-l="Логин"><code>50001</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=7">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=16">Тестов10 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50010</td>
+      <td data-l="Логин"><code>50010</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=16">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=106">Тестов100 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50100</td>
+      <td data-l="Логин"><code>50100</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=106">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=107">Тестов101 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50101</td>
+      <td data-l="Логин"><code>50101</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=107">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=108">Тестов102 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50102</td>
+      <td data-l="Логин"><code>50102</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=108">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=109">Тестов103 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50103</td>
+      <td data-l="Логин"><code>50103</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=109">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=110">Тестов104 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50104</td>
+      <td data-l="Логин"><code>50104</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=110">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=111">Тестов105 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50105</td>
+      <td data-l="Логин"><code>50105</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=111">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=112">Тестов106 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50106</td>
+      <td data-l="Логин"><code>50106</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=112">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=113">Тестов107 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50107</td>
+      <td data-l="Логин"><code>50107</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=113">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=114">Тестов108 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50108</td>
+      <td data-l="Логин"><code>50108</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=114">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=115">Тестов109 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50109</td>
+      <td data-l="Логин"><code>50109</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=115">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=17">Тестов11 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50011</td>
+      <td data-l="Логин"><code>50011</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=17">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=116">Тестов110 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50110</td>
+      <td data-l="Логин"><code>50110</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=116">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=117">Тестов111 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50111</td>
+      <td data-l="Логин"><code>50111</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=117">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=118">Тестов112 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50112</td>
+      <td data-l="Логин"><code>50112</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=118">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=119">Тестов113 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50113</td>
+      <td data-l="Логин"><code>50113</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=119">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=120">Тестов114 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50114</td>
+      <td data-l="Логин"><code>50114</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=120">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=121">Тестов115 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50115</td>
+      <td data-l="Логин"><code>50115</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=121">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=122">Тестов116 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50116</td>
+      <td data-l="Логин"><code>50116</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=122">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=123">Тестов117 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50117</td>
+      <td data-l="Логин"><code>50117</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=123">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=124">Тестов118 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50118</td>
+      <td data-l="Логин"><code>50118</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=124">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=125">Тестов119 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50119</td>
+      <td data-l="Логин"><code>50119</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=125">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=18">Тестов12 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50012</td>
+      <td data-l="Логин"><code>50012</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=18">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=126">Тестов120 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50120</td>
+      <td data-l="Логин"><code>50120</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=126">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=127">Тестов121 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50121</td>
+      <td data-l="Логин"><code>50121</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=127">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=128">Тестов122 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50122</td>
+      <td data-l="Логин"><code>50122</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=128">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=129">Тестов123 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50123</td>
+      <td data-l="Логин"><code>50123</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=129">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=130">Тестов124 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50124</td>
+      <td data-l="Логин"><code>50124</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=130">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=131">Тестов125 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50125</td>
+      <td data-l="Логин"><code>50125</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=131">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=132">Тестов126 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50126</td>
+      <td data-l="Логин"><code>50126</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=132">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=133">Тестов127 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50127</td>
+      <td data-l="Логин"><code>50127</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=133">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=134">Тестов128 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50128</td>
+      <td data-l="Логин"><code>50128</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=134">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=135">Тестов129 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50129</td>
+      <td data-l="Логин"><code>50129</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=135">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=19">Тестов13 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50013</td>
+      <td data-l="Логин"><code>50013</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=19">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=136">Тестов130 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50130</td>
+      <td data-l="Логин"><code>50130</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=136">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=137">Тестов131 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50131</td>
+      <td data-l="Логин"><code>50131</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=137">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=138">Тестов132 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50132</td>
+      <td data-l="Логин"><code>50132</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=138">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=139">Тестов133 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50133</td>
+      <td data-l="Логин"><code>50133</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=139">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=140">Тестов134 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50134</td>
+      <td data-l="Логин"><code>50134</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=140">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=141">Тестов135 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50135</td>
+      <td data-l="Логин"><code>50135</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=141">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=142">Тестов136 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50136</td>
+      <td data-l="Логин"><code>50136</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=142">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=143">Тестов137 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50137</td>
+      <td data-l="Логин"><code>50137</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=143">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=144">Тестов138 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50138</td>
+      <td data-l="Логин"><code>50138</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=144">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=145">Тестов139 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50139</td>
+      <td data-l="Логин"><code>50139</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=145">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=20">Тестов14 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50014</td>
+      <td data-l="Логин"><code>50014</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=20">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=146">Тестов140 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50140</td>
+      <td data-l="Логин"><code>50140</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=146">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=147">Тестов141 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50141</td>
+      <td data-l="Логин"><code>50141</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=147">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=148">Тестов142 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50142</td>
+      <td data-l="Логин"><code>50142</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=148">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=149">Тестов143 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50143</td>
+      <td data-l="Логин"><code>50143</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=149">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=150">Тестов144 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50144</td>
+      <td data-l="Логин"><code>50144</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=150">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=151">Тестов145 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50145</td>
+      <td data-l="Логин"><code>50145</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=151">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=152">Тестов146 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50146</td>
+      <td data-l="Логин"><code>50146</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=152">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=153">Тестов147 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50147</td>
+      <td data-l="Логин"><code>50147</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=153">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=154">Тестов148 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50148</td>
+      <td data-l="Логин"><code>50148</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=154">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=155">Тестов149 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50149</td>
+      <td data-l="Логин"><code>50149</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=155">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=21">Тестов15 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50015</td>
+      <td data-l="Логин"><code>50015</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=21">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=156">Тестов150 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50150</td>
+      <td data-l="Логин"><code>50150</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=156">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=157">Тестов151 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50151</td>
+      <td data-l="Логин"><code>50151</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=157">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=158">Тестов152 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50152</td>
+      <td data-l="Логин"><code>50152</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=158">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=159">Тестов153 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50153</td>
+      <td data-l="Логин"><code>50153</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=159">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=160">Тестов154 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50154</td>
+      <td data-l="Логин"><code>50154</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=160">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=161">Тестов155 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50155</td>
+      <td data-l="Логин"><code>50155</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=161">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=162">Тестов156 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50156</td>
+      <td data-l="Логин"><code>50156</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=162">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=163">Тестов157 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50157</td>
+      <td data-l="Логин"><code>50157</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=163">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=164">Тестов158 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50158</td>
+      <td data-l="Логин"><code>50158</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=164">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=165">Тестов159 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50159</td>
+      <td data-l="Логин"><code>50159</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=165">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=22">Тестов16 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50016</td>
+      <td data-l="Логин"><code>50016</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=22">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=166">Тестов160 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50160</td>
+      <td data-l="Логин"><code>50160</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=166">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=167">Тестов161 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50161</td>
+      <td data-l="Логин"><code>50161</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=167">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=168">Тестов162 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50162</td>
+      <td data-l="Логин"><code>50162</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=168">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=169">Тестов163 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50163</td>
+      <td data-l="Логин"><code>50163</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=169">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=170">Тестов164 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50164</td>
+      <td data-l="Логин"><code>50164</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=170">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=171">Тестов165 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50165</td>
+      <td data-l="Логин"><code>50165</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=171">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=172">Тестов166 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50166</td>
+      <td data-l="Логин"><code>50166</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=172">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=173">Тестов167 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50167</td>
+      <td data-l="Логин"><code>50167</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=173">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=174">Тестов168 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50168</td>
+      <td data-l="Логин"><code>50168</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=174">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=175">Тестов169 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50169</td>
+      <td data-l="Логин"><code>50169</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=175">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=23">Тестов17 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50017</td>
+      <td data-l="Логин"><code>50017</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=23">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=176">Тестов170 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50170</td>
+      <td data-l="Логин"><code>50170</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=176">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=177">Тестов171 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50171</td>
+      <td data-l="Логин"><code>50171</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=177">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=178">Тестов172 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50172</td>
+      <td data-l="Логин"><code>50172</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=178">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=179">Тестов173 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50173</td>
+      <td data-l="Логин"><code>50173</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=179">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=180">Тестов174 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50174</td>
+      <td data-l="Логин"><code>50174</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=180">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=181">Тестов175 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50175</td>
+      <td data-l="Логин"><code>50175</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=181">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=182">Тестов176 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50176</td>
+      <td data-l="Логин"><code>50176</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=182">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=183">Тестов177 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50177</td>
+      <td data-l="Логин"><code>50177</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=183">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=184">Тестов178 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50178</td>
+      <td data-l="Логин"><code>50178</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=184">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=185">Тестов179 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50179</td>
+      <td data-l="Логин"><code>50179</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=185">Изменить</a></td>
+    </tr>
+        <tr class="">
+      <td><a href="index.php?p=a-user&amp;id=24">Тестов18 Иван Петрович</a>
+        </td>
+      <td data-l="Табельный">50018</td>
+      <td data-l="Логин"><code>50018</code></td>
+      <td data-l="Компания">ООО «Тест»</td>
+      <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+      <td><a class="btn secondary compact" href="index.php?p=a-user&amp;id=24">Изменить</a></td>
+    </tr>
+        </tbody>
+  </table>
+</div>
+<div class="row" style="justify-content:flex-end;margin-top:12px">
+    <span class="tiny">Страница 1 из 3</span>
+  <a class="btn secondary compact" href="index.php?p=a-users&amp;page=2">Дальше →</a></div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
