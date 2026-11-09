@@ -11,6 +11,8 @@
 #arxc .soc a{width:44px;height:44px;display:grid;place-items:center}
 #arxc .soc svg{width:28px;height:28px}
 @media (hover:hover) and (pointer:fine){#arxc a:hover{opacity:.6}}
+#arxc.white{background:#fff;color:#000}
+#arxc.white .bg{display:none}
 </style>
 <section id="arxc" aria-label="Контакты">
   <img class="bg" src="https://static.tildacdn.com/tila6537-6166-4765-b932-623337303334/anna-hero-2.jpg" alt="" width="1200" height="1600">
@@ -27,3 +29,6 @@
     </div>
   </div>
 </section>
+<script>
+(function(){var c=document.getElementById('arxc');function f(){c.classList.toggle('white',location.hash==='#w')}f();addEventListener('hashchange',f);})();
+</script>

@@ -16,7 +16,7 @@
   <nav class="row" aria-label="Клиентский сервис">
     <a href="/page52559643.html">Доставка</a>
     <a href="/page52561461.html">Обмен и возврат</a>
-    <a href="/page52562425.html">Контакты</a>
+    <a href="/page52562425.html#w">Контакты</a>
     <a href="/page52562659.html">Оплата</a>
   </nav>
   <div class="row">
