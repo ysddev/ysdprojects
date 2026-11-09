@@ -46,7 +46,7 @@ jobs:
           import json, os, shutil
           works = json.load(open('../home/works.json', encoding='utf-8'))
           for w in works:
-              slug = w['u'].rstrip('/').split('/')[-1]
+              slug = w['u'].split('ysdprojects.space/')[-1].strip('/').replace('/', '-')
               for size in (400, 800):
                   src = f'../_thumbs/{slug}-{size}.webp'
                   if os.path.exists(src):

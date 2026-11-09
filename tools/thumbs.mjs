@@ -6,7 +6,14 @@ import path from 'node:path';
 const root = path.resolve('works'); const out = path.resolve('thumbs-out');
 fs.mkdirSync(out, { recursive: true });
 const only = (process.env.ONLY || '').split(',').filter(Boolean);
-const slugs = fs.readdirSync(root).filter(d => fs.existsSync(path.join(root, d, 'index.html')) && (!only.length || only.includes(d)));
+// верхние работы (shop) и вложенные (bots/food, apps/crm) — имя файла обложки: bots-food-800.webp
+const slugs = [];
+for (const d of fs.readdirSync(root)) {
+  if (fs.existsSync(path.join(root, d, 'index.html'))) slugs.push(d);
+  else if (fs.statSync(path.join(root, d)).isDirectory())
+    for (const e of fs.readdirSync(path.join(root, d))) if (fs.existsSync(path.join(root, d, e, 'index.html'))) slugs.push(d + '/' + e);
+}
+if (only.length) slugs.splice(0, slugs.length, ...slugs.filter(s => only.includes(s)));
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 2, reducedMotion: 'reduce', locale: 'ru-RU' });
 for (const s of slugs) {
@@ -26,12 +33,12 @@ for (const s of slugs) {
     await page.waitForTimeout(2500);
     const png = await page.screenshot({ type: 'png' });
     for (const w of [400, 800, 1200, 1920, 3840]) {
-      await sharp(png).resize(w, Math.round(w * 9 / 16)).webp({ quality: w >= 1920 ? 78 : 80 }).toFile(path.join(out, `${s}-${w}.webp`));
+      await sharp(png).resize(w, Math.round(w * 9 / 16)).webp({ quality: w >= 1920 ? 78 : 80 }).toFile(path.join(out, `${s.replace('/', '-')}-${w}.webp`));
     }
     // мобильный вид для проверки
     await page.setViewportSize({ width: 390, height: 844 });
     await page.waitForTimeout(800);
-    await sharp(await page.screenshot({ type: 'png' })).resize(390).webp({ quality: 75 }).toFile(path.join(out, `${s}-mobile.webp`));
+    await sharp(await page.screenshot({ type: 'png' })).resize(390).webp({ quality: 75 }).toFile(path.join(out, `${s.replace('/', '-')}-mobile.webp`));
     console.log('ok', s);
   } catch (e) { console.log('FAIL', s, e.message); }
   await page.close();
