@@ -119,7 +119,7 @@ header.sc{border-bottom-color:var(--line)}
 .hero{padding:clamp(56px,11vh,120px) 0 clamp(36px,6vh,64px)}
 .eyebrow{font-family:var(--m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:12px;margin:0 0 26px}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--dim)}
-.eyebrow s{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite;text-decoration:none}
+.eyebrow s{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.6);animation:pulse 2s infinite;text-decoration:none}
 h1{font-size:clamp(38px,7.4vw,90px);line-height:.98;letter-spacing:-.045em;font-weight:700;margin:0 0 22px;max-width:15ch;background:linear-gradient(180deg,#fff 40%,#9d9da4 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:clamp(16px,1.6vw,19px);line-height:1.55;color:#bdbdbd;max-width:56ch;margin:0 0 34px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -162,7 +162,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line);margin-top:2
 .foot a:hover{color:#fff}
 .foot .mk{height:16px;width:auto;color:#fff;vertical-align:-3px;margin-right:10px}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.55)}70%{box-shadow:0 0 0 9px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
 @media (max-width:1100px){.works{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:820px){.links{display:none}.brand span{display:none}}
 @media (max-width:720px){
