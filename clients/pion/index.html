@@ -41,6 +41,7 @@ img{display:block;max-width:100%;height:auto}
 h1,h2,h3,p,ul,figure{margin:0}
 ul{padding:0;list-style:none}
 a{color:inherit}
+a,button,input{touch-action:manipulation;-webkit-tap-highlight-color:rgba(176,41,143,.2)}
 h2{font-size:var(--head);font-weight:700;letter-spacing:-.03em;line-height:1;text-wrap:balance}
 h3{font-size:var(--lead);font-weight:700;letter-spacing:-.02em;line-height:1.15}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
@@ -553,7 +554,7 @@ footer .sm{font-size:var(--small)}
   /* билет: сумма и время */
   var chips=$$('.chip'), sumEl=$('#sum'), timeEl=$('#time'), pickedEl=$('#picked'), chosen=$('#chosen'), cur=0, raf;
   var nf=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')};
-  function dur(m){ var h=Math.floor(m/60), r=m%60; return 'около '+(h?h+' ч ':'')+(r?r+' мин':''); }
+  function dur(m){ var h=Math.floor(m/60), r=m%60; return 'около '+[h?h+' ч':'',r?r+' мин':''].filter(Boolean).join(' '); }
   function state(){
     var on=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true'});
     return {n:on.length,
