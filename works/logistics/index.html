@@ -1,0 +1,1704 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add("js")</script>
+<title>Восточный вектор — доставка грузов из Китая под ключ, Владивосток</title>
+<meta name="description" content="Сборные грузы от 50 кг и контейнеры 20' и 40' из Китая через Владивосток: выкуп, проверка фабрики, белое таможенное оформление, доставка до склада и маркетплейса. Схема маршрута, расчёт и трекинг.">
+<meta name="theme-color" content="#18191b">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Восточный вектор — грузы из Китая до вашего склада">
+<meta property="og:description" content="Маршрут по дням, расчёт за минуту и трекинг груза: авто, ЖД, море + ЖД и авиа из Гуанчжоу, Иу, Шанхая, Пекина и Харбина.">
+<meta property="og:image" content="img/hero-1400.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 0h26v26l-6 6H0V6z' fill='%23ff4a1f'/%3E%3Cpath d='M7 9h6l3 10 3-10h6l-6 15h-6z' fill='%2318191b'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/unbounded-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-1400.webp" imagesrcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" imagesizes="(max-width:860px) 100vw, 46vw" fetchpriority="high">
+<style>
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/unbounded-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/unbounded-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/unbounded-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --bg:#18191b;--s1:#202225;--s2:#2a2d31;--s3:#363a3f;
+  --ink:#eff0f1;--muted:#b3b6ba;
+  --acc:#ff4a1f;--acc-2:#ff6a44;--acc-ink:#18191b;
+  --paper:#eceeef;--paper-2:#dfe2e4;--paper-3:#d2d6d9;--pink:#18191b;--pmuted:#44484d;
+  --sea:#1c2730;--sea-r:#7db7d8;--rail:#e9edf0;
+  --disp:"Unbounded","Golos Text",system-ui,sans-serif;
+  --text:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --t-xs:14px;
+  --t-body:clamp(16px,0.94rem + 0.18vw,18px);
+  --t-lead:clamp(18px,1.02rem + 0.5vw,23px);
+  --t-h2:clamp(28px,1rem + 2.7vw,56px);
+  --t-h1:clamp(30px,4.3vw,72px);
+  --m:clamp(16px,3.6vw,56px);
+  --gap:clamp(16px,2vw,28px);
+  --sec:clamp(88px,10vw,176px);
+  --k:clamp(14px,1.8vw,26px);
+  --kb:10px;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+  --hdr:68px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 12px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--t-body)/1.55 var(--text);font-feature-settings:"tnum" 1,"lnum" 1;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+a,button,summary,label,select,input{touch-action:manipulation}
+h1,h2,h3,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2{font-family:var(--disp);font-weight:500;letter-spacing:-0.035em;line-height:1.04}
+h1{font-size:var(--t-h1)}
+h2{font-size:var(--t-h2)}
+h3{font-size:var(--t-lead);font-weight:600;line-height:1.25;letter-spacing:-0.01em}
+.nb{white-space:nowrap}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--m);top:-80px;z-index:100;background:var(--acc);color:var(--acc-ink);padding:12px 18px;font-weight:600}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+::selection{background:var(--acc);color:var(--acc-ink)}
+.wrap{padding-inline:var(--m)}
+.fig{font-family:var(--disp);font-weight:500;letter-spacing:-0.03em;line-height:1}
+
+/* the motif: a container corner cut */
+.cut{clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k))}
+.btn{--k:var(--kb);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;font-weight:600;font-size:17px;line-height:1.2;text-decoration:none;background:var(--acc);color:var(--acc-ink);clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k));transition:background-color .2s var(--ease),transform .16s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn--ink{background:var(--pink);color:var(--paper)}
+.btn--ghost{background:var(--s2);color:var(--ink)}
+.lnk{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.3em;text-decoration-color:var(--acc)}
+.lnk:active{transform:scale(.97)}
+.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dot{--k:.18em;display:inline-block;width:.72em;height:.72em;background:var(--acc);clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k));flex:none}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--acc-2)}
+  .btn--ink:hover{background:#33363b}
+  .btn--ghost:hover{background:var(--s3)}
+  .lnk:hover{text-decoration-color:currentColor}
+}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-top:4px solid var(--acc);transition:background-color .3s var(--ease)}
+.hdr__in{display:flex;align-items:center;gap:clamp(16px,2.4vw,40px);height:var(--hdr);padding-inline:var(--m)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-height:44px}
+.brand__m{--k:7px;width:34px;height:34px;background:var(--acc);display:grid;place-items:center;clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k))}
+.brand__m svg{width:20px;height:20px}
+.brand__t{font-family:var(--disp);font-size:15px;letter-spacing:-0.02em;line-height:1.1}
+.brand__t small{display:block;font-family:var(--text);font-size:14px;color:var(--muted);letter-spacing:0}
+.nav{display:flex;gap:clamp(14px,1.6vw,28px)}
+.nav a{font-size:16px;text-decoration:none;color:var(--muted);padding:12px 0;transition:color .2s var(--ease)}
+.nav a[aria-current="true"]{color:var(--ink)}
+.hdr__tel{font-weight:600;text-decoration:none;white-space:nowrap;min-height:44px;display:flex;align-items:center}
+.hdr .btn{min-height:44px;padding:10px 18px;font-size:16px}
+.burger{display:none;width:48px;height:48px;align-items:center;justify-content:center;margin-right:-10px}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);position:relative;transition:transform .3s var(--ease)}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--ink);transition:transform .3s var(--ease)}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-7px) rotate(-45deg)}
+.mnav{overscroll-behavior:contain;position:fixed;inset:calc(var(--hdr) + 4px) 0 0;z-index:49;background:var(--bg);padding:24px var(--m) 40px;display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility 0s .3s;overflow:auto}
+.mnav.open{opacity:1;visibility:visible;transform:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.mnav a{font-family:var(--disp);font-size:24px;letter-spacing:-0.02em;text-decoration:none;padding:10px 0}
+.mnav .btn{margin-top:20px;font-family:var(--text);font-size:17px}
+.mnav__tel{font-family:var(--text)!important;font-size:18px!important;font-weight:600;color:var(--muted)}
+@media (hover:hover) and (pointer:fine){.nav a:hover{color:var(--ink)}}
+@media (max-width:1180px){.nav{display:none}.burger{display:flex}}
+@media (min-width:1181px){.mnav{display:none}}
+@media (max-width:640px){.hdr__tel,.hdr .btn{display:none}.brand__t small{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - var(--hdr) - 4px);max-height:980px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);padding:clamp(28px,5vh,72px) var(--m) clamp(28px,5vh,64px);overflow:hidden;isolation:isolate}
+.hero__txt{grid-column:1/8;max-width:calc(58vw - var(--m) - 32px);min-width:0;align-self:center;position:relative;z-index:2;display:flex;flex-direction:column;gap:clamp(20px,3vh,34px)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .w{display:inline-block}
+.hero__lead{font-size:var(--t-lead);line-height:1.45;max-width:31em;color:var(--ink)}
+.hero__act{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.qr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.35fr);background:var(--s1);max-width:760px}
+.qr label,.qr__out{display:flex;flex-direction:column;gap:2px;padding:12px 16px 14px;min-width:0}
+.qr label{border-right:1px solid var(--s3);position:relative} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.qr span.cap,.qr__out span.cap{font-size:14px;color:var(--muted)}
+.qr select{appearance:none;-webkit-appearance:none;background:transparent;border:0;padding:4px 22px 4px 0;font-weight:600;font-size:17px;min-height:36px;width:100%;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23ff4a1f' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;text-overflow:ellipsis}
+.qr select option{background:var(--s1);color:var(--ink)}
+.qr__out{background:var(--s2)}
+.qr__out b{font-family:var(--disp);font-weight:500;font-size:22px;letter-spacing:-0.02em;color:var(--acc-2)}
+.qr__out small{font-size:14px;color:var(--muted);line-height:1.35}
+.hero__shape{position:absolute;z-index:1;top:0;bottom:0;left:58%;right:-60px;background:var(--acc);--k:clamp(48px,7vw,120px);clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k))}
+.hero__pic{position:absolute;top:0;right:0;bottom:clamp(120px,19vh,190px);left:clamp(26px,2.6vw,44px);overflow:hidden;--k:clamp(36px,5.2vw,92px);clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k));background:#2b2420}
+.hero__pic img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:50% 55%;will-change:transform}
+.hero__mark{position:absolute;left:clamp(26px,2.6vw,44px);right:calc(60px + var(--m));bottom:0;height:clamp(120px,19vh,190px);color:var(--acc-ink);display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.iso{display:flex;flex-direction:column;gap:4px}
+.iso__no{font-family:var(--disp);font-size:clamp(24px,2.5vw,42px);letter-spacing:-0.01em;line-height:1;white-space:nowrap}
+.iso__no i{font-style:normal;display:inline-block;padding:0 .18em;margin-left:.2em;outline:3px solid currentColor;outline-offset:-3px}
+.iso__ty{font-family:var(--disp);font-size:clamp(18px,1.6vw,26px);line-height:1}
+.mk{white-space:nowrap;display:grid;grid-template-columns:auto auto;gap:0 14px;font-size:14px;line-height:1.35;font-weight:600}
+.mk dt{font-weight:600}
+.mk dd{text-align:right;font-weight:500}
+@media (max-width:1100px){.mk{display:none}}
+
+/* hero strip */
+.strip{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--gap);padding:clamp(24px,3vw,40px) var(--m);background:var(--s1)}
+.dep__h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.dep__h b{font-weight:600}
+.dep__h span{color:var(--muted);font-size:var(--t-xs)}
+.dep li{display:grid;grid-template-columns:minmax(0,1.6fr) .6fr 1fr 1fr;gap:12px;align-items:baseline;padding:11px 0;border-top:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.dep li b{font-weight:600}
+.dep li span{color:var(--muted);font-size:15px}
+.dep li time{font-weight:500}
+.dep li .w{color:var(--acc-2);font-weight:600;font-size:15px;text-align:right}
+.clk{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.clk__row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.clk__row div{display:flex;flex-direction:column;gap:4px}
+.clk__row span{font-size:15px;color:var(--muted)}
+.clk__row b{font-family:var(--disp);font-weight:500;font-size:clamp(28px,3vw,46px);letter-spacing:-0.03em;line-height:1}
+.ofc{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px}
+.ofc p{display:flex;align-items:center;gap:10px}
+.ofc p::before{content:"";width:10px;height:10px;background:#5fd38d;flex:none;clip-path:polygon(3px 0,100% 0,100% 7px,7px 100%,0 100%,0 3px)}
+.ofc.off p::before{background:var(--muted)}
+
+/* sections */
+.sec{padding-block:var(--sec)}
+.paper{background:var(--paper);color:var(--pink)}
+.paper .muted,.paper .lead{color:var(--pmuted)}
+.dark2{background:var(--s1)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);row-gap:20px;align-items:end;margin-bottom:clamp(40px,5vw,80px)}
+.sh h2{grid-column:1/8}
+.sh .lead{grid-column:8/13;font-size:var(--t-body);line-height:1.55;color:var(--ink);max-width:36em}
+.paper .sh .lead{color:var(--pmuted)}
+.muted{color:var(--muted)}
+.note{font-size:var(--t-xs);color:var(--muted);line-height:1.45}
+.paper .note{color:var(--pmuted)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap)}
+.svc__pic{grid-column:1/6;position:sticky;top:calc(var(--hdr) + 28px);align-self:start;height:min(78svh,760px);margin-left:calc(-1 * var(--m) - 4vw)}
+.svc__frame{position:absolute;inset:0;overflow:hidden;--k:clamp(40px,6vw,100px);clip-path:polygon(0 0,calc(100% - var(--k)) 0,100% var(--k),100% 100%,0 100%);background:var(--paper-3)}
+.svc__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .6s var(--ease),transform 1.2s var(--ease)}
+.svc__frame img.on{opacity:1;transform:none}
+.svc__cap{position:absolute;left:calc(var(--m) + 4vw);bottom:0;right:0;background:var(--pink);color:var(--paper);padding:14px 18px;display:flex;gap:14px;align-items:baseline;font-size:15px}
+.svc__cap b{font-family:var(--disp);font-weight:500;color:var(--acc-2);font-size:15px}
+.svc__body{grid-column:7/13}
+.svc__list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,4vw,64px) clamp(28px,3vw,48px)}
+.svc__i{display:flex;flex-direction:column;gap:12px;padding:18px 0 0;position:relative}
+.svc__i::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:var(--paper-3);transition:background-color .3s var(--ease)}
+.svc__i.on::before{background:var(--acc)}
+.svc__code{font-family:var(--disp);font-size:15px;color:var(--pmuted);display:flex;align-items:center;gap:8px}
+.svc__i h3{font-size:clamp(20px,1.5vw,24px)}
+.svc__i p{color:var(--pink)}
+.svc__tags{font-size:15px;color:var(--pmuted)}
+.svc__price{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding-top:6px}
+.svc__price b{font-family:var(--disp);font-weight:500;font-size:clamp(22px,1.8vw,28px);letter-spacing:-0.03em}
+.svc__price span{font-size:15px;color:var(--pmuted)}
+.svc__i .lnk{align-self:flex-start;min-height:44px}
+
+/* route */
+.rt{display:grid;grid-template-columns:minmax(260px,300px) minmax(0,1fr);gap:var(--gap);align-items:start}
+.rt>*,.calc>*,.svc>*,.trk>*,.fq>*,.dcl>*,.ct>*{min-width:0}
+.ctl{display:flex;flex-direction:column;gap:26px}
+.ctl fieldset{border:0;margin:0;padding:0;min-width:0}
+.ctl legend{font-weight:600;margin-bottom:10px;padding:0;display:flex;gap:8px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{min-height:44px;padding:10px 14px;background:var(--s1);font-size:16px;transition:background-color .2s var(--ease),color .2s var(--ease),transform .16s var(--ease)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:600}
+.chip:active,.mode:active,.sb:active{transform:scale(.97)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mode{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;text-align:left;padding:12px 14px;min-height:64px;background:var(--s1);transition:background-color .2s var(--ease),color .2s var(--ease)}
+.mode .ico{grid-row:span 2}
+.mode b{font-weight:600;font-size:16px;line-height:1.1}
+.mode small{font-size:14px;color:var(--muted);line-height:1.2}
+.mode[aria-pressed="true"]{background:var(--acc);color:var(--acc-ink)}
+.mode[aria-pressed="true"] small{color:var(--acc-ink)}
+.mode:disabled{opacity:.45;cursor:not-allowed}
+.ctl__note{font-size:var(--t-xs);color:var(--acc-2);min-height:1em}
+@media (hover:hover) and (pointer:fine){.chip:hover,.mode:not(:disabled):not([aria-pressed="true"]):hover{background:var(--s2)}}
+.mapw{position:relative;background:var(--s1);overflow:hidden}
+.map{width:100%;height:auto;aspect-ratio:1000/620;display:block}
+.hud{position:absolute;left:0;bottom:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 18px;pointer-events:none}
+.hud__t{background:var(--bg);padding:10px 14px;display:flex;flex-direction:column;gap:2px;max-width:min(70%,480px)}
+.hud__t b{font-family:var(--disp);font-weight:500;font-size:clamp(15px,1.3vw,19px);letter-spacing:-0.02em}
+.hud__t b em{font-style:normal;color:var(--acc-2)}
+.hud__t span{font-size:15px;color:var(--muted)}
+.legend{position:absolute;right:16px;top:12px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);pointer-events:none}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;background:var(--acc)}
+.legend .l-rail{background:var(--rail)}
+.legend .l-sea{background:var(--sea-r)}
+.legend .l-air{background:transparent;border-top:3px dashed var(--ink);height:0}
+.map .m-sea{fill:var(--sea)}
+.map .m-isl{fill:var(--s1);stroke:#3a434b;stroke-width:1}
+.map .m-coast{fill:none;stroke:#3b4650;stroke-width:1.2}
+.map .m-bord{fill:none;stroke:#555b63;stroke-width:1.1;stroke-dasharray:5 4}
+.map .m-grat{stroke:#2a2d31;stroke-width:1}
+.map .m-gl{font-size:12px;fill:#8d9196}
+.map .m-reg text{font-family:var(--disp);font-size:20px;fill:#3d4248;letter-spacing:.2em}
+.map .m-reg.sm text{font-size:14px}
+.map .m-net{fill:none;stroke:#3a3e44;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.map .m-net.s{stroke:#2c4252;stroke-dasharray:2 5}
+.map .seg{fill:none;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.map .seg.auto{stroke:var(--acc)}
+.map .seg.rail{stroke:var(--rail);stroke-width:3}
+.map .seg.rx{stroke:var(--s1);stroke-width:1.6;stroke-dasharray:1.5 6}
+.map .seg.sea{stroke:var(--sea-r);stroke-dasharray:7 5}
+.map .seg.air{stroke:var(--ink);stroke-dasharray:3 6}
+.map .seg.glow{stroke:var(--bg);stroke-width:9;opacity:.75}
+.map .m-pt{cursor:pointer}
+.map .m-pt .ring{fill:transparent}
+.map .m-pt .mk{fill:var(--s1);stroke:#8a9097;stroke-width:1.8;transition:fill .25s var(--ease),stroke .25s var(--ease)}
+.map .m-pt text{font-size:14px;fill:#b9bcc0;font-weight:500;paint-order:stroke;stroke:var(--s1);stroke-width:4px;stroke-linejoin:round}
+.map .m-pt.sel .mk{fill:var(--acc);stroke:var(--acc)}
+.map .m-pt.sel text{fill:var(--ink);font-weight:600}
+.map .m-hub .mk{fill:var(--s1);stroke:#6c7279;stroke-width:1.5}
+.map .m-hub text{font-size:13px;fill:#7e8389;paint-order:stroke;stroke:var(--s1);stroke-width:4px}
+.map .m-hub.on .mk{fill:var(--ink);stroke:var(--ink)}
+.map .m-hub.on text{fill:var(--ink)}
+.map .m-port .mk{stroke:#557a92}
+.map .veh .pl{fill:var(--acc);opacity:.25;transform-box:fill-box;transform-origin:center;animation:pl 1.8s var(--ease) infinite}
+.map .veh .bd{fill:var(--acc)}
+.map .veh use{color:var(--acc-ink)}
+.map.sm .m-gl,.map.sm .m-reg.sm{display:none}
+@keyframes pl{0%{transform:scale(.6);opacity:.5}100%{transform:scale(1.8);opacity:0}}
+@media (hover:hover) and (pointer:fine){.map .m-pt:hover .mk{stroke:var(--ink)}.map .m-pt:hover text{fill:var(--ink)}}
+
+.sum{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:var(--gap);margin-top:clamp(28px,3vw,48px);align-items:stretch}
+.sum__d{background:var(--acc);color:var(--acc-ink);padding:clamp(20px,2vw,32px);display:flex;flex-direction:column;justify-content:space-between;gap:20px;--k:clamp(18px,2vw,30px)}
+.sum__d h3{font-size:17px;font-weight:600}
+.sum__d .fig{font-size:clamp(46px,4.8vw,88px);white-space:nowrap}
+.sum__d .fig small{font-size:.32em;letter-spacing:-0.01em;margin-left:.2em}
+.sum__d p{font-size:15px;line-height:1.45}
+.sum__p{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.sum__p div{background:var(--s1);padding:18px 18px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-width:0}
+.sum__p span{font-size:15px;color:var(--muted)}
+.sum__p b{white-space:nowrap;font-family:var(--disp);font-weight:500;font-size:clamp(17px,1.45vw,24px);letter-spacing:-0.03em;line-height:1.1}
+.sum__p .cta{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--s2)}
+.sum__p .cta p{font-size:15px;color:var(--ink)}
+.stg{margin-top:clamp(28px,3vw,48px)}
+.stg__h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;margin-bottom:12px}
+.stg__h b{font-weight:600}
+.stg__h span{color:var(--muted);font-size:15px}
+.gantt{display:flex;gap:3px;height:44px}
+.gantt i{flex:var(--w) 1 0;min-width:40px;white-space:nowrap;overflow:hidden;background:var(--s2);font-style:normal;font-size:14px;font-weight:600;display:flex;align-items:center;padding-left:10px;color:var(--ink);transform-origin:left center}
+.gantt i.auto{background:var(--acc);color:var(--acc-ink)}
+.gantt i.rail{background:var(--rail);color:var(--bg)}
+.gantt i.sea{background:var(--sea-r);color:var(--bg)}
+.gantt i.air{background:var(--ink);color:var(--bg)}
+.js .gantt.go i{animation:gx .7s var(--ease) both;animation-delay:calc(var(--n) * 70ms)}
+@keyframes gx{from{transform:scaleX(0);opacity:0}to{transform:none;opacity:1}}
+.stl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px var(--gap);margin-top:18px;counter-reset:s}
+.stl li{display:flex;flex-direction:column;gap:4px;padding-left:16px;position:relative;transition:color .2s}
+.stl li::before{content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;background:var(--s3);clip-path:polygon(2px 0,100% 0,100% 6px,6px 100%,0 100%,0 2px)}
+.stl li.on::before{background:var(--acc)}
+.stl .t{font-size:16px;line-height:1.35}
+.stl .d{font-size:15px;color:var(--muted)}
+.stl li.on .d{color:var(--acc-2)}
+
+/* calc */
+.calc{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);align-items:start}
+.cf{grid-column:1/7;display:grid;grid-template-columns:1fr 1fr;gap:26px var(--gap)}
+.cf .full{grid-column:1/-1}
+.fl{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fl>span,.fl legend{font-weight:600;font-size:16px}
+.cf fieldset{border:0;padding:0;margin:0;min-width:0}
+.cf legend{margin-bottom:8px;padding:0}
+.inp{background:var(--paper-2);border:0;border-bottom:2px solid var(--paper-3);min-height:52px;padding:12px 14px;font-size:17px;font-weight:500;width:100%;border-radius:0;color:var(--pink);transition:border-color .2s var(--ease),background-color .2s var(--ease)}
+.inp:focus{outline:none;border-bottom-color:var(--acc);background-color:#fff}
+select.inp{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2318191b' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.seg2{display:flex;flex-wrap:wrap;gap:6px}
+.sb{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:10px 14px;background:var(--paper-2);font-size:16px;font-weight:500;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.sb[aria-pressed="true"]{background:var(--pink);color:var(--paper)}
+.sb:disabled{opacity:.4;cursor:not-allowed}
+.sb .ico{width:20px;height:20px}
+@media (hover:hover) and (pointer:fine){.sb:not(:disabled):not([aria-pressed="true"]):hover{background:var(--paper-3)}}
+.rng{display:grid;grid-template-columns:minmax(0,130px) 1fr;gap:16px;align-items:center}
+.rng .unit{position:relative}
+.rng .unit .inp{padding-right:44px}
+.rng .unit i{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--pmuted);font-size:16px;pointer-events:none}
+input[type=range]{--p:50%;-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:linear-gradient(90deg,var(--pink) var(--p),var(--paper-3) var(--p))} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+input[type=range]::-moz-range-track{height:6px;background:var(--paper-3)}
+input[type=range]::-moz-range-progress{height:6px;background:var(--pink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;background:var(--acc);border:0;clip-path:polygon(6px 0,100% 0,100% 20px,20px 100%,0 100%,0 6px)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;background:var(--acc);border:0;border-radius:0}
+.chk{display:grid;grid-template-columns:28px 1fr;gap:4px 12px;align-items:start;cursor:pointer;padding:14px;background:var(--paper-2);min-height:52px}
+.chk input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--pink);cursor:pointer}
+.chk b{font-weight:600}
+.chk small{grid-column:2;font-size:15px;color:var(--pmuted);line-height:1.35}
+.th{font-size:15px;color:var(--pmuted);min-height:1.4em}
+/* result card = a waybill */
+.rc{grid-column:8/13;position:sticky;top:calc(var(--hdr) + 24px);background:var(--bg);color:var(--ink);--k:clamp(18px,2vw,28px)}
+.rc__h{display:flex;justify-content:space-between;gap:12px;padding:18px 22px;background:var(--acc);color:var(--acc-ink);font-weight:600}
+.rc__h span{font-weight:500}
+.rc__rt{padding:20px 22px 16px;font-family:var(--disp);font-size:clamp(20px,1.7vw,26px);letter-spacing:-0.02em;line-height:1.15}
+.rc__rt small{display:block;font-family:var(--text);font-size:15px;color:var(--muted);letter-spacing:0;margin-top:6px}
+.rc__g{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.rc__g div{padding:12px 22px 14px;border-bottom:1px solid var(--s3);display:flex;flex-direction:column;gap:2px;min-width:0} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.rc__g div:nth-child(odd){border-right:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.rc__g span{font-size:14px;color:var(--muted)}
+.rc__g b{font-size:18px;font-weight:600}
+.rc__g b.off{color:var(--muted);font-weight:500}
+.rc__tot{padding:22px 22px 4px;display:flex;flex-direction:column;gap:4px}
+.rc__tot span{font-size:15px;color:var(--muted)}
+.rc__tot b{font-family:var(--disp);font-weight:500;font-size:clamp(40px,4.4vw,68px);letter-spacing:-0.04em;line-height:1}
+.rc__duty{padding:6px 22px 0;font-size:15px;color:var(--muted)}
+.rc__time{display:flex;gap:16px;align-items:baseline;padding:16px 22px 0}
+.rc__time b{font-family:var(--disp);font-weight:500;font-size:24px;color:var(--acc-2);white-space:nowrap}
+.rc__time span{font-size:15px;color:var(--muted)}
+.rc__hint{margin:16px 22px 0;padding:12px 14px;background:var(--s2);font-size:15px;line-height:1.4}
+.rc__hint:empty{display:none}
+.rc__f{padding:20px 22px 24px;display:flex;flex-direction:column;gap:14px}
+.rc__f .btn{width:100%}
+.rc__f p{font-size:14px;color:var(--muted);line-height:1.45}
+
+/* terms table */
+.tt__top{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);align-items:end;margin-bottom:clamp(32px,4vw,64px)}
+.tt__top .sh{grid-column:1/8;display:block;margin:0}
+.tt__top .sh .lead{margin-top:20px}
+.tt__pic{grid-column:8/13;aspect-ratio:3/2;overflow:hidden;--k:clamp(24px,3vw,48px);background:var(--s2)}
+.tt__pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.ttm{display:none}
+.tt{width:100%;border-collapse:collapse;font-size:16px}
+.tt caption{text-align:left}
+.tt th,.tt td{padding:0;border-bottom:1px solid var(--s3);text-align:left;vertical-align:middle} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.tt thead th{font-weight:600;padding:12px 12px 14px;font-size:16px}
+.tt thead th small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.tt tbody th{padding:16px 12px 16px 0;font-weight:600;font-size:17px}
+.tt tbody th small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:2px}
+.tt td button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;min-height:64px;padding:12px;text-align:left;transition:background-color .2s var(--ease)}
+.tt td button b{font-weight:600;font-size:17px}
+.tt td button span{color:var(--muted);font-size:15px}
+.tt td .na{display:block;padding:12px;color:var(--muted);font-size:15px}
+.tt td button:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){.tt td button:hover{background:var(--s2)}.tt td button:hover b{color:var(--acc)}}
+.tt__ft{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 24px}
+
+/* tracking */
+.trk{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);align-items:start}
+.trk__l{grid-column:1/6;display:flex;flex-direction:column;gap:26px}
+.trk__l h2{margin-bottom:-4px}
+.tf{display:flex;flex-direction:column;gap:10px}
+.tf__row{display:flex;gap:6px}
+.tf__row .inp{flex:1;min-width:0;text-transform:uppercase}
+.tf__row .btn{flex:none}
+.tf__err{font-size:15px;color:#b3261e;min-height:1.4em}
+.tf__demo{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:15px;color:var(--pmuted)}
+.tf__demo button{min-height:44px;padding:8px 12px;background:var(--paper-2);color:var(--pink);font-weight:600;font-size:15px}
+@media (hover:hover) and (pointer:fine){.tf__demo button:hover{background:var(--paper-3)}}
+.trk__pic{aspect-ratio:4/5;max-height:440px;overflow:hidden;background:var(--paper-3);--k:clamp(24px,3vw,44px)}
+.trk__pic img{width:100%;height:100%;object-fit:cover}
+.tr{overflow:hidden;grid-column:7/13;background:var(--bg);color:var(--ink);min-height:520px;--k:clamp(18px,2vw,28px)}
+.tr__in{padding:clamp(20px,2.4vw,36px)}
+.tr__top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.tr__no{font-family:var(--disp);font-size:clamp(22px,2vw,32px);letter-spacing:-0.02em}
+.tr__k{color:var(--muted);font-size:15px}
+.tr__eta{display:flex;flex-direction:column;gap:2px;text-align:right}
+.tr__eta span{font-size:14px;color:var(--muted)}
+.tr__eta b{font-family:var(--disp);font-weight:500;font-size:clamp(18px,1.6vw,24px);color:var(--acc-2)}
+.pg{position:relative;height:72px;margin:34px 14px 8px}
+.pg__t,.pg__f{position:absolute;left:0;right:0;top:14px;height:6px;background:var(--s3)}
+.pg__f{background:var(--acc);transform-origin:left;transform:scaleX(0);transition:transform 1.6s var(--ease)}
+.pg__n{position:absolute;top:8px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px}
+.pg__n::before{content:"";width:18px;height:18px;background:var(--s3);clip-path:polygon(5px 0,100% 0,100% 13px,13px 100%,0 100%,0 5px)}
+.pg__n.ok::before{background:var(--acc)}
+.pg__n span{font-size:14px;white-space:nowrap;color:var(--muted)}
+.pg__n:first-of-type{transform:none;align-items:flex-start}
+.pg__n:last-of-type{transform:translateX(-100%);align-items:flex-end}
+.pg__v{position:absolute;left:0;right:0;top:-2px;transform:translateX(0);transition:transform 1.6s var(--ease);pointer-events:none}
+.pg__v i{position:absolute;left:-19px;width:38px;height:38px;background:var(--ink);color:var(--bg);display:grid;place-items:center;clip-path:polygon(9px 0,100% 0,100% 29px,29px 100%,0 100%,0 9px)}
+.pg__v svg{width:20px;height:20px}
+.ev{margin-top:24px;display:flex;flex-direction:column}
+.ev li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--s2)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.ev time{display:flex;flex-direction:column;font-size:14px;color:var(--muted)}
+.ev time b{font-size:16px;color:var(--ink);font-weight:600}
+.ev h3{font-size:16px;font-weight:600;line-height:1.3}
+.ev p{font-size:15px;color:var(--muted);margin-top:2px}
+.ev li.cur h3{color:var(--acc-2)}
+.ev li.cur p{color:var(--ink)}
+.ev li.fut{opacity:.72}
+.js .ev.go li{animation:up .6s var(--ease) both;animation-delay:calc(var(--n) * 60ms)}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tr__empty{display:flex;align-items:center;justify-content:center;min-height:520px;padding:32px;text-align:center;color:var(--muted)}
+
+/* docs: a declaration */
+.dcl{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);row-gap:var(--gap)}
+.dcl__form{grid-column:1/9;display:grid;grid-template-columns:1fr 1fr;background:var(--s1)}
+.dcl__col{padding:clamp(20px,2.4vw,36px);display:flex;flex-direction:column;gap:18px}
+.dcl__col+.dcl__col{border-left:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.dcl__col h3{font-family:var(--disp);font-weight:500;font-size:clamp(20px,1.7vw,26px);letter-spacing:-0.02em}
+.dcl__col>p{color:var(--muted);font-size:15px;margin-top:-10px}
+.dcl__col li{display:flex;flex-direction:column;gap:4px;padding:10px 0} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.dcl__col li b{font-weight:600}
+.dcl__col li span{color:var(--muted);font-size:15px}
+.dcl__vat{grid-column:9/13;background:var(--acc);color:var(--acc-ink);padding:clamp(22px,2.4vw,36px);display:flex;flex-direction:column;gap:18px;--k:clamp(22px,2.6vw,40px)}
+.dcl__vat h3{font-family:var(--disp);font-weight:500;font-size:clamp(22px,2vw,32px);letter-spacing:-0.03em;line-height:1.1}
+.dcl__vat ul{display:flex;flex-direction:column;gap:10px;font-weight:600;font-size:17px}
+.dcl__vat .btn{margin-top:auto;align-self:flex-start}
+
+/* steps: many into one */
+.flow{margin-top:8px}
+.flow svg{width:100%;height:auto}
+.flow .q{transition:transform 1.4s var(--ease),fill .6s var(--ease)}
+.js .flow:not(.in) .q{transform:translate(var(--dx),var(--dy))}
+.flow__ph{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:28px}
+.flow__ph h3{font-family:var(--disp);font-weight:500;font-size:clamp(20px,1.6vw,26px);letter-spacing:-0.02em;margin-bottom:14px}
+.flow__ph ol{display:flex;flex-direction:column;gap:16px}
+.flow__ph li{display:flex;flex-direction:column;gap:2px}
+.flow__ph li b{font-weight:600}
+.flow__ph li span{color:var(--pmuted);font-size:15px}
+.flow__ph li em{font-style:normal;font-size:15px;font-weight:600;color:var(--pink);display:flex;align-items:center;gap:8px}
+.flow__v{display:none}
+
+/* cases */
+.cs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
+.cs__row{display:contents}
+.cs__h{grid-column:3;grid-row:1;align-self:center}
+.cs__h h2{font-size:clamp(28px,3.3vw,52px)}
+.cs__h p{margin-top:18px;color:var(--muted);font-size:16px}
+.case{display:flex;flex-direction:column;gap:16px;min-width:0}
+.case:nth-of-type(1){grid-column:1/3;grid-row:1}
+.case:nth-of-type(2){grid-column:4;grid-row:1}
+.case:nth-of-type(3){grid-column:2/4;grid-row:2;margin-top:clamp(24px,4vw,64px)}
+.case__pic{position:relative;overflow:hidden;background:var(--s2);display:block;width:100%;--k:clamp(22px,2.6vw,40px);cursor:zoom-in}
+.case__pic img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform .8s var(--ease)}
+.case:nth-of-type(2) .case__pic img{aspect-ratio:4/5}
+.case__pic span{position:absolute;left:0;bottom:0;background:var(--bg);color:var(--muted);font-size:14px;padding:6px 12px}
+.case__who{color:var(--muted);font-size:15px}
+.case h3{font-family:var(--disp);font-weight:500;font-size:clamp(20px,1.7vw,26px);letter-spacing:-0.02em;line-height:1.15}
+.case dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px var(--gap)}
+.case dl div{display:flex;flex-direction:column;gap:2px}
+.case dt{font-size:14px;color:var(--muted)}
+.case dd{font-weight:600}
+.case p{font-size:16px}
+.case p b{font-weight:600}
+@media (hover:hover) and (pointer:fine){.case__pic:hover img,.tt__pic:hover img{transform:scale(1.04)}}
+
+/* promises: stepped figure tiles */
+.pr{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:start}
+.pr__t{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,2vw,30px);--k:clamp(22px,2.6vw,40px)}
+.pr__t .fig{font-size:clamp(48px,5.4vw,92px);white-space:nowrap}
+.pr__b .fig,.pr__c .fig{font-size:clamp(34px,3.4vw,60px)}
+.pr__t p{font-size:17px;line-height:1.45;max-width:24em}
+.pr__t p b{display:block;font-weight:600;margin-bottom:4px}
+.pr__a{grid-column:1/7;grid-row:1/3;min-height:min(70vh,640px);background:var(--acc);color:var(--acc-ink)}
+.pr__b{grid-column:7/10;grid-row:2;margin-top:0;min-height:min(44vh,400px);background:var(--pink);color:var(--paper)}
+.pr__c{grid-column:10/13;grid-row:2;margin-top:12vh;min-height:min(34vh,320px);background:var(--paper-3);color:var(--pink)}
+.pr__h{grid-column:7/13;grid-row:1;align-self:end;padding:0 0 24px clamp(8px,1vw,16px)}
+.pr__h h2{font-size:clamp(28px,2.8vw,46px)}
+.pr__h p{margin-top:14px;color:var(--pmuted);max-width:30em}
+
+/* team panel */
+.team{padding:0 clamp(10px,1.4vw,20px) var(--sec)}
+.tp{background:var(--bg);color:var(--ink);position:relative;overflow:hidden;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);padding:clamp(28px,4vw,64px) calc(var(--m) - clamp(10px,1.4vw,20px));min-height:min(110svh,1080px)}
+.tp__l{grid-column:1/7;display:flex;flex-direction:column;gap:22px;position:relative}
+.tp__l .lead{color:var(--muted);max-width:30em}
+.tp__pic{margin-top:auto;width:min(38vw,560px);aspect-ratio:1/1;overflow:hidden;margin-bottom:calc(-1 * clamp(28px,4vw,64px) - 6%);--k:clamp(50px,7vw,120px);clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k));background:var(--s2)}
+.tp__pic img{width:100%;height:100%;object-fit:cover}
+.tp__r{grid-column:8/13;display:flex;flex-direction:column;gap:40px;padding-bottom:12px}
+.tp__r h3{font-size:22px;margin-bottom:8px}
+.tp__r p{color:var(--muted)}
+.pass{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pass li{background:var(--s1);padding:16px;display:flex;flex-direction:column;gap:6px;--k:12px}
+.pass__id{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--muted)}
+.pass__id b{font-family:var(--disp);font-weight:500;color:var(--acc-2);font-size:14px}
+.pass li h4{margin:0;font-family:var(--disp);font-weight:500;font-size:22px;letter-spacing:-0.02em}
+.pass li strong{font-weight:600;font-size:15px}
+.pass li p{font-size:15px;line-height:1.4}
+
+/* faq */
+.fq{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap)}
+.fq__l{grid-column:1/5;position:sticky;top:calc(var(--hdr) + 28px);align-self:start;display:flex;flex-direction:column;gap:22px}
+.fq__l .lead{color:var(--muted)}
+.fq__pic{aspect-ratio:3/2;overflow:hidden;--k:clamp(22px,2.6vw,40px);background:var(--s2);margin-top:8px}
+.fq__pic img{width:100%;height:100%;object-fit:cover}
+.fq__list{grid-column:6/13;display:flex;flex-direction:column;gap:8px}
+.fq details{background:var(--s1);transition:background-color .3s var(--ease),color .3s var(--ease)}
+.fq details[open]{background:var(--acc);color:var(--acc-ink)}
+.fq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px;padding:18px 24px;cursor:pointer;font-weight:600;font-size:clamp(17px,1.3vw,20px);line-height:1.3}
+.fq summary::-webkit-details-marker{display:none}
+.pl{position:relative;width:16px;height:16px;flex:none}
+.pl::before,.pl::after{content:"";position:absolute;left:0;top:6.5px;width:16px;height:3px;background:currentColor;transition:transform .3s var(--ease)}
+.pl::after{transform:rotate(90deg)}
+details[open] .pl::after{transform:rotate(0)}
+.fq__a{padding:0 24px 24px;max-width:56ch;font-size:17px;display:flex;flex-direction:column;gap:10px}
+.js .fq details[open] .fq__a{animation:up .45s var(--ease) both}
+@media (hover:hover) and (pointer:fine){.fq details:not([open]):hover{background:var(--s2)}}
+
+/* request coupon */
+.cp{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);background:var(--acc);color:var(--acc-ink);position:relative;--n:30px;-webkit-mask:radial-gradient(circle at 46% 0,transparent 15px,#000 15.5px) top/100% 51% no-repeat,radial-gradient(circle at 46% 100%,transparent 15px,#000 15.5px) bottom/100% 51% no-repeat;mask:radial-gradient(circle at 46% 0,transparent 15px,#000 15.5px) top/100% 51% no-repeat,radial-gradient(circle at 46% 100%,transparent 15px,#000 15.5px) bottom/100% 51% no-repeat} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.cp::after{content:"";position:absolute;left:46%;top:24px;bottom:24px;margin-left:-2.5px;width:5px;background:radial-gradient(circle,var(--paper) 2.5px,transparent 3px) center top/5px 14px repeat-y} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+.cp__l{padding:clamp(28px,3.4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.cp__l h2{font-size:clamp(28px,3vw,48px)}
+.cp__l p{font-size:17px;max-width:28em}
+.cp__l ul{display:flex;flex-direction:column;gap:8px;font-weight:500}
+.cp__l li{display:flex;gap:12px;align-items:baseline}
+.cp__l li .dot{background:var(--acc-ink)}
+.cp__r{padding:clamp(28px,3.4vw,56px)}
+.rf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rf .full{grid-column:1/-1}
+.rf .fl>span{font-size:15px;font-weight:600}
+.rf .inp{background-color:#ff7a5a;border-bottom-color:#e0401a;color:var(--acc-ink)}
+.rf .inp::placeholder{color:#5a2a1d}
+.rf .inp:focus{background-color:#ffd8cc;border-bottom-color:var(--acc-ink)}
+.rf textarea.inp{min-height:110px;resize:vertical}
+.rf select.inp{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2318191b' stroke-width='2'/%3E%3C/svg%3E")}
+.rf .inp[aria-invalid="true"]{border-bottom-color:var(--acc-ink);background-color:#ffd8cc}
+.rf__err{font-size:15px;font-weight:600;min-height:0}
+.rf__err:empty{display:none}
+.rf__ok{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.4;cursor:pointer;padding:6px 0}
+.rf__ok input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--acc-ink)}
+.rf .btn{width:100%;min-height:58px}
+.rf__f{font-size:14px}
+.ok{display:flex;flex-direction:column;gap:16px;align-items:flex-start;outline:none}
+.ok h3{font-family:var(--disp);font-weight:500;font-size:clamp(26px,2.6vw,40px);letter-spacing:-0.03em}
+.ok__no{font-family:var(--disp);font-size:18px}
+.ok__c{font-size:15px;background:var(--acc-ink);color:var(--paper);padding:10px 14px}
+.js .ok.go>*{animation:up .6s var(--ease) both}
+.js .ok.go>*:nth-child(2){animation-delay:.07s}.js .ok.go>*:nth-child(3){animation-delay:.14s}.js .ok.go>*:nth-child(4){animation-delay:.21s}.js .ok.go>*:nth-child(5){animation-delay:.28s}
+
+.ct{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);row-gap:32px;margin-top:clamp(48px,6vw,96px);align-items:start}
+.ct__main{grid-column:1/5;display:flex;flex-direction:column;gap:10px}
+.ct__main a{font-family:var(--disp);font-weight:500;font-size:clamp(22px,2vw,32px);letter-spacing:-0.03em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.ct__main a.em{font-family:var(--text);font-size:17px;font-weight:600;letter-spacing:0;text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px}
+.ct__main p{color:var(--pmuted);font-size:15px}
+.ct__dl{grid-column:5/9;display:grid;grid-template-columns:1fr 1fr;gap:24px var(--gap)}
+.ct__dl div{display:flex;flex-direction:column;gap:2px}
+.ct__dl dt{font-size:14px;color:var(--pmuted)}
+.ct__dl dd b{display:block;font-weight:600}
+.ct__dl dd span{font-size:15px;color:var(--pmuted)}
+.vlad{grid-column:9/13;background:var(--pink);color:var(--paper);--k:clamp(18px,2vw,30px)}
+.vlad svg{width:100%;height:auto}
+.vlad figcaption{padding:10px 16px 14px;font-size:14px;color:#b9bcc0}
+
+/* footer */
+.ft{background:var(--bg);padding:clamp(48px,6vw,96px) var(--m) 28px}
+.word{display:flex;align-items:flex-end;gap:4px;height:clamp(110px,26svh,280px)}
+.word span{flex:1 1 0;min-width:0;height:calc(var(--h) * 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:.08em;font-family:var(--disp);font-weight:500;font-size:clamp(24px,4.6vw,78px);line-height:1;color:var(--bg);background:var(--c);transform-origin:bottom;--k:clamp(6px,.9vw,14px);clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k))}
+.word span.gap{background:transparent;flex:.45 1 0}
+.js .word.in span{animation:rise .9s var(--ease) both;animation-delay:calc(var(--i) * 45ms)}
+.js .word:not(.in) span{transform:scaleY(0)}
+@keyframes rise{from{transform:scaleY(0)}to{transform:none}}
+.ft__g{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);row-gap:28px;margin-top:56px}
+.ft__nav{grid-column:1/7;display:grid;grid-template-columns:repeat(3,1fr);gap:8px var(--gap)}
+.ft__nav a{font-size:15px;text-decoration:none;color:var(--muted);min-height:36px;display:flex;align-items:center}
+.ft__c{grid-column:8/13;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.ft__c a{text-decoration:none;font-weight:600;min-height:36px;display:inline-flex;align-items:center}
+.ft__c p{color:var(--muted)}
+.ft__b{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;margin-top:48px;font-size:14px;color:var(--muted)}
+.ft__b a{color:var(--muted)}
+.ft__b .btn{min-height:44px;padding:10px 16px;font-size:15px}
+@media (hover:hover) and (pointer:fine){.ft__nav a:hover{color:var(--ink)}}
+
+/* mobile bar */
+.mbar{position:fixed;left:10px;right:10px;bottom:10px;z-index:40;display:none;gap:6px;transform:translateY(130%);transition:transform .4s var(--ease)}
+.mbar.on{transform:none}
+.mbar.hide{transform:translateY(130%)}
+.mbar a{display:flex;align-items:center;min-height:56px;text-decoration:none}
+.mbar__c{flex:1;justify-content:space-between;gap:10px;background:var(--acc);color:var(--acc-ink);padding:8px 16px;--k:10px;clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k))}
+.mbar__c span{display:flex;flex-direction:column;font-size:14px;line-height:1.2;font-weight:600}
+.mbar__c span small{font-weight:500;font-size:14px}
+.mbar__c b{font-family:var(--disp);font-weight:500;font-size:19px;letter-spacing:-0.02em;white-space:nowrap}
+.mbar__t{width:56px;justify-content:center;background:var(--ink);color:var(--bg);--k:10px;clip-path:polygon(var(--k) 0,100% 0,100% calc(100% - var(--k)),calc(100% - var(--k)) 100%,0 100%,0 var(--k))}
+
+/* lightbox */
+.lb{overscroll-behavior:contain;position:fixed;inset:0;z-index:80;background:rgba(12,13,14,.94);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s .3s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease)}
+.lb figure{max-width:min(1200px,92vw);display:flex;flex-direction:column;gap:12px}
+.lb img{max-height:78vh;width:auto;max-width:100%;object-fit:contain;background:var(--s1);transform:scale(.96);transition:transform .4s var(--ease)}
+.lb.open img{transform:none}
+.lb figcaption{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:15px}
+.lb button{position:absolute;width:52px;height:52px;display:grid;place-items:center;background:var(--s2);color:var(--ink)}
+.lb button:active{transform:scale(.95)}
+.lb__x{top:16px;right:16px}
+.lb__p{left:16px;top:50%;margin-top:-26px}
+.lb__n{right:16px;top:50%;margin-top:-26px}
+
+/* reveal */
+.js .rv>*{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+.js .rv.in>*{opacity:1;transform:none}
+.js .hero .ln .w{transform:translateY(105%)}
+.js .hero.go .ln .w{transform:none;transition:transform .9s var(--ease);transition-delay:calc(var(--i) * 70ms + .1s)}
+.js .hero .fx{opacity:0;transform:translateY(16px)}
+.js .hero.go .fx{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i) * 90ms + .45s)}
+.js .hero__shape{transform:translateX(12%);opacity:0}
+.js .hero.go .hero__shape{transform:none;opacity:1;transition:transform 1.1s var(--ease),opacity .5s var(--ease)}
+.js .hero__pic{clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%,100% 100%)}
+.js .hero.go.img .hero__pic{clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k));transition:clip-path 1.1s var(--ease) .15s}
+.js .hero__pic img{transform:scale(1.12);opacity:0}
+.js .hero.go.img .hero__pic img{transform:none;opacity:1;transition:transform 1.2s var(--ease) .15s,opacity .6s var(--ease) .15s}
+.hero__pic img{translate:0 var(--py,0px)}
+
+@media (max-width:1100px){
+  .sh h2{grid-column:1/-1}.sh .lead{grid-column:1/-1}
+  .svc__pic{grid-column:1/6}
+  .svc__body{grid-column:6/13}
+  .svc__list{grid-template-columns:1fr}
+  .rt{grid-template-columns:1fr}
+  .ctl{display:grid;grid-template-columns:1fr 1fr;gap:20px var(--gap)}
+  .ctl fieldset:nth-child(2){grid-column:1/-1;order:3}
+  .modes{grid-template-columns:repeat(4,1fr)}
+  .sum{grid-template-columns:1fr}
+  .cf{grid-column:1/-1}
+  .rc{grid-column:1/-1;position:static;margin-top:40px}
+  .dcl__form{grid-column:1/-1}.dcl__vat{grid-column:1/-1}
+  .tp__l{grid-column:1/-1}.tp__r{grid-column:1/-1;margin-top:40px}
+  .tp__pic{width:min(70vw,520px);margin-top:32px}
+  .tp{display:flex;flex-direction:column;min-height:0}
+  .tp__pic{order:5}
+  .fq__l{grid-column:1/-1;position:static;margin-bottom:32px}.fq__list{grid-column:1/-1}
+  .fq__pic{display:none}
+  .ct__main{grid-column:1/7}.ct__dl{grid-column:7/13}.vlad{grid-column:1/-1;max-width:640px}
+  .trk__l{grid-column:1/-1}.tr{grid-column:1/-1;margin-top:32px}
+  .trk__pic{display:none}
+}
+@media (max-width:860px){
+  :root{--hdr:60px;--sec:60px}
+  .hero{display:flex;flex-direction:column;min-height:0;max-height:none;padding-top:28px;padding-bottom:0}
+  .hero__txt{gap:20px;max-width:none}
+  .hero__shape{position:relative;left:auto;right:auto;margin:28px calc(-1 * var(--m)) 0 0;height:min(76vw,460px);--k:56px}
+  .hero__pic{left:18px;bottom:96px;--k:44px}
+  .hero__mark{left:18px;right:var(--m);height:96px}
+  .qr{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .qr__out{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+  .qr label:nth-child(3){border-right:0}
+  .strip{grid-template-columns:1fr}
+  .dep li{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px}
+  .dep li span:not(.w){display:none}
+  .dep li time{grid-column:1;font-size:15px;color:var(--muted)}
+  .dep li .w{grid-row:1/3;grid-column:2;align-self:center}
+  .svc{display:block}
+  .svc__pic{position:relative;top:auto;height:42svh;max-height:330px;margin:0 0 32px calc(-1 * var(--m));width:86vw}
+  .svc__cap{left:var(--m)}
+  .svc__list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 0 8px;scrollbar-width:none}
+  .svc__list::-webkit-scrollbar{display:none}
+  .svc__i{flex:0 0 82%;scroll-snap-align:start;background:var(--paper-2);padding:20px 18px 16px}
+  .svc__i::before{height:4px}
+  .ctl{display:flex;flex-direction:column;gap:18px}
+  .modes{grid-template-columns:1fr 1fr}
+  .mapw{margin-inline:calc(-1 * var(--m))}
+  .hud{padding:10px}
+  .hud__t{max-width:100%;padding:8px 10px}
+  .hud__t span{font-size:14px}
+  .legend{display:none}
+  .sum__p{grid-template-columns:1fr 1fr}
+  .stl{grid-template-columns:1fr;gap:10px}
+  .cf{gap:18px 10px}
+  .tt__top{display:block}
+  .tt__pic{display:none}
+  .ttm{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+  .ttm .sb{background:var(--s1);color:var(--ink)}
+  .ttm .sb[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  .tt thead{display:none}
+  .tt tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;border-bottom:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+  .tt th,.tt td{border:0}
+  .tt td{display:none}
+  .tt td.on{display:block}
+  .tt tbody th{padding:12px 0}
+  .tt td button{min-height:56px;padding:10px 0 10px 12px}
+  .dcl__form{grid-template-columns:1fr}
+  .dcl__col+.dcl__col{border-left:0;border-top:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+  .flow__d{display:none}.flow__v{display:block}
+  .flow{display:grid;grid-template-columns:38vw 1fr;gap:16px;align-items:stretch}
+  .flow__v svg{height:100%;width:100%}
+  .flow__ph{grid-template-columns:1fr;margin-top:0;gap:22px}
+  .flow__ph li span{display:none}
+  .cs{display:flex;flex-direction:column;gap:32px}
+  .case:nth-of-type(3){margin-top:0}
+  .case .case__pic img{aspect-ratio:3/2!important}
+  .case p{font-size:15px}
+  .cs__h{order:-1}
+  .case:nth-of-type(3){margin-top:0}
+  .case:nth-of-type(2) .case__pic img{aspect-ratio:3/2}
+  .pr{grid-template-columns:1fr 1fr;gap:6px}
+  .pr__h{grid-column:1/-1;grid-row:1;padding:0 0 18px}
+  .pr__a{grid-column:1/-1;grid-row:2;min-height:56vw}
+  .pr__b{grid-column:1;grid-row:3;min-height:52vw;margin:0}
+  .pr__c{grid-column:2;grid-row:3;min-height:52vw;margin-top:32px}
+  .pr__b p,.pr__c p{font-size:15px}
+  .pr__b .fig,.pr__c .fig{font-size:clamp(26px,7.6vw,40px)}
+  .pr>*{min-width:0}
+  .pass{grid-template-columns:1fr 1fr}
+  .pass li p{display:none}
+  .fq summary{min-height:64px;padding:14px 18px;font-size:17px}
+  .fq__a{padding:0 18px 20px;font-size:16px}
+  .cp{grid-template-columns:1fr;-webkit-mask:radial-gradient(circle at 0 var(--cy,300px),transparent 15px,#000 15.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% var(--cy,300px),transparent 15px,#000 15.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 var(--cy,300px),transparent 15px,#000 15.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% var(--cy,300px),transparent 15px,#000 15.5px) right/51% 100% no-repeat} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+  .cp::after{left:22px;right:22px;top:var(--cy,300px);bottom:auto;height:5px;width:auto;margin:-2.5px 0 0;background:radial-gradient(circle,var(--paper) 2.5px,transparent 3px) left center/14px 5px repeat-x} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+  .cp__l{padding:24px 20px 30px;gap:18px}
+  .cp__l ul{display:none}
+  .cp__r{padding:30px 20px 24px}
+  .rf{grid-template-columns:1fr 1fr}
+  .rf>.fl:nth-child(-n+2){grid-column:1/-1}
+  .rf textarea.inp{min-height:84px}
+  .ct{grid-template-columns:1fr}
+  .ct__main,.ct__dl{grid-column:1/-1}
+  .vlad{display:none}
+  .dcl__col li span{display:none}
+  .dcl__col>p{display:none}
+  .ev li:nth-child(-n+3){display:none}
+  .sum__p .cta{display:none}
+  .stl{gap:6px}
+  .stl li{flex-direction:row;justify-content:space-between;gap:12px}
+  .stl .t{font-size:14px}
+  .stl .d{font-size:14px;white-space:nowrap}
+  .tt tbody th small{display:none}
+  .tt td button{min-height:52px}
+  .dep li{padding:8px 0}
+  .hud__t b{font-size:14px}
+  .cf{grid-template-columns:1fr 1fr!important}
+  .cf .chk{grid-column:1/-1}
+  #cT{flex-wrap:nowrap;overflow-x:auto;padding:0 0 4px;scrollbar-width:none}
+  #cT .sb{flex:none}
+  .rc__f p{display:none}
+  .rc__g div{padding:10px 16px}
+  .rc__rt,.rc__tot,.rc__duty,.rc__time,.rc__f{padding-left:16px;padding-right:16px}
+  .word{gap:3px}
+  .ft__nav a{min-height:32px}
+  .dcl__col li{padding:10px 0}
+  .dcl__col{gap:12px}
+  .tp__pic{display:none}
+  .ft__c{display:none}
+  .stl .t{font-size:15px}
+  .ev li{padding:10px 0}
+  .strip{gap:20px}
+  .clk{gap:12px}
+  .word{margin-bottom:0}
+  .ft__g{margin-top:36px}
+  .ft__b{margin-top:32px}
+  .ct__dl{grid-template-columns:1fr 1fr;gap:18px 16px}
+  .ft__nav{grid-column:1/-1;grid-template-columns:1fr 1fr}
+  .ft__c{grid-column:1/-1}
+  .word{flex-wrap:wrap;height:auto;row-gap:4px}
+  .word span{flex:1 0 calc(100% / 9 - 4px);height:calc(var(--h) * 11svh);font-size:clamp(22px,7vw,40px)}
+  .word span.gap{flex-basis:100%;height:0}
+  .tr__k,.trk__l>p{font-size:15px}
+  .ft{padding-bottom:96px}
+}
+@media (max-width:640px){.mbar{display:flex}
+  .cs{gap:28px}
+  .cs>*{min-width:0;max-width:100%}
+  .cs__row{display:flex;flex-direction:row;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 8px;scrollbar-width:none}
+  .cs__row::-webkit-scrollbar{display:none}
+  .case{flex:0 0 84%;scroll-snap-align:start}
+}
+@media (max-width:560px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding:0 0 4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  .qr{grid-template-columns:1fr 1fr}
+  .qr label:nth-child(2){border-right:0}
+  .qr label:nth-child(3){grid-column:1/-1;border-top:1px solid var(--s3)} /* taste-skill-ignore: rules inside forms, tables and data-ui fragments; gradients only as masks for coupon notches and the range fill */
+  .sum__p b{font-size:19px}
+  .tf__row{flex-direction:column}
+  .ev li{grid-template-columns:76px 1fr;gap:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .js .rv>*,.js .hero .fx,.js .hero__shape{opacity:1!important;transform:none!important}
+  .js .hero .ln .w{transform:none!important}
+  .js .hero__pic{clip-path:polygon(var(--k) 0,100% 0,100% 100%,0 100%,0 var(--k))!important}
+  .js .hero__pic img{transform:none!important;opacity:1!important}
+  .hero__pic img{translate:none!important}
+  .js .flow:not(.in) .q{transform:none}
+  .js .word:not(.in) span{transform:none}
+  .map .veh .pl{animation:none;opacity:0}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M2 6.5h11.5v9.5H2zM13.5 9.5h4.2l3.3 3.6V16h-7.5"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-rail" viewBox="0 0 24 24"><path d="M6 3.5h12a1.5 1.5 0 0 1 1.5 1.5v10.5a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2V5A1.5 1.5 0 0 1 6 3.5zM4.5 11h15M9 17.5l-3 3.5M15 17.5l3 3.5"/><circle cx="8.5" cy="14.3" r=".9"/><circle cx="15.5" cy="14.3" r=".9"/></symbol>
+  <symbol id="i-sea" viewBox="0 0 24 24"><path d="M3 14.5h18l-2.4 4.5H5.4zM6 14.5V10h12v4.5M9 10V6.5h4V10M2.5 21.5c1.6 0 1.6-1 3.2-1s1.6 1 3.2 1 1.6-1 3.1-1 1.6 1 3.2 1 1.6-1 3.2-1 1.6 1 3.1 1"/></symbol>
+  <symbol id="i-air" viewBox="0 0 24 24"><path d="M10.5 13.5 3 11l1.3-1.6 8 .8 4.6-5.1c.9-1 2.5-1.2 3.2-.5.7.7.5 2.3-.5 3.2l-5.1 4.6.8 8L13.7 21l-2.5-7.5-3.5 3.2.3 2.6-1.3 1.2-1.4-3.5L1.8 15.6 3 14.3l2.6.3z"/></symbol>
+  <symbol id="i-wh" viewBox="0 0 24 24"><path d="M2.5 9.5 12 4l9.5 5.5V20h-19zM6.5 20v-7h11v7M6.5 16h11"/></symbol>
+  <symbol id="i-cus" viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6zM15 3.5V7h3.5M9 11.5h6.5M9 15h6.5M9 18h3.5"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M3.5 10.5 12 4l8.5 6.5V20h-17zM9.5 20v-6h5v6"/></symbol>
+  <symbol id="i-port" viewBox="0 0 24 24"><path d="M5 21V5.5h3.5V21M3 21h18M8.5 7.5H20l-2.5 3M13 7.5v4.5M11.5 12h3v3h-3z"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4.5-2.2 1.4a11 11 0 0 0 5.8 5.8l1.4-2.2 4.5 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></symbol>
+  <symbol id="i-l" viewBox="0 0 24 24"><path d="M15 5.5 8.5 12l6.5 6.5"/></symbol>
+  <symbol id="i-r" viewBox="0 0 24 24"><path d="M9 5.5l6.5 6.5L9 18.5"/></symbol>
+</svg>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="hdr" id="top">
+  <div class="hdr__in">
+    <a class="brand" href="#top" aria-label="Восточный вектор — в начало страницы">
+      <span class="brand__m"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h4.2l2.8 7.6L12.8 5H17l-5 11H8z" fill="#18191b"/></svg></span>
+      <span class="brand__t">Восточный вектор<small>грузы из Китая, ВЭД</small></span>
+    </a>
+    <nav class="nav" aria-label="Разделы сайта">
+      <a href="#services">Услуги</a><a href="#route">Маршруты</a><a href="#calc">Расчёт</a><a href="#terms">Сроки</a><a href="#track">Трекинг</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hdr__tel" href="tel:+74230000000">+7 (423) 000-00-00</a>
+    <a class="btn" href="#request">Оставить заявку</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Меню" inert>
+  <a href="#services">Услуги</a><a href="#route">Маршруты</a><a href="#calc">Расчёт</a><a href="#terms">Сроки</a><a href="#track">Трекинг</a><a href="#docs">Документы</a><a href="#team">Команда</a><a href="#contacts">Контакты</a>
+  <a class="mnav__tel" href="tel:+74230000000">+7 (423) 000-00-00</a>
+  <a class="btn" href="#request">Оставить заявку на расчёт</a>
+</nav>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="hero__txt">
+    <h1 id="h1"><span class="ln"><span class="w" style="--i:0">Грузы</span> <span class="w" style="--i:1">из</span> <span class="w" style="--i:2">Китая&nbsp;—</span></span><span class="ln"><span class="w" style="--i:3">до</span> <span class="w" style="--i:4">вашего</span> <span class="w" style="--i:5">склада</span></span></h1>
+    <p class="hero__lead fx" style="--i:0">Сборные отправки от 50 кг и контейнеры 20' и 40' через Владивосток. Выкупим товар у поставщика, проверим фабрику, растаможим в белую и привезём на ваш склад или склад маркетплейса — с полным пакетом документов.</p>
+    <form class="qr fx" style="--i:1" aria-label="Быстрый расчёт срока доставки" data-ui onsubmit="return false">
+      <label><span class="cap">Откуда</span><select id="qrO" data-k="o"><option value="gz">Гуанчжоу</option></select></label>
+      <label><span class="cap">Куда</span><select id="qrD" data-k="d"><option value="msk">Москва</option></select></label>
+      <label><span class="cap">Как</span><select id="qrM" data-k="m"><option value="auto">Авто</option></select></label>
+      <div class="qr__out" aria-live="polite"><span class="cap">Срок и ставка</span><b id="qrDays">18–25 дней</b><small id="qrRate">от 178 ₽/кг, через Забайкальск</small></div>
+    </form>
+    <div class="hero__act fx" style="--i:2">
+      <a class="btn" href="#calc">Рассчитать доставку <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg></a>
+      <a class="lnk" href="#route-map">Показать маршрут на схеме</a>
+    </div>
+  </div>
+  <div class="hero__shape">
+    <div class="hero__pic"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="(max-width:860px) 100vw, 46vw" width="1400" height="1400" alt="Контейнерный терминал в сумерках: краны над контейнеровозом у причала" fetchpriority="high" decoding="async" id="heroImg"></div>
+    <div class="hero__mark">
+      <div class="iso"><span class="iso__no" aria-label="Контейнер VVTU 260118 5"><span id="iso" aria-hidden="true">VVTU 260118</span><i aria-hidden="true">5</i></span><span class="iso__ty">45G1</span></div>
+      <dl class="mk">
+        <dt>Max gross</dt><dd>32 500 kg</dd>
+        <dt>Tare</dt><dd>3 900 kg</dd>
+        <dt>Net</dt><dd>28 600 kg</dd>
+        <dt>Cu. cap.</dt><dd>76,3 cu.m</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-label="Ближайшие отправки и время работы">
+  <div class="dep rv" data-ui>
+    <div class="dep__h"><b>Ближайшие отправки сборных грузов</b><span>приём до 18:00 по Пекину</span></div>
+    <ul id="dep"></ul>
+  </div>
+  <div class="clk rv">
+    <div class="clk__row">
+      <div><b id="tV">--:--</b><span>Владивосток</span></div>
+      <div><b id="tC">--:--</b><span>Гуанчжоу</span></div>
+      <div><b id="tM">--:--</b><span>Москва</span></div>
+    </div>
+    <div class="ofc" id="ofc"><p id="ofcT">Офис во Владивостоке: пн–пт, 9:00–19:00</p><a class="lnk" href="#track">Отследить груз</a></div>
+  </div>
+</section>
+
+<section class="sec paper" id="services" aria-labelledby="svcH">
+  <div class="wrap svc">
+    <div class="svc__pic" aria-hidden="true">
+      <div class="svc__frame">
+        <img src="img/pallets-1000.webp" srcset="img/pallets-600.webp 600w, img/pallets-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Штабель деревянных паллет на складе" class="on" loading="lazy">
+        <img src="img/cargo-1000.webp" srcset="img/cargo-600.webp 600w, img/cargo-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Борт контейнера с маркировкой массы и объёма" loading="lazy">
+        <img src="img/marks-1000.webp" srcset="img/marks-600.webp 600w, img/marks-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Двери контейнера с табличкой масс" loading="lazy">
+        <img src="img/lock-1000.webp" srcset="img/lock-600.webp 600w, img/lock-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Замок и запорные штанги на дверях контейнера" loading="lazy">
+        <img src="img/aisle-1000.webp" srcset="img/aisle-600.webp 600w, img/aisle-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Проход между стеллажами высокого склада с коробками" loading="lazy">
+        <img src="img/labels-1000.webp" srcset="img/labels-600.webp 600w, img/labels-1000.webp 1000w" sizes="(max-width:860px) 86vw, 44vw" width="1000" height="1250" alt="Отправление с наклеенными этикетками и штампами" loading="lazy">
+      </div>
+      <p class="svc__cap"><b id="svcCode">LCL</b><span id="svcCap">Склад консолидации: приёмка и фото каждого места</span></p>
+    </div>
+    <div class="svc__body">
+      <div class="sh rv" style="display:block">
+        <h2 id="svcH">От фабрики до полки</h2>
+        <p class="lead" style="margin-top:22px">Берём цепочку целиком или любой её участок: выкуп, консолидацию, перевозку, таможню и доставку до склада. Один менеджер, один договор и закрывающие документы для вашей бухгалтерии.</p>
+      </div>
+      <ul class="svc__list">
+        <li class="svc__i on rv" tabindex="-1">
+          <span class="svc__code">LCL</span>
+          <h3>Сборные грузы</h3>
+          <p>Объединяем ваши коробки с грузами других клиентов в одну машину, вагон или контейнер. Платите только за свой вес или объём — от 50 кг или 0,3 м³.</p>
+          <p class="svc__tags">авто · ЖД · море + ЖД · авиа</p>
+          <div class="svc__price"><b>от 112 ₽/кг</b><span>до Москвы, море + ЖД</span></div>
+          <a class="lnk" href="#calc" data-ship="lcl">В расчёт</a>
+        </li>
+        <li class="svc__i rv">
+          <span class="svc__code">FCL</span>
+          <h3>Контейнеры 20' и 40'</h3>
+          <p>Целый контейнер под вашу партию: морем во Владивосток и дальше по ЖД или поездом напрямую через Казахстан. Бронируем место на судне и платформу.</p>
+          <p class="svc__tags">20' до 28 м³ · 40' HC до 76 м³ · пломба и трекинг</p>
+          <div class="svc__price"><b>от 495 000 ₽</b><span>40' Шанхай — Москва</span></div>
+          <a class="lnk" href="#calc" data-ship="c40">В расчёт</a>
+        </li>
+        <li class="svc__i rv">
+          <span class="svc__code">CUS</span>
+          <h3>Таможенное оформление</h3>
+          <p>Подбираем коды ТН ВЭД, считаем пошлину и НДС до отправки, подаём декларацию, оформляем сертификаты и декларации соответствия ЕАЭС, маркировку «Честный знак».</p>
+          <p class="svc__tags">ДТ · сертификация · маркировка</p>
+          <div class="svc__price"><b>от 14 500 ₽</b><span>за декларацию</span></div>
+          <a class="lnk" href="#docs">Документы</a>
+        </li>
+        <li class="svc__i rv">
+          <span class="svc__code">BUY</span>
+          <h3>Выкуп и проверка фабрики</h3>
+          <p>Платим поставщику в юанях, ведём переговоры на китайском, выезжаем на производство до оплаты: фото, видео, замеры образцов и отчёт о браке.</p>
+          <p class="svc__tags">оплата в юанях · выезд на фабрику · контроль качества</p>
+          <div class="svc__price"><b>3% от суммы</b><span>выезд на фабрику — 19 000 ₽</span></div>
+          <a class="lnk" href="#request">Обсудить</a>
+        </li>
+        <li class="svc__i rv">
+          <span class="svc__code">WH</span>
+          <h3>Склад во Владивостоке</h3>
+          <p>Свой склад консолидации на Второй Речке: приёмка, хранение, переупаковка, паллетирование, разбивка партии по городам и получателям.</p>
+          <p class="svc__tags">2 400 м² · пандус для фур · фото при приёмке</p>
+          <div class="svc__price"><b>7 дней бесплатно</b><span>далее 40 ₽ за паллету в сутки</span></div>
+          <a class="lnk" href="#contacts">Адрес склада</a>
+        </li>
+        <li class="svc__i rv">
+          <span class="svc__code">MP</span>
+          <h3>Доставка до маркетплейсов</h3>
+          <p>Маркируем товар, клеим этикетки, собираем короба по требованиям площадки, записываемся на слот и привозим поставку на склад маркетплейса в нужном городе.</p>
+          <p class="svc__tags">FBO-поставки · этикетки и короба · запись на слот</p>
+          <div class="svc__price"><b>от 9 ₽ за единицу</b><span>маркировка и упаковка</span></div>
+          <a class="lnk" href="#request">Обсудить</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="route" aria-labelledby="rtH">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2 id="rtH">Путь груза по дням</h2>
+      <p class="lead">Выберите город в Китае, способ и город назначения — схема прорисует маршрут, покажет этапы и ориентир по стоимости. Сроки — календарные дни от забора у поставщика до выгрузки у вас.</p>
+    </div>
+    <div class="rt" id="route-map">
+      <div class="ctl rv" id="ctl">
+        <fieldset><legend>Откуда — город в Китае</legend><div class="chips" id="chO"></div></fieldset>
+        <fieldset><legend>Как — способ доставки</legend><div class="modes" id="chM"></div><p class="ctl__note" id="ctlNote" aria-live="polite"></p></fieldset>
+        <fieldset><legend>Куда — город в России</legend><div class="chips" id="chD"></div></fieldset>
+      </div>
+      <div class="mapw rv" data-ui>
+        <svg class="map" id="map" viewBox="0 0 1000 620" role="img" aria-label="Схема маршрута"></svg>
+        <div class="hud" aria-hidden="true"><div class="hud__t" id="hud"></div></div>
+        <div class="legend" aria-hidden="true"><span><i></i>авто</span><span><i class="l-rail"></i>ЖД</span><span><i class="l-sea"></i>море</span><span><i class="l-air"></i>авиа</span><span>схема, масштаб условный</span></div>
+      </div>
+    </div>
+    <div class="sum rv">
+      <div class="sum__d cut">
+        <p class="fig"><span id="sumD">18–25</span><small id="sumU">дней</small></p>
+        <h3 id="sumH">Гуанчжоу — Москва, авто</h3>
+        <p id="sumN">Ближайшая отправка из Гуанчжоу: <b>пн, 9 ноя</b>.</p>
+      </div>
+      <div class="sum__p">
+        <div><span>Сборный, за кг</span><b id="sumK">от 178 ₽</b></div>
+        <div><span>Сборный, за м³</span><b id="sumV">от 35 600 ₽</b></div>
+        <div><span>Контейнер 20'</span><b id="sum20">от 550 000 ₽</b></div>
+        <div><span>Контейнер 40'</span><b id="sum40">от 690 000 ₽</b></div>
+        <div class="cta"><p>Каждый этап — статус в трекинге и фото.</p><a class="btn" href="#calc">Посчитать мой груз</a></div>
+      </div>
+    </div>
+    <div class="stg rv">
+      <div class="stg__h"><b>Этапы и сроки, календарные дни · <span id="stgT">5 этапов</span></b><span>старт: забор у поставщика · <span id="gEnd">выгрузка: день 18–25</span></span></div>
+      <div class="gantt" id="gantt" aria-hidden="true"></div>
+      <ol class="stl" id="stl"></ol>
+      <p class="note" style="margin-top:18px">Срок — календарные дни при отправке в ближайший график.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper" id="calc" aria-labelledby="cH">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2 id="cH">Расчёт за минуту</h2>
+      <p class="lead">Введите вес и объём — посчитаем платный вес, ставку, оформление и страховку. Маршрут синхронизирован со схемой выше. В договоре ставку фиксируем на 7 дней. Ставки на октябрь 2026.</p>
+    </div>
+    <div class="calc">
+      <form class="cf rv" onsubmit="return false" aria-label="Калькулятор доставки">
+        <label class="fl"><span>Откуда</span><select class="inp" id="cO" data-k="o"></select></label>
+        <label class="fl"><span>Куда</span><select class="inp" id="cD" data-k="d"></select></label>
+        <fieldset class="full"><legend class="fl"><span>Способ доставки</span></legend><div class="seg2" id="cM"></div></fieldset>
+        <fieldset class="full"><legend class="fl"><span>Отправка</span></legend><div class="seg2" id="cS">
+          <button class="sb" type="button" data-s="lcl" aria-pressed="true">Сборный груз</button>
+          <button class="sb" type="button" data-s="c20" aria-pressed="false">Контейнер 20'</button>
+          <button class="sb" type="button" data-s="c40" aria-pressed="false">Контейнер 40' HC</button>
+        </div></fieldset>
+        <div class="fl full"><label for="cW"><span style="font-weight:600">Вес брутто</span></label>
+          <div class="rng"><span class="unit"><input class="inp" id="cW" name="weight" inputmode="decimal" value="420" autocomplete="off"><i>кг</i></span><input type="range" id="cWr" min="20" max="10000" step="10" value="420" aria-label="Вес брутто, ползунок"></div></div>
+        <div class="fl full"><label for="cV"><span style="font-weight:600">Объём</span></label>
+          <div class="rng"><span class="unit"><input class="inp" id="cV" name="volume" inputmode="decimal" value="2,4" autocomplete="off"><i>м³</i></span><input type="range" id="cVr" min="0.1" max="80" step="0.1" value="2.4" aria-label="Объём, ползунок"></div></div>
+        <fieldset class="full"><legend class="fl"><span>Что везём</span></legend><div class="seg2" id="cT">
+          <button class="sb" type="button" data-t="mp" aria-pressed="true">Товары для дома</button>
+          <button class="sb" type="button" data-t="tx" aria-pressed="false">Одежда и текстиль</button>
+          <button class="sb" type="button" data-t="el" aria-pressed="false">Электроника</button>
+          <button class="sb" type="button" data-t="eq" aria-pressed="false">Оборудование, запчасти</button>
+          <button class="sb" type="button" data-t="fr" aria-pressed="false">Хрупкое: стекло, керамика</button>
+        </div><p class="th" id="cTh" aria-live="polite">Типовая пошлина 10%, особых требований к упаковке нет.</p></fieldset>
+        <label class="fl full"><span>Стоимость товара по инвойсу, ₽</span><input class="inp" id="cI" name="invoice" inputmode="numeric" value="650 000" autocomplete="off" aria-describedby="cIh"><small class="th" id="cIh">Нужна для страховки и оценки пошлины с НДС.</small></label>
+        <label class="chk"><input type="checkbox" id="cCus" checked><b>Оформление под ключ</b><small id="cCusH">ДТ, коды ТН ВЭД, брокер — 14 500 ₽</small></label>
+        <label class="chk"><input type="checkbox" id="cIns" checked><b>Застраховать груз</b><small>0,6% от инвойса, минимум 1 500 ₽</small></label>
+      </form>
+      <aside class="rc cut rv" id="rcBox" aria-label="Ориентировочный расчёт" data-ui>
+        <div class="rc__h"><span>Ориентировочный расчёт</span><span id="rcNo">РС-0911</span></div>
+        <p class="rc__rt" id="rcRt">Гуанчжоу — Москва<small>авто через Забайкальск, сборный груз</small></p>
+        <div class="rc__g">
+          <div><span id="rcRateL">Ставка</span><b id="rcRate">178 ₽/кг</b></div>
+          <div><span>Платный вес</span><b id="rcChg">480 кг — по объёму</b></div>
+          <div><span>Перевозка</span><b id="rcDel">85 440 ₽</b></div>
+          <div><span>Оформление</span><b id="rcCus">14 500 ₽</b></div>
+          <div><span>Страховка</span><b id="rcIns">3 900 ₽</b></div>
+          <div><span>Срок</span><b id="rcDays">18–25 дн</b></div>
+        </div>
+        <div class="rc__tot" aria-live="polite"><span>Итого логистика под ключ</span><b id="rcTot">103 840 ₽</b></div>
+        <p class="rc__duty" id="rcDuty">плюс пошлина и НДС около 222 300 ₽ — платятся при выпуске, НДС можно принять к вычету</p>
+        <p class="rc__time"><span id="rcArr">прибытие ориентировочно 29 ноя — 6 дек, если отправка в ближайшие 2 дня</span></p>
+        <p class="rc__hint" id="rcHint" aria-live="polite"></p>
+        <div class="rc__f">
+          <a class="btn" href="#request" id="rcSend">Отправить расчёт менеджеру</a>
+          <p>Не входит: хранение сверх 7 дней, сертификация, доставка от двери поставщика за пределами города. Ставки в рублях на октябрь 2026.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark2" id="terms" aria-labelledby="tH">
+  <div class="wrap">
+    <div class="tt__top">
+      <div class="sh rv">
+        <h2 id="tH">Сроки без звёздочек</h2>
+        <p class="lead">Популярные направления в одной таблице. Срок — от забора у поставщика до выгрузки на вашем складе. Нажмите на ячейку — маршрут откроется на схеме.</p>
+      </div>
+      <div class="tt__pic cut rv"><img src="img/truck-1400.webp" srcset="img/truck-800.webp 800w, img/truck-1400.webp 1400w" sizes="(max-width:1100px) 100vw, 40vw" width="1400" height="933" alt="Две фуры на загородной трассе" loading="lazy"></div>
+    </div>
+    <div class="ttm" role="group" aria-label="Способ доставки в таблице" id="ttm"></div>
+    <div class="rv"><table class="tt" id="tt">
+      <caption class="sr">Сроки и ставки доставки по популярным маршрутам</caption>
+      <thead><tr><th scope="col">Маршрут</th><th scope="col">Авто<small>сборный, ₽/кг</small></th><th scope="col">ЖД<small>сборный, ₽/кг</small></th><th scope="col">Море + ЖД<small>контейнер 40'</small></th><th scope="col">Авиа<small>сборный, ₽/кг</small></th></tr></thead>
+      <tbody id="ttB"></tbody>
+    </table></div>
+    <p class="tt__ft note">Ставки — без пошлины и НДС, сборный груз от 50 кг. Платный вес: 1 м³ = 200 кг, в авиа 1 м³ = 167 кг. Расстояние — по маршруту авто.</p>
+  </div>
+</section>
+
+<section class="sec paper" id="track" aria-labelledby="trH">
+  <div class="wrap trk">
+    <div class="trk__l rv">
+      <h2 id="trH">Где мой груз</h2>
+      <p class="lead" style="color:var(--pmuted)">Номер приходит в письме о приёмке на склад: VV-ГГММ-ХХХХ для сборных отправок и 11 знаков для контейнера. Статусы обновляем на складе, на границе, в порту и на станции.</p>
+      <form class="tf" id="tf" novalidate>
+        <label class="fl" for="tIn"><span>Номер груза или контейнера</span></label>
+        <div class="tf__row"><input class="inp" id="tIn" name="tracking" placeholder="Например, VV-2610-4471" autocomplete="off" aria-describedby="tErr"><button class="btn btn--ink" type="submit">Найти</button></div>
+        <p class="tf__err" id="tErr" aria-live="polite"></p>
+        <div class="tf__demo">Попробуйте: <button type="button" data-n="VV-2610-4471">VV-2610-4471</button><button type="button" data-n="VVTU 451207 1">VVTU 451207 1</button></div>
+      </form>
+      <p>Плюс фото при приёмке каждого места и сообщение в мессенджер, когда груз проходит границу или порт. Без звонков «где моя машина».</p>
+      <div class="trk__pic cut"><img src="img/door-1000.webp" srcset="img/door-600.webp 600w, img/door-1000.webp 1000w" sizes="(max-width:1100px) 0px, 36vw" width="1000" height="1250" alt="Оранжевые двери контейнера с запорным механизмом" loading="lazy"></div>
+    </div>
+    <div class="tr cut rv" id="tr" aria-live="polite" data-ui><div class="tr__empty"><p>Введите номер — здесь появится путь отправки.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="docs" aria-labelledby="dH">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2 id="dH">Какие документы нужны</h2>
+      <p class="lead">Минимум от вас — остальное готовим сами. После выпуска вы получаете полный комплект для бухгалтерии и маркетплейса.</p>
+    </div>
+    <div class="dcl">
+      <div class="dcl__form rv" data-ui>
+        <div class="dcl__col">
+          <h3>От вас</h3><p>Чтобы начать, хватит первых двух пунктов.</p>
+          <ul>
+            <li><b>Карточка компании</b><span>ИП или ООО — для договора транспортной экспедиции.</span></li>
+            <li><b>Контакты поставщика или ссылка на товар</b><span>Инвойс и упаковочный лист запросим у фабрики сами.</span></li>
+            <li><b>Описание и фото товара</b><span>Материал, назначение, модель — по ним подбираем код ТН ВЭД.</span></li>
+            <li><b>Доверенность на получение</b><span>Пришлём шаблон, подпись — электронная.</span></li>
+          </ul>
+        </div>
+        <div class="dcl__col">
+          <h3>Оформляем мы</h3><p>Входит в оформление под ключ.</p>
+          <ul>
+            <li><b>Декларация на товары</b><span>Расчёт пошлины и НДС до отправки, подача и выпуск.</span></li>
+            <li><b>Сертификаты и декларации ЕАЭС</b><span>Через аккредитованные лаборатории, по срокам — до прибытия груза.</span></li>
+            <li><b>Маркировка «Честный знак»</b><span>Для обязательных категорий: одежда, обувь, бытовая химия и другие.</span></li>
+            <li><b>Закрывающие документы</b><span>УПД, акты, транспортные накладные, коносамент — через ЭДО.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dcl__vat cut rv">
+        <h3>Нет <span class="nb">ВЭД-контракта?</span></h3>
+        <p>Ввезём товар по нашему контракту и продадим его вам уже в России — с НДС, по договору поставки. Удобно для селлеров и тех, кто не хочет открывать валютный контроль.</p>
+        <ul>
+          <li>товар приходит с российскими документами</li>
+          <li>НДС можно принять к вычету</li>
+          <li>оплата в рублях, без перевода в Китай</li>
+        </ul>
+        <a class="btn btn--ink" href="#request">Узнать условия</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper" id="steps" aria-labelledby="sH">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2 id="sH">Шесть шагов до выгрузки</h2>
+      <p class="lead">Коробки от разных поставщиков сходятся в одну отправку и выходят ровными паллетами на вашем складе. Каждый шаг закрывается фото, документом или статусом в трекинге.</p>
+    </div>
+    <div class="flow" id="flow">
+      <div class="flow__d"><svg id="flowD" viewBox="0 0 1200 270" aria-hidden="true"></svg></div>
+      <div class="flow__v"><svg id="flowV" viewBox="0 0 300 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg></div>
+      <div class="flow__ph">
+        <div class="rv"><h3>Собираем</h3><ol>
+          <li><b>Заявка и расчёт</b><span>Описание товара, город поставщика и куда везти. Считаем 2–3 варианта: быстрее, дешевле, оптимально.</span><em><i class="dot"></i>2 часа в рабочее время</em></li>
+          <li><b>Договор</b><span>Договор экспедиции с фиксированной ставкой. Подписываем через ЭДО.</span><em><i class="dot"></i>1 день</em></li>
+          <li><b>Выкуп и приёмка</b><span>Платим поставщику, забираем товар, проверяем количество и брак, фотографируем каждое место.</span><em><i class="dot"></i>1–5 дней</em></li>
+        </ol></div>
+        <div class="rv"><h3>Везём</h3><ol start="4">
+          <li><b>Отправка</b><span>Консолидируем, пломбируем, отправляем. Вы получаете номер груза для трекинга.</span><em><i class="dot"></i>по графику отправок</em></li>
+          <li><b>Таможня</b><span>Декларация, сертификаты, выпуск. Пошлину и НДС знаете заранее — сюрпризов на границе нет.</span><em><i class="dot"></i>1–4 дня</em></li>
+        </ol></div>
+        <div class="rv"><h3>Выдаём</h3><ol start="6">
+          <li><b>Доставка и документы</b><span>Выгружаем на вашем складе или складе маркетплейса, отправляем закрывающие документы.</span><em><i class="dot"></i>в день прибытия</em></li>
+        </ol></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cases" aria-labelledby="csH">
+  <div class="wrap cs">
+    <div class="cs__h rv"><h2 id="csH">Примеры задач</h2><p>Три типичные отправки: селлер, производство и оптовая компания. Маршрут, срок и стоимость — по тем же ставкам, что в калькуляторе.</p></div>
+    <div class="cs__row">
+    <article class="case rv">
+      <button class="case__pic cut" type="button" data-lb="0" aria-label="Открыть фото: фура на зимней трассе"><img src="img/snow-1400.webp" srcset="img/snow-800.webp 800w, img/snow-1400.webp 1400w, img/snow-2000.webp 2000w" sizes="(max-width:860px) 100vw, 46vw" width="1400" height="933" alt="Фура на заснеженной трассе на закате" loading="lazy"><span>Фото-пример</span></button>
+      <p class="case__who">Селлер товаров для дома, Казань</p>
+      <h3>3,2 тонны из Иу на склады маркетплейса</h3>
+      <dl><div><dt>Груз</dt><dd>3 200 кг · 19 м³</dd></div><div><dt>Маршрут</dt><dd>Иу — Казань, авто</dd></div><div><dt>Срок</dt><dd>21 день</dd></div><div><dt>Ставка</dt><dd>162 ₽/кг</dd></div></dl>
+      <p><b>Задача.</b> 46 позиций у 9 поставщиков в Иу, поставка к началу распродаж, этикетки и короба по требованиям площадки.</p>
+      <p><b>Решение.</b> Собрали товар на складе в Иу, промаркировали до отправки, разделили на две поставки и записали на слоты в Казани.</p>
+    </article>
+    <article class="case rv">
+      <button class="case__pic cut" type="button" data-lb="1" aria-label="Открыть фото: контейнеровоз в море"><img src="img/ship-1000.webp" srcset="img/ship-600.webp 600w, img/ship-1000.webp 1000w, img/ship-1600.webp 1600w" sizes="(max-width:860px) 80vw, 22vw" width="1000" height="1250" alt="Контейнеровоз в море, вид сверху" loading="lazy"><span>Фото-пример</span></button>
+      <p class="case__who">Мебельное производство, Новосибирск</p>
+      <h3>40' фурнитуры с проверкой фабрики</h3>
+      <dl><div><dt>Маршрут</dt><dd>Гуанчжоу — Новосибирск</dd></div><div><dt>Срок</dt><dd>38 дней, море + ЖД</dd></div></dl>
+      <p>До оплаты выехали на фабрику: у 6% фасадов нашли брак покрытия, поставщик переделал партию до отгрузки. Контейнер 40' — 415 000 ₽.</p>
+    </article>
+    <article class="case rv">
+      <button class="case__pic cut" type="button" data-lb="2" aria-label="Открыть фото: контейнерный поезд"><img src="img/rail-1400.webp" srcset="img/rail-800.webp 800w, img/rail-1400.webp 1400w" sizes="(max-width:860px) 100vw, 46vw" width="1400" height="933" alt="Контейнеры на ЖД-платформах у станции" loading="lazy"><span>Фото-пример</span></button>
+      <p class="case__who">Оптовая компания, Владивосток</p>
+      <h3>20' из Шанхая каждые три недели</h3>
+      <dl><div><dt>Маршрут</dt><dd>Шанхай — Владивосток</dd></div><div><dt>Срок</dt><dd>15–21 день, море</dd></div></dl>
+      <p>Регулярные отправки по графику: бронь на судне заранее, выгрузка на нашем складе, отгрузка по городу паллетами. Контейнер 20' — 145 000 ₽.</p>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper" id="promise" aria-labelledby="pH">
+  <div class="wrap pr">
+    <div class="pr__h rv"><h2 id="pH">Цифры, которые в договоре</h2><p>Обещания, за которые отвечает менеджер, а не мелкий шрифт.</p></div>
+    <div class="pr__t pr__a cut rv"><p class="fig">7 дней</p><p><b>Ставка в договоре</b>Фиксируем на 7 дней. Доплат «за курс» и «за срочность» после отправки нет.</p></div>
+    <div class="pr__t pr__b cut rv"><p class="fig">15 мин</p><p><b>Ответ менеджера</b>В мессенджере в рабочее время — от заявки до выгрузки.</p></div>
+    <div class="pr__t pr__c cut rv"><p class="fig">2 часа</p><p><b>Расчёт по заявке</b>2–3 варианта маршрута с точной ставкой.</p></div>
+  </div>
+</section>
+
+<section class="team paper" id="team" aria-labelledby="tmH">
+  <div class="tp">
+    <div class="tp__l rv">
+      <h2 id="tmH">Люди на маршруте</h2>
+      <p class="lead">Офис и склад во Владивостоке, свой человек в Гуанчжоу. Вы общаетесь с одним менеджером, а за ним — таможня, склад и логисты.</p>
+      <div class="tp__pic"><img src="img/cranes-1000.webp" srcset="img/cranes-600.webp 600w, img/cranes-1000.webp 1000w" sizes="(max-width:1100px) 70vw, 38vw" width="1000" height="1000" alt="Портовые краны над контейнеровозом у причала" loading="lazy"></div>
+    </div>
+    <div class="tp__r">
+      <div class="rv"><h3>Фото каждого места</h3><p>При приёмке в Китае и во Владивостоке: упаковка, маркировка, повреждения.</p></div>
+      <div class="rv"><h3>Только белое оформление</h3><p>Декларация на ваше юрлицо или ввоз по нашему контракту. Никаких «карго под ключ без документов».</p></div>
+      <ul class="pass">
+        <li class="cut rv"><p class="pass__id"><span>Пропуск</span><b>ВВ-01</b></p><h4>Д. К.</h4><strong>Руководитель, логистика ВЭД</strong><p>Собирает маршрут под задачу и отвечает за сроки. Владивосток.</p></li>
+        <li class="cut rv"><p class="pass__id"><span>Пропуск</span><b>ВВ-04</b></p><h4>Л. М.</h4><strong>Представитель в Китае</strong><p>Выкуп, переговоры с фабриками и выезды на производство. Говорит по-русски, пишет отчёты с фото и замерами. Гуанчжоу.</p></li>
+        <li class="cut rv"><p class="pass__id"><span>Пропуск</span><b>ВВ-07</b></p><h4>А. Ш.</h4><strong>Специалист по таможенным операциям</strong><p>Коды ТН ВЭД, декларации, сертификаты и маркировка. Считает пошлину до отправки, а не после.</p></li>
+        <li class="cut rv"><p class="pass__id"><span>Пропуск</span><b>ВВ-12</b></p><h4>О. П.</h4><strong>Начальник склада консолидации</strong><p>Приёмка, переупаковка и отгрузка по городам. Следит, чтобы короба уезжали в маркетплейс по их правилам.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="fH">
+  <div class="wrap fq">
+    <div class="fq__l rv">
+      <h2 id="fH">Частые вопросы</h2>
+      <p class="lead">Не нашли ответ — напишите менеджеру, ответим в рабочее время за 15 минут.</p>
+      <a class="lnk" href="#request">Задать вопрос</a>
+      <div class="fq__pic cut"><img src="img/wake-1400.webp" srcset="img/wake-800.webp 800w, img/wake-1400.webp 1400w" sizes="(max-width:1100px) 0px, 30vw" width="1400" height="933" alt="Контейнеровоз идёт по морю, вид сверху" loading="lazy"></div>
+    </div>
+    <div class="fq__list">
+      <details class="rv" name="faq"><summary>Какой минимальный объём для сборного груза?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>50 кг или 0,3 м³ — что больше. Меньше тоже возьмём, но посчитаем как 50 кг. Для авиа минимум — 20 кг.</p></div></details>
+      <details class="rv" name="faq"><summary>Чем белая доставка отличается от карго?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>При карго товар ввозят без декларации на ваше имя: документов для продажи и бухгалтерии нет, риск изъятия — на вас. Мы оформляем декларацию на товары, вы получаете ДТ, сертификаты и УПД.</p><p>Белая доставка дороже на пошлину и НДС, но НДС можно принять к вычету, а товар можно законно продавать на маркетплейсах.</p></div></details>
+      <details class="rv" name="faq"><summary>Можно ли везти без своего ВЭД-контракта?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>Да. Ввезём товар по нашему контракту и продадим вам в России по договору поставки, с НДС. Вы платите в рублях и получаете российские документы.</p></div></details>
+      <details class="rv" name="faq"><summary>Как считается платный вес?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>Берём большее из двух: фактический вес или объём × 200 кг (для авиа — × 167 кг). Например, 420 кг в 2,4 м³ считаются как 480 кг — груз лёгкий для своего объёма.</p></div></details>
+      <details class="rv" name="faq"><summary>Что если груз повредят или потеряют?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>Страхуем на стоимость по инвойсу — 0,6%, минимум 1 500 ₽. Повреждения фиксируем фото при приёмке и выдаче, выплату по страховому случаю сопровождаем сами.</p></div></details>
+      <details class="rv" name="faq"><summary>Как оплатить поставщику в Китае?<i class="pl" aria-hidden="true"></i></summary><div class="fq__a"><p>Вы платите нам в рублях, мы переводим поставщику юани. Курс фиксируем в день оплаты, комиссия за выкуп — 3% от суммы заказа.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec paper" id="request" aria-labelledby="rqH">
+  <div class="wrap">
+    <div class="cp rv" id="cp">
+      <div class="cp__l">
+        <h2 id="rqH">Заявка на расчёт</h2>
+        <ul><li><i class="dot"></i>2–3 варианта маршрута с точной ставкой</li><li><i class="dot"></i>ответ в течение 2 часов в рабочее время</li><li><i class="dot"></i>ставка в договоре на 7 дней</li></ul>
+        <p>Опишите груз — пришлём варианты маршрута. Если уже посчитали в калькуляторе, параметры подставятся сами.</p>
+      </div>
+      <div class="cp__r">
+        <form class="rf" id="rf" novalidate>
+          <label class="fl"><span>Имя *</span><input class="inp" id="fN" name="name" autocomplete="name" aria-describedby="eN" required></label>
+          <label class="fl"><span>Телефон *</span><input class="inp" id="fP" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" aria-describedby="eP" required></label>
+          <p class="rf__err full" id="eN" aria-live="polite"></p><p class="rf__err full" id="eP" aria-live="polite"></p>
+          <label class="fl"><span>Откуда</span><select class="inp" id="fO" name="from"></select></label>
+          <label class="fl"><span>Куда</span><select class="inp" id="fD" name="to"></select></label>
+          <label class="fl full"><span>Что везём</span><textarea class="inp" id="fC" name="cargo" placeholder="Товар, количество мест, вес и объём, ссылка на поставщика"></textarea></label>
+          <label class="rf__ok full"><input type="checkbox" id="fA" aria-describedby="eA"><span>Согласен на обработку персональных данных для расчёта доставки</span></label>
+          <p class="rf__err full" id="eA" aria-live="polite"></p>
+          <button class="btn btn--ink full" type="submit">Отправить заявку</button>
+          <p class="rf__f full">Перезвоним в рабочее время Владивостока (UTC+10). Поля со звёздочкой обязательны.</p>
+        </form>
+        <div class="ok" id="ok" hidden tabindex="-1">
+          <h3>Заявка принята</h3>
+          <p class="ok__no" id="okN">Номер заявки Р-0000-0000</p>
+          <p id="okT">Менеджер пришлёт расчёт в течение 2 часов в рабочее время и позвонит, если понадобятся уточнения.</p>
+          <p class="ok__c">Это концепт-проект студии YSD DEV: заявка не отправляется.</p>
+          <button class="btn btn--ink" type="button" id="okR">Отправить ещё одну заявку</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ct" id="contacts">
+      <div class="ct__main rv">
+        <h2 class="sr">Контакты</h2>
+        <a href="tel:+74230000000">+7 (423) 000-00-00</a>
+        <a class="em" href="mailto:hello@logistics.ysdprojects.space">hello@logistics.ysdprojects.space</a>
+        <p>Telegram, WhatsApp и WeChat — по этому же номеру.</p>
+      </div>
+      <dl class="ct__dl rv">
+        <div><dt>Офис</dt><dd><b>ул. Алеутская, 52, офис 504</b><span>7 минут пешком от ж/д вокзала. Пн–пт, 9:00–19:00</span></dd></div>
+        <div><dt>Склад консолидации</dt><dd><b>ул. Снеговая, 64, стр. 3</b><span>Вторая Речка, въезд для фур. Пн–сб, 8:00–20:00</span></dd></div>
+        <div><dt>Склады в Китае</dt><dd><b>Гуанчжоу и Иу</b><span>Приёмка пн–сб, 9:00–18:00 по Пекину</span></dd></div>
+        <div><dt>Часовой пояс</dt><dd><b>UTC+10</b><span>Москва −7 часов, Пекин −2 часа</span></dd></div>
+      </dl>
+      <figure class="vlad cut rv" data-ui>
+        <svg viewBox="0 0 480 300" role="img" aria-label="Схема: офис на Алеутской у ж/д вокзала, склад на Снеговой у станции Вторая Речка, около 9 км">
+          <rect width="480" height="300" fill="#18191b"/>
+          <path d="M0 0h96c18 30 6 70-10 104-14 30-12 70 4 104 12 26 6 58-14 92H0z" fill="#1c2730"/>
+          <path d="M480 300H210c-6-22 4-40 30-46 30-7 58 4 86-6 22-8 30-26 52-30 30-6 60 10 102 6z" fill="#1c2730"/>
+          <path d="M318 262c22-6 30 2 52-2" stroke="#ff4a1f" stroke-width="3" fill="none" stroke-dasharray="4 5"/>
+          <path d="M248 238C236 196 232 150 214 118 198 90 188 66 192 40" fill="none" stroke="#3a3e44" stroke-width="10" stroke-linecap="round"/>
+          <path d="M248 238C236 196 232 150 214 118 198 90 188 66 192 40" fill="none" stroke="#ff4a1f" stroke-width="3" stroke-linecap="round"/>
+          <path d="M180 300C170 230 160 170 150 120 142 80 150 40 170 0" fill="none" stroke="#2c3036" stroke-width="5"/>
+          <g fill="#eff0f1" font-family="Golos Text,sans-serif" font-size="14">
+            <rect x="240" y="230" width="16" height="16" fill="#ff4a1f"/>
+            <text x="264" y="236">Офис, Алеутская, 52</text>
+            <text x="264" y="254" fill="#a6a9ae" font-size="13">ж/д вокзал</text>
+            <rect x="184" y="32" width="16" height="16" fill="#eff0f1"/>
+            <text x="208" y="38">Склад, Снеговая, 64</text>
+            <text x="208" y="56" fill="#a6a9ae" font-size="13">ст. Вторая Речка</text>
+            <text x="226" y="152" fill="#ff6a44" font-size="15" font-weight="600">около 9 км, 20 минут</text>
+            <text x="16" y="160" fill="#7d8e9b" font-size="12" letter-spacing="2">АМУРСКИЙ ЗАЛИВ</text>
+            <text x="300" y="292" fill="#7d8e9b" font-size="12" letter-spacing="2">БУХТА ЗОЛОТОЙ РОГ</text>
+          </g>
+        </svg>
+        <figcaption>Схема, не в масштабе</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="word" id="word" aria-label="Восточный вектор" role="img"></div>
+  <div class="ft__g">
+    <nav class="ft__nav" aria-label="Разделы в подвале">
+      <a href="#services">Услуги</a><a href="#route">Маршруты</a><a href="#calc">Расчёт</a><a href="#terms">Сроки</a><a href="#track">Трекинг</a><a href="#docs">Документы</a><a href="#steps">Порядок работы</a><a href="#cases">Примеры задач</a><a href="#faq">Вопросы</a>
+    </nav>
+    <div class="ft__c">
+      <a href="tel:+74230000000">+7 (423) 000-00-00</a>
+      <a href="mailto:hello@logistics.ysdprojects.space">hello@logistics.ysdprojects.space</a>
+      <p>Доставка грузов из Китая и логистика ВЭД под ключ. Владивосток, ул. Алеутская, 52.</p>
+    </div>
+  </div>
+  <div class="ft__b">
+    <span>© 2026 Восточный вектор</span>
+    <span>Концепт-проект · <a href="https://ysddev.com" rel="noopener">сайт разработан YSD DEV</a></span>
+    <a class="btn btn--ghost" href="#top">Наверх</a>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="mbar__c" href="#rcBox"><span>Итого под ключ<small id="mbD">18–25 дн</small></span><b id="mbT">103 840 ₽</b></a>
+  <a class="mbar__t" href="tel:+74230000000" aria-label="Позвонить: +7 (423) 000-00-00"><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg></a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото" inert>
+  <figure><img id="lbI" alt="" width="1600" height="1067"><figcaption><span id="lbC"></span><span id="lbN"></span></figcaption></figure>
+  <button class="lb__x" type="button" aria-label="Закрыть"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+  <button class="lb__p" type="button" aria-label="Предыдущее фото"><svg class="ico" aria-hidden="true"><use href="#i-l"/></svg></button>
+  <button class="lb__n" type="button" aria-label="Следующее фото"><svg class="ico" aria-hidden="true"><use href="#i-r"/></svg></button>
+</div>
+<script>
+(function(){"use strict";
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var fmt=function(n){return Math.round(n).toLocaleString("ru-RU").replace(/ /g," ")};
+var MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"],WD=["вс","пн","вт","ср","чт","пт","сб"];
+function pl(n,a,b,c){var t=Math.abs(n)%100,s=t%10;return t>10&&t<20?c:s>1&&s<5?b:s===1?a:c}
+function dd(r){return r[0]===r[1]?r[0]+" "+pl(r[0],"день","дня","дней"):r[0]+"–"+r[1]+" "+pl(r[1],"день","дня","дней")}
+function txt(s,v){var e=$(s);if(e)e.textContent=v}
+function dm(d){return d.getDate()+" "+MON[d.getMonth()]}
+function range(a,b){return a.getMonth()===b.getMonth()?(a.getDate()===b.getDate()?dm(a):a.getDate()+"–"+dm(b)):dm(a)+" — "+dm(b)}
+function day(n){var d=new Date;d.setHours(12,0,0,0);d.setDate(d.getDate()+n);return d}
+function tz(h){var d=new Date;return new Date(d.getTime()+6e4*d.getTimezoneOffset()+36e5*h)}
+function hm(d){return d.getHours()+":"+String(d.getMinutes()).padStart(2,"0")}
+
+/* header, menu */
+var hdr=$(".hdr"),mbar=$("#mbar"),burger=$(".burger"),mnav=$("#mnav");
+function onScroll(){var y=window.scrollY;mbar.classList.toggle("on",y>.75*window.innerHeight);parallax(y)}
+function menu(open){burger.setAttribute("aria-expanded",open+"");burger.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");mnav.classList.toggle("open",open);document.body.classList.toggle("lock",open);if(open)mnav.removeAttribute("inert");else mnav.setAttribute("inert","")}
+burger.addEventListener("click",function(){menu(burger.getAttribute("aria-expanded")!=="true")});
+$$("a",mnav).forEach(function(a){a.addEventListener("click",function(){menu(false)})});
+window.addEventListener("resize",function(){if(window.innerWidth>1180&&mnav.classList.contains("open"))menu(false)});
+
+/* hero entrance + parallax */
+var hero=$(".hero"),heroImg=$("#heroImg"),heroPic=$(".hero__pic");
+requestAnimationFrame(function(){hero.classList.add("go")});
+function heroImgIn(){hero.classList.add("img")}
+if(heroImg){var hp=heroImg.decode?heroImg.decode():Promise.resolve();var to=setTimeout(heroImgIn,1200);hp.then(function(){clearTimeout(to);heroImgIn()},function(){clearTimeout(to);heroImgIn()})}else heroImgIn();
+var lastP=-1;
+function parallax(y){if(RM||!heroImg)return;var h=hero.offsetHeight;if(y>h)return;var p=Math.round(y*0.12);if(p!==lastP){lastP=p;heroImg.style.setProperty("--py",p+"px")}}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+/* nav current + reveal */
+var navA=$$(".nav a"),secs=navA.map(function(a){return $(a.getAttribute("href"))});
+if("IntersectionObserver" in window){
+  var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id="#"+e.target.id;navA.forEach(function(a){a.setAttribute("aria-current",(a.getAttribute("href")===id)+"")})}})},{rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(function(s){s&&nio.observe(s)});
+  var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px",threshold:.04});
+  $$(".rv").forEach(function(el){
+    $$(":scope > *",el).forEach(function(c,i){c.style.setProperty("--i",Math.min(i,8))});
+    rio.observe(el)});
+}else $$(".rv").forEach(function(el){el.classList.add("in")});
+
+/* clocks, office, departures */
+var SCH={auto:{gz:[1,4],yw:[2,5],sh:[3,6],bj:[2,5],hb:[1,3,5]},rail:{gz:[6],yw:[3],sh:[4],bj:[5],hb:[2,6]},sea:{gz:[4],yw:[5],sh:[6],bj:[3]},air:{gz:[1,2,3,4,5,6],yw:[1,2,3,4,5,6],sh:[1,2,3,4,5,6],bj:[1,2,3,4,5,6],hb:[1,3,5]}};
+var DEP=[{r:"Иу — Забайкальск",m:"авто",w:SCH.auto.yw},{r:"Гуанчжоу — Забайкальск",m:"авто",w:SCH.auto.gz},{r:"Шанхай — Владивосток",m:"море",w:SCH.sea.sh}];
+function nextDep(w){var cn=tz(8),hh=cn.getHours()+cn.getMinutes()/60,i,d;for(i=0;i<8;i++){d=new Date(cn.getTime()+864e5*i);if(w.indexOf(d.getDay())>-1&&(i>0||hh<18))break}return{i:i,when:i===0?"сегодня до 18:00":i===1?"завтра":"через "+i+" "+pl(i,"день","дня","дней"),txt:WD[d.getDay()]+", "+dm(d)}}
+function tick(){var v=tz(10);txt("#tV",hm(v));txt("#tC",hm(tz(8)));txt("#tM",hm(tz(3)));var wd=v.getDay(),h=v.getHours()+v.getMinutes()/60,open=wd>=1&&wd<=5&&h>=9&&h<19;
+  txt("#ofcT",open?"Офис во Владивостоке открыт — ответим за 15 минут":"Офис закрыт — заявку разберём с 9:00 по Владивостоку");$("#ofc").classList.toggle("off",!open);
+  $("#dep").innerHTML=DEP.map(function(t){var n=nextDep(t.w);return"<li><b>"+t.r+"</b><span>"+t.m+"</span><time>"+n.txt+"</time><span class=\"w\">"+n.when+"</span></li>"}).join("")}
+tick();setInterval(tick,2e4);
+(function(){var el=$("#iso");if(!el||RM)return;var fin=el.textContent,ch=fin.split(""),t0=0;function f(t){if(!t0)t0=t;var p=(t-t0)/1100,o="";for(var i=0;i<ch.length;i++){var c=ch[i];o+=c===" "||p>i/ch.length*.8+.2?c:(/\d/.test(c)?"0123456789":"ABCDEFGHKLMNPRSTUVWXYZ")[Math.floor(Math.random()*10)]}el.textContent=o;if(p<1)requestAnimationFrame(f);else el.textContent=fin}setTimeout(function(){requestAnimationFrame(f)},500)})();
+
+/* ===== route model ===== */
+var B64="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+function dec(s){for(var a=[],i=0;i<s.length;i+=4)a.push([(64*B64.indexOf(s[i])+B64.indexOf(s[i+1]))/10,(64*B64.indexOf(s[i+2])+B64.indexOf(s[i+3]))/10]);return a}
+var GEO={};"gzRtDn ywSxEl shS/E4 bjSMGP hbTyHK mskF4Iu spbEvJX kznHrIu ekbJeI4 nskM9Im krdGGHC vvoUnGv zabSVHw pgrUdHC dosM6HE nsaRwDj nboTDEr yshTFEy tjnSaGG csRpEa whR3Ey zzRwFc hzSyEv njSkFB jnSSFv syTSGi ccTlG3 qqTYHa hlSuHs mdjUQG+ xaRBFX lzQOFp jygPXGO hmOnGs urNsG2 dtRtGR btRKGX ycQmGB uskUoG2 khbVHHl birUxHo blgUFH9 skvTXIc chtRvII uudQ0IG irkQTIL krsOhIw omsLeIm tmnKPI8 nnG4Iz tvrFnI5 ufaIwIj samH1IU sarHMID vlgG9Hn tihGRHL chlJmIo krgKNIq ptrK0Il astLLIA karLbHy aktMcHW semMjH4 brnNGIW rznGNIi vrnGIIF rstGNHY".split(" ").forEach(function(t){GEO[t.slice(0,-4)]=dec(t.slice(-4))[0]});
+var SEA_TAIL=dec("UCFTUQFaUZFuUfGIUlGgUnGv");
+var SEA_FROM={gz:dec("RwDjR9DbSYDjStDyS8EMTNEmTWE4ToFH"),yw:dec("TDErTNErTWE4ToFH"),sh:dec("TFEyTOE1TWE4ToFH"),bj:dec("SaGGSpGDS5GATMF7TYFuTeFeTlFQTuFJ")};
+var COAST=dec("QgC4QkDFQrDPQ3DXQ+DYRIDXRODMRSDLRWDWRkDaRvDeR3DfSNDmSdD1SrECS3EXTDErTDE1S5FASzFXSrFfSzFoTKF2S4F6SmF0ShF8SZGFSsGPS6GYTGGVS8GETAGFTTGNTcGQTkGBTyF2TvFeTxFYT9FbULFfUOFoUOF0UGGAT7GOUJGWURGaUbGnUiGtUrGwUzGsVHG1VVG/VpHSV8HkWHH5");
+var ISLES="UQFNUTFHUWE5UeE5UjE/UlFKUeFTUYFTUTFQ UdFUUiFYUuFiU0FkU/FkVPFlVRFpVXFxVaF3VdFwVpF7V0GCV3GPV4GWV8GcWHGeWWGeWWFKVQFPVHFXU9FaUyFYUrFWUiFUUsFPUxFIU4FOU/FNVDFSVCFWU4FYUvFU V3GfV6GnV7GyWGGxWIHGWWHGWWGe S6D7TDD7TADwS5DcSzDiSxDoS0Dz Q/DARIDIRTDJRWDERQC5RHC2Q/C6 TuFNTxFQT2FPTyFM".split(" ").map(dec);
+var BORDERS="HsHQHZHcHVHnHWH3HnH6IAIAISIEImH9JJH8JkH+JoIOJoIcKKIiKyIpLGIdLfIYL9IeMMISMqIEM+H+NXHwNpHrN/H4OYH6OxH1PNHyPXH5PUIEPtIGP+ICQBH4QVH3QqH3Q4HuRRHsRqHwR6H2SPHzSaHvSoH4S1IKS4IVTJIWTdITTqIQTyIGT7H2UEHvUZHpUnHcU3HhVDHkU+HZU4HQUzHEUoHEUfHBUhG4UgGyUeGtUaGo NpHrNZHYM6HGMjHBMjG4MiGtMfGn NuHsOHHdONHIOnHBPEGrPoGqQaGgQzGoRfG1R5HBSNHPShHTSvHUStHcSaHfSPHz TcGQTsGeT7GfUCGkURGoUaGo".split(" ").map(dec);
+
+var O=["gz","yw","sh","bj","hb"],DST=["msk","spb","kzn","ekb","nsk","krd","vvo"],MODES=["auto","rail","sea","air"];
+var NM={gz:"Гуанчжоу",yw:"Иу",sh:"Шанхай",bj:"Пекин",hb:"Харбин",msk:"Москва",spb:"Санкт-Петербург",kzn:"Казань",ekb:"Екатеринбург",nsk:"Новосибирск",krd:"Краснодар",vvo:"Владивосток"};
+var IN={gz:"Гуанчжоу",yw:"Иу",sh:"Шанхае",bj:"Пекине",hb:"Харбине"},FROM={gz:"Гуанчжоу",yw:"Иу",sh:"Шанхая",bj:"Пекина",hb:"Харбина"};
+var MN={auto:"Авто",rail:"ЖД",sea:"Море + ЖД",air:"Авиа"},ML={auto:"авто",rail:"ЖД",sea:"море + ЖД",air:"авиа"};
+var PORT={gz:["nsa","Наньша"],yw:["nbo","Нинбо"],sh:["ysh","Шанхай"],bj:["tjn","Тяньцзинь"]};
+var LEG2={auto:{msk:[8,10],spb:[9,11],kzn:[7,9],ekb:[6,7],nsk:[3,4],krd:[9,11]},kz:{msk:[10,12],spb:[11,13],kzn:[9,11],ekb:[7,9],nsk:[4,6],krd:[11,13]},zb:{msk:[13,15],spb:[14,16],kzn:[12,14],ekb:[10,12],nsk:[7,9],krd:[14,16]},vv:{msk:[14,16],spb:[15,18],kzn:[12,15],ekb:[10,12],nsk:[7,9],krd:[15,18]}};
+var LEG1={aMZ:{gz:[5,6],yw:[4,5],sh:[4,5],bj:[2,3],hb:[1,2]},aSF:{gz:[6,7],yw:[5,6],sh:[5,6],bj:[3,4],hb:[1,1]},rAK:{gz:[7,9],yw:[6,8],sh:[6,8],bj:[5,7]},rSF:{gz:[6,8],yw:[5,7],sh:[5,7],bj:[4,5],hb:[1,2]},sea:{gz:[10,12],yw:[7,9],sh:[6,8],bj:[6,8]},port:{gz:[2,3],yw:[2,3],sh:[1,2],bj:[2,3]}};
+var KG={auto:{msk:178,spb:188,kzn:168,ekb:154,nsk:132,krd:190,vvo:86},rail:{msk:142,spb:150,kzn:134,ekb:124,nsk:110,krd:152,vvo:78},sea:{msk:118,spb:126,kzn:112,ekb:104,nsk:92,krd:128,vvo:56},air:{msk:640,spb:690,kzn:680,ekb:650,nsk:600,krd:700,vvo:470}};
+var KGO={auto:{gz:0,yw:-6,sh:-6,bj:-16,hb:-24},rail:{gz:0,yw:-6,sh:-4,bj:-10,hb:-14},sea:{gz:0,yw:-4,sh:-6,bj:-4},air:{gz:0,yw:10,sh:-20,bj:-30,hb:-60}};
+var C40={auto:{msk:690,spb:730,kzn:660,ekb:610,nsk:520,krd:740,vvo:260},rail:{msk:590,spb:630,kzn:570,ekb:540,nsk:495,krd:640,vvo:240},sea:{msk:520,spb:565,kzn:495,ekb:465,nsk:415,krd:570,vvo:205}};
+var C40O={auto:{gz:0,yw:-20,sh:-20,bj:-50,hb:-90},rail:{gz:0,yw:-20,sh:-15,bj:-25,hb:-40},sea:{gz:0,yw:-15,sh:-25,bj:-20}};
+function rusPath(from,d){var a=from==="vvo"?["vvo","usk","khb","bir","blg","skv","cht"]:["zab","cht"],m=["uud","irk","krs","nsk"];return d==="nsk"?a.concat(m):a.concat(m,["oms","tmn","ekb"],{ekb:[],kzn:["kzn"],msk:["kzn","nn","msk"],spb:["kzn","nn","msk","tvr","spb"],krd:["ufa","sam","sar","vlg","tih","krd"]}[d])}
+function kzPath(d){var a=["dos","akt"];return d==="nsk"?a.concat(["sem","brn","nsk"]):a.concat(["kar","ast","ptr","krg","chl"],{ekb:["ekb"],kzn:["ufa","kzn"],msk:["ufa","sam","rzn","msk"],spb:["ufa","sam","rzn","msk","tvr","spb"],krd:["ufa","sam","sar","vlg","tih","krd"]}[d])}
+var CN={gz:["gz","cs","wh","zz","bj"],yw:["yw","hz","nj","jn","bj"],sh:["sh","nj","jn","bj"],bj:["bj"]};
+function toMZ(o){return o==="hb"?["hb","qq","hl","zab"]:CN[o].concat(["sy","cc","hb","qq","hl","zab"])}
+function toSF(o){return o==="hb"?["hb","mdj","pgr"]:CN[o].concat(["sy","cc","hb","mdj","pgr"])}
+function toAK(o){return o==="bj"?["bj","dt","bt","yc","lz","jyg","hm","ur","dos"]:{gz:["gz","cs","wh","zz"],yw:["yw","hz","nj","zz"],sh:["sh","nj","zz"]}[o].concat(["xa","lz","jyg","hm","ur","dos"])}
+function route(o,m,d){var st=[],v=d==="vvo";function s(t,dd,k,p){st.push({t:t,d:dd,k:k,p:p||[]})}
+  if(m==="sea"&&o==="hb")return null;
+  if(m==="auto"){s("Забор у поставщика, приёмка на складе в "+IN[o],o==="hb"?[1,2]:[2,3],"wh",[o]);
+    if(v){s("Авто "+NM[o]+" — Суйфэньхэ",LEG1.aSF[o],"auto",toSF(o));s("Граница и таможня: Пограничный",[1,3],"cus",["pgr"]);s("Авто Пограничный — Владивосток",[1,1],"auto",["pgr","usk","vvo"]);s("Выгрузка на вашем складе",[1,1],"door",["vvo"])}
+    else{s("Авто "+NM[o]+" — Маньчжурия",LEG1.aMZ[o],"auto",toMZ(o));s("Граница и таможня: Забайкальск",[2,4],"cus",["zab"]);s("Авто Забайкальск — "+NM[d],LEG2.auto[d],"auto",rusPath("zab",d));s("Выгрузка на вашем складе или складе маркетплейса",[1,2],"door",[d])}}
+  else if(m==="rail"){s("Консолидация и отправка поезда, "+NM[o],[3,5],"wh",[o]);
+    if(v){s("ЖД "+NM[o]+" — Суйфэньхэ",LEG1.rSF[o],"rail",toSF(o));s("Граница и таможня: Пограничный — Гродеково",[1,3],"cus",["pgr"]);s("ЖД Гродеково — Владивосток",[1,2],"rail",["pgr","usk","vvo"]);s("Вывоз с терминала до склада",[1,1],"door",["vvo"])}
+    else if(o==="hb"){s("ЖД Харбин — Маньчжурия",[2,3],"rail",toMZ("hb"));s("Граница, перестановка на колею 1520: Забайкальск",[2,3],"cus",["zab"]);s("ЖД Забайкальск — "+NM[d],LEG2.zb[d],"rail",rusPath("zab",d));s("Таможня на станции назначения",[1,3],"cus",[d]);s("Вывоз с терминала до склада",[1,2],"door",[d])}
+    else{s("ЖД "+NM[o]+" — Алашанькоу",LEG1.rAK[o],"rail",toAK(o));s("Граница, перестановка на колею 1520: Достык",[2,4],"cus",["dos"]);s("ЖД через Казахстан — "+NM[d],LEG2.kz[d],"rail",kzPath(d));s("Таможня на станции назначения",[1,3],"cus",[d]);s("Вывоз с терминала до склада",[1,2],"door",[d])}}
+  else if(m==="sea"){var p=PORT[o];s("Забор у поставщика, вывоз в порт "+p[1],LEG1.port[o],"auto",[o,p[0]]);s("Погрузка на судно и отход",[3,4],"port",[p[0]]);s("Море: "+p[1]+" — Владивосток",LEG1.sea[o],"sea",SEA_FROM[o].concat(SEA_TAIL));
+    if(v){s("Порт Владивосток: выгрузка и таможня",[4,6],"cus",["vvo"]);s("Вывоз из порта до вашего склада",[1,1],"door",["vvo"])}
+    else{s("Порт Владивосток: таможня, погрузка на платформу",[5,8],"cus",["vvo"]);s("ЖД Владивосток — "+NM[d],LEG2.vv[d],"rail",rusPath("vvo",d));s("Вывоз с ЖД-терминала до склада",[1,2],"door",[d])}}
+  else{var ap=o==="yw"?"sh":o,dst=["msk","nsk","ekb","vvo"].indexOf(d)>-1?d:"msk";
+    s(o==="yw"?"Забор у поставщика, авто до аэропорта Шанхая":"Забор у поставщика, доставка в аэропорт",[1,2],"auto",o==="yw"?["yw","hz","sh"]:[o]);
+    s("Экспортное оформление и бронь рейса",[1,2],"cus",[ap]);s("Перелёт "+NM[ap]+" — "+NM[dst],[1,2],"air",[{arc:[ap,dst]}]);s("Таможня в аэропорту прибытия",[1,2],"cus",[dst]);
+    if(dst!==d)s("Авто Москва — "+NM[d],{spb:[1,2],kzn:[1,2],krd:[2,3]}[d],"auto",{spb:["msk","tvr","spb"],kzn:["msk","nn","kzn"],krd:["msk","vrn","rst","krd"]}[d]);
+    s("Доставка до двери",[1,1],"door",[d])}
+  var a=0,b=0;st.forEach(function(x){a+=x.d[0];b+=x.d[1]});
+  var kg=KG[m][d]+(KGO[m][o]||0),c40=m==="air"?0:1e3*(C40[m][d]+(C40O[m][o]||0));
+  return{o:o,m:m,d:d,st:st,days:[a,b],kg:kg,m3:200*kg,c40:c40,c20:c40?5e3*Math.round(.8*c40/5e3):0}}
+function via(o,m,d){return m==="auto"?(d==="vvo"?"через Пограничный":"через Забайкальск"):m==="rail"?(d==="vvo"?"через Гродеково":o==="hb"?"через Забайкальск":"через Казахстан"):m==="sea"?(d==="vvo"?"морем до Владивостока":"через порт Владивосток"):(["msk","nsk","ekb","vvo"].indexOf(d)>-1?"прямой рейс":"рейс до Москвы + авто")}
+var S={o:"gz",d:"msk",m:"auto"},subs=[],note="";
+function set(p,src){for(var k in p)S[k]=p[k];note="";if(S.o==="hb"&&S.m==="sea"){S.m="auto";note="Харбин — не порт: морем отсюда не возим, переключили на авто."}subs.forEach(function(f){f(src)})}
+function opts(sel,list,names){sel.innerHTML=list.map(function(k){return"<option value=\""+k+"\">"+names[k]+"</option>"}).join("")}
+
+/* hero quick form */
+var qO=$("#qrO"),qD=$("#qrD"),qM=$("#qrM");opts(qO,O,NM);opts(qD,DST,NM);opts(qM,MODES,MN);
+[qO,qD,qM].forEach(function(s){s.addEventListener("change",function(){var p={};p[s.dataset.k]=s.value;set(p,"hero")})});
+subs.push(function(){qO.value=S.o;qD.value=S.d;qM.value=S.m;$$("option",qM).forEach(function(op){op.disabled=op.value==="sea"&&S.o==="hb"});var r=route(S.o,S.m,S.d);txt("#qrDays",dd(r.days));txt("#qrRate","от "+fmt(r.kg)+" ₽/кг, "+via(S.o,S.m,S.d))});
+
+/* ===== map ===== */
+var NS="http://www.w3.org/2000/svg",map=$("#map");
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function pj(c){return[Math.round(10*(40+8.52*(c[0]-28)))/10,Math.round(10*(40+13.68*(61-c[1])))/10]}
+function dpath(pts,close){return"M"+pts.map(function(p){return p[0]+" "+p[1]}).join("L")+(close?"Z":"")}
+function dist(a,b){var x=a[0]-b[0],y=a[1]-b[1];return Math.sqrt(x*x+y*y)}
+var LS=1,scaled=[],gRoute,gTop,maskPath,veh,PTS={},HUBS={},PORTS={};
+function lab(x,y,cls,p){var g=el("g",{"class":cls||""},p);g._x=x;g._y=y;scaled.push(g);return g}
+function rescale(){var w=map.getBoundingClientRect().width||1000;LS=Math.max(1,1000/w);map.classList.toggle("sm",w<620);scaled.forEach(function(g){g.setAttribute("transform","translate("+g._x+" "+g._y+") scale("+LS.toFixed(3)+")")})}
+(function build(){
+  var defs=el("defs",{},map),mk=el("mask",{id:"rmask",maskUnits:"userSpaceOnUse",x:0,y:0,width:1000,height:620},defs);
+  maskPath=el("path",{fill:"none",stroke:"#fff","stroke-width":26,"stroke-linecap":"round","stroke-linejoin":"round"},mk);
+  var g=el("g",{},map);
+  [40,60,80,100,120,140].forEach(function(l){var p=pj([l,61]);el("path",{"class":"m-grat",d:"M"+p[0]+" 0V620"},g);el("text",{},lab(p[0]+4,612,"m-gl",g)).textContent=l+"° в.д."});
+  [20,30,40,50,60].forEach(function(l){var p=pj([28,l]);el("path",{"class":"m-grat",d:"M0 "+p[1]+"H1000"},g);el("text",{},lab(10,p[1]-5,"m-gl",g)).textContent=l+"° с.ш."});
+  el("path",{"class":"m-sea",d:dpath(COAST.concat([[145,50.5],[145,15],[105.6,15]]).map(pj),1)},map);
+  ISLES.forEach(function(i){el("path",{"class":"m-isl",d:dpath(i.map(pj),1)},map)});
+  el("path",{"class":"m-coast",d:dpath(COAST.map(pj))},map);
+  BORDERS.forEach(function(b){el("path",{"class":"m-bord",d:dpath(b.map(pj))},map)});
+  [["РОССИЯ",[93,59],""],["КИТАЙ",[104,33.5],""],["КАЗАХСТАН",[64,47.5],"sm"],["МОНГОЛИЯ",[101,46.6],"sm"]].forEach(function(r){var p=pj(r[1]);el("text",{"text-anchor":"middle"},lab(p[0],p[1],"m-reg "+r[2],map)).textContent=r[0]});
+  var net=el("g",{},map);
+  [rusPath("vvo","spb"),["ekb","ufa","sam","sar","vlg","tih","krd"],["zab","cht"],["pgr","usk"],kzPath("msk"),["akt","sem","brn","nsk"],["ufa","kzn"],["chl","ekb"],toMZ("gz"),CN.yw,CN.sh,["hb","mdj","pgr"],toAK("gz"),["bj","dt","bt","yc","lz"],["yw","hz","sh"],["gz","nsa"],["yw","nbo"],["sh","ysh"],["bj","tjn"]].forEach(function(r){el("path",{"class":"m-net",d:dpath(r.map(function(k){return pj(GEO[k])}))},net)});
+  O.filter(function(o){return o!=="hb"}).forEach(function(o){el("path",{"class":"m-net s",d:dpath(SEA_FROM[o].concat(SEA_TAIL).map(pj))},net)});
+  gRoute=el("g",{mask:"url(#rmask)"},map);gTop=el("g",{},map);
+  var hubs={zab:["Забайкальск",12,4,"start"],pgr:["Пограничный",0,-13,"middle"],dos:["Достык",12,4,"start"]};
+  Object.keys(hubs).forEach(function(k){var p=pj(GEO[k]),h=lab(p[0],p[1],"m-hub",gTop);el("rect",{"class":"mk",x:-4.5,y:-4.5,width:9,height:9,transform:"rotate(45)"},h);el("text",{x:hubs[k][1],y:hubs[k][2],"text-anchor":hubs[k][3]},h).textContent=hubs[k][0];HUBS[k]=h});
+  var ports={nsa:["Наньша",10,14,"start"],nbo:["Нинбо",10,10,"start"],ysh:["порт Шанхай",10,-4,"start"],tjn:["Тяньцзинь",-10,14,"end"]};
+  Object.keys(ports).forEach(function(k){var p=pj(GEO[k]),h=lab(p[0],p[1],"m-hub m-port",gTop);el("circle",{"class":"mk",r:3.5},h);el("text",{x:ports[k][1],y:ports[k][2],"text-anchor":ports[k][3]},h).textContent=ports[k][0];PORTS[k]=h});
+  var lp={gz:[-12,5,"end"],yw:[-12,10,"end"],sh:[12,4,"start"],bj:[-12,5,"end"],hb:[-12,16,"end"],msk:[0,-15,"middle"],spb:[12,4,"start"],kzn:[0,-15,"middle"],ekb:[0,-15,"middle"],nsk:[0,-15,"middle"],krd:[12,5,"start"],vvo:[-12,20,"end"]};
+  O.concat(DST).forEach(function(k){var p=pj(GEO[k]),isO=O.indexOf(k)>-1,g=lab(p[0],p[1],"m-pt",gTop);el("circle",{"class":"ring",r:14},g);
+    if(isO)el("circle",{"class":"mk",r:5.5},g);else el("rect",{"class":"mk",x:-5,y:-5,width:10,height:10},g);
+    el("text",{x:lp[k][0],y:lp[k][1],"text-anchor":lp[k][2]},g).textContent=NM[k];
+    g.addEventListener("click",function(){set(isO?{o:k}:{d:k},"map")});PTS[k]=g});
+  veh=lab(0,0,"veh",map);veh.style.opacity=0;el("circle",{"class":"pl",r:13},veh);el("circle",{"class":"bd",r:14},veh);veh._u=el("use",{href:"#i-auto",x:-9,y:-9,width:18,height:18},veh);
+  rescale();window.addEventListener("resize",rescale)})();
+function arc(a,b){var A=pj(GEO[a]),B=pj(GEO[b]),mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,dx=B[0]-A[0],dy=B[1]-A[1],L=Math.sqrt(dx*dx+dy*dy),nx=dy/L,ny=-dx/L;if(ny>0){nx=-nx;ny=-ny}var cx=mx+nx*L*.2,cy=my+ny*L*.2,out=[];for(var i=0;i<=28;i++){var t=i/28,u=1-t;out.push([u*u*A[0]+2*u*t*cx+t*t*B[0],u*u*A[1]+2*u*t*cy+t*t*B[1]])}return out}
+function geom(r){var all=[],L=0,last=null;r.st.forEach(function(s){var pts=[];s.p.forEach(function(p){if(typeof p==="string")pts.push(pj(GEO[p]));else if(p.arc)pts=pts.concat(arc(p.arc[0],p.arc[1]));else pts.push(pj(p))});
+    if(last&&(!pts.length||dist(pts[0],last)>.5))pts.unshift(last);var l=0;for(var i=1;i<pts.length;i++)l+=dist(pts[i-1],pts[i]);s.pts=pts;s.L0=L;s.L=l;L+=l;
+    pts.forEach(function(p){if(!all.length||dist(all[all.length-1],p)>.01)all.push(p)});if(pts.length)last=pts[pts.length-1]});
+  r.all=all;r.L=L;var cum=[0];for(var j=1;j<all.length;j++)cum.push(cum[j-1]+dist(all[j-1],all[j]));r.cum=cum}
+function at(r,len){var c=r.cum,a=r.all;if(len<=0)return a[0];if(len>=r.L)return a[a.length-1];for(var i=1;i<c.length;i++)if(c[i]>=len){var t=(len-c[i-1])/(c[i]-c[i-1]||1);return[a[i-1][0]+(a[i][0]-a[i-1][0])*t,a[i-1][1]+(a[i][1]-a[i-1][1])*t]}return a[a.length-1]}
+var ICON={auto:"#i-auto",rail:"#i-rail",sea:"#i-sea",air:"#i-air",wh:"#i-wh",cus:"#i-cus",door:"#i-door",port:"#i-port"};
+var cur=null,raf=0,seen=false;
+function placeVeh(p,k){veh._x=p[0];veh._y=p[1];veh.setAttribute("transform","translate("+p[0]+" "+p[1]+") scale("+LS.toFixed(3)+")");veh._u.setAttribute("href",ICON[k])}
+function draw(r){cancelAnimationFrame(raf);gRoute.innerHTML="";
+  r.st.forEach(function(s){if(["auto","rail","sea","air"].indexOf(s.k)<0||s.pts.length<2)return;var d=dpath(s.pts.map(function(p){return[Math.round(10*p[0])/10,Math.round(10*p[1])/10]}));el("path",{"class":"seg glow",d:d},gRoute);el("path",{"class":"seg "+s.k,d:d},gRoute);if(s.k==="rail")el("path",{"class":"seg rx",d:d},gRoute)});
+  maskPath.setAttribute("d",dpath(r.all));
+  Object.keys(PTS).forEach(function(k){PTS[k].classList.toggle("sel",k===r.o||k===r.d)});gTop.appendChild(PTS[r.o]);gTop.appendChild(PTS[r.d]);
+  var used={};r.st.forEach(function(s){s.p.forEach(function(p){if(typeof p==="string")used[p]=1})});
+  Object.keys(HUBS).forEach(function(k){HUBS[k].classList.toggle("on",!!used[k])});Object.keys(PORTS).forEach(function(k){PORTS[k].classList.toggle("on",!!used[k])});
+  var hud=$("#hud"),w=r.st.map(function(s){return Math.max(.6,(s.d[0]+s.d[1])/2)}),tot=w.reduce(function(a,b){return a+b},0),dur=RM?0:Math.min(4200,2600+1.2*r.L),acc=0,spans=w.map(function(x){var a=acc;acc+=x/tot*dur;return[a,acc]}),lis=$$("#stl li");
+  function end(){placeVeh(r.all[r.all.length-1],"door");maskPath.setAttribute("stroke-dasharray",r.L+50+" 0");hud.innerHTML="<b>"+NM[r.o]+" — "+NM[r.d]+" · <em>"+dd(r.days)+"</em></b><span>"+MN[r.m]+", "+via(r.o,r.m,r.d)+"</span>";lis.forEach(function(l){l.classList.remove("on")})}
+  veh.style.opacity=1;
+  if(!dur){end();return}
+  var t0=performance.now();
+  (function f(now){var e=now-t0;if(e>=dur){end();return}var i=0;while(i<spans.length-1&&e>spans[i][1])i++;var s=r.st[i],q=Math.min(1,Math.max(0,(e-spans[i][0])/(spans[i][1]-spans[i][0]||1))),ez=q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2,len=s.L0+s.L*ez;
+    placeVeh(at(r,len),s.k);maskPath.setAttribute("stroke-dasharray",Math.max(.01,len)+" "+(r.L+100));
+    var dsum=0;for(var j=0;j<i;j++)dsum+=w[j];dsum+=w[i]*q;
+    hud.innerHTML="<b>День <em>"+String(Math.max(1,Math.round(dsum))).padStart(2,"0")+"</em> · "+NM[r.o]+" — "+NM[r.d]+"</b><span>"+s.t+"</span>";
+    lis.forEach(function(l,k){l.classList.toggle("on",k===i)});raf=requestAnimationFrame(f)})(t0)}
+
+var chO=$("#chO"),chD=$("#chD"),chM=$("#chM");
+chO.innerHTML=O.map(function(k){return"<button class=\"chip\" type=\"button\" data-o=\""+k+"\" aria-pressed=\"false\">"+NM[k]+"</button>"}).join("");
+chD.innerHTML=DST.map(function(k){return"<button class=\"chip\" type=\"button\" data-d=\""+k+"\" aria-pressed=\"false\">"+NM[k]+"</button>"}).join("");
+chM.innerHTML=MODES.map(function(k){return"<button class=\"mode\" type=\"button\" data-m=\""+k+"\" aria-pressed=\"false\"><svg class=\"ico\" aria-hidden=\"true\"><use href=\""+ICON[k]+"\"/></svg><b>"+MN[k]+"</b><small></small></button>"}).join("");
+$("#ctl").addEventListener("click",function(e){var b=e.target.closest("button");if(!b||b.disabled)return;var p={};if(b.dataset.o)p.o=b.dataset.o;if(b.dataset.d)p.d=b.dataset.d;if(b.dataset.m)p.m=b.dataset.m;set(p,"map")});
+subs.push(function(){
+  $$(".chip",chO).forEach(function(b){b.setAttribute("aria-pressed",(b.dataset.o===S.o)+"")});
+  $$(".chip",chD).forEach(function(b){b.setAttribute("aria-pressed",(b.dataset.d===S.d)+"")});
+  $$(".mode",chM).forEach(function(b){var m=b.dataset.m,no=m==="sea"&&S.o==="hb";b.disabled=no;b.setAttribute("aria-pressed",(m===S.m)+"");$("small",b).textContent=no?"не из Харбина":dd(route(S.o,m,S.d).days)});
+  txt("#ctlNote",note);
+  var r=route(S.o,S.m,S.d);geom(r);cur=r;
+  map.setAttribute("aria-label","Схема маршрута: "+NM[r.o]+" — "+NM[r.d]+", "+ML[r.m]+" "+via(r.o,r.m,r.d)+", "+dd(r.days));
+  txt("#sumH",NM[r.o]+" — "+NM[r.d]+", "+ML[r.m]);
+  txt("#sumD",r.days[0]===r.days[1]?r.days[0]:r.days[0]+"–"+r.days[1]);txt("#sumU",pl(r.days[1],"день","дня","дней"));
+  var nd=nextDep(SCH[r.m][r.o]);
+  $("#sumN").innerHTML="Ближайшая отправка из "+FROM[r.o]+": <b>"+nd.txt+"</b>"+(r.m==="sea"?". Срок — для контейнера, сборный морем дольше на 4–6 дней.":r.m==="air"?". Только сборные отправки до 2 тонн.":".");
+  txt("#sumK","от "+fmt(r.kg)+" ₽");txt("#sumV","от "+fmt(r.m3)+" ₽");txt("#sum20",r.c20?"от "+fmt(r.c20)+" ₽":"не возим");txt("#sum40",r.c40?"от "+fmt(r.c40)+" ₽":"не возим");
+  var g=$("#gantt");g.classList.remove("go");g.innerHTML=r.st.map(function(s,i){return"<i class=\""+(["auto","rail","sea","air"].indexOf(s.k)>-1?s.k:"st")+"\" style=\"--w:"+(s.d[0]+s.d[1])/2+";--n:"+i+"\">"+(s.d[0]===s.d[1]?s.d[0]:s.d[0]+"–"+s.d[1])+"</i>"}).join("");void g.offsetWidth;if(!RM)g.classList.add("go");
+  txt("#gEnd","выгрузка: день "+r.days[0]+"–"+r.days[1]);txt("#stgT",r.st.length+" "+pl(r.st.length,"этап","этапа","этапов"));
+  $("#stl").innerHTML=r.st.map(function(s){return"<li><span class=\"t\">"+s.t+"</span><span class=\"d\">"+(s.d[0]===s.d[1]?s.d[0]:s.d[0]+"–"+s.d[1])+" дн</span></li>"}).join("");
+  if(seen)draw(r)});
+if("IntersectionObserver" in window){var mio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;draw(cur);mio.disconnect()}})},{threshold:.3});mio.observe(map)}else seen=true;
+
+/* ===== calculator ===== */
+var CT={mp:{k:1,du:.1,h:"Типовая пошлина 10%, особых требований к упаковке нет."},tx:{k:1,du:.1,h:"Пошлина около 10%; для части позиций нужна маркировка «Честный знак»."},el:{k:1.12,du:.05,h:"Пошлина 0–5%, нужна декларация соответствия ЕАЭС; упаковка с уголками."},eq:{k:1.06,du:.03,h:"Пошлина 0–5%; паллетирование и крепёж включены в ставку."},fr:{k:1.15,du:.12,h:"Пошлина около 12%; деревянная обрешётка включена в ставку."}};
+var CNT={c20:{v:28,w:21700,n:"20'"},c40:{v:76,w:26500,n:"40' HC"}},CS={s:"lcl",t:"mp"};
+var cO=$("#cO"),cD=$("#cD"),cM=$("#cM"),cW=$("#cW"),cV=$("#cV"),cWr=$("#cWr"),cVr=$("#cVr"),cI=$("#cI"),cCus=$("#cCus"),cIns=$("#cIns");
+function fill(r){r.style.setProperty("--p",(r.value-r.min)/(r.max-r.min)*100+"%")}
+function num(v){return parseFloat(String(v).replace(",",".").replace(/[^\d.]/g,""))||0}
+function tween(e,v,suf){var from=e._v==null?v:e._v;e._v=v;if(RM||from===v){e.textContent=fmt(v)+suf;return}var t0=performance.now();cancelAnimationFrame(e._a);(function f(t){var p=Math.min(1,(t-t0)/520);e.textContent=fmt(from+(v-from)*(1-Math.pow(1-p,4)))+suf;if(p<1)e._a=requestAnimationFrame(f)})(t0)}
+opts(cO,O,NM);opts(cD,DST,NM);
+cM.innerHTML=MODES.map(function(k){return"<button class=\"sb\" type=\"button\" data-m=\""+k+"\" aria-pressed=\"false\"><svg class=\"ico\" aria-hidden=\"true\"><use href=\""+ICON[k]+"\"/></svg>"+MN[k]+"</button>"}).join("");
+[cO,cD].forEach(function(s){s.addEventListener("change",function(){var p={};p[s.dataset.k]=s.value;set(p,"calc")})});
+cM.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&!b.disabled)set({m:b.dataset.m},"calc")});
+$("#cS").addEventListener("click",function(e){var b=e.target.closest("button");if(b&&!b.disabled){CS.s=b.dataset.s;calc()}});
+$("#cT").addEventListener("click",function(e){var b=e.target.closest("button");if(b){CS.t=b.dataset.t;calc()}});
+cW.addEventListener("input",function(){cWr.value=Math.min(cWr.max,num(cW.value));fill(cWr);calc()});
+cV.addEventListener("input",function(){cVr.value=Math.min(cVr.max,num(cV.value));fill(cVr);calc()});
+cWr.addEventListener("input",function(){cW.value=cWr.value;fill(cWr);calc()});
+cVr.addEventListener("input",function(){cV.value=String(cVr.value).replace(".",",");fill(cVr);calc()});
+cI.addEventListener("input",function(){var v=Math.round(num(cI.value));cI.value=v?fmt(v):"";calc()});
+[cCus,cIns].forEach(function(c){c.addEventListener("change",calc)});
+$$("[data-ship]").forEach(function(a){a.addEventListener("click",function(){CS.s=a.dataset.ship;if(CS.s!=="lcl"&&S.m==="air")set({m:"sea"},"svc");calc()})});
+var last={};
+function calc(){var r=route(S.o,S.m,S.d),W=num(cW.value),V=num(cV.value),I=num(cI.value),ty=CT[CS.t];
+  if(S.m==="air"&&CS.s!=="lcl")CS.s="lcl";
+  $$("#cS .sb").forEach(function(b){b.disabled=S.m==="air"&&b.dataset.s!=="lcl";b.setAttribute("aria-pressed",(b.dataset.s===CS.s)+"")});
+  $$("#cT .sb").forEach(function(b){b.setAttribute("aria-pressed",(b.dataset.t===CS.t)+"")});
+  txt("#cTh",ty.h);
+  var f=S.m==="air"?167:200,mn=S.m==="air"?20:50,ch=Math.max(W,V*f,mn),rate=Math.round(r.kg*ty.k),cost=ch*rate,byV=V*f>W&&V*f>=mn,del,hint="";
+  if(CS.s==="lcl"){del=cost;txt("#rcRateL","Ставка");txt("#rcRate",fmt(rate)+" ₽/кг");txt("#rcChg",fmt(ch)+" кг"+(byV?" — по объёму":""));
+    if(r.c20&&V<=CNT.c20.v&&W<=CNT.c20.w&&r.c20<del)hint="Контейнер 20' выйдет дешевле на "+fmt(del-r.c20)+" ₽ — переключите тип отправки выше.";
+    else if(r.c40&&V>CNT.c20.v&&V<=CNT.c40.v&&r.c40<del)hint="Контейнер 40' выйдет дешевле на "+fmt(del-r.c40)+" ₽.";
+    if(S.m==="air"&&ch>2e3)hint="Авиа принимаем до 2 000 кг платного веса. Для такой партии лучше авто или ЖД."}
+  else{var c=CNT[CS.s];del=CS.s==="c20"?r.c20:r.c40;txt("#rcRateL","Контейнер "+c.n);txt("#rcRate",fmt(del)+" ₽");txt("#rcChg","загрузка "+String(Math.round(10*V)/10).replace(".",",")+" из "+c.v+" м³");
+    if(V>c.v||W>c.w)hint="Груз не помещается в "+c.n+" (до "+c.v+" м³ и "+fmt(c.w)+" кг). "+(CS.s==="c20"?"Выберите 40' HC.":"Разделим на два контейнера.");
+    else if(cost<del)hint="Сборным выйдет дешевле на "+fmt(del-cost)+" ₽. Контейнер выгоднее примерно от "+Math.ceil(del/(r.kg*ty.k*200))+" м³."}
+  var cus=cCus.checked?(CS.s==="lcl"?14500:24e3):0,ins=cIns.checked?Math.max(1500,.006*I):0,tot=del+cus+ins,duty=I*ty.du,vat=.22*(I+duty);
+  txt("#cCusH","ДТ, коды ТН ВЭД, брокер — "+fmt(CS.s==="lcl"?14500:24e3)+" ₽");
+  tween($("#rcDel"),del," ₽");
+  var ec=$("#rcCus");if(cus){tween(ec,cus," ₽");ec.classList.remove("off")}else{ec._v=0;ec.textContent="вашим брокером";ec.classList.add("off")}
+  var ei=$("#rcIns");if(ins){tween(ei,ins," ₽");ei.classList.remove("off")}else{ei._v=0;ei.textContent="без страховки";ei.classList.add("off")}
+  tween($("#rcTot"),tot," ₽");
+  txt("#rcDuty",cCus.checked?(I?"плюс пошлина и НДС около "+fmt(duty+vat)+" ₽ — платятся при выпуске, НДС можно принять к вычету":"укажите стоимость товара — оценим пошлину и НДС"):"пошлину и НДС платите через своего брокера");
+  var add=CS.s==="lcl"&&S.m==="sea",w=[r.days[0]+(add?4:0),r.days[1]+(add?6:0)];
+  txt("#rcDays",(w[0]===w[1]?w[0]:w[0]+"–"+w[1])+" дн");
+  txt("#rcArr","прибытие ориентировочно "+range(day(w[0]+2),day(w[1]+2))+", если отправка в ближайшие 2 дня");
+  txt("#mbT",fmt(tot)+" ₽");txt("#mbD",$("#rcDays").textContent);
+  $("#rcRt").innerHTML=NM[S.o]+" — "+NM[S.d]+"<small>"+ML[S.m]+" "+via(S.o,S.m,S.d)+", "+(CS.s==="lcl"?"сборный груз":"контейнер "+CNT[CS.s].n)+"</small>";
+  txt("#rcHint",hint);
+  last={r:r,W:W,V:V,tot:tot,days:w,t:CS.t,s:CS.s}}
+subs.push(function(){cO.value=S.o;cD.value=S.d;$$(".sb",cM).forEach(function(b){b.disabled=b.dataset.m==="sea"&&S.o==="hb";b.setAttribute("aria-pressed",(b.dataset.m===S.m)+"")});calc()});
+var now=new Date;txt("#rcNo","РС-"+String(now.getDate()).padStart(2,"0")+String(now.getMonth()+1).padStart(2,"0")+" · "+dm(now));fill(cWr);fill(cVr);
+
+/* ===== terms table ===== */
+function hav(a,b){var r=Math.PI/180,dy=(b[1]-a[1])*r,dx=(b[0]-a[0])*r,h=Math.sin(dy/2)*Math.sin(dy/2)+Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dx/2)*Math.sin(dx/2);return 12742*Math.asin(Math.sqrt(h))}
+function km(r){var pts=[],s=0;r.st.forEach(function(x){x.p.forEach(function(p){if(typeof p==="string"){var c=GEO[p];if(!pts.length||pts[pts.length-1]!==c)pts.push(c)}})});for(var i=1;i<pts.length;i++)s+=1.18*hav(pts[i-1],pts[i]);return s}
+var PAIRS=[["gz","msk"],["yw","msk"],["sh","spb"],["yw","kzn"],["gz","ekb"],["bj","nsk"],["gz","krd"],["hb","vvo"]],ttMode="auto";
+$("#ttB").innerHTML=PAIRS.map(function(p){var cells=MODES.map(function(m){return{m:m,r:route(p[0],m,p[1])}});
+  return"<tr><th scope=\"row\">"+NM[p[0]]+" — "+NM[p[1]]+"<small>около "+fmt(100*Math.round(km(cells[0].r)/100))+" км по трассе</small></th>"+cells.map(function(c){
+    if(!c.r)return"<td data-m=\""+c.m+"\"><span class=\"na\">морем не возим</span></td>";var price=c.m==="sea"?fmt(c.r.c40)+" ₽":fmt(c.r.kg)+" ₽/кг";
+    return"<td data-m=\""+c.m+"\"><button type=\"button\" data-go=\""+p[0]+","+c.m+","+p[1]+"\" aria-label=\""+NM[p[0]]+" — "+NM[p[1]]+", "+MN[c.m]+": "+dd(c.r.days)+", "+price+". Показать на схеме\"><b>"+c.r.days[0]+"–"+c.r.days[1]+" дн</b><span>от "+price+"</span></button></td>"}).join("")+"</tr>"}).join("");
+$("#ttm").innerHTML=MODES.map(function(m){return"<button class=\"sb\" type=\"button\" data-tm=\""+m+"\" aria-pressed=\""+(m===ttMode)+"\">"+MN[m]+"</button>"}).join("");
+function ttShow(){$$("#ttB td").forEach(function(td){td.classList.toggle("on",td.dataset.m===ttMode)});$$("#ttm .sb").forEach(function(b){b.setAttribute("aria-pressed",(b.dataset.tm===ttMode)+"")})}
+$("#ttm").addEventListener("click",function(e){var b=e.target.closest("button");if(b){ttMode=b.dataset.tm;ttShow()}});ttShow();
+$("#ttB").addEventListener("click",function(e){var b=e.target.closest("button[data-go]");if(!b)return;var g=b.dataset.go.split(",");set({o:g[0],m:g[1],d:g[2]},"table");$("#route-map").scrollIntoView({behavior:RM?"auto":"smooth",block:"start"})});
+
+/* ===== tracking ===== */
+var TRK={VV26104471:{no:"VV-2610-4471",o:"yw",d:"kzn",m:"auto",k:"Сборный груз, авто через Забайкальск",sp:"12 мест · 186 кг · 1,4 м³ · товары для дома",eta:[4,5],
+  ev:[[-12,"09:40","Иу, склад консолидации","Принят на склад: 12 мест, 186 кг, 1,4 м³. Фото упаковки отправлены менеджеру."],[-11,"18:20","Иу","Консолидирован в сборную машину, выехал на Маньчжурию."],[-7,"14:05","Маньчжурия","Прибыл на погранпереход, документы переданы брокеру."],[-5,"11:30","Забайкальск","Подана декларация на товары."],[-4,"16:50","Забайкальск","Выпуск разрешён, груз продолжает путь по России."],[0,"08:10","Красноярск","В пути по графику, плановая смена водителя.","cur"],[4,"","Казань","Прибытие и выгрузка на складе получателя.","fut"]],
+  nodes:[["Иу",0],["Забайкальск",.42],["Казань",1]],prog:.71},
+ VVTU4512071:{no:"VVTU 451207 1",o:"sh",d:"nsk",m:"sea",k:"Контейнер 40' HC, море + ЖД",sp:"пломба VV 0418833 · 18 400 кг · 64 м³ · оборудование",eta:[4,5],
+  ev:[[-20,"15:00","Сучжоу, склад поставщика","Контейнер загружен и опломбирован, фото загрузки отправлены."],[-19,"10:20","Порт Шанхай","Контейнер принят терминалом."],[-16,"22:40","Порт Шанхай","Погружен на судно, отход во Владивосток."],[-9,"06:30","Порт Владивосток","Судно прибыло, контейнер выгружен."],[-7,"17:10","Владивосток","Декларация подана и выпущена без досмотра."],[-4,"12:00","Владивосток","Погружен на ЖД-платформу, отправлен в Новосибирск."],[0,"07:45","Чита","Проследовал станцию, в пути по графику.","cur"],[4,"","Новосибирск","Прибытие на терминал и вывоз на склад получателя.","fut"]],
+  nodes:[["Шанхай",0],["Владивосток",.46],["Новосибирск",1]],prog:.8}};
+var tf=$("#tf"),tIn=$("#tIn"),tErr=$("#tErr"),tr=$("#tr");
+function track(v){var key=String(v||"").toUpperCase().replace(/[^A-Z0-9]/g,""),r=TRK[key];
+  if(!key){tErr.textContent="Введите номер груза — например, VV-2610-4471.";tIn.setAttribute("aria-invalid","true");return}
+  if(!r){tErr.textContent="Груз «"+String(v).trim()+"» не найден. Проверьте номер в письме о приёмке: VV-ГГММ-ХХХХ или 11 знаков контейнера.";tIn.setAttribute("aria-invalid","true");return}
+  tErr.textContent="";tIn.removeAttribute("aria-invalid");
+  tr.innerHTML="<div class=\"tr__in\"><div class=\"tr__top\"><div><p class=\"tr__no\">"+r.no+"</p><p class=\"tr__k\">"+NM[r.o]+" — "+NM[r.d]+". "+r.k+"</p><p class=\"tr__k\">"+r.sp+"</p></div><div class=\"tr__eta\"><span>Ожидаемое прибытие</span><b>"+range(day(r.eta[0]),day(r.eta[1]))+"</b></div></div>"+
+   "<div class=\"pg\"><div class=\"pg__t\"></div><div class=\"pg__f\" id=\"pgF\"></div>"+r.nodes.map(function(n){return"<span class=\"pg__n"+(n[1]<=r.prog?" ok":"")+"\" style=\"left:"+100*n[1]+"%\"><span>"+n[0]+"</span></span>"}).join("")+
+   "<div class=\"pg__v\" id=\"pgV\"><i><svg aria-hidden=\"true\"><use href=\""+ICON[r.m==="sea"?"rail":r.m]+"\"/></svg></i></div></div>"+
+   "<ol class=\"ev\" id=\"ev\">"+r.ev.map(function(e,i){var d=day(e[0]);return"<li class=\""+(e[4]||"")+"\" style=\"--n:"+i+"\"><time><b>"+dm(d)+"</b>"+(e[4]==="fut"?"план":e[1])+"</time><div><h3>"+e[2]+"</h3><p>"+e[3]+"</p></div></li>"}).join("")+"</ol></div>";
+  var f=$("#pgF"),vv=$("#pgV"),ev=$("#ev");if(!RM)ev.classList.add("go");
+  requestAnimationFrame(function(){requestAnimationFrame(function(){f.style.transform="scaleX("+r.prog+")";vv.style.transform="translateX("+100*r.prog+"%)"})})}
+tf.addEventListener("submit",function(e){e.preventDefault();track(tIn.value)});
+$$(".tf__demo button").forEach(function(b){b.addEventListener("click",function(){tIn.value=b.dataset.n;track(b.dataset.n)})});
+if("IntersectionObserver" in window){var tio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!tIn.value){tIn.value="VV-2610-4471";track(tIn.value)}tio.disconnect()}})},{threshold:.25});tio.observe(tr)}else{tIn.value="VV-2610-4471";track(tIn.value)}
+
+/* ===== services photo swap ===== */
+var SV=$$(".svc__i"),SP=$$(".svc__frame img"),CAP=["Склад консолидации: приёмка и фото каждого места","Контейнер под вашу партию: пломба и трекинг","Таможня: коды, декларация, выпуск","Выкуп: проверяем товар до отгрузки","Свой склад во Владивостоке","Поставки на склады маркетплейсов"];
+function svc(i){SV.forEach(function(e,k){e.classList.toggle("on",k===i)});SP.forEach(function(e,k){e.classList.toggle("on",k===i)});txt("#svcCap",CAP[i]);txt("#svcCode",$(".svc__code",SV[i]).textContent.trim())}
+SV.forEach(function(e,i){e.addEventListener("mouseenter",function(){svc(i)});e.addEventListener("focusin",function(){svc(i)})});
+if("IntersectionObserver" in window){var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)svc(SV.indexOf(e.target))})},{root:window.innerWidth<=860?$(".svc__list"):null,rootMargin:window.innerWidth<=860?"0px -40% 0px 0px":"-50% 0px -45% 0px",threshold:window.innerWidth<=860?.6:0});SV.forEach(function(e){sio.observe(e)})}
+
+/* ===== steps diagram: many boxes into one load ===== */
+function rnd(s){return function(){s=(s*16807)%2147483647;return(s-1)/2147483646}}
+function flow(svg,vert){var R=rnd(7),W=vert?300:1200,H=vert?900:270,n=120,sz=vert?14:13,out="";
+  for(var i=0;i<n;i++){var zone=i%3,tx,ty,fill,band;
+    var col=Math.floor(i/3);
+    if(!vert){var ex=830+(col%10)*34,ey=72+Math.floor(col/10)*34;var rx=490+(col%14)*16,ry=111+Math.floor(col/14)*16;tx=[50+R()*320,rx,ex][zone];ty=[16+R()*236,ry,ey][zone]}
+    else{var vx=46+(col%6)*38,vy=640+Math.floor(col/6)*34;tx=[20+R()*260,124+Math.floor(col/14)*18,vx][zone];ty=[20+R()*240,320+(col%14)*18,vy][zone]}
+    fill=zone===2?"var(--acc)":zone===1?"var(--pink)":(R()>.5?"#b8bdc2":"#c9cdd1");
+    var dx=(R()-.5)*(vert?200:500),dy=(R()-.5)*(vert?300:160);
+    out+="<rect class=\"q\" x=\""+tx.toFixed(1)+"\" y=\""+ty.toFixed(1)+"\" width=\""+sz+"\" height=\""+sz+"\" fill=\""+fill+"\" style=\"--dx:"+dx.toFixed(0)+"px;--dy:"+dy.toFixed(0)+"px;transition-delay:"+(i%40*12)+"ms\"/>"}
+  svg.innerHTML=out}
+flow($("#flowD"),false);flow($("#flowV"),true);
+if("IntersectionObserver" in window){var fio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");fio.disconnect()}})},{threshold:.3});fio.observe($("#flow"))}else $("#flow").classList.add("in");
+
+/* ===== lightbox ===== */
+var LBI=[["snow","фура на зимней трассе",2000,1333],["ship","контейнеровоз в море",1600,2000],["rail","контейнеры на ЖД-платформах",1400,933]];
+var lb=$("#lb"),lbI=$("#lbI"),li=0,opener=null;
+function lbShow(i){li=(i+LBI.length)%LBI.length;var x=LBI[li];lbI.src="img/"+x[0]+"-"+x[2]+".webp";lbI.width=x[2];lbI.height=x[3];lbI.alt=x[1];txt("#lbC",x[1]);txt("#lbN",li+1+" / "+LBI.length)}
+function lbClose(){lb.classList.remove("open");lb.setAttribute("inert","");document.body.classList.remove("lock");if(opener)opener.focus()}
+$$("[data-lb]").forEach(function(b){b.addEventListener("click",function(){opener=b;lbShow(+b.dataset.lb);lb.removeAttribute("inert");lb.classList.add("open");document.body.classList.add("lock");$(".lb__x").focus()})});
+$(".lb__x").addEventListener("click",lbClose);$(".lb__p").addEventListener("click",function(){lbShow(li-1)});$(".lb__n").addEventListener("click",function(){lbShow(li+1)});
+lb.addEventListener("click",function(e){if(e.target===lb)lbClose()});
+var tx0=null;lb.addEventListener("touchstart",function(e){tx0=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",function(e){if(tx0==null)return;var d=e.changedTouches[0].clientX-tx0;if(Math.abs(d)>50)lbShow(li+(d<0?1:-1));tx0=null});
+document.addEventListener("keydown",function(e){if(lb.classList.contains("open")){if(e.key==="Escape")lbClose();else if(e.key==="ArrowLeft")lbShow(li-1);else if(e.key==="ArrowRight")lbShow(li+1);else if(e.key==="Tab"){var bs=$$("button",lb),k=bs.indexOf(document.activeElement);if(e.shiftKey&&k<=0){e.preventDefault();bs[bs.length-1].focus()}else if(!e.shiftKey&&k===bs.length-1){e.preventDefault();bs[0].focus()}}}else if(e.key==="Escape"&&mnav.classList.contains("open")){menu(false);burger.focus()}});
+
+/* ===== request form ===== */
+var rf=$("#rf"),fN=$("#fN"),fP=$("#fP"),fA=$("#fA"),fO=$("#fO"),fD=$("#fD"),fC=$("#fC");
+fO.innerHTML=O.map(function(k){return"<option value=\""+NM[k]+"\">"+NM[k]+"</option>"}).join("")+"<option value=\"Другой город\">Другой город в Китае</option>";
+fD.innerHTML=DST.map(function(k){return"<option value=\""+NM[k]+"\">"+NM[k]+"</option>"}).join("")+"<option value=\"Другой город\">Другой город в России</option>";
+function err(inp,id,msg){$("#"+id).textContent=msg;if(msg)inp.setAttribute("aria-invalid","true");else inp.removeAttribute("aria-invalid");return!msg}
+function mask(v){var d=v.replace(/\D/g,"");if(!d)return"";if(d[0]==="8")d="7"+d.slice(1);if(d[0]!=="7")d="7"+d;d=d.slice(0,11);var o="+7";if(d.length>1)o+=" ("+d.slice(1,4);if(d.length>=4)o+=")";if(d.length>4)o+=" "+d.slice(4,7);if(d.length>7)o+="-"+d.slice(7,9);if(d.length>9)o+="-"+d.slice(9,11);return o}
+fP.addEventListener("input",function(){var d=fP.value.replace(/\D/g,"");if(fP._p==="7"&&d==="78")fP.value="+7 (";else fP.value=mask(fP.value);fP._p=fP.value.replace(/\D/g,"")});
+fP.addEventListener("focus",function(){if(!fP.value){fP.value="+7 (";fP._p="7";try{fP.setSelectionRange(4,4)}catch(e){}}});
+fP.addEventListener("blur",function(){if(fP.value.replace(/\D/g,"").length<=1)fP.value=""});
+fN.addEventListener("input",function(){if(fN.getAttribute("aria-invalid"))err(fN,"eN","")});
+fP.addEventListener("input",function(){if(fP.getAttribute("aria-invalid")&&fP.value.replace(/\D/g,"").length===11)err(fP,"eP","")});
+fA.addEventListener("change",function(){if(fA.checked)err(fA,"eA","")});
+$("#rcSend").addEventListener("click",function(){var t=last;if(!t.r)return;fO.value=NM[t.r.o];fD.value=NM[t.r.d];fC.value=(t.s==="lcl"?"Сборный груз":"Контейнер "+CNT[t.s].n)+", "+ML[t.r.m]+". "+String(t.W).replace(".",",")+" кг, "+String(t.V).replace(".",",")+" м³. "+$("[data-t=\""+t.t+"\"]").textContent+". Расчёт с сайта: "+fmt(t.tot)+" ₽, "+t.days[0]+"–"+t.days[1]+" дн."});
+rf.addEventListener("submit",function(e){e.preventDefault();
+  var a=err(fN,"eN",fN.value.trim().length<2?"Как к вам обращаться? Нужно хотя бы 2 буквы.":""),b=err(fP,"eP",fP.value.replace(/\D/g,"").length!==11?"Введите телефон полностью: +7 и 10 цифр.":""),c=err(fA,"eA",fA.checked?"":"Без согласия мы не сможем обработать заявку.");
+  if(!(a&&b&&c)){(a?b?fA:fP:fN).focus();return}
+  var d=new Date;txt("#okN","Номер заявки Р-"+String(d.getDate()).padStart(2,"0")+String(d.getMonth()+1).padStart(2,"0")+"-"+(1e3+Math.floor(9e3*Math.random())));
+  txt("#okT",fN.value.trim()+", менеджер пришлёт расчёт "+fO.value+" — "+fD.value+" в течение 2 часов в рабочее время и позвонит на "+fP.value+", если понадобятся уточнения.");
+  rf.hidden=true;var ok=$("#ok");ok.hidden=false;ok.classList.remove("go");void ok.offsetWidth;if(!RM)ok.classList.add("go");ok.focus({preventScroll:true})});
+$("#okR").addEventListener("click",function(){rf.reset();fP.value="";$("#ok").hidden=true;rf.hidden=false;fN.focus()});
+if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){mbar.classList.toggle("hide",e.isIntersecting)})},{rootMargin:"-10% 0px -10% 0px"}).observe($("#request"))}
+
+/* coupon notch position on phones */
+function cpNotch(){var cp=$("#cp"),l=$(".cp__l");if(window.innerWidth<=860)cp.style.setProperty("--cy",l.offsetHeight+"px");else cp.style.removeProperty("--cy")}
+cpNotch();window.addEventListener("resize",cpNotch);
+
+/* footer wordmark */
+(function(){var w=$("#word"),s="ВОСТОЧНЫЙ ВЕКТОР",H=[.72,.9,.64,1,.8,.58,.94,.7,.86,0,.66,1,.78,.6,.92,.74],C=["var(--acc)","var(--ink)","var(--s3)","var(--ink)","var(--acc)","var(--muted)","var(--ink)","var(--s3)","var(--acc)","","var(--ink)","var(--acc)","var(--muted)","var(--ink)","var(--s3)","var(--acc)"];
+  w.innerHTML=s.split("").map(function(ch,i){return ch===" "?"<span class=\"gap\" aria-hidden=\"true\"></span>":"<span aria-hidden=\"true\" style=\"--h:"+H[i]+";--c:"+C[i]+";--i:"+i+"\">"+ch+"</span>"}).join("");
+  $$("span",w).forEach(function(sp){if(/var\(--(ink|muted)\)/.test(sp.style.getPropertyValue("--c")))sp.style.color="var(--bg)";else if(/s3/.test(sp.style.getPropertyValue("--c")))sp.style.color="var(--ink)"});
+  if("IntersectionObserver" in window){var wio=new IntersectionObserver(function(es){if(es[0].isIntersecting){w.classList.add("in");wio.disconnect()}},{threshold:.3});wio.observe(w)}else w.classList.add("in")})();
+
+set({},"init");
+})();
+</script>
+</body>
+</html>
