@@ -2,554 +2,772 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Дровяная — пицца из дровяной печи с доставкой по Казани</title>
-<meta name="description" content="Пицца из дровяной печи: соберите из двух половинок любые вкусы и платите среднюю цену. Доставка по Казани с 11:00 до 23:00, отслеживание заказа.">
-<meta property="og:title" content="Дровяная — половина тебе, половина мне">
-<meta property="og:description" content="Конструктор пиццы из половинок, меню, корзина и статус заказа. Дровяная печь, тесто 48 часов.">
+<meta name="description" content="Пиццерия «Дровяная» на Баумана, 58 в Казани: пицца из дровяной печи, тесто 48 часов. Соберите пиццу из двух половинок и платите среднюю цену. Доставка каждый день 11:00–23:00, бесплатно от 900 ₽.">
+<meta name="theme-color" content="#15100D">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1E1B19">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231E1B19'/%3E%3Cpath d='M32 10c4 9 14 13 14 26a14 14 0 0 1-28 0c0-7 4-10 6-15 2 4 4 6 6 6 0-6 0-11 2-17z' fill='%23FF5B1F'/%3E%3Cpath d='M32 34c3 3 6 5 6 9a6 6 0 0 1-12 0c0-3 3-5 6-9z' fill='%23FFB443'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Дровяная — половина тебе, половина мне">
+<meta property="og:description" content="Пицца из дровяной печи в Казани. Две половинки любых вкусов по средней цене, доставка 11:00–23:00.">
+<meta property="og:image" content="img/marg-1400.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M30 4a28 28 0 0 0 0 56z' fill='%23F0461A'/%3E%3Cpath d='M34 4a28 28 0 0 1 0 56z' fill='%23E9E4DA'/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="fonts/libre-franklin-cyrillic-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/source-serif-4-cyrillic-400-normal.woff2" crossorigin>
+<link rel="preload" as="image" href="img/marg-1400.webp" imagesrcset="img/marg-800.webp 800w, img/marg-1400.webp 1400w, img/marg-2000.webp 2000w" imagesizes="(max-width: 760px) 150vw, 80vw" fetchpriority="high">
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function(){if(!window.__pz)document.documentElement.classList.remove('js')},3500);
+</script>
 <style>
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/libre-franklin-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/libre-franklin-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/libre-franklin-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/source-serif-4-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/source-serif-4-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/source-serif-4-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/source-serif-4-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/source-serif-4-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/source-serif-4-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
 :root{
-  --coal:#1E1B19;
-  --ash:#2A2623;
-  --smoke:#3A3430;
-  --line:#4A423C;
-  --flour:#F4ECE1;
-  --flour-2:#C9BDAF;
-  --fire:#FF5B1F;
-  --fire-2:#FF7A3D;
-  --ember:#FFB443;
-  --basil:#5FA052;
-  --ease:cubic-bezier(0.23,1,0.32,1);
-  --disp:"Unbounded","Arial Black",system-ui,sans-serif;
-  --body:"Onest","Segoe UI",system-ui,sans-serif;
-  --wrap:1320px;
+  --soot:#15100D;--soot-2:#241B16;--soot-3:#33281F;
+  --flour:#ECEBE8;--birch:#DDD8CF;--paper:#FAFAF9;
+  --ember:#F0461A;--ember-ink:#15100D;
+  --ink:#17110E;--mute:#4F4540;--ink-l:#F1F0EE;--mute-l:#BCB1A7;
+  --f-d:"Libre Franklin",Arial,sans-serif;--f-t:"Source Serif 4",Georgia,serif;
+  --s-display:clamp(34px,min(7.2vw,12vh),124px);
+  --s-head:clamp(32px,4.4vw,68px);
+  --s-lead:clamp(20px,1.1rem + .5vw,25px);
+  --s-body:clamp(17px,1rem + .2vw,19px);
+  --s-small:14px;
+  --m:clamp(16px,2.8vw,44px);
+  --gap:clamp(96px,12vw,200px);
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-expo:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.76,0,.24,1);
+  --hdr:68px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--coal);color:var(--flour);font:400 16.5px/1.6 var(--body);overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr) + 12px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--flour);color:var(--ink);font:400 var(--s-body)/1.55 var(--f-t);font-variant-numeric:lining-nums;overflow-x:clip}
 body.lock{overflow:hidden}
-img{display:block;max-width:100%;height:auto;color:transparent}
+img,svg{display:block;max-width:100%}
+img{height:auto}
 a{color:inherit}
-button,input,select,textarea{font:inherit;color:inherit}
-h1,h2,h3,h4{font-family:var(--disp);margin:0;line-height:1;letter-spacing:-.02em}
+b,strong{font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+a{-webkit-tap-highlight-color:transparent}
+h1,h2,h3{font-family:var(--f-d);font-weight:700;margin:0;letter-spacing:-.035em;line-height:.95;text-wrap:balance}
+h2{font-size:var(--s-head)}
+h3{font-size:var(--s-lead);letter-spacing:-.02em;line-height:1.1}
 p{margin:0}
-ul,ol{margin:0;padding:0;list-style:none}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
-.skip{position:absolute;left:12px;top:-60px;background:var(--fire);color:var(--coal);padding:12px 18px;border-radius:10px;z-index:200;text-decoration:none;font-weight:700}
-.skip:focus{top:12px}
-:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:8px}
+.num{font-variant-numeric:tabular-nums lining-nums}
+::selection{background:var(--ember);color:var(--ember-ink)}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--m);top:-80px;z-index:100;background:var(--ember);color:var(--ember-ink);padding:12px 18px;font:700 var(--s-small)/1 var(--f-d);border-radius:999px;text-decoration:none}
+.skip:focus{top:10px}
+.wrap{padding-inline:var(--m)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:14px;border:0;cursor:pointer;font:700 16px/1 var(--body);text-decoration:none;transition:transform .16s var(--ease),background-color .2s ease,box-shadow .2s ease;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+/* buttons: one shape, fully round */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;font:700 var(--s-body)/1 var(--f-d);letter-spacing:-.01em;text-decoration:none;white-space:nowrap;transition:transform .14s var(--ease-out),background-color .18s ease,color .18s ease}
 .btn:active{transform:scale(.97)}
-.btn-fire{background:var(--fire);color:var(--coal)}
-.btn-line{background:transparent;color:var(--flour);box-shadow:inset 0 0 0 2px var(--line)}
-.btn-ash{background:var(--smoke);color:var(--flour)}
 .btn svg{width:20px;height:20px;flex:none}
+.btn-fire{background:var(--ember);color:var(--ember-ink)}
+.btn-ink{background:var(--soot);color:var(--ink-l)}
+.btn-ash{background:var(--soot-3);color:var(--ink-l)}
+.btn-pale{background:var(--birch);color:var(--ink)}
 @media (hover:hover) and (pointer:fine){
-  .btn-fire:hover{background:var(--fire-2)}
-  .btn-line:hover{box-shadow:inset 0 0 0 2px var(--flour)}
-  .btn-ash:hover{background:var(--line)}
+  .btn-fire:hover{background:#FF5C2E}
+  .btn-ink:hover{background:var(--soot-3)}
+  .btn-ash:hover{background:#4A3B30}
+  .btn-pale:hover{background:#CFC8BC}
+  .btn .arr{transition:transform .3s var(--ease-out)}
+  .btn:hover .arr{transform:translateX(4px)}
 }
+.lnk{background:none;border:0;padding:12px 0;min-height:44px;font:600 var(--s-body)/1.2 var(--f-t);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--ember)}
+.dot{display:inline-block;width:.42em;height:.84em;background:var(--ember);border-radius:0 1em 1em 0;margin-right:.5em;vertical-align:-.08em;flex:none}
 
 /* header */
-.top{position:sticky;top:0;z-index:50;background:rgba(30,27,25,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s ease}
-.top.scrolled{border-bottom-color:var(--smoke)}
-.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:900 20px/1 var(--disp);letter-spacing:-.03em}
-.logo svg{width:34px;height:34px}
+.top{position:sticky;top:0;z-index:40;height:var(--hdr);background:var(--soot);color:var(--ink-l);display:flex;align-items:center;gap:28px;padding-inline:var(--m)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 var(--s-lead)/1 var(--f-d);letter-spacing:-.03em;min-height:44px}
+.brand svg{width:28px;height:28px}
 .nav{display:flex;gap:6px;margin-left:auto}
-.nav a{padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;color:var(--flour-2);transition:color .2s ease,background-color .2s ease}
-@media (hover:hover) and (pointer:fine){.nav a:hover{color:var(--flour);background:var(--ash)}}
-.cart-btn{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 8px 0 16px;border-radius:14px;border:0;background:var(--fire);color:var(--coal);cursor:pointer;font:700 15px/1 var(--body);transition:transform .16s var(--ease)}
-.cart-btn:active{transform:scale(.97)}
-.cart-btn svg{width:22px;height:22px}
-.cart-btn .cnt{min-width:32px;height:32px;padding:0 8px;border-radius:10px;background:var(--coal);color:var(--flour);display:grid;place-items:center;font-variant-numeric:tabular-nums}
-.cart-btn.bump{animation:bump .4s var(--ease)}
-@keyframes bump{40%{transform:scale(1.08)}}
-.cart-btn.track{background:var(--ember)}
+.nav a{font:600 var(--s-small)/1 var(--f-t);font-size:var(--s-body);text-decoration:none;padding:12px 12px;border-radius:999px;transition:background-color .18s ease}
+@media (hover:hover) and (pointer:fine){.nav a:hover{background:var(--soot-3)}}
+.tel{font:600 var(--s-body)/1 var(--f-t);text-decoration:none;white-space:nowrap;padding:12px 0}
+.cart-btn{position:relative;min-height:46px;padding:0 10px 0 18px;gap:10px}
+.cart-btn .cnt{min-width:30px;height:30px;border-radius:999px;background:var(--soot);color:var(--ink-l);display:inline-flex;align-items:center;justify-content:center;font:700 var(--s-small)/1 var(--f-d);padding:0 8px}
+.cart-btn.bump{animation:bump .5s var(--ease-out)}
+@keyframes bump{30%{transform:scale(1.08)}}
+.cart-btn.track .live{display:inline-block}
+.live{display:none;width:9px;height:18px;background:var(--soot);border-radius:0 9px 9px 0;animation:flick 1.2s ease-in-out infinite}
+@keyframes flick{50%{opacity:.35}}
 
 /* hero */
-.hero{position:relative;padding:48px 0 0;overflow:hidden}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:24px;align-items:center;min-height:620px}
-.hero h1{font-size:clamp(46px,7.4vw,124px);font-weight:900;line-height:.92;letter-spacing:-.045em;position:relative;z-index:2}
-.hero h1 span{display:block}
-.hero h1 .f{color:var(--fire)}
-.hero-lead{margin-top:30px;max-width:480px;font-size:18px;color:var(--flour-2);position:relative;z-index:2}
-.hero-lead b{color:var(--flour);font-weight:600}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;position:relative;z-index:2}
-.hero-pizza{position:relative;justify-self:end;width:min(640px,46vw);aspect-ratio:1;margin-right:-180px}
-.hero-pizza .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,#5A3A26 0,#3A2A20 52%,var(--ash) 70%);overflow:hidden;box-shadow:0 0 0 18px rgba(255,91,31,.07),0 0 120px 10px rgba(255,91,31,.18)}
-.hero-pizza img{width:100%;height:100%;object-fit:cover}
-.hero-pizza .half-tag{position:absolute;z-index:2;background:var(--flour);color:var(--coal);padding:10px 16px;border-radius:12px;font:700 14px/1.2 var(--body);box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
-.hero-pizza .t1{left:-6%;top:18%}
-.hero-pizza .t2{left:8%;bottom:12%;background:var(--fire)}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1px solid var(--smoke)}
-.facts li{display:flex;align-items:center;gap:14px;padding:24px 20px 28px 0;font-size:15px;color:var(--flour-2);line-height:1.35}
-.facts li + li{padding-left:20px;border-left:1px solid var(--smoke)}
-.facts svg{width:30px;height:30px;color:var(--ember);flex:none}
-.facts b{display:block;color:var(--flour);font:700 16px/1.2 var(--disp);letter-spacing:-.01em;margin-bottom:3px}
+.hero{position:relative;background:var(--soot);color:var(--ink-l);min-height:calc(100svh - var(--hdr));display:grid;grid-template-rows:auto 1fr;overflow:hidden}
+.hero-h{padding:clamp(20px,3.4vh,40px) var(--m) 0;position:relative;z-index:2}
+.h1{font-size:var(--s-display);text-transform:uppercase;line-height:.9;letter-spacing:-.04em;max-width:none}
+.h1 .ln{display:block}
+.h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.h1 .w>span{display:inline-block}
+.hero-lo{position:relative;--D:min(116vh,64vw)}
+.hero-txt{position:relative;z-index:2;width:min(32rem,calc(70vw - var(--D)/2 - var(--m)*2));padding:clamp(24px,4vh,48px) 0 clamp(28px,5vh,56px) var(--m);display:flex;flex-direction:column;gap:clamp(22px,3.4vh,36px)}
+.hero-sub{max-width:36ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin:0;padding:0;list-style:none}
+.facts li{display:flex;gap:2px}
+.facts b{display:block;font:700 var(--s-body)/1.2 var(--f-d);letter-spacing:-.01em}
+.facts span{display:block;color:var(--mute-l);font-size:var(--s-small);line-height:1.4}
+.disc{position:absolute;width:var(--D);height:var(--D);left:calc(70vw - var(--D)/2);top:clamp(16px,3vh,32px);z-index:1}
+.disc .half{position:absolute;top:0;width:50%;height:100%;overflow:hidden;background:var(--soot-3)}
+.disc .half.l{left:-5px;border-radius:999px 0 0 999px}
+.disc .half.r{right:-5px;border-radius:0 999px 999px 0}
+.disc img,.mini-disc img{position:absolute;max-width:none;width:calc(var(--z)*100%);height:auto;aspect-ratio:1;object-fit:cover;top:calc((1 - var(--z))*50%)}
+.disc .half img{width:auto;height:calc(var(--z)*100%)}
+.disc .half.l img{left:calc((1 - var(--z))*100%)}
+.disc .half.r img{left:calc(var(--z)*-100%)}
+.chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;background:var(--soot);color:var(--ink-l);font:600 var(--s-small)/1.25 var(--f-t);padding:10px 16px;border-radius:999px;white-space:nowrap}
+.chip b{font-family:var(--f-d)}
+.chip.c1{left:calc(var(--D)*.16);top:calc(var(--D)*.2)}
+.chip.c2{right:calc(var(--D)*.14);top:calc(var(--D)*.3)}
+.chip.c3{left:50%;top:calc(var(--D)*.5);transform:translate(-50%,-50%);background:var(--ember);color:var(--ember-ink);font-size:var(--s-body);padding:14px 22px}
 
-/* section head */
-.sec{padding:110px 0}
-.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
-.sh h2{font-size:clamp(38px,5.4vw,84px);font-weight:900;letter-spacing:-.04em;max-width:900px}
-.sh p{max-width:400px;color:var(--flour-2)}
+/* sections */
+.sec{padding-block:var(--gap)}
+.sec-h{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.sec-h h2{grid-column:1 / span 7}
+.sec-h p{grid-column:8 / span 5;max-width:40ch}
 
 /* builder */
-.builder{background:var(--ash);border-radius:40px 40px 0 0}
-.bd-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:start}
-.pz-stage{position:sticky;top:92px}
-.pz-box{position:relative;aspect-ratio:1;border-radius:32px;background:radial-gradient(circle at 50% 46%,#4A3A30 0,#2F2925 60%,#262220 100%);display:grid;place-items:center;overflow:hidden}
-#pzSvg{position:absolute;inset:3%}
-.pz-box svg{width:100%;height:100%;display:block}
-.pz-box .hit{position:absolute;top:8%;bottom:8%;width:42%;border:0;background:transparent;cursor:pointer;border-radius:999px 0 0 999px}
-.pz-box .hit.r{right:8%;border-radius:0 999px 999px 0}
-.pz-box .hit.l{left:8%}
-.pz-box .hit:focus-visible{outline-offset:-6px}
-.pz-lbl{position:absolute;top:18px;padding:8px 14px;border-radius:10px;font:700 13.5px/1.2 var(--body);background:rgba(30,27,25,.8);color:var(--flour-2);transition:background-color .2s ease,color .2s ease;max-width:44%}
-.pz-lbl.l{left:18px}.pz-lbl.r{right:18px;text-align:right}
-.pz-lbl.on{background:var(--fire);color:var(--coal)}
-.pz-size{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font:700 13px/1 var(--body);color:var(--flour-2);background:rgba(30,27,25,.8);padding:8px 12px;border-radius:10px}
-.tp-in{animation:drop .5s var(--ease) both;transform-box:fill-box;transform-origin:center}
-@keyframes drop{from{opacity:0;transform:scale(1.5)}to{opacity:1;transform:none}}
-.pz-scale{transition:transform .5s var(--ease);transform-origin:200px 200px}
-
-.half-sw{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:16px;background:var(--coal);margin-bottom:22px}
-.half-sw button{min-height:52px;border:0;border-radius:12px;background:transparent;cursor:pointer;font:600 15px/1.2 var(--body);color:var(--flour-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 10px;transition:background-color .2s ease,color .2s ease}
-.half-sw button small{font-size:12.5px;font-weight:500;opacity:.85}
-.half-sw button[aria-pressed="true"]{background:var(--fire);color:var(--coal)}
-.ctl-h{font:700 15px/1.2 var(--disp);letter-spacing:-.01em;margin:26px 0 12px;color:var(--flour)}
-.flav{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.fv{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;text-align:left;padding:8px 14px 8px 8px;min-height:68px;border:0;border-radius:16px;background:var(--coal);cursor:pointer;box-shadow:inset 0 0 0 1.5px transparent;transition:box-shadow .2s ease,background-color .2s ease,transform .16s var(--ease)}
-.fv:active{transform:scale(.97)}
-.fv svg{width:52px;height:52px}
-.fv b{display:block;font-weight:700;font-size:15px;line-height:1.2}
-.fv span{display:block;font-size:12.5px;color:var(--flour-2);line-height:1.3;margin-top:2px}
-.fv em{font-style:normal;font-weight:700;font-size:14px;color:var(--ember);font-variant-numeric:tabular-nums;white-space:nowrap}
-.fv[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--fire);background:#33241C}
-.fv .side{display:none}
-@media (hover:hover) and (pointer:fine){.fv:hover{box-shadow:inset 0 0 0 1.5px var(--line)}.fv[aria-pressed="true"]:hover{box-shadow:inset 0 0 0 2px var(--fire)}}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{min-height:48px;padding:0 18px;border:0;border-radius:12px;background:var(--coal);cursor:pointer;font-weight:600;font-size:15px;color:var(--flour-2);box-shadow:inset 0 0 0 1.5px var(--smoke);transition:background-color .2s ease,color .2s ease}
-.seg button[aria-pressed="true"]{background:var(--flour);color:var(--coal);box-shadow:none}
-.extras{display:flex;gap:8px;flex-wrap:wrap}
-.ex{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:0;background:var(--coal);box-shadow:inset 0 0 0 1.5px var(--smoke);cursor:pointer;font-weight:600;font-size:14.5px;color:var(--flour-2);transition:background-color .2s ease,color .2s ease,box-shadow .2s ease}
-.ex em{font-style:normal;color:var(--ember);font-variant-numeric:tabular-nums}
-.ex[aria-pressed="true"]{background:var(--ember);color:var(--coal);box-shadow:none}
-.ex[aria-pressed="true"] em{color:var(--coal)}
-.ex-note{font-size:13px;color:var(--flour-2);margin-top:8px}
-.bd-total{margin-top:30px;padding:22px;border-radius:20px;background:var(--coal);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
-.bd-total .name{font-weight:700;font-size:16px;line-height:1.3}
-.bd-total .calc{font-size:13px;color:var(--flour-2);margin-top:4px;line-height:1.4}
-.bd-total .price{font:900 34px/1 var(--disp);letter-spacing:-.03em;color:var(--fire);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.bd-total .btn{grid-column:1/-1}
+.build{background:var(--flour)}
+.bd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start}
+.bd-stage{grid-column:1 / span 6;position:sticky;top:calc(var(--hdr) + 20px)}
+.stage{position:relative;width:100%;max-width:640px;margin-inline:auto;aspect-ratio:1}
+.stage>svg{width:100%;height:100%;overflow:visible}
+.stage .hit{position:absolute;top:8%;height:84%;width:42%;border:0;background:transparent;border-radius:999px 0 0 999px}
+.stage .hit.l{left:8%}
+.stage .hit.r{right:8%;border-radius:0 999px 999px 0}
+.stage .hit:focus-visible{outline-offset:-6px}
+#pzBody{transform-origin:200px 200px;transition:transform .7s var(--ease-expo)}
+#pzArc{transform-origin:200px 200px;transition:transform .8s var(--ease-io)}
+#hL{transform:translateX(-2px)}#hR{transform:translateX(2px)}
+.half-sw{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.half-sw button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:72px;padding:12px 20px;border:0;background:var(--birch);color:var(--ink);text-align:left;transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.half-sw button:active{transform:scale(.98)}
+.half-sw button[data-side=L]{border-radius:999px 0 0 999px;padding-left:28px}
+.half-sw button[data-side=R]{border-radius:0 999px 999px 0;align-items:flex-end;text-align:right;padding-right:28px}
+.half-sw span{font-size:var(--s-small);line-height:1.2}
+.half-sw b{font:700 var(--s-body)/1.15 var(--f-d)}
+.half-sw button[aria-pressed=true]{background:var(--soot);color:var(--ink-l)}
+.bd-ctrl{grid-column:7 / span 6;display:flex;flex-direction:column;gap:clamp(28px,3vw,40px)}
+.flav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 12px;margin-top:16px}
+.fv{border:0;background:none;padding:0 0 4px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;border-radius:12px}
+.fv .ring{position:relative;width:100%;max-width:120px;aspect-ratio:1}
+.fv .ring svg{width:100%;height:100%;transition:transform .45s var(--ease-out)}
+.fv .ring::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:4px solid var(--ember);clip-path:inset(0 50% 0 0);opacity:0;transform:scale(.9);transition:opacity .25s ease,transform .5s var(--ease-out)}
+.fv[aria-pressed=true] .ring::after{opacity:1;transform:none}
+.fv b{font:700 var(--s-small)/1.2 var(--f-d);font-size:var(--s-body)}
+.fv em{font-style:normal;font-size:var(--s-small);color:var(--mute)}
+@media (hover:hover) and (pointer:fine){.fv:hover .ring svg{transform:rotate(-14deg) scale(1.04)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tg{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:0;border-radius:999px;background:var(--birch);color:var(--ink);font:600 var(--s-small)/1 var(--f-t);font-size:var(--s-body);transition:background-color .18s ease,color .18s ease,transform .14s var(--ease-out)}
+.tg:active{transform:scale(.97)}
+.tg em{font-style:normal;color:var(--mute)}
+.tg[aria-pressed=true]{background:var(--soot);color:var(--ink-l)}
+.tg[aria-pressed=true] em{color:var(--mute-l)}
+.note{font-size:var(--s-small);color:var(--mute);margin-top:12px}
+.segs{display:flex;flex-wrap:wrap;gap:24px 32px}
+.seg{display:inline-flex;background:var(--birch);border-radius:999px;padding:4px}
+.seg button{min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;font:600 var(--s-body)/1 var(--f-t);transition:background-color .2s ease,color .2s ease}
+.seg button[aria-pressed=true]{background:var(--soot);color:var(--ink-l)}
+.lbl{display:block;font:700 var(--s-body)/1.2 var(--f-d);margin-bottom:10px}
+/* the kitchen ticket */
+.ticket{position:relative;background:var(--paper);padding:28px 28px 34px;margin-bottom:14px}
+.ticket::after{content:"";position:absolute;left:0;right:0;bottom:-13px;height:14px;background:var(--paper);clip-path:var(--zig)}
+.tk-top{display:flex;justify-content:space-between;gap:16px;font-size:var(--s-small);color:var(--mute);margin-bottom:14px}
+.tk-name{font-size:var(--s-lead);margin-bottom:16px}
+.tk-t{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums lining-nums}
+.tk-t td{padding:7px 0;vertical-align:baseline}
+.tk-t td+td{text-align:right;white-space:nowrap;padding-left:16px}
+.tk-t tr.sub td{color:var(--mute);font-size:var(--s-small);padding-top:0}
+.tk-t tr.new td{animation:line .55s var(--ease-out) both}
+@keyframes line{from{opacity:0;transform:translateY(-8px)}}
+.tk-t tr.sum td{border-top:2px dotted #B8AFA4;padding-top:12px}
+.tk-tot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap}
+.tk-tot .p{font:700 var(--s-head)/1 var(--f-d);letter-spacing:-.04em}
 
 /* menu */
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
-.filters button{min-height:46px;padding:0 20px;border-radius:999px;border:0;background:var(--ash);color:var(--flour-2);cursor:pointer;font-weight:600;font-size:15px;transition:background-color .2s ease,color .2s ease}
-.filters button[aria-pressed="true"]{background:var(--flour);color:var(--coal)}
-.menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.card{background:var(--ash);border-radius:26px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:opacity .3s ease}
-.card .pic{aspect-ratio:1;border-radius:20px;background:radial-gradient(circle at 50% 50%,#3D322B 0,#2B2623 70%);display:grid;place-items:center;position:relative;overflow:hidden}
-.card .pic svg{width:92%;height:92%;transition:transform .6s var(--ease)}
-@media (hover:hover) and (pointer:fine){.card:hover .pic svg{transform:rotate(14deg)}}
-.card .tags{position:absolute;left:10px;top:10px;display:flex;gap:6px}
-.card .tags i{font-style:normal;font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:rgba(30,27,25,.85);color:var(--ember)}
-.card .tags i.veg{color:#9CD38F}
-.card h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:6px}
-.card p{font-size:14px;color:var(--flour-2);line-height:1.45;flex:1}
-.card .sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:12px;background:var(--coal)}
-.card .sizes button{min-height:40px;border:0;border-radius:9px;background:transparent;color:var(--flour-2);cursor:pointer;font-weight:600;font-size:13.5px}
-.card .sizes button[aria-pressed="true"]{background:var(--smoke);color:var(--flour)}
-.card .buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
-.card .buy b{font:900 22px/1 var(--disp);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.card .buy .btn{min-height:46px;padding:0 16px;font-size:14.5px}
-.card .half-link{background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer;color:var(--ember);font-weight:600;font-size:14px;text-align:left;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.card[hidden]{display:none}
-.combo{margin-top:18px;display:grid;grid-template-columns:1.1fr 1fr;border-radius:28px;overflow:hidden;background:var(--fire);color:var(--coal)}
-.combo figure{margin:0;min-height:320px;background:#8A3A18}
-.combo img{width:100%;height:100%;object-fit:cover}
-.combo .txt{padding:40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
-.combo h3{font-size:clamp(28px,3vw,44px);font-weight:900;letter-spacing:-.04em}
-.combo p{font-size:16px;max-width:420px}
-.combo .row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:8px}
-.combo .row b{font:900 34px/1 var(--disp);letter-spacing:-.03em}
-.combo .row s{font-size:16px;opacity:.7}
-.combo .btn{background:var(--coal);color:var(--flour)}
+.menu{background:var(--soot);color:var(--ink-l)}
+.mh{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center;margin-bottom:clamp(48px,6vw,96px)}
+.mh-t{grid-column:1 / span 7;display:flex;flex-direction:column;gap:24px}
+.mh-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.mh-row .cnt{font-size:var(--s-body);color:var(--mute-l);white-space:nowrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{min-height:46px;padding:0 20px;border:0;border-radius:999px;background:var(--soot-2);color:var(--ink-l);font:600 var(--s-body)/1 var(--f-t);transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.filters button:active{transform:scale(.97)}
+.filters button[aria-pressed=true]{background:var(--ink-l);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.filters button[aria-pressed=false]:hover{background:var(--soot-3)}}
+.mini-disc{grid-column:8 / span 5;position:relative;width:100%;max-width:540px;aspect-ratio:1;justify-self:end}
+.mini-disc .half{position:absolute;top:0;width:50%;height:100%;overflow:hidden}
+.mini-disc .half.l{left:-4px;border-radius:999px 0 0 999px}
+.mini-disc .half.r{right:-4px;border-radius:0 999px 999px 0}
+.mini-disc .half img{width:auto;height:calc(var(--z)*100%)}
+.mini-disc .half.l img{left:calc((1 - var(--z))*100%)}
+.mini-disc .half.r img{left:calc(var(--z)*-100%)}
+.mlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 64px;margin:0;padding:0;list-style:none}
+.it{display:grid;grid-template-columns:clamp(84px,8vw,124px) minmax(0,1fr);gap:24px;align-items:start}
+.it[hidden]{display:none}
+.it .pic{position:relative;aspect-ratio:1}
+.it .pic svg{width:100%;height:100%;transition:transform .6s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.it:hover .pic svg{transform:rotate(-18deg)}}
+.it-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.it-h h3{font-size:var(--s-lead)}
+.it-h .pr{font:700 var(--s-lead)/1 var(--f-d);white-space:nowrap;letter-spacing:-.02em}
+.it p{color:var(--mute-l);margin-top:8px;max-width:40ch}
+.it .tags{margin-top:6px;font-size:var(--s-small);color:var(--ember)}
+.it-b{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:16px}
+.sz{display:inline-flex;background:var(--soot-2);border-radius:999px;padding:3px}
+.sz button{min-height:44px;min-width:58px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--ink-l);font:600 var(--s-small)/1 var(--f-t);transition:background-color .2s ease,color .2s ease}
+.sz button[aria-pressed=true]{background:var(--ink-l);color:var(--ink)}
+.it .btn{min-height:50px;padding:0 20px}
+.it .lnk{color:var(--ink-l)}
+
+/* offers: two fields */
+.offers{display:grid;grid-template-columns:7fr 5fr}
+.of{position:relative;min-height:min(86svh,780px);padding:clamp(28px,3.6vw,56px) var(--m);display:flex;flex-direction:column;justify-content:space-between;gap:40px;overflow:hidden}
+.of-a{background:var(--ember);color:var(--ember-ink)}
+.of-b{background:var(--birch);color:var(--ink)}
+.of h2{max-width:12ch}
+.of p{max-width:30ch;font-size:var(--s-lead);line-height:1.35;margin-top:24px}
+.of-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;position:relative;z-index:2}
+.big{font:700 var(--s-display)/.85 var(--f-d);letter-spacing:-.05em}
+.old{font:600 var(--s-lead)/1 var(--f-t);text-decoration:line-through;text-decoration-thickness:2px;margin-left:14px;vertical-align:.9em}
+.of-a .ph{position:absolute;right:0;top:clamp(28px,3.6vw,56px);width:min(19vw,320px);aspect-ratio:1/2;border-radius:999px 0 0 999px;overflow:hidden}
+.of-a .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-out)}
+.of-a .of-txt{max-width:calc(100% - min(19vw,320px) - 24px)}
 
 /* oven */
-.oven-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
-.oven-photo{grid-column:1/6;grid-row:span 2;border-radius:28px;overflow:hidden;background:var(--ash);margin:0;min-height:520px}
-.oven-photo img{width:100%;height:100%;object-fit:cover}
-.ov-steps{grid-column:6/13;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.ov{background:var(--ash);border-radius:24px;padding:26px}
-.ov .n{font:900 56px/1 var(--disp);color:var(--smoke);letter-spacing:-.04em}
-.ov h3{font-size:21px;font-weight:700;margin:16px 0 8px;letter-spacing:-.02em}
-.ov p{font-size:15px;color:var(--flour-2)}
-.ov.hot{background:linear-gradient(160deg,#FF7A3D,#FF5B1F 60%,#D9461A);color:var(--coal)}
-.ov.hot .n{color:rgba(30,27,25,.35)}
-.ov.hot p{color:#2A1A10}
-.strip{grid-column:6/13;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.strip figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:1;background:var(--ash)}
-.strip img{width:100%;height:100%;object-fit:cover}
+.oven{background:var(--soot);color:var(--ink-l)}
+.ov{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center}
+.ov-t{grid-column:1 / span 6;display:flex;flex-direction:column;gap:28px;padding-bottom:12px}
+.ov-t>p{max-width:38ch}
+.figs{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:20px 48px;margin:12px 0 0;padding:0;list-style:none}
+.figs b{display:block;font:700 var(--s-head)/1 var(--f-d);letter-spacing:-.04em}
+.figs span{display:block;color:var(--mute-l);font-size:var(--s-small);margin-top:8px}
+.arch{grid-column:8 / span 5;position:relative;aspect-ratio:4/5;border-radius:999px 999px 0 0;overflow:hidden;background:var(--soot-3)}
+.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.arch img.on{opacity:1}
+.steps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px 12px;align-items:end;margin:var(--gap) 0 0;padding:0;list-style:none}
+.st{display:flex;flex-direction:column;gap:20px}
+.st:nth-child(1){grid-column:span 2}.st:nth-child(2){grid-column:span 3}.st:nth-child(3){grid-column:span 3}.st:nth-child(4){grid-column:span 4}
+.st .ph{position:relative;overflow:hidden;border-radius:999px 999px 0 0;background:var(--soot-3)}
+.st:nth-child(1) .ph{height:30vh}.st:nth-child(2) .ph{height:40vh}.st:nth-child(3) .ph{height:50vh}.st:nth-child(4) .ph{height:60vh}
+.st .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-out)}
+.st h3{font-size:var(--s-lead)}
+.st p{color:var(--mute-l);margin-top:8px;max-width:34ch;font-size:var(--s-body)}
+.st-txt{min-height:9.5em}
+@media (hover:hover) and (pointer:fine){.ph:hover img,.arch:hover img.on{transform:scale(1.04)}}
+.arch img{transition:opacity 1.6s ease,transform .8s var(--ease-out)}
 
-/* delivery */
-.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.zone{border-radius:24px;padding:28px;box-shadow:inset 0 0 0 1.5px var(--smoke)}
-.zone .dot{width:14px;height:14px;border-radius:50%;margin-bottom:22px}
-.zone h3{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:-.02em}
-.zone p{font-size:15px;color:var(--flour-2)}
-.zone dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:18px 0 0;font-size:14.5px}
-.zone dt{color:var(--flour-2)}
-.zone dd{margin:0;font-weight:600;text-align:right}
-
-/* drawer */
-.ov-bg{position:fixed;inset:0;background:rgba(10,8,7,.6);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s ease}
-.ov-bg.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--ash);z-index:90;display:flex;flex-direction:column;transform:translateX(104%);transition:transform .45s var(--ease);visibility:hidden}
-.drawer.open{transform:none;visibility:visible}
-.dr-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--smoke)}
-.dr-head h2{font-size:24px;font-weight:900}
-.x{width:46px;height:46px;border-radius:12px;border:0;background:var(--smoke);cursor:pointer;display:grid;place-items:center}
-.x svg{width:22px;height:22px}
-.dr-body{flex:1;overflow-y:auto;padding:16px 22px 24px;overscroll-behavior:contain}
-.dr-empty{text-align:center;padding:48px 10px;color:var(--flour-2)}
-.dr-empty svg{width:120px;height:120px;margin:0 auto 18px;display:block}
-.dr-empty b{display:block;color:var(--flour);font:700 20px/1.2 var(--disp);margin-bottom:8px}
-.ci{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--smoke)}
-.ci svg{width:64px;height:64px}
-.ci b{display:block;font-size:15px;line-height:1.25}
-.ci span{display:block;font-size:12.5px;color:var(--flour-2);line-height:1.35;margin-top:3px}
-.ci .r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.ci .r em{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
-.qty{display:flex;align-items:center;gap:2px;background:var(--coal);border-radius:12px;padding:3px}
-.qty button{width:40px;height:40px;border:0;border-radius:9px;background:transparent;cursor:pointer;display:grid;place-items:center}
-.qty button svg{width:18px;height:18px}
-.qty span{min-width:22px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
-.dr-foot{padding:18px 22px 22px;border-top:1px solid var(--smoke);background:var(--ash);max-height:62vh;overflow-y:auto;overscroll-behavior:contain}
-.tot{display:grid;gap:6px;font-size:14.5px;margin-bottom:14px}
-.tot div{display:flex;justify-content:space-between;gap:12px}
-.tot span:first-child{color:var(--flour-2)}
-.tot .big{font:900 22px/1.2 var(--disp);letter-spacing:-.02em;margin-top:4px}
-.tot .big span:first-child{color:var(--flour)}
-.hint-free{font-size:13px;color:var(--ember);margin-bottom:12px}
-.bar{height:6px;border-radius:9px;background:var(--coal);overflow:hidden;margin:6px 0 2px}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ember),var(--fire));transform-origin:left;transition:transform .5s var(--ease)}
-.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.fld label{font-size:13.5px;font-weight:600;color:var(--flour-2)}
-.fld input{min-height:50px;border-radius:12px;border:0;background:var(--coal);box-shadow:inset 0 0 0 1.5px var(--smoke);padding:12px 14px;font-size:16px;width:100%}
-.fld input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--ember)}
-.err{color:var(--ember);font-size:13.5px;min-height:1.2em;margin-bottom:8px}
-.dr-foot .btn{width:100%}
-.demo{font-size:12.5px;color:var(--flour-2);text-align:center;margin-top:10px}
-
-/* tracker */
-.track{padding:8px 0 0}
-.track .no{font-size:14px;color:var(--flour-2)}
-.track h3{font:900 30px/1.05 var(--disp);letter-spacing:-.03em;margin:6px 0 6px}
-.track .eta{font-size:15px;color:var(--flour-2)}
-.track .eta b{color:var(--ember)}
-.tr-bar{position:relative;height:14px;border-radius:99px;background:var(--coal);margin:26px 0 8px;overflow:hidden}
-.tr-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--ember),var(--fire) 70%,#FF3D1F);transform-origin:left;transform:scaleX(0);transition:transform .9s var(--ease);border-radius:inherit}
-.tr-steps{display:grid;gap:4px;margin-top:22px}
-.tr-steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;padding:10px 0;color:var(--flour-2);transition:color .3s ease}
-.tr-steps .ic{width:40px;height:40px;border-radius:12px;background:var(--coal);display:grid;place-items:center;transition:background-color .3s ease,color .3s ease}
-.tr-steps .ic svg{width:20px;height:20px}
-.tr-steps b{display:block;font-size:15px;color:inherit}
-.tr-steps small{display:block;font-size:12.5px}
-.tr-steps li.done{color:var(--flour)}
-.tr-steps li.done .ic{background:var(--smoke);color:var(--ember)}
-.tr-steps li.now{color:var(--flour)}
-.tr-steps li.now .ic{background:var(--fire);color:var(--coal)}
-.tr-steps li.now .ic svg{animation:wob 1.2s ease-in-out infinite}
-@keyframes wob{50%{transform:scale(1.15)}}
-.tr-note{font-size:12.5px;color:var(--flour-2);margin-top:16px}
-
-/* toast */
-.toast{position:fixed;left:50%;bottom:24px;z-index:70;transform:translate(-50%,140%);background:var(--flour);color:var(--coal);padding:14px 18px;border-radius:14px;font-weight:600;font-size:15px;box-shadow:0 16px 40px -14px rgba(0,0,0,.7);transition:transform .4s var(--ease);max-width:calc(100% - 32px);display:flex;gap:12px;align-items:center}
-.toast.show{transform:translate(-50%,0)}
-.toast svg{width:20px;height:20px;color:var(--fire);flex:none}
+/* delivery coupon */
+.deliv{background:var(--flour)}
+.coupon{position:relative;background:var(--soot);color:var(--ink-l);display:grid;grid-template-columns:5fr 7fr;margin-inline:auto}
+.coupon .cut{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--flour);left:calc(41.666% - 22px)}
+.coupon .cut.t{top:-22px}.coupon .cut.b{bottom:-22px}
+.coupon .perf{position:absolute;top:30px;bottom:30px;left:calc(41.666% - 3px);width:6px;height:auto}
+.cp-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.cp-l p{max-width:34ch;color:var(--mute-l)}
+.cp-r{padding:clamp(24px,3.4vw,56px) clamp(24px,4vw,64px)}
+.zones{width:100%;border-collapse:collapse}
+.zones th,.zones td{text-align:left;vertical-align:top;padding:22px 0}
+.zones tr+tr th,.zones tr+tr td{border-top:2px solid var(--soot-3)}
+.zones th{font:700 var(--s-lead)/1.15 var(--f-d);letter-spacing:-.02em;width:34%;padding-right:20px}
+.zones td{color:var(--mute-l)}
+.zones td b{display:block;color:var(--ink-l);font:700 var(--s-body)/1.3 var(--f-d)}
+.zones td span{display:block;margin-top:6px}
+.cont{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center;margin-top:var(--gap)}
+.cont .ph{grid-column:1 / span 4;aspect-ratio:1/2;max-height:78vh;justify-self:start;width:auto;height:min(78vh,720px);border-radius:0 999px 999px 0;overflow:hidden;margin-left:calc(var(--m) * -1)}
+.cont .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-out)}
+.cont-t{grid-column:6 / span 7;display:flex;flex-direction:column;gap:28px}
+.cont dl{display:grid;grid-template-columns:auto 1fr;gap:16px 32px;margin:0}
+.cont dt{color:var(--mute)}
+.cont dd{margin:0;font:700 var(--s-lead)/1.2 var(--f-d);letter-spacing:-.02em}
+.cont dd a{text-decoration:none}
+.cont dd small{display:block;font:400 var(--s-body)/1.4 var(--f-t);letter-spacing:0;color:var(--mute);margin-top:4px}
 
 /* footer */
-.foot{border-top:1px solid var(--smoke);padding:56px 0 40px;margin-top:40px}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px;align-items:start}
-.foot .big{font:900 clamp(40px,6vw,96px)/.9 var(--disp);letter-spacing:-.05em;color:var(--fire)}
-.foot .col{font-size:15px;color:var(--flour-2);line-height:1.7}
-.foot .col b{display:block;color:var(--flour);margin-bottom:4px}
-.foot .col a{text-decoration:none;color:var(--flour)}
-.foot-bottom{margin-top:48px;font-size:13.5px;color:var(--flour-2)}
-.foot-bottom p + p{margin-top:4px}
-.foot-bottom a{color:var(--flour)}
+.foot{background:var(--soot);color:var(--ink-l);padding:clamp(64px,8vw,120px) var(--m) 28px}
+.mark{display:flex;align-items:flex-end;gap:4px;height:clamp(180px,34svh,340px)}
+.mark span{flex:1;display:flex;align-items:flex-end;padding:0 0 .08em .08em;font:700 var(--s-display)/.8 var(--f-d);color:var(--soot);letter-spacing:-.04em;overflow:hidden}
+.mark span:nth-child(1){height:100%;background:var(--ember)}
+.mark span:nth-child(2){height:74%;background:var(--birch)}
+.mark span:nth-child(3){height:100%;background:none;padding:0;position:relative}
+.mark span:nth-child(3) i{position:absolute;bottom:0;width:calc(50% - 2px);aspect-ratio:1/2;background:var(--ember)}
+.mark span:nth-child(3) i:first-child{left:0;border-radius:999px 0 0 999px}
+.mark span:nth-child(3) i+i{right:0;border-radius:0 999px 999px 0;background:var(--flour)}
+.mark span:nth-child(4){height:62%;background:var(--flour)}
+.mark span:nth-child(5){height:88%;background:var(--ember)}
+.mark span:nth-child(6){height:70%;background:var(--birch)}
+.mark span:nth-child(7){height:96%;background:var(--flour)}
+.mark span:nth-child(8){height:80%;background:var(--ember)}
+.f-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:56px}
+.f-nav{grid-column:1 / span 6;display:flex;flex-wrap:wrap;gap:4px 28px;margin:0;padding:0;list-style:none}
+.f-nav a{display:inline-block;padding:10px 0;text-decoration:none;font-weight:600}
+@media (hover:hover) and (pointer:fine){.f-nav a:hover{text-decoration:underline;text-decoration-color:var(--ember);text-underline-offset:5px}}
+.f-ct{grid-column:8 / span 5;display:flex;flex-direction:column;gap:6px}
+.f-ct a{text-decoration:none;font:700 var(--s-lead)/1.2 var(--f-d);letter-spacing:-.02em}
+.f-ct span{color:var(--mute-l)}
+.f-last{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:56px;color:var(--mute-l);font-size:var(--s-small)}
+.f-last a{color:var(--ink-l)}
 
-html.js .rv{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
-html.js .rv.in{opacity:1;transform:none}
+/* drawer: the order receipt */
+.ov-bg{position:fixed;inset:0;background:rgba(10,7,5,.62);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s .3s;z-index:60}
+.ov-bg.open{opacity:1;visibility:visible;transition:opacity .3s ease}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:70;width:min(480px,100vw);background:var(--paper);color:var(--ink);display:flex;flex-direction:column;transform:translateX(104%);visibility:hidden;transition:transform .45s var(--ease-io),visibility 0s .45s;box-shadow:-24px 0 60px rgba(0,0,0,.28)} /* taste-skill-ignore */
+.drawer.open{transform:none;visibility:visible;transition:transform .45s var(--ease-expo)}
+.dr-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 12px 28px}
+.dr-head h2{font-size:var(--s-lead)}
+.icb{width:48px;height:48px;border:0;border-radius:50%;background:var(--birch);display:inline-flex;align-items:center;justify-content:center;transition:transform .14s var(--ease-out),background-color .18s ease}
+.icb:active{transform:scale(.94)}
+.icb svg{width:20px;height:20px}
+.dr-body{flex:1;overflow-y:auto;padding:4px 28px 20px;overscroll-behavior:contain}
+.dr-foot{padding:16px 28px calc(20px + env(safe-area-inset-bottom));background:var(--flour)}
+.dr-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:40px 0;color:var(--mute)}
+.dr-empty svg{width:150px;height:150px;margin-bottom:10px}
+.dr-empty b{font:700 var(--s-lead)/1.2 var(--f-d);color:var(--ink)}
+.ci{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;animation:line .45s var(--ease-out) both}
+.ci svg{width:64px;height:64px}
+.ci b{display:block;font:700 var(--s-body)/1.2 var(--f-d)}
+.ci span{display:block;font-size:var(--s-small);color:var(--mute);line-height:1.35;margin-top:2px}
+.ci .r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ci em{font-style:normal;font-weight:600;white-space:nowrap}
+.qty{display:inline-flex;align-items:center;background:var(--birch);border-radius:999px}
+.qty button{width:44px;height:44px;border:0;background:none;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.qty button svg{width:16px;height:16px}
+.qty span{min-width:20px;text-align:center;font-weight:600}
+.hint-free{font-size:var(--s-small);color:var(--mute)}
+.bar{height:8px;background:var(--birch);border-radius:999px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ember);transform-origin:left;transition:transform .6s var(--ease-out)}
+.tot{width:100%;border-collapse:collapse;margin:12px 0 4px;font-variant-numeric:tabular-nums lining-nums}
+.tot td{padding:4px 0}
+.tot td+td{text-align:right}
+.tot tr.grand td{font:700 var(--s-lead)/1.2 var(--f-d);padding-top:10px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fld label{font-size:var(--s-small);font-weight:600}
+.fld input{min-height:50px;border:2px solid #CFC7BB;border-radius:12px;background:var(--paper);padding:0 14px;font:400 var(--s-body)/1 var(--f-t);color:var(--ink)}
+.fld input:focus{border-color:var(--ink);outline:none}
+.err{min-height:1.4em;color:#B32A0B;font-size:var(--s-small);margin:8px 0 4px}
+.dr-foot .btn{width:100%}
+.dr-foot .seg{display:flex;margin:14px 0 6px}
+.dr-foot .seg button{flex:1}
+.track .no{color:var(--mute);font-size:var(--s-small)}
+.track h3{font-size:var(--s-head);margin:10px 0 8px;letter-spacing:-.04em}
+.track .eta{margin-bottom:18px}
+.tr-bar{height:10px;background:var(--birch);border-radius:999px;overflow:hidden}
+.tr-bar i{display:block;height:100%;background:var(--ember);transform-origin:left;transform:scaleX(0);transition:transform 1.1s var(--ease-expo)}
+.tr-steps{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.tr-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;padding:8px 0;color:var(--mute)}
+.tr-steps .ic{width:44px;height:44px;border-radius:50%;background:var(--birch);display:inline-flex;align-items:center;justify-content:center;transition:background-color .4s ease,color .4s ease}
+.tr-steps .ic svg{width:20px;height:20px}
+.tr-steps b{display:block;font:700 var(--s-body)/1.2 var(--f-d)}
+.tr-steps small{font-size:var(--s-small)}
+.tr-steps li.done{color:var(--ink)}
+.tr-steps li.done .ic{background:var(--soot);color:var(--ink-l)}
+.tr-steps li.now{color:var(--ink)}
+.tr-steps li.now .ic{background:var(--ember);color:var(--ember-ink);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.concept{margin-top:20px;font-size:var(--s-small);color:var(--mute)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));z-index:80;transform:translate(-50%,40px);opacity:0;visibility:hidden;background:var(--soot);color:var(--ink-l);padding:14px 22px;border-radius:999px;font:600 var(--s-small)/1.3 var(--f-t);font-size:var(--s-body);max-width:calc(100vw - 32px);transition:transform .45s var(--ease-expo),opacity .3s ease,visibility 0s linear .45s;box-shadow:0 14px 40px rgba(0,0,0,.25);display:flex;gap:10px;align-items:center} /* taste-skill-ignore */
+.toast.show{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .45s var(--ease-expo),opacity .3s ease,visibility 0s}
+.fly{position:fixed;z-index:90;pointer-events:none;transition:transform .75s var(--ease-io),opacity .75s ease}
+.mbar{display:none}
 
-@media (max-width:1180px){
-  .menu{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* motion: entrances (only with .js and motion allowed) */
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(24px)}
+  .js .rv.in{opacity:1;transform:none;transition:opacity .7s var(--ease-out) calc(var(--i,0)*70ms),transform .9s var(--ease-expo) calc(var(--i,0)*70ms)}
+  .js .rv-ph{opacity:0;transform:scale(1.06)}
+  .js .rv-ph.in{opacity:1;transform:none;transition:opacity .9s ease calc(var(--i,0)*70ms),transform 1.2s var(--ease-expo) calc(var(--i,0)*70ms)}
+  .js .h1 .w>span{transform:translateY(105%)}
+  .js .hero.go .h1 .w>span{transform:none;transition:transform 1s var(--ease-expo) calc(var(--i,0)*70ms)}
+  .js .hero .up{opacity:0;transform:translateY(16px)}
+  .js .hero.go .up{opacity:1;transform:none;transition:opacity .7s ease calc(380ms + var(--i,0)*90ms),transform .8s var(--ease-expo) calc(380ms + var(--i,0)*90ms)}
+  .js .disc .half{opacity:0;transform:scale(1.12)}
+  .js .disc .half.l{transform:scale(1.12) translateX(-4%)}
+  .js .disc .half.r{transform:scale(1.12) translateX(4%)}
+  .js .disc.go .half{opacity:1;transform:none;transition:opacity 1s ease,transform 1.2s var(--ease-expo)}
+  .js .disc .chip{opacity:0}
+  .js .disc.go .chip{opacity:1;transition:opacity .6s ease calc(700ms + var(--i,0)*120ms)}
+  .anim .tp{animation:tpIn .5s var(--ease-out) both;animation-delay:calc(var(--i)*16ms)}
+  .anim .ch{animation:fadeIn .4s ease both}
+  .js .mark span{transform:translateY(30%);opacity:0}
+  .js .mark.in span{transform:none;opacity:1;transition:transform 1s var(--ease-expo) calc(var(--i,0)*60ms),opacity .6s ease calc(var(--i,0)*60ms)}
 }
-@media (max-width:1020px){
-  .nav{display:none}
-  .cart-btn{margin-left:auto}
-  .hero-grid{grid-template-columns:minmax(0,1fr);min-height:0}
-  .hero-pizza{width:min(520px,86vw);margin:-10px -22% 0 auto}
-  .facts{grid-template-columns:1fr 1fr}
-  .facts li:nth-child(3){border-left:0;padding-left:0}
-  .facts li:nth-child(n+3){border-top:1px solid var(--smoke)}
-  .bd-grid{grid-template-columns:minmax(0,1fr)}
-  .pz-stage{position:relative;top:0;max-width:560px;width:100%;margin:0 auto}
-  .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .oven-photo{grid-column:1/-1;min-height:360px;grid-row:auto}
-  .ov-steps,.strip{grid-column:1/-1}
-  .zones{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr 1fr}
-  .foot .big{grid-column:1/-1}
-}
-@media (max-width:720px){
-  body{font-size:16px}
-  .wrap{padding:0 16px}
-  .top .wrap{height:64px}
-  .logo{font-size:17px}
-  .logo svg{width:30px;height:30px}
-  .cart-btn .lbl{display:none}
-  .cart-btn{padding:0 6px 0 12px}
-  .hero{padding-top:28px}
-  .hero h1{font-size:13.2vw;letter-spacing:-.05em}
-  .hero-lead{font-size:16px;margin-top:20px}
-  .hero-cta{margin-top:24px}
-  .hero-cta .btn{flex:1 1 auto;padding:0 18px}
-  .hero-pizza{width:92vw;margin:0 -34% 0 auto}
-  .hero-pizza .t1{left:-4%;top:6%}
-  .hero-pizza .t2{left:4%;bottom:6%}
-  .facts{grid-template-columns:1fr;margin-top:32px}
-  .facts li,.facts li + li{padding:16px 0;border-left:0}
-  .facts li + li{border-top:1px solid var(--smoke)}
-  .sec{padding:72px 0}
-  .sh{margin-bottom:32px}
-  .sh h2{font-size:38px}
-  .builder{border-radius:28px 28px 0 0}
-  .pz-box{border-radius:24px}
-  .pz-lbl{font-size:12px;padding:6px 10px;top:12px}
-  .pz-lbl.l{left:12px}.pz-lbl.r{right:12px}
-  .flav{grid-template-columns:1fr}
-  .bd-total .price{font-size:28px}
-  .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
-  .card{padding:10px;border-radius:20px}
-  .card .pic{border-radius:14px}
-  .card h3{font-size:15.5px}
-  .card p{font-size:12.5px}
-  .card .sizes button{font-size:12px;min-height:40px}
-  .card .buy{flex-direction:column;align-items:stretch}
-  .card .buy b{font-size:19px}
-  .card .buy .btn{width:100%}
-  .combo{grid-template-columns:1fr}
-  .combo figure{min-height:220px}
-  .combo .txt{padding:26px 20px}
-  .ov-steps{grid-template-columns:1fr}
-  .strip{gap:10px}
-  .strip figure{border-radius:16px}
-  .oven-photo{min-height:280px}
-  .foot-grid{grid-template-columns:1fr}
-}
-@media (max-width:380px){
-  .menu{grid-template-columns:minmax(0,1fr)}
-  .card .buy{flex-direction:row;align-items:center}
-  .card .buy .btn{width:auto}
-}
+.tp{transform-box:fill-box;transform-origin:center}
+@keyframes tpIn{from{opacity:0;transform:translateY(-16px) scale(1.3)}}
+@keyframes fadeIn{from{opacity:0}}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  html.js .rv{opacity:1;transform:none}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+
+/* tablet */
+@media (max-width:1100px){
+  .nav{display:none}
+  .hero{min-height:auto}
+  .hero-lo{min-height:calc(var(--D) + 48px)}
+  .tel{margin-left:auto}
+  .bd-stage{grid-column:1 / -1;position:static}
+  .bd-ctrl{grid-column:1 / -1}
+  .flav{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stage{max-width:560px}
+  .mlist{gap:48px 40px}
+  .offers{grid-template-columns:1fr}
+  .of{min-height:auto}
+  .ov-t{grid-column:1 / span 7}
+  .arch{grid-column:8 / span 5}
+}
+/* phone */
+@media (max-width:760px){
+  :root{--hdr:60px;--s-display:clamp(30px,8.1vw,48px)}
+  .top{gap:12px}
+  .tel{display:none}
+  .cart-btn{margin-left:auto}
+  .hero{min-height:auto;grid-template-rows:auto auto}
+  .hero-lo{--D:118vw;display:flex;flex-direction:column}
+  .hero-txt{display:contents}
+  .hero-sub{order:1;padding:20px var(--m) 0}
+  .hero-cta{order:2;padding:22px var(--m) 0;gap:8px}
+  .hero-cta .btn{padding:0 18px}
+  .disc-box{order:3}
+  .disc{position:relative;left:auto;top:auto;margin:32px 0 0 calc(50% - var(--D)/2);flex:none}
+  .disc-box{height:64vw;overflow:hidden;position:relative;margin-top:8px}
+  .chip.c1{left:calc(var(--D)*.2);top:calc(var(--D)*.12)}
+  .chip.c2{right:calc(var(--D)*.18);top:calc(var(--D)*.24)}
+  .chip.c3{top:calc(var(--D)*.4)}
+  .facts{order:4;padding:28px var(--m) 40px;grid-template-columns:1fr 1fr;gap:18px 16px}
+  .sec-h{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+  .flav{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 8px}
+  .fv b{font-size:var(--s-small)}
+  .half-sw button{min-height:64px;padding:10px 14px}
+  .half-sw button[data-side=L]{padding-left:22px}.half-sw button[data-side=R]{padding-right:22px}
+  .segs{gap:20px}
+  .ticket{padding:22px 20px 28px}
+  .mh{display:flex;flex-direction:column;align-items:stretch;gap:32px}
+  .mini-disc{order:-1;max-width:none;width:72vw;align-self:center}
+  .mlist{grid-template-columns:1fr;gap:40px}
+  .it{grid-template-columns:64px minmax(0,1fr);gap:8px 14px}
+  .it>div:last-child{display:contents}
+  .it-h,.it>div>p,.it .tags{grid-column:2}
+  .it .pic{grid-row:1 / span 3}
+  .it-b{grid-column:1 / -1;margin-top:8px}
+  .it .lnk{padding:6px 0}
+  .btn{padding:0 20px}
+  .of{gap:28px}
+  .of-a{display:grid;grid-template-columns:minmax(0,1fr) 30vw;column-gap:16px;padding-right:0}
+  .of-a .of-txt{max-width:none}
+  .of-a .ph{position:relative;top:auto;right:auto;width:100%;align-self:start}
+  .of-a .of-foot{grid-column:1 / -1;padding-right:var(--m)}
+  .of p{font-size:var(--s-body)}
+  .of-a .of-txt{max-width:none}
+  .ov{display:flex;flex-direction:column;align-items:stretch;gap:40px}
+  .figs{grid-template-columns:repeat(3,auto);gap:16px 24px}
+  .arch{width:100%}
+  .steps{grid-template-columns:1fr 1fr;gap:32px 12px}
+  .st:nth-child(n){grid-column:auto}
+  .st:nth-child(1) .ph{height:48vw}.st:nth-child(2) .ph{height:60vw}.st:nth-child(3) .ph{height:66vw}.st:nth-child(4) .ph{height:78vw}
+  .st-txt{min-height:0}
+  .coupon{grid-template-columns:1fr}
+  .coupon .cut{width:28px;height:28px;left:-14px}
+  .coupon .cut.t{top:calc(var(--cp-split) - 14px);bottom:auto}
+  .coupon .cut.b{left:auto;right:-14px;top:calc(var(--cp-split) - 14px);bottom:auto}
+  .coupon .perf{display:none}
+  .cp-l{padding:32px 20px 36px}
+  .cp-r{padding:24px 20px 20px}
+  .zones tr{display:grid;grid-template-columns:1fr;padding:16px 0}
+  .zones tr+tr{border-top:2px solid var(--soot-3)}
+  .zones th,.zones td{padding:4px 0;width:auto}
+  .zones tr+tr th,.zones tr+tr td{border-top:0}
+  .cont{display:flex;flex-direction:column;align-items:stretch;gap:32px}
+  .cont .ph{height:auto;width:50vw;max-height:none;margin-left:calc(var(--m) * -1)}
+  .mark{height:auto;flex-wrap:wrap;row-gap:4px}
+  .mark span{flex:0 0 calc(25% - 3px);height:auto!important;aspect-ratio:3/4;font-size:var(--s-head)}
+  .f-grid{display:flex;flex-direction:column;gap:32px}
+  .mbar{display:flex;position:fixed;left:var(--m);right:var(--m);bottom:calc(14px + env(safe-area-inset-bottom));z-index:50;transform:translateY(160%);transition:transform .45s var(--ease-expo)}
+  .mbar.show{transform:none}
+  .mbar .btn{width:100%;min-height:56px}
+  .toast{bottom:calc(86px + env(safe-area-inset-bottom))}
+  .drawer{width:100vw}
+  .dr-head{padding-left:20px}
+  .dr-body{padding-inline:20px}
+  .dr-foot{padding-inline:20px}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#build">К конструктору пиццы</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></symbol>
-  <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.5 3.5 5.5 5 5.5 10a5.5 5.5 0 0 1-11 0c0-2.7 1.5-4 2.3-5.8.8 1.5 1.6 2.3 2.4 2.3 0-2.3 0-4.3.8-6.5z"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
-  <symbol id="i-dough" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-4 3.6-7 8-7s8 3 8 7-3.6 5-8 5-8-1-8-5z"/><path d="M9 12c1 .6 2 .6 3 0M13 14c1 .6 2 .6 3 0"/></symbol>
-  <symbol id="i-scooter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h7M15 17l-2-8h-3M18 14.5 16 7h-2"/><rect x="3" y="7" width="6" height="5" rx="1"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
-  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
-  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M12 9v11M4 13h16M12 9c-1-3-5-4-5-1.5S12 9 12 9zm0 0c1-3 5-4 5-1.5S12 9 12 9z"/></symbol>
-</defs></svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-dough" viewBox="0 0 24 24"><path d="M3 15c0-4.4 4-7 9-7s9 2.6 9 7c0 1.7-1.3 3-3 3H6c-1.7 0-3-1.3-3-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5c1.2-.8 2.6-1.2 4-1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.4 1.3-3.8 2.5-5 .2 1.6 1 2.6 2 3 0-3 .5-5.5.5-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-scooter" viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.6 17h6.8l2-7h-3M5 12h6v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5V20H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
 
 <header class="top" id="top">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Дровяная — на главную"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2A2623"/><path d="M32 10c4 9 14 13 14 26a14 14 0 0 1-28 0c0-7 4-10 6-15 2 4 4 6 6 6 0-6 0-11 2-17z" fill="#FF5B1F"/><path d="M32 34c3 3 6 5 6 9a6 6 0 0 1-12 0c0-3 3-5 6-9z" fill="#FFB443"/></svg>Дровяная</a>
-    <nav class="nav" aria-label="Разделы">
-      <a href="#build">Из половинок</a>
-      <a href="#menu">Меню</a>
-      <a href="#oven">Печь</a>
-      <a href="#delivery">Доставка</a>
-    </nav>
-    <button class="cart-btn" id="cartBtn" type="button" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="lbl" id="cartLbl">Корзина</span><span class="cnt" id="cartCnt" aria-label="товаров в корзине">0</span></button>
-  </div>
+  <a class="brand" href="#hero" aria-label="Дровяная — в начало">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M30 4a28 28 0 0 0 0 56z" fill="#F0461A"/><path d="M34 4a28 28 0 0 1 0 56z" fill="#E9E4DA"/></svg>
+    Дровяная
+  </a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#build">Из половинок</a>
+    <a href="#menu">Меню</a>
+    <a href="#oven">Печь</a>
+    <a href="#delivery">Доставка</a>
+  </nav>
+  <a class="tel" href="tel:+78430000000">+7 (843) 000-00-00</a>
+  <button class="btn btn-fire cart-btn" id="cartBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer">
+    <i class="live" aria-hidden="true"></i><span id="cartLbl">Корзина</span><span class="cnt" id="cartCnt" aria-label="позиций в корзине">0</span>
+  </button>
 </header>
 
 <main>
-<section class="hero" aria-labelledby="h1">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <h1 id="h1"><span>Половина&nbsp;—</span><span>тебе,</span><span class="f">половина&nbsp;—</span><span class="f">мне</span></h1>
-        <p class="hero-lead">Пицца из&nbsp;дровяной печи в&nbsp;Казани. Собирайте из&nbsp;двух половинок любые вкусы&nbsp;— <b>платите среднюю цену</b>, а&nbsp;не&nbsp;за&nbsp;самую дорогую.</p>
-        <div class="hero-cta">
-          <a class="btn btn-fire" href="#build">Собрать из&nbsp;половинок</a>
-          <a class="btn btn-line" href="#menu">Меню</a>
-        </div>
+<section class="hero" id="hero" aria-labelledby="h1">
+  <div class="hero-h">
+    <h1 class="h1" id="h1"><span class="ln"><span class="w"><span style="--i:0">Половина</span></span> <span class="w"><span style="--i:1">—&nbsp;тебе,</span></span></span><span class="ln"><span class="w"><span style="--i:2">половина</span></span> <span class="w"><span style="--i:3">—&nbsp;мне</span></span></span></h1>
+  </div>
+  <div class="hero-lo">
+    <div class="hero-txt">
+      <p class="hero-sub up" style="--i:0">Пиццерия «Дровяная» с&nbsp;дровяной печью на&nbsp;Баумана в&nbsp;Казани. Собирайте пиццу из&nbsp;двух половинок любых вкусов и&nbsp;платите <b>среднюю цену</b>, а&nbsp;не&nbsp;за&nbsp;самую дорогую.</p>
+      <div class="hero-cta up" style="--i:1">
+        <a class="btn btn-fire" href="#build">Собрать из половинок <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ash" href="#menu">Меню</a>
       </div>
-      <div class="hero-pizza">
-        <div class="ring"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1280&h=1280&q=72" width="640" height="640" alt="Нарезанная пицца с сыром на тёмном фоне" fetchpriority="high"></div>
-        <span class="half-tag t1">Корочка с&nbsp;подпалинами</span>
-        <span class="half-tag t2">Моцарелла фиор ди&nbsp;латте</span>
+      <ul class="facts up" style="--i:2">
+        <li><i class="dot" aria-hidden="true"></i><div><b>Печь на дровах</b><span>Берёза и дуб, корочка с&nbsp;подпалинами</span></div></li>
+        <li><i class="dot" aria-hidden="true"></i><div><b>Тесто 48 часов</b><span>Медленное брожение — лёгкое и&nbsp;хрустящее</span></div></li>
+        <li><i class="dot" aria-hidden="true"></i><div><b class="num">11:00–23:00</b><span>Доставка по&nbsp;Казани каждый день</span></div></li>
+        <li><i class="dot" aria-hidden="true"></i><div><b>Бесплатно от&nbsp;900&nbsp;₽</b><span>Меньше — доставка 149&nbsp;₽</span></div></li>
+      </ul>
+    </div>
+    <div class="disc-box">
+      <div class="disc" id="disc">
+        <div class="half l" style="--z:1.3"><img src="img/marg-1400.webp" srcset="img/marg-800.webp 800w, img/marg-1400.webp 1400w, img/marg-2000.webp 2000w" sizes="(max-width: 760px) 150vw, 80vw" width="1400" height="1400" alt="Маргарита из дровяной печи: моцарелла фиор ди латте и базилик" fetchpriority="high" decoding="async"></div>
+        <div class="half r" style="--z:1.16"><img src="img/pep-1400.webp" srcset="img/pep-800.webp 800w, img/pep-1400.webp 1400w, img/pep-2000.webp 2000w" sizes="(max-width: 760px) 150vw, 80vw" width="1400" height="1400" alt="Пепперони с острой салями" fetchpriority="high" decoding="async"></div>
+        <span class="chip c1" style="--i:0"><b>Маргарита</b> 590&nbsp;₽</span>
+        <span class="chip c2" style="--i:1"><b>Пепперони</b> 660&nbsp;₽</span>
+        <span class="chip c3" style="--i:2"><b>Вместе 630&nbsp;₽</b></span>
       </div>
     </div>
-    <ul class="facts">
-      <li><svg aria-hidden="true"><use href="#i-flame"/></svg><span><b>Печь на&nbsp;дровах</b>Берёза и&nbsp;дуб, корочка с&nbsp;подпалинами</span></li>
-      <li><svg aria-hidden="true"><use href="#i-dough"/></svg><span><b>Тесто 48&nbsp;часов</b>Медленное брожение&nbsp;— лёгкое и&nbsp;хрустящее</span></li>
-      <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span><b>11:00–23:00</b>Доставка по&nbsp;Казани каждый день</span></li>
-      <li><svg aria-hidden="true"><use href="#i-gift"/></svg><span><b>Бесплатно от&nbsp;900&nbsp;₽</b>Меньше&nbsp;— доставка 149&nbsp;₽</span></li>
-    </ul>
   </div>
 </section>
 
-<section class="sec builder" id="build" aria-labelledby="b-h" style="margin-top:72px">
-  <div class="wrap">
-    <div class="sh">
-      <h2 id="b-h">Собери из&nbsp;половинок</h2>
-      <p>Выберите половину на&nbsp;пицце или переключателем, затем вкус. Цена&nbsp;— среднее двух половинок плюс добавки.</p>
-    </div>
-    <div class="bd-grid">
-      <div class="pz-stage">
-        <div class="pz-box" id="pzBox">
-          <div id="pzSvg"></div>
-          <button class="hit l" type="button" data-side="L" aria-label="Выбрать левую половину"></button>
-          <button class="hit r" type="button" data-side="R" aria-label="Выбрать правую половину"></button>
-          <span class="pz-lbl l on" id="lblL" aria-hidden="true"></span>
-          <span class="pz-lbl r" id="lblR" aria-hidden="true"></span>
-          <span class="pz-size" id="pzSize" aria-hidden="true"></span>
-        </div>
+<section class="sec build wrap" id="build" aria-labelledby="bdH">
+  <div class="sec-h">
+    <h2 id="bdH" class="rv">Собери из половинок</h2>
+    <p class="rv" style="--i:1">Выберите половину на пицце или кнопкой под ней, затем вкус. Цена: среднее двух половинок плюс добавки, и всё это сразу пробивается в&nbsp;чек.</p>
+  </div>
+  <div class="bd">
+    <div class="bd-stage rv" style="--i:1">
+      <div class="stage" id="pzBox" role="img" aria-label="Пицца">
+        <svg viewBox="-40 -40 480 480" id="pzSvg" aria-hidden="true">
+          <defs>
+            <clipPath id="bL"><rect x="-40" y="-40" width="240" height="480"/></clipPath>
+            <clipPath id="bR"><rect x="200" y="-40" width="240" height="480"/></clipPath>
+            <clipPath id="peelClip"><circle cx="200" cy="200" r="192"/></clipPath>
+          </defs>
+          <g id="peel"></g>
+          <g id="pzBody"><circle cx="200" cy="206" r="176" fill="#5A3A20" opacity=".22"/><g id="hL" clip-path="url(#bL)"></g><g id="hR" clip-path="url(#bR)"></g></g>
+          <g id="pzArc"><path d="M200 -14A214 214 0 0 0 200 414" fill="none" stroke="#F0461A" stroke-width="9" stroke-linecap="round"/></g>
+        </svg>
+        <button type="button" class="hit l" data-side="L" aria-label="Выбрать левую половину"></button>
+        <button type="button" class="hit r" data-side="R" aria-label="Выбрать правую половину"></button>
       </div>
-      <div>
-        <div class="half-sw" role="group" aria-label="Какую половину настраиваем">
-          <button type="button" data-side="L" aria-pressed="true">Левая половина<small id="swL"></small></button>
-          <button type="button" data-side="R" aria-pressed="false">Правая половина<small id="swR"></small></button>
-        </div>
-        <p class="ctl-h" id="flavH">Вкус для левой половины</p>
+      <div class="half-sw" role="group" aria-label="Какую половину меняем">
+        <button type="button" data-side="L" aria-pressed="true"><span>Левая половина</span><b id="swL">Маргарита</b></button>
+        <button type="button" data-side="R" aria-pressed="false"><span>Правая половина</span><b id="swR">Дьявола</b></button>
+      </div>
+    </div>
+    <div class="bd-ctrl">
+      <div class="rv" style="--i:2">
+        <h3 id="flavH">Вкус для левой половины</h3>
         <div class="flav" id="flav" role="group" aria-labelledby="flavH"></div>
-        <p class="ctl-h" id="exH">Добавки на&nbsp;эту половину</p>
-        <div class="extras" id="extras" role="group" aria-labelledby="exH"></div>
-        <p class="ex-note">Цена добавки указана за&nbsp;половину выбранного размера.</p>
-        <p class="ctl-h" id="szH">Размер</p>
-        <div class="seg" id="sizeSeg" role="group" aria-labelledby="szH"></div>
-        <p class="ctl-h" id="crH">Тесто</p>
-        <div class="seg" id="crustSeg" role="group" aria-labelledby="crH"></div>
-        <div class="bd-total">
-          <div><p class="name" id="bdName"></p><p class="calc" id="bdCalc"></p></div>
-          <p class="price" id="bdPrice" aria-live="polite"></p>
-          <button class="btn btn-fire" type="button" id="bdAdd"><svg aria-hidden="true"><use href="#i-bag"/></svg>В&nbsp;корзину</button>
-        </div>
+      </div>
+      <div class="rv" style="--i:3">
+        <h3 id="exH">Добавки на эту половину</h3>
+        <div class="chips" id="extras" role="group" aria-labelledby="exH"></div>
+        <p class="note">Цена добавки указана за половину выбранного размера.</p>
+      </div>
+      <div class="segs rv" style="--i:4">
+        <div><span class="lbl" id="szL">Размер</span><div class="seg" id="sizeSeg" role="group" aria-labelledby="szL"></div></div>
+        <div><span class="lbl" id="crL">Тесто</span><div class="seg" id="crustSeg" role="group" aria-labelledby="crL"></div></div>
+      </div>
+      <div class="ticket rv" style="--i:5" id="ticket" aria-live="polite">
+        <div class="tk-top"><span>«Дровяная» · Баумана, 58</span><span id="pzSize">Ø 30 см · классическое тесто</span></div>
+        <h3 class="tk-name" id="bdName">Маргарита / Дьявола, 30 см</h3>
+        <table class="tk-t"><tbody id="tkRows"></tbody></table>
+        <p class="sr" id="bdCalc"></p>
+        <div class="tk-tot"><span class="p num" id="bdPrice">650 ₽</span><button class="btn btn-fire" type="button" id="bdAdd">В корзину <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="menu" aria-labelledby="m-h">
-  <div class="wrap">
-    <div class="sh"><h2 id="m-h">Меню</h2><p>Восемь пицц, которые печём каждый день. Любую можно взять половинкой.</p></div>
-    <div class="filters" role="group" aria-label="Фильтр меню" id="filters">
-      <button type="button" data-f="all" aria-pressed="true">Все</button>
-      <button type="button" data-f="meat" aria-pressed="false">С мясом</button>
-      <button type="button" data-f="veg" aria-pressed="false">Без мяса</button>
-      <button type="button" data-f="hot" aria-pressed="false">Острые</button>
-    </div>
-    <div class="menu" id="menuGrid" aria-live="polite"></div>
-    <div class="combo rv">
-      <figure><img src="https://images.unsplash.com/photo-1769521140317-5c6dcd1266e7?auto=format&fit=crop&w=900&h=640&q=72&crop=entropy" width="900" height="640" loading="lazy" alt="Три пиццы и напиток на столе"></figure>
-      <div class="txt">
-        <h3>Набор «Компания»</h3>
-        <p>Три пиццы по&nbsp;30&nbsp;см&nbsp;— Маргарита, Пепперони и&nbsp;Четыре сыра&nbsp;— и&nbsp;литр домашнего лимонада. На&nbsp;четверых-пятерых.</p>
-        <div class="row"><b>1&nbsp;990&nbsp;₽</b><s id="comboOld"></s><button class="btn" type="button" id="comboAdd">Добавить набор</button></div>
+<section class="sec menu wrap" id="menu" aria-labelledby="mnH">
+  <div class="mh">
+    <div class="mh-t">
+      <div class="mh-row"><h2 id="mnH" class="rv">Меню</h2><span class="cnt rv" id="mnCnt" aria-live="polite">8 пицц</span></div>
+      <p class="rv" style="--i:1">Восемь пицц, которые печём каждый день. Любую можно взять половинкой.</p>
+      <div class="filters rv" style="--i:2" id="filters" role="group" aria-label="Фильтр меню">
+        <button type="button" data-f="all" aria-pressed="true">Все</button>
+        <button type="button" data-f="meat" aria-pressed="false">С мясом</button>
+        <button type="button" data-f="veg" aria-pressed="false">Без мяса</button>
+        <button type="button" data-f="hot" aria-pressed="false">Острые</button>
       </div>
+    </div>
+    <div class="mini-disc rv-ph" style="--i:1">
+      <div class="half l ph" style="--z:1.05"><img src="img/sauce-600.webp" srcset="img/sauce-600.webp 600w, img/sauce-1000.webp 1000w" sizes="(max-width: 760px) 80vw, 34vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Томатный соус спиралью на тесте"></div>
+      <div class="half r ph" style="--z:1.05"><img src="img/pull-600.webp" srcset="img/pull-600.webp 600w, img/pull-1000.webp 1000w" sizes="(max-width: 760px) 80vw, 34vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Кусок пиццы тянет за собой расплавленный сыр"></div>
+    </div>
+  </div>
+  <ul class="mlist" id="menuGrid"></ul>
+</section>
+
+<section class="offers" id="offers" aria-label="Набор и самовывоз">
+  <div class="of of-a">
+    <div class="of-txt">
+      <h2 class="rv" id="cmbH">Набор «Компания»</h2>
+      <p class="rv" style="--i:1">Три пиццы по&nbsp;30&nbsp;см — Маргарита, Пепперони и&nbsp;Четыре сыра — и&nbsp;литр домашнего лимонада. На&nbsp;четверых-пятерых.</p>
+    </div>
+    <div class="ph rv-ph" style="--i:2"><img src="img/company-600.webp" srcset="img/company-600.webp 600w, img/company-1000.webp 1000w, img/company-1600.webp 1600w" sizes="(max-width: 760px) 42vw, 20vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Несколько пицц на столе для большой компании"></div>
+    <div class="of-foot rv" style="--i:3">
+      <div><span class="big num">1&nbsp;990&nbsp;₽</span><s class="old num" id="comboOld">2&nbsp;210&nbsp;₽</s></div>
+      <button class="btn btn-ink" type="button" id="comboAdd">Добавить набор</button>
+    </div>
+  </div>
+  <div class="of of-b">
+    <div>
+      <h2 class="rv">Самовывоз</h2>
+      <p class="rv" style="--i:1">Заберите заказ сами на&nbsp;Баумана,&nbsp;58 и&nbsp;получите скидку 10% на&nbsp;весь чек. Каждый день с&nbsp;11:00 до&nbsp;23:00.</p>
+    </div>
+    <div class="of-foot rv" style="--i:2">
+      <span class="big num">−10%</span>
+      <button class="btn btn-ink" type="button" id="pickupGo">Заберу сам</button>
     </div>
   </div>
 </section>
 
-<section class="sec" id="oven" aria-labelledby="o-h" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sh"><h2 id="o-h">Как пицца становится дровяной</h2><p>Никаких электрических конвейеров: каждую пиццу пиццайоло ставит в&nbsp;печь лопатой и&nbsp;поворачивает вручную.</p></div>
-    <div class="oven-grid">
-      <figure class="oven-photo rv"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&h=1000&q=72&crop=entropy" width="800" height="1000" loading="lazy" alt="Пицца на деревянной разделочной доске"></figure>
-      <ol class="ov-steps">
-        <li class="ov rv" style="--i:0"><span class="n" aria-hidden="true">1</span><h3>Тесто отдыхает двое суток</h3><p>Мука твёрдых сортов, вода, соль и&nbsp;немного дрожжей. Медленное брожение делает тесто лёгким.</p></li>
-        <li class="ov rv" style="--i:1"><span class="n" aria-hidden="true">2</span><h3>Растягиваем руками</h3><p>Без скалки, чтобы в&nbsp;бортике остался воздух. Отсюда пузыри и&nbsp;подпалины.</p></li>
-        <li class="ov hot rv" style="--i:2"><span class="n" aria-hidden="true">3</span><h3>90 секунд в&nbsp;печи</h3><p>Под&nbsp;400&nbsp;°C пицца пропекается быстро: сыр плавится, а&nbsp;соус не&nbsp;успевает пересохнуть.</p></li>
-        <li class="ov rv" style="--i:3"><span class="n" aria-hidden="true">4</span><h3>Термосумка и&nbsp;курьер</h3><p>Режем, закрываем коробку с&nbsp;отверстиями для&nbsp;пара&nbsp;— корочка не&nbsp;размокает по&nbsp;дороге.</p></li>
-      </ol>
-      <div class="strip">
-        <figure class="rv" style="--i:0"><img src="https://images.unsplash.com/photo-1769458313988-2cd932ab2777?auto=format&fit=crop&w=420&h=420&q=72&crop=entropy" width="420" height="420" loading="lazy" alt="Кусок пиццы крупным планом"></figure>
-        <figure class="rv" style="--i:1"><img src="https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&w=420&h=420&q=72&crop=entropy" width="420" height="420" loading="lazy" alt="Пицца с расплавленным сыром вблизи"></figure>
-        <figure class="rv" style="--i:2"><img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=420&h=420&q=72&crop=entropy" width="420" height="420" loading="lazy" alt="Пицца с колбасками"></figure>
-      </div>
+<section class="sec oven wrap" id="oven" aria-labelledby="ovH">
+  <div class="ov">
+    <div class="ov-t">
+      <h2 id="ovH" class="rv">Как пицца становится дровяной</h2>
+      <p class="rv" style="--i:1">Никаких электрических конвейеров: каждую пиццу пиццайоло ставит в&nbsp;печь лопатой и&nbsp;поворачивает вручную.</p>
+      <ul class="figs rv" style="--i:2">
+        <li><b class="num">400&nbsp;°C</b><span>жар в&nbsp;печи</span></li>
+        <li><b class="num">90&nbsp;с</b><span>на&nbsp;одну пиццу</span></li>
+        <li><b>48&nbsp;ч</b><span>отдыхает тесто</span></li>
+      </ul>
+    </div>
+    <div class="arch rv-ph" id="arch">
+      <img class="on" src="img/fire-1000.webp" srcset="img/fire-600.webp 600w, img/fire-1000.webp 1000w, img/fire-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 40vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Берёзовые и дубовые поленья горят в устье печи">
+      <img src="img/flame-1000.webp" srcset="img/flame-600.webp 600w, img/flame-1000.webp 1000w, img/flame-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 40vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Открытый огонь под куполом печи">
     </div>
   </div>
+  <ol class="steps">
+    <li class="st rv" style="--i:0"><div class="ph"><img src="img/dough-600.webp" srcset="img/dough-600.webp 600w, img/dough-1000.webp 1000w" sizes="(max-width: 760px) 46vw, 18vw" width="600" height="750" loading="lazy" decoding="async" alt="Шар теста в ладонях, присыпанных мукой"></div><div class="st-txt"><h3>Тесто отдыхает двое суток</h3><p>Мука твёрдых сортов, вода, соль и&nbsp;немного дрожжей. Медленное брожение делает тесто лёгким.</p></div></li>
+    <li class="st rv" style="--i:1"><div class="ph"><img src="img/stretch-600.webp" srcset="img/stretch-600.webp 600w, img/stretch-1000.webp 1000w" sizes="(max-width: 760px) 46vw, 25vw" width="600" height="750" loading="lazy" decoding="async" alt="Руки растягивают тесто на мраморном столе"></div><div class="st-txt"><h3>Растягиваем руками</h3><p>Без скалки, чтобы в&nbsp;бортике остался воздух. Отсюда пузыри и&nbsp;подпалины.</p></div></li>
+    <li class="st rv" style="--i:2"><div class="ph"><img src="img/peel-600.webp" srcset="img/peel-600.webp 600w, img/peel-1000.webp 1000w, img/peel-1600.webp 1600w" sizes="(max-width: 760px) 46vw, 25vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Пицца на лопате у огня в печи"></div><div class="st-txt"><h3>90 секунд в&nbsp;печи</h3><p>Под 400&nbsp;°C пицца пропекается быстро: сыр плавится, а&nbsp;соус не&nbsp;успевает пересохнуть.</p></div></li>
+    <li class="st rv" style="--i:3"><div class="ph"><img src="img/box-600.webp" srcset="img/box-600.webp 600w, img/box-1000.webp 1000w" sizes="(max-width: 760px) 46vw, 33vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Пицца в открытой картонной коробке"></div><div class="st-txt"><h3>Термосумка и&nbsp;курьер</h3><p>Режем, закрываем коробку с&nbsp;отверстиями для пара — корочка не&nbsp;размокает по&nbsp;дороге.</p></div></li>
+  </ol>
 </section>
 
-<section class="sec" id="delivery" aria-labelledby="d-h" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sh"><h2 id="d-h">Куда и&nbsp;как быстро</h2><p>Время&nbsp;— от&nbsp;оформления заказа до&nbsp;звонка в&nbsp;дверь. В&nbsp;пятницу вечером может быть на&nbsp;10–15&nbsp;минут дольше.</p></div>
-    <div class="zones">
-      <article class="zone rv" style="--i:0"><span class="dot" style="background:var(--fire)" aria-hidden="true"></span><h3>Центр</h3><p>Вахитовский район, Кремлёвская набережная, Старо-Татарская слобода.</p><dl><dt>Время</dt><dd>30–45 мин</dd><dt>Доставка</dt><dd>0&nbsp;₽ от&nbsp;900&nbsp;₽</dd></dl></article>
-      <article class="zone rv" style="--i:1"><span class="dot" style="background:var(--ember)" aria-hidden="true"></span><h3>Ближние районы</h3><p>Ново-Савиновский, Советский, Приволжский до&nbsp;проспекта Победы.</p><dl><dt>Время</dt><dd>45–60 мин</dd><dt>Доставка</dt><dd>0&nbsp;₽ от&nbsp;900&nbsp;₽</dd></dl></article>
-      <article class="zone rv" style="--i:2"><span class="dot" style="background:var(--flour-2)" aria-hidden="true"></span><h3>Дальние районы</h3><p>Авиастроительный, Кировский, Азино. Привозим в&nbsp;двух термосумках.</p><dl><dt>Время</dt><dd>60–80 мин</dd><dt>Доставка</dt><dd>0&nbsp;₽ от&nbsp;1&nbsp;500&nbsp;₽</dd></dl></article>
+<section class="sec deliv wrap" id="delivery" aria-labelledby="dvH">
+  <div class="coupon rv" id="coupon">
+    <i class="cut t" aria-hidden="true"></i><i class="cut b" aria-hidden="true"></i>
+    <svg class="perf" viewBox="0 0 6 600" preserveAspectRatio="none" aria-hidden="true"><line x1="3" y1="3" x2="3" y2="597" stroke="#ECEBE8" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 13" vector-effect="non-scaling-stroke"/></svg>
+    <div class="cp-l">
+      <h2 id="dvH">Куда и&nbsp;как быстро</h2>
+      <p>Время — от&nbsp;оформления заказа до&nbsp;звонка в&nbsp;дверь. В&nbsp;пятницу вечером может быть на&nbsp;10–15 минут дольше.</p>
+    </div>
+    <div class="cp-r">
+      <table class="zones">
+        <caption class="sr">Зоны доставки</caption>
+        <tbody>
+          <tr><th scope="row">Центр</th><td><b class="num">30–45 мин · бесплатно от&nbsp;900&nbsp;₽</b><span>Вахитовский район, Кремлёвская набережная, Старо-Татарская слобода.</span></td></tr>
+          <tr><th scope="row">Ближние районы</th><td><b class="num">45–60 мин · бесплатно от&nbsp;900&nbsp;₽</b><span>Ново-Савиновский, Советский, Приволжский до&nbsp;проспекта Победы.</span></td></tr>
+          <tr><th scope="row">Дальние районы</th><td><b class="num">60–80 мин · бесплатно от&nbsp;1&nbsp;500&nbsp;₽</b><span>Авиастроительный, Кировский, Азино. Привозим в&nbsp;двух термосумках.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="cont" id="contacts">
+    <div class="ph rv-ph"><img src="img/hall-600.webp" srcset="img/hall-600.webp 600w, img/hall-1000.webp 1000w, img/hall-1600.webp 1600w" sizes="(max-width: 760px) 56vw, 30vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Зал пиццерии с деревянными столами"></div>
+    <div class="cont-t">
+      <h2 class="rv" id="ctH">Пиццерия и&nbsp;самовывоз</h2>
+      <dl class="rv" style="--i:1">
+        <dt>Адрес</dt><dd>Казань, ул.&nbsp;Баумана,&nbsp;58</dd>
+        <dt>Часы</dt><dd class="num">Каждый день 11:00–23:00</dd>
+        <dt>Заказ</dt><dd><a href="tel:+78430000000" class="num">+7 (843) 000-00-00</a><small>по телефону</small></dd>
+        <dt>Почта</dt><dd><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></dd>
+      </dl>
+      <div class="rv" style="--i:2"><a class="btn btn-fire" href="#build">Собрать пиццу <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
 </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <p class="big">Дровяная</p>
-      <div class="col"><b>Пиццерия и&nbsp;самовывоз</b>Казань, ул.&nbsp;Баумана, 58<br>Каждый день 11:00–23:00</div>
-      <div class="col"><b>Заказ по&nbsp;телефону</b><a href="tel:+78430000000">+7 (843) 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></div>
+  <div class="mark" id="mark" aria-label="Дровяная" role="img">
+    <span style="--i:0" aria-hidden="true">Д</span><span style="--i:1" aria-hidden="true">Р</span><span style="--i:2" aria-hidden="true"><i></i><i></i></span><span style="--i:3" aria-hidden="true">В</span><span style="--i:4" aria-hidden="true">Я</span><span style="--i:5" aria-hidden="true">Н</span><span style="--i:6" aria-hidden="true">А</span><span style="--i:7" aria-hidden="true">Я</span>
+  </div>
+  <div class="f-grid">
+    <ul class="f-nav">
+      <li><a href="#build">Из половинок</a></li>
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#offers">Набор «Компания»</a></li>
+      <li><a href="#oven">Печь</a></li>
+      <li><a href="#delivery">Доставка</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <div class="f-ct">
+      <a href="tel:+78430000000" class="num">+7 (843) 000-00-00</a>
+      <span>Казань, ул. Баумана, 58 · каждый день 11:00–23:00</span>
     </div>
-    <div class="foot-bottom">
-      <p>Дизайн-концепт · сайт разработан <a href="https://ysddev.com">YSD DEV</a></p>
-      <p>Демо-проект студии YSD DEV. Компания, цены и&nbsp;реквизиты вымышлены.</p>
-    </div>
+  </div>
+  <div class="f-last">
+    <span>«Дровяная», пицца из&nbsp;дровяной печи</span>
+    <span>Концепт-проект · сайт разработан <a href="https://ysddev.com">YSD DEV</a></span>
   </div>
 </footer>
 
+<div class="mbar" id="mbar"><button class="btn btn-fire" type="button" id="mbarBtn"><span id="mbarLbl">Собрать пиццу</span></button></div>
 <div class="ov-bg" id="ovBg"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drH">
-  <div class="dr-head"><h2 id="drH">Корзина</h2><button class="x" type="button" id="drClose" aria-label="Закрыть корзину"><svg aria-hidden="true"><use href="#i-x"/></svg></button></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drH" inert>
+  <div class="dr-head"><h2 id="drH">Корзина</h2><button class="icb" type="button" id="drClose" aria-label="Закрыть"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
   <div class="dr-body" id="drBody"></div>
   <div class="dr-foot" id="drFoot"></div>
 </aside>
-<div class="toast" id="toast" role="status" aria-live="polite"><svg aria-hidden="true"><use href="#i-check"/></svg><span id="toastTxt"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><i class="dot" aria-hidden="true"></i><span id="toastTxt"></span></div>
 
 <script>
 (function(){
 'use strict';
-document.documentElement.classList.add('js');
+window.__pz=1;
 var NB=' ';
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function $(s,r){return (r||document).querySelector(s)}
 function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function rub(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,NB)+NB+'₽'}
+function pl(n,a,b,c){var m=n%10,h=n%100;return m===1&&h!==11?a:(m>=2&&m<=4&&(h<12||h>14)?b:c)}
 
 var SIZES=[25,30,35];
 var FV={
@@ -557,7 +775,7 @@ var FV={
   pep:{n:'Пепперони',d:'Томатный соус, моцарелла, острая салями пепперони',sauce:'red',cheese:'full',top:[['pep',13]],p:[520,660,810],tags:['meat']},
   four:{n:'Четыре сыра',d:'Сливочный соус, моцарелла, дорблю, чеддер, пармезан',sauce:'white',cheese:'four',top:[['parm',12]],p:[560,710,860],tags:['veg']},
   diab:{n:'Дьявола',d:'Томатный соус, моцарелла, пепперони, халапеньо, перец чили',sauce:'red',cheese:'full',top:[['pep',9],['jal',8],['chili',5]],p:[550,700,850],tags:['meat','hot']},
-  fungi:{n:'Грибная',d:'Сливочный соус, моцарелла, шампиньоны, вешенки, пармезан, тимьян',sauce:'white',cheese:'full',top:[['mush',10],['parm',6],['basil',3]],p:[530,670,820],tags:['veg']},
+  fungi:{n:'Грибная',d:'Сливочный соус, моцарелла, шампиньоны, вешенки, пармезан, тимьян',sauce:'white',cheese:'full',top:[['mush',10],['parm',6],['thyme',5]],p:[530,670,820],tags:['veg']},
   ham:{n:'Ветчина и грибы',d:'Томатный соус, моцарелла, ветчина, шампиньоны',sauce:'red',cheese:'full',top:[['ham',9],['mush',7]],p:[540,690,840],tags:['meat']},
   bbq:{n:'Барбекю',d:'Соус барбекю, моцарелла, курица, красный лук, кукуруза',sauce:'bbq',cheese:'full',top:[['chick',10],['onion',6],['corn',14],['drizzle',1]],p:[570,720,880],tags:['meat']},
   veg:{n:'Овощная',d:'Томатный соус, моцарелла, перец, маслины, томаты, красный лук',sauce:'red',cheese:'full',top:[['pepper',7],['olive',9],['tomato',4],['onion',4]],p:[510,650,790],tags:['veg']}
@@ -573,76 +791,91 @@ var EX_ORDER=['moz','jal','bacon','parm'];
 var CRUST={classic:'Классическое',thin:'Тонкое'};
 
 /* ---------- pizza drawing ---------- */
-var uid=0;
-function rnd(n){var x=Math.sin(n*12.9898+78.233)*43758.5453;return x-Math.floor(x)}
-function r1(n){return Math.round(n*10)/10}
-var TOP={
-  basil:function(x,y,a){return '<path d="M0 -9C6 -6 6 4 0 9C-6 4 -6 -6 0 -9Z" fill="#3F7D3A" transform="translate('+x+' '+y+') rotate('+a+')"/><path d="M0 -7V7" stroke="#2C5A28" stroke-width="1" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  tomato:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="10" fill="#D8402A"/><circle cx="'+x+'" cy="'+y+'" r="6" fill="#E9604A"/><circle cx="'+(x-2)+'" cy="'+(y-1)+'" r="1.2" fill="#F6D58A"/><circle cx="'+(x+2.5)+'" cy="'+(y+1.5)+'" r="1.2" fill="#F6D58A"/>'},
-  pep:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="10.5" fill="#A82A1A"/><circle cx="'+x+'" cy="'+y+'" r="8" fill="#C23A22"/><circle cx="'+(x-3)+'" cy="'+(y-2)+'" r="1.4" fill="#F0B8A0"/><circle cx="'+(x+3)+'" cy="'+(y+2.5)+'" r="1.2" fill="#F0B8A0"/>'},
-  jal:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="6" fill="none" stroke="#4E9A3F" stroke-width="3"/><circle cx="'+x+'" cy="'+y+'" r="1.6" fill="#E6E2B0"/>'},
-  chili:function(x,y,a){return '<path d="M-7 0Q0 -4 7 0" stroke="#E0301A" stroke-width="3.4" fill="none" stroke-linecap="round" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  mush:function(x,y,a){return '<g transform="translate('+x+' '+y+') rotate('+a+')"><path d="M-9 0A9 8 0 0 1 9 0Z" fill="#D9C3A5"/><rect x="-3" y="0" width="6" height="7" rx="2" fill="#E8DAC4"/><path d="M-9 0H9" stroke="#A88B6A" stroke-width="1.2"/></g>'},
-  ham:function(x,y,a){return '<rect x="-8" y="-6" width="16" height="12" rx="3" fill="#E58C93" transform="translate('+x+' '+y+') rotate('+a+')"/><rect x="-5" y="-3" width="9" height="2" rx="1" fill="#F4B9BD" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  chick:function(x,y,a){return '<path d="M-7 -3Q-2 -8 6 -4Q9 2 3 6Q-5 7 -7 -3Z" fill="#D9A15F" transform="translate('+x+' '+y+') rotate('+a+')"/><path d="M-3 -2 3 1" stroke="#9E6A33" stroke-width="1.4" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  onion:function(x,y,a){return '<path d="M-8 2A9 9 0 0 1 8 2" stroke="#B57AC0" stroke-width="2.6" fill="none" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  corn:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="2.8" fill="#F2C94C"/>'},
-  pepper:function(x,y,a){var c=a%2?'#E8B33A':'#3E8E3A';return '<path d="M-9 3Q0 -6 9 3" stroke="'+c+'" stroke-width="3.6" fill="none" stroke-linecap="round" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  olive:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="5" fill="none" stroke="#2A2522" stroke-width="3"/>'},
-  parm:function(x,y,a){return '<path d="M-4 -2 4 -3 1 4Z" fill="#FFF6DD" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  mozx:function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="9" fill="#FFF8E6"/>'},
-  bacon:function(x,y,a){return '<path d="M-11 0Q-6 -5 -1 0T9 0" stroke="#B5523F" stroke-width="5" fill="none" stroke-linecap="round" transform="translate('+x+' '+y+') rotate('+a+')"/><path d="M-11 0Q-6 -5 -1 0T9 0" stroke="#F1C2B0" stroke-width="1.4" fill="none" transform="translate('+x+' '+y+') rotate('+a+')"/>'},
-  drizzle:function(x,y,a,side){var s='';for(var i=0;i<3;i++){var yy=-60+i*55;s+='<path d="M'+(side==='R'?205:65)+' '+(200+yy)+'q20 -14 40 0t40 0t40 0" stroke="#5A2A14" stroke-width="3" fill="none" stroke-linecap="round"/>'}return s}
-};
-var SAUCE={red:'#C93A1E',white:'#F1E4CC',bbq:'#7A3416'};
-function cheeseLayer(kind,R,seed){
-  var s='<circle cx="200" cy="200" r="'+r1(R)+'" fill="'+(kind==='moz'?'#E9B98F':'#F4CF7E')+'" opacity="'+(kind==='moz'?'.0':'1')+'"/>';
-  if(kind==='moz'){for(var i=0;i<9;i++){var a=rnd(seed+i)*6.28,d=Math.sqrt(rnd(seed+i+20))*R*.78;s+='<circle cx="'+r1(200+Math.cos(a)*d)+'" cy="'+r1(200+Math.sin(a)*d)+'" r="'+r1(13+rnd(seed+i+40)*6)+'" fill="#FFF6E0"/>'}}
-  else{for(i=0;i<16;i++){a=rnd(seed+i)*6.28;d=Math.sqrt(rnd(seed+i+20))*R*.86;s+='<circle cx="'+r1(200+Math.cos(a)*d)+'" cy="'+r1(200+Math.sin(a)*d)+'" r="'+r1(8+rnd(seed+i+40)*8)+'" fill="'+(kind==='four'?['#FBE7B5','#F2A93B','#C9D7DD','#FFF6E0'][i%4]:'#FBE3A6')+'"/>'}
-    for(i=0;i<8;i++){a=rnd(seed+i+90)*6.28;d=Math.sqrt(rnd(seed+i+70))*R*.8;s+='<circle cx="'+r1(200+Math.cos(a)*d)+'" cy="'+r1(200+Math.sin(a)*d)+'" r="'+r1(2+rnd(i)*3)+'" fill="#D98A3A" opacity=".55"/>'}
-    if(kind==='four'){for(i=0;i<10;i++){a=rnd(seed+i+150)*6.28;d=Math.sqrt(rnd(seed+i+170))*R*.8;s+='<circle cx="'+r1(200+Math.cos(a)*d)+'" cy="'+r1(200+Math.sin(a)*d)+'" r="2.2" fill="#5E7F92"/>'}}}
-  return s;
+function rng(seed){return function(){seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function f1(n){return Math.round(n*10)/10}
+function blob(cx,cy,r,jit,n,rand){
+  var p=[],i;for(i=0;i<n;i++){var a=i/n*Math.PI*2,rr=r+(rand()*2-1)*jit;p.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}
+  var l=p[n-1],d='M'+f1((l[0]+p[0][0])/2)+' '+f1((l[1]+p[0][1])/2);
+  for(i=0;i<n;i++){var a1=p[i],b=p[(i+1)%n];d+='Q'+f1(a1[0])+' '+f1(a1[1])+' '+f1((a1[0]+b[0])/2)+' '+f1((a1[1]+b[1])/2)}
+  return d+'Z';
 }
-function toppings(list,side,R,seed,anim,base){
-  var s='',k=0;
-  list.forEach(function(t,ti){
+function tr(x,y,a,s){return ' transform="translate('+f1(x)+' '+f1(y)+') rotate('+Math.round(a)+')'+(s?' scale('+s+')':'')+'"'}
+var TOP={
+  basil:function(x,y,a){return '<g'+tr(x,y,a,1.25)+'><path d="M0-11C7-6 7 6 0 11C-7 6-7-6 0-11Z" fill="#2C6528"/><path d="M0-9V9" stroke="#4E9143" stroke-width="1.2"/></g>'},
+  tomato:function(x,y,a){return '<g'+tr(x,y,a)+'><circle r="10.5" fill="#B92A17"/><circle r="7.6" fill="#E0512F"/><circle cx="-3" cy="-2" r="1.4" fill="#F4C46A"/><circle cx="3" cy="2" r="1.4" fill="#F4C46A"/><circle cx="2" cy="-3.4" r="1.2" fill="#F4C46A"/></g>'},
+  pep:function(x,y,a){return '<g'+tr(x,y,a)+'><circle r="11.5" fill="#7E1D12"/><circle r="9.6" fill="#B3341D"/><circle cx="-3.6" cy="-2.4" r="1.7" fill="#E0836B"/><circle cx="3.4" cy="3" r="1.4" fill="#E0836B"/><circle cx="2.4" cy="-4.2" r="1.1" fill="#E0836B"/></g>'},
+  jal:function(x,y,a){return '<g'+tr(x,y,a)+'><circle r="6.2" fill="none" stroke="#3A8231" stroke-width="3.2"/><circle r="1.7" fill="#E1DDA4"/><circle cx="2.4" cy="1" r="1" fill="#E1DDA4"/></g>'},
+  chili:function(x,y,a){return '<path d="M-7 0Q0-4.5 7 0" stroke="#D3240F" stroke-width="3.4" fill="none" stroke-linecap="round"'+tr(x,y,a)+'/>'},
+  mush:function(x,y,a){return '<g'+tr(x,y,a)+'><path d="M-10 1A10 9 0 0 1 10 1Z" fill="#CDB291"/><path d="M-3.4 1h6.8v7.5a2 2 0 0 1-2 2h-2.8a2 2 0 0 1-2-2z" fill="#E7D8C1"/><path d="M-9 1H9" stroke="#9A7C5C" stroke-width="1.4"/></g>'},
+  ham:function(x,y,a){return '<g'+tr(x,y,a)+'><rect x="-9" y="-7" width="18" height="14" rx="4" fill="#DB7C86"/><rect x="-6" y="-4" width="10" height="7" rx="3" fill="#EC9EA6"/></g>'},
+  chick:function(x,y,a,r){return '<g'+tr(x,y,a)+'><rect x="-9" y="-6" width="18" height="12" rx="5" fill="#D8B687"/><path d="M-5-5l-2 10M1-6l-2 12M7-5l-2 10" stroke="#8A5228" stroke-width="1.6" stroke-linecap="round"/></g>'},
+  onion:function(x,y,a){return '<g'+tr(x,y,a)+'><path d="M-9 3A9.5 9.5 0 0 1 9 3" stroke="#7E2757" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M-6 3A6.5 6.5 0 0 1 6 3" stroke="#C88BB0" stroke-width="1.4" fill="none"/></g>'},
+  corn:function(x,y){return '<g'+tr(x,y,0)+'><circle r="3.6" fill="#EDB422"/><circle cx="-1" cy="-1" r="1.2" fill="#F8DA75"/></g>'},
+  pepper:function(x,y,a,r){var c=r<.5?'#3B8A36':'#E6AE17';return '<path d="M-9 4Q0-8 9 4" stroke="'+c+'" stroke-width="4" fill="none" stroke-linecap="round"'+tr(x,y,a)+'/>'},
+  olive:function(x,y){return '<g'+tr(x,y,0)+'><circle r="5.6" fill="none" stroke="#211A17" stroke-width="3.8"/></g>'},
+  parm:function(x,y,a){return '<path d="M-4.5-2 4.5-3.5 1.5 4.5Z" fill="#FFF3D2"'+tr(x,y,a)+'/>'},
+  mozx:function(x,y,a){return '<g'+tr(x,y,a)+'><circle r="10" fill="#EFE1C0"/><circle r="8.4" cx="-.6" cy="-.6" fill="#FFF8E8"/></g>'},
+  bacon:function(x,y,a){return '<g'+tr(x,y,a)+'><path d="M-12 0Q-6-6 0 0T12 0" stroke="#9E3F2E" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M-12 0Q-6-6 0 0T12 0" stroke="#EBB6A2" stroke-width="1.6" fill="none"/></g>'},
+  thyme:function(x,y,a){return '<g'+tr(x,y,a)+'><circle cx="-3" r="1.6" fill="#55753A"/><circle cx="0" cy="-1.4" r="1.6" fill="#55753A"/><circle cx="3" r="1.6" fill="#55753A"/></g>'},
+  drizzle:function(x,y,a,r,side){var s='',sx=side==='L'?62:204;for(var i=0;i<4;i++){var yy=120+i*52;s+='<path d="M'+sx+' '+yy+'q17-13 34 0t34 0t34 0t34 0" stroke="#4A1E0C" stroke-width="3.2" fill="none" stroke-linecap="round"/>'}return s}
+};
+var SAUCE={red:'#BE341B',white:'#EFE0C2',bbq:'#6B2C12'};
+var R0=172;
+function inHalf(side,rand,rmax,rmin){
+  var a=(side==='L'?Math.PI/2:-Math.PI/2)+rand()*Math.PI;var r=(rmin||0)+Math.sqrt(rand())*(rmax-(rmin||0));
+  return [200+Math.cos(a)*r,200+Math.sin(a)*r,a];
+}
+function halfSVG(k,side,crust,ex){
+  var f=FV[k],rand=rng(hash(k+side+crust)),rim=crust==='thin'?13:25,ri=R0-rim,s='',i,p;
+  s+='<circle cx="200" cy="200" r="'+R0+'" fill="#CF8E4E"/>';
+  s+='<circle cx="200" cy="200" r="'+(R0-rim*.38)+'" fill="#E2AC68"/>';
+  for(i=0;i<16;i++){p=inHalf(side,rand,R0-3,ri+2);s+='<ellipse cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" rx="'+f1(3+rand()*5)+'" ry="'+f1(2+rand()*2.4)+'" fill="#F1C98F" opacity=".7"/>'}
+  for(i=0;i<28;i++){p=inHalf(side,rand,R0-2,ri);var rx=1.4+rand()*5.2;s+='<ellipse cx="0" cy="0" rx="'+f1(rx)+'" ry="'+f1(rx*.6)+'" fill="#2E1A0F" opacity="'+f1(.35+rand()*.55)+'"'+tr(p[0],p[1],p[2]*57.3)+'/>'}
+  s+='<path d="'+blob(200,200,ri+1,2.6,44,rand)+'" fill="'+SAUCE[f.sauce]+'"/>';
+  s+='<g class="ch">';
+  if(f.cheese==='moz'){
+    for(i=0;i<6;i++){p=inHalf(side,rand,ri-28,14);var rr=17+rand()*10;s+='<path d="'+blob(p[0],p[1],rr+2,3,12,rand)+'" fill="#E7D3AB"/><path d="'+blob(p[0]-1,p[1]-1,rr,3,12,rand)+'" fill="#FBF2DD"/>'}
+  }else{
+    var base=f.cheese==='four'?'#F3D58C':'#EFC066';
+    s+='<path d="'+blob(200,200,ri-6,7,36,rand)+'" fill="'+base+'"/>';
+    for(i=0;i<9;i++){p=inHalf(side,rand,ri-18,6);s+='<path d="'+blob(p[0],p[1],7+rand()*9,3,9,rand)+'" fill="#F8DC96"/>'}
+    for(i=0;i<16;i++){p=inHalf(side,rand,ri-10,4);s+='<circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r="'+f1(1.6+rand()*3.6)+'" fill="#C07A2E" opacity=".55"/>'}
+    if(f.cheese==='four'){
+      for(i=0;i<5;i++){p=inHalf(side,rand,ri-22,10);s+='<path d="'+blob(p[0],p[1],10+rand()*6,3,10,rand)+'" fill="#FFF7E4"/>'}
+      for(i=0;i<5;i++){p=inHalf(side,rand,ri-22,10);s+='<path d="'+blob(p[0],p[1],7+rand()*5,3,9,rand)+'" fill="#E5962F"/>'}
+      for(i=0;i<12;i++){p=inHalf(side,rand,ri-14,8);s+='<circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r="'+f1(1.5+rand()*1.6)+'" fill="#5F768A"/>'}
+    }
+  }
+  s+='</g>';
+  var tops=f.top.slice();(ex||[]).forEach(function(e){tops=tops.concat(EX[e].top)});
+  var placed=[],n=0;
+  tops.forEach(function(t){
     var type=t[0],cnt=t[1];
-    if(type==='drizzle'){s+=TOP.drizzle(0,0,0,side);return}
-    for(var i=0;i<cnt;i++){
-      var u=rnd(seed+ti*31+i*7.3),v=rnd(seed+ti*17+i*3.1+100);
-      var ang=(side==='L'?Math.PI:0)+(u-.5)*Math.PI*.94;
-      var d=Math.sqrt(.06+v*.94)*R*.84;
-      var x=r1(200+Math.cos(ang)*d),y=r1(200+Math.sin(ang)*d);
-      if(side==='L'&&x>192)x=192-rnd(i)*8;if(side==='R'&&x<208)x=208+rnd(i)*8;
-      var a=Math.round(rnd(seed+i+ti*5)*360);
-      var g=TOP[type](x,y,a);
-      s+=anim?'<g class="tp-in" style="animation-delay:'+((base+k)*14)+'ms">'+g+'</g>':g;k++;
+    if(type==='drizzle'){s+='<g class="tp" style="--i:'+(n++)+'">'+TOP.drizzle(0,0,0,0,side)+'</g>';return}
+    for(var j=0;j<cnt;j++){
+      var q,tries=0;
+      do{q=inHalf(side,rand,ri-15,6);tries++}while(tries<24&&(Math.abs(q[0]-200)<9||placed.some(function(o){var dx=o[0]-q[0],dy=o[1]-q[1];return dx*dx+dy*dy<300})));
+      placed.push(q);
+      s+='<g class="tp" style="--i:'+(n++)+'">'+TOP[type](q[0],q[1],rand()*360,rand(),side)+'</g>';
     }
   });
   return s;
 }
-function pizzaSVG(o){
-  // o: {L,R,size(0-2),crust,exL:[],exR:[],anim,animSide}
-  var id='pz'+(++uid);var sc=[.84,.92,1][o.size];var R=170;var crustW=o.crust==='thin'?12:24;var inner=R-crustW;
-  var s='<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="'+id+'g" cx="50%" cy="50%" r="50%"><stop offset="'+(inner/R*100-4)+'%" stop-color="#E0A35A"/><stop offset="'+(inner/R*100+6)+'%" stop-color="#D88B3E"/><stop offset="100%" stop-color="#A45E25"/></radialGradient>'+
-    '<clipPath id="'+id+'l"><rect x="0" y="0" width="200" height="400"/></clipPath><clipPath id="'+id+'r"><rect x="200" y="0" width="200" height="400"/></clipPath></defs>';
-  s+='<g class="pz-scale" style="transform:scale('+sc+')">';
-  s+='<circle cx="200" cy="206" r="'+(R+4)+'" fill="rgba(0,0,0,.35)"/>';
-  s+='<circle cx="200" cy="200" r="'+R+'" fill="url(#'+id+'g)"/>';
-  for(var i=0;i<22;i++){var a=i*6.28/22+rnd(i)*.2,d=R-crustW/2+(rnd(i+9)-.5)*crustW*.5;s+='<ellipse cx="'+r1(200+Math.cos(a)*d)+'" cy="'+r1(200+Math.sin(a)*d)+'" rx="'+r1(2+rnd(i+3)*4)+'" ry="'+r1(1.5+rnd(i+5)*2.5)+'" fill="#3B2A20" opacity="'+r1(.35+rnd(i+7)*.4)+'" transform="rotate('+Math.round(a*57.3)+' '+r1(200+Math.cos(a)*d)+' '+r1(200+Math.sin(a)*d)+')"/>'}
-  [['L',o.L,o.exL||[]],['R',o.R,o.exR||[]]].forEach(function(h,hi){
-    var f=FV[h[1]];var seed=hi*50+FV_ORDER.indexOf(h[1])*7;
-    var anim=o.anim&&(!o.animSide||o.animSide===h[0]);
-    s+='<g clip-path="url(#'+id+(h[0]==='L'?'l':'r')+')">';
-    s+='<circle cx="200" cy="200" r="'+(inner+2)+'" fill="'+SAUCE[f.sauce]+'"/>';
-    s+=cheeseLayer(f.cheese,inner-8,seed);
-    var tops=f.top.slice();h[2].forEach(function(e){tops=tops.concat(EX[e].top)});
-    s+=toppings(tops,h[0],inner,seed+3,anim,0);
-    s+='</g>';
-  });
-  if(o.L!==o.R||(o.exL||[]).join()!==(o.exR||[]).join())s+='<path d="M200 '+(200-R+2)+'V'+(200+R-2)+'" stroke="#2A1A10" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round" opacity=".55"/>';
-  s+='</g></svg>';
-  return s;
+var uid=0;
+function pizzaMini(L,R,crust,exL,exR){
+  var id='m'+(uid++);crust=crust||'classic';
+  return '<svg viewBox="22 22 356 356" aria-hidden="true" focusable="false"><defs><clipPath id="'+id+'l"><rect x="0" y="0" width="200" height="400"/></clipPath><clipPath id="'+id+'r"><rect x="200" y="0" width="200" height="400"/></clipPath></defs><g clip-path="url(#'+id+'l)"'+(L!==R?' transform="translate(-3 0)"':'')+'>'+halfSVG(L,'L',crust,exL)+'</g><g clip-path="url(#'+id+'r)"'+(L!==R?' transform="translate(3 0)"':'')+'>'+halfSVG(R,'R',crust,exR)+'</g></svg>';
+}
+function peelSVG(){
+  var rand=rng(77),s='';
+  s+='<g transform="rotate(42 200 200)"><rect x="185" y="372" width="30" height="96" rx="12" fill="#8E5F33"/><rect x="190" y="380" width="8" height="80" rx="4" fill="#A9784A"/></g>';
+  s+='<circle cx="200" cy="200" r="196" fill="#A87643"/><circle cx="200" cy="200" r="190" fill="#C08E58"/>';
+  s+='<g clip-path="url(#peelClip)" stroke="#A67440" stroke-width="2.2" fill="none" opacity=".55">';
+  for(var i=-5;i<=5;i++){var y=200+i*34;s+='<path d="M0 '+y+'C110 '+(y-10+rand()*20)+' 290 '+(y-12+rand()*24)+' 400 '+(y+rand()*8)+'"/>'}
+  s+='</g><g fill="#FFFFFF">';
+  for(i=0;i<70;i++){var a=rand()*Math.PI*2,r=150+rand()*40;s+='<circle cx="'+f1(200+Math.cos(a)*r)+'" cy="'+f1(200+Math.sin(a)*r)+'" r="'+f1(.6+rand()*1.6)+'" opacity="'+f1(.25+rand()*.45)+'"/>'}
+  return s+'</g>';
 }
 
 /* ---------- builder ---------- */
@@ -650,94 +883,152 @@ var bd={side:'L',L:'marg',R:'diab',exL:[],exR:[],size:1,crust:'classic'};
 function halfPrice(){var p=(FV[bd.L].p[bd.size]+FV[bd.R].p[bd.size])/2;return Math.ceil(p/10)*10}
 function exPrice(arr){return arr.reduce(function(a,e){return a+EX[e].p[bd.size]},0)}
 function bdTotal(){return halfPrice()+exPrice(bd.exL)+exPrice(bd.exR)}
+function exTxt(a){return a.length?' + '+a.map(function(e){return EX[e].n.toLowerCase()}).join(', '):''}
+function bdName(){return bd.L===bd.R?FV[bd.L].n:FV[bd.L].n+' / '+FV[bd.R].n}
+
 function renderFlav(){
   var cur=bd[bd.side];
-  $('#flav').innerHTML=FV_ORDER.map(function(k){var f=FV[k];return '<button type="button" class="fv" data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+pizzaSVG({L:k,R:k,size:2,crust:'classic'})+'<span><b>'+f.n+'</b><span>'+esc(f.d.split(', ').slice(1,3).join(', '))+'</span></span><em>'+rub(f.p[bd.size])+'</em></button>'}).join('');
-  $$('#flav .fv').forEach(function(b){b.addEventListener('click',function(){bd[bd.side]=b.dataset.k;$$('#flav .fv').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});draw(bd.side)})});
+  if(!$('#flav').children.length){
+    $('#flav').innerHTML=FV_ORDER.map(function(k){var f=FV[k];return '<button type="button" class="fv" data-k="'+k+'" aria-pressed="false"><span class="ring">'+pizzaMini(k,k)+'</span><b>'+f.n+'</b><em class="num"></em></button>'}).join('');
+    $$('#flav .fv').forEach(function(b){b.addEventListener('click',function(){
+      if(bd[bd.side]===b.dataset.k)return;
+      bd[bd.side]=b.dataset.k;
+      $$('#flav .fv').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+      draw(bd.side,true);
+    })});
+  }
+  $$('#flav .fv').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===cur));$('em',b).textContent=rub(FV[b.dataset.k].p[bd.size])});
 }
 function renderExtras(){
   var arr=bd['ex'+bd.side];
-  $('#extras').innerHTML=EX_ORDER.map(function(k){return '<button type="button" class="ex" data-k="'+k+'" aria-pressed="'+(arr.indexOf(k)>-1)+'">'+EX[k].n+' <em>+'+EX[k].p[bd.size]+NB+'₽</em></button>'}).join('');
-  $$('#extras .ex').forEach(function(b){b.addEventListener('click',function(){var a=bd['ex'+bd.side];var i=a.indexOf(b.dataset.k);if(i>-1)a.splice(i,1);else a.push(b.dataset.k);b.setAttribute('aria-pressed',String(i<0));draw(bd.side)})});
+  $('#extras').innerHTML=EX_ORDER.map(function(k){return '<button type="button" class="tg" data-k="'+k+'" aria-pressed="'+(arr.indexOf(k)>-1)+'">'+EX[k].n+' <em class="num">+'+EX[k].p[bd.size]+NB+'₽</em></button>'}).join('');
+  $$('#extras .tg').forEach(function(b){b.addEventListener('click',function(){
+    var a=bd['ex'+bd.side],i=a.indexOf(b.dataset.k);
+    if(i>-1)a.splice(i,1);else a.push(b.dataset.k);
+    b.setAttribute('aria-pressed',String(i<0));draw(bd.side,true);
+  })});
 }
 function renderSeg(){
   $('#sizeSeg').innerHTML=SIZES.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===bd.size)+'">'+s+NB+'см</button>'}).join('');
   $('#crustSeg').innerHTML=Object.keys(CRUST).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===bd.crust)+'">'+CRUST[k]+'</button>'}).join('');
-  $$('#sizeSeg button').forEach(function(b){b.addEventListener('click',function(){bd.size=+b.dataset.i;renderSeg();renderFlav();renderExtras();draw(null,true)})});
-  $$('#crustSeg button').forEach(function(b){b.addEventListener('click',function(){bd.crust=b.dataset.k;renderSeg();draw(null,false)})});
+  $$('#sizeSeg button').forEach(function(b){b.addEventListener('click',function(){bd.size=+b.dataset.i;renderSeg();renderFlav();renderExtras();draw(null,false)})});
+  $$('#crustSeg button').forEach(function(b){b.addEventListener('click',function(){bd.crust=b.dataset.k;renderSeg();draw('LR',false)})});
 }
 function setSide(s){
   bd.side=s;
   $$('.half-sw button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.side===s))});
-  $('#lblL').classList.toggle('on',s==='L');$('#lblR').classList.toggle('on',s==='R');
+  $('#pzArc').style.transform='rotate('+(s==='L'?0:180)+'deg)';
   $('#flavH').textContent='Вкус для '+(s==='L'?'левой':'правой')+' половины';
   renderFlav();renderExtras();
 }
-function exTxt(a){return a.length?' + '+a.map(function(e){return EX[e].n.toLowerCase()}).join(', '):''}
-function bdName(){return bd.L===bd.R?FV[bd.L].n:FV[bd.L].n+' / '+FV[bd.R].n}
+var lastRows={},priceNow=0,priceRaf=0;
+function countTo(el,to){
+  cancelAnimationFrame(priceRaf);
+  if(reduce||!priceNow){priceNow=to;el.textContent=rub(to);return}
+  var from=priceNow,t0=performance.now(),dur=420;priceNow=to;
+  (function step(t){var k=Math.min(1,(t-t0)/dur);k=1-Math.pow(1-k,3);el.textContent=rub(from+(to-from)*k);if(k<1)priceRaf=requestAnimationFrame(step)})(t0);
+}
+function renderTicket(){
+  var rows=[],sz=bd.size;
+  rows.push(['L|'+bd.L,FV[bd.L].n+', левая половина',rub(FV[bd.L].p[sz])]);
+  bd.exL.forEach(function(e){rows.push(['xL|'+e,'+ '+EX[e].n.toLowerCase(),'+'+rub(EX[e].p[sz]),'sub'])});
+  rows.push(['R|'+bd.R,FV[bd.R].n+', правая половина',rub(FV[bd.R].p[sz])]);
+  bd.exR.forEach(function(e){rows.push(['xR|'+e,'+ '+EX[e].n.toLowerCase(),'+'+rub(EX[e].p[sz]),'sub'])});
+  rows.push(['avg|'+bd.L+bd.R+sz,'Среднее: ('+FV[bd.L].p[sz]+' + '+FV[bd.R].p[sz]+') ÷ 2',rub(halfPrice()),'sum']);
+  var ex=exPrice(bd.exL)+exPrice(bd.exR);
+  if(ex)rows.push(['ex|'+ex,'Добавки','+'+rub(ex)]);
+  var next={};
+  $('#tkRows').innerHTML=rows.map(function(r){next[r[0]]=1;var cls=(r[3]||'')+(lastRows[r[0]]||!Object.keys(lastRows).length?'':' new');return '<tr class="'+cls.trim()+'"><td>'+esc(r[1])+'</td><td class="num">'+r[2]+'</td></tr>'}).join('');
+  lastRows=next;
+}
 function draw(side,anim){
-  $('#pzSvg').innerHTML=pizzaSVG({L:bd.L,R:bd.R,size:bd.size,crust:bd.crust,exL:bd.exL,exR:bd.exR,anim:!reduce&&(anim!==false),animSide:side});
-  $('#lblL').textContent=FV[bd.L].n;$('#lblR').textContent=FV[bd.R].n;
+  var a=anim&&!reduce;
+  if(side==='L'||side==='LR'||side===null||side===undefined){$('#hL').innerHTML=halfSVG(bd.L,'L',bd.crust,bd.exL);$('#hL').setAttribute('class',a&&side==='L'?'anim':'')}
+  if(side==='R'||side==='LR'||side===null||side===undefined){$('#hR').innerHTML=halfSVG(bd.R,'R',bd.crust,bd.exR);$('#hR').setAttribute('class',a&&side==='R'?'anim':'')}
+  $('#pzBody').style.transform='scale('+[.8,.9,1][bd.size]+')';
   $('#swL').textContent=FV[bd.L].n;$('#swR').textContent=FV[bd.R].n;
   $('#pzSize').textContent='Ø '+SIZES[bd.size]+' см · '+CRUST[bd.crust].toLowerCase()+' тесто';
   $('#bdName').textContent=bdName()+', '+SIZES[bd.size]+NB+'см';
-  var hp=halfPrice();var ex=exPrice(bd.exL)+exPrice(bd.exR);
-  $('#bdCalc').textContent='('+FV[bd.L].p[bd.size]+' + '+FV[bd.R].p[bd.size]+') ÷ 2 = '+hp+NB+'₽'+(ex?' · добавки +'+ex+NB+'₽':'');
-  $('#bdPrice').textContent=rub(bdTotal());
+  var hp=halfPrice(),ex=exPrice(bd.exL)+exPrice(bd.exR);
+  $('#bdCalc').textContent='('+FV[bd.L].p[bd.size]+' + '+FV[bd.R].p[bd.size]+') ÷ 2 = '+hp+NB+'₽'+(ex?' · добавки +'+ex+NB+'₽':'')+'. Итого '+rub(bdTotal());
+  countTo($('#bdPrice'),bdTotal());
+  renderTicket();
   $('#pzBox').setAttribute('aria-label','Пицца: слева '+FV[bd.L].n+exTxt(bd.exL)+', справа '+FV[bd.R].n+exTxt(bd.exR));
 }
-$$('.half-sw button, .pz-box .hit').forEach(function(b){b.addEventListener('click',function(){setSide(b.dataset.side)})});
+$('#peel').innerHTML=peelSVG();
+$$('.half-sw button, .stage .hit').forEach(function(b){b.addEventListener('click',function(){setSide(b.dataset.side)})});
 $('#bdAdd').addEventListener('click',function(){
-  addItem({key:'hh|'+bd.L+'|'+bd.R+'|'+bd.exL.slice().sort()+'|'+bd.exR.slice().sort()+'|'+bd.size+'|'+bd.crust,title:bdName(),desc:SIZES[bd.size]+' см, '+CRUST[bd.crust].toLowerCase()+' тесто'+(bd.exL.length||bd.exR.length?'; добавки: '+bd.exL.concat(bd.exR).map(function(e){return EX[e].n.toLowerCase()}).join(', '):''),price:bdTotal(),pz:{L:bd.L,R:bd.R,size:2,crust:bd.crust,exL:bd.exL.slice(),exR:bd.exR.slice()}});
+  addItem({key:'hh|'+bd.L+'|'+bd.R+'|'+bd.exL.slice().sort()+'|'+bd.exR.slice().sort()+'|'+bd.size+'|'+bd.crust,title:bdName(),desc:SIZES[bd.size]+' см, '+CRUST[bd.crust].toLowerCase()+' тесто'+(bd.exL.length||bd.exR.length?'; добавки: '+bd.exL.concat(bd.exR).map(function(e){return EX[e].n.toLowerCase()}).join(', '):''),price:bdTotal(),pz:{L:bd.L,R:bd.R,crust:bd.crust,exL:bd.exL.slice(),exR:bd.exR.slice()}},$('#pzSvg'));
 });
 renderSeg();setSide('L');draw(null,false);
 
 /* ---------- menu ---------- */
 var menuSize={};
 function renderMenu(){
-  $('#menuGrid').innerHTML=FV_ORDER.map(function(k,ix){var f=FV[k];var si=menuSize[k]==null?1:menuSize[k];
-    return '<article class="card rv" style="--i:'+(ix%4)+'" data-k="'+k+'" data-tags="'+f.tags.join(' ')+'"><div class="pic">'+pizzaSVG({L:k,R:k,size:2,crust:'classic'})+'<div class="tags">'+(f.tags.indexOf('veg')>-1?'<i class="veg">без мяса</i>':'')+(f.tags.indexOf('hot')>-1?'<i>острая</i>':'')+'</div></div>'+
-    '<h3>'+f.n+'</h3><p>'+esc(f.d)+'</p>'+
-    '<div class="sizes" role="group" aria-label="Размер, '+f.n+'">'+SIZES.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===si)+'">'+s+NB+'см</button>'}).join('')+'</div>'+
-    '<div class="buy"><b>'+rub(f.p[si])+'</b><button class="btn btn-fire" type="button" data-add>В&nbsp;корзину</button></div>'+
-    '<button class="half-link" type="button" data-half>Взять половинкой</button></article>'}).join('');
-  $$('#menuGrid .card').forEach(function(c){var k=c.dataset.k;
-    $$('.sizes button',c).forEach(function(b){b.addEventListener('click',function(){menuSize[k]=+b.dataset.i;$$('.sizes button',c).forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});$('.buy b',c).textContent=rub(FV[k].p[+b.dataset.i])})});
-    $('[data-add]',c).addEventListener('click',function(){var si=menuSize[k]==null?1:menuSize[k];addItem({key:'w|'+k+'|'+si,title:FV[k].n,desc:SIZES[si]+' см, классическое тесто',price:FV[k].p[si],pz:{L:k,R:k,size:2,crust:'classic'}})});
-    $('[data-half]',c).addEventListener('click',function(){bd[bd.side]=k;setSide(bd.side);draw(bd.side);$('#build').scrollIntoView({behavior:reduce?'auto':'smooth'});toast('«'+FV[k].n+'» — на '+(bd.side==='L'?'левой':'правой')+' половине')});
+  $('#menuGrid').innerHTML=FV_ORDER.map(function(k,ix){var f=FV[k],si=menuSize[k]==null?1:menuSize[k];
+    return '<li class="it rv" style="--i:'+(ix%2)+'" data-k="'+k+'" data-tags="'+f.tags.join(' ')+'"><div class="pic">'+pizzaMini(k,k)+'</div><div>'+
+    '<div class="it-h"><h3>'+f.n+'</h3><span class="pr num">'+rub(f.p[si])+'</span></div><p>'+esc(f.d)+'</p>'+
+    ((f.tags.indexOf('veg')>-1||f.tags.indexOf('hot')>-1)?'<div class="tags">'+(f.tags.indexOf('veg')>-1?'без мяса':'')+(f.tags.indexOf('hot')>-1?'острая':'')+'</div>':'')+
+    '<div class="it-b"><div class="sz" role="group" aria-label="Размер, '+f.n+'">'+SIZES.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===si)+'">'+s+NB+'см</button>'}).join('')+'</div>'+
+    '<button class="btn btn-fire" type="button" data-add>В&nbsp;корзину</button><button class="lnk" type="button" data-half>Взять половинкой</button></div></div></li>'}).join('');
+  $$('#menuGrid .it').forEach(function(c){var k=c.dataset.k;
+    $$('.sz button',c).forEach(function(b){b.addEventListener('click',function(){menuSize[k]=+b.dataset.i;$$('.sz button',c).forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});$('.pr',c).textContent=rub(FV[k].p[+b.dataset.i])})});
+    $('[data-add]',c).addEventListener('click',function(){var si=menuSize[k]==null?1:menuSize[k];addItem({key:'w|'+k+'|'+si,title:FV[k].n,desc:SIZES[si]+' см, классическое тесто',price:FV[k].p[si],pz:{L:k,R:k,crust:'classic'}},$('.pic svg',c))});
+    $('[data-half]',c).addEventListener('click',function(){bd[bd.side]=k;setSide(bd.side);draw(bd.side,true);$('#build').scrollIntoView({behavior:reduce?'auto':'smooth'});toast('«'+FV[k].n+'» — на '+(bd.side==='L'?'левой':'правой')+' половине')});
   });
 }
 renderMenu();
 $$('#filters button').forEach(function(b){b.addEventListener('click',function(){
-  var f=b.dataset.f;$$('#filters button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
-  $$('#menuGrid .card').forEach(function(c){c.hidden=!(f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1)});
+  var f=b.dataset.f,n=0;$$('#filters button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+  $$('#menuGrid .it').forEach(function(c){var show=f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1;c.hidden=!show;if(show){n++;c.classList.add('in')}});
+  $('#mnCnt').textContent=n+' '+pl(n,'пицца','пиццы','пицц');
 })});
 var comboFull=FV.marg.p[1]+FV.pep.p[1]+FV.four.p[1]+250;
 $('#comboOld').textContent=rub(comboFull);
-$('#comboAdd').addEventListener('click',function(){addItem({key:'combo',title:'Набор «Компания»',desc:'Маргарита, Пепперони, Четыре сыра по 30 см + лимонад 1 л',price:1990,pz:{L:'marg',R:'pep',size:2,crust:'classic'}})});
+$('#comboAdd').addEventListener('click',function(){addItem({key:'combo',title:'Набор «Компания»',desc:'Маргарита, Пепперони, Четыре сыра по 30 см + лимонад 1 л',price:1990,pz:{L:'marg',R:'pep',crust:'classic'}},$('#comboAdd'))});
 
 /* ---------- cart ---------- */
-var cart=[];var order=null;var timer=null;var lastFocus=null;
-var way='courier';
+var cart=[],order=null,timer=null,lastFocus=null,way='courier';
 function count(){return cart.reduce(function(a,i){return a+i.qty},0)}
 function subtotal(){return cart.reduce(function(a,i){return a+i.qty*i.price},0)}
 function delivery(){if(way==='pickup')return 0;return subtotal()>=900?0:149}
-function toast(t){var el=$('#toast');$('#toastTxt').textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show')},2400)}
-function addItem(it){
+function total(){var s=subtotal();return way==='pickup'?Math.round(s*.9):s+delivery()}
+function toast(t){var el=$('#toast');$('#toastTxt').textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show')},2600)}
+function fly(src,pz){
+  if(reduce||!src||!src.getBoundingClientRect)return;
+  var a=src.getBoundingClientRect();var tgt=window.innerWidth<=760&&$('#mbar').classList.contains('show')?$('#mbarBtn'):$('#cartBtn');var b=tgt.getBoundingClientRect();
+  if(!a.width||a.bottom<0||a.top>window.innerHeight)return;
+  var sz=Math.min(a.width,a.height,220);
+  var el=document.createElement('div');el.className='fly';el.setAttribute('aria-hidden','true');
+  el.innerHTML=pizzaMini(pz.L,pz.R,pz.crust,pz.exL,pz.exR);
+  el.style.cssText='left:'+(a.left+a.width/2-sz/2)+'px;top:'+(a.top+a.height/2-sz/2)+'px;width:'+sz+'px;height:'+sz+'px';
+  document.body.appendChild(el);
+  var dx=b.left+b.width/2-(a.left+a.width/2),dy=b.top+b.height/2-(a.top+a.height/2);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.transform='translate('+dx+'px,'+dy+'px) scale(.14) rotate(200deg)';el.style.opacity='.4'})});
+  setTimeout(function(){el.remove()},800);
+}
+function addItem(it,src){
   if(order&&order.step>=4){order=null}
   var ex=cart.filter(function(i){return i.key===it.key})[0];
   if(ex)ex.qty++;else{it.qty=1;cart.push(it)}
-  updBtn(true);toast(it.title+' — в корзине');if(drawerOpen())renderCart();
+  fly(src,it.pz);
+  setTimeout(function(){updBtn(true)},reduce?0:560);
+  toast(it.title+' — в корзине');if(drawerOpen())renderCart();
 }
 function updBtn(b){
   var btn=$('#cartBtn');$('#cartCnt').textContent=count();
-  if(order&&order.step<4){btn.classList.add('track');$('#cartLbl').textContent=STEPS[order.step].s}else{btn.classList.remove('track');$('#cartLbl').textContent=count()?rub(subtotal()):'Корзина'}
+  var lbl,ml;
+  if(order&&order.step<4){btn.classList.add('track');lbl=STEPS[order.step].s;ml='Заказ №'+order.no+' · '+STEPS[order.step].s.toLowerCase()}
+  else{btn.classList.remove('track');lbl=count()?rub(subtotal()):'Корзина';ml=count()?'Корзина · '+rub(subtotal()):'Собрать пиццу'}
+  $('#cartLbl').textContent=lbl;$('#mbarLbl').textContent=ml;
   if(b&&!reduce){btn.classList.remove('bump');void btn.offsetWidth;btn.classList.add('bump')}
 }
 function drawerOpen(){return $('#drawer').classList.contains('open')}
-function openDrawer(){lastFocus=document.activeElement;renderCart();$('#drawer').classList.add('open');$('#ovBg').classList.add('open');document.body.classList.add('lock');$('#cartBtn').setAttribute('aria-expanded','true');setTimeout(function(){$('#drClose').focus()},reduce?0:80)}
-function closeDrawer(){$('#drawer').classList.remove('open');$('#ovBg').classList.remove('open');document.body.classList.remove('lock');$('#cartBtn').setAttribute('aria-expanded','false');if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+function openDrawer(){lastFocus=document.activeElement;renderCart();var d=$('#drawer');d.removeAttribute('inert');d.classList.add('open');$('#ovBg').classList.add('open');document.body.classList.add('lock');$('#cartBtn').setAttribute('aria-expanded','true');$('#mbar').classList.remove('show');setTimeout(function(){$('#drClose').focus()},reduce?0:80)}
+function closeDrawer(){var d=$('#drawer');d.classList.remove('open');d.setAttribute('inert','');$('#ovBg').classList.remove('open');document.body.classList.remove('lock');$('#cartBtn').setAttribute('aria-expanded','false');onScroll();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 $('#cartBtn').addEventListener('click',openDrawer);$('#drClose').addEventListener('click',closeDrawer);$('#ovBg').addEventListener('click',closeDrawer);
+$('#mbarBtn').addEventListener('click',function(){if(count()||order){openDrawer()}else{$('#build').scrollIntoView({behavior:reduce?'auto':'smooth'})}});
+$('#pickupGo').addEventListener('click',function(){way='pickup';openDrawer();if(!cart.length&&!order)toast('Самовывоз выбран. Соберите пиццу')});
 document.addEventListener('keydown',function(e){
   if(!drawerOpen())return;
   if(e.key==='Escape'){closeDrawer();return}
@@ -746,23 +1037,25 @@ document.addEventListener('keydown',function(e){
 });
 function renderCart(){
   var body=$('#drBody'),foot=$('#drFoot');
-  if(order){$('#drH').textContent='Ваш заказ';renderTrack();foot.innerHTML='<button class="btn btn-ash" type="button" id="toMenu">Вернуться в меню</button>';$('#toMenu').addEventListener('click',function(){closeDrawer();$('#menu').scrollIntoView({behavior:reduce?'auto':'smooth'})});return}
+  if(order){$('#drH').textContent='Ваш заказ';renderTrack();foot.innerHTML='<button class="btn btn-ink" type="button" id="toMenu">Вернуться в меню</button>';$('#toMenu').addEventListener('click',function(){closeDrawer();$('#menu').scrollIntoView({behavior:reduce?'auto':'smooth'})});return}
   $('#drH').textContent='Корзина';
   if(!cart.length){
-    body.innerHTML='<div class="dr-empty">'+pizzaSVG({L:'marg',R:'pep',size:1,crust:'classic'})+'<b>Пока пусто</b>Соберите пиццу из половинок или выберите в меню.</div>';
+    body.innerHTML='<div class="dr-empty">'+pizzaMini('marg','pep')+'<b>Пока пусто</b>Соберите пиццу из половинок или выберите в меню.</div>';
     foot.innerHTML='<a class="btn btn-fire" href="#build" id="goBuild">Собрать пиццу</a>';$('#goBuild').addEventListener('click',closeDrawer);return;
   }
-  body.innerHTML=cart.map(function(i,ix){return '<div class="ci">'+pizzaSVG(i.pz)+'<div><b>'+esc(i.title)+'</b><span>'+esc(i.desc)+'</span></div><div class="r"><em>'+rub(i.price*i.qty)+'</em><div class="qty"><button type="button" data-q="-1" data-ix="'+ix+'" aria-label="Убрать одну: '+esc(i.title)+'"><svg aria-hidden="true"><use href="#i-minus"/></svg></button><span aria-live="polite">'+i.qty+'</span><button type="button" data-q="1" data-ix="'+ix+'" aria-label="Добавить ещё: '+esc(i.title)+'"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div></div></div>'}).join('');
-  $$('[data-q]',body).forEach(function(b){b.addEventListener('click',function(){var it=cart[+b.dataset.ix];it.qty+=+b.dataset.q;if(it.qty<=0)cart.splice(+b.dataset.ix,1);updBtn();renderCart();var nb=$('#drBody [data-q]');if(!cart.length)$('#drClose').focus();})});
+  body.innerHTML=cart.map(function(i,ix){return '<div class="ci">'+pizzaMini(i.pz.L,i.pz.R,i.pz.crust,i.pz.exL,i.pz.exR)+'<div><b>'+esc(i.title)+'</b><span>'+esc(i.desc)+'</span></div><div class="r"><em class="num">'+rub(i.price*i.qty)+'</em><div class="qty"><button type="button" data-q="-1" data-ix="'+ix+'" aria-label="Убрать одну: '+esc(i.title)+'"><svg aria-hidden="true"><use href="#i-minus"/></svg></button><span aria-live="polite">'+i.qty+'</span><button type="button" data-q="1" data-ix="'+ix+'" aria-label="Добавить ещё: '+esc(i.title)+'"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div></div></div>'}).join('');
+  $$('[data-q]',body).forEach(function(b){b.addEventListener('click',function(){var it=cart[+b.dataset.ix];it.qty+=+b.dataset.q;if(it.qty<=0)cart.splice(+b.dataset.ix,1);updBtn();renderCart();var q=$('#drBody [data-q="'+b.dataset.q+'"][data-ix="'+b.dataset.ix+'"]');if(q)q.focus();else $('#drClose').focus()})});
   var st=subtotal(),dl=delivery(),left=900-st;
+  var addr=$('#oAddr'),phv=$('#oPhone');var keepA=addr?addr.value:'',keepP=phv?phv.value:'';
   foot.innerHTML=
     (way==='courier'&&left>0?'<p class="hint-free">До бесплатной доставки — '+rub(left)+'</p><div class="bar" aria-hidden="true"><i style="transform:scaleX('+Math.min(1,st/900).toFixed(3)+')"></i></div>':'')+
-    '<div class="seg" role="group" aria-label="Способ получения" style="margin:12px 0 14px"><button type="button" data-way="courier" aria-pressed="'+(way==='courier')+'">Доставка</button><button type="button" data-way="pickup" aria-pressed="'+(way==='pickup')+'">Самовывоз, −10%</button></div>'+
-    '<div class="tot"><div><span>Пицца и напитки</span><span>'+rub(st)+'</span></div>'+(way==='pickup'?'<div><span>Скидка за самовывоз</span><span>−'+rub(st*.1)+'</span></div>':'<div><span>Доставка</span><span>'+(dl?rub(dl):'бесплатно')+'</span></div>')+'<div class="big"><span>Итого</span><span>'+rub(total())+'</span></div></div>'+
-    '<form id="ordForm" novalidate>'+(way==='courier'?'<div class="fld"><label for="oAddr">Адрес</label><input id="oAddr" autocomplete="street-address" placeholder="Улица, дом, квартира"></div>':'')+
-    '<div class="fld"><label for="oPhone">Телефон</label><input id="oPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>'+
-    '<p class="err" id="oErr" aria-live="assertive"></p><button class="btn btn-fire" type="submit">Оформить за '+rub(total())+'</button><p class="demo">Демо: заказ не отправляется, оплата не нужна.</p></form>';
-  $$('[data-way]',foot).forEach(function(b){b.addEventListener('click',function(){way=b.dataset.way;renderCart()})});
+    '<div class="seg" role="group" aria-label="Способ получения"><button type="button" data-way="courier" aria-pressed="'+(way==='courier')+'">Доставка</button><button type="button" data-way="pickup" aria-pressed="'+(way==='pickup')+'">Самовывоз, −10%</button></div>'+
+    '<table class="tot"><tr><td>Пицца и напитки</td><td class="num">'+rub(st)+'</td></tr>'+(way==='pickup'?'<tr><td>Скидка за самовывоз</td><td class="num">−'+rub(st*.1)+'</td></tr>':'<tr><td>Доставка</td><td class="num">'+(dl?rub(dl):'бесплатно')+'</td></tr>')+'<tr class="grand"><td>Итого</td><td class="num">'+rub(total())+'</td></tr></table>'+
+    '<form id="ordForm" novalidate>'+(way==='courier'?'<div class="fld"><label for="oAddr">Адрес</label><input id="oAddr" name="address" autocomplete="street-address" placeholder="Баумана, 58, кв. 1…"></div>':'<p class="hint-free" style="margin-top:10px">Забрать: Казань, ул. Баумана, 58, каждый день 11:00–23:00</p>')+
+    '<div class="fld"><label for="oPhone">Телефон</label><input id="oPhone" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00…"></div>'+
+    '<p class="err" id="oErr" aria-live="assertive"></p><button class="btn btn-fire" type="submit">Оформить за '+rub(total())+'</button></form>';
+  if($('#oAddr'))$('#oAddr').value=keepA;$('#oPhone').value=keepP;
+  $$('[data-way]',foot).forEach(function(b){b.addEventListener('click',function(){way=b.dataset.way;renderCart();var nb=$('#drFoot [data-way="'+way+'"]');if(nb)nb.focus()})});
   var ph=$('#oPhone');ph.addEventListener('input',function(){ph.value=fmtPhone(ph.value)});
   $('#ordForm').addEventListener('submit',function(e){e.preventDefault();
     var a=$('#oAddr');if(a&&!a.value.trim()){$('#oErr').textContent='Укажите адрес доставки.';a.focus();return}
@@ -770,10 +1063,9 @@ function renderCart(){
     placeOrder(a?a.value.trim():'');
   });
 }
-function total(){var s=subtotal();return way==='pickup'?Math.round(s*.9):s+delivery()}
 function fmtPhone(v){var d=v.replace(/\D/g,'');if(!d)return '';if(d[0]==='8')d='7'+d.slice(1);if(d[0]!=='7')d='7'+d;d=d.slice(0,11);var o='+7';if(d.length>1)o+=' ('+d.slice(1,4);if(d.length>=4)o+=')';if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);return o}
 
-/* ---------- tracker ---------- */
+/* ---------- order status ---------- */
 var STEPS=[
   {t:'Заказ принят',s:'Принят',d:'Передали на кухню',ic:'i-check'},
   {t:'Растягиваем тесто',s:'Готовим',d:'Пиццайоло собирает вашу пиццу',ic:'i-dough'},
@@ -789,25 +1081,67 @@ function placeOrder(addr){
   timer=setInterval(function(){if(!order){clearInterval(timer);return}order.step++;if(order.step>=4){order.step=4;clearInterval(timer)}updBtn();if(drawerOpen())renderTrack();else toast('Заказ №'+order.no+': '+STEPS[order.step].t.toLowerCase())},reduce?2500:3500);
 }
 function renderTrack(){
-  var o=order,body=$('#drBody');var pickup=o.way==='pickup';
+  var o=order,body=$('#drBody'),pickup=o.way==='pickup',prev=body.querySelector('#trFill');
   var steps=STEPS.map(function(s,i){var c=i<o.step?'done':i===o.step?'now':'';var t=s.t,d=s.d;if(pickup&&i===3){t='Готов к выдаче';d='Ждём вас на Баумана, 58'}if(pickup&&i===4){t='Вы забрали заказ';d='Приятного аппетита'}
-    return '<li class="'+c+'"'+(i===o.step?' aria-current="step"':'')+'><span class="ic" aria-hidden="true"><svg><use href="#'+(pickup&&i===3?'i-bag':s.ic)+'"/></svg></span><span><b>'+t+'</b><small>'+d+'</small></span></li>'}).join('');
-  body.innerHTML='<div class="track"><p class="no">Заказ №'+o.no+' · '+o.items+' шт. · '+rub(o.sum)+'</p><h3 aria-live="polite">'+(pickup&&o.step===3?'Готов к выдаче':STEPS[o.step].t)+'</h3>'+
-   '<p class="eta">'+(o.step<4?'Примерно через <b>'+ETA[o.step]+NB+'мин</b>'+(pickup?' — заказ на самовывоз':(o.addr?' — '+esc(o.addr):'')):'Спасибо, что выбрали «Дровяную»')+'</p>'+
-   '<div class="tr-bar" role="progressbar" aria-label="Статус заказа" aria-valuemin="0" aria-valuemax="4" aria-valuenow="'+o.step+'"><i id="trFill"></i></div>'+
-   '<ol class="tr-steps">'+steps+'</ol><p class="tr-note">Демо: время ускорено, этапы сменяются сами каждые несколько секунд.</p></div>';
-  var fill=$('#trFill');var v=(o.step+.5)/4.5;if(o.step>=4)v=1;
-  if(reduce)fill.style.transform='scaleX('+v+')';else{fill.style.transform='scaleX('+Math.max(0,(o.step-.5)/4.5)+')';requestAnimationFrame(function(){requestAnimationFrame(function(){fill.style.transform='scaleX('+v+')'})})}
+    return '<li class="'+c+'"'+(i===o.step?' aria-current="step"':'')+'><span class="ic" aria-hidden="true"><svg><use href="#'+(pickup&&i===3?'i-bag':(i<o.step?'i-check':s.ic))+'"/></svg></span><span><b>'+t+'</b><small>'+d+'</small></span></li>'}).join('');
+  body.innerHTML='<div class="track"><p class="no num">Заказ №'+o.no+' · '+o.items+' шт. · '+rub(o.sum)+'</p><h3 aria-live="polite">'+(pickup&&o.step===3?'Готов к выдаче':STEPS[o.step].t)+'</h3>'+
+    '<p class="eta">'+(o.step<4?'Примерно через <b class="num">'+ETA[o.step]+NB+'мин</b>'+(pickup?', заказ на самовывоз':(o.addr?', '+esc(o.addr):'')):'Спасибо, что выбрали «Дровяную»')+'</p>'+
+    '<div class="tr-bar" role="progressbar" aria-label="Статус заказа" aria-valuemin="0" aria-valuemax="4" aria-valuenow="'+o.step+'"><i id="trFill"></i></div>'+
+    '<ol class="tr-steps">'+steps+'</ol><p class="concept">Это концепт-проект студии YSD DEV: заказ не отправляется.</p></div>';
+  var fill=$('#trFill'),v=o.step>=4?1:(o.step+.5)/4.5,from=Math.max(0,(o.step-.5)/4.5);
+  if(reduce){fill.style.transform='scaleX('+v+')'}else{fill.style.transform='scaleX('+from+')';requestAnimationFrame(function(){requestAnimationFrame(function(){fill.style.transform='scaleX('+v+')'})})}
 }
 
-/* ---------- header, reveal ---------- */
-var top=$('#top');
-function onScroll(){top.classList.toggle('scrolled',window.scrollY>8)}
-window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* ---------- zigzag ticket edge ---------- */
+(function(){var n=24,p=['0 0'];for(var i=0;i<n;i++){p.push(((i+.5)/n*100).toFixed(2)+'% 100%');p.push(((i+1)/n*100).toFixed(2)+'% 0')}document.documentElement.style.setProperty('--zig','polygon('+p.join(',')+')')})();
+
+/* ---------- hero entrance, parallax, header ---------- */
+var hero=$('#hero'),disc=$('#disc'),halves=$$('#disc .half'),mbar=$('#mbar');
+function heroGo(){hero.classList.add('go');disc.classList.add('go')}
+if(reduce){heroGo()}else{
+  var imgs=$$('#disc img'),done=false;
+  var go=function(){if(done)return;done=true;requestAnimationFrame(heroGo)};
+  Promise.all(imgs.map(function(i){return i.decode?i.decode().catch(function(){}):Promise.resolve()})).then(go);
+  setTimeout(go,900);
+}
+var ticking=false,ctaSeen=new Set();
+if('IntersectionObserver' in window){
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)ctaSeen.add(e.target);else ctaSeen.delete(e.target)});onScroll()},{rootMargin:'0px 0px -40px 0px'});
+  $$('#bdAdd, .of-foot, #contacts .btn, .foot').forEach(function(el){cio.observe(el)});
+}
+function onScroll(){
+  var y=window.scrollY;
+  if(!reduce&&y<window.innerHeight*1.4){
+    disc.style.translate='0 '+(y*.14).toFixed(1)+'px';
+    halves[0].style.translate=(-y*.05).toFixed(1)+'px 0';
+    halves[1].style.translate=(y*.05).toFixed(1)+'px 0';
+  }
+  if(mbar)mbar.classList.toggle('show',y>window.innerHeight*.7&&!drawerOpen()&&!ctaSeen.size);
+  ticking=false;
+}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+onScroll();
+
+/* ---------- oven crossfade ---------- */
+(function(){
+  var ims=$$('#arch img');if(reduce||ims.length<2)return;
+  var i=0,vis=false,t=null;
+  function tick(){if(document.hidden||!vis)return;ims[i].classList.remove('on');i=(i+1)%ims.length;ims[i].classList.add('on')}
+  function start(){if(!t)t=setInterval(tick,5600)}
+  function stop(){clearInterval(t);t=null}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;vis?start():stop()}).observe($('#arch'))}else{vis=true;start()}
+})();
+
+/* ---------- reveal on scroll ---------- */
+var rvs=$$('.rv, .rv-ph, .mark');
 if('IntersectionObserver' in window&&!reduce){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.1});
-  $$('.rv').forEach(function(el){io.observe(el)});
-}else{$$('.rv').forEach(function(el){el.classList.add('in')})}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px',threshold:.08});
+  rvs.forEach(function(el){io.observe(el)});
+}else{rvs.forEach(function(el){el.classList.add('in')})}
+
+/* coupon split for phone notches */
+function cpSplit(){var c=$('#coupon'),l=$('.cp-l',c);if(c&&l)c.style.setProperty('--cp-split',l.offsetHeight+'px')}
+cpSplit();window.addEventListener('resize',cpSplit);
 updBtn();
 })();
 </script>
