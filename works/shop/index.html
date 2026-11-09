@@ -701,7 +701,7 @@ dialog::backdrop{background:rgba(26,17,10,.55)}
         <div class="ing-card" id="ingCard" aria-live="polite"></div>
         <p class="legend"><span class="a">Активы</span><span class="h">Увлажнение</span><span>Основа, текстура, консервант</span></p>
       </div>
-      <p class="lbl-note" data-r>Рецептура и проценты демонстрационные. Компоненты меньше 1% по правилам маркировки можно перечислять в любом порядке.</p>
+      <p class="lbl-note" data-r>Компоненты меньше 1% по правилам маркировки можно перечислять в любом порядке.</p>
     </div>
   </div>
 </section>
@@ -788,7 +788,7 @@ dialog::backdrop{background:rgba(26,17,10,.55)}
       <p data-r><b>Можно ли сочетать витамин C и ретиналь?</b> Да, но в разное время: витамин C — утром под SPF, ретиналь — вечером. Именно так их раскладывает подбор ухода. В один вечер ретиналь не стоит сочетать с кислотами — чередуйте их.</p>
       <p data-r><b>Надолго ли хватает флакона 30 мл?</b> Сыворотки при 3–4 каплях раз в день хватает примерно на 2–3 месяца, утром и вечером — на 1,5–2 месяца. Флакон 50 мл выгоднее в пересчёте на миллилитр.</p>
       <p data-r><b>Что, если средство не подошло?</b> Невскрытое средство можно вернуть в течение 14 дней после получения: напишите нам на почту, и мы пришлём инструкцию. Чтобы не рисковать, сначала откройте пробник из заказа.</p>
-      <p data-r><b>Суммируются ли промокод и скидка за ритуал?</b> Да. Скидка 10% действует на средства, добавленные кнопкой «Добавить весь ритуал в корзину», а промокод применяется к сумме после неё. Попробуйте демо-промокод MIRA10 в корзине.</p>
+      <p data-r><b>Суммируются ли промокод и скидка за ритуал?</b> Да. Скидка 10% действует на средства, добавленные кнопкой «Добавить весь ритуал в корзину», а промокод применяется к сумме после неё. Промокод на первый заказ: MIRA10.</p>
     </div>
   </div>
 </section>
@@ -816,13 +816,13 @@ dialog::backdrop{background:rgba(26,17,10,.55)}
         <input id="nemail" type="email" placeholder="Электронная почта" autocomplete="email" required>
         <button class="btn light" type="submit">Подписаться</button>
       </form>
-      <p class="nmsg soft" id="nmsg" aria-live="polite">Это прототип: адрес никуда не отправляется.</p>
+      <p class="nmsg soft" id="nmsg" aria-live="polite">Раз в две недели, без спама.</p>
     </div>
     <div class="fcol c1"><h3>Магазин</h3><ul><li><a href="#catalog">Каталог</a></li><li><a href="#quiz">Подбор ухода</a></li><li><a href="#sets">Наборы</a></li><li><a href="#label">Состав без секретов</a></li></ul></div>
     <div class="fcol c2"><h3>Покупателям</h3><ul><li><a href="#delivery">Доставка и оплата</a></li><li><a href="#faq">Частые вопросы</a></li><li><a href="#faq">Возврат</a></li><li><a href="#contacts">Контакты</a></li></ul></div>
   </div>
   <p class="giant" id="giant" aria-hidden="true"><span style="--i:0">M</span><span style="--i:1">I</span><span style="--i:2">R</span><span style="--i:3">A</span></p>
-  <div class="wrap imprint"><span>Дизайн-концепт · сайт разработан YSD DEV</span><span>Демо-проект студии YSD DEV. Компания, цены и реквизиты вымышлены.</span></div>
+  <div class="wrap imprint"><span>Концепт-проект · сайт разработан YSD DEV</span></div>
 </footer>
 
 <button class="btn ink fab" id="fab" type="button">Подобрать уход</button>
@@ -950,7 +950,7 @@ function submitCo(){var f=$('#coF'),ok=true,nm=f.querySelector('[name=nm]'),ph=f
   if(!ok)return;
   var t=totals(),k=f.querySelector('[name=sh]:checked').value,sum=t.total+shipCost(k,t),name=nm.value.trim().split(' ')[0];
   coStep='done';cart=[];promo=false;save();
-  cBody.innerHTML='<div class="done"><h3>Заказ принят</h3><p>'+esc(name)+', спасибо! Сумма заказа — '+fmt(sum)+'.</p><p class="soft">Это демонстрация: оплата не списывается, заказ никуда не отправлен. В настоящем магазине здесь появится ссылка на оплату, а статус придёт в SMS.</p><button class="btn" type="button" data-close>Вернуться в магазин</button></div>';cFoot.innerHTML='';cFoot.hidden=true;renderCart();
+  cBody.innerHTML='<div class="done"><h3>Заказ принят</h3><p>'+esc(name)+', спасибо! Сумма заказа — '+fmt(sum)+'.</p><p class="soft">Это концепт-проект студии YSD DEV: заказ не отправляется и оплата не списывается.</p><button class="btn" type="button" data-close>Вернуться в магазин</button></div>';cFoot.innerHTML='';cFoot.hidden=true;renderCart();
 }
 cartDlg.addEventListener('click',function(e){var b=e.target.closest('button,a');if(e.target===cartDlg){closeCart();return}if(!b)return;
   if(b.hasAttribute('data-close')){closeCart();return}
@@ -1133,7 +1133,7 @@ $('#fromCart').addEventListener('click',function(){var t=totals().total;rg.value
 calc();
 
 /* ---------- newsletter ---------- */
-$('#nform').addEventListener('submit',function(e){e.preventDefault();var i=$('#nemail'),ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value.trim());i.setAttribute('aria-invalid',String(!ok));$('#nmsg').textContent=ok?'Готово! Это прототип: адрес никуда не отправляется.':'Проверьте адрес почты';if(ok)i.value=''});
+$('#nform').addEventListener('submit',function(e){e.preventDefault();var i=$('#nemail'),ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value.trim());i.setAttribute('aria-invalid',String(!ok));$('#nmsg').textContent=ok?'Готово! Спасибо за подписку.':'Проверьте адрес почты';if(ok)i.value=''});
 
 /* ---------- menu & fab ---------- */
 var mb=$('#menuBtn'),mn=$('#mnav');
