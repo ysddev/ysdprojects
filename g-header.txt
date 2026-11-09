@@ -43,7 +43,7 @@
 #arx .menu-top,#arx .menu-mid,#arx .menu-foot{position:relative;z-index:1}
 #arx .menu-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px var(--m)}
 #arx .menu-top .mark{grid-column:2}
-#arx .back{justify-self:start;font:500 14px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;min-height:44px;visibility:hidden}
+#arx .back{justify-self:start;margin-left:-10px;visibility:hidden}
 #arx .svc .back{visibility:visible}
 #arx .menu-mid{display:grid;place-items:center;text-align:center;padding:0 var(--m)}
 #arx .menu-cat{font:500 clamp(1.1rem,1rem + .5vw,1.5rem)/1 var(--sans);letter-spacing:.3em;margin-right:-.3em;text-transform:uppercase}
@@ -68,7 +68,7 @@ body.arx-locked{overflow:hidden}
 </header>
 <div class="menu" id="arxMenu" role="dialog" aria-modal="true" aria-label="Меню">
   <div class="menu-bg"><img src="https://static.tildacdn.com/tila6537-6166-4765-b932-623337303334/anna-hero-2.jpg" alt="" loading="lazy"></div>
-  <div class="menu-top"><button class="back" id="arxBack">Назад</button><button class="mark" id="arxClose" aria-label="ANNA RUSSKI, закрыть меню">ANNA RUSSKI</button></div>
+  <div class="menu-top"><button class="back icon" id="arxBack" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M3 8.5h18M3 15.5h18"/></svg></button><button class="mark" id="arxClose" aria-label="ANNA RUSSKI, закрыть меню">ANNA RUSSKI</button></div>
   <div class="menu-mid">
     <a class="menu-cat" href="/catalog">Каталог</a>
     <ul class="svc-list">
