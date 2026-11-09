@@ -116,9 +116,9 @@ header.sc{border-bottom-color:var(--line)}
 .btn.ghost{background:transparent;color:#fff;border-color:var(--line)}
 .btn.ghost:hover{border-color:#fff;box-shadow:none}
 .hero{padding:clamp(56px,11vh,120px) 0 clamp(36px,6vh,64px)}
-.eyebrow{font-family:var(--m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:12px;margin:0 0 26px}
+.eyebrow{font-family:var(--m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:12px;margin:0 0 26px}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--dim)}
-.eyebrow s{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite;text-decoration:none}
+.eyebrow s{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite;text-decoration:none}
 h1{font-size:clamp(38px,7.4vw,90px);line-height:.98;letter-spacing:-.045em;font-weight:700;margin:0 0 22px;max-width:15ch;background:linear-gradient(180deg,#fff 40%,#9d9da4 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:clamp(16px,1.6vw,19px);line-height:1.55;color:#bdbdbd;max-width:56ch;margin:0 0 34px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
