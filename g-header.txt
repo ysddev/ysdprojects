@@ -15,6 +15,10 @@
 #arx .mark{font:400 clamp(1.125rem,.9rem + .9vw,1.625rem)/1 var(--serif);letter-spacing:.42em;margin-right:-.42em;white-space:nowrap;transition:color .45s var(--ease)}
 /* header: white + difference blend = colour inverts against whatever is under it (как у ugulwan) */
 #allrecords{background-color:#fff}
+#rec794533409,#rec794510584{padding-top:105px!important}
+#rec794533409 .t-text::before,#rec794510584 .t-text::before{display:block;text-align:center;font:300 20px/30px "TildaSans",Arial,sans-serif;color:#000;margin-bottom:23px}
+#rec794533409 .t-text::before{content:"Публичная оферта"}
+#rec794510584 .t-text::before{content:"Политика конфиденциальности"}
 .t698 a[href*="wa.me"],.t-text a[href*="wa.me"],.t-descr a[href*="wa.me"]{color:#000!important}
 .t698__title{font:300 20px/30px "TildaSans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:normal!important;color:#000!important}
 /* убрать плавающую корзину и кнопку WhatsApp: корзина в шапке */
