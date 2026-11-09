@@ -15,7 +15,15 @@ HOME = ROOT / "home"
 CATS = [("all", "Все"), ("site", "Сайты"), ("bot", "Telegram-боты"), ("deck", "Презентации"),
         ("software", "Программы"), ("design", "Дизайн")]
 CAT_NAME = dict(CATS)
-FIRST = 24  # карточек сразу, остальные — «Показать ещё»
+FIRST = 12  # карточек сразу, остальные — «Показать ещё» (владелец 09.11: на первом экране только лучшие)
+# Витрина — 30 лучших работ в этом порядке; остальные страницы живы по прямым ссылкам (их шлёт бот), но не в витрине.
+CURATED = [
+    "shop", "cleaning", "bots/food", "kuhni", "stroy", "salon", "miniapp", "metall", "remont", "detailing",
+    "medcenter", "dental",  # первый экран: 10 премиальных сайтов + 2 бота
+    "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture",
+    "apps/warehouse", "slides/tender", "bots/ai", "garage", "resto", "design/nord", "apps/bi", "slides/pitch",
+    "design/terra",
+]
 TG = "https://t.me/ysd_dev_bot?start=ysdprojects"
 SITE = "https://ysddev.com/"
 
@@ -36,7 +44,11 @@ def card(w: dict, k: int) -> str:
 
 
 def build() -> str:
-    works = json.loads((HOME / "works.json").read_text(encoding="utf-8"))
+    every = json.loads((HOME / "works.json").read_text(encoding="utf-8"))
+    by_slug = {w["u"].split("ysdprojects.space/")[-1].strip("/"): w for w in every}
+    missing = [c for c in CURATED if c not in by_slug]
+    assert not missing, f"нет в works.json: {missing}"
+    works = [by_slug[c] for c in CURATED]
     cnt = Counter(w["c"] for w in works)
     logo = (HOME / "ysdmk-symbol.svg").read_text(encoding="utf-8").strip()
     filters = "".join(

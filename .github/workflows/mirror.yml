@@ -39,6 +39,20 @@ jobs:
           echo "ysdprojects.space" > CNAME
           touch .nojekyll
           cp -R ../home/. . && rm -f works.json ysdmk-symbol.svg  # главная: витрина живых проектов (tools/build_home.py)
+          # свежие обложки работ из ветки thumbs (снимок живой страницы) поверх карточек витрины
+          if git -C .. fetch -q --depth 1 origin thumbs 2>/dev/null; then
+            mkdir -p ../_thumbs && git -C .. archive FETCH_HEAD | tar -x -C ../_thumbs
+            python3 - <<'PY'
+          import json, os, shutil
+          works = json.load(open('../home/works.json', encoding='utf-8'))
+          for w in works:
+              slug = w['u'].rstrip('/').split('/')[-1]
+              for size in (400, 800):
+                  src = f'../_thumbs/{slug}-{size}.webp'
+                  if os.path.exists(src):
+                      shutil.copy(src, f"img/{w['f']}-{size}.webp")
+          PY
+          fi
           cp ../tools/404.html 404.html
           mkdir -p d && cp ../tools/404.html d/index.html  # демо клиентов: /d/<проект>/ — с сервера бота
           printf 'User-agent: *\nDisallow: /d/\nDisallow: /clients/\nSitemap: https://ysdprojects.space/sitemap.xml\n' > robots.txt

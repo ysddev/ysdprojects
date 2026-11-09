@@ -12,7 +12,16 @@ const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, 
 for (const s of slugs) {
   const page = await ctx.newPage();
   try {
-    await page.goto('file://' + path.join(root, s, 'index.html'), { waitUntil: 'networkidle', timeout: 60000 });
+    // живая страница с фото (img/ качает mirror) — ждём, пока Pages отдаст свежую версию, иначе файл с диска
+    const local = fs.readFileSync(path.join(root, s, 'index.html'), 'utf8');
+    let url = 'file://' + path.join(root, s, 'index.html');
+    for (let t = 0; t < 40; t++) {
+      const live = 'https://ysdprojects.space/' + s + '/index.html?thumb=' + Date.now();
+      try { const r = await fetch(live); if (r.ok && (await r.text()) === local) { url = live; break; } } catch {}
+      await new Promise(r => setTimeout(r, 20000));
+    }
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
+    await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); } scrollTo(0, 0); });
     await page.evaluate(() => document.fonts && document.fonts.ready);
     await page.waitForTimeout(2500);
     const png = await page.screenshot({ type: 'png' });

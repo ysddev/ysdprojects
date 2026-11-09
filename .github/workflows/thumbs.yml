@@ -7,6 +7,7 @@ on:
     paths: ['works/**', 'tools/thumbs.mjs', '.github/workflows/thumbs.yml']
 permissions:
   contents: write
+  actions: write
 concurrency: { group: thumbs, cancel-in-progress: true }
 jobs:
   thumbs:
@@ -27,3 +28,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A; if git diff --cached --quiet; then echo "нет обложек"; exit 0; fi; git commit -q -m "Обложки работ $(date -u +%F)"
           git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" thumbs
+      - name: Rebuild site with new covers
+        if: success()
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: gh workflow run mirror.yml --repo ${{ github.repository }} --ref main
