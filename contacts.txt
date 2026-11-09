@@ -13,6 +13,8 @@
 @media (hover:hover) and (pointer:fine){#arxc a:hover{opacity:.6}}
 #arxc.white{background:#fff;color:#000}
 #arxc.white .bg{display:none}
+#arxc.white{min-height:0;display:block}
+#arxc.white .in{padding:105px 20px 80px;gap:28px;margin:0 auto}
 #arxc.white h1{font:300 20px/30px var(--sans);letter-spacing:normal;margin-right:0;text-transform:none}
 </style>
 <section id="arxc" aria-label="Контакты">
@@ -20,6 +22,7 @@
   <div class="in">
     <h1>Контакты</h1>
     <div class="lines">
+      <p>Instagram: <a href="https://www.instagram.com/annarusski.ru" target="_blank" rel="noopener">annarusski.ru</a></p>
       <p>WhatsApp: <a href="https://wa.me/79856042131">+7 985 604-21-31</a></p>
       <p>Email: <a href="mailto:a07sub@mail.ru">a07sub@mail.ru</a></p>
     </div>
