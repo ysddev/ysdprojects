@@ -22,7 +22,7 @@ CURATED = [
     "medcenter", "dental",  # первый экран: 10 премиальных сайтов + 2 бота
     "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture", "cosmo", "barber", "nails", "pizza", "fitness",
     "avtoshkola", "okna", "pereezd", "hotel", "kids", "english", "buh", "logistics",
-    "vet", "massage", "interior", "bakery", "catering",
+    "vet", "massage", "interior", "bakery", "catering", "wedding", "foto",
     "apps/warehouse", "slides/tender", "bots/ai", "garage", "resto", "design/nord", "apps/bi", "slides/pitch",
     "design/terra",
 ]
