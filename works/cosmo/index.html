@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+<title>LUMEN — клиника косметологии в Ростове-на-Дону: консультация врача, инъекции, уходы, лазер</title>
+<meta name="description" content="LUMEN — клиника косметологии в центре Ростова-на-Дону, на Пушкинской. Консультация врача, план процедур и стоимость, зафиксированная до начала. Онлайн-запись на 14 дней вперёд.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LUMEN — клиника косметологии в Ростове-на-Дону">
+<meta property="og:description" content="Консультация врача, план и стоимость до начала. Инъекции и лазер — только врачи. Онлайн-запись.">
+<meta property="og:image" content="img/hero-1600.webp">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#ECEBE7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2338450F'/%3E%3Crect x='29' y='8' width='6' height='34' fill='%23F4E3B5'/%3E%3Ccircle cx='32' cy='44' r='9' fill='%23F4E3B5'/%3E%3C/svg%3E">
+<link rel="preload" as="image" type="image/webp" href="img/hero-1600.webp" imagesrcset="img/hero-1000.webp 1000w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" imagesizes="100vw" media="(min-width: 701px)">
+<link rel="preload" as="image" type="image/webp" href="img/herom-600.webp" imagesrcset="img/herom-600.webp 600w, img/herom-1000.webp 1000w" imagesizes="100vw" media="(max-width: 700px)">
+<link rel="preload" as="font" type="font/woff2" href="fonts/stix-two-text-cyrillic-400-normal.woff2" crossorigin>
+<style>
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/stix-two-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/stix-two-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/stix-two-text-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/stix-two-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/stix-two-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'STIX Two Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/stix-two-text-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --bg:#ECEBE7; --surface:#E1DFD9; --surface-2:#D5D2C9;
+  --ink:#38450F; --muted:#525C2B;
+  --night:#1B1F0D; --night-2:#252A15; --on-night:#ECEBE7; --on-night-muted:#BDBFA6;
+  --light:#F4E3B5; --light-core:#FFF6DC;
+  --err:#8A2C14;
+  --m:clamp(16px,5vw,96px); --g:clamp(12px,2vw,32px);
+  --sec:clamp(88px,11vw,200px);
+  --fs-s:0.875rem;
+  --fs-b:clamp(1.0625rem,0.98rem + 0.3vw,1.25rem);
+  --fs-l:clamp(1.25rem,1.08rem + 0.7vw,1.75rem);
+  --fs-h:clamp(2rem,1.25rem + 3vw,4rem);
+  --fs-d:clamp(2.5rem,1.4rem + 4.6vw,6rem);
+  --ease-out:cubic-bezier(.23,1,.32,1); --ease-expo:cubic-bezier(.16,1,.3,1); --ease-io:cubic-bezier(.76,0,.24,1);
+  --font:'STIX Two Text','Times New Roman',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+main{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs-b);line-height:1.5;font-kerning:normal;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+button,a,summary,select,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{font-weight:400;letter-spacing:-0.026em;line-height:1.05;text-wrap:balance}
+h2{font-size:var(--fs-h)}
+h3{font-size:var(--fs-l);line-height:1.2;letter-spacing:-0.01em}
+.num{font-variant-numeric:tabular-nums lining-nums}
+::selection{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+[hidden]{display:none!important}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{padding-inline:var(--m)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+.grid>*{min-width:0}
+.sec{padding-block:var(--sec)}
+.muted{color:var(--muted)}
+.small{font-size:var(--fs-s)}
+.lead{font-size:var(--fs-l);line-height:1.35;letter-spacing:-0.01em}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:12px 16px}
+.skip:focus{top:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 26px;border:0;border-radius:0;background:var(--ink);color:var(--bg);text-decoration:none;font-size:var(--fs-b);line-height:1.1;transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease-out)}
+.btn:active{transform:scale(.97)}
+.btn.inv{background:var(--bg);color:var(--ink)}
+.btn.sm{min-height:44px;padding:0 18px;font-size:var(--fs-s)}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+.lnk{display:inline-flex;align-items:center;gap:.5em;min-height:44px;color:inherit;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.28em;background:none;border:0;padding:0;font-size:inherit}
+.lnk svg{width:16px;height:16px;transition:transform .3s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:#2B350A}
+  .btn.inv:hover{background:#fff}
+  .btn.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .btn:hover svg,.lnk:hover svg{transform:translateX(4px)}
+  .lnk:hover{text-decoration-thickness:2px}
+}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:40;height:76px;display:flex;align-items:center;gap:24px;padding-inline:var(--m);color:var(--bg);transition:background-color .3s ease,color .3s ease}
+.hd.solid{background:var(--bg);color:var(--ink)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;margin-right:auto}
+.brand b{font-weight:600;font-size:1.375rem;letter-spacing:.16em}
+.brand span{font-size:var(--fs-s);line-height:1.25}
+.nav{display:flex;flex-wrap:wrap;gap:0 .35em;font-size:var(--fs-b)}
+.nav a{text-decoration:none;padding:10px 0;position:relative}
+.nav a:not(:last-child)::after{content:','}
+.nav a span{position:relative;display:inline-block}
+.nav a span::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.nav a[aria-current="true"] span::after,.nav a:hover span::after{transform:none}
+.hd-tel{font-size:var(--fs-b);text-decoration:none;white-space:nowrap}
+.hd .btn{min-height:44px;padding:0 20px;font-size:var(--fs-s)}
+.hd:not(.solid) .btn{background:var(--bg);color:var(--ink)}
+.menu-btn{display:none;min-height:44px;padding:0 4px;background:none;border:0;font-size:var(--fs-b);text-decoration:underline;text-underline-offset:.25em}
+@media (min-width:1101px){.menu{display:none!important}}
+.menu{position:fixed;inset:0;z-index:39;overscroll-behavior:contain;overflow-y:auto;background:var(--bg);color:var(--ink);padding:104px var(--m) 32px;display:flex;flex-direction:column;gap:28px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s var(--ease-out),transform .35s var(--ease-out),visibility 0s .35s}
+.menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .3s var(--ease-out),transform .35s var(--ease-out)}
+.menu nav{display:flex;flex-direction:column}
+.menu nav a{font-size:var(--fs-h);line-height:1.15;letter-spacing:-0.02em;text-decoration:none;padding:4px 0}
+.menu .btn{align-self:flex-start}
+
+/* hero */
+.hero{position:relative;height:100vh;height:100svh; /* taste-skill-ignore: 100vh is the fallback before svh */min-height:600px;overflow:hidden;color:var(--bg);background:#2a2418}
+.hero-media{position:absolute;inset:-6% 0 0 0;will-change:translate}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.scrim{position:absolute;inset:0; /* taste-skill-ignore: neutral scrim under text on a photo */background:linear-gradient(to top,rgba(16,18,8,.72) 0%,rgba(16,18,8,.34) 38%,rgba(16,18,8,0) 62%),linear-gradient(to bottom,rgba(16,18,8,.42) 0,rgba(16,18,8,0) 150px)}
+.hero-in{position:absolute;left:var(--m);right:var(--m);bottom:clamp(28px,6vh,64px);align-items:end}
+.hero h1{grid-column:1/9;font-size:clamp(2.6rem,1rem + 6vw,7.25rem);line-height:1;letter-spacing:-0.03em}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .w>span{display:inline-block}
+.hero-copy{grid-column:1/9}
+.hero-copy p{margin-top:28px;max-width:46ch}
+.hero-act{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:28px}
+.hero-facts{grid-column:10/13;justify-self:end;max-width:30ch;display:grid;gap:14px;font-size:var(--fs-s);color:#E3E1D8}
+.hero-facts li{padding-left:18px;position:relative}
+.hero-facts li::before{content:'';position:absolute;left:0;top:.45em;width:7px;height:7px;background:var(--light);border-radius:50%}
+.hero-facts .live::before{animation:pulse 2.4s ease-in-out infinite}
+.hero-ctl{position:absolute;right:var(--m);top:100px;display:flex;align-items:center;gap:12px;z-index:2}
+.hero-ctl .bars{display:flex;gap:6px}
+.hero-ctl .bars i{display:block;width:28px;height:3px;background:rgba(236,235,231,.35);overflow:hidden}
+.hero-ctl .bars i::after{content:'';display:block;height:100%;background:var(--bg);transform:scaleX(0);transform-origin:left}
+.hero-ctl .bars i.on::after{transform:scaleX(1);transition:transform 6.2s linear}
+.hero-ctl .bars i.done::after{transform:scaleX(1)}
+.hero-ctl.paused .bars i.on::after{transition:none}
+.hero-ctl button{width:44px;height:44px;display:grid;place-items:center;border:0;background:rgba(16,18,8,.35);color:var(--bg)}
+.hero-ctl button svg{width:16px;height:16px}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
+
+/* reveal & hero choreography */
+.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out),transform .9s var(--ease-expo);transition-delay:var(--d,0ms)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="img"]{transform:scale(1.04);transition:opacity 1s var(--ease-out),transform 1.4s var(--ease-expo);transition-delay:var(--d,0ms)}
+.js [data-r="img"].in{transform:none}
+.js .hero h1 .w>span{transform:translateY(108%)}
+.js .hero .slide img{transform:scale(1.12);opacity:0}
+.js .hero-copy p,.js .hero-act,.js .hero-facts{opacity:0;transform:translateY(16px)}
+.ready .hero h1 .w>span{transform:none;transition:transform 1s var(--ease-expo);transition-delay:calc(120ms + var(--i)*70ms)}
+.ready .hero .slide img{transform:none;opacity:1;transition:transform 1.2s var(--ease-out),opacity .9s ease}
+.ready .hero-copy p,.ready .hero-act,.ready .hero-facts{opacity:1;transform:none;transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.ready .hero-copy p{transition-delay:.5s}.ready .hero-act{transition-delay:.62s}.ready .hero-facts{transition-delay:.74s}
+
+/* photos */
+.ph{overflow:hidden;background:var(--surface)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){ .ph:hover img,.hov:hover img{transform:scale(1.04)} }
+.cap{margin-top:12px;font-size:var(--fs-s);color:var(--muted)}
+
+/* depth explorer */
+.dark{background:var(--night);color:var(--on-night)}
+.dark .muted{color:var(--on-night-muted)}
+.dx-head{align-items:end;row-gap:24px}
+.dx-head h2{grid-column:1/8}
+.dx-head p{grid-column:8/13;color:var(--on-night-muted);max-width:52ch}
+.dx-body{margin-top:clamp(48px,6vw,96px);align-items:start;row-gap:40px}
+.dx-fig{grid-column:1/8;position:relative;height:clamp(540px,80vh,780px);overflow:hidden;user-select:none;-webkit-user-select:none;cursor:ns-resize;touch-action:pan-y;background:var(--night)}
+.dx-fig svg{position:absolute;inset:0;width:100%;height:100%}
+.dx-lbl{position:absolute;transform:translateY(-50%);font-size:var(--fs-s);line-height:1.1;white-space:nowrap;pointer-events:none}
+.dx-sc{left:0;color:var(--on-night-muted);display:flex;align-items:center;gap:8px}
+.dx-sc::after{content:'';width:12px;height:2px;opacity:.7;background:currentColor}
+.dx-ly{left:84px;color:#3B2A1C;opacity:.85}
+.dx-ly.mus{color:#F3DED5}
+.dx-pr{left:calc(50% + 34px);color:#2E2216;display:flex;align-items:center;gap:8px;transition:transform .35s var(--ease-out)}
+.dx-pr::before{content:'';width:22px;height:2px;background:currentColor;opacity:.6;margin-left:-28px}
+.dx-pr span{padding:3px 7px;background:rgba(255,246,220,.0);transition:background-color .3s ease,color .3s ease}
+.dx-pr.on span{background:var(--light-core);color:#1B1F0D}
+.dx-pr.on{transform:translateX(6px)}
+.dx-pr.air{color:var(--on-night-muted)}
+.dx-knob{position:absolute;left:50%;top:0;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:transparent;border:0;padding:0;cursor:grab;touch-action:none;display:grid;place-items:center;z-index:2}
+.dx-knob::before{content:'';width:24px;height:24px;border-radius:50%;border:2px solid var(--light-core);transition:transform .3s var(--ease-out)}
+.dx-knob:active{cursor:grabbing}
+.dx-knob:active::before,.dx-knob:focus-visible::before{transform:scale(1.35)}
+.dx-knob:focus-visible{outline:2px solid var(--light);outline-offset:2px}
+.dx-tag{position:absolute;right:calc(50% + 30px);top:0;transform:translateY(-50%);font-size:var(--fs-s);background:var(--light-core);color:#1B1F0D;padding:4px 8px;white-space:nowrap;pointer-events:none}
+.dx-panel{grid-column:8/13}
+.dx-read{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.dx-read b{font-weight:400;font-size:var(--fs-d);line-height:1;letter-spacing:-0.03em}
+.dx-layers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:28px}
+.dx-layers button{min-height:48px;padding:10px 14px;text-align:left;background:var(--night-2);border:0;color:var(--on-night);font-size:var(--fs-b);transition:background-color .25s ease,color .25s ease,transform .14s var(--ease-out)}
+.dx-layers button[aria-pressed="true"]{background:var(--light);color:#1B1F0D}
+.dx-layers button:active{transform:scale(.97)}
+.dx-cards{margin-top:32px;display:grid}
+.dx-card{grid-area:1/1}
+.js .dx-card{opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s ease,transform .45s var(--ease-out),visibility 0s .35s}
+.js .dx-card.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease .05s,transform .55s var(--ease-out) .05s}
+html:not(.js) .dx-card+.dx-card{margin-top:40px}
+.dx-card .rng{font-size:var(--fs-s);color:var(--on-night-muted)}
+.dx-card h3{margin-top:6px}
+.dx-card>p{margin-top:12px}
+.dx-procs{margin-top:20px;display:grid;gap:10px}
+.dx-procs li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;padding:14px 16px;background:var(--night-2)}
+.dx-procs b{font-weight:600}
+.dx-procs .pr{text-align:right}
+.dx-procs p{grid-column:1/2;font-size:var(--fs-s);color:var(--on-night-muted)}
+.dx-procs .lnk{grid-column:2;grid-row:2;justify-self:end;min-height:36px;font-size:var(--fs-s)}
+.dx-note{margin-top:24px;font-size:var(--fs-s);color:var(--on-night-muted)}
+
+/* services menu */
+.svc{row-gap:48px}
+.svc-side{grid-column:1/5}
+.svc-side p{margin-top:20px;max-width:40ch}
+.svc-side .ph{margin-top:40px;width:76%;aspect-ratio:4/5}
+.svc-list{grid-column:6/13;columns:2;column-gap:64px}
+.svc-grp{break-inside:avoid;padding-top:8px}
+.svc-grp+.svc-grp{margin-top:48px}
+.svc-grp h3{font-weight:600;font-size:var(--fs-l);letter-spacing:-0.01em}
+.svc-grp li{break-inside:avoid;margin-top:24px}
+.svc-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:var(--fs-l);line-height:1.2}
+.svc-row .num{white-space:nowrap}
+.svc-grp li>p{display:inline;color:var(--muted)}
+.svc-grp li{max-width:44ch}
+.svc-row+p{margin-top:6px}
+.svc-grp li>p::after{content:' '}
+.svc-grp .lnk{display:inline;min-height:0;padding:6px 0;font-size:var(--fs-s);color:var(--ink);white-space:nowrap}
+.svc-row{margin-bottom:6px}
+
+/* quiz */
+.quiz{background:var(--surface)}
+.qz-side{grid-column:1/7}
+.qz-side p{margin-top:20px;max-width:42ch}
+.qz{grid-column:7/13;background:var(--bg);padding:clamp(20px,3vw,44px);position:relative;min-height:440px;display:flex;flex-direction:column}
+.qz-bar{height:4px;background:var(--surface);margin-bottom:28px}
+.qz-bar i{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(.333);transition:transform .6s var(--ease-expo)}
+.qp{display:none}
+.qp.on{display:block;animation:qin .5s var(--ease-out)}
+@keyframes qin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.qp h3{font-size:var(--fs-h);letter-spacing:-0.025em;line-height:1.05}
+.qz-hint{margin-top:10px;color:var(--muted)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:24px}
+.opt{min-height:56px;padding:12px 16px;text-align:left;border:0;background:var(--surface);transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.opt::after{content:'';width:14px;height:14px;flex:none;border-radius:50%;border:2px solid currentColor;transition:background-color .2s ease}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.opt[aria-pressed="true"]::after{background:var(--light)}
+.opt:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.opt:hover:not([aria-pressed="true"]){background:var(--surface-2)}}
+.qz-nav{display:flex;gap:16px;align-items:center;margin-top:auto;padding-top:28px}
+.qz-back{background:none;border:0;min-height:44px;padding:0;text-decoration:underline;text-underline-offset:.25em}
+.qz-notes{margin-top:16px;display:grid;gap:8px;color:var(--muted);font-size:var(--fs-s)}
+.qz-res{margin-top:20px;display:grid;gap:8px}
+.rc{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:16px 18px;background:var(--surface);animation:qin .5s var(--ease-out) both;animation-delay:calc(var(--i)*80ms)}
+.rc .rt{font-size:var(--fs-s);color:var(--muted)}
+.rc h4{font-size:var(--fs-l);font-weight:400;line-height:1.15;grid-column:1}
+.rc p{grid-column:1/3;font-size:var(--fs-s)}
+.rc .pr{grid-column:2;grid-row:1/3;text-align:right;align-self:start}
+.rc .lnk{grid-column:1/3;justify-self:start;min-height:40px;font-size:var(--fs-s)}
+
+/* courses */
+.crs h2{grid-column:1/11}
+.crs-l{grid-column:1/6;margin-top:56px}
+.crs-l>p{max-width:44ch}
+.seg{display:inline-grid;grid-auto-flow:column;gap:4px;margin-top:28px;background:var(--surface);padding:4px}
+.seg button{min-height:48px;padding:0 18px;border:0;background:transparent;transition:background-color .2s ease,color .2s ease}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.fld-sel{display:block;margin-top:20px;max-width:420px}
+.fld-sel span{display:block;font-size:var(--fs-s);color:var(--muted);margin-bottom:6px}
+select,input[type=text],input[type=tel],textarea{width:100%;min-height:52px;padding:12px 14px;border:0;border-radius:0;background:var(--surface);color:var(--ink);font-size:var(--fs-b);appearance:none;-webkit-appearance:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338450F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:20px;padding-right:44px}
+textarea{min-height:96px;resize:vertical}
+.crs-t{grid-column:8/13;margin-top:56px}
+.crs-t .ttl{font-size:var(--fs-s);color:var(--muted)}
+.crs-t dl{margin-top:16px}
+.crs-t dl div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0}
+.crs-t dl div.dim{opacity:.45}
+.crs-t dt small{font-size:var(--fs-s);color:var(--muted);margin-left:8px}
+.crs-t .tot{margin-top:28px;padding-top:28px;position:relative}
+.crs-t .tot::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--ink)}
+.crs-t .tot dd{font-size:var(--fs-h);letter-spacing:-0.03em;line-height:1}
+.crs-t>p{margin-top:16px;font-size:var(--fs-s);color:var(--muted)}
+.crs-t .btn{margin-top:24px}
+
+/* booking */
+.book{background:var(--surface)}
+.book-head{align-items:end;row-gap:20px}
+.book-head h2{grid-column:1/8}
+.book-head p{grid-column:8/13;max-width:50ch}
+.book-body{margin-top:clamp(40px,5vw,72px);align-items:start;row-gap:32px}
+.steps-b{grid-column:1/9;display:grid;gap:12px}
+.bs{background:var(--bg);padding:clamp(18px,2.4vw,32px);transition:opacity .35s ease}
+.bs-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bs-h h3{font-size:var(--fs-l)}
+.bs-h span{font-size:var(--fs-s);color:var(--muted)}
+.bs.lk{opacity:.5}
+.bs.lk .bs-c{pointer-events:none}
+.bs-c{margin-top:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:48px;padding:8px 16px;border:0;background:var(--surface);text-align:left;transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.chip small{display:block;font-size:var(--fs-s);color:var(--muted);transition:color .2s ease}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chip[aria-pressed="true"] small{color:#D7DABF}
+.chip:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.chip:active:not(:disabled){transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.chip:hover:not(:disabled):not([aria-pressed="true"]),.doc:hover:not(:disabled):not([aria-pressed="true"]),.day:hover:not([aria-pressed="true"]){background:var(--surface-2)}}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.doc{display:grid;grid-template-columns:1fr;gap:4px;align-content:start;padding:14px;border:0;background:var(--surface);text-align:left;transition:background-color .2s ease,color .2s ease,opacity .2s ease,transform .14s var(--ease-out)}
+.doc .mono{width:64px;height:64px;margin-bottom:8px;white-space:nowrap;display:grid;place-items:center;background:var(--bg);font-size:var(--fs-l);letter-spacing:-0.02em;transition:background-color .2s ease,color .2s ease}
+.doc b{font-weight:600}
+.doc span{font-size:var(--fs-s);color:var(--muted);line-height:1.3}
+.doc .doc-no{color:var(--err)}
+.doc[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.doc[aria-pressed="true"] span{color:#D7DABF}
+.doc[aria-pressed="true"] .mono{background:var(--light);color:var(--night)}
+.doc:disabled{opacity:.5;cursor:not-allowed}
+.doc:active:not(:disabled){transform:scale(.98)}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.day{min-height:64px;padding:6px 2px;border:0;background:var(--surface);display:grid;justify-items:center;gap:0;font-size:var(--fs-s);line-height:1.2;transition:background-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.day b{font-size:var(--fs-l);font-weight:400;line-height:1.05}
+.day.we span:first-child{color:var(--err)}
+.day[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.day[aria-pressed="true"] span{color:var(--bg)!important}
+.day:active{transform:scale(.96)}
+.times{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.times .chip{text-align:center;padding:8px 4px}
+.times .empty{grid-column:1/-1;color:var(--muted)}
+.sumc{grid-column:9/13;position:sticky;top:96px;background:var(--bg);padding:clamp(20px,2.4vw,32px)}
+.sumc h3{font-size:var(--fs-l)}
+.sumc dl{margin-top:14px;display:grid;gap:8px}
+.sumc dl div{display:grid;grid-template-columns:7.2em 1fr;gap:12px;align-items:baseline}
+.sumc dt{font-size:var(--fs-s);color:var(--muted)}
+.sumc dd{transition:opacity .3s ease}
+.sum-left{margin-top:16px;font-size:var(--fs-s);color:var(--muted)}
+.fm{display:grid;gap:12px;margin-top:20px}
+.fld{display:grid;gap:6px}
+.fld>span{font-size:var(--fs-s);color:var(--muted)}
+.sumc .fld input{background:var(--surface)}
+.fld.err input,.fld.err select{outline:2px solid var(--err);outline-offset:-2px}
+.fld .em{display:none;font-size:var(--fs-s);color:var(--err)}
+.fld.err .em{display:block}
+.ck{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;font-size:var(--fs-s);line-height:1.4;cursor:pointer;padding:4px 0}
+.ck input{width:22px;height:22px;margin:0;accent-color:var(--ink)}
+.ck.err{color:var(--err)}
+.ck button{background:none;border:0;padding:0;text-decoration:underline;font-size:inherit;color:inherit}
+.f-err{min-height:1.4em;font-size:var(--fs-s);color:var(--err)}
+.ok{display:none}
+.done .fm,.done .sum-left,.done .f-hide{display:none}
+.done .ok{display:block;animation:qin .5s var(--ease-out)}
+.ok h3{font-size:var(--fs-h);letter-spacing:-0.025em}
+.ok p{margin-top:12px}
+.ok .small{color:var(--muted)}
+
+/* visit steps diagonal */
+.vis-h{grid-column:7/13;grid-row:1}
+.vis-a{grid-column:1/6;grid-row:1/3;aspect-ratio:3/4}
+.vis-t1{grid-column:7/13;grid-row:2;align-self:center;display:grid!important;grid-template-columns:1fr 1fr;gap:24px var(--g)}
+.vis-b{grid-column:4/7;grid-row:3;aspect-ratio:1;margin-top:clamp(24px,4vw,64px)}
+.vis-t2{grid-column:7/11;grid-row:3;align-self:center}
+.vis-c{grid-column:7/13;grid-row:4;aspect-ratio:16/10}
+.vis-t3{grid-column:1/6;grid-row:4;align-self:end}
+.vis-t1,.vis-t2,.vis-t3{display:grid;gap:22px;padding-top:4px}
+.vis ol li p{max-width:38ch}
+.vis ol li b{font-weight:600}
+.vis .row-gap{row-gap:clamp(32px,4vw,64px)}
+
+/* prep table */
+.prep-h{grid-column:1/5}
+.prep-h p{margin-top:20px;max-width:40ch}
+.prep-t{grid-column:5/13}
+.prep-sw{display:none}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-b)}
+th,td{text-align:left;vertical-align:top;padding:16px 16px 16px 0}
+thead th{font-size:var(--fs-s);font-weight:400;color:var(--muted);padding-bottom:12px}
+tbody tr{border-top:1px solid #C9C6BC}
+tbody th{font-weight:600;width:24%}
+.prep-n{margin-top:24px;font-size:var(--fs-s);color:var(--muted);max-width:70ch}
+
+/* space band */
+.spc-h{padding-left:calc(var(--m) + 2*(100% - 2*var(--m))/12)}
+.spc-h p{margin-top:14px;max-width:52ch}
+.band{overflow:hidden;display:flex;height:68vh;height:68svh;min-height:420px;margin-top:56px}
+.band button{position:relative;border:0;padding:0;margin:0;background:var(--surface);overflow:hidden;min-width:0;color:var(--bg);text-align:left}
+.band button:nth-child(1){flex:5}.band button:nth-child(2){flex:2}.band button:nth-child(3){flex:3}.band button:nth-child(4){flex:2}
+.band img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease-out),filter .6s ease}
+.band .t{position:absolute;left:24px;bottom:20px;font-size:var(--fs-b);padding:4px 10px;background:rgba(16,18,8,.5)}
+.band .t0{position:absolute;left:24px;top:24px;right:24px;font-size:var(--fs-l);line-height:1.15;max-width:14ch}
+.band button:first-child::before{content:'';position:absolute;inset:0;z-index:1; /* taste-skill-ignore: neutral scrim under text on a photo */background:linear-gradient(to bottom,rgba(16,18,8,.45),rgba(16,18,8,0) 35%);pointer-events:none}
+.band .t0,.band .t{z-index:2}
+@media (hover:hover) and (pointer:fine){.band button:hover img{transform:scale(1.04)}}
+.spc-cap{margin-top:14px}
+
+/* why */
+.why-h{grid-column:1/8}
+.why-h p{margin-top:24px;max-width:52ch}
+.why-tiles{margin-top:72px;row-gap:16px;align-items:start}
+.why-ph{grid-column:1/9;position:relative}
+.why-ph .ph{aspect-ratio:16/10}
+.why-ov{position:absolute;right:0;top:0;width:min(380px,48%);background:var(--bg);padding:20px 22px}
+.why-ov h3,.why-tile h3,.why-more h3{font-size:var(--fs-l)}
+.why-ov p,.why-tile p{margin-top:10px}
+.why-r{grid-column:9/13;display:grid;gap:16px}
+.why-tile{background:var(--ink);color:var(--bg);padding:clamp(20px,2.4vw,32px);min-height:0}
+.why-tile svg{width:64px;height:64px;margin-bottom:20px}
+.why-more{display:grid;gap:24px;padding:8px 4px}
+.why-more p{margin-top:8px}
+
+/* faq */
+.faq h2{font-size:clamp(2.25rem,1rem + 4.6vw,5.5rem);letter-spacing:-0.035em;line-height:1}
+.faq-sub{margin-top:20px;max-width:52ch}
+.faq-l{margin-top:72px}
+.faq-l details{grid-column:5/13;margin-inline:-24px;padding:0 24px;transition:background-color .3s ease}
+.faq-l details+details{margin-top:12px}
+.faq-l details[open]{background:var(--surface)}
+.faq-l summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:64px;padding:16px 0;cursor:pointer;font-size:var(--fs-l);line-height:1.25}
+.faq-l summary::-webkit-details-marker{display:none}
+.faq-l summary svg{width:22px;height:22px;flex:none;transition:transform .4s var(--ease-out)}
+.faq-l details[open] summary svg{transform:rotate(180deg)}
+.faq-l .ans{padding:0 0 24px;max-width:60ch}
+.faq-l details[open] .ans{animation:qin .45s var(--ease-out)}
+
+/* contacts */
+.ct{row-gap:48px;align-items:start}
+.ct-say{grid-column:1/6}
+.ct-say h2{max-width:12ch}
+.ct-say>p{margin-top:24px;max-width:40ch}
+.ct-info{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px 24px}
+.ct-info dt{font-size:var(--fs-s);color:var(--muted)}
+.ct-info dd{margin-top:4px}
+.ct-info a{text-decoration:none}
+.ct-form{grid-column:7/13;background:var(--surface);padding:clamp(20px,3vw,44px)}
+.ct-form h3{font-size:var(--fs-l)}
+.ct-form .fm{margin-top:20px}
+.ct-form .fld input,.ct-form .fld select,.ct-form .fld textarea{background:var(--bg)}
+.ct-form .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.map{grid-column:1/13;position:relative;background:var(--ink);color:var(--bg);aspect-ratio:21/8;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map-l{position:absolute;font-size:var(--fs-s);line-height:1.2;pointer-events:none}
+.map-pin{position:absolute;left:58%;top:47%;transform:translate(-50%,-50%)}
+.map-pin i{display:block;width:18px;height:18px;border-radius:50%;background:var(--light)}
+.map-pin i::after{content:'';position:absolute;inset:-10px;border-radius:50%;border:2px solid var(--light);animation:ring 2.6s var(--ease-out) infinite}
+@keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(1.8);opacity:0}}
+.map-card{position:absolute;left:calc(58% + 24px);top:47%;transform:translateY(-50%);background:var(--bg);color:var(--ink);padding:12px 16px;font-size:var(--fs-s);line-height:1.35}
+.map-card b{display:block;font-size:var(--fs-b);font-weight:600}
+
+/* footer */
+.ft{position:relative;min-height:100vh;min-height:100svh; /* taste-skill-ignore: fallback before svh */color:var(--bg);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:#3a3427}
+.ft-ph{position:absolute;inset:0}
+.ft-ph img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
+.ft-top{position:relative;padding:40px var(--m) 0;row-gap:32px}
+.ft-top nav{grid-column:1/5;display:grid;gap:2px}
+.ft-top nav a{text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.ft-top nav a:hover{text-decoration:underline}
+.ft-about{grid-column:5/9;max-width:40ch}
+.ft-c{grid-column:9/13;justify-self:end;display:grid;gap:4px;text-align:right}
+.ft-c a{text-decoration:none}
+.ft-bot{position:relative;padding:0 var(--m) 28px}
+.ft-word{display:block;width:100%;height:auto;margin-bottom:24px}
+.ft-legal{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:var(--fs-s);color:#E6E4DA}
+.ft-legal button{background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:inherit;min-height:24px}
+
+/* dialogs */
+dialog{border:0;padding:0;max-width:min(640px,calc(100vw - 32px));background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(16,18,8,.72)}
+dialog[open]{animation:qin .35s var(--ease-out)}
+.dlg{padding:clamp(24px,4vw,44px)}
+.dlg h2{font-size:var(--fs-l);font-weight:600;letter-spacing:-0.01em}
+.dlg p{margin-top:14px}
+.dlg .btn{margin-top:24px}
+#lb{max-width:min(1100px,calc(100vw - 32px));background:var(--night);color:var(--bg)}
+#lb figure{display:grid}
+#lb img{width:100%;max-height:78vh;object-fit:contain;background:#000}
+#lb figcaption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 16px}
+#lb .lb-n{display:flex;gap:4px}
+#lb button{min-width:44px;min-height:44px;background:var(--night-2);border:0;color:var(--bg)}
+
+/* mobile CTA */
+.fab{position:fixed;left:16px;right:16px;bottom:max(12px,env(safe-area-inset-bottom));z-index:30;display:none;transform:translateY(140%);transition:transform .45s var(--ease-out)}
+.fab.on{transform:none}
+.fab .btn{width:100%}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex;align-items:center}
+  .hd-tel{display:none}
+}
+@media (max-width:899px){
+  :root{--sec:64px}
+  .hd{height:64px;gap:14px}
+  .brand span{display:none}
+  .hero{min-height:560px}
+  .hero-in{bottom:max(88px,calc(env(safe-area-inset-bottom) + 84px))}
+  .hero h1{grid-column:1/-1;font-size:clamp(2.4rem,10.4vw,3.4rem)}
+  .hero-copy{grid-column:1/-1}
+  .hero-copy p{margin-top:18px}
+  .hero-act{margin-top:20px;gap:8px 20px}
+  .hero-facts{display:none}
+  .hero-ctl{top:80px}
+  .grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .dx-head h2,.dx-head p,.dx-fig,.dx-panel{grid-column:1/-1}
+  .dx-body{margin-top:32px;row-gap:28px}
+  .dx-fig{height:clamp(440px,64svh,560px);margin-inline:calc(-1*var(--m))}
+  .dx-ly{display:none}
+  .dx-sc{left:var(--m)}
+  .dx-pr{left:calc(50% + 30px)}
+  .dx-tag{right:calc(50% + 26px)}
+  .dx-read{margin-top:0}
+  .dx-layers{margin-top:20px}
+  .dx-cards{margin-top:24px}
+  .svc-side,.svc-list{grid-column:1/-1}
+  .svc-side .ph{display:none}
+}
+@media (min-width:600px) and (max-width:899px){
+  .svc-side{display:grid;grid-template-columns:1fr 36%;column-gap:32px;align-items:start}
+  .svc-side .ph{display:block;grid-column:2;grid-row:1/3;margin:0;width:100%}
+  .svc-list{columns:2!important;column-gap:32px}
+}
+@media (max-width:899px){
+  .svc-list{columns:1}
+  .svc-grp+.svc-grp{margin-top:40px}
+  .svc-grp li{margin-top:18px}
+  .qz-side,.qz{grid-column:1/-1}
+  .qz{margin-top:28px;min-height:0;margin-inline:calc(-1*var(--m));padding:24px var(--m)}
+  .opts{grid-template-columns:1fr}
+  .opt{min-height:52px}
+  .crs h2,.crs-l,.crs-t{grid-column:1/-1}
+  .crs-l,.crs-t{margin-top:28px}
+  .seg{display:grid;grid-template-columns:repeat(3,1fr)}
+  .book-head h2,.book-head p,.steps-b,.sumc{grid-column:1/-1}
+  .book-body{margin-top:28px}
+  .steps-b{margin-inline:calc(-1*var(--m))}
+  .bs{padding:20px var(--m)}
+  .docs{grid-template-columns:1fr}
+  .doc{grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;padding:10px 12px}
+  .doc .mono{grid-row:1/4;width:48px;height:48px;margin:0;font-size:var(--fs-b)}
+  .doc .doc-no{grid-column:2}
+  .times{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .sumc{position:static;margin-inline:calc(-1*var(--m));padding:24px var(--m)}
+  .vis-h,.vis-a,.vis-t1,.vis-b,.vis-t2,.vis-c,.vis-t3{grid-column:auto;grid-row:auto;margin-top:0}
+  .vis .grid{grid-template-columns:1fr}
+  .vis-t1{grid-template-columns:1fr;gap:18px}
+  .vis-a{width:72%;aspect-ratio:4/3}
+  .vis-b{width:56%;justify-self:end;margin-top:0}
+  .vis-c{width:86%}
+  .vis-t3{align-self:start}
+  .prep-h,.prep-t{grid-column:1/-1}
+  .prep-t{margin-top:24px}
+  .prep-sw{display:grid;grid-template-columns:1fr 1fr;margin:0 0 8px}
+  .prep-t table,.prep-t tbody,.prep-t tr{display:block}
+  .prep-t thead{display:none}
+  .prep-t tbody tr{display:grid;grid-template-columns:1fr;padding:14px 0}
+  .prep-t th,.prep-t td{padding:0;width:auto}
+  .prep-t td{margin-top:6px}
+  .js .prep-t[data-show="before"] td.af,.js .prep-t[data-show="after"] td.bf{display:none}
+  .spc-h{padding-left:var(--m)}
+  .band{height:auto;min-height:0;display:grid;grid-template-columns:64fr 36fr;grid-template-rows:38svh 32svh;margin-top:32px}
+  .band button:nth-child(3){grid-column:1}
+  .band button:nth-child(4){grid-column:2;grid-row:2}
+  .band button:nth-child(3){order:4}
+  .band .t0{left:16px;top:16px;font-size:var(--fs-b)}
+  .band .t{left:12px;bottom:12px;font-size:var(--fs-s)}
+  .why-h,.why-ph,.why-r{grid-column:1/-1}
+  .why-tiles{margin-top:36px}
+  .why-ph .ph{aspect-ratio:4/3}
+  .why-ov{position:static;width:auto;padding:18px 0 0;background:none}
+  .faq-l{margin-top:36px}
+  .faq-l details{grid-column:1/-1;margin-inline:calc(-1*var(--m));padding:0 var(--m)}
+  .faq-l details+details{margin-top:4px}
+  .faq-l summary{font-size:var(--fs-b);min-height:56px}
+  .ct-say,.ct-form,.map{grid-column:1/-1}
+  .ct-form{margin-inline:calc(-1*var(--m));padding:24px var(--m)}
+  .ct-form .two{grid-template-columns:1fr}
+  .map{margin-inline:calc(-1*var(--m))}
+  .map-card{left:12px!important;right:12px;top:auto;bottom:12px;transform:none}
+  .map{aspect-ratio:auto;height:340px}
+  .ct-info{grid-template-columns:1fr 1fr}
+  .ct-info>div:first-child,.ct-info>div:last-child{grid-column:1/-1}
+  .map-l.hide-m{display:none}
+  .map-l[style*="left:3%"]{left:var(--m)!important}
+  .map-card{left:var(--m)!important;right:var(--m)!important}
+  .ft{min-height:auto}
+  .ft-top{padding-top:28px}
+  .ft-top nav,.ft-about,.ft-c{grid-column:1/-1}
+  .ft-c{justify-self:start;text-align:left}
+  .ft-about{display:none}
+  .ft-bot{padding-top:120px}
+  .fab{display:block}
+}
+@media (max-width:380px){ .docs{grid-template-columns:1fr} .hero h1{font-size:2.3rem} }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  .js [data-r],.js .hero h1 .w>span,.js .hero .slide img,.js .hero-copy p,.js .hero-act,.js .hero-facts{opacity:1!important;transform:none!important}
+  .hero-media{translate:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="hd" id="hd">
+  <a class="brand" href="#top" aria-label="LUMEN — наверх"><b>LUMEN</b><span>клиника косметологии<br>Ростов-на-Дону</span></a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#uslugi"><span>Услуги</span></a><a href="#glubina"><span>Глубина</span></a><a href="#podbor"><span>Подбор</span></a><a href="#zapis"><span>Запись</span></a><a href="#voprosy"><span>Вопросы</span></a><a href="#kontakty"><span>Контакты</span></a>
+  </nav>
+  <a class="hd-tel num" href="tel:+78630000000">+7 (863) 000-00-00</a>
+  <a class="btn" href="#zapis">Записаться</a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
+</header>
+<div class="menu" id="menu" aria-label="Меню">
+  <nav aria-label="Меню разделов">
+    <a href="#uslugi">Услуги и цены</a><a href="#glubina">Глубина</a><a href="#podbor">Подбор</a><a href="#zapis">Онлайн-запись</a><a href="#voprosy">Вопросы</a><a href="#kontakty">Контакты</a>
+  </nav>
+  <a class="num" href="tel:+78630000000">+7 (863) 000-00-00</a>
+  <a class="btn" href="#zapis">Записаться онлайн</a>
+</div>
+
+<main id="main">
+<section class="hero" id="top" aria-label="LUMEN">
+  <div class="hero-media" id="heroMedia">
+    <picture class="slide on">
+      <source media="(max-width: 700px)" type="image/webp" srcset="img/herom-600.webp 600w, img/herom-1000.webp 1000w" sizes="100vw">
+      <img id="heroImg" src="img/hero-1600.webp" srcset="img/hero-1000.webp 1000w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" sizes="100vw" width="1600" height="1000" alt="Солнечный свет через стекло на лице с закрытыми глазами" fetchpriority="high" decoding="async">
+    </picture>
+    <picture class="slide">
+      <source media="(max-width: 700px)" type="image/webp" srcset="img/steamm-600.webp 600w, img/steamm-1000.webp 1000w" sizes="100vw">
+      <img src="img/steam-1600.webp" srcset="img/steam-1000.webp 1000w, img/steam-1600.webp 1600w, img/steam-2400.webp 2400w" sizes="100vw" width="1600" height="1000" alt="Тёплый пар над лицом во время уходовой процедуры" fetchpriority="low" decoding="async">
+    </picture>
+    <picture class="slide">
+      <source media="(max-width: 700px)" type="image/webp" srcset="img/glintm-600.webp 600w, img/glintm-1000.webp 1000w" sizes="100vw">
+      <img src="img/glint-1600.webp" srcset="img/glint-1000.webp 1000w, img/glint-1600.webp 1600w, img/glint-2400.webp 2400w" sizes="100vw" width="1600" height="1000" alt="Блик света на коже щеки крупным планом" fetchpriority="low" decoding="async">
+    </picture>
+  </div>
+  <div class="scrim"></div>
+  <div class="hero-ctl" id="heroCtl"><span class="bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span><button type="button" id="heroPause" aria-pressed="false" aria-label="Остановить смену фотографий"><svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg><svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button></div>
+  <div class="hero-in grid">
+    <div class="hero-copy">
+      <h1><span class="w"><span style="--i:0">Эстетика</span></span> <span class="w"><span style="--i:1">лица&nbsp;—</span></span><br><span class="w"><span style="--i:2">в</span></span> <span class="w"><span style="--i:3">руках</span></span> <span class="w"><span style="--i:4">врачей</span></span></h1>
+      <p>LUMEN — клиника косметологии в&nbsp;центре Ростова-на-Дону, на&nbsp;Пушкинской. Консультация, план процедур и&nbsp;стоимость, зафиксированная до&nbsp;начала. Без навязанных курсов и&nbsp;обещаний «минус десять лет».</p>
+      <div class="hero-act">
+        <a class="btn inv" href="#zapis">Записаться онлайн <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="lnk" href="#podbor">Подобрать процедуру</a>
+      </div>
+    </div>
+    <ul class="hero-facts">
+      <li class="live">Онлайн-запись открыта: свободные окна на&nbsp;14&nbsp;дней вперёд</li>
+      <li>Консультация врача&nbsp;— 0&nbsp;₽ при записи на&nbsp;процедуру</li>
+      <li>Инъекции и&nbsp;лазер выполняют только врачи</li>
+      <li>План и&nbsp;стоимость фиксируем до&nbsp;начала</li>
+    </ul>
+  </div>
+</section>
+
+<!-- depth explorer: the live thing -->
+<section class="dark sec" id="glubina" aria-labelledby="dx-t">
+  <div class="wrap">
+    <div class="grid dx-head">
+      <h2 id="dx-t" data-r>Где именно работает процедура</h2>
+      <p data-r>Ведите луч по&nbsp;срезу кожи: на&nbsp;каждой глубине&nbsp;— свои методики. Это схема, чтобы понимать, что происходит, а&nbsp;не&nbsp;назначение. Технику и&nbsp;глубину врач выбирает по&nbsp;зоне и&nbsp;состоянию кожи.</p>
+    </div>
+    <div class="grid dx-body">
+      <div class="dx-fig" id="dxFig" data-ui data-r>
+        <svg viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <mask id="dxMask" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="640">
+              <rect width="800" height="640" fill="#fff"/>
+              <rect id="dxCut" x="336" y="0" width="128" height="190" fill="#000"/>
+            </mask>
+            <clipPath id="dxEpi"><path d="M0 100 C 90 91 190 105 300 97 S 500 90 610 99 S 740 104 800 96 V186 H0Z"/></clipPath>
+          </defs>
+          <!-- epidermis -->
+          <path d="M0 100 C 90 91 190 105 300 97 S 500 90 610 99 S 740 104 800 96 V186 H0Z" fill="#EBCFB9"/>
+          <path d="M0 128 C 120 120 240 134 360 126 S 600 120 800 127" fill="none" stroke="#F4DECC" stroke-width="3"/>
+          <path d="M0 154 C 140 147 260 160 400 152 S 640 146 800 153" fill="none" stroke="#E2BFA6" stroke-width="3"/>
+          <!-- dermis -->
+          <path d="M0 186 C 40 176 70 196 110 184 S 180 176 220 188 S 300 174 340 186 S 420 196 460 184 S 540 176 580 188 S 660 176 700 186 S 770 194 800 184 V380 H0Z" fill="#D9A48F"/>
+          <g fill="none" stroke="#E6BCA9" stroke-width="2.5" stroke-linecap="round">
+            <path d="M30 230 c40-14 80 14 120 0 s80-14 120 0"/><path d="M420 222 c40-14 80 14 120 0 s80-14 120 0"/>
+            <path d="M120 280 c40-14 80 14 120 0 s80-14 120 0"/><path d="M520 290 c40-14 80 14 120 0 s70-12 100 0"/>
+            <path d="M20 335 c40-14 80 14 120 0 s80-14 120 0"/><path d="M380 340 c40-14 80 14 120 0"/><path d="M600 248 c30-10 60 10 90 0"/>
+          </g>
+          <g fill="none" stroke="#C88E7B" stroke-width="2"><path d="M250 250 c30 10 50 40 90 44"/><path d="M640 330 c-30 6-50 30-90 30"/></g>
+          <!-- hypodermis -->
+          <rect x="0" y="380" width="800" height="144" fill="#E7C98D"/>
+          <g fill="#F1DBA9" stroke="#D9B66F" stroke-width="2">
+            <circle cx="30" cy="410" r="22"/><circle cx="78" cy="448" r="26"/><circle cx="40" cy="492" r="20"/><circle cx="128" cy="404" r="20"/><circle cx="138" cy="492" r="24"/><circle cx="232" cy="420" r="26"/><circle cx="276" cy="482" r="22"/><circle cx="330" cy="412" r="18"/><circle cx="350" cy="470" r="24"/>
+            <circle cx="456" cy="414" r="22"/><circle cx="452" cy="486" r="24"/><circle cx="520" cy="448" r="22"/><circle cx="580" cy="406" r="20"/><circle cx="600" cy="490" r="22"/><circle cx="690" cy="420" r="26"/><circle cx="742" cy="480" r="24"/><circle cx="780" cy="410" r="16"/>
+          </g>
+          <!-- hair follicles -->
+          <g stroke="#4A3424" stroke-width="3" fill="none" stroke-linecap="round"><path d="M182 470 C 176 340 190 220 176 60"/><path d="M652 476 C 660 340 646 220 664 70"/></g>
+          <g fill="#6E4C36"><ellipse cx="182" cy="474" rx="9" ry="14"/><ellipse cx="652" cy="480" rx="9" ry="14"/></g>
+          <!-- muscle -->
+          <rect x="0" y="524" width="800" height="116" fill="#9E5849"/>
+          <g stroke="#8B4A3D" stroke-width="3"><path d="M0 540H800M0 556H800M0 572H800M0 588H800M0 604H800M0 620H800"/></g>
+          <!-- dimmer with lit column -->
+          <rect width="800" height="640" fill="#0E1006" opacity=".42" mask="url(#dxMask)"/>
+          <!-- markers -->
+          <g id="dxMarks" fill="#1B1F0D"></g>
+          <!-- beam -->
+          <rect x="336" y="0" width="128" height="96" fill="#F4E3B5" opacity=".07" id="dxAir"/>
+          <rect id="dxCore" x="397" y="0" width="6" height="190" fill="#FFF6DC"/>
+          <rect x="370" y="0" width="60" height="6" fill="#FFF6DC"/>
+          <circle id="dxDot" cx="400" cy="190" r="9" fill="#FFF6DC"/>
+          <circle id="dxHalo" cx="400" cy="190" r="30" fill="#F4E3B5" opacity=".3"/>
+        </svg>
+        <div id="dxOver" aria-hidden="true"></div>
+        <span class="dx-tag num" id="dxTag" aria-hidden="true">1,20 мм</span>
+        <div class="dx-knob" id="dxKnob" role="slider" tabindex="0" aria-label="Глубина луча, миллиметры от поверхности кожи" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1.2" aria-valuetext="1,2 мм, дерма"></div>
+      </div>
+      <div class="dx-panel" data-ui>
+        <div class="dx-read" data-r><b class="num" id="dxRead">1,20 мм</b><span class="muted">от поверхности кожи</span></div>
+        <div class="dx-layers" role="group" aria-label="Слой кожи" data-r>
+          <button type="button" data-l="epi" aria-pressed="false">Эпидермис</button>
+          <button type="button" data-l="derm" aria-pressed="true">Дерма</button>
+          <button type="button" data-l="hypo" aria-pressed="false">Подкожный слой</button>
+          <button type="button" data-l="musc" aria-pressed="false">Мышцы</button>
+        </div>
+        <div class="dx-cards" aria-live="polite" data-r>
+          <article class="dx-card" data-l="epi">
+            <p class="rng">0–0,1 мм от поверхности</p>
+            <h3>Эпидермис</h3>
+            <p>Верхний защитный слой, который полностью обновляется примерно за&nbsp;месяц. Здесь работают уходы, чистки и&nbsp;поверхностные пилинги: они очищают и&nbsp;выравнивают поверхность, не&nbsp;затрагивая глубокие слои.</p>
+            <ul class="dx-procs">
+              <li><b>Уходовая программа</b><span class="pr num">от 4&nbsp;500&nbsp;₽</span><p>Очищение, массаж и&nbsp;маска на&nbsp;поверхности кожи</p><button class="lnk" type="button" data-proc="care">Записаться</button></li>
+              <li><b>Чистка лица</b><span class="pr num">от 3&nbsp;500&nbsp;₽</span><p>Очищение пор и&nbsp;рогового слоя</p><button class="lnk" type="button" data-proc="clean">Записаться</button></li>
+              <li><b>Пилинг</b><span class="pr num">от 3&nbsp;000&nbsp;₽</span><p>Кислота мягко обновляет верхний слой</p><button class="lnk" type="button" data-proc="peel">Записаться</button></li>
+            </ul>
+          </article>
+          <article class="dx-card on" data-l="derm">
+            <p class="rng">0,1–2 мм от поверхности</p>
+            <h3>Дерма</h3>
+            <p>Каркас кожи: коллаген, эластин и&nbsp;собственная гиалуроновая кислота. Сюда вводят препараты при биоревитализации и&nbsp;мезотерапии, чтобы поддержать увлажнённость и&nbsp;плотность кожи.</p>
+            <ul class="dx-procs">
+              <li><b>Биоревитализация</b><span class="pr num">от 9&nbsp;000&nbsp;₽</span><p>Гиалуроновая кислота вводится в&nbsp;дерму</p><button class="lnk" type="button" data-proc="bio">Записаться</button></li>
+              <li><b>Мезотерапия</b><span class="pr num">от 5&nbsp;000&nbsp;₽</span><p>Микроинъекции коктейля&nbsp;— состав по&nbsp;показаниям</p><button class="lnk" type="button" data-proc="meso">Записаться</button></li>
+            </ul>
+          </article>
+          <article class="dx-card" data-l="hypo">
+            <p class="rng">2–6 мм от поверхности</p>
+            <h3>Подкожный слой</h3>
+            <p>Жировая клетчатка, в&nbsp;которой лежат луковицы волос. На&nbsp;луковицу направлен лазер при эпиляции, а&nbsp;часть филлеров врач вводит на&nbsp;этой глубине или глубже, в&nbsp;зависимости от&nbsp;зоны.</p>
+            <ul class="dx-procs">
+              <li><b>Лазерная эпиляция</b><span class="pr num">от 1&nbsp;500&nbsp;₽/зона</span><p>Свет нагревает луковицу волоса</p><button class="lnk" type="button" data-proc="laser">Записаться</button></li>
+              <li><b>Контурная пластика</b><span class="pr num">от 15&nbsp;000&nbsp;₽</span><p>Глубина зависит от&nbsp;зоны, решает врач</p><button class="lnk" type="button" data-proc="filler">Записаться</button></li>
+            </ul>
+          </article>
+          <article class="dx-card" data-l="musc">
+            <p class="rng">глубже 6 мм</p>
+            <h3>Мимические мышцы</h3>
+            <p>Мышцы, которые формируют мимику и&nbsp;заломы на&nbsp;лбу и&nbsp;вокруг глаз. Ботулинотерапия расслабляет их&nbsp;точечно: точки и&nbsp;дозу врач определяет на&nbsp;консультации.</p>
+            <ul class="dx-procs">
+              <li><b>Ботулинотерапия</b><span class="pr num">от 350&nbsp;₽/ед.</span><p>Препарат вводится точечно в&nbsp;мышцу</p><button class="lnk" type="button" data-proc="botox">Записаться</button></li>
+            </ul>
+          </article>
+        </div>
+        <p class="dx-note">Глубины&nbsp;— средние ориентиры для лица: у&nbsp;разных зон и&nbsp;людей они отличаются.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- services -->
+<section class="sec" id="uslugi" aria-labelledby="svc-t">
+  <div class="wrap grid svc">
+    <div class="svc-side">
+      <h2 id="svc-t" data-r>Услуги и цены</h2>
+      <p data-r>Цены&nbsp;— ориентир «от» для Ростова-на-Дону, осень 2026. Точную стоимость врач называет на&nbsp;консультации, после осмотра кожи, и&nbsp;фиксирует в&nbsp;плане до&nbsp;начала процедуры.</p>
+      <div class="ph" data-r="img"><img src="img/serum-500.webp" srcset="img/serum-500.webp 500w, img/serum-900.webp 900w" sizes="(max-width: 899px) 60vw, 24vw" width="500" height="625" loading="lazy" decoding="async" alt="Капля сыворотки из пипетки на светлом фоне в солнечном свете"></div>
+    </div>
+    <div class="svc-list">
+      <div class="svc-grp" data-r>
+        <h3>Консультация и уход</h3>
+        <ul>
+          <li><div class="svc-row"><span>Консультация косметолога</span><span class="num">0&nbsp;₽</span></div><p>Осмотр кожи и&nbsp;разбор запроса, план процедур с&nbsp;ценами, ответы о&nbsp;противопоказаниях. 0&nbsp;₽ при записи на&nbsp;процедуру, отдельно&nbsp;— 1&nbsp;500&nbsp;₽.</p><button class="lnk" type="button" data-proc="consult">Записаться</button></li>
+          <li><div class="svc-row"><span>Чистка лица</span><span class="num">от 3&nbsp;500&nbsp;₽</span></div><p>Механическая и/или ультразвуковая, успокаивающая маска после, рекомендации по&nbsp;домашнему уходу.</p><button class="lnk" type="button" data-proc="clean">Записаться</button></li>
+          <li><div class="svc-row"><span>Пилинг</span><span class="num">от 3&nbsp;000&nbsp;₽</span></div><p>Поверхностные кислотные пилинги. Кислота&nbsp;— под тип и&nbsp;состояние кожи, разово или курсом.</p><button class="lnk" type="button" data-proc="peel">Записаться</button></li>
+          <li><div class="svc-row"><span>Уходовая программа</span><span class="num">от 4&nbsp;500&nbsp;₽</span></div><p>Очищение, массаж, маска, сыворотка. Состав&nbsp;— по&nbsp;состоянию кожи в&nbsp;день визита; подходит перед важным событием.</p><button class="lnk" type="button" data-proc="care">Записаться</button></li>
+        </ul>
+      </div>
+      <div class="svc-grp" data-r>
+        <h3>Инъекционные методики</h3>
+        <ul>
+          <li><div class="svc-row"><span>Биоревитализация</span><span class="num">от 9&nbsp;000&nbsp;₽</span></div><p>Инъекции гиалуроновой кислоты. Препарат и&nbsp;серию показываем до&nbsp;вскрытия, анестезирующий крем включён.</p><button class="lnk" type="button" data-proc="bio">Записаться</button></li>
+          <li><div class="svc-row"><span>Мезотерапия</span><span class="num">от 5&nbsp;000&nbsp;₽</span></div><p>Коктейли&nbsp;— строго по&nbsp;показаниям. Лицо, шея, кожа головы; количество сеансов определяет врач.</p><button class="lnk" type="button" data-proc="meso">Записаться</button></li>
+          <li><div class="svc-row"><span>Контурная пластика</span><span class="num">от 15&nbsp;000&nbsp;₽</span></div><p>Филлеры на&nbsp;основе гиалуроновой кислоты: губы, носогубные складки, скулы. Выполняет только врач-косметолог.</p><button class="lnk" type="button" data-proc="filler">Записаться</button></li>
+          <li><div class="svc-row"><span>Ботулинотерапия</span><span class="num">от 350&nbsp;₽/ед.</span></div><p>Лоб, межбровье, область вокруг глаз. Количество единиц&nbsp;— на&nbsp;консультации, контрольный осмотр через 2&nbsp;недели.</p><button class="lnk" type="button" data-proc="botox">Записаться</button></li>
+        </ul>
+      </div>
+      <div class="svc-grp" data-r>
+        <h3>Аппаратные методики</h3>
+        <ul>
+          <li><div class="svc-row"><span>Лазерная эпиляция</span><span class="num">от 1&nbsp;500&nbsp;₽/зона</span></div><p>Параметры&nbsp;— под фототип кожи. Любые зоны, в&nbsp;том числе лицо; курсом с&nbsp;интервалом 4–8 недель.</p><button class="lnk" type="button" data-proc="laser">Записаться</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- quiz -->
+<section class="quiz sec" id="podbor" aria-labelledby="qz-t">
+  <div class="wrap grid">
+    <div class="qz-side">
+      <h2 id="qz-t" data-r>Подбор за три вопроса</h2>
+      <p data-r>Инструмент не&nbsp;заменяет врача: он&nbsp;показывает, какие процедуры из&nbsp;нашего прайса обычно рассматривают при вашем запросе. Окончательное решение&nbsp;— на&nbsp;консультации.</p>
+    </div>
+    <div class="qz" data-ui data-r>
+      <div class="qz-bar" aria-hidden="true"><i id="qBar"></i></div>
+      <div class="qp on" data-step="1" id="q1">
+        <h3>Что беспокоит?</h3>
+        <p class="qz-hint" id="qHint" aria-live="polite">Отметьте всё, что беспокоит&nbsp;— можно несколько пунктов.</p>
+        <div class="opts" role="group" aria-label="Что беспокоит">
+          <button class="opt" type="button" data-v="dry" aria-pressed="false">Сухость, стянутость</button>
+          <button class="opt" type="button" data-v="pigm" aria-pressed="false">Пигментация, тон</button>
+          <button class="opt" type="button" data-v="wr" aria-pressed="false">Морщины</button>
+          <button class="opt" type="button" data-v="acne" aria-pressed="false">Акне, воспаления</button>
+          <button class="opt" type="button" data-v="tone" aria-pressed="false">Тонус, овал лица</button>
+          <button class="opt" type="button" data-v="hair" aria-pressed="false">Нежелательные волосы</button>
+        </div>
+      </div>
+      <div class="qp" data-step="2" id="q2">
+        <h3>Сколько вам лет?</h3>
+        <p class="qz-hint">Возраст подсказывает, какие методики уместны, а&nbsp;какие&nbsp;— пока рано.</p>
+        <div class="opts" role="group" aria-label="Возраст">
+          <button class="opt" type="button" data-v="u25" aria-pressed="false">до 25</button>
+          <button class="opt" type="button" data-v="25" aria-pressed="false">25–35</button>
+          <button class="opt" type="button" data-v="35" aria-pressed="false">35–45</button>
+          <button class="opt" type="button" data-v="45" aria-pressed="false">45 и старше</button>
+        </div>
+      </div>
+      <div class="qp" data-step="3" id="q3">
+        <h3>Какой формат ближе?</h3>
+        <p class="qz-hint">Формат&nbsp;— ваш комфорт. Врач предложит альтернативы, если выбранный не&nbsp;подойдёт.</p>
+        <div class="opts" role="group" aria-label="Формат">
+          <button class="opt" type="button" data-v="no" aria-pressed="false">Без инъекций</button>
+          <button class="opt" type="button" data-v="inj" aria-pressed="false">Инъекции</button>
+          <button class="opt" type="button" data-v="hw" aria-pressed="false">Аппаратные</button>
+        </div>
+      </div>
+      <div class="qp" data-step="4" id="q4">
+        <h3>Что обычно рассматривают</h3>
+        <p class="qz-hint">Это ориентир по&nbsp;нашему прайсу, а&nbsp;не&nbsp;назначение. План утверждает врач на&nbsp;консультации.</p>
+        <div class="qz-res" id="qRes" aria-live="polite"></div>
+        <div class="qz-notes" id="qNotes"></div>
+      </div>
+      <div class="qz-nav">
+        <button class="btn" type="button" id="qNext">Дальше <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        <button class="qz-back" type="button" id="qBack" hidden>Назад</button>
+        <button class="btn ghost" type="button" id="qReset" hidden>Пройти заново</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- courses -->
+<section class="sec crs" id="kursy" aria-labelledby="crs-t">
+  <div class="wrap grid">
+    <h2 id="crs-t" data-r>Когда одной процедуры мало</h2>
+    <div class="crs-l">
+      <p data-r>Пилинги, мезотерапия, биоревитализация и&nbsp;эпиляция работают накопительно&nbsp;— врач обычно назначает курс. Переключите количество сеансов, чтобы увидеть ориентир стоимости.</p>
+      <div class="seg" id="cSeg" role="group" aria-label="Количество сеансов" data-r>
+        <button type="button" data-n="1" aria-pressed="false">1 сеанс</button>
+        <button type="button" data-n="3" aria-pressed="true">3 сеанса</button>
+        <button type="button" data-n="5" aria-pressed="false">5 сеансов</button>
+      </div>
+      <label class="fld-sel" data-r><span>Процедура</span>
+        <select id="cProc">
+          <option value="bio">Биоревитализация</option>
+          <option value="meso">Мезотерапия</option>
+          <option value="peel">Пилинг</option>
+          <option value="care">Уходовая программа</option>
+          <option value="clean">Чистка лица</option>
+          <option value="laser">Лазерная эпиляция (одна зона)</option>
+        </select>
+      </label>
+    </div>
+    <div class="crs-t" data-ui data-r>
+      <p class="ttl"><span id="cName">Биоревитализация</span>, <span id="cLbl">курс из 3 сеансов</span></p>
+      <dl aria-live="polite">
+        <div><dt>Один сеанс</dt><dd class="num" id="cEach" data-suf=" ₽">9&nbsp;000&nbsp;₽</dd></div>
+        <div><dt id="cSubL">3 сеанса</dt><dd class="num" id="cSub" data-suf=" ₽">27&nbsp;000&nbsp;₽</dd></div>
+        <div id="cRow"><dt>Выгода курса<small id="cDisc">−10%</small></dt><dd class="num" id="cSave" data-pre="− " data-suf=" ₽">−&nbsp;2&nbsp;700&nbsp;₽</dd></div>
+        <div class="tot"><dt>Итого, от</dt><dd class="num" id="cTotal" data-suf=" ₽">24&nbsp;300&nbsp;₽</dd></div>
+      </dl>
+      <p>Ориентировочный расчёт по&nbsp;ценам «от». Интервал между сеансами и&nbsp;точную стоимость курса врач определяет на&nbsp;консультации.</p>
+      <button class="btn" type="button" id="cBook" data-proc="bio">Записаться на сеанс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- booking -->
+<section class="book sec" id="zapis" aria-labelledby="bk-t">
+  <div class="wrap">
+    <div class="grid book-head">
+      <h2 id="bk-t" data-r>Выберите время&nbsp;— мы подтвердим</h2>
+      <p data-r>Четыре шага: процедура, врач, дата и&nbsp;время. Администратор перезвонит и&nbsp;подтвердит запись. Если выбрать консультацию&nbsp;— она бесплатна при записи на&nbsp;процедуру.</p>
+    </div>
+    <div class="grid book-body">
+      <div class="steps-b" data-ui>
+        <div class="bs" id="bs1" data-r>
+          <div class="bs-h"><h3>Процедура</h3><span>что хотите сделать</span></div>
+          <div class="bs-c chips" id="bProcs" role="group" aria-label="Процедура">
+            <button class="chip" type="button" data-id="consult" aria-pressed="false">Консультация косметолога <small class="num">0&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="clean" aria-pressed="false">Чистка лица <small class="num">от 3&nbsp;500&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="peel" aria-pressed="false">Пилинг <small class="num">от 3&nbsp;000&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="bio" aria-pressed="false">Биоревитализация <small class="num">от 9&nbsp;000&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="meso" aria-pressed="false">Мезотерапия <small class="num">от 5&nbsp;000&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="filler" aria-pressed="false">Контурная пластика <small class="num">от 15&nbsp;000&nbsp;₽</small></button>
+            <button class="chip" type="button" data-id="botox" aria-pressed="false">Ботулинотерапия <small class="num">от 350&nbsp;₽/ед.</small></button>
+            <button class="chip" type="button" data-id="laser" aria-pressed="false">Лазерная эпиляция <small class="num">от 1&nbsp;500&nbsp;₽/зона</small></button>
+            <button class="chip" type="button" data-id="care" aria-pressed="false">Уходовая программа <small class="num">от 4&nbsp;500&nbsp;₽</small></button>
+          </div>
+        </div>
+        <div class="bs lk" id="bs2" data-r>
+          <div class="bs-h"><h3>Врач</h3><span>сначала выберите процедуру</span></div>
+          <div class="bs-c docs" role="group" aria-label="Врач">
+            <button class="doc" type="button" data-doc="0" aria-pressed="false"><span class="mono">К. А.</span><b>Косметолог-дерматолог</b><span>инъекции, пилинги, лазер</span><span class="doc-no" hidden>не выполняет эту процедуру</span></button>
+            <button class="doc" type="button" data-doc="1" aria-pressed="false"><span class="mono">Е. Ш.</span><b>Врач-косметолог</b><span>инъекционные методики</span><span class="doc-no" hidden>не выполняет эту процедуру</span></button>
+            <button class="doc" type="button" data-doc="2" aria-pressed="false"><span class="mono">Д. К.</span><b>Эстетист</b><span>чистки, уходы, лазер</span><span class="doc-no" hidden>не выполняет эту процедуру</span></button>
+          </div>
+        </div>
+        <div class="bs" id="bs3" data-r>
+          <div class="bs-h"><h3>Дата</h3><span>ближайшие 14 дней</span></div>
+          <div class="bs-c days" id="bDays" role="group" aria-label="Дата"></div>
+        </div>
+        <div class="bs lk" id="bs4" data-r>
+          <div class="bs-h"><h3>Время</h3><span>сначала выберите дату</span></div>
+          <div class="bs-c times" id="bTimes" role="group" aria-label="Время"></div>
+        </div>
+      </div>
+      <aside class="sumc" id="bkSide" aria-labelledby="sum-t" data-r>
+        <h3 id="sum-t" class="f-hide">Ваша запись</h3>
+        <dl class="f-hide">
+          <div><dt>Процедура</dt><dd id="sProc">—</dd></div>
+          <div><dt>Врач</dt><dd id="sDoc">—</dd></div>
+          <div><dt>Дата</dt><dd id="sDate">—</dd></div>
+          <div><dt>Время</dt><dd id="sTime">—</dd></div>
+          <div><dt>Стоимость</dt><dd id="sPrice" class="num">—</dd></div>
+        </dl>
+        <p class="sum-left" id="sLeft">Осталось выбрать: процедуру, врача, дату, время</p>
+        <form class="fm" id="bForm" novalidate>
+          <label class="fld"><span>Имя</span><input type="text" name="name" id="bName" autocomplete="name" required><span class="em">Как к вам обращаться?</span></label>
+          <label class="fld"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required><span class="em">Нужен номер из 10 цифр после +7</span></label>
+          <label class="ck"><input type="checkbox" name="agree" required><span>Согласен(на) на обработку персональных данных и звонок администратора. <button type="button" class="js-privacy">Как мы храним данные</button></span></label>
+          <p class="f-err" id="bErr" aria-live="assertive"></p>
+          <button class="btn" type="submit">Записаться <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <div class="ok" role="status">
+          <h3>Заявка принята</h3>
+          <p id="bOkText"></p>
+          <p>Администратор перезвонит в&nbsp;рабочее время, подтвердит запись и&nbsp;напомнит о&nbsp;подготовке.</p>
+          <p class="small">Это концепт-проект студии YSD DEV: заявка не&nbsp;отправляется.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- visit steps -->
+<section class="sec vis" id="vizit" aria-labelledby="vis-t">
+  <div class="wrap">
+    <ol class="grid row-gap">
+      <li class="vis-h"><h2 id="vis-t" data-r>Пять шагов без сюрпризов</h2><p data-r>Одинаково для уходов и&nbsp;для инъекций: сначала разговор и&nbsp;осмотр, потом план с&nbsp;ценами&nbsp;— и&nbsp;только затем процедура.</p></li>
+      <li class="vis-a ph" data-r="img" aria-hidden="true"><img src="img/device-600.webp" srcset="img/device-600.webp 600w, img/device-1000.webp 1000w" sizes="(max-width: 899px) 72vw, 30vw" width="600" height="800" loading="lazy" decoding="async" alt=""></li>
+      <li class="vis-t1">
+        <p data-r><b>Консультация.</b> Врач осматривает кожу, разбирает запрос, собирает анамнез и&nbsp;исключает противопоказания.</p>
+        <p data-r><b>План и&nbsp;стоимость.</b> Вы получаете план процедур с&nbsp;ценами. Он фиксируется&nbsp;— доплат «на&nbsp;месте» не&nbsp;бывает.</p>
+      </li>
+      <li class="vis-b ph" data-r="img" aria-hidden="true"><img src="img/dropper-400.webp" srcset="img/dropper-400.webp 400w, img/dropper-800.webp 800w" sizes="(max-width: 899px) 56vw, 22vw" width="400" height="400" loading="lazy" decoding="async" alt=""></li>
+      <li class="vis-t2">
+        <p data-r><b>Процедура.</b> Препарат и&nbsp;расходники вскрываем при вас. Инъекции&nbsp;— только врач, уходы&nbsp;— врач или эстетист.</p>
+      </li>
+      <li class="vis-c ph" data-r="img" aria-hidden="true"><img src="img/mask-800.webp" srcset="img/mask-800.webp 800w, img/mask-1400.webp 1400w" sizes="(max-width: 899px) 86vw, 40vw" width="800" height="500" loading="lazy" decoding="async" alt=""></li>
+      <li class="vis-t3">
+        <p data-r><b>Рекомендации по&nbsp;уходу.</b> Памятка на&nbsp;период восстановления: что можно, чего нельзя и&nbsp;когда позвонить.</p>
+        <p data-r><b>Контрольный визит.</b> Осмотр после инъекционных процедур&nbsp;— оцениваем реакцию кожи и&nbsp;при необходимости корректируем план.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- prep -->
+<section class="sec" id="podgotovka" aria-labelledby="prep-t" style="padding-top:0">
+  <div class="wrap grid">
+    <div class="prep-h">
+      <h2 id="prep-t" data-r>До и после процедуры</h2>
+      <p data-r>Общие рекомендации для большинства процедур. Индивидуальную памятку по&nbsp;вашей процедуре выдаёт врач.</p>
+    </div>
+    <div class="prep-t" id="prepT" data-show="before" data-r>
+      <div class="seg prep-sw" role="group" aria-label="Показать">
+        <button type="button" data-s="before" aria-pressed="true">До процедуры</button>
+        <button type="button" data-s="after" aria-pressed="false">После</button>
+      </div>
+      <table>
+        <thead><tr><th scope="col">Тема</th><th scope="col">До процедуры</th><th scope="col">После процедуры</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Солнце</th><td class="bf">Две недели без активного загара и&nbsp;солярия&nbsp;— особенно перед пилингами и&nbsp;лазером.</td><td class="af">SPF 30–50 ежедневно минимум две недели, без солярия.</td></tr>
+          <tr><th scope="row">Активные средства</th><td class="bf">За&nbsp;3–5 дней отменить кислоты, ретинол, скрабы и&nbsp;жёсткие щётки.</td><td class="af">Возвращать только с&nbsp;разрешения врача&nbsp;— обычно через 5–7 дней.</td></tr>
+          <tr><th scope="row">Алкоголь и&nbsp;лекарства</th><td class="bf">За&nbsp;24 часа&nbsp;— без алкоголя. О&nbsp;приёме любых препаратов сообщите врачу заранее.</td><td class="af">Сутки без алкоголя. Обезболивающие&nbsp;— только по&nbsp;согласованию с&nbsp;врачом.</td></tr>
+          <tr><th scope="row">Спорт, сауна, бассейн</th><td class="bf">В&nbsp;день процедуры&nbsp;— без интенсивных тренировок.</td><td class="af">2–3 дня без сауны, бассейна и&nbsp;спортзала: тепло и&nbsp;пот усиливают отёк и&nbsp;раздражение.</td></tr>
+          <tr><th scope="row">Макияж и&nbsp;уход</th><td class="bf">Приходите без макияжа или снимите его у&nbsp;нас&nbsp;— средства есть в&nbsp;кабинете.</td><td class="af">12–24 часа без декоративной косметики. Не&nbsp;трогать, не&nbsp;массировать и&nbsp;не&nbsp;греть зону.</td></tr>
+          <tr><th scope="row">Самочувствие</th><td class="bf">При простуде, герпесе или воспалениях на&nbsp;коже визит лучше перенести&nbsp;— позвоните, мы&nbsp;подберём дату.</td><td class="af">Лёгкое покраснение и&nbsp;отёк&nbsp;— норма. При необычной реакции сразу свяжитесь с&nbsp;клиникой.</td></tr>
+        </tbody>
+      </table>
+      <p class="prep-n">Это общие рекомендации, а&nbsp;не&nbsp;медицинское назначение. Для беременности, лактации, хронических заболеваний и&nbsp;приёма препаратов нужна отдельная консультация врача.</p>
+    </div>
+  </div>
+</section>
+
+<!-- space -->
+<section class="sec" id="prostranstvo" aria-labelledby="spc-t" style="padding-top:0">
+  <div class="spc-h">
+    <h2 id="spc-t" data-r>Тихо, светло и стерильно</h2>
+    <p data-r>Кабинеты, зона ожидания и&nbsp;витрина домашнего ухода. Нажмите на&nbsp;фото, чтобы рассмотреть.</p>
+  </div>
+  <div class="band" id="band">
+    <button type="button" class="hov" data-r="img" data-i="0" aria-label="Открыть фото: процедурный кабинет"><span class="t0">Процедурный кабинет у окна</span><img src="img/room-600.webp" srcset="img/room-600.webp 600w, img/room-1000.webp 1000w" sizes="(max-width: 899px) 64vw, 42vw" width="600" height="800" loading="lazy" decoding="async" alt="Кушетка у окна в процедурном кабинете"></button>
+    <button type="button" class="hov" data-r="img" data-i="1" aria-label="Открыть фото: зона ожидания"><span class="t">Зона ожидания</span><img src="img/arch-600.webp" srcset="img/arch-600.webp 600w, img/arch-1000.webp 1000w" sizes="(max-width: 899px) 36vw, 17vw" width="600" height="800" loading="lazy" decoding="async" alt="Зона ожидания с арками и деревянными стульями"></button>
+    <button type="button" class="hov" data-r="img" data-i="2" aria-label="Открыть фото: витрина ухода"><span class="t">Витрина ухода</span><img src="img/shelf-600.webp" srcset="img/shelf-600.webp 600w, img/shelf-1000.webp 1000w" sizes="(max-width: 899px) 36vw, 25vw" width="600" height="800" loading="lazy" decoding="async" alt="Полки со средствами домашнего ухода в светлом коридоре"></button>
+    <button type="button" class="hov" data-r="img" data-i="3" aria-label="Открыть фото: кабинет ухода"><span class="t">Кабинет ухода</span><img src="img/hands-600.webp" srcset="img/hands-600.webp 600w, img/hands-1000.webp 1000w" sizes="(max-width: 899px) 64vw, 17vw" width="600" height="800" loading="lazy" decoding="async" alt="Руки косметолога во время уходовой процедуры"></button>
+  </div>
+  <p class="wrap cap spc-cap">Фото-пример. Интерьер и&nbsp;процедуры&nbsp;— для иллюстрации.</p>
+</section>
+
+<!-- why -->
+<section class="sec" id="pochemu" aria-labelledby="why-t" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid">
+      <div class="why-h">
+        <h2 id="why-t" data-r>Клиника, а не салон</h2>
+        <p class="lead" data-r>Четыре правила, по&nbsp;которым работает LUMEN: кто делает процедуру, когда вы узнаёте цену, что вскрывают при вас и&nbsp;что происходит после.</p>
+      </div>
+    </div>
+    <div class="grid why-tiles">
+      <div class="why-ph">
+        <div class="ph" data-r="img"><img src="img/massage-800.webp" srcset="img/massage-800.webp 800w, img/massage-1400.webp 1400w" sizes="(max-width: 899px) 100vw, 62vw" width="800" height="500" loading="lazy" decoding="async" alt="Руки специалиста на лице пациентки в солнечном свете"></div>
+        <div class="why-ov" data-r><h3>Врачи, а&nbsp;не&nbsp;«мастера»</h3><p>Инъекционные и&nbsp;аппаратные методики выполняют только врачи-косметологи. Эстетисты&nbsp;— уходовые процедуры и&nbsp;чистки.</p></div>
+      </div>
+      <div class="why-r">
+        <div class="why-tile" data-r>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="22" y="4" width="20" height="10" fill="#F4E3B5"/><rect x="18" y="14" width="28" height="46" fill="none" stroke="#F4E3B5" stroke-width="3"/><rect x="18" y="34" width="28" height="26" fill="#F4E3B5"/></svg>
+          <h3>Открытый протокол</h3>
+          <p>Препарат, серию и&nbsp;срок годности показываем перед вскрытием. Иглы и&nbsp;расходники одноразовые&nbsp;— упаковку открываем при вас.</p>
+        </div>
+        <div class="why-more">
+          <div data-r><h3>Стоимость&nbsp;— до&nbsp;начала</h3><p>План с&nbsp;ценами вы получаете на&nbsp;консультации и&nbsp;подписываете. Если по&nbsp;ходу что-то меняется&nbsp;— обсуждаем до, а&nbsp;не&nbsp;после.</p></div>
+          <div data-r><h3>Контрольный визит включён</h3><p>После инъекционных процедур приглашаем на&nbsp;осмотр. Оцениваем реакцию кожи и&nbsp;корректируем план, если нужно.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section class="sec faq" id="voprosy" aria-labelledby="faq-t" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="faq-t" data-r>О чём спрашивают чаще всего</h2>
+    <p class="faq-sub" data-r>Короткие честные ответы. Всё, что касается именно вашей кожи,&nbsp;— на&nbsp;консультации.</p>
+    <div class="grid faq-l">
+      <details data-r><summary>Это больно?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary><div class="ans"><p>Зависит от&nbsp;процедуры. Уходы и&nbsp;поверхностные пилинги обычно ощущаются как тепло или лёгкое покалывание. Перед инъекциями наносим анестезирующий крем&nbsp;— дискомфорт умеренный и&nbsp;короткий. Лазерная эпиляция ощущается как щелчки по&nbsp;коже; интенсивность регулируем по&nbsp;вашим ощущениям.</p></div></details>
+      <details data-r><summary>Когда будет виден результат?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary><div class="ans"><p>Честно: по-разному. После чистки и&nbsp;уходов кожа выглядит свежее почти сразу, но&nbsp;1–2 дня может быть покраснение. Пилинги, мезотерапия и&nbsp;биоревитализация работают накопительно&nbsp;— оцениваем после курса. Ботулинотерапия проявляется в&nbsp;течение 10–14 дней, филлеры видны сразу, окончательно&nbsp;— когда спадёт отёк. Конкретный результат мы&nbsp;не&nbsp;обещаем: кожа у&nbsp;всех реагирует по-своему.</p></div></details>
+      <details data-r><summary>Когда в Ростове лучше делать пилинги и&nbsp;лазер?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary><div class="ans"><p>Обычно с&nbsp;октября по&nbsp;март. В&nbsp;Ростове солнце активное с&nbsp;мая до&nbsp;конца сентября, а&nbsp;после пилингов и&nbsp;лазерной эпиляции кожа особенно чувствительна к&nbsp;ультрафиолету&nbsp;— выше риск пигментации. Поэтому курсы пилингов и&nbsp;лазера планируем на&nbsp;осень и&nbsp;зиму, а&nbsp;летом выбираем то, что совместимо с&nbsp;SPF 50 и&nbsp;отпуском у&nbsp;моря: уходы, биоревитализацию, ботулинотерапию. Если у&nbsp;вас запланирована поездка&nbsp;— скажите врачу, он подберёт даты.</p></div></details>
+      <details data-r><summary>Есть ли противопоказания?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary><div class="ans"><p>Да, у&nbsp;каждой процедуры свои. Общие: беременность и&nbsp;лактация, острые воспаления и&nbsp;инфекции, обострение хронических заболеваний, онкология, нарушения свёртываемости крови, приём некоторых препаратов, склонность к&nbsp;келоидным рубцам. Поэтому перед процедурой&nbsp;— консультация и&nbsp;анкета о&nbsp;здоровье. Если сомневаетесь&nbsp;— спросите, мы ответим честно, даже если ответ «пока не&nbsp;стоит».</p></div></details>
+      <details data-r><summary>Как подготовиться к&nbsp;визиту?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary><div class="ans"><p>За&nbsp;3–5 дней отменить кислоты, ретинол и&nbsp;скрабы; за&nbsp;24 часа&nbsp;— без алкоголя; две недели&nbsp;— без активного загара. Приходите без макияжа или снимите его у&nbsp;нас. Возьмите список препаратов, которые принимаете. Подробнее&nbsp;— в&nbsp;разделе <a href="#podgotovka">«Подготовка и&nbsp;уход»</a>, а&nbsp;индивидуальную памятку выдаст врач.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- contacts -->
+<section class="sec" id="kontakty" aria-labelledby="ct-t" style="padding-top:0">
+  <div class="wrap grid ct">
+    <div class="ct-say">
+      <h2 id="ct-t" data-r>Напишите&nbsp;— перезвоним</h2>
+      <p data-r>Если не&nbsp;хотите выбирать время онлайн&nbsp;— оставьте заявку, администратор подберёт удобный слот и&nbsp;ответит на&nbsp;вопросы.</p>
+      <dl class="ct-info" data-r>
+        <div><dt>Адрес</dt><dd>Ростов-на-Дону, ул.&nbsp;Пушкинская, 118<br>2 этаж, вход со&nbsp;стороны бульвара</dd></div>
+        <div><dt>Телефон</dt><dd><a class="num" href="tel:+78630000000">+7 (863) 000-00-00</a><br><span class="muted small">звонки и&nbsp;сообщения</span></dd></div>
+        <div><dt>Режим работы</dt><dd class="num">Пн–Сб 10:00–20:00<br>Вс 10:00–17:00</dd></div>
+        <div><dt>Почта</dt><dd><a href="mailto:hello@cosmo.ysdprojects.space">hello@cosmo.ysdprojects.space</a></dd></div>
+      </dl>
+    </div>
+    <div class="ct-form" id="ctBox" data-r>
+      <h3 class="f-hide">Оставить заявку</h3>
+      <p class="muted small f-hide">Ответим в&nbsp;рабочее время, обычно в&nbsp;течение часа.</p>
+      <form class="fm" id="cForm" novalidate>
+        <div class="two">
+          <label class="fld"><span>Имя</span><input type="text" name="name" autocomplete="name" required><span class="em">Как к вам обращаться?</span></label>
+          <label class="fld"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required><span class="em">Нужен номер из 10 цифр после +7</span></label>
+        </div>
+        <label class="fld"><span>Что интересует</span>
+          <select name="proc" id="fProc">
+            <option value="">Нужна консультация</option>
+            <option value="consult">Консультация косметолога</option>
+            <option value="clean">Чистка лица</option>
+            <option value="peel">Пилинг</option>
+            <option value="bio">Биоревитализация</option>
+            <option value="meso">Мезотерапия</option>
+            <option value="filler">Контурная пластика</option>
+            <option value="botox">Ботулинотерапия</option>
+            <option value="laser">Лазерная эпиляция</option>
+            <option value="care">Уходовая программа</option>
+          </select>
+        </label>
+        <label class="fld"><span>Комментарий</span><textarea name="comment" rows="3"></textarea></label>
+        <label class="ck"><input type="checkbox" name="agree" required><span>Согласен(на) на обработку персональных данных. <button type="button" class="js-privacy">Как мы храним данные</button></span></label>
+        <p class="f-err" id="cErr" aria-live="assertive"></p>
+        <button class="btn" type="submit">Отправить заявку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <div class="ok" role="status">
+        <h3>Заявка принята</h3>
+        <p>Администратор перезвонит в&nbsp;рабочее время.</p>
+        <p class="small">Это концепт-проект студии YSD DEV: заявка не&nbsp;отправляется.</p>
+      </div>
+    </div>
+    <figure class="map" data-r aria-label="Схема: LUMEN на Пушкинской, 118, рядом с парком Горького">
+      <svg viewBox="0 0 1050 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="1050" height="400" fill="#38450F"/>
+        <path d="M0 352 C 220 330 420 372 640 350 S 930 330 1050 344 V400 H0Z" fill="#2E390B"/>
+        <rect x="520" y="70" width="190" height="96" fill="#46551A"/>
+        <g stroke="#58662C" stroke-width="10" fill="none"><path d="M0 120 H1050"/><path d="M0 250 H1050"/><path d="M300 0 V400"/><path d="M820 0 V340"/></g>
+        <g stroke="#F4E3B5" stroke-width="14" fill="none"><path d="M0 186 H1050"/></g>
+        <g stroke="#6E7B3E" stroke-width="5" fill="none"><path d="M140 0 V340"/><path d="M460 0 V340"/><path d="M960 0 V340"/></g>
+      </svg>
+      <span class="map-l" style="left:51%;top:21%">парк Горького</span>
+      <span class="map-l" style="left:3%;top:52%;color:#1B1F0D;background:#F4E3B5;padding:2px 6px">ул. Пушкинская</span>
+      <span class="map-l" style="left:3%;top:24%">ул. Большая Садовая</span>
+      <span class="map-l hide-m" style="left:29.6%;top:70%">Ворошиловский пр.</span>
+      <span class="map-l" style="left:3%;top:91%">Дон</span>
+      <span class="map-pin" style="left:58%;top:46.5%"><i></i></span>
+      <span class="map-card" style="left:calc(58% + 26px)"><b>LUMEN, Пушкинская, 118</b>7 минут пешком от&nbsp;парка Горького</span>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer class="ft" aria-label="Подвал">
+  <picture class="ft-ph">
+    <source media="(max-width: 700px)" type="image/webp" srcset="img/wallm-600.webp 600w, img/wallm-1000.webp 1000w" sizes="100vw">
+    <img src="img/wall-1600.webp" srcset="img/wall-1000.webp 1000w, img/wall-1600.webp 1600w, img/wall-2400.webp 2400w" sizes="100vw" width="1600" height="1000" loading="lazy" decoding="async" alt="">
+  </picture>
+  <div class="ft-top grid">
+    <nav aria-label="Разделы сайта">
+      <a href="#uslugi">Услуги и цены</a><a href="#glubina">Где работает процедура</a><a href="#podbor">Подбор процедуры</a><a href="#zapis">Онлайн-запись</a><a href="#podgotovka">Подготовка и уход</a><a href="#voprosy">Вопросы</a><a href="#kontakty">Контакты</a>
+    </nav>
+    <p class="ft-about">Клиника косметологии в&nbsp;центре Ростова-на-Дону. Консультация врача, план процедур и&nbsp;стоимость, зафиксированная до&nbsp;начала.</p>
+    <div class="ft-c">
+      <span>Ростов-на-Дону, ул.&nbsp;Пушкинская, 118, 2&nbsp;этаж</span>
+      <a class="num" href="tel:+78630000000">+7 (863) 000-00-00</a>
+      <span class="num">Пн–Сб 10:00–20:00, Вс 10:00–17:00</span>
+      <a href="mailto:hello@cosmo.ysdprojects.space">hello@cosmo.ysdprojects.space</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <svg class="ft-word" viewBox="0 0 1000 190" role="img" aria-label="LUMEN"><text x="-6" y="176" fill="#ECEBE7" font-family="STIX Two Text, Times New Roman, serif" font-size="244" letter-spacing="-6" textLength="1010" lengthAdjust="spacingAndGlyphs">LUMEN</text></svg>
+    <div class="ft-legal">
+      <span>Имеются противопоказания, необходима консультация специалиста.</span>
+      <button type="button" class="js-privacy">Политика обработки персональных данных</button>
+      <span>© 2026 LUMEN, Ростов-на-Дону</span>
+      <span>Концепт-проект · сайт разработан YSD DEV</span>
+    </div>
+  </div>
+</footer>
+
+<div class="fab" id="fab"><a class="btn" href="#zapis">Записаться онлайн</a></div>
+
+<dialog id="privacy" aria-labelledby="pv-t">
+  <div class="dlg">
+    <h2 id="pv-t">Как мы храним данные</h2>
+    <p>Имя и&nbsp;телефон из&nbsp;формы нужны только для записи: администратор перезвонит, подтвердит время и&nbsp;напомнит о&nbsp;подготовке к&nbsp;процедуре. Данные не&nbsp;передаются третьим лицам и&nbsp;не&nbsp;используются для рассылок без вашего согласия.</p>
+    <p>Сведения о&nbsp;здоровье из&nbsp;анкеты врач видит только на&nbsp;приёме. Отозвать согласие можно в&nbsp;любой момент&nbsp;— письмом на&nbsp;hello@cosmo.ysdprojects.space.</p>
+    <form method="dialog"><button class="btn">Понятно</button></form>
+  </div>
+</dialog>
+
+<dialog id="lb" aria-label="Фото">
+  <figure>
+    <img id="lbImg" src="" alt="" width="1000" height="1333">
+    <figcaption><span id="lbCap"></span><span class="lb-n"><button type="button" id="lbPrev" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="lbNext" aria-label="Следующее фото"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button><button type="button" id="lbClose" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></figcaption>
+  </figure>
+</dialog>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var NB=' ';
+function fmt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,NB)}
+function pl(n,f){var a=n%10,b=n%100;return (a===1&&b!==11)?f[0]:(a>=2&&a<=4&&(b<10||b>=20))?f[1]:f[2]}
+function easeOut(t){return 1-Math.pow(1-t,3)}
+function easeIO(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function scrollToEl(el){if(!el)return;var y=el.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top:y,behavior:RM?'auto':'smooth'})}
+
+/* ---------- data ---------- */
+var P={
+ consult:{n:'Консультация косметолога',w:'Осмотр кожи, разбор запроса и план процедур с ценами. Бесплатно при записи на процедуру.',s:'1 визит',p:1500,t:'none'},
+ clean:{n:'Чистка лица',w:'Механическая и/или ультразвуковая очистка пор, успокаивающая маска.',s:'1 раз в 1–2 месяца',p:3500,t:'no'},
+ peel:{n:'Пилинг',w:'Поверхностный кислотный пилинг под тип кожи: выравнивает тон и рельеф.',s:'курс 3–5',p:3000,t:'no'},
+ bio:{n:'Биоревитализация',w:'Инъекции гиалуроновой кислоты для увлажнения и плотности кожи.',s:'курс 2–3',p:9000,t:'inj'},
+ meso:{n:'Мезотерапия',w:'Микроинъекции коктейля витаминов и пептидов — состав по показаниям.',s:'курс 4–6',p:5000,t:'inj'},
+ filler:{n:'Контурная пластика',w:'Филлеры для восполнения объёма и коррекции складок.',s:'1 процедура, повтор по рекомендации врача',p:15000,t:'inj'},
+ botox:{n:'Ботулинотерапия',w:'Расслабление мимических мышц: лоб, межбровье, область вокруг глаз.',s:'1 процедура, повтор через 4–6 мес.',p:350,u:'/ед.',t:'inj'},
+ laser:{n:'Лазерная эпиляция',w:'Удаление нежелательных волос, параметры — под фототип кожи.',s:'курс 6–8 с интервалом 4–8 недель',p:1500,u:'/зона',t:'hw'},
+ care:{n:'Уходовая программа',w:'Профессиональный уход: очищение, массаж, маска, сыворотка.',s:'разово или курс 3–5',p:4500,t:'no'}
+};
+var DOCS=[
+ {n:'К. А.',r:'косметолог-дерматолог',ok:['consult','clean','peel','bio','meso','filler','botox','laser','care']},
+ {n:'Е. Ш.',r:'врач-косметолог',ok:['consult','clean','peel','bio','meso','filler','botox','care']},
+ {n:'Д. К.',r:'эстетист',ok:['clean','peel','care','laser']}
+];
+function priceTxt(id){var p=P[id];return id==='consult'?'0'+NB+'₽ при записи на процедуру':'от '+fmt(p.p)+NB+'₽'+(p.u||'')}
+var ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
+
+/* ---------- hero ---------- */
+var root=document.documentElement;
+var heroImg=$('#heroImg');
+var readyDone=false;
+function go(){if(readyDone)return;readyDone=true;root.classList.add('ready')}
+if(heroImg&&heroImg.decode){heroImg.decode().then(go,go)}else{go()}
+setTimeout(go,1100);
+var slides=$$('.hero .slide'),bars=$$('#heroCtl .bars i'),ctl=$('#heroCtl'),pauseBtn=$('#heroPause'),si=0,sTimer=null,userPaused=false;
+function paintBars(){bars.forEach(function(b,i){b.classList.remove('on','done');if(i<si)b.classList.add('done')});void ctl.offsetWidth;bars[si].classList.add('on')}
+function nextSlide(){slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on');paintBars()}
+function startSlides(){if(RM||userPaused||slides.length<2||sTimer)return;paintBars();ctl.classList.remove('paused');sTimer=setInterval(nextSlide,6200)}
+function stopSlides(){clearInterval(sTimer);sTimer=null;ctl.classList.add('paused')}
+if(RM){ctl.hidden=true}else{startSlides()}
+pauseBtn.addEventListener('click',function(){userPaused=!userPaused;pauseBtn.setAttribute('aria-pressed',userPaused);pauseBtn.setAttribute('aria-label',userPaused?'Продолжить смену фотографий':'Остановить смену фотографий');$('.ic-pause',pauseBtn).hidden=userPaused;$('.ic-play',pauseBtn).hidden=!userPaused;userPaused?stopSlides():startSlides()});
+document.addEventListener('visibilitychange',function(){document.hidden?stopSlides():startSlides()});
+
+/* ---------- header, parallax, fab ---------- */
+var hd=$('#hd'),heroMedia=$('#heroMedia'),fab=$('#fab'),ticking=false;
+var noFab=[$('#zapis'),$('#kontakty'),$('.ft')],fabBlock=false;
+function onScroll(){
+ ticking=false;
+ var y=window.pageYOffset,vh=window.innerHeight;
+ hd.classList.toggle('solid',y>vh-90||menuOpen);
+ if(!RM&&y<vh*1.1){heroMedia.style.translate='0 '+(y*0.14).toFixed(1)+'px'}
+ fab.classList.toggle('on',y>vh*0.85&&!fabBlock);
+}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+if('IntersectionObserver' in window){
+ var vis=new Set();
+ var fo=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});fabBlock=vis.size>0;onScroll()},{threshold:0.05});
+ noFab.forEach(function(s){s&&fo.observe(s)});
+}
+
+/* menu */
+var menu=$('#menu'),menuBtn=$('#menuBtn'),menuOpen=false;
+function setMenu(o){menuOpen=o;menu.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);menuBtn.textContent=o?'Закрыть':'Меню';document.body.style.overflow=o?'hidden':'';onScroll()}
+menuBtn.addEventListener('click',function(){setMenu(!menuOpen)});
+$$('#menu a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOpen){setMenu(false);menuBtn.focus()}});
+
+/* scrollspy */
+var navLinks=$$('.nav a');
+if('IntersectionObserver' in window){
+ var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;navLinks.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')==='#'+id?'true':'false')})}})},{rootMargin:'-45% 0px -50% 0px'});
+ ['uslugi','glubina','podbor','zapis','voprosy','kontakty'].forEach(function(id){var s=document.getElementById(id);s&&spy.observe(s)});
+}
+
+/* ---------- reveal ---------- */
+var rev=$$('[data-r]');
+var groups=new Map();
+rev.forEach(function(el){var s=el.closest('section,footer')||document.body;var n=groups.get(s)||0;el.style.setProperty('--d',Math.min(n,7)*75+'ms');groups.set(s,n+1)});
+if('IntersectionObserver' in window&&!RM){
+ var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+ rev.forEach(function(el){ro.observe(el)});
+}else{rev.forEach(function(el){el.classList.add('in')})}
+
+/* ---------- depth explorer ---------- */
+var DXA=[[0,96],[0.1,186],[2,380],[6,524],[10,624]],DH=640;
+var DX={
+ epi:{n:'эпидермис',m:.05},derm:{n:'дерма',m:1.2},hypo:{n:'подкожный слой',m:3.6},musc:{n:'мимические мышцы',m:7.5}
+};
+var PD=[['care',.015,'уход'],['clean',.045,'чистка'],['peel',.08,'пилинг'],['bio',1,'биоревитализация'],['meso',1.5,'мезотерапия'],['laser',3,'лазер'],['filler',4.2,'филлеры'],['botox',7.5,'ботулинотерапия']];
+function m2y(m){for(var i=1;i<DXA.length;i++){if(m<=DXA[i][0]){var a=DXA[i-1],b=DXA[i];return a[1]+(m-a[0])/(b[0]-a[0])*(b[1]-a[1])}}return DXA[DXA.length-1][1]}
+function y2m(y){if(y<=DXA[0][1])return 0;for(var i=1;i<DXA.length;i++){if(y<=DXA[i][1]){var a=DXA[i-1],b=DXA[i];return a[0]+(y-a[1])/(b[1]-a[1])*(b[0]-a[0])}}return 10}
+function layerOf(m){return m<0.1?'epi':m<2?'derm':m<6?'hypo':'musc'}
+function fmm(m){return (m<1?m.toFixed(2):m.toFixed(1)).replace('.',',')+NB+'мм'}
+var dxFig=$('#dxFig');
+if(dxFig){
+ var over=$('#dxOver'),knob=$('#dxKnob'),tag=$('#dxTag'),read=$('#dxRead'),core=$('#dxCore'),dot=$('#dxDot'),halo=$('#dxHalo'),cut=$('#dxCut'),marks=$('#dxMarks');
+ var html='';
+ [['0'+NB+'мм',0],['0,1',.1],['1',1],['2',2],['4',4],['6',6],['10'+NB+'мм',9.75]].forEach(function(s){html+='<span class="dx-lbl dx-sc num" style="top:'+(m2y(s[1])/DH*100)+'%">'+s[0]+'</span>'});
+ [['эпидермис',141,''],['дерма',300,''],['подкожная клетчатка',452,''],['мимическая мышца',582,' mus']].forEach(function(s){html+='<span class="dx-lbl dx-ly'+s[2]+'" style="top:'+(s[1]/DH*100)+'%">'+s[0]+'</span>'});
+ var svgM='';
+ PD.forEach(function(p,i){var y=m2y(p[1]);html+='<span class="dx-lbl dx-pr" data-p="'+p[0]+'" style="top:'+(y/DH*100)+'%"><span>'+p[2]+'</span></span>';svgM+='<rect x="394" y="'+(y-1.5)+'" width="12" height="3"/>'});
+ over.innerHTML=html;marks.innerHTML=svgM;
+ var prEls=$$('.dx-pr',over),cards=$$('.dx-card'),lbtns=$$('.dx-layers button');
+ var cur=1.2,curL='derm',anim=null;
+ function render(m){
+  m=Math.max(0,Math.min(10,m));cur=m;var y=m2y(m),pct=y/DH*100;
+  core.setAttribute('height',y);dot.setAttribute('cy',y);halo.setAttribute('cy',y);cut.setAttribute('height',y);
+  knob.style.top=pct+'%';tag.style.top=pct+'%';tag.textContent=fmm(m);read.textContent=fmm(m);
+  var L=layerOf(m);
+  knob.setAttribute('aria-valuenow',m.toFixed(2));knob.setAttribute('aria-valuetext',fmm(m).replace(NB,' ')+', '+DX[L].n);
+  prEls.forEach(function(el,i){var pm=PD[i][1];el.classList.toggle('on',layerOf(pm)===L)});
+  if(L!==curL){curL=L;cards.forEach(function(c){c.classList.toggle('on',c.dataset.l===L)});lbtns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===L)})}
+ }
+ function tweenTo(to,dur){cancelAnimationFrame(anim);if(RM||!dur){render(to);return}var from=cur,t0=performance.now();(function st(t){var k=Math.min(1,(t-t0)/dur);render(from+(to-from)*easeIO(k));if(k<1)anim=requestAnimationFrame(st)})(t0)}
+ function mFromEvent(e){var r=dxFig.getBoundingClientRect();var y=(e.clientY-r.top)/r.height*DH;return y2m(y)}
+ var dragging=false;
+ function start(e){dragging=true;cancelAnimationFrame(anim);try{(e.currentTarget).setPointerCapture(e.pointerId)}catch(_){}render(mFromEvent(e));e.preventDefault()}
+ knob.addEventListener('pointerdown',function(e){e.stopPropagation();start(e)});
+ knob.addEventListener('pointermove',function(e){if(dragging)render(mFromEvent(e))});
+ knob.addEventListener('pointerup',function(){dragging=false});
+ knob.addEventListener('pointercancel',function(){dragging=false});
+ dxFig.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button===0){start(e)}});
+ dxFig.addEventListener('pointermove',function(e){if(dragging&&e.pointerType==='mouse')render(mFromEvent(e))});
+ dxFig.addEventListener('pointerup',function(){dragging=false});
+ dxFig.addEventListener('click',function(e){if(e.pointerType==='mouse')return;if(e.target===knob)return;tweenTo(mFromEvent(e),500)});
+ knob.addEventListener('keydown',function(e){var y=m2y(cur),k=e.key,d=0;
+  if(k==='ArrowDown'||k==='ArrowRight')d=6;else if(k==='ArrowUp'||k==='ArrowLeft')d=-6;else if(k==='PageDown')d=40;else if(k==='PageUp')d=-40;
+  else if(k==='Home'){e.preventDefault();tweenTo(0,350);return}else if(k==='End'){e.preventDefault();tweenTo(10,350);return}else return;
+  e.preventDefault();render(y2m(Math.max(DXA[0][1],Math.min(DXA[4][1],y+d))))});
+ lbtns.forEach(function(b){b.addEventListener('click',function(){tweenTo(DX[b.dataset.l].m,900)})});
+ render(RM?1.2:0);
+ if(!RM&&'IntersectionObserver' in window){
+  var dio=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){dio.disconnect();setTimeout(function(){tweenTo(1.2,1800)},350)}},{threshold:.35});
+  dio.observe(dxFig);
+ }else{render(1.2)}
+}
+
+/* ---------- quiz ---------- */
+var MAP={dry:['bio','care','meso'],pigm:['peel','meso','care'],wr:['botox','filler','bio','peel','care'],acne:['clean','peel','meso'],tone:['bio','peel','care','meso'],hair:['laser']};
+var TYPE={no:'без инъекций',inj:'инъекции',hw:'аппаратно',none:'консультация'};
+var q={c:new Set(),age:null,f:null},qStep=1;
+var qNext=$('#qNext'),qBack=$('#qBack'),qReset=$('#qReset'),qHint=$('#qHint');
+var HINT1=qHint.textContent;
+function qGo(n){
+ qStep=n;
+ $$('.qp').forEach(function(p){p.classList.toggle('on',+p.dataset.step===n)});
+ $('#qBar').style.transform='scaleX('+(Math.min(n,3)/3)+')';
+ qBack.hidden=(n===1||n===4);qNext.hidden=(n!==1);qReset.hidden=(n!==4);
+ if(n===1)qHint.textContent=HINT1;
+}
+$$('#q1 .opt').forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);on?q.c.add(b.dataset.v):q.c.delete(b.dataset.v);if(q.c.size)qHint.textContent=HINT1})});
+qNext.addEventListener('click',function(){if(!q.c.size){qHint.textContent='Выберите хотя бы один пункт — иначе нам нечего подбирать.';return}qGo(2)});
+function single(id,key,next){$$('#'+id+' .opt').forEach(function(b){b.addEventListener('click',function(){$$('#'+id+' .opt').forEach(function(x){x.setAttribute('aria-pressed',x===b)});q[key]=b.dataset.v;setTimeout(next,RM?0:260)})})}
+single('q2','age',function(){qGo(3)});
+single('q3','f',function(){qCompute();qGo(4)});
+qBack.addEventListener('click',function(){qGo(Math.max(1,qStep-1))});
+qReset.addEventListener('click',function(){q.c.clear();q.age=null;q.f=null;$$('.qz .opt').forEach(function(b){b.setAttribute('aria-pressed','false')});qGo(1)});
+function qCompute(){
+ var score={};q.c.forEach(function(c){MAP[c].forEach(function(id,i){score[id]=(score[id]||0)+(5-i)})});
+ var ids=Object.keys(score).sort(function(a,b){return score[b]-score[a]});
+ ids=ids.filter(function(id){return !(q.age==='u25'&&(id==='filler'||id==='botox'))&&!(q.age==='25'&&id==='filler')});
+ var notes=[],want=q.f;
+ if(q.c.has('hair')&&q.f!=='hw')notes.push('Нежелательные волосы инъекциями и уходами не убрать — для этого запроса подходит лазерная эпиляция, она аппаратная.');
+ if(q.f==='hw'&&!(q.c.size===1&&q.c.has('hair'))){notes.push('Из аппаратных методик в нашем прайсе — лазерная эпиляция. Аппаратные процедуры для кожи подбираем индивидуально на консультации; ниже — варианты без инъекций.');want='no'}
+ if(q.age==='u25'&&q.f==='inj')notes.push('До 25 лет инъекционные методики назначаем только по показаниям — врач оценит это на консультации.');
+ var res=ids.filter(function(id){return P[id].t===want||(q.c.has('hair')&&id==='laser')}).slice(0,3);
+ if(res.length<2){ids.forEach(function(id){if(res.length<3&&res.indexOf(id)<0)res.push(id)});if(res.some(function(id){return P[id].t!==want&&id!=='laser'}))notes.push('Часть вариантов — другого формата: под ваш запрос в выбранном формате подходит меньше процедур.')}
+ if(!res.length)res=['consult'];
+ notes.push('Предварительная рекомендация. Окончательно — на консультации, с учётом противопоказаний.');
+ $('#qNotes').innerHTML=notes.map(function(t){return '<p>'+t+'</p>'}).join('');
+ $('#qRes').innerHTML=res.map(function(id,i){var p=P[id];return '<article class="rc" style="--i:'+i+'"><span class="rt">'+TYPE[p.t]+' · '+p.s+'</span><h4>'+p.n+'</h4><span class="pr num">'+priceTxt(id)+'</span><p>'+p.w+'</p><button type="button" class="lnk" data-proc="'+id+'">Записаться '+ARROW+'</button></article>'}).join('');
+}
+
+/* ---------- courses ---------- */
+var DISC={1:0,3:10,5:15},cN=3,cP='bio';
+function tweenNum(el,to){var from=+(el.dataset.v||0);el.dataset.v=to;var pre=(el.dataset.pre||'').replace(' ',NB),suf=(el.dataset.suf||'').replace(' ',NB)+(el.dataset.unit||'');function put(v){el.textContent=pre+fmt(v)+suf}if(RM||from===to){put(to);return}var t0=performance.now();(function st(t){var k=Math.min(1,(t-t0)/600);put(from+(to-from)*easeOut(k));if(k<1)requestAnimationFrame(st)})(t0)}
+function calcCourse(){
+ var p=P[cP],sub=p.p*cN,d=Math.round(sub*DISC[cN]/100);
+ $('#cName').textContent=p.n;$('#cEach').dataset.unit=p.u||'';
+ $('#cLbl').textContent=cN===1?'одна процедура':'курс из '+cN+' '+pl(cN,['сеанса','сеансов','сеансов']);
+ $('#cSubL').textContent=cN+' '+pl(cN,['сеанс','сеанса','сеансов']);
+ $('#cDisc').textContent=d?'−'+DISC[cN]+'%':'';
+ $('#cRow').classList.toggle('dim',!d);
+ tweenNum($('#cEach'),p.p);tweenNum($('#cSub'),sub);tweenNum($('#cSave'),d);tweenNum($('#cTotal'),sub-d);
+ $('#cBook').dataset.proc=cP;
+}
+$$('#cSeg button').forEach(function(b){b.addEventListener('click',function(){$$('#cSeg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cN=+b.dataset.n;calcCourse()})});
+$('#cProc').addEventListener('change',function(e){cP=e.target.value;calcCourse()});
+['cEach','cSub','cSave','cTotal'].forEach(function(id,i){$('#'+id).dataset.v=[9000,27000,2700,24300][i]});
+calcCourse();
+
+/* ---------- booking ---------- */
+var bk={proc:null,doc:null,day:null,time:null};
+var WD=['вс','пн','вт','ср','чт','пт','сб'],MN=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'],MF=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+function lock(n,on,hint){var s=$('#bs'+n);s.classList.toggle('lk',on);var h=$('.bs-h span',s);if(h&&hint!==undefined)h.textContent=hint}
+function selectProc(id){
+ bk.proc=id;$$('#bProcs .chip').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.id===id)});
+ $$('.doc').forEach(function(d,i){var ok=DOCS[i].ok.indexOf(id)>=0;d.disabled=!ok;$('.doc-no',d).hidden=ok;if(!ok&&bk.doc===i)bk.doc=null;d.setAttribute('aria-pressed',bk.doc===i)});
+ lock(2,false,'кто выполняет эту процедуру');
+ var sel=$('#fProc');if(sel)sel.value=id;
+ sum();
+}
+$$('#bProcs .chip').forEach(function(b){b.addEventListener('click',function(){selectProc(b.dataset.id)})});
+$$('.doc').forEach(function(d){d.addEventListener('click',function(){bk.doc=+d.dataset.doc;$$('.doc').forEach(function(x){x.setAttribute('aria-pressed',x===d)});sum()})});
+var today=new Date();today.setHours(0,0,0,0);
+var daysEl=$('#bDays');
+for(var i=0;i<14;i++){(function(i){var d=new Date(today);d.setDate(today.getDate()+i);var b=document.createElement('button');b.type='button';b.className='day'+(d.getDay()===0?' we':'');b.dataset.i=i;b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',d.getDate()+' '+MF[d.getMonth()]+', '+WD[d.getDay()]);b.innerHTML='<span>'+(i===0?'сегодня':WD[d.getDay()])+'</span><b class="num">'+d.getDate()+'</b><span>'+MN[d.getMonth()]+'</span>';b.addEventListener('click',function(){pickDay(i,d)});daysEl.appendChild(b)})(i)}
+function pickDay(i,d){bk.day=d;bk.time=null;$$('.day').forEach(function(x){x.setAttribute('aria-pressed',+x.dataset.i===i)});renderTimes(i,d);lock(4,false,d.getDay()===0?'воскресенье — короткий день':'свободные окна');sum()}
+function renderTimes(i,d){
+ var el=$('#bTimes');el.innerHTML='';var last=d.getDay()===0?16:19,now=new Date(),free=0;
+ for(var h=10;h<=last;h++){(function(h){var b=document.createElement('button');b.type='button';b.className='chip tm num';b.textContent=h+':00';var past=i===0&&h<=now.getHours(),busy=(i*7+h*3)%5===0;if(past||busy){b.disabled=true;b.title=past?'Время прошло':'Занято'}else free++;b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){bk.time=b.textContent;$$('.tm').forEach(function(x){x.setAttribute('aria-pressed',x===b)});sum()});el.appendChild(b)})(h)}
+ if(!free){var p=document.createElement('p');p.className='empty';p.textContent='На этот день свободных окон нет — выберите другую дату или оставьте заявку, администратор подберёт время.';el.appendChild(p)}
+}
+function dateTxt(d){return d.getDate()+' '+MF[d.getMonth()]+', '+WD[d.getDay()]}
+function setTxt(el,t){if(el.textContent!==t){el.textContent=t;if(!RM){el.animate&&el.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:350,easing:'cubic-bezier(.23,1,.32,1)'})}}}
+function sum(){
+ var p=bk.proc&&P[bk.proc];
+ setTxt($('#sProc'),p?p.n:'—');
+ setTxt($('#sDoc'),bk.doc!=null?DOCS[bk.doc].n+', '+DOCS[bk.doc].r:'—');
+ setTxt($('#sDate'),bk.day?dateTxt(bk.day):'—');
+ setTxt($('#sTime'),bk.time||'—');
+ setTxt($('#sPrice'),p?priceTxt(bk.proc):'—');
+ var left=[!bk.proc&&'процедуру',bk.doc==null&&'врача',!bk.day&&'дату',!bk.time&&'время'].filter(Boolean);
+ $('#sLeft').textContent=left.length?'Осталось выбрать: '+left.join(', '):'Всё выбрано — оставьте контакты, администратор подтвердит запись.';
+ return left;
+}
+sum();
+document.addEventListener('click',function(e){var t=e.target.closest('[data-proc]');if(!t||!t.dataset.proc)return;e.preventDefault();selectProc(t.dataset.proc);scrollToEl($('#zapis'))});
+
+/* ---------- forms ---------- */
+function digits(v){var p=v.indexOf('+7');if(p>=0)v=v.slice(0,p)+v.slice(p+2);var d=v.replace(/\D/g,'');if(d.length===11&&(d[0]==='7'||d[0]==='8'))d=d.slice(1);return d.slice(0,10)}
+function mask(i){var d=digits(i.value);var r='+7 ('+d.slice(0,3);if(d.length>3)r+=') '+d.slice(3,6);if(d.length>6)r+='-'+d.slice(6,8);if(d.length>8)r+='-'+d.slice(8,10);i.value=r}
+$$('input[type=tel]').forEach(function(i){i.addEventListener('input',function(){mask(i)});i.addEventListener('focus',function(){if(!i.value)i.value='+7 (';setTimeout(function(){var n=i.value.length;try{i.setSelectionRange(n,n)}catch(_){}},0)});i.addEventListener('blur',function(){if(i.value==='+7 ('||i.value==='+7 ')i.value=''})});
+$$('.fm input,.fm select,.fm textarea').forEach(function(i){i.addEventListener('input',function(){var w=i.closest('.fld')||i.closest('.ck');w&&w.classList.remove('err')});i.addEventListener('change',function(){var w=i.closest('.ck');w&&w.classList.remove('err')})});
+function validate(f){
+ var ok=true,first=null;
+ var n=f.querySelector('[name=name]'),t=f.querySelector('[name=phone]'),a=f.querySelector('[name=agree]');
+ if(n.value.trim().length<2){n.closest('.fld').classList.add('err');ok=false;first=first||n}
+ if(digits(t.value).length!==10){t.closest('.fld').classList.add('err');ok=false;first=first||t}
+ if(!a.checked){a.closest('.ck').classList.add('err');ok=false;first=first||a}
+ if(first)first.focus();
+ return ok;
+}
+$('#bForm').addEventListener('submit',function(e){
+ e.preventDefault();var err=$('#bErr');err.textContent='';
+ var left=sum();
+ if(left.length){err.textContent='Сначала выберите '+left.join(', ')+'.';var first=!bk.proc?'#bs1':bk.doc==null?'#bs2':!bk.day?'#bs3':'#bs4';scrollToEl($(first));return}
+ if(!validate(e.target)){err.textContent='Проверьте выделенные поля.';return}
+ $('#bOkText').innerHTML='<b>'+P[bk.proc].n+'</b>, '+DOCS[bk.doc].r+' '+DOCS[bk.doc].n+' — <b>'+dateTxt(bk.day)+', '+bk.time+'</b>. Ждём вас, '+e.target.querySelector('[name=name]').value.trim().replace(/[<>&"]/g,'')+'.';
+ $('#bkSide').classList.add('done');
+});
+$('#cForm').addEventListener('submit',function(e){
+ e.preventDefault();var err=$('#cErr');err.textContent='';
+ if(!validate(e.target)){err.textContent='Проверьте выделенные поля.';return}
+ $('#ctBox').classList.add('done');
+});
+
+/* ---------- prep switch ---------- */
+$$('.prep-sw button').forEach(function(b){b.addEventListener('click',function(){$$('.prep-sw button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#prepT').dataset.show=b.dataset.s})});
+
+/* ---------- dialogs ---------- */
+var pv=$('#privacy');
+$$('.js-privacy').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();if(pv.showModal)pv.showModal();else pv.setAttribute('open','')})});
+var lb=$('#lb'),lbImg=$('#lbImg'),lbCap=$('#lbCap'),bandBtns=$$('#band button'),lbI=0;
+function lbShow(i){lbI=(i+bandBtns.length)%bandBtns.length;var im=$('img',bandBtns[lbI]);var base=im.getAttribute('src').replace(/-\d+\.webp$/,'');lbImg.src=base+'-1000.webp';lbImg.alt=im.alt;lbCap.textContent=im.alt+' · фото-пример'}
+bandBtns.forEach(function(b,i){b.addEventListener('click',function(){lbShow(i);lb.showModal?lb.showModal():lb.setAttribute('open','')})});
+$('#lbPrev').addEventListener('click',function(){lbShow(lbI-1)});
+$('#lbNext').addEventListener('click',function(){lbShow(lbI+1)});
+$('#lbClose').addEventListener('click',function(){lb.close()});
+lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')lbShow(lbI-1);if(e.key==='ArrowRight')lbShow(lbI+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+})();
+</script>
+</body>
+</html>
