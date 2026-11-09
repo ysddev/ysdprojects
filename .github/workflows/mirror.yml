@@ -17,7 +17,7 @@ jobs:
       - name: Client photos to webp on our domain (clients/*/ и works/*/images.txt)
         run: |
           # строка: имя unsplash-id ширина высота w1,w2 → clients/<slug>/img/<имя>-<w>.webp (быстро и из РФ, без внешних CDN)
-          for f in clients/*/images.txt works/*/images.txt; do
+          for f in clients/*/images.txt works/*/images.txt works/*/*/images.txt; do
             [ -f "$f" ] || continue; d="$(dirname "$f")/img"; mkdir -p "$d"
             grep -v '^#' "$f" | while read -r name id a b widths; do
               [ -n "$name" ] || continue
@@ -29,7 +29,7 @@ jobs:
           done
       - name: Add new works (hosted only here)
         run: |
-          for d in works/*/; do [ -f "$d/index.html" ] && mkdir -p "site/$(basename $d)" && cp -R "$d". "site/$(basename $d)/"; done; true
+          for d in works/*/; do [ -n "$(find "$d" -name index.html -print -quit)" ] && mkdir -p "site/$(basename $d)" && cp -R "$d". "site/$(basename $d)/"; done; true  # и вложенные: works/bots/food/
       - name: Add temporary client sites
         run: |
           if [ -d clients ]; then mkdir -p site/clients && cp -R clients/. site/clients/; fi
