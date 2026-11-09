@@ -38,6 +38,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 #river{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
 .page{position:relative;z-index:1}
 
+#sparks ellipse{opacity:0;animation:spark 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spark{0%,100%{opacity:0;transform:scale(.4)}45%{opacity:.85;transform:scale(1)}}
 /* конверт */
 .env{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 30%,#FBEADB 0%,#F4D7C2 60%,#E9BFA3 100%);transition:opacity .9s var(--ease),visibility .9s}
 .env.gone{opacity:0;visibility:hidden}
@@ -143,6 +145,8 @@ footer small{display:block;margin-top:26px;font-size:11px;letter-spacing:.12em;o
   .sec .in{background:none}
   .count div{min-width:54px}
   .prog li{grid-template-columns:62px 1fr}
+  .dusk h2{color:var(--pom-d)}.dusk,.dusk .k,.dusk .day-note,.dusk .prog span{color:var(--ink)}
+  .dusk .prog time{color:var(--pom)}.dusk .prog li{border-color:rgba(110,59,64,.22)}
   .env-hint{bottom:-50px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -177,14 +181,15 @@ footer small{display:block;margin-top:26px;font-size:11px;letter-spacing:.12em;o
       <stop offset="0" stop-color="#E7B98F"/><stop offset=".5" stop-color="#D99A64"/><stop offset="1" stop-color="#5C1430"/>
     </linearGradient>
     <filter id="soft" x="-20%" y="-5%" width="140%" height="110%"><feGaussianBlur stdDeviation="6"/></filter>
-    <filter id="glint" x="-20%" y="-5%" width="140%" height="110%"><feGaussianBlur stdDeviation="3"/></filter>
   </defs>
-  <path id="rBank" fill="none" stroke="url(#bank)" stroke-linecap="round" opacity=".35" filter="url(#soft)"/>
-  <path id="rWater" fill="none" stroke="url(#water)" stroke-linecap="round" pathLength="1"/>
   <mask id="flowMask" maskUnits="userSpaceOnUse"><path id="rMask" fill="none" stroke="#fff" stroke-linecap="round" pathLength="1"/></mask>
+  <path id="rCenter" fill="none" stroke="none"/>
   <g mask="url(#flowMask)">
-    <path id="rShine" fill="none" stroke="#FFF7EE" stroke-linecap="round" opacity=".38" stroke-dasharray="180 120 70 260" filter="url(#glint)"/>
-    <path id="rShine2" fill="none" stroke="#FFFFFF" stroke-linecap="round" opacity=".18" stroke-dasharray="260 380 120 300" filter="url(#glint)"/>
+    <path id="rBank" fill="url(#bank)" opacity=".28" filter="url(#soft)"/>
+    <path id="rWater" fill="url(#water)"/>
+    <path id="rEdge" fill="none" stroke="#FFF8EF" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/>
+    <g id="streaks" fill="none" stroke="#FFFFFF" stroke-linecap="round"></g>
+    <g id="sparks" fill="#FFFFFF"></g>
   </g>
   <g id="blooms"></g>
 </svg>
@@ -281,47 +286,76 @@ footer small{display:block;margin-top:26px;font-size:11px;letter-spacing:.12em;o
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var svg=document.getElementById('river'),water=document.getElementById('rWater'),bank=document.getElementById('rBank'),shine=document.getElementById('rShine'),shine2=document.getElementById('rShine2'),maskP=document.getElementById('rMask'),blooms=document.getElementById('blooms');
-  var page=document.getElementById('page');
-  var total=0,bl=[];
+  var svg=document.getElementById('river'),center=document.getElementById('rCenter'),water=document.getElementById('rWater'),
+      bank=document.getElementById('rBank'),edge=document.getElementById('rEdge'),maskP=document.getElementById('rMask'),
+      streaksG=document.getElementById('streaks'),sparksG=document.getElementById('sparks'),blooms=document.getElementById('blooms');
+  var total=0,bl=[],streaks=[];
+  var NS='http://www.w3.org/2000/svg';
+  function f(n){return n.toFixed(1)}
 
   function build(){
     var W=document.documentElement.clientWidth,H=document.documentElement.scrollHeight,mob=W<760;
     svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.style.height=H+'px';
-    ['water','bank'].forEach(function(id){var g=document.getElementById(id);g.setAttribute('y2',H)});
-    var pts=[[W*(mob?.82:.5),-40]];
+    ['water','bank'].forEach(function(id){document.getElementById(id).setAttribute('y2',H)});
+    // русло: изгибы от раздела к разделу, текст всегда на другом берегу
+    var pts=[[W*(mob?.82:.5),-60]];
     [].forEach.call(document.querySelectorAll('[data-river]'),function(s,i){
       var r=s.getBoundingClientRect(),y=r.top+scrollY,h=r.height,side=s.dataset.river;
       var x=side==='c'?W*(mob?(i%2?.12:.88):.5):side==='r'?W*(mob?.9:.76):W*(mob?.1:.24);
       if(side==='c'&&!mob){pts.push([W*(i?.12:.62),y+h*.12]);pts.push([W*(i?.08:.88),y+h*.8]);}
       else{pts.push([x,y+h*.3]);pts.push([x+(side==='r'?-1:1)*W*(mob?.04:.05),y+h*.75]);}
     });
-    pts.push([W*.5,H+40]);
+    pts.push([W*.5,H+60]);
     var d='M'+pts[0][0]+' '+pts[0][1];
     for(var i=1;i<pts.length;i++){var p=pts[i-1],q=pts[i],my=(p[1]+q[1])/2;d+=' C'+p[0]+' '+my+' '+q[0]+' '+my+' '+q[0]+' '+q[1];}
-    [water,bank,shine,shine2,maskP].forEach(function(p){p.setAttribute('d',d)});
-    var sw=mob?26:Math.max(36,Math.min(70,W*.045));
-    water.setAttribute('stroke-width',sw);bank.setAttribute('stroke-width',sw*2.6);shine.setAttribute('stroke-width',Math.max(2,sw*.14));shine2.setAttribute('stroke-width',Math.max(1.5,sw*.06));maskP.setAttribute('stroke-width',sw*1.2);maskP.style.strokeDasharray='1 1';
-    svg.style.opacity=mob?.55:1;
-    total=water.getTotalLength?water.getTotalLength():0;
-    // гранатовые цветы вдоль реки
+    center.setAttribute('d',d);maskP.setAttribute('d',d);
+    total=center.getTotalLength();
+    var base=mob?34:Math.max(54,Math.min(110,W*.07));
+    // точки вдоль русла и нормали; ширина «дышит»: река то шире, то уже, как настоящая
+    var S=[],step=7;
+    for(var L=0;L<=total;L+=step){
+      var a=center.getPointAtLength(L),b=center.getPointAtLength(Math.min(total,L+1)),dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy)||1;
+      var w=base*(0.82+0.22*Math.sin(L/310)+0.1*Math.sin(L/97+1.3)+0.06*Math.sin(L/41+.4));
+      S.push({x:a.x,y:a.y,nx:-dy/len,ny:dx/len,w:w,L:L});
+    }
+    function ribbon(k){var l='',r='';for(var i=0;i<S.length;i++){var p=S[i],h=p.w*k/2;
+        l+=(i?'L':'M')+f(p.x+p.nx*h)+' '+f(p.y+p.ny*h);}
+      for(var j=S.length-1;j>=0;j--){var q=S[j],g=q.w*k/2;r+='L'+f(q.x-q.nx*g)+' '+f(q.y-q.ny*g);}
+      return l+r+'Z';}
+    function line(o,jit){var s='';for(var i=0;i<S.length;i++){var p=S[i],oo=(o+jit*Math.sin(p.L/180+o*9))*p.w;
+        s+=(i?'L':'M')+f(p.x+p.nx*oo)+' '+f(p.y+p.ny*oo);}return s;}
+    water.setAttribute('d',ribbon(1));bank.setAttribute('d',ribbon(2.1));edge.setAttribute('d',line(.47,0));
+    maskP.setAttribute('stroke-width',base*3);maskP.style.strokeDasharray='1 1';
+    // течение: длинные светлые струи с разной скоростью
+    streaksG.innerHTML='';streaks=[];
+    [[-.3,.04,.32,1.6,'140 90 60 220',.55],[-.12,.05,.26,1.2,'220 160 90 300',.8],[.06,.04,.3,2.2,'90 70 160 240',.65],
+     [.24,.05,.14,1.1,'260 140 40 200',.9],[.36,.03,.12,1,'60 120 110 260',.5]].forEach(function(c){
+      var el=document.createElementNS(NS,'path');el.setAttribute('d',line(c[0],c[1]));el.setAttribute('stroke-opacity',c[2]);
+      el.setAttribute('stroke-width',mob?c[3]*.7:c[3]);el.setAttribute('stroke-dasharray',c[4]);streaksG.appendChild(el);
+      streaks.push({el:el,v:c[5],o:Math.random()*400});
+    });
+    // блики на воде
+    sparksG.innerHTML='';
+    var nS=Math.round(H/(mob?140:90));
+    for(var k=0;k<nS;k++){var p=S[Math.floor(Math.random()*S.length)],o=(Math.random()-.5)*.7*p.w,ang=Math.atan2(p.ny,p.nx)*180/Math.PI+90;
+      var e=document.createElementNS(NS,'ellipse');e.setAttribute('cx',f(p.x+p.nx*o));e.setAttribute('cy',f(p.y+p.ny*o));
+      e.setAttribute('rx',(2+Math.random()*4).toFixed(1));e.setAttribute('ry','1.1');e.setAttribute('transform','rotate('+f(ang)+' '+f(p.x+p.nx*o)+' '+f(p.y+p.ny*o)+')');
+      e.style.animationDelay=(-Math.random()*3.2).toFixed(2)+'s';e.style.animationDuration=(2.4+Math.random()*2).toFixed(2)+'s';sparksG.appendChild(e);}
+    svg.style.opacity=mob?.6:1;
+    // гранатовые цветы на берегах
     blooms.innerHTML='';bl=[];
-    var n=Math.round(H/(mob?420:320));
-    for(var k=1;k<n;k++){
-      var L=total*k/n,pt=water.getPointAtLength(L),nx=water.getPointAtLength(Math.min(total,L+2));
-      var ang=Math.atan2(nx.y-pt.y,nx.x-pt.x),side=k%2?1:-1,off=sw*.9;
-      var x=pt.x+Math.cos(ang+Math.PI/2)*off*side,y=pt.y+Math.sin(ang+Math.PI/2)*off*side;
-      var g=document.createElementNS('http://www.w3.org/2000/svg','g');
-      var s=mob?.7:1;
-      g.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') scale('+s+')');
-      g.innerHTML='<g class="bl" style="transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform 1.2s cubic-bezier(.23,1,.32,1)">'+
+    var n=Math.round(H/(mob?420:300));
+    for(k=1;k<n;k++){
+      var idx=Math.floor(S.length*k/n),p2=S[idx],side=k%2?1:-1,off=p2.w*.62+10;
+      var x=p2.x+p2.nx*off*side,y=p2.y+p2.ny*off*side,g=document.createElementNS(NS,'g');
+      g.setAttribute('transform','translate('+f(x)+' '+f(y)+') scale('+(mob?.7:1)+')');
+      g.innerHTML='<g style="transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform 1.2s cubic-bezier(.23,1,.32,1)">'+
         '<path d="M0 0 C -14 -4 -18 -16 -10 -22 C -4 -26 2 -20 0 -14 C -2 -20 4 -26 10 -22 C 18 -16 14 -4 0 0Z" fill="#C2334C"/>'+
         '<path d="M0 0 C -6 -8 -6 -14 0 -18 C 6 -14 6 -8 0 0Z" fill="#E8B96A" opacity=".9"/>'+
         '<path d="M0 2 C '+(side*22)+' 10 '+(side*30)+' 4 '+(side*38)+' 14" stroke="#6E8A4A" stroke-width="2" fill="none"/>'+
         '<ellipse cx="'+(side*30)+'" cy="8" rx="8" ry="3.4" fill="#7C9A55" transform="rotate('+(side*25)+' '+(side*30)+' 8)"/></g>';
-      blooms.appendChild(g);bl.push({el:g.firstChild,at:L/total});
+      blooms.appendChild(g);bl.push({el:g.firstChild,at:p2.L/total});
     }
-    water.style.strokeDasharray='1 1';
     update();
   }
 
@@ -329,15 +363,16 @@ footer small{display:block;margin-top:26px;font-size:11px;letter-spacing:.12em;o
     if(!total)return;
     var H=document.documentElement.scrollHeight,vh=innerHeight;
     var prog=reduce?1:Math.min(1,(scrollY+vh*.85)/H);
-    water.style.strokeDashoffset=maskP.style.strokeDashoffset=(1-prog).toFixed(4);
+    maskP.style.strokeDashoffset=(1-prog).toFixed(4);
     for(var i=0;i<bl.length;i++){var on=bl[i].at<prog-.01;if(on!==bl[i].on){bl[i].on=on;bl[i].el.style.transform=on?'scale(1)':'scale(0)'}}
   }
   var tick=false;
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;update()})}},{passive:true});
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});
 
-  // блики на воде текут вниз
-  if(!reduce){var off=0;(function flow(){off-=0.7;shine.style.strokeDashoffset=off;shine2.style.strokeDashoffset=off*1.4;requestAnimationFrame(flow)})();}
+  // вода течёт вниз: струи бегут с разной скоростью
+  if(!reduce){(function flow(){for(var i=0;i<streaks.length;i++){var st=streaks[i];st.o-=st.v;st.el.style.strokeDashoffset=st.o}requestAnimationFrame(flow)})();}
+  else{sparksG.style.display='none'}
 
   // появление
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
