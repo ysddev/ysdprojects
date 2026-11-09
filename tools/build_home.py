@@ -20,7 +20,8 @@ FIRST = 12  # карточек сразу, остальные — «Показа
 CURATED = [
     "shop", "cleaning", "bots/food", "kuhni", "stroy", "salon", "miniapp", "metall", "remont", "detailing",
     "medcenter", "dental",  # первый экран: 10 премиальных сайтов + 2 бота
-    "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture", "cosmo", "barber", "nails",
+    "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture", "cosmo", "barber", "nails", "pizza", "fitness",
+    "avtoshkola", "okna", "pereezd", "hotel", "kids", "english", "buh", "logistics",
     "apps/warehouse", "slides/tender", "bots/ai", "garage", "resto", "design/nord", "apps/bi", "slides/pitch",
     "design/terra",
 ]

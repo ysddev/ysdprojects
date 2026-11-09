@@ -1465,7 +1465,7 @@ function gShow(i){
 function gAuto(){ clearInterval(gTimer); if (!RM.matches && !gUser) gTimer = setInterval(function(){ gShow(gi + 1); }, 3200); }
 zb.forEach(function(b){ b.addEventListener('click', function(){ gUser = true; clearInterval(gTimer); gShow(+b.dataset.g); }); });
 var lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap');
-function lbSet(){ var im = $('img', gs[gi]); lbImg.src = im.currentSrc || im.src; lbImg.srcset = im.srcset; lbImg.sizes = '(max-width: 980px) 92vw, 900px'; lbImg.alt = im.alt; lbCap.textContent = gs[gi].dataset.cap + ' · фото-пример'; }
+function lbSet(){ var im = $('img', gs[gi]); lbImg.src = im.currentSrc || im.src; lbImg.srcset = im.srcset; lbImg.sizes = '(max-width: 980px) 92vw, 900px'; lbImg.alt = im.alt; lbCap.textContent = gs[gi].dataset.cap; }
 $('#gf').addEventListener('click', function(){ clearInterval(gTimer); lbSet(); lb.showModal(); });
 $('#lbP').addEventListener('click', function(){ gShow(gi - 1); lbSet(); });
 $('#lbN').addEventListener('click', function(){ gShow(gi + 1); lbSet(); });
