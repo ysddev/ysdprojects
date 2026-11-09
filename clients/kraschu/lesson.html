@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Урок «Крашу сама» · ваш доступ</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1b1512">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M8 2h16v18a8 8 0 0 1-16 0z' fill='%23e2c28c'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/playfair-display-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/playfair-display-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/playfair-display-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/playfair-display-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/playfair-display-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/playfair-display-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+:root{
+  /* тона волос: уровень 1 (чёрный) → 10 (светлый блонд) — один мотив всей страницы */
+  --l1:#1b1512;--l3:#3b2619;--l5:#6a4329;--l7:#a3713f;--l8:#c49660;--l9:#e2c28c;--l10:#f3e6c9;
+  --bg:#ffffff;--surface:#f4f1ec;--ink:#1b1512;--muted:#5b5048;--accent:#1b1512;--accent-ink:#fff;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+  --pad:clamp(16px,3.4vw,48px);
+  --ease:cubic-bezier(.23,1,.32,1);
+  --swatch:0 0 999px 999px; /* мотив: прядь-образец колориста, скруглённая снизу */
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:var(--f);font-size:var(--step-body);line-height:1.5;letter-spacing:-.005em;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-weight:700;letter-spacing:-.04em;line-height:.98;margin:0}
+h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;line-height:1.02}
+h1 em,h2 em{font-style:italic;color:var(--l7)}
+p{margin:0}
+.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:600 1.0625rem/1 var(--f);text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s}
+.btn:active{transform:scale(.97)}
+.btn.light{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--l8);outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--l3)}.btn.light:hover{background:var(--l10)}}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);border-bottom:1px solid #eee7dd}
+.logo{font-family:var(--serif);font-size:22px;text-decoration:none}
+.mock{font-size:var(--step-small);color:var(--muted);background:var(--surface);padding:6px 12px;border-radius:999px}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*80ms)}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}}
+.ok{display:flex;gap:14px;align-items:center;background:var(--l10);padding:16px var(--pad);font-size:var(--step-small)}
+.ok b{font-weight:600}
+.ok .dot{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.ok .dot svg{width:14px;height:14px}
+.les{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(24px,3vw,48px);padding:clamp(24px,4vw,56px) var(--pad);max-width:1440px;margin:0 auto}
+.player{position:relative;border-radius:22px;overflow:hidden;background:#111;aspect-ratio:16/9}
+.player video{width:100%;height:100%;object-fit:cover;display:block}
+.les h1{font-size:clamp(28px,3vw,44px);margin:22px 0 8px}
+.now{color:var(--muted)}
+.ch{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.ch li button{width:100%;display:grid;grid-template-columns:30px 1fr auto;gap:14px;align-items:center;text-align:left;padding:14px 16px;border:0;border-radius:16px;background:var(--surface);font:inherit;color:inherit;cursor:pointer;transition:background .3s var(--ease),color .3s}
+.ch li button[aria-current=true]{background:var(--ink);color:#fff}
+.ch li button:active{transform:scale(.98)}
+.ch .sw{width:24px;height:38px;border-radius:var(--swatch)}
+.ch small{display:block;opacity:.7;font-size:var(--step-small)}
+.ch time{font-size:var(--step-small);opacity:.7}
+.side h2{font-size:clamp(24px,2.2vw,32px);margin-bottom:14px}
+.list{margin-top:32px;padding:22px;border-radius:22px;border:1px solid #eee7dd}
+.list h3{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
+.list ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+.tg{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:18px;background:var(--surface);font-size:var(--step-small);flex-wrap:wrap}
+.tg a{display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;font-weight:600;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #e3d9cc;min-height:44px}
+@media (hover:hover) and (pointer:fine){.ch li button:not([aria-current=true]):hover{background:var(--l10)}.tg a:hover{background:var(--l10)}}
+@media (max-width:900px){.les{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="./">Крашу сама</a><span class="mock">Макет страницы урока</span></header>
+<div class="ok" id="ok" role="status"><span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+  <p><b>Оплата прошла.</b> Ссылка на эту страницу и чек ушли на <span id="em">вашу почту</span>, урок всегда можно открыть снова.</p></div>
+<main class="les">
+  <section>
+    <div class="player rv"><video id="v" src="video/nadezhda.mp4" poster="video/nadezhda.webp" controls playsinline preload="metadata"></video></div>
+    <h1 class="rv" style="--d:1" id="title">Осветление без обламывания</h1>
+    <p class="now rv" style="--d:2" id="desc">Мой безопасный способ блонда.</p>
+    <div class="list rv" style="--d:3"><h3>Список средств под ваш цвет</h3><ul><li>[осветлитель и оксид]</li><li>[тонер под ваш исходный тон]</li><li>[уход после окрашивания]</li><li>Кисть, чаша, перчатки, зажимы</li></ul></div>
+  </section>
+  <aside class="side">
+    <h2 class="rv">Шаги урока</h2>
+    <ol class="ch" id="ch"></ol>
+    <div class="tg rv" style="--d:7"><span>Удобнее смотреть в Telegram?</span><a href="#" id="tg">Получить также в Telegram</a></div>
+  </aside>
+</main>
+<script>
+var steps=[["Осветление без обламывания","Мой безопасный способ блонда","var(--l5)"],["Подбор средств","Что купить под ваш исходный цвет","var(--l7)"],
+["Нанесение самой себе","Корни и длина, сзади тоже","var(--l8)"],["Тонирование","Как убрать желтизну","var(--l9)"],["Уход после","Чтобы длина сохранилась","var(--l10)"],["Ошибки","Что ломает волосы и как этого избежать","#fff"]];
+var ch=document.getElementById('ch');
+steps.forEach(function(s,i){var li=document.createElement('li');li.className='rv';li.style.setProperty('--d',i+1);
+  li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s[2]+(s[2]==='#fff'?';border:1px solid #e3d9cc':'')+'"></span><span>'+(i+1)+'. '+s[0]+'<small>'+s[1]+'</small></span><time>[мин]</time></button>';
+  li.firstChild.addEventListener('click',function(){[].forEach.call(ch.querySelectorAll('button'),function(b){b.removeAttribute('aria-current')});this.setAttribute('aria-current','true');
+    document.getElementById('title').textContent=s[0];document.getElementById('desc').textContent=s[1]+'.';var v=document.getElementById('v');try{v.currentTime=0}catch(_){}
+    if(matchMedia('(max-width:900px)').matches)document.querySelector('.player').scrollIntoView({behavior:'smooth',block:'start'});});
+  ch.appendChild(li)});
+document.getElementById('tg').addEventListener('click',function(e){e.preventDefault();this.textContent='Здесь откроется бот урока';});
+try{var em=sessionStorage.getItem('kr_email');if(em)document.getElementById('em').textContent=em}catch(_){}
+if(!/paid=1/.test(location.search))document.getElementById('ok').style.display='none';
+setTimeout(function(){[].forEach.call(document.querySelectorAll('.rv'),function(el){el.classList.add('on')})},60);
+</script>
+</body>
+</html>
