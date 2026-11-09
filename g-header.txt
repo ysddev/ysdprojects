@@ -15,6 +15,7 @@
 #arx .mark{font:400 clamp(1.125rem,.9rem + .9vw,1.625rem)/1 var(--serif);letter-spacing:.42em;margin-right:-.42em;white-space:nowrap;transition:color .45s var(--ease)}
 /* header: white + difference blend = colour inverts against whatever is under it (как у ugulwan) */
 #allrecords{background-color:#fff}
+.t698__title{font:300 20px/30px "TildaSans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:normal!important;color:#000!important}
 /* убрать плавающую корзину и кнопку WhatsApp: корзина в шапке */
 .t706__carticon{display:none!important}
 .t825{display:none!important}
