@@ -11,7 +11,7 @@
 <meta property="og:image" content="img/hero-1200.webp">
 <meta name="theme-color" content="#cbe4f2">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffc013'/%3E%3Cg fill='%23b0298f'%3E%3Ccircle cx='16' cy='8.5' r='5.5'/%3E%3Ccircle cx='22.5' cy='12.3' r='5.5'/%3E%3Ccircle cx='22.5' cy='19.7' r='5.5'/%3E%3Ccircle cx='16' cy='23.5' r='5.5'/%3E%3Ccircle cx='9.5' cy='19.7' r='5.5'/%3E%3Ccircle cx='9.5' cy='12.3' r='5.5'/%3E%3Ccircle cx='16' cy='16' r='6'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="preload" as="image" href="img/hero-1200.webp" imagesrcset="img/hero-700.webp 700w, img/hero-1200.webp 1200w" imagesizes="(max-width: 760px) 100vw, 31vw" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-1200.webp" imagesrcset="img/hero-700.webp 700w, img/hero-1200.webp 1200w" imagesizes="(max-width: 900px) 100vw, 31vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/onest-cyrillic-700-normal.woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
 <style>
@@ -78,6 +78,7 @@ h3{font-size:var(--lead);font-weight:700;letter-spacing:-.02em;line-height:1.15}
 .mark svg{width:30px;height:30px;fill:var(--accent)}
 .nav ul{display:flex;gap:clamp(16px,2.2vw,36px);margin-left:auto}
 .nav .tel{font-weight:500;white-space:nowrap}
+.nav .call{display:none}
 .nav .btn{min-height:48px;padding:0 22px}
 .clip{position:absolute;left:0;right:0;overflow:hidden;pointer-events:none}
 .clip.a{top:0;height:50%}
@@ -177,8 +178,8 @@ h3{font-size:var(--lead);font-weight:700;letter-spacing:-.02em;line-height:1.15}
 .strip .a34{aspect-ratio:3/4}.strip .a11{aspect-ratio:1}.strip .a32{aspect-ratio:3/2}
 .strip.paused{animation-play-state:paused}
 @keyframes drift{to{transform:translateX(-50%)}}
-.book .bar{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-top:clamp(40px,5vw,72px)}
-.pause{min-height:44px;padding:0 14px;border:0;background:var(--ink);color:var(--paper);font:500 var(--small)/1 Onest,sans-serif;cursor:pointer;flex:none}
+.book h2{margin-top:clamp(32px,4vw,56px)}
+.pause{min-height:44px;padding:0 14px;border:0;background:var(--ink);color:var(--paper);font:500 var(--small)/1 Onest,sans-serif;cursor:pointer;margin-top:8px}
 .book .lead{margin-top:16px;max-width:52ch;font-size:var(--lead);line-height:1.3;font-weight:500}
 form.cells{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:clamp(28px,3vw,40px)}
 .cells input,.cells button{height:96px;border:0;font:500 var(--lead)/1 Onest,sans-serif;text-align:center;width:100%;border-radius:0}
@@ -215,10 +216,11 @@ footer .sm{font-size:var(--small)}
 .fab{display:none}
 
 /* ───── телефон: своя композиция ───── */
-@media (max-width:760px){
+@media (max-width:900px){
   :root{--hero:11.4vw}
-  .nav ul,.nav .btn{display:none}
-  .nav .tel{margin-left:auto;background:var(--ink);color:var(--paper);text-decoration:none;padding:0 14px;min-height:44px;display:flex;align-items:center;font-size:var(--small)}
+  .nav ul,.nav .btn,.nav .num{display:none}
+  .nav .call{display:inline}
+  .nav .tel{margin-left:auto;background:var(--ink);color:var(--paper);text-decoration:none;padding:0 14px;min-height:44px;display:flex;align-items:center;font-size:var(--body)}
   .hero{min-height:640px}
   .hero .low{top:46%}
   .clip.a{height:46%}.clip.b{top:46%;height:54%}
@@ -247,17 +249,16 @@ footer .sm{font-size:var(--small)}
   .steps h2{position:static;width:auto}
   .t1{height:34vw;min-height:0}.t2{height:46vw;min-height:0}.t3{height:62vw;min-height:0}
   .tile{padding:5%}
-  .panel{min-height:0;padding:28px 20px 0}
+  .panel{min-height:0;padding:28px 20px 0;display:flex;flex-direction:column}
+  .panel .cap{order:1}.panel .flower{order:2}
   .panel h2{font-size:8.5vw;max-width:none}
   .panel .txt{position:static;margin-top:32px;max-width:none}
-  .panel .flower{position:relative;left:auto;bottom:auto;width:86vw;margin:40px auto -21vw}
-  .panel .cap{position:static;display:block;margin-top:16px}
+  .panel .flower{position:relative;left:auto;bottom:auto;width:86vw;margin:12px auto -21vw}
+  .panel .cap{position:static;display:block;margin-top:36px}
   .faq .top{min-height:30svh}
   .faq .top h2{font-size:13vw}
   .band h3{margin-bottom:12px}
   .strip img{height:110px}
-  .book .bar{display:block}
-  .pause{margin-top:16px}
   form.cells,.fine,.facts{grid-template-columns:1fr}
   .cells input,.cells button{height:60px;font-size:var(--body)}
   .facts{gap:28px}
@@ -297,7 +298,7 @@ footer .sm{font-size:var(--small)}
       <li><a class="lnk" href="#salon">О салоне</a></li>
       <li><a class="lnk" href="#voprosy">Вопросы</a></li>
     </ul>
-    <a class="tel lnk" href="tel:+74950000000">+7 (495) 000-00-00</a>
+    <a class="tel lnk" href="tel:+74950000000"><span class="num">+7 (495) 000-00-00</span><span class="call">Позвонить</span></a>
     <a class="btn" href="#zapis">Записаться</a>
   </nav>
 
@@ -312,7 +313,7 @@ footer .sm{font-size:var(--small)}
     </div>
   </div>
 
-  <div class="pic"><img id="heroimg" src="img/hero-1200.webp" srcset="img/hero-700.webp 700w, img/hero-1200.webp 1200w" sizes="(max-width: 760px) 100vw, 31vw" width="1200" height="1500" alt="Розовые пионы в цвету" fetchpriority="high"></div>
+  <div class="pic"><img id="heroimg" src="img/hero-1200.webp" srcset="img/hero-700.webp 700w, img/hero-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 31vw" width="1200" height="1500" alt="Розовые пионы в цвету" fetchpriority="high"></div>
 </header>
 
 <main id="main">
@@ -327,7 +328,7 @@ footer .sm{font-size:var(--small)}
       <article class="blk" data-r>
         <h3 class="r">Волосы</h3>
         <div class="row">
-          <div class="ph zoom r pic-r" style="--i:1"><img src="img/hair-440.webp" srcset="img/hair-440.webp 440w, img/hair-800.webp 800w" sizes="(max-width: 760px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Мастер укладывает волосы феном и круглой щёткой"></div>
+          <div class="ph zoom r pic-r" style="--i:1"><img src="img/hair-440.webp" srcset="img/hair-440.webp 440w, img/hair-800.webp 800w" sizes="(max-width: 900px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Мастер укладывает волосы феном и круглой щёткой"></div>
           <ul>
             <li class="r" style="--i:2"><span>Стрижка с укладкой</span><b>от 3 500 ₽</b></li>
             <li class="r" style="--i:3"><span>Окрашивание в один тон</span><b>от 6 500 ₽</b></li>
@@ -340,7 +341,7 @@ footer .sm{font-size:var(--small)}
       <article class="blk" data-r>
         <h3 class="r">Ногти</h3>
         <div class="row">
-          <div class="ph zoom r pic-r" style="--i:1"><img src="img/nails-440.webp" srcset="img/nails-440.webp 440w, img/nails-800.webp 800w" sizes="(max-width: 760px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Рука со светло-розовым маникюром"></div>
+          <div class="ph zoom r pic-r" style="--i:1"><img src="img/nails-440.webp" srcset="img/nails-440.webp 440w, img/nails-800.webp 800w" sizes="(max-width: 900px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Рука со светло-розовым маникюром"></div>
           <ul>
             <li class="r" style="--i:2"><span>Маникюр без покрытия</span><b>от 1 800 ₽</b></li>
             <li class="r" style="--i:3"><span>Маникюр с покрытием</span><b>от 2 800 ₽</b></li>
@@ -352,7 +353,7 @@ footer .sm{font-size:var(--small)}
       <article class="blk" data-r>
         <h3 class="r">Лицо</h3>
         <div class="row">
-          <div class="ph zoom r pic-r" style="--i:1"><img src="img/face-440.webp" srcset="img/face-440.webp 440w, img/face-800.webp 800w" sizes="(max-width: 760px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Косметолог наносит крем кистью на лицо"></div>
+          <div class="ph zoom r pic-r" style="--i:1"><img src="img/face-440.webp" srcset="img/face-440.webp 440w, img/face-800.webp 800w" sizes="(max-width: 900px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Косметолог наносит крем кистью на лицо"></div>
           <ul>
             <li class="r" style="--i:2"><span>Чистка лица</span><b>от 4 500 ₽</b></li>
             <li class="r" style="--i:3"><span>Пилинг</span><b>от 3 500 ₽</b></li>
@@ -364,7 +365,7 @@ footer .sm{font-size:var(--small)}
       <article class="blk" data-r>
         <h3 class="r">Брови и ресницы</h3>
         <div class="row">
-          <div class="ph zoom r pic-r" style="--i:1"><img src="img/brows-440.webp" srcset="img/brows-440.webp 440w, img/brows-800.webp 800w" sizes="(max-width: 760px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Мастер работает кистью у лица клиентки"></div>
+          <div class="ph zoom r pic-r" style="--i:1"><img src="img/brows-440.webp" srcset="img/brows-440.webp 440w, img/brows-800.webp 800w" sizes="(max-width: 900px) 100vw, 220px" width="440" height="587" loading="lazy" alt="Мастер работает кистью у лица клиентки"></div>
           <ul>
             <li class="r" style="--i:2"><span>Коррекция и окрашивание бровей</span><b>от 1 800 ₽</b></li>
             <li class="r" style="--i:3"><span>Ламинирование бровей</span><b>от 2 500 ₽</b></li>
@@ -415,17 +416,17 @@ footer .sm{font-size:var(--small)}
     <div class="board" data-r>
       <h2 class="r">Как проходит визит</h2>
       <div class="step r" style="--i:1">
-        <div class="tile t1 zoom"><img src="img/bud-500.webp" srcset="img/bud-500.webp 500w, img/bud-900.webp 900w" sizes="(max-width: 760px) 90vw, 20vw" width="500" height="500" loading="lazy" alt="Белые пионы и нераскрытые бутоны"></div>
+        <div class="tile t1 zoom"><img src="img/bud-500.webp" srcset="img/bud-500.webp 500w, img/bud-900.webp 900w" sizes="(max-width: 900px) 90vw, 20vw" width="500" height="500" loading="lazy" alt="Белые пионы и нераскрытые бутоны"></div>
         <h3>Записались</h3>
         <p>Оставляете заявку. Администратор перезванивает, подбирает мастера и время.</p>
       </div>
       <div class="step r" style="--i:2">
-        <div class="tile t2 zoom"><img src="img/mid-500.webp" srcset="img/mid-500.webp 500w, img/mid-900.webp 900w" sizes="(max-width: 760px) 90vw, 28vw" width="500" height="500" loading="lazy" alt="Розовый пион на тонком стебле"></div>
+        <div class="tile t2 zoom"><img src="img/mid-500.webp" srcset="img/mid-500.webp 500w, img/mid-900.webp 900w" sizes="(max-width: 900px) 90vw, 28vw" width="500" height="500" loading="lazy" alt="Розовый пион на тонком стебле"></div>
         <h3>Обсудили с мастером</h3>
         <p>Мастер смотрит волосы, кожу или ногти, предлагает варианты и называет точную цену.</p>
       </div>
       <div class="step r" style="--i:3">
-        <div class="tile t3 zoom"><img src="img/open-500.webp" srcset="img/open-500.webp 500w, img/open-900.webp 900w" sizes="(max-width: 760px) 90vw, 36vw" width="500" height="500" loading="lazy" alt="Раскрытый пион крупным планом"></div>
+        <div class="tile t3 zoom"><img src="img/open-500.webp" srcset="img/open-500.webp 500w, img/open-900.webp 900w" sizes="(max-width: 900px) 90vw, 36vw" width="500" height="500" loading="lazy" alt="Раскрытый пион крупным планом"></div>
         <h3>Ушли с результатом</h3>
         <p>Делаем то, о чём договорились. В конце мастер рассказывает, как ухаживать дома.</p>
       </div>
@@ -441,7 +442,7 @@ footer .sm{font-size:var(--small)}
       <div class="r" style="--i:2"><h3>Сначала разговор</h3><p>До начала работы вы знаете, что будут делать, сколько это займёт и сколько стоит. Решение остаётся за вами.</p></div>
       <div class="r" style="--i:3"><a class="btn" href="#zapis">Выбрать время</a></div>
     </div>
-    <div class="flower r pic-r" style="--i:2"><img src="img/salon-700.webp" srcset="img/salon-700.webp 700w, img/salon-1100.webp 1100w" sizes="(max-width: 760px) 86vw, 38vw" width="700" height="700" loading="lazy" alt="Зал салона: кресла у длинной белой стойки с зеркалом"></div>
+    <div class="flower r pic-r" style="--i:2"><img src="img/salon-700.webp" srcset="img/salon-700.webp 700w, img/salon-1100.webp 1100w" sizes="(max-width: 900px) 86vw, 38vw" width="700" height="700" loading="lazy" alt="Зал салона: кресла у длинной белой стойки с зеркалом"></div>
     <span class="cap">Фото-пример</span>
   </div>
 </section>
@@ -472,10 +473,8 @@ footer .sm{font-size:var(--small)}
     </div>
   </div>
   <div class="wrap" data-r>
-    <div class="bar">
-      <h2 class="r">Запишитесь на визит</h2>
-      <button class="pause" type="button" id="pause" aria-pressed="false">Остановить ленту</button>
-    </div>
+    <button class="pause" type="button" id="pause" aria-pressed="false">Остановить ленту</button>
+    <h2 class="r">Запишитесь на визит</h2>
     <p class="lead r" style="--i:1" id="chosen">Перезвоним, уточним задачу и подберём мастера и время.</p>
     <form class="cells r" style="--i:2" id="form" novalidate>
       <label class="vh" for="fn">Ваше имя</label>
