@@ -1,0 +1,2016 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пульс — аналитика продаж сети «Хоромы»</title>
+<meta name="description" content="Пульс — BI-дашборд сети магазинов товаров для дома: выручка по дням, ритм каждого магазина против его нормы, категории, аномалии и часы пик.">
+<meta property="og:title" content="Пульс — аналитика продаж сети «Хоромы»">
+<meta property="og:description" content="Выручка по дням, ритм магазинов, категории, аномалии и часы пик на одном экране.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4f3f0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f4f3f0'/%3E%3Cpath d='M4 17h6l3-8 5 15 3-9h7' fill='none' stroke='%231d5fbf' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('pulse2.theme');if(t)document.documentElement.dataset.theme=JSON.parse(t);}catch(e){}</script>
+<style>
+/* ---------- fonts: Onest, served from this folder ---------- */
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-math-400-normal.woff2) format("woff2");unicode-range:U+2190,U+2192,U+2194-21AE}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-math-500-normal.woff2) format("woff2");unicode-range:U+2190,U+2192,U+2194-21AE}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-math-700-normal.woff2) format("woff2");unicode-range:U+2190,U+2192,U+2194-21AE}
+
+/* ---------- tokens (style: achromatic ledger; face: a linen ground from the shop floor, Onest, one pulse hue) ---------- */
+:root{
+  color-scheme:light;
+  --ground:#f4f3f0; --surface:#ffffff; --raised:#f5f4f1; --active:#e9e8e3; --track:#ebeae6;
+  --border:#e4e2dd; --rule:#efeee9; --control:#d2d0ca;
+  --text:#121212; --muted:#5f5d58; --faint:#6b6964;
+  --primary:#161616; --on-primary:#ffffff;
+  --hue:#1d5fbf; --hue-ink:#174d9c; --hue-wash:rgba(29,95,191,.08);
+  --down:#d1453b;
+  --prev:#a19f99; --bar:#d8d6d0; --bar-strong:#121212;
+  --positive:#247b50; --negative:#c4242a;
+  --pill-pos-bg:#e3f5e9; --pill-pos-ink:#14532d; --pill-neg-bg:#fdecea; --pill-neg-ink:#831c1e;
+  --grid:#ebe9e4; --cell0:#ecebe6;
+  --shadow-float:0 12px 32px rgba(20,18,14,.14),0 2px 6px rgba(20,18,14,.06);
+  --scrim:rgba(18,17,15,.32);
+  --radius-card:8px; --radius-control:6px; --radius-chip:4px;
+  --gap:16px; --card-pad:20px; --side:240px; --ctl:34px;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0b0b0b; --surface:#141414; --raised:#1b1b1b; --active:#252525; --track:#202020;
+  --border:#252525; --rule:#1e1e1e; --control:#3a3a3a;
+  --text:#f3f2ef; --muted:#b2b0ab; --faint:#979590;
+  --primary:#f3f2ef; --on-primary:#111111;
+  --hue:#5b93ea; --hue-ink:#8db4f2; --hue-wash:rgba(91,147,234,.12);
+  --down:#e5675e;
+  --prev:#6f6e6a; --bar:#3a3a38; --bar-strong:#f3f2ef;
+  --positive:#4cc38a; --negative:#f07a72;
+  --pill-pos-bg:#14271c; --pill-pos-ink:#7ad7a6; --pill-neg-bg:#2d1918; --pill-neg-ink:#f4a19b;
+  --grid:#232323; --cell0:#222222;
+  --shadow-float:0 16px 40px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.4);
+  --scrim:rgba(0,0,0,.55);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0b0b0b; --surface:#141414; --raised:#1b1b1b; --active:#252525; --track:#202020;
+    --border:#252525; --rule:#1e1e1e; --control:#3a3a3a;
+    --text:#f3f2ef; --muted:#b2b0ab; --faint:#979590;
+    --primary:#f3f2ef; --on-primary:#111111;
+    --hue:#5b93ea; --hue-ink:#8db4f2; --hue-wash:rgba(91,147,234,.12);
+    --down:#e5675e;
+    --prev:#6f6e6a; --bar:#3a3a38; --bar-strong:#f3f2ef;
+    --positive:#4cc38a; --negative:#f07a72;
+    --pill-pos-bg:#14271c; --pill-pos-ink:#7ad7a6; --pill-neg-bg:#2d1918; --pill-neg-ink:#f4a19b;
+    --grid:#232323; --cell0:#222222;
+    --shadow-float:0 16px 40px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.4);
+    --scrim:rgba(0,0,0,.55);
+  }
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--text);font:400 14px/20px var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+a{color:inherit}
+svg{display:block}
+.num{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--hue);outline-offset:2px;border-radius:4px}
+::selection{background:var(--hue-wash)}
+[hidden]{display:none!important}
+.ico{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- shell: open plane ---------- */
+.side{position:fixed;inset:0 auto 0 0;width:var(--side);display:flex;flex-direction:column;padding:14px 12px 12px;border-right:1px solid var(--border);background:var(--ground);z-index:30;transition:width .25s var(--ease)}
+.brand{display:flex;align-items:center;gap:10px;height:36px;padding:0 6px 0 8px}
+.brand-mark{width:22px;height:22px;flex:none;color:var(--hue)}
+.brand-name{font-weight:600;font-size:16px;letter-spacing:-.01em}
+.brand .icon-btn{margin-left:auto}
+.ws{margin:10px 2px 6px;padding:10px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;gap:10px;align-items:center}
+.ws-badge{width:30px;height:30px;border-radius:7px;background:#e8efe6;color:#2f4a2b;display:grid;place-items:center;font-weight:600;font-size:13px;flex:none}
+:root[data-theme="dark"] .ws-badge{background:#1d2a1b;color:#a9c9a3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ws-badge{background:#1d2a1b;color:#a9c9a3}}
+.ws div b{display:block;font-weight:600;font-size:14px;line-height:18px}
+.ws div span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.search-trigger{margin:6px 2px 4px;height:34px;display:flex;align-items:center;gap:8px;padding:0 8px 0 10px;border-radius:var(--radius-control);border:1px solid var(--control);background:var(--surface);color:var(--muted);text-align:left}
+.search-trigger span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+kbd{font:500 11px/16px var(--font);min-width:18px;height:18px;padding:0 5px;border-radius:4px;border:1px solid var(--control);color:var(--muted);display:inline-grid;place-items:center;background:var(--surface)}
+.nav-group{margin-top:18px}
+.nav-label{display:flex;align-items:center;justify-content:space-between;font-size:12px;line-height:16px;color:var(--muted);padding:0 10px 6px}
+.nav a,.nav button.nav-item{display:flex;align-items:center;gap:10px;height:32px;margin-bottom:2px;padding:0 10px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:14px;width:100%;text-align:left;transition:background .15s,color .15s}
+.nav a:hover,.nav button.nav-item:hover{background:var(--raised);color:var(--text)}
+.nav a[aria-current="page"]{background:var(--active);color:var(--text);font-weight:500}
+.nav .lbl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.count{font-size:12px;line-height:18px;min-width:20px;padding:0 6px;border-radius:9px;background:var(--pill-neg-bg);color:var(--pill-neg-ink);text-align:center;font-weight:500;font-variant-numeric:tabular-nums}
+.views .view-row{position:relative}
+.views .view-row .del{position:absolute;right:4px;top:4px;width:24px;height:24px;border-radius:5px;display:none;place-items:center;color:var(--muted)}
+.views .view-row:hover .del,.views .view-row .del:focus-visible{display:grid}
+.views .view-row .del:hover{background:var(--active);color:var(--text)}
+.nav button.nav-item[aria-pressed="true"]{color:var(--text);background:var(--active)}
+.side-foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule)}
+.user{display:flex;align-items:center;gap:10px;padding:6px 6px}
+.avatar{width:28px;height:28px;border-radius:50%;background:#efe4d6;color:#5a3f1c;display:grid;place-items:center;font-size:12px;font-weight:600;flex:none}
+:root[data-theme="dark"] .avatar{background:#2e261c;color:#e3c9a5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .avatar{background:#2e261c;color:#e3c9a5}}
+.user div{min-width:0}
+.user b{display:block;font-weight:500;font-size:13px;line-height:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user span{display:block;font-size:12px;line-height:16px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 0 0}
+.side-tools .tools{display:flex;gap:2px}
+.icon-btn{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;color:var(--muted);transition:background .15s,color .15s,transform .1s}
+.icon-btn:hover{background:var(--active);color:var(--text)}
+.icon-btn:active{transform:scale(.94)}
+.reset{margin:0 6px;font-size:12px;color:var(--muted);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--control)}
+.reset:hover{color:var(--text)}
+
+/* collapsed sidebar = labelled rail folded to icons */
+.collapsed{--side:64px}
+.collapsed .brand-name,.collapsed .ws div,.collapsed .search-trigger span,.collapsed .search-trigger kbd,.collapsed .nav .lbl,.collapsed .nav-label,.collapsed .views,.collapsed .user div,.collapsed .reset,.collapsed .nav .count{display:none}
+.collapsed .ws{padding:6px;justify-content:center;background:none;border-color:transparent}
+.collapsed .brand{flex-direction:column;height:auto;gap:8px;padding:0}
+.collapsed .brand .icon-btn{margin:0}
+.collapsed .search-trigger{justify-content:center;padding:0}
+.collapsed .nav a{justify-content:center;padding:0;position:relative}
+.collapsed .nav a[data-badge]::after{content:"";position:absolute;top:7px;right:11px;width:6px;height:6px;border-radius:50%;background:var(--negative)}
+.collapsed .user{justify-content:center}
+.collapsed .side-tools{flex-direction:column}
+.collapsed .side-tools .tools{flex-direction:column}
+
+.mbar{display:none}
+.main{margin-left:var(--side);padding:28px 32px 28px;min-width:0;transition:margin-left .25s var(--ease)}
+.wrap{max-width:1440px;margin:0 auto}
+
+/* ---------- title row ---------- */
+.head{display:flex;gap:24px;align-items:flex-start;justify-content:space-between}
+.head h1{margin:0;font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.015em}
+.finding{margin:6px 0 0;font-size:15px;line-height:23px;color:var(--muted);max-width:780px}
+.finding b{color:var(--text);font-weight:500}
+.finding .bad{color:var(--negative);font-weight:500}
+.link{color:var(--hue-ink);font-weight:500;text-decoration:none;border-radius:4px;white-space:nowrap}
+.link:hover{text-decoration:underline;text-underline-offset:3px}
+.head-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex:none}
+.stamp{font-size:12px;line-height:16px;color:var(--muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.stamp i{width:6px;height:6px;border-radius:50%;background:var(--positive);display:inline-block;animation:beat 2.4s var(--ease) infinite}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}12%{transform:scale(1.6);opacity:.55}24%{transform:scale(1)}}
+.actions{display:flex;gap:8px}
+.btn{height:var(--ctl);padding:0 12px;border-radius:var(--radius-control);border:1px solid var(--control);background:var(--surface);display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:14px;white-space:nowrap;transition:background .15s,border-color .15s,transform .1s}
+.btn:hover{background:var(--raised)}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.btn-primary:hover{background:var(--primary);opacity:.88}
+.btn-quiet{border-color:transparent;background:none}
+.btn-quiet:hover{background:var(--active)}
+.btn .chev{width:14px;height:14px;color:var(--muted)}
+
+/* ---------- filter row ---------- */
+.filters{display:flex;align-items:center;gap:8px;margin:20px 0 16px;flex-wrap:wrap}
+.seg{display:inline-flex;height:var(--ctl);padding:3px;border-radius:8px;background:var(--track);gap:2px;flex:none}
+.seg button{height:28px;padding:0 11px;border-radius:5px;color:var(--muted);font-weight:500;font-size:13px;white-space:nowrap;transition:background .15s,color .15s}
+.seg button:hover{color:var(--text)}
+.seg button[aria-checked="true"],.seg button[aria-pressed="true"]{background:var(--surface);color:var(--text)}
+.fbtn .val{color:var(--muted);font-weight:400}
+.fbtn.on{border-color:var(--text)}
+.fbtn.on .val{color:var(--text)}
+.cmp{font-size:13px;color:var(--muted);margin-left:4px;white-space:nowrap}
+.clear{font-size:13px;color:var(--hue-ink);font-weight:500;padding:0 6px;height:30px;border-radius:5px}
+.clear:hover{background:var(--active)}
+
+/* ---------- KPI strip (tabs for the chart) ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden}
+.kpi{position:relative;text-align:left;padding:16px 20px 16px;border-left:1px solid var(--rule);transition:background .15s}
+.kpi:first-child{border-left:0}
+.kpi:hover{background:var(--raised)}
+.kpi::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--text);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.kpi[aria-selected="true"]::before{transform:scaleX(1)}
+.kpi-l{font-size:13px;line-height:18px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+.kpi[aria-selected="true"] .kpi-l{color:var(--text);font-weight:500}
+.kpi-v{margin-top:6px;font-size:30px;line-height:36px;font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.kpi-v .u{font-size:15px;color:var(--muted);font-weight:400;letter-spacing:0;margin-left:4px}
+.kpi-d{margin-top:4px;font-size:13px;line-height:18px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.up{color:var(--positive)}.dn{color:var(--negative)}.flat{color:var(--muted)}
+.d{font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- cards and grid ---------- */
+.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:var(--gap);margin-top:var(--gap)}
+.grid.solo{grid-template-columns:minmax(0,1fr)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);padding:var(--card-pad);min-width:0;display:flex;flex-direction:column}
+.full{grid-column:1/-1}
+.ch{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.ch h2{margin:0;font-size:16px;line-height:22px;font-weight:600;letter-spacing:-.005em}
+.ch p{margin:2px 0 0;font-size:13px;line-height:19px;color:var(--muted)}
+.ch p b{color:var(--text);font-weight:500}
+.ch-r{display:flex;gap:8px;align-items:center;flex:none}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;line-height:16px;color:var(--muted);margin:-4px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.key-line{width:14px;height:2px;border-radius:1px;background:var(--hue);display:inline-block}
+.key-line.prev{background:var(--prev)}
+.key-sq{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* chart */
+.chart{position:relative;touch-action:pan-y}
+#revChart{flex:1 1 auto;min-height:260px}
+#revChart svg{position:absolute;left:0;top:0}
+[data-route="dynamics"] #revChart{min-height:400px}
+[data-route="categories"] #revChart{min-height:300px}
+.chart svg{overflow:visible}
+.chart .gl{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges}
+.chart .base{stroke:var(--control);stroke-width:1;shape-rendering:crispEdges}
+.chart .tk{fill:var(--faint);font-size:12px;font-variant-numeric:tabular-nums}
+.chart .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart .ln.cur{stroke:var(--hue)}
+.chart .ln.prev{stroke:var(--prev);stroke-width:1.5}
+.chart .area{fill:var(--hue-wash)}
+.chart .xh{stroke:var(--text);stroke-opacity:.35;stroke-width:1;shape-rendering:crispEdges}
+.chart .dot{stroke:var(--surface);stroke-width:2}
+.chart .ann-l{stroke:var(--text);stroke-opacity:.45;stroke-width:1;shape-rendering:crispEdges}
+.chart .ann-t{fill:var(--text);font-size:12px;font-weight:500}
+.chart .ann-s{fill:var(--muted);font-size:12px}
+.chart:focus-visible{outline-offset:6px}
+.tbl-wrap{max-height:300px;overflow:auto;border-top:1px solid var(--rule)}
+
+/* tables */
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;line-height:16px;font-weight:400;color:var(--muted);text-align:left;padding:8px 8px 8px 0;white-space:nowrap}
+td{padding:0 8px 0 0;height:40px;border-top:1px solid var(--rule);white-space:nowrap}
+th.r,td.r{text-align:right;padding-right:0;padding-left:12px}
+.tbl-wrap th{position:sticky;top:0;background:var(--surface)}
+
+/* category share rows: the row fill is the bar */
+.cats{display:flex;flex-direction:column;gap:2px}
+.cat-head,.cat{display:grid;grid-template-columns:minmax(0,1fr) 78px 50px 62px;align-items:center;column-gap:6px}
+.cat-head{font-size:12px;line-height:16px;color:var(--muted);padding:0 10px 6px}
+.cat-head span:not(:first-child),.cat .r{text-align:right}
+.cat{position:relative;height:44px;padding:0 10px;border-radius:8px;text-align:left;isolation:isolate;transition:opacity .25s}
+.cat .fill{position:absolute;inset:0 auto 0 0;width:100%;border-radius:8px;background:var(--raised);transform-origin:left;transform:scaleX(var(--w,0));transition:transform .6s var(--ease),background .2s;z-index:-1}
+.cat:hover .fill{background:var(--active)}
+.cat.sel .fill{background:var(--hue-wash)}
+.cat.sel{box-shadow:inset 0 0 0 1px var(--hue)}
+.cat.dim{opacity:.48}
+.cat .nm{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat .sh{color:var(--muted);font-size:13px}
+.cat .ch-d{font-size:13px}
+.cat-foot{display:grid;grid-template-columns:minmax(0,1fr) 78px 50px 62px;column-gap:6px;padding:12px 10px 0;margin-top:auto;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.cat-foot b{color:var(--text);font-weight:500;text-align:right;white-space:nowrap}
+.cat-foot>span:first-child{white-space:nowrap}
+.cat-foot .r{text-align:right}
+
+/* pulse matrix (signature) */
+.pulse{position:relative}
+.pulse svg{overflow:visible}
+.pulse .rl{fill:var(--text);font-size:13px;font-weight:500}
+.pulse .rs{fill:var(--muted);font-size:12px}
+.pulse .tk{fill:var(--faint);font-size:12px}
+.pulse .cell{transition:opacity .3s}
+.pulse .hit{fill:transparent;cursor:pointer}
+.pulse .rowbtn{cursor:pointer}
+.pulse .rowbtn:hover .rl{text-decoration:underline;text-underline-offset:3px}
+.pulse .fo{fill:none;stroke:var(--text);stroke-width:1.5;pointer-events:none}
+.pulse .wkend{fill:var(--raised)}
+.scale{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.scale .sw{width:18px;height:12px;border-radius:2px;display:inline-block}
+.scale .gapx{width:10px}
+.pulse-foot{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:12px;flex-wrap:wrap}
+
+/* stores */
+.stores table td{height:52px}
+.stores tbody tr{cursor:pointer;transition:background .15s}
+.stores tbody tr:hover{background:var(--raised)}
+.stores tbody tr:focus-visible{outline:2px solid var(--hue);outline-offset:-2px}
+.st-n b{display:block;font-weight:500;font-size:14px;line-height:18px}
+.st-n span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.st-bar{width:40%;padding-left:8px}
+.st-bar .tr{height:6px;border-radius:3px;position:relative}
+.st-bar .tr i{position:absolute;inset:0 auto 0 0;width:100%;border-radius:3px;background:var(--bar);transform-origin:left;transform:scaleX(var(--w,0));transition:transform .6s var(--ease),background .2s}
+.stores tbody tr:first-child .st-bar i{background:var(--bar-strong)}
+.stores tbody tr:hover .st-bar i{background:var(--hue)}
+th.sorted{color:var(--text);font-weight:500}
+.sumrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:auto;border-top:1px solid var(--border);padding-top:14px}
+.sumrow div{padding:0 16px;border-left:1px solid var(--rule)}
+.sumrow div:first-child{padding-left:0;border-left:0}
+.sumrow>div>span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.sumrow b{display:block;font-size:16px;line-height:22px;font-weight:600;margin-top:2px;white-space:nowrap}
+
+/* anomalies */
+.anoms{display:flex;flex-direction:column}
+.an{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:12px;padding:12px 0;border-top:1px solid var(--rule)}
+.an:first-child{border-top:0;padding-top:2px}
+.an-g{width:24px;height:20px;display:grid;place-items:center;margin-top:0}
+.an-g.neg{color:var(--negative)}
+.an-g.pos{color:var(--positive)}
+.an-g svg{width:16px;height:16px;stroke-width:1.75}
+.an h3{margin:0;font-size:14px;line-height:20px;font-weight:500}
+.an .meta{font-size:12px;line-height:17px;color:var(--muted)}
+.an p{margin:4px 0 0;font-size:13px;line-height:19px;max-width:72ch}
+.an .acts{display:flex;gap:14px;margin-top:6px}
+.an .acts button{font-size:13px;font-weight:500;color:var(--hue-ink);height:24px;border-radius:4px}
+.an .acts button.q{color:var(--muted)}
+.an .acts button:hover{text-decoration:underline;text-underline-offset:3px}
+.an-more{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.empty{border:1px dashed var(--control);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--muted)}
+
+/* heat */
+.heat-wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+.heat svg{overflow:visible}
+.heat .tk{fill:var(--faint);font-size:12px}
+.heat .hc{cursor:default}
+.facts{display:flex;flex-direction:column}
+.fact{padding:12px 0;border-top:1px solid var(--rule)}
+.fact:first-child{border-top:0;padding-top:0}
+.fact span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.fact b{display:block;font-size:16px;line-height:22px;font-weight:600;margin-top:2px}
+.fact p{margin:2px 0 0;font-size:13px;line-height:19px;color:var(--muted)}
+
+.foot{margin-top:28px;padding-top:16px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.foot a{color:var(--muted);text-underline-offset:2px}
+
+/* views: one area at a time */
+[data-route]:not([data-route="overview"]) .ov-only{display:none!important}
+
+/* ---------- floating: tooltip, popover, modal, drawer, toast ---------- */
+.tip{position:fixed;z-index:80;pointer-events:none;background:var(--surface);border:1px solid var(--border);border-radius:6px;box-shadow:var(--shadow-float);padding:8px 10px;font-size:12px;line-height:17px;min-width:150px;max-width:280px;opacity:0;transition:opacity .12s}
+.tip.on{opacity:1}
+.tip .t-h{color:var(--muted);margin-bottom:4px}
+.tip .t-r{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.tip .t-r span{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.tip .t-r b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)}
+.tip .t-f{margin-top:4px;color:var(--muted)}
+.pop{position:fixed;z-index:60;background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow-float);padding:6px;min-width:240px;max-width:min(360px,calc(100vw - 24px));opacity:0;transform:translateY(-4px);transition:opacity .16s var(--ease),transform .16s var(--ease)}
+.pop.on{opacity:1;transform:none}
+.pop h4{margin:6px 8px 6px;font-size:12px;line-height:16px;font-weight:400;color:var(--muted)}
+.opt{display:flex;align-items:center;gap:10px;width:100%;min-height:34px;padding:6px 8px;border-radius:5px;text-align:left;font-size:14px}
+.opt:hover,.opt.act{background:var(--raised)}
+.opt .r{margin-left:auto;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.opt .cb{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--control);display:grid;place-items:center;flex:none;transition:background .12s,border-color .12s}
+.opt[aria-checked="true"] .cb{background:var(--text);border-color:var(--text);color:var(--surface)}
+.opt .cb svg{width:12px;height:12px;opacity:0}
+.opt[aria-checked="true"] .cb svg{opacity:1}
+.pop .sep{height:1px;background:var(--rule);margin:6px 0}
+.pop .chips{display:flex;gap:6px;flex-wrap:wrap;padding:2px 8px 8px}
+.chip{height:28px;padding:0 10px;border-radius:14px;border:1px solid var(--control);font-size:13px;white-space:nowrap}
+.chip:hover{background:var(--raised)}
+.chip[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--surface)}
+.pop .f-row{display:grid;gap:6px;padding:4px 8px 10px}
+.pop label{font-size:13px;font-weight:500}
+.inp{height:36px;border:1px solid var(--control);border-radius:6px;background:var(--surface);padding:0 10px;width:100%}
+.hint{font-size:12px;color:var(--muted);padding:0 8px 6px;line-height:16px}
+.err{color:var(--negative)}
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:50;opacity:0;transition:opacity .2s}
+.scrim.on{opacity:1}
+.modal{position:fixed;z-index:70;left:50%;top:14vh;width:min(520px,calc(100vw - 24px));transform:translate(-50%,-6px);background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-float);opacity:0;transition:opacity .18s var(--ease),transform .18s var(--ease)}
+.modal.on{opacity:1;transform:translate(-50%,0)}
+.modal .mh{padding:16px 20px 8px;display:flex;justify-content:space-between;align-items:center}
+.modal h2{margin:0;font-size:16px;line-height:22px;font-weight:600}
+.modal .mb{padding:4px 20px 16px}
+.modal .mf{padding:12px 20px 16px;display:flex;justify-content:flex-end;gap:8px}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;align-items:center;font-size:14px}
+.keys kbd{justify-self:start}
+.cmd{top:12vh}
+.cmd .cmd-in{display:flex;align-items:center;gap:10px;padding:0 16px;height:52px;border-bottom:1px solid var(--rule)}
+.cmd .cmd-in input{flex:1;border:0;background:none;height:50px;font-size:16px;outline:none}
+.cmd .res{max-height:min(420px,60vh);overflow:auto;padding:6px}
+.cmd .grp{font-size:12px;color:var(--muted);padding:8px 10px 4px}
+.cmd .opt{min-height:40px}
+.cmd .opt .r{font-size:12px}
+.drawer{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(600px,100vw);background:var(--surface);border-left:1px solid var(--border);box-shadow:var(--shadow-float);transform:translateX(102%);transition:transform .32s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dr-h{padding:18px 20px 12px;border-bottom:1px solid var(--rule);display:flex;gap:12px;align-items:flex-start}
+.dr-h h2{margin:0;font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.01em}
+.dr-h p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.dr-h .tools{margin-left:auto;display:flex;gap:2px}
+.dr-b{padding:16px 20px 24px;overflow:auto;flex:1}
+.dr-sec{margin-top:22px}
+.dr-sec h3{margin:0 0 10px;font-size:14px;line-height:20px;font-weight:600}
+.facts-row{display:flex;flex-wrap:wrap;gap:6px}
+.tag{height:26px;padding:0 9px;border-radius:5px;background:var(--raised);border:1px solid var(--rule);font-size:13px;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;flex:none}
+.tag b{font-weight:500}
+.mini-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--border);border-radius:8px;margin-top:14px}
+.mini-kpis div{padding:12px 14px;border-left:1px solid var(--rule)}
+.mini-kpis div:first-child{border-left:0}
+.mini-kpis span{display:block;font-size:12px;color:var(--muted);line-height:16px}
+.mini-kpis b{display:block;font-size:18px;line-height:24px;font-weight:600;margin-top:4px;white-space:nowrap}
+.mini-kpis em{display:block;font-style:normal;font-size:12px;line-height:16px;margin-top:2px}
+.bul{display:grid;grid-template-columns:120px minmax(0,1fr) 54px;align-items:center;gap:10px;height:30px;font-size:13px}
+.bul .trk{position:relative;height:8px;border-radius:4px;background:var(--track)}
+.bul .trk i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--hue);transform-origin:left;transition:transform .6s var(--ease)}
+.bul .trk u{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text);border-radius:1px}
+.bul .r{text-align:right;font-variant-numeric:tabular-nums}
+.dr-f{padding:12px 20px;border-top:1px solid var(--rule);display:flex;gap:8px;flex-wrap:wrap}
+.set-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--rule)}
+.set-row:first-child{border-top:0}
+.set-row div{flex:1}
+.set-row b{display:block;font-weight:500}
+.set-row span{display:block;font-size:13px;color:var(--muted)}
+.sw-t{width:34px;height:20px;border-radius:10px;background:var(--control);position:relative;flex:none;transition:background .2s}
+.sw-t::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s var(--ease)}
+.sw-t[aria-checked="true"]{background:var(--positive)}
+.sw-t[aria-checked="true"]::after{transform:translateX(14px)}
+.toast{position:fixed;z-index:90;left:50%;bottom:24px;transform:translate(-50%,12px);background:var(--primary);color:var(--on-primary);border-radius:8px;padding:10px 14px;font-size:13px;box-shadow:var(--shadow-float);opacity:0;transition:opacity .2s,transform .2s var(--ease);max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.tour{position:fixed;z-index:40;right:24px;bottom:24px;width:320px;background:var(--surface);border:1px solid var(--control);border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:16px 18px;opacity:0;transform:translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.tour.on{opacity:1;transform:none}
+.tour h2{margin:0 0 6px;font-size:15px;line-height:20px;font-weight:600}
+.tour ul{margin:0 0 12px;padding-left:18px;font-size:13px;line-height:19px}
+.tour li+li{margin-top:4px}
+.busy{opacity:.55;transition:opacity .15s}
+
+/* ---------- tablet & phone ---------- */
+@media (max-width:1180px){
+  .heat-wrap{grid-template-columns:minmax(0,1fr)}
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .fact{border-top:0;padding:0}
+}
+@media (max-width:1100px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .side{transform:translateX(-102%);width:280px;box-shadow:none;transition:transform .28s var(--ease)}
+  .side.open{transform:none;box-shadow:var(--shadow-float)}
+  .collapsed{--side:0px}
+  .main{margin-left:0;padding:16px 20px 24px}
+  .mbar{display:flex;position:sticky;top:0;z-index:25;height:52px;align-items:center;gap:10px;padding:0 12px 0 16px;background:var(--ground);border-bottom:1px solid var(--border)}
+  .mbar .brand-name{font-size:15px}
+  .mbar .scr{color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mbar .r{margin-left:auto;display:flex;gap:2px}
+  .mbar .icon-btn{width:44px;height:44px}
+  .side .brand .icon-btn.collapse{display:none}
+  .side.open{z-index:55}
+  .kpi-d{white-space:normal}
+}
+@media (max-width:720px){
+  body{font-size:14px}
+  .main{padding:14px 16px 24px}
+  .head{flex-direction:column;gap:10px}
+  .head h1{font-size:22px;line-height:28px}
+  .finding{font-size:14px;line-height:21px}
+  .head-right{align-items:flex-start;flex-direction:column-reverse;gap:8px}
+  .filters{margin:14px 0 12px}
+  .filters .seg{width:100%}
+  .filters .seg button{flex:1 1 auto;padding:0 6px}
+  .filters .fbtn{flex:1 1 0;min-width:0;justify-content:center;padding:0 10px}
+  .fbtn .val{overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .fbtn>svg:first-child{display:none}
+  .cmp{display:none}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi{padding:14px 14px;border-left:0}
+  .kpi:nth-child(2n){border-left:1px solid var(--rule)}
+  .kpi:nth-child(n+3){border-top:1px solid var(--rule)}
+  .kpi-v{font-size:24px;line-height:30px}
+  .kpi-v .u{font-size:13px}
+  .kpi-d{white-space:normal}
+  #revChart{min-height:220px}
+  [data-route="dynamics"] #revChart{min-height:260px}
+  .card{padding:16px 14px}
+  .ch{flex-wrap:wrap;gap:10px}
+  .ch-r{width:100%}
+  .cat-head,.cat,.cat-foot{grid-template-columns:minmax(0,1fr) 78px 46px 58px;column-gap:6px}
+  .st-bar{display:none}
+  .stores .col-m2{display:none}
+  .stores[data-sort="m2"] .col-m2{display:table-cell}
+  .stores[data-sort="m2"] .c-rev,.stores[data-sort="m2"] th[data-col="rev"]{display:none}
+  .sumrow{grid-template-columns:minmax(0,1fr)}
+  .sumrow div{padding:8px 0;border-left:0;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .sumrow div:first-child{border-top:0;padding-top:0}
+  .facts{grid-template-columns:minmax(0,1fr);gap:0}
+  .fact{padding:10px 0;border-top:1px solid var(--rule)}
+  .fact:first-child{border-top:0}
+  .mini-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mini-kpis div:nth-child(3){border-left:0}
+  .mini-kpis div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .bul{grid-template-columns:96px minmax(0,1fr) 48px}
+  .tour{left:12px;right:12px;bottom:12px;width:auto}
+  .drawer{width:100vw}
+  .foot{flex-direction:column}
+}
+@media (hover:none){.views .view-row .del{display:grid}.tour .kb{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
+@media print{.side,.mbar,.filters .seg,.actions{display:none}.main{margin:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-over" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></symbol>
+    <symbol id="i-line" viewBox="0 0 16 16"><path d="M2 12l3.5-4 3 2.5L14 4"/></symbol>
+    <symbol id="i-cat" viewBox="0 0 16 16"><path d="M2.5 6.5h11M2.5 10h11M2.5 13.5h7M2.5 3h11"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 16 16"><path d="M1.5 8.5h3l1.5-4 2.5 7.5 1.5-4.5h4.5"/></symbol>
+    <symbol id="i-store" viewBox="0 0 16 16"><path d="M2.5 6.5V13.5h11V6.5M2 6.5l1.2-4h9.6l1.2 4zM6.5 13.5v-4h3v4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 16 16"><path d="M8 2.2l6 10.8H2zM8 6.5v3M8 11.3v.2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V8l2.2 1.6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></symbol>
+    <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v9M4 8l4 4 4-4M3 14h10"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 16 16"><path d="M2.5 4.5h7M12.5 4.5h1M2.5 11.5h2M7.5 11.5h6"/><circle cx="11" cy="4.5" r="1.5"/><circle cx="6" cy="11.5" r="1.5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 16 16"><path d="M13.2 10.2A5.6 5.6 0 015.8 2.8a5.6 5.6 0 107.4 7.4z"/></symbol>
+    <symbol id="i-keys" viewBox="0 0 16 16"><rect x="1.5" y="4" width="13" height="8.5" rx="1.5"/><path d="M4 7h.5M6.5 7H7M9 7h.5M11.5 7h.5M5 10h6"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M6 2.5v11"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 16 16"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></symbol>
+    <symbol id="i-x" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 16 16"><path d="M4.5 6.5L8 10l3.5-3.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 16 16"><path d="M10 3.5L5.5 8l4.5 4.5"/></symbol>
+    <symbol id="i-right" viewBox="0 0 16 16"><path d="M6 3.5L10.5 8 6 12.5"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 16 16"><path d="M4 2.5h8v11l-4-3-4 3z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></symbol>
+    <symbol id="i-arr-dn" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></symbol>
+    <symbol id="i-arr-up" viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4"/></symbol>
+    <symbol id="i-table" viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M2 10h12M6.5 6.5v7"/></symbol>
+  </defs>
+</svg>
+
+<header class="mbar" id="mbar">
+  <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13h4.2l2.4-6.5 4.2 12 2.6-7.5h5.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="brand-name">Пульс</span>
+  <span class="scr" id="mScr">Обзор продаж</span>
+  <div class="r">
+    <button class="icon-btn" id="mSearch" aria-label="Поиск"><svg class="ico"><use href="#i-search"/></svg></button>
+    <button class="icon-btn" id="mMenu" aria-label="Меню" aria-expanded="false" aria-controls="side"><svg class="ico"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<aside class="side" id="side" aria-label="Навигация">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13h4.2l2.4-6.5 4.2 12 2.6-7.5h5.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="brand-name">Пульс</span>
+    <button class="icon-btn collapse" id="collapse" aria-label="Свернуть меню" title="Свернуть меню (B)"><svg class="ico"><use href="#i-panel"/></svg></button>
+    <button class="icon-btn" id="sideClose" aria-label="Закрыть меню" hidden><svg class="ico"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="ws" title="Сеть «Хоромы»">
+    <span class="ws-badge" aria-hidden="true">Х</span>
+    <div><b>Хоромы</b><span>8 магазинов</span></div>
+  </div>
+  <button class="search-trigger" id="searchBtn" aria-label="Поиск по магазинам, категориям и действиям"><svg class="ico"><use href="#i-search"/></svg><span>Поиск</span><kbd>/</kbd></button>
+
+  <nav class="nav nav-group" aria-label="Разделы">
+    <div class="nav-label">Продажи</div>
+    <a href="#/" data-route="overview" title="Обзор"><svg class="ico"><use href="#i-over"/></svg><span class="lbl">Обзор</span></a>
+    <a href="#/dynamics" data-route="dynamics" title="Динамика"><svg class="ico"><use href="#i-line"/></svg><span class="lbl">Динамика</span></a>
+    <a href="#/rhythm" data-route="rhythm" title="Ритм магазинов"><svg class="ico"><use href="#i-pulse"/></svg><span class="lbl">Ритм магазинов</span></a>
+    <a href="#/categories" data-route="categories" title="Категории"><svg class="ico"><use href="#i-cat"/></svg><span class="lbl">Категории</span></a>
+    <a href="#/stores" data-route="stores" title="Магазины"><svg class="ico"><use href="#i-store"/></svg><span class="lbl">Магазины</span></a>
+    <a href="#/anomalies" data-route="anomalies" title="Аномалии"><svg class="ico"><use href="#i-alert"/></svg><span class="lbl">Аномалии</span><span class="count" id="navCount" aria-label="требуют внимания">0</span></a>
+    <a href="#/hours" data-route="hours" title="Часы пик"><svg class="ico"><use href="#i-clock"/></svg><span class="lbl">Часы пик</span></a>
+  </nav>
+
+  <div class="nav nav-group views">
+    <div class="nav-label"><span>Сохранённые виды</span><button class="icon-btn" id="addView" aria-label="Сохранить текущий вид" title="Сохранить текущий вид (N)" style="width:24px;height:24px"><svg class="ico" style="width:14px;height:14px"><use href="#i-plus"/></svg></button></div>
+    <div id="viewList"></div>
+  </div>
+
+  <div class="side-foot">
+    <div class="user">
+      <span class="avatar" aria-hidden="true">ЕС</span>
+      <div><b>Елена Смирнова</b><span>Коммерческий директор</span></div>
+    </div>
+    <div class="side-tools">
+      <button class="reset" id="resetBtn">Сбросить настройки</button>
+      <div class="tools">
+        <button class="icon-btn" id="keysBtn" aria-label="Горячие клавиши" title="Горячие клавиши (?)"><svg class="ico"><use href="#i-keys"/></svg></button>
+        <button class="icon-btn" id="themeBtn" aria-label="Сменить тему" title="Сменить тему (T)"><svg class="ico"><use href="#i-moon"/></svg></button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<main class="main" id="main" data-route="overview">
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1 id="title">Обзор продаж</h1>
+      <p class="finding" id="finding" aria-live="polite"></p>
+    </div>
+    <div class="head-right">
+      <div class="stamp" id="stamp"><i aria-hidden="true"></i><span>Данные на 9 ноя, 06:00 · обновление каждый час</span></div>
+      <div class="actions">
+        <button class="btn" id="setBtn" title="Настроить дашборд (C)"><svg class="ico"><use href="#i-sliders"/></svg>Настроить</button>
+        <button class="btn btn-primary" id="expBtn" aria-haspopup="true" title="Экспорт CSV (E)"><svg class="ico"><use href="#i-down"/></svg>Экспорт</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filters" role="toolbar" aria-label="Фильтры">
+    <div class="seg" role="radiogroup" aria-label="Период" id="periodSeg">
+      <button role="radio" data-p="7">7 дней</button>
+      <button role="radio" data-p="30">30 дней</button>
+      <button role="radio" data-p="q">Квартал</button>
+      <button role="radio" data-p="y">Год</button>
+      <button role="radio" data-p="custom" id="customBtn" aria-haspopup="dialog">Свой</button>
+    </div>
+    <button class="btn fbtn" id="storeBtn" aria-haspopup="true"><svg class="ico"><use href="#i-store"/></svg>Магазины <span class="val" id="storeVal">все 8</span><svg class="ico chev"><use href="#i-chev"/></svg></button>
+    <button class="btn fbtn" id="catBtn" aria-haspopup="true"><svg class="ico"><use href="#i-cat"/></svg>Категории <span class="val" id="catVal">все 6</span><svg class="ico chev"><use href="#i-chev"/></svg></button>
+    <button class="clear" id="clearBtn" hidden>Сбросить фильтры</button>
+    <span class="cmp" id="cmp"></span>
+  </div>
+
+  <section id="w-kpi" data-w="kpi" class="ov-only-k" aria-label="Ключевые показатели">
+    <div class="kpis" role="tablist" aria-label="Показатель на графике" id="kpis"></div>
+  </section>
+
+  <div class="grid" id="rowA">
+    <section class="card" id="w-rev" data-w="rev" data-area="dynamics" aria-labelledby="revTitle">
+      <div class="ch">
+        <div><h2 id="revTitle">Выручка по дням</h2><p id="revSub"></p></div>
+        <div class="ch-r">
+          <div class="seg" role="group" aria-label="Вид">
+            <button aria-pressed="true" data-mode="chart">График</button>
+            <button aria-pressed="false" data-mode="table">Таблица</button>
+          </div>
+        </div>
+      </div>
+      <div class="legend" id="revLegend"></div>
+      <div class="chart" id="revChart" role="tabpanel" aria-labelledby="revTitle"></div>
+      <div class="tbl-wrap" id="revTable" hidden></div>
+    </section>
+    <section class="card" id="w-cat" data-w="cat" data-area="categories" aria-labelledby="catTitle">
+      <div class="ch"><div><h2 id="catTitle">Категории</h2><p id="catSub"></p></div></div>
+      <div class="cat-head" aria-hidden="true"><span>Категория</span><span>Выручка</span><span>Доля</span><span>Рост</span></div>
+      <div class="cats" id="cats"></div>
+      <div class="cat-foot" id="catFoot"></div>
+    </section>
+  </div>
+
+  <div class="grid solo" id="rowB">
+    <section class="card" id="w-pulse" data-w="pulse" data-area="rhythm" aria-labelledby="pulseTitle">
+      <div class="ch">
+        <div><h2 id="pulseTitle">Ритм магазинов</h2><p id="pulseSub"></p></div>
+      </div>
+      <div class="pulse" id="pulse"></div>
+      <div class="pulse-foot">
+        <div class="scale" id="pulseScale"></div>
+        <span class="muted" style="font-size:12px" id="pulseNote">Норма: медиана того же дня недели за 8 прошлых недель</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid" id="rowC">
+    <section class="card stores" id="w-stores" data-w="stores" data-area="stores" aria-labelledby="stTitle">
+      <div class="ch">
+        <div><h2 id="stTitle">Магазины</h2><p id="stSub"></p></div>
+        <div class="ch-r">
+          <div class="seg" role="radiogroup" aria-label="Сортировка" id="sortSeg">
+            <button role="radio" data-s="rev">Выручка</button>
+            <button role="radio" data-s="m2">₽ на м²</button>
+            <button role="radio" data-s="g">Рост</button>
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>Магазин</th><th class="st-bar" aria-hidden="true"></th><th class="r" data-col="rev">Выручка</th><th class="r col-m2" data-col="m2">₽ на м²</th><th class="r" data-col="g">Рост</th></tr></thead>
+        <tbody id="stBody"></tbody>
+      </table>
+      <div class="sumrow" id="stSum"></div>
+    </section>
+    <section class="card" id="w-anom" data-w="anom" data-area="anomalies" aria-labelledby="anTitle">
+      <div class="ch"><div><h2 id="anTitle">Аномалии</h2><p id="anSub">Отклонения выручки от нормы этого дня недели больше чем на 25 %</p></div></div>
+      <div class="anoms" id="anoms"></div>
+      <div class="an-more" id="anMore"></div>
+    </section>
+  </div>
+
+  <div class="grid solo" id="rowD">
+    <section class="card" id="w-heat" data-w="heat" data-area="hours" aria-labelledby="heatTitle">
+      <div class="ch"><div><h2 id="heatTitle">Часы пик</h2><p id="heatSub">Выручка по дням недели и часам работы, 9:00–22:00</p></div></div>
+      <div class="heat-wrap">
+        <div><div class="heat" id="heat"></div><div class="scale" id="heatScale" style="margin-top:12px"></div></div>
+        <div class="facts" id="facts"></div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="foot"><span>Концепт-проект · разработка <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><span id="footData"></span></footer>
+</div>
+</main>
+
+<div class="tip" id="tip" role="tooltip"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+'use strict';
+/* ================= utils ================= */
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)');
+const reduced = () => RM.matches;
+const LS = {
+  p: 'pulse2.',
+  get(k, d) { try { const v = localStorage.getItem(this.p + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(this.p + k, JSON.stringify(v)); } catch (e) {} },
+  clear() { try { Object.keys(localStorage).filter(k => k.indexOf(this.p) === 0).forEach(k => localStorage.removeItem(k)); } catch (e) {} }
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const NB = ' ', MINUS = '−', NDASH = '–', MDASH = '—';
+const nf = (a, b) => new Intl.NumberFormat('ru-RU', { minimumFractionDigits: a, maximumFractionDigits: b });
+const F0 = nf(0, 0), F1 = nf(1, 1), F2 = nf(2, 2), F01 = nf(0, 1);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const ease = t => 1 - Math.pow(1 - t, 3);
+const fin = v => (isFinite(v) ? v : 0);
+
+function moneyParts(v) {
+  v = fin(v); const a = Math.abs(v);
+  if (a >= 1e9) return [F2.format(v / 1e9), 'млрд' + NB + '₽'];
+  if (a >= 1e6) return [F1.format(v / 1e6), 'млн' + NB + '₽'];
+  if (a >= 1e4) return [F0.format(v / 1e3), 'тыс.' + NB + '₽'];
+  return [F0.format(v), '₽'];
+}
+const money = v => { const p = moneyParts(v); return p[0] + NB + p[1]; };
+const rub = v => F0.format(Math.round(fin(v))) + NB + '₽';
+const pct = (v, d = 1) => (d ? F1 : F0).format(fin(v) * 100) + NB + '%';
+const sgn = v => (v > 0 ? '+' : v < 0 ? MINUS : '');
+const spct = v => { const r = Math.round(fin(v) * 1000) / 10; return (r === 0 ? '' : sgn(r)) + F1.format(Math.abs(r)) + NB + '%'; };
+const deltaCls = (v, good = 1) => { const r = Math.round(fin(v) * 1000); return r === 0 ? 'flat' : (r > 0) === (good > 0) ? 'up' : 'dn'; };
+
+/* ================= calendar ================= */
+const DAY = 864e5;
+const D0 = Date.UTC(2024, 8, 1);                       // first day of history (norms need 8 weeks)
+const END = Date.UTC(2026, 10, 8);                     // last full day; data stamp is 9 Nov 06:00
+const ND = Math.round((END - D0) / DAY) + 1;
+const MIN_FROM = 56;
+const dt = i => new Date(D0 + i * DAY);
+const wd = i => (dt(i).getUTCDay() + 6) % 7;
+const MON = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+const WD = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+const WDC = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+const WDF = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+const WDV = ['в понедельник', 'во вторник', 'в среду', 'в четверг', 'в пятницу', 'в субботу', 'в воскресенье'];
+const yr = i => dt(i).getUTCFullYear();
+const fd = i => { const d = dt(i); return d.getUTCDate() + NB + MON[d.getUTCMonth()]; };
+const fdy = i => fd(i) + NB + yr(i);
+const fdw = i => WDC[wd(i)] + ', ' + fd(i);
+const iso = i => dt(i).toISOString().slice(0, 10);
+const fromIso = s => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); if (!m) return null; return Math.round((Date.UTC(+m[1], +m[2] - 1, +m[3]) - D0) / DAY); };
+const frange = (a, b) => (a === b ? fdy(a) : yr(a) === yr(b) ? fd(a) + NB + NDASH + ' ' + fd(b) + NB + yr(b) : fdy(a) + NB + NDASH + ' ' + fdy(b));
+const frangeS = (a, b) => (yr(a) === yr(ND - 1) && yr(b) === yr(ND - 1) ? (a === b ? fd(a) : fd(a) + NB + NDASH + ' ' + fd(b)) : frange(a, b));
+
+/* ================= the chain ================= */
+const STORES = [
+  { id: 'ekb', city: 'Екатеринбург', dist: 'Академический', reg: 'ural', area: 1450, mgr: 'Ольга Сорокина', open: 2016, base: 960e3, g: 0.09, A: 2450, C: 0.228 },
+  { id: 'kzn', city: 'Казань', dist: 'Ново-Савиновский', reg: 'volga', area: 1300, mgr: 'Тимур Галиев', open: 2017, base: 880e3, g: 0.08, A: 2400, C: 0.231 },
+  { id: 'nnv', city: 'Нижний Новгород', dist: 'Канавинский', reg: 'volga', area: 1180, mgr: 'Анна Белова', open: 2018, base: 750e3, g: 0.065, A: 2300, C: 0.224 },
+  { id: 'sam', city: 'Самара', dist: 'Кировский', reg: 'volga', area: 1050, mgr: 'Игорь Кузнецов', open: 2018, base: 660e3, g: 0.07, A: 2250, C: 0.226 },
+  { id: 'ufa', city: 'Уфа', dist: 'Октябрьский', reg: 'ural', area: 990, mgr: 'Рустам Хасанов', open: 2019, base: 600e3, g: 0.04, A: 2150, C: 0.219 },
+  { id: 'chl', city: 'Челябинск', dist: 'Калининский', reg: 'ural', area: 900, mgr: 'Марина Лебедева', open: 2020, base: 520e3, g: 0.055, A: 2150, C: 0.214 },
+  { id: 'prm', city: 'Пермь', dist: 'Мотовилихинский', reg: 'ural', area: 820, mgr: 'Сергей Пахомов', open: 2019, base: 445e3, g: 0.05, A: 2050, C: 0.207 },
+  { id: 'srt', city: 'Саратов', dist: 'Волжский', reg: 'volga', area: 640, mgr: 'Дарья Миронова', open: 2022, base: 380e3, g: 0.12, A: 2000, C: 0.232 }
+];
+const CITY_SHORT = { 'Нижний Новгород': 'Н. Новгород', 'Екатеринбург': 'Екатеринбург' };
+const REG = { volga: 'Поволжье', ural: 'Урал и Приуралье' };
+const CATS = [
+  { id: 'kit', name: 'Кухня и посуда', sh: 0.26, g: 0.02, ck: 1.0 },
+  { id: 'tex', name: 'Текстиль', sh: 0.22, g: 0.17, ck: 1.08 },
+  { id: 'sto', name: 'Хранение', sh: 0.17, g: -0.03, ck: 0.92 },
+  { id: 'dec', name: 'Декор', sh: 0.155, g: 0.12, ck: 0.72 },
+  { id: 'lig', name: 'Освещение', sh: 0.11, g: 0.2, ck: 1.7 },
+  { id: 'bat', name: 'Ванная', sh: 0.085, g: -0.01, ck: 0.82 }
+];
+const NS = STORES.length, NC = CATS.length;
+const SI = Object.fromEntries(STORES.map((s, i) => [s.id, i]));
+const CI = Object.fromEntries(CATS.map((c, i) => [c.id, i]));
+const HOURS = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+
+function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const rnd = mulberry32(20261109);
+const gauss = () => { let u = 0; while (!u) u = rnd(); const v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+
+const WF = [0.86, 0.84, 0.88, 0.93, 1.08, 1.33, 1.18];
+const SEASON = [0.82, 0.86, 0.97, 1.02, 0.98, 0.9, 0.88, 0.96, 1.03, 1.05, 1.08, 1.3];
+function season(i) {
+  const d = dt(i), m = d.getUTCMonth(), dim = new Date(Date.UTC(d.getUTCFullYear(), m + 1, 0)).getUTCDate();
+  const t = m + (d.getUTCDate() - 15) / dim; const a = Math.floor(t), f = t - a;
+  return lerp(SEASON[(a + 12) % 12], SEASON[(a + 13) % 12], f);
+}
+function holiday(i) {
+  const d = dt(i), m = d.getUTCMonth() + 1, day = d.getUTCDate(), y = d.getUTCFullYear();
+  if (m === 11 && day === 4) return [1.32, 'День народного единства, выходной'];
+  if ((y === 2024 && m === 11 && day === 29) || (y === 2025 && m === 11 && day === 28)) return [1.36, 'Чёрная пятница'];
+  if (m === 12 && day >= 20 && day <= 30) return [1 + (day - 19) * 0.022, 'предновогодний спрос'];
+  if (m === 12 && day === 31) return [0.72, '31 декабря, короткий день'];
+  if (m === 1 && day === 1) return [0.3, '1 января'];
+  if (m === 1 && day === 2) return [0.68, 'новогодние каникулы'];
+  if (m === 1 && day <= 8) return [0.9, 'новогодние каникулы'];
+  if (m === 3 && day === 7) return [1.3, 'канун 8 Марта'];
+  if (m === 3 && day === 8) return [0.84, '8 Марта'];
+  if (m === 5 && day === 1) return [0.86, '1 Мая'];
+  if (m === 5 && day === 9) return [0.74, 'День Победы'];
+  if (m === 6 && day === 12) return [0.92, 'День России'];
+  return null;
+}
+// local events: what happened at one store on one day (kind: traffic | conv | check)
+const EVENTS = [
+  ['2026-11-07', 'ufa', 'traffic', 0.55], ['2026-11-06', 'kzn', 'check', 1.48], ['2026-11-03', 'chl', 'conv', 0.7],
+  ['2026-10-24', 'sam', 'conv', 0.62], ['2026-10-18', 'srt', 'traffic', 1.38], ['2026-10-13', 'prm', 'traffic', 0.58],
+  ['2026-10-10', 'ekb', 'traffic', 1.32], ['2026-09-26', 'nnv', 'check', 1.42], ['2026-09-15', 'ufa', 'conv', 0.68],
+  ['2026-08-29', 'kzn', 'traffic', 1.45], ['2026-08-18', 'srt', 'traffic', 0.6], ['2026-07-11', 'ekb', 'conv', 0.66],
+  ['2026-06-20', 'sam', 'traffic', 1.45], ['2026-05-23', 'chl', 'check', 1.5], ['2026-04-14', 'prm', 'traffic', 0.55],
+  ['2026-03-21', 'nnv', 'traffic', 1.45], ['2026-02-10', 'ufa', 'traffic', 0.5], ['2026-01-24', 'kzn', 'conv', 0.65],
+  ['2025-12-13', 'srt', 'check', 1.5], ['2025-11-22', 'ekb', 'traffic', 0.6], ['2025-10-11', 'chl', 'traffic', 1.45],
+  ['2025-09-20', 'ufa', 'check', 1.42], ['2025-08-16', 'prm', 'conv', 0.64]
+];
+const EV = new Map(EVENTS.map(e => [SI[e[1]] + ':' + fromIso(e[0]), e]));
+// longer local stories: roadworks in front of the Samara store, a competitor opening near Chelyabinsk
+const SPANS = [['2026-04-06', '2026-05-17', 'sam', 0.8], ['2026-08-17', '2026-11-08', 'chl', 0.92]].map(e => ({ a: fromIso(e[0]), b: fromIso(e[1]), s: SI[e[2]], m: e[3] }));
+const spanMult = (s, d) => { let m = 1; SPANS.forEach(x => { if (x.s === s && d >= x.a && d <= x.b) m *= x.m; }); return m; };
+
+/* ---- generate the history once: store × day × category, revenue and checks; traffic per store-day ---- */
+const REV = new Int32Array(NS * ND * NC), CHK = new Int32Array(NS * ND * NC), TRF = new Int32Array(NS * ND);
+function alloc(total, w, out, off) {
+  let sw = 0; for (let c = 0; c < w.length; c++) sw += w[c];
+  let used = 0; const fr = [];
+  for (let c = 0; c < w.length; c++) { const x = total * w[c] / sw, f = Math.floor(x); out[off + c] = f; used += f; fr.push([x - f, c]); }
+  fr.sort((a, b) => b[0] - a[0]);
+  for (let k = 0; k < total - used; k++) out[off + fr[k % fr.length][1]]++;
+}
+(function generate() {
+  const MIX = STORES.map(() => CATS.map(c => c.sh * (1 + 0.12 * (rnd() * 2 - 1))));
+  const w = new Array(NC), wk = new Array(NC);
+  for (let d = 0; d < ND; d++) {
+    const H = holiday(d), S = season(d), wdi = wd(d), yrs = (d - (ND - 1)) / 365;
+    const net = gauss() * 0.025;
+    const D = dt(d), mo = D.getUTCMonth() + 1, dm = D.getUTCDate();
+    const doy = (Date.UTC(D.getUTCFullYear(), mo - 1, dm) - Date.UTC(D.getUTCFullYear(), 0, 1)) / DAY;
+    const catF = [
+      1,
+      (mo === 10 || mo === 11) ? 1.12 : 1,
+      (mo === 8 || mo === 9) ? 1.22 : 1,
+      mo === 12 ? 1 + 0.6 * Math.min(1, dm / 20) : (mo === 11 && dm > 15) ? 1 + 0.25 * (dm - 15) / 15 : (mo === 3 && dm <= 8) ? 1.35 : 1,
+      1 + 0.28 * Math.cos(2 * Math.PI * (doy - 355) / 365),
+      1
+    ];
+    for (let s = 0; s < NS; s++) {
+      const st = STORES[s];
+      let r0 = st.base * WF[wdi] * S * (H ? H[0] : 1) * Math.pow(1 + st.g, yrs) * Math.exp(net + gauss() * 0.055);
+      let A = st.A * (1 + 0.25 * (S - 1)) * Math.pow(1.06, yrs) * Math.exp(gauss() * 0.025) * (wdi >= 5 ? 1.04 : 1);
+      let C = st.C * Math.exp(gauss() * 0.03) * (wdi >= 5 ? 1.03 : 1);
+      r0 *= spanMult(s, d);
+      const ev = EV.get(s + ':' + d);
+      if (ev) { const m = ev[3]; r0 *= m; if (ev[2] === 'conv') C *= m; if (ev[2] === 'check') A *= m; }
+      const T = Math.round(r0 / (A * C)), K = Math.round(T * C), R = Math.round(K * A);
+      TRF[s * ND + d] = T;
+      for (let c = 0; c < NC; c++) { w[c] = MIX[s][c] * Math.pow(1 + CATS[c].g, yrs) * catF[c] * Math.exp(gauss() * 0.06); wk[c] = w[c] / CATS[c].ck; }
+      const off = (s * ND + d) * NC;
+      alloc(R, w, REV, off); alloc(K, wk, CHK, off);
+    }
+  }
+})();
+
+/* hourly profile, 9:00–22:00, per store and weekday (shares sum to 1) */
+const PROF_WK = [3, 4, 5, 6.5, 7, 6.5, 6.5, 7, 8.5, 11, 12, 10, 7];
+const PROF_FR = [3, 4, 5, 6, 6.5, 6.5, 6.5, 7.5, 9.5, 12, 12.5, 11, 8];
+const PROF_SA = [4, 7, 9.5, 11, 12, 12, 11.5, 11, 10, 9, 7.5, 5.5, 4];
+const PROF_SU = [3.5, 6, 9, 10.5, 11.5, 11.5, 11, 10.5, 9.5, 8.5, 7, 5, 3.5];
+const PROF = STORES.map(() => {
+  const jit = HOURS.map(() => Math.exp(gauss() * 0.06));
+  return [0, 1, 2, 3, 4, 5, 6].map(w => {
+    const b = w < 4 ? PROF_WK : w === 4 ? PROF_FR : w === 5 ? PROF_SA : PROF_SU;
+    const v = b.map((x, h) => x * jit[h] * (w < 4 ? 1 + 0.03 * (w - 1.5) * (h > 8 ? 1 : 0) : 1)); const s = v.reduce((a, c) => a + c, 0);
+    return v.map(x => x / s);
+  });
+});
+
+/* ================= state ================= */
+const ALL_STORES = STORES.map((_, i) => i);
+const ALL_CATS = CATS.map(() => true);
+const DEF = { p: '30', cf: null, ct: null, stores: ALL_STORES.slice(), cats: ALL_CATS.slice(), metric: 'rev', sort: 'rev', mode: 'chart' };
+const state = Object.assign({}, DEF, LS.get('state', {}));
+if (!Array.isArray(state.stores) || !state.stores.length || state.stores.some(s => !(s in STORES))) state.stores = ALL_STORES.slice();
+if (!Array.isArray(state.cats) || state.cats.length !== NC || !state.cats.some(Boolean)) state.cats = ALL_CATS.slice();
+let hiddenW = LS.get('hiddenW', []);
+let hiddenA = LS.get('hiddenA', []);
+let userViews = LS.get('views', []);
+let route = 'overview';
+let anomExpanded = false;
+const save = () => LS.set('state', { p: state.p, cf: state.cf, ct: state.ct, stores: state.stores, cats: state.cats, metric: state.metric, sort: state.sort, mode: state.mode });
+
+function periodRange(p = state.p, cf = state.cf, ct = state.ct) {
+  const to = ND - 1;
+  if (p === '7') return { from: to - 6, to };
+  if (p === 'q') return { from: to - 90, to };
+  if (p === 'y') return { from: to - 363, to };
+  if (p === 'custom' && cf != null && ct != null) return { from: clamp(cf, MIN_FROM, to), to: clamp(ct, MIN_FROM, to) };
+  return { from: to - 29, to };
+}
+const isAllStores = () => state.stores.length === NS;
+const isAllCats = () => state.cats.every(Boolean);
+const selCats = () => state.cats.map((v, i) => (v ? i : -1)).filter(i => i >= 0);
+
+/* ================= analytics ================= */
+const med = a => { const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+function storeSeries(s, lo, hi, cm) { // filtered revenue, checks and traffic per day
+  const n = hi - lo + 1, r = new Float64Array(n), k = new Float64Array(n), t = new Float64Array(n), ra = new Float64Array(n);
+  for (let d = lo; d <= hi; d++) {
+    const b = (s * ND + d) * NC; let rv = 0, kv = 0, all = 0;
+    for (let c = 0; c < NC; c++) { all += REV[b + c]; if (cm[c]) { rv += REV[b + c]; kv += CHK[b + c]; } }
+    r[d - lo] = rv; k[d - lo] = kv; t[d - lo] = TRF[s * ND + d]; ra[d - lo] = all;
+  }
+  return { r, k, t, ra };
+}
+function buckets(from, to, maxDaily) {
+  const len = to - from + 1, out = [];
+  if (len <= maxDaily) { for (let d = from; d <= to; d++) out.push([d, d]); return { list: out, weekly: false }; }
+  for (let b = to; b >= from; b -= 7) out.unshift([Math.max(from, b - 6), b]);
+  return { list: out, weekly: true };
+}
+const sumR = (arr, lo, a, b) => { let s = 0; for (let d = a; d <= b; d++) s += arr[d - lo]; return s; };
+function bucketNorm(arr, lo, a, b) { // median of the same span 1..8 weeks back
+  const v = []; for (let k = 1; k <= 8; k++) { const aa = a - 7 * k, bb = b - 7 * k; if (aa >= lo) v.push(sumR(arr, lo, aa, bb)); }
+  return v.length ? med(v) : NaN;
+}
+let M = null;
+function compute() {
+  const { from, to } = periodRange(); const len = to - from + 1;
+  const prev = from - len >= 0 ? { from: from - len, to: from - 1 } : null;
+  const lo = Math.max(0, Math.min(prev ? prev.from : from, from - 56));
+  const cm = state.cats, sel = state.stores;
+  const SS = STORES.map((_, s) => storeSeries(s, lo, to, cm));
+  const n = to - lo + 1;
+  const net = { r: new Float64Array(n), k: new Float64Array(n), t: new Float64Array(n) };
+  sel.forEach(s => { for (let i = 0; i < n; i++) { net.r[i] += SS[s].r[i]; net.k[i] += SS[s].k[i]; net.t[i] += SS[s].t[i]; } });
+  const tot = (o, a, b) => ({ rev: sumR(o.r, lo, a, b), chk: sumR(o.k, lo, a, b), trf: sumR(o.t, lo, a, b) });
+  const cur = tot(net, from, to), prv = prev ? tot(net, prev.from, prev.to) : null;
+  // stores (all 8, the table shows the selection)
+  const stores = STORES.map((st, s) => {
+    const c = tot(SS[s], from, to), p = prev ? tot(SS[s], prev.from, prev.to) : null;
+    return { s, st, cur: c, prev: p, g: p && p.rev ? c.rev / p.rev - 1 : NaN, m2: c.rev / st.area, all: sumR(SS[s].ra, lo, from, to) };
+  });
+  const rankAll = stores.slice().sort((a, b) => b.cur.rev - a.cur.rev).map(x => x.s);
+  // categories (selected stores, every category, so a dimmed row still shows its figure)
+  const cats = CATS.map((c, ci) => {
+    let cr = 0, pr = 0, ck = 0;
+    sel.forEach(s => {
+      for (let d = from; d <= to; d++) { const b = (s * ND + d) * NC + ci; cr += REV[b]; ck += CHK[b]; }
+      if (prev) for (let d = prev.from; d <= prev.to; d++) pr += REV[(s * ND + d) * NC + ci];
+    });
+    return { ci, c, cur: cr, prev: prev ? pr : NaN, chk: ck, g: prev && pr ? cr / pr - 1 : NaN };
+  });
+  const catTotal = cats.reduce((a, c) => a + c.cur, 0);
+  // shares to one decimal that add up to 100,0 (largest remainder)
+  const raw = cats.map(c => (catTotal ? c.cur / catTotal * 1000 : 0)), fl = raw.map(Math.floor);
+  let rest = 1000 - fl.reduce((a, b) => a + b, 0);
+  raw.map((v, i) => [v - fl[i], i]).sort((a, b) => b[0] - a[0]).forEach(([, i]) => { if (rest > 0 && catTotal) { fl[i]++; rest--; } });
+  cats.forEach((c, i) => { c.share = fl[i] / 1000; });
+  // anomalies: each day against the median of the same weekday over 8 prior weeks
+  // a store is flagged when it is off its own norm by 25 % and also off what the whole selection did that day,
+  // so a holiday shows once, as the chain, and not eight times
+  const anoms = [], multi = sel.length >= 2, netA = [];
+  for (let d = from; d <= to; d++) {
+    const nd = multi ? net.r[d - lo] / bucketNorm(net.r, lo, d, d) - 1 : 0;
+    sel.forEach(s => { const a = storeAnomaly(SS[s], lo, s, d, nd); if (a) anoms.push(a); });
+    if (multi && Math.abs(nd) > 0.25) netA.push({ type: 'net', d, d2: d, v: net.r[d - lo], norm: net.r[d - lo] / (1 + nd), dev: nd, hol: holiday(d) });
+  }
+  // consecutive chain days with the same cause are one event: «20–30 дек, предновогодний спрос»
+  netA.forEach(x => {
+    const prevNet = anoms.filter(a => a.type === 'net').pop();
+    if (prevNet && prevNet.d2 === x.d - 1 && Math.sign(prevNet.dev) === Math.sign(x.dev) && ((prevNet.hol && x.hol && prevNet.hol[1] === x.hol[1]) || (!prevNet.hol && !x.hol))) {
+      prevNet.d2 = x.d; prevNet.v += x.v; prevNet.norm += x.norm; prevNet.dev = prevNet.v / prevNet.norm - 1;
+    } else anoms.push(x);
+  });
+  anoms.sort((a, b) => b.d - a.d || Math.abs(b.dev) - Math.abs(a.dev));
+  anoms.forEach(a => { a.id = (a.type === 'net' ? 'net' : STORES[a.s].id) + '-' + a.d; });
+  // hours: weekday sums spread over the store's hourly profile
+  const heat = Array.from({ length: 7 }, () => new Float64Array(HOURS.length)); const wdSum = new Float64Array(7), wdCnt = new Float64Array(7);
+  for (let d = from; d <= to; d++) wdCnt[wd(d)]++;
+  sel.forEach(s => { for (let d = from; d <= to; d++) { const w = wd(d), v = SS[s].r[d - lo]; wdSum[w] += v; const pf = PROF[s][w]; for (let h = 0; h < HOURS.length; h++) heat[w][h] += v * pf[h]; } });
+  // average store of the whole chain, per day (for the store detail)
+  const avgStore = new Float64Array(n); for (let i = 0; i < n; i++) { let s = 0; for (let k = 0; k < NS; k++) s += SS[k].r[i]; avgStore[i] = s / NS; }
+  return { from, to, len, prev, lo, SS, net, cur, prv, stores, rankAll, cats, catTotal, anoms, heat, wdSum, wdCnt, avgStore };
+}
+function storeAnomaly(o, lo, s, d, nd) {
+  const v = o.r[d - lo], n = bucketNorm(o.r, lo, d, d); if (!(n > 0)) return null;
+  const dev = v / n - 1;
+  if (Math.abs(dev) <= 0.25 || Math.abs((1 + dev) / (1 + nd) - 1) <= 0.2) return null;
+  return { type: 'store', s, d, v, norm: n, dev, cause: causeOf(o, lo, d), id: STORES[s].id + '-' + d };
+}
+function causeOf(o, lo, d) {
+  const i = d - lo, T = o.t[i], K = o.k[i], R = o.r[i];
+  const tn = [], cn = [], an = [];
+  for (let k = 1; k <= 8; k++) { const j = i - 7 * k; if (j < 0) break; tn.push(o.t[j]); cn.push(o.k[j] / o.t[j]); an.push(o.r[j] / o.k[j]); }
+  const tN = med(tn), cN = med(cn), aN = med(an), C = K / T, A = R / K;
+  const parts = [['traffic', T / tN - 1, T, tN], ['conv', C / cN - 1, C, cN], ['check', A / aN - 1, A, aN]];
+  parts.sort((a, b) => Math.abs(Math.log(1 + b[1])) - Math.abs(Math.log(1 + a[1])));
+  const [k, dv, v, nv] = parts[0];
+  if (k === 'traffic') return dv < 0
+    ? `Трафик ${spct(dv)} к норме: людей пришло заметно меньше. Проверьте вход, вывеску и погоду в городе.`
+    : `Трафик ${spct(dv)} к норме: похоже на событие рядом с магазином или локальную рекламу.`;
+  if (k === 'conv') return dv < 0
+    ? `Конверсия ${pct(v)} при норме ${pct(nv)}: посетители уходили без покупки. Проверьте наличие и очереди на кассах.`
+    : `Конверсия ${pct(v)} при норме ${pct(nv)}: покупали почти все, кто зашёл. Стоит понять, что сработало.`;
+  return dv > 0
+    ? `Средний чек ${rub(v)} при норме ${rub(nv)}: крупные покупки, похоже на оптовый заказ.`
+    : `Средний чек ${rub(v)} при норме ${rub(nv)}: брали по мелочи. Проверьте выкладку крупных товаров.`;
+}
+
+/* ================= metrics ================= */
+const tickMoney = (ticks) => { const top = Math.max(...ticks.map(Math.abs)); const div = top >= 1e6 ? 1e6 : top >= 1e3 ? 1e3 : 1, u = div === 1e6 ? NB + 'млн' : div === 1e3 ? NB + 'тыс.' : ''; return v => (v === 0 ? '0' : F01.format(v / div) + u); };
+const METRICS = {
+  rev: { label: 'Выручка', title: 'Выручка', of: o => o.rev, sum: true, k: v => moneyParts(v), v: money, ticks: tickMoney, per: 'день' },
+  chk: { label: 'Чеки', title: 'Чеки', of: o => o.chk, sum: true, k: v => [F0.format(Math.round(v)), ''], v: v => F0.format(Math.round(v)), ticks: () => v => F0.format(v), per: 'день' },
+  avg: { label: 'Средний чек', title: 'Средний чек', of: o => (o.chk ? o.rev / o.chk : 0), k: v => [F0.format(Math.round(v)), '₽'], v: rub, ticks: () => v => F0.format(v) + NB + '₽' },
+  conv: { label: 'Конверсия', title: 'Конверсия', of: o => (o.trf ? o.chk / o.trf : 0), k: v => [F1.format(v * 100), '%'], v: v => pct(v), ticks: (t) => { const st = t.length > 1 ? Math.abs(t[1] - t[0]) : 0.01; return v => (st < 0.01 ? F1 : F0).format(v * 100) + NB + '%'; } }
+};
+const metricOf = (key, o) => METRICS[key].of(o);
+METRICS.conv.pp = true;
+// a change: relative for amounts, in percentage points for a rate
+function chg(m, v, pv) {
+  if (!(pv > 0) || !isFinite(v)) return null;
+  if (m.pp) { const d = v - pv, r = Math.round(d * 1000) / 10; return { g: d, cls: deltaCls(d), sign: (r === 0 ? '' : sgn(r)) + F1.format(Math.abs(r)) + NB + 'п.' + NB + 'п.', abs: F1.format(Math.abs(r)) + NB + 'п.' + NB + 'п.' }; }
+  const g = v / pv - 1; return { g, cls: deltaCls(g), sign: spct(g), abs: pct(Math.abs(g)) };
+}
+
+/* ================= number tweening ================= */
+function tweenNum(el, to, fmt, html) {
+  const from = el._v;
+  el._v = to;
+  const put = v => { if (html) el.innerHTML = fmt(v); else el.textContent = fmt(v); };
+  if (from == null || reduced() || from === to || !isFinite(from)) { cancelAnimationFrame(el._raf); put(to); return; }
+  const t0 = performance.now(), dur = 520;
+  cancelAnimationFrame(el._raf);
+  const step = now => { const t = clamp((now - t0) / dur, 0, 1); put(lerp(from, to, ease(t))); if (t < 1) el._raf = requestAnimationFrame(step); };
+  el._raf = requestAnimationFrame(step);
+}
+
+/* ================= tooltip ================= */
+const tip = $('#tip');
+function showTip(html, x, y) {
+  tip.innerHTML = html; tip.classList.add('on');
+  const r = tip.getBoundingClientRect(); let L = x + 14, T = y + 14;
+  if (L + r.width > innerWidth - 8) L = x - 14 - r.width;
+  if (T + r.height > innerHeight - 8) T = y - 14 - r.height;
+  tip.style.left = Math.max(8, L) + 'px'; tip.style.top = Math.max(8, T) + 'px';
+}
+const hideTip = () => tip.classList.remove('on');
+const tRow = (key, label, val) => `<div class="t-r"><span>${key}${esc(label)}</span><b>${val}</b></div>`;
+const keyLine = cls => `<i class="key-line ${cls || ''}"></i>`;
+
+/* ================= SVG helpers ================= */
+let mctx;
+function textW(s, size = 12, weight = 400) { mctx = mctx || document.createElement('canvas').getContext('2d'); mctx.font = `${weight} ${size}px Onest, system-ui, sans-serif`; return mctx.measureText(String(s)).width; }
+function niceTicks(lo, hi, count = 4) {
+  if (hi === lo) hi = lo + 1;
+  const raw = (hi - lo) / count, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) || 10 * mag;
+  const a = Math.floor(lo / step) * step; let b = Math.ceil(hi / step) * step; if (b <= hi) b += step;
+  const out = []; for (let v = a; v <= b + step / 2; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+function xPicks(n, width, labelW, weekly) { // keeps one step all the way and labels the latest bucket
+  if (n <= 1) return n ? [0] : [];
+  const cap = Math.max(2, Math.min(8, Math.floor(width / (labelW + 26))));
+  let k = Math.ceil((n - 1) / (cap - 1));
+  if (!weekly) { if (k > 1 && k < 7 && n > 14) k = 7; else if (k > 7 && k < 14) k = 14; }
+  const out = []; for (let i = n - 1; i >= 0; i -= k) out.unshift(i);
+  return out;
+}
+
+/* ================= line chart (one or two series, crosshair, tween, draw-in) ================= */
+function LineChart(host, opts = {}) {
+  const NSV = 'http://www.w3.org/2000/svg';
+  host.innerHTML = '';
+  const svg = document.createElementNS(NSV, 'svg'); svg.setAttribute('role', 'img');
+  const gp = document.createElementNS(NSV, 'g'), gh = document.createElementNS(NSV, 'g');
+  svg.append(gp, gh); host.appendChild(svg);
+  host.tabIndex = 0;
+  let cfg = null, view = null, geo = null, hov = -1, raf = 0;
+  const H = () => opts.height || Math.max(180, host.clientHeight || 236);
+
+  function geometry(c, v) {
+    const W = Math.max(200, host.clientWidth), h = H();
+    const labels = v.ticks.map(c.tickFmt);
+    const yw = Math.max(...labels.map(t => textW(t))) + 10;
+    const top = c.ann ? 26 : 8, bottom = h - 26, left = Math.ceil(yw), right = W - 6;
+    const n = c.cur.length;
+    const x = i => (n === 1 ? (left + right) / 2 : left + i * (right - left) / (n - 1));
+    const y = val => bottom - (val - v.lo) / (v.hi - v.lo) * (bottom - top);
+    return { W, h, top, bottom, left, right, x, y, n, labels };
+  }
+  function path(vals, g) { let d = ''; for (let i = 0; i < vals.length; i++) d += (i ? 'L' : 'M') + g.x(i).toFixed(1) + ',' + g.y(vals[i]).toFixed(1); return d; }
+  function frame(v) {
+    const c = cfg, g = geometry(c, v); geo = g;
+    svg.setAttribute('width', g.W); svg.setAttribute('height', g.h); svg.setAttribute('viewBox', `0 0 ${g.W} ${g.h}`);
+    let s = '';
+    v.ticks.forEach((t, i) => {
+      const yy = Math.round(g.y(t)) + 0.5; if (yy < g.top - 2 || yy > g.bottom + 2) return;
+      s += `<line class="${t === v.ticks[0] ? 'base' : 'gl'}" x1="${g.left}" x2="${g.right}" y1="${yy}" y2="${yy}"/>`;
+      s += `<text class="tk" x="${g.left - 10}" y="${yy + 4}" text-anchor="end">${esc(g.labels[i])}</text>`;
+    });
+    const lw = Math.max(...c.xl.map(l => textW(l)));
+    xPicks(g.n, g.right - g.left, lw, c.weekly).forEach(i => {
+      const xx = g.x(i), w = textW(c.xl[i]); let anchor = 'middle';
+      if (xx - w / 2 < g.left - 4) anchor = 'start'; else if (xx + w / 2 > g.right) anchor = 'end';
+      s += `<text class="tk" x="${xx.toFixed(1)}" y="${g.bottom + 18}" text-anchor="${anchor}">${esc(c.xl[i])}</text>`;
+    });
+    if (c.fill !== false) s += `<path class="area" d="${path(v.cur, g)}L${g.x(g.n - 1).toFixed(1)},${g.bottom}L${g.x(0).toFixed(1)},${g.bottom}Z"/>`;
+    if (v.prev) s += `<path class="ln prev" d="${path(v.prev, g)}"/>`;
+    s += `<path class="ln cur" d="${path(v.cur, g)}"/>`;
+    if (g.n === 1) s += `<circle class="dot" r="4" cx="${g.x(0)}" cy="${g.y(v.cur[0])}" style="fill:var(--hue)"/>`;
+    if (c.ann && c.ann.i < g.n) {
+      const ax = g.x(c.ann.i), ay = g.y(v.cur[c.ann.i]);
+      const w = textW(c.ann.text, 12, 500) + (c.ann.sub ? textW(' ' + c.ann.sub) + 4 : 0);
+      let tx = ax - w / 2; tx = clamp(tx, g.left, g.right - w);
+      s += `<line class="ann-l" x1="${Math.round(ax) + 0.5}" x2="${Math.round(ax) + 0.5}" y1="16" y2="${Math.max(18, ay - 6).toFixed(1)}"/>`;
+      s += `<text x="${tx.toFixed(1)}" y="12"><tspan class="ann-t">${esc(c.ann.text)}</tspan>${c.ann.sub ? `<tspan class="ann-s" dx="4">${esc(c.ann.sub)}</tspan>` : ''}</text>`;
+    }
+    gp.innerHTML = s;
+    svg.setAttribute('aria-label', c.aria || '');
+    if (hov >= 0) hover(hov, null, true);
+  }
+  function domain(c) {
+    const all = c.prev ? c.cur.concat(c.prev) : c.cur.slice();
+    const mx = Math.max(...all), mn = Math.min(...all);
+    let lo = c.zero ? 0 : mn - (mx - mn) * 0.15, hi = mx;
+    if (!c.zero && lo < 0) lo = 0;
+    const ticks = niceTicks(lo, hi, innerWidth < 720 ? 3 : 4);
+    return { lo: ticks[0], hi: ticks[ticks.length - 1], ticks };
+  }
+  function set(c, animate = true) {
+    const old = view, sameLen = cfg && old && cfg.cur.length === c.cur.length && !!cfg.prev === !!c.prev;
+    cfg = c; const d = domain(c);
+    const target = { cur: c.cur.slice(), prev: c.prev ? c.prev.slice() : null, lo: d.lo, hi: d.hi, ticks: d.ticks };
+    cancelAnimationFrame(raf);
+    if (!animate || reduced()) { view = target; frame(view); return; }
+    if (sameLen) {
+      const t0 = performance.now(), dur = 520;
+      const step = now => {
+        const t = ease(clamp((now - t0) / 520, 0, 1));
+        view = { cur: target.cur.map((v, i) => lerp(old.cur[i], v, t)), prev: target.prev ? target.prev.map((v, i) => lerp(old.prev[i], v, t)) : null, lo: lerp(old.lo, target.lo, t), hi: lerp(old.hi, target.hi, t), ticks: target.ticks };
+        frame(view); if (t < 1) raf = requestAnimationFrame(step); else { view = target; frame(view); }
+      };
+      raf = requestAnimationFrame(step); return;
+    }
+    view = target; frame(view); drawIn();
+  }
+  function drawIn() {
+    if (reduced()) return;
+    $$('.ln', gp).forEach((p, i) => {
+      const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
+      p.getBoundingClientRect();
+      p.style.transition = `stroke-dashoffset ${i ? 0.95 : 0.8}s cubic-bezier(.23,1,.32,1) ${i ? 0.05 : 0}s`;
+      p.style.strokeDashoffset = 0;
+    });
+    const a = $('.area', gp); if (a) { a.style.opacity = 0; a.getBoundingClientRect(); a.style.transition = 'opacity .7s ease .35s'; a.style.opacity = 1; }
+  }
+  function hover(i, ev, silent) {
+    if (!cfg || !geo || !view) return; i = clamp(i, 0, geo.n - 1); hov = i;
+    const g = geo, x = Math.round(g.x(i)) + 0.5;
+    let s = `<line class="xh" x1="${x}" x2="${x}" y1="${g.top}" y2="${g.bottom}"/>`;
+    if (view.prev) s += `<circle class="dot" r="4" cx="${x}" cy="${g.y(view.prev[i]).toFixed(1)}" style="fill:var(--prev)"/>`;
+    s += `<circle class="dot" r="4.5" cx="${x}" cy="${g.y(view.cur[i]).toFixed(1)}" style="fill:var(--hue)"/>`;
+    gh.innerHTML = s;
+    if (silent) return;
+    const r = svg.getBoundingClientRect();
+    const px = ev && ev.clientX != null ? ev.clientX : r.left + g.x(i), py = ev && ev.clientY != null ? ev.clientY : r.top + g.y(view.cur[i]);
+    showTip(cfg.tip(i), px, py);
+  }
+  function leave() { hov = -1; gh.innerHTML = ''; hideTip(); }
+  const idxAt = e => { const r = svg.getBoundingClientRect(), px = e.clientX - r.left; return geo.n === 1 ? 0 : Math.round((px - geo.left) / ((geo.right - geo.left) / (geo.n - 1))); };
+  svg.addEventListener('pointermove', e => { if (geo) hover(idxAt(e), e); });
+  svg.addEventListener('pointerdown', e => { if (geo) hover(idxAt(e), e); });
+  svg.addEventListener('pointerleave', leave);
+  host.addEventListener('keydown', e => {
+    if (!geo) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); hover((hov < 0 ? geo.n - 1 : hov + (e.key === 'ArrowRight' ? 1 : -1)), null); }
+    else if (e.key === 'Home') { e.preventDefault(); hover(0); } else if (e.key === 'End') { e.preventDefault(); hover(geo.n - 1); }
+    else if (e.key === 'Escape') leave();
+  });
+  host.addEventListener('focus', () => { if (geo) hover(geo.n - 1); });
+  host.addEventListener('blur', leave);
+  return { set, redraw() { if (cfg && view) frame(view); }, el: host };
+}
+
+/* ================= rendering ================= */
+const storeName = s => STORES[s].city;
+function scopeLabel() {
+  if (isAllStores()) return 'Сеть';
+  if (state.stores.length === 1) return storeName(state.stores[0]);
+  const r = ['volga', 'ural'].find(g => STORES.filter(s => s.reg === g).length === state.stores.length && state.stores.every(s => STORES[s].reg === g));
+  return r ? REG[r] : `${state.stores.length} ${plural(state.stores.length, 'магазин', 'магазина', 'магазинов')}`;
+}
+const plural = (n, a, b, c) => { const m10 = n % 10, m100 = n % 100; return m10 === 1 && m100 !== 11 ? a : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? b : c; };
+
+function renderFilters() {
+  $$('#periodSeg button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.p === state.p)));
+  const cb = $('#customBtn'); cb.textContent = state.p === 'custom' ? frangeS(M.from, M.to) : 'Свой';
+  const sl = scopeLabel();
+  $('#storeVal').textContent = isAllStores() ? 'все 8' : state.stores.length === 1 ? storeName(state.stores[0]) : (sl === REG.volga || sl === REG.ural) ? sl : `${state.stores.length} из 8`;
+  $('#catVal').textContent = isAllCats() ? 'все 6' : selCats().length === 1 ? CATS[selCats()[0]].name : `${selCats().length} из 6`;
+  $('#storeBtn').classList.toggle('on', !isAllStores());
+  $('#catBtn').classList.toggle('on', !isAllCats());
+  $('#clearBtn').hidden = isAllStores() && isAllCats();
+  $('#cmp').textContent = M.prev ? `Сравнение с ${frange(M.prev.from, M.prev.to)}` : 'Нет данных для сравнения за прошлый период';
+}
+
+function worstAnom() {
+  const vis = M.anoms.filter(a => !hiddenA.includes(a.id) && a.type === 'store' && a.dev < 0);
+  if (!vis.length) return null;
+  return vis.slice().sort((a, b) => a.dev - b.dev)[0];
+}
+function renderTitle() {
+  const f = $('#finding'); const sc = scopeLabel();
+  const verb = isAllStores() ? 'Сеть заработала' : state.stores.length === 1 ? sc + (/[аь]$/.test(sc) ? ' заработала' : ' заработал') : 'Выбранные магазины заработали';
+  const catNote = isAllCats() ? '' : selCats().length === 1 ? ` в категории «${CATS[selCats()[0]].name}»` : ` в ${selCats().length} категориях`;
+  let s = `${esc(verb)}${catNote} <b class="num">${money(M.cur.rev)}</b>`;
+  if (M.prv && M.prv.rev) { const g = M.cur.rev / M.prv.rev - 1; s += ` ${MDASH} ${Math.round(g * 1000) === 0 ? 'столько же, сколько' : g > 0 ? `на ${pct(g)} больше, чем` : `на ${pct(-g)} меньше, чем`} ${frangeS(M.prev.from, M.prev.to)}.`; }
+  else s += ` за ${frangeS(M.from, M.to)}.`;
+  const w = worstAnom();
+  if (w) s += ` Ритм сбился в ${locative(STORES[w.s].city)}: ${WD[wd(w.d)]} ${fd(w.d)} <span class="bad num">${spct(w.dev)}</span> к норме. <a class="link" href="#" data-open="${w.s}" data-day="${w.d}">Открыть магазин →</a>`;
+  else {
+    const fast = M.stores.filter(x => state.stores.includes(x.s) && isFinite(x.g)).sort((a, b) => b.g - a.g)[0];
+    if (fast && state.stores.length > 1) s += ` Быстрее всех растёт ${esc(fast.st.city)} (${spct(fast.g)}).`;
+  }
+  f.innerHTML = s;
+  $('#footData').textContent = `Данные кассовой системы и счётчиков посетителей · ${frange(M.from, M.to)}`;
+}
+const LOC = { 'Екатеринбург': 'Екатеринбурге', 'Казань': 'Казани', 'Нижний Новгород': 'Нижнем Новгороде', 'Самара': 'Самаре', 'Уфа': 'Уфе', 'Челябинск': 'Челябинске', 'Пермь': 'Перми', 'Саратов': 'Саратове' };
+const locative = c => LOC[c] || c;
+
+function renderKPI() {
+  const host = $('#kpis');
+  if (!host.children.length) {
+    host.innerHTML = Object.keys(METRICS).map(k => `<button class="kpi" role="tab" data-m="${k}" aria-controls="revChart"><div class="kpi-l"><span>${METRICS[k].label}</span></div><div class="kpi-v num"></div><div class="kpi-d"></div></button>`).join('');
+  }
+  $$('.kpi', host).forEach(b => {
+    const k = b.dataset.m, m = METRICS[k], v = m.of(M.cur);
+    b.setAttribute('aria-selected', String(k === state.metric)); b.tabIndex = k === state.metric ? 0 : -1;
+    tweenNum($('.kpi-v', b), v, x => { const p = m.k(x); return `<span class="v">${p[0]}</span>${p[1] ? `<span class="u">${p[1]}</span>` : ''}`; }, true);
+    const de = $('.kpi-d', b);
+    if (M.prv) {
+      const pv = m.of(M.prv), c = chg(m, v, pv);
+      if (!c) de.innerHTML = `<span class="flat">${MDASH}</span>`;
+      else {
+        const arrow = c.cls === 'flat' ? '' : c.g > 0 ? '↑ ' : '↓ ';
+        de.innerHTML = `<span class="d ${c.cls}">${arrow}${c.abs}</span> <span class="w">к ${frangeS(M.prev.from, M.prev.to)}</span>`;
+        de.title = `Было ${m.v(pv)}`;
+      }
+    } else de.innerHTML = `<span class="flat">${MDASH}</span> <span class="w">нет прошлого периода</span>`;
+  });
+}
+
+/* --- main time chart --- */
+let revChart = null;
+function bucketLabel(b, weekly) { return weekly ? (b[0] === b[1] ? fd(b[0]) : fd(b[0]) + NB + NDASH + ' ' + fd(b[1])) : fdw(b[0]); }
+function revData() {
+  const bk = buckets(M.from, M.to, 120), lo = M.lo, m = METRICS[state.metric];
+  const val = (a, b) => m.of({ rev: sumR(M.net.r, lo, a, b), chk: sumR(M.net.k, lo, a, b), trf: sumR(M.net.t, lo, a, b) });
+  const cur = bk.list.map(([a, b]) => val(a, b));
+  const prev = M.prev ? bk.list.map(([a, b]) => val(a - M.len, b - M.len)) : null;
+  return { bk, cur, prev, m };
+}
+function renderRev(animate) {
+  const { bk, cur, prev, m } = revData();
+  const unit = bk.weekly ? 'неделям' : 'дням';
+  $('#revTitle').textContent = `${m.title} по ${unit}`;
+  const per = bk.weekly ? 'неделю' : 'день';
+  const total = m.of(M.cur), ptotal = M.prv ? m.of(M.prv) : NaN;
+  let sub;
+  if (m.sum) {
+    const avg = total / M.len * (bk.weekly ? 7 : 1);
+    sub = `В среднем ${m.v(avg)} в ${per}`;
+  } else sub = `За период ${m.v(total)}`;
+  const cc = isFinite(ptotal) ? chg(m, total, ptotal) : null;
+  if (cc) sub += cc.cls === 'flat' ? `, как и ${frangeS(M.prev.from, M.prev.to)}` : `, на ${cc.abs} ${cc.g > 0 ? (m.pp ? 'выше' : 'больше') : (m.pp ? 'ниже' : 'меньше')}, чем ${frangeS(M.prev.from, M.prev.to)}`;
+  $('#revSub').textContent = sub;
+  const lc = `<span>${keyLine()}${frangeS(M.from, M.to)}</span>` + (prev ? `<span>${keyLine('prev')}${frangeS(M.prev.from, M.prev.to)}</span>` : '');
+  $('#revLegend').innerHTML = lc;
+  let imax = 0; cur.forEach((v, i) => { if (v > cur[imax]) imax = i; });
+  const hol = !bk.weekly && holiday(bk.list[imax][0]);
+  const ann = cur.length > 2 ? { i: imax, text: `пик ${m.v(cur[imax])}`, sub: bucketLabel(bk.list[imax], bk.weekly).toLowerCase() + (hol ? ', ' + hol[1].split(',')[0].toLowerCase() : '') } : null;
+  const cfg = {
+    cur, prev, zero: !!m.sum, tickFmt: null, ann, weekly: bk.weekly,
+    xl: bk.list.map(b => (bk.weekly ? fd(b[1]) : fd(b[0]))),
+    aria: `${m.title} по ${unit}, ${frange(M.from, M.to)}: ${m.v(total)}`,
+    tip: i => {
+      const b = bk.list[i]; let h = `<div class="t-h">${bk.weekly ? 'Неделя ' + bucketLabel(b, true) : bucketLabel(b, false)}</div>` + tRow(keyLine(), 'этот период', m.v(cur[i]));
+      if (prev) {
+        const pb = [b[0] - M.len, b[1] - M.len];
+        h += tRow(keyLine('prev'), bk.weekly ? bucketLabel(pb, true) : fdw(pb[0]), m.v(prev[i]));
+        const c = chg(m, cur[i], prev[i]);
+        if (c) h += `<div class="t-f"><span class="d ${c.cls}">${c.sign}</span> к прошлому периоду</div>`;
+      }
+      const hh = !bk.weekly && holiday(b[0]); if (hh) h += `<div class="t-f">${esc(hh[1])}</div>`;
+      return h;
+    }
+  };
+  // the tick formatter sees the same ticks the chart will draw
+  const all = prev ? cur.concat(prev) : cur; const mx = Math.max(...all), mn = Math.min(...all);
+  const lo = cfg.zero ? 0 : Math.max(0, mn - (mx - mn) * 0.15);
+  cfg.tickFmt = m.ticks(niceTicks(lo, mx, innerWidth < 720 ? 3 : 4));
+  $$('#w-rev [data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+  $('#revChart').hidden = state.mode === 'table'; $('#revLegend').hidden = state.mode === 'table'; $('#revTable').hidden = state.mode !== 'table';
+  if (!revChart) revChart = LineChart($('#revChart'));
+  if (state.mode === 'chart') revChart.set(cfg, animate);
+  // table twin
+  const tw = $('#revTable');
+  if (state.mode === 'table') {
+    let t = `<table><thead><tr><th>${bk.weekly ? 'Неделя' : 'День'}</th><th class="r">${esc(frangeS(M.from, M.to))}</th>${prev ? `<th class="r">${esc(frangeS(M.prev.from, M.prev.to))}</th><th class="r">Изменение</th>` : ''}</tr></thead><tbody>`;
+    for (let i = bk.list.length - 1; i >= 0; i--) {
+      const c = prev ? chg(m, cur[i], prev[i]) : null;
+      t += `<tr><td>${esc(bucketLabel(bk.list[i], bk.weekly))}</td><td class="r num">${m.v(cur[i])}</td>${prev ? `<td class="r num muted">${m.v(prev[i])}</td><td class="r num"><span class="d ${c ? c.cls : 'flat'}">${c ? c.sign : MDASH}</span></td>` : ''}</tr>`;
+    }
+    tw.innerHTML = t + '</tbody></table>';
+  }
+}
+
+/* --- categories: the row fill is the share --- */
+function renderCats() {
+  const host = $('#cats'); const mx = Math.max(...M.cats.map(c => c.share)) || 1;
+  const filtered = !isAllCats();
+  if (!host.children.length) host.innerHTML = CATS.map((c, i) => `<button class="cat" data-c="${i}" aria-pressed="false"><span class="fill"></span><span class="nm">${esc(c.name)}</span><span class="r num v"></span><span class="r num sh"></span><span class="r num ch-d"></span></button>`).join('');
+  M.cats.forEach(c => {
+    const b = host.children[c.ci];
+    b.style.setProperty('--w', (c.share / mx).toFixed(4));
+    b.classList.toggle('sel', filtered && state.cats[c.ci]);
+    b.classList.toggle('dim', filtered && !state.cats[c.ci]);
+    b.setAttribute('aria-pressed', String(filtered && state.cats[c.ci]));
+    tweenNum($('.v', b), c.cur, money);
+    $('.sh', b).textContent = F1.format(c.share * 100) + NB + '%';
+    const d = $('.ch-d', b); d.className = 'r num ch-d d ' + (isFinite(c.g) ? deltaCls(c.g) : 'flat'); d.textContent = isFinite(c.g) ? spct(c.g) : MDASH;
+    b.title = `${c.c.name}: ${money(c.cur)}, ${F0.format(c.chk)} ${plural(c.chk, 'чек', 'чека', 'чеков')}. Нажмите, чтобы ${filtered && state.cats[c.ci] && selCats().length === 1 ? 'снять фильтр' : 'показать дашборд по этой категории'}.`;
+  });
+  const fast = M.cats.filter(c => isFinite(c.g)).sort((a, b) => b.g - a.g)[0], slow = M.cats.filter(c => isFinite(c.g)).sort((a, b) => a.g - b.g)[0];
+  $('#catSub').innerHTML = fast ? `Быстрее всех растёт <b>${esc(fast.c.name)}</b>: <span class="d ${deltaCls(fast.g)}">${spct(fast.g)}</span>; ${slow.g < 0 ? `проседает ${esc(slow.c.name)}` : `медленнее всех ${esc(slow.c.name)}`} <span class="d ${deltaCls(slow.g)}">${spct(slow.g)}</span>` : 'Структура выручки выбранных магазинов';
+  const totPrev = M.cats.reduce((a, c) => a + (isFinite(c.prev) ? c.prev : 0), 0);
+  const g = M.prev && totPrev ? M.catTotal / totPrev - 1 : NaN;
+  $('#catFoot').innerHTML = `<span>${filtered ? `<button class="link" id="catReset">Все категории</button>` : 'Все категории'}</span><b class="num">${money(M.catTotal)}</b><span class="r num">100${NB}%</span><span class="r num d ${isFinite(g) ? deltaCls(g) : 'flat'}">${isFinite(g) ? spct(g) : MDASH}</span>`;
+}
+
+/* --- the rhythm: every store-day against its own weekday norm --- */
+const PULSE_BINS = [-0.25, -0.15, -0.1, -0.05, 0.05, 0.1, 0.15, 0.25];
+const PULSE_OP = [0.92, 0.62, 0.42, 0.24, 0, 0.24, 0.42, 0.62, 0.92];
+function pulseStyle(dev) {
+  if (!isFinite(dev)) return 'fill:var(--cell0);fill-opacity:.5';
+  let b = 0; while (b < PULSE_BINS.length && dev >= PULSE_BINS[b]) b++;
+  if (b === 4) return 'fill:var(--cell0);fill-opacity:1';
+  return `fill:var(${b < 4 ? '--down' : '--hue'});fill-opacity:${PULSE_OP[b]}`;
+}
+let pulseState = null;
+function renderPulse(animate) {
+  const host = $('#pulse'); const mob = innerWidth < 720;
+  const bk = buckets(M.from, M.to, mob ? 45 : 92); const lo = M.lo;
+  const order = M.stores.filter(x => state.stores.includes(x.s)).sort((a, b) => b.cur.rev - a.cur.rev).map(x => x.s);
+  const rows = (state.stores.length > 1 ? [{ net: true, label: isAllStores() ? 'Вся сеть' : 'Выбранные', arr: M.net.r }] : []).concat(order.map(s => ({ s, label: mob ? (CITY_SHORT[STORES[s].city] || STORES[s].city) : STORES[s].city, arr: M.SS[s].r })));
+  const yoy = bk.weekly && bk.list[0][0] - 364 >= lo;
+  rows.forEach(r => {
+    r.cells = bk.list.map(([a, b]) => { const v = sumR(r.arr, lo, a, b), n = yoy ? sumR(r.arr, lo, a - 364, b - 364) : bucketNorm(r.arr, lo, a, b); return { v, n, dev: n > 0 ? v / n - 1 : NaN }; });
+    r.drops = bk.weekly ? r.cells.filter(c => c.dev < -0.1).length : r.cells.filter(c => c.dev < -0.25).length;
+    r.highs = bk.weekly ? r.cells.filter(c => c.dev > 0.1).length : r.cells.filter(c => c.dev > 0.25).length;
+  });
+  const W = Math.max(280, host.clientWidth), labW = mob ? 96 : 150, cntW = mob ? 46 : 64, gap = bk.list.length > 60 ? 1 : 2;
+  const n = bk.list.length, cw = (W - labW - cntW) / n, ch = mob ? 22 : 24, netGap = rows[0] && rows[0].net ? 10 : 0;
+  const yOf = ri => ri * (ch + 2) + (ri > 0 ? netGap : 0) + 22;
+  const H = yOf(rows.length - 1) + ch + 26;
+  let s = `<text class="tk" x="${W}" y="12" text-anchor="end">${mob ? '' : bk.weekly ? 'недель за 10 %' : 'дней за 25 %'}</text>`;
+  s += `<text class="tk" x="0" y="12">${yoy ? 'Неделя к той же неделе прошлого года' : bk.weekly ? 'Неделя к норме 8 прошлых недель' : 'День к норме того же дня недели'}</text>`;
+  rows.forEach((r, ri) => {
+    const y = yOf(ri);
+    if (r.net) s += `<text class="rl" x="0" y="${y + ch / 2 + 5}">${esc(r.label)}</text>`;
+    else s += `<g class="rowbtn" data-s="${r.s}"><text class="rl" x="0" y="${y + ch / 2 + 5}">${esc(r.label)}</text></g>`;
+    r.cells.forEach((c, i) => {
+      const x = labW + i * cw;
+      s += `<rect class="cell" data-r="${ri}" data-i="${i}" x="${(x + gap / 2).toFixed(2)}" y="${y}" width="${Math.max(1, cw - gap).toFixed(2)}" height="${ch}" rx="${cw > 8 ? 2 : 1}" style="${pulseStyle(c.dev)}${animate && !reduced() ? `;opacity:0;transition:opacity .35s ease ${(i * Math.min(14, 520 / n)).toFixed(0)}ms` : ''}"/>`;
+    });
+    const dn = r.drops, up = r.highs;
+    s += `<text class="rs num" x="${W}" y="${y + ch / 2 + 5}" text-anchor="end"><tspan style="fill:${dn ? 'var(--negative)' : 'var(--faint)'}">↓${dn}</tspan>${up ? `<tspan dx="6" style="fill:var(--muted)">↑${up}</tspan>` : ''}</text>`;
+  });
+  const lw = Math.max(...bk.list.map(b => textW(fd(bk.weekly ? b[1] : b[0]))));
+  xPicks(n, W - labW - cntW, lw, bk.weekly).forEach(i => {
+    const x = labW + i * cw + cw / 2, txt = fd(bk.weekly ? bk.list[i][1] : bk.list[i][0]), w = textW(txt);
+    const anchor = x + w / 2 > W - cntW + 30 ? 'end' : x - w / 2 < labW ? 'start' : 'middle';
+    s += `<text class="tk" x="${x.toFixed(1)}" y="${H - 6}" text-anchor="${anchor}">${esc(txt)}</text>`;
+  });
+  s += `<rect class="fo" id="pulseFo" x="0" y="0" width="0" height="0" rx="2" visibility="hidden"/>`;
+  host.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" tabindex="0" aria-label="Ритм магазинов: отклонение выручки от нормы по ${bk.weekly ? 'неделям' : 'дням'}">${s}</svg>`;
+  if (animate && !reduced()) requestAnimationFrame(() => requestAnimationFrame(() => $$('.cell', host).forEach(c => { c.style.opacity = 1; })));
+  pulseState = { rows, bk, labW, cw, ch, yOf, cntW, W, focus: null, yoy };
+  // finding
+  const st = rows.filter(r => !r.net);
+  const worst = st.slice().sort((a, b) => b.drops - a.drops || a.cells.reduce((x, c) => x + Math.min(0, c.dev), 0) - b.cells.reduce((x, c) => x + Math.min(0, c.dev), 0))[0];
+  const calm = st.slice().sort((a, b) => sd(a.cells) - sd(b.cells))[0];
+  const unit = bk.weekly ? plural(worst ? worst.drops : 0, 'неделя', 'недели', 'недель') : plural(worst ? worst.drops : 0, 'день', 'дня', 'дней');
+  let sub = '';
+  if (worst && worst.drops) sub = `Чаще всех сбивается <b>${esc(STORES[worst.s].city)}</b>: ${worst.drops} ${unit} ниже ${yoy ? 'прошлого года' : 'нормы'} ${bk.weekly ? 'больше чем на 10 %' : 'больше чем на 25 %'}.`;
+  else sub = 'Ни один магазин не проседал сильнее порога за этот период.';
+  if (calm && st.length > 1 && (!worst || calm.s !== worst.s)) sub += ` Ровнее всех идёт ${esc(STORES[calm.s].city)}.`;
+  $('#pulseSub').innerHTML = sub;
+  $('#pulseNote').textContent = yoy ? 'Норма: та же неделя год назад. Справа: недели ниже и выше её больше чем на 10 %' : bk.weekly ? 'Норма: медиана 8 прошлых недель. Справа: недели ниже и выше нормы больше чем на 10 %' : 'Норма: медиана того же дня недели за 8 прошлых недель. Справа: дни с отклонением больше 25 %';
+  $('#pulseScale').innerHTML = `<span>Ниже нормы</span>` + [0, 1, 2, 3].map(b => `<i class="sw" style="background:var(--down);opacity:${PULSE_OP[b]}" title="${['больше 25 %', '15–25 %', '10–15 %', '5–10 %'][b]} ниже"></i>`).join('') + `<i class="sw" style="background:var(--cell0)" title="в пределах 5 %"></i>` + [5, 6, 7, 8].map(b => `<i class="sw" style="background:var(--hue);opacity:${PULSE_OP[b]}" title="${['5–10 %', '10–15 %', '15–25 %', 'больше 25 %'][b - 5]} выше"></i>`).join('') + `<span>Выше нормы</span>`;
+}
+const sd = cells => { const v = cells.map(c => c.dev).filter(isFinite); const m = v.reduce((a, b) => a + b, 0) / (v.length || 1); return Math.sqrt(v.reduce((a, b) => a + (b - m) * (b - m), 0) / (v.length || 1)); };
+function pulseTip(ri, i, ev) {
+  const P = pulseState; if (!P) return; const r = P.rows[ri], c = r.cells[i], b = P.bk.list[i];
+  const fo = $('#pulseFo'); fo.setAttribute('x', P.labW + i * P.cw); fo.setAttribute('y', P.yOf(ri) - 1); fo.setAttribute('width', Math.max(3, P.cw)); fo.setAttribute('height', P.ch + 2); fo.setAttribute('visibility', 'visible');
+  P.focus = [ri, i];
+  const title = (r.net ? r.label : STORES[r.s].city) + ' · ' + (P.bk.weekly ? 'неделя ' + bucketLabel(b, true) : fdw(b[0]));
+  let h = `<div class="t-h">${esc(title)}</div>` + tRow('', 'выручка', money(c.v)) + tRow('', P.yoy ? 'год назад' : P.bk.weekly ? 'норма недели' : 'норма ' + WD[wd(b[0])], money(c.n));
+  h += `<div class="t-f"><span class="d ${isFinite(c.dev) ? deltaCls(c.dev) : 'flat'}">${isFinite(c.dev) ? spct(c.dev) : MDASH}</span> к норме${!r.net ? ' · нажмите, чтобы открыть магазин' : ''}</div>`;
+  const hh = !P.bk.weekly && holiday(b[0]); if (hh) h += `<div class="t-f">${esc(hh[1])}</div>`;
+  let x, y; if (ev) { x = ev.clientX; y = ev.clientY; } else { const rr = $('#pulse svg').getBoundingClientRect(); x = rr.left + P.labW + (i + 0.5) * P.cw; y = rr.top + P.yOf(ri) + P.ch; }
+  showTip(h, x, y);
+}
+function pulseHit(e) {
+  const P = pulseState; if (!P) return null; const svg = $('#pulse svg'); const r = svg.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top; if (x < P.labW || x > P.W - P.cntW) return null;
+  const i = Math.floor((x - P.labW) / P.cw); let ri = -1;
+  P.rows.forEach((_, k) => { const yy = P.yOf(k); if (y >= yy - 1 && y <= yy + P.ch + 1) ri = k; });
+  return ri < 0 || i < 0 || i >= P.bk.list.length ? null : [ri, i];
+}
+
+/* --- stores --- */
+function renderStores(animate) {
+  const body = $('#stBody');
+  const rows = M.stores.filter(x => state.stores.includes(x.s));
+  const key = state.sort, val = x => (key === 'rev' ? x.cur.rev : key === 'm2' ? x.m2 : x.g);
+  rows.sort((a, b) => fin(val(b)) - fin(val(a)));
+  const mx = Math.max(...rows.map(x => Math.max(0, fin(val(x))))) || 1;
+  // FLIP: remember positions
+  const before = new Map($$('tr', body).map(tr => [tr.dataset.s, tr.getBoundingClientRect().top]));
+  const have = new Map($$('tr', body).map(tr => [tr.dataset.s, tr]));
+  const frag = document.createDocumentFragment();
+  rows.forEach(x => {
+    let tr = have.get(String(x.s));
+    if (!tr) {
+      tr = document.createElement('tr'); tr.dataset.s = x.s; tr.tabIndex = 0;
+      tr.innerHTML = `<td class="st-n"><b>${esc(x.st.city)}</b><span>${esc(x.st.dist)} · ${F0.format(x.st.area)}${NB}м²</span></td><td class="st-bar"><div class="tr"><i></i></div></td><td class="r num c-rev"></td><td class="r num col-m2 c-m2"></td><td class="r num c-g"></td>`;
+      tr.setAttribute('aria-label', `${x.st.city}: открыть детализацию`);
+    }
+    have.delete(String(x.s));
+    const w = Math.max(0, fin(val(x))) / mx;
+    $('.st-bar i', tr).style.setProperty('--w', w.toFixed(4));
+    tweenNum($('.c-rev', tr), x.cur.rev, money);
+    tweenNum($('.c-m2', tr), x.m2, v => F0.format(Math.round(v)) + NB + '₽');
+    const g = $('.c-g', tr); g.innerHTML = isFinite(x.g) ? `<span class="d ${deltaCls(x.g)}">${spct(x.g)}</span>` : `<span class="flat">${MDASH}</span>`;
+    frag.appendChild(tr);
+  });
+  have.forEach(tr => tr.remove());
+  body.appendChild(frag);
+  if (!reduced()) $$('tr', body).forEach(tr => {
+    const b = before.get(tr.dataset.s); if (b == null) return; const dy = b - tr.getBoundingClientRect().top; if (!dy) return;
+    tr.style.transform = `translateY(${dy}px)`; tr.style.transition = 'none'; tr.getBoundingClientRect();
+    tr.style.transition = 'transform .42s cubic-bezier(.23,1,.32,1)'; tr.style.transform = '';
+  });
+  $$('#sortSeg button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.s === key)));
+  $('#w-stores').dataset.sort = key;
+  $$('#w-stores th[data-col]').forEach(th => th.classList.toggle('sorted', th.dataset.col === key));
+  const tot = rows.reduce((a, x) => a + x.cur.rev, 0);
+  const fast = rows.filter(x => isFinite(x.g)).sort((a, b) => b.g - a.g)[0];
+  const dense = rows.slice().sort((a, b) => b.m2 - a.m2)[0];
+  $('#stSum').innerHTML = `<div><span>${isAllStores() ? 'Итого по сети' : 'Итого по выбранным'}</span><b class="num" id="sumTot"></b></div><div><span>Средний магазин</span><b class="num" id="sumAvg"></b></div><div><span>Быстрее всех растёт</span><b>${fast ? esc(fast.st.city) + ' <span class="d ' + deltaCls(fast.g) + '">' + spct(fast.g) + '</span>' : MDASH}</b></div>`;
+  const st = $('#sumTot'), sa = $('#sumAvg'); st._v = renderStores._t; sa._v = renderStores._a;
+  tweenNum(st, tot, money); tweenNum(sa, tot / rows.length, money); renderStores._t = tot; renderStores._a = tot / rows.length;
+  $('#stSub').innerHTML = rows.length > 1 ? `С квадратного метра больше всех зарабатывает <b>${esc(dense.st.city)}</b>: ${F0.format(Math.round(dense.m2))}${NB}₽ за период` : `${esc(rows[0].st.dist)} район · зал ${F0.format(rows[0].st.area)}${NB}м²`;
+}
+
+/* --- anomalies --- */
+const glyph = dev => `<span class="an-g ${dev < 0 ? 'neg' : 'pos'}" aria-hidden="true"><svg class="ico"><use href="#i-arr-${dev < 0 ? 'dn' : 'up'}"/></svg></span>`;
+function anomHtml(a, inDrawer) {
+  const who = a.type === 'net' ? (isAllStores() ? 'Вся сеть' : 'Выбранные магазины') : STORES[a.s].city;
+  const cause = a.type === 'net' ? (a.hol ? (a.dev < 0 ? `Праздник: ${a.hol[1]}. Ниже нормы все магазины сразу.` : `${a.hol[1][0].toUpperCase() + a.hol[1].slice(1)}: выше нормы все магазины сразу.`) : (a.dev < 0 ? 'Просели все магазины сразу: это сезонный спад сети, а не проблема одного магазина.' : 'Рост во всех магазинах сразу: похоже на федеральную акцию или сезонный спрос.')) : a.cause;
+  return `<article class="an" data-id="${a.id}">${glyph(a.dev)}<div><h3>${esc(inDrawer ? fdw(a.d) : who)}: выручка <span class="num">${spct(a.dev)}</span></h3><div class="meta num">${inDrawer ? '' : esc(a.d2 && a.d2 !== a.d ? frangeS(a.d, a.d2) + ', ' + (a.d2 - a.d + 1) + ' ' + plural(a.d2 - a.d + 1, 'день', 'дня', 'дней') : fdw(a.d)) + ' · '}${money(a.v)} при норме ${money(a.norm)}</div><p>${esc(cause)}</p>${inDrawer ? '' : `<div class="acts">${a.type === 'store' ? `<button data-open="${a.s}" data-day="${a.d}">Открыть магазин</button>` : `<button data-goto-day="${a.d}">Показать на графике</button>`}<button class="q" data-hide="${a.id}">Скрыть</button></div>`}</div></article>`;
+}
+function renderAnoms() {
+  const vis = M.anoms.filter(a => !hiddenA.includes(a.id)), hid = M.anoms.length - vis.length;
+  const host = $('#anoms');
+  host.innerHTML = vis.length ? vis.map(a => anomHtml(a)).join('') : `<div class="empty">Отклонений больше 25 % за ${frangeS(M.from, M.to)} нет${hid ? ', кроме скрытых' : ''}.</div>`;
+  const more = $('#anMore');
+  let cap = vis.length;
+  if (route === 'overview' && !anomExpanded) {
+    const items = $$('.an', host), st = $('#w-stores'), an = $('#w-anom');
+    if (innerWidth > 1100 && !st.hidden && !an.hidden) {
+      // the list takes as many items as fit beside the stores table, so the row ends level
+      more.innerHTML = '<span>&nbsp;</span>'; more.hidden = false;
+      an.style.alignSelf = 'start'; st.style.alignSelf = 'start';
+      cap = items.length; while (cap > 2 && an.offsetHeight > st.offsetHeight) items[--cap].hidden = true;
+      an.style.alignSelf = ''; st.style.alignSelf = '';
+    } else { cap = Math.min(4, items.length); items.forEach((it, i) => { it.hidden = i >= cap; }); }
+  }
+  let s = `<span>${vis.length ? `${vis.length} ${plural(vis.length, 'отклонение', 'отклонения', 'отклонений')} за период` : ''}</span><span style="display:flex;gap:14px">`;
+  if (vis.length > cap) s += `<button class="link" id="anAll">Показать все ${vis.length}</button>`;
+  else if (anomExpanded && vis.length > 4 && route !== 'anomalies') s += `<button class="link" id="anLess">Свернуть</button>`;
+  if (hid) s += `<button class="link" id="anUnhide">Вернуть скрытые (${hid})</button>`;
+  more.innerHTML = s + '</span>';
+  more.hidden = !vis.length && !hid;
+  const navC = $('#navCount'); navC.textContent = vis.length; navC.hidden = !vis.length;
+  navC.setAttribute('aria-label', `${vis.length} ${plural(vis.length, 'отклонение требует', 'отклонения требуют', 'отклонений требуют')} внимания`);
+  const link = $('.nav a[data-route="anomalies"]'); if (vis.length) link.dataset.badge = '1'; else delete link.dataset.badge;
+  $('#anSub').textContent = `Выручка дня отличается от нормы этого дня недели больше чем на 25 %`;
+}
+
+/* --- hours --- */
+function renderHeat() {
+  const host = $('#heat'); const mob = innerWidth < 720;
+  const H = M.heat, tot = H.reduce((a, r) => a + r.reduce((x, y) => x + y, 0), 0);
+  let mx = 0, mn = Infinity, pk = [0, 0], qt = [0, 0];
+  H.forEach((r, w) => r.forEach((v, h) => { if (v > mx) { mx = v; pk = [w, h]; } if (v < mn) { mn = v; qt = [w, h]; } }));
+  const W = Math.max(260, host.clientWidth), labW = 30, n = HOURS.length, cw = (W - labW) / n, ch = mob ? 26 : 30, gap = 2;
+  const Hh = 7 * (ch + gap) + 22;
+  let s = '';
+  H.forEach((r, w) => {
+    s += `<text class="tk" x="0" y="${w * (ch + gap) + ch / 2 + 4}">${WDC[w]}</text>`;
+    r.forEach((v, h) => {
+      const t = mx > mn ? (v - mn) / (mx - mn) : 0, op = (0.08 + 0.87 * t).toFixed(3);
+      const pkc = w === pk[0] && h === pk[1];
+      s += `<rect class="hc" data-wd="${w}" data-h="${h}" x="${(labW + h * cw + gap / 2).toFixed(2)}" y="${w * (ch + gap)}" width="${(cw - gap).toFixed(2)}" height="${ch}" rx="3" style="fill:var(--hue);fill-opacity:${op}"/>`;
+      if (pkc) s += `<rect x="${(labW + h * cw + gap / 2 - 1.5).toFixed(2)}" y="${w * (ch + gap) - 1.5}" width="${(cw - gap + 3).toFixed(2)}" height="${ch + 3}" rx="4" fill="none" stroke="var(--text)" stroke-width="1.5"/>`;
+    });
+  });
+  const step = mob ? 3 : W < 700 ? 2 : 1;
+  HOURS.forEach((hr, h) => { if (h % step) return; s += `<text class="tk" x="${(labW + h * cw + cw / 2).toFixed(1)}" y="${Hh - 4}" text-anchor="middle">${hr}:00</text>`; });
+  host.innerHTML = `<svg width="${W}" height="${Hh}" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Выручка по дням недели и часам">${s}</svg>`;
+  heatState = { tot, labW, cw, ch, gap };
+  const sw = [0, 0.25, 0.5, 0.75, 1].map(t => `<i class="sw" style="background:var(--hue);opacity:${(0.08 + 0.87 * t).toFixed(2)}"></i>`).join('');
+  $('#heatScale').innerHTML = `<span class="num">${tot ? F1.format(mn / tot * 100) : '0'}${NB}%</span>${sw}<span class="num">${tot ? F1.format(mx / tot * 100) : '0'}${NB}%</span><span class="gapx"></span><span>доля выручки периода за час</span>`;
+  // facts
+  const w0 = M.wdSum.indexOf(Math.max(...M.wdSum)); const wTot = M.wdSum.reduce((a, b) => a + b, 0);
+  let eve = 0; for (let w = 0; w < 5; w++) for (const h of [9, 10, 11]) eve += H[w][h];
+  const avgDay = M.wdCnt[w0] ? M.wdSum[w0] / M.wdCnt[w0] : 0;
+  $('#facts').innerHTML = `
+    <div class="fact"><span>Пиковый час</span><b>${WDC[pk[0]]}, ${HOURS[pk[1]]}:00${NDASH}${HOURS[pk[1]] + 1}:00</b><p>${tot ? pct(mx / tot) : MDASH} выручки периода приходится на этот час</p></div>
+    <div class="fact"><span>Самый сильный день</span><b>${WDF[w0]}</b><p>${wTot ? pct(M.wdSum[w0] / wTot) : MDASH} выручки, ${money(avgDay)} в среднем за день</p></div>
+    <div class="fact"><span>Рекомендация</span><b>Усилить кассы в будни 18:00${NDASH}21:00</b><p>Вечер буднего дня даёт ${tot ? pct(eve / tot) : MDASH} выручки, а тише всего ${WDV[qt[0]]} в ${HOURS[qt[1]]}:00</p></div>`;
+}
+let heatState = null;
+
+/* --- saved views --- */
+const PRESETS = [
+  { id: 'v1', name: 'Урал, 30 дней', p: '30', stores: STORES.map((s, i) => (s.reg === 'ural' ? i : -1)).filter(i => i >= 0), cats: ALL_CATS.slice() },
+  { id: 'v2', name: 'Текстиль и декор, квартал', p: 'q', stores: ALL_STORES.slice(), cats: CATS.map(c => c.id === 'tex' || c.id === 'dec') },
+  { id: 'v3', name: 'Вся сеть за год', p: 'y', stores: ALL_STORES.slice(), cats: ALL_CATS.slice() }
+];
+const sameView = v => v.p === state.p && (v.p !== 'custom' || (v.cf === state.cf && v.ct === state.ct)) && v.stores.length === state.stores.length && v.stores.every(s => state.stores.includes(s)) && v.cats.every((c, i) => c === state.cats[i]);
+function renderViews() {
+  const host = $('#viewList');
+  host.innerHTML = PRESETS.concat(userViews).map(v => `<div class="view-row"><button class="nav-item" data-view="${esc(v.id)}" aria-pressed="${sameView(v)}" title="${esc(v.name)}"><svg class="ico"><use href="#i-bookmark"/></svg><span class="lbl">${esc(v.name)}</span></button>${v.user ? `<button class="del" data-del="${esc(v.id)}" aria-label="Удалить вид «${esc(v.name)}»"><svg class="ico" style="width:14px;height:14px"><use href="#i-x"/></svg></button>` : ''}</div>`).join('');
+}
+function applyView(v) {
+  state.p = v.p; state.cf = v.cf != null ? v.cf : state.cf; state.ct = v.ct != null ? v.ct : state.ct;
+  state.stores = v.stores.slice(); state.cats = v.cats.slice();
+  renderAll(true); toast(`Вид «${v.name}»`);
+}
+
+/* --- layout: which widgets show in this view --- */
+const WIDGETS = [
+  { w: 'kpi', name: 'Показатели', d: 'Выручка, чеки, средний чек, конверсия' },
+  { w: 'rev', name: 'Динамика', d: 'Выбранный показатель по дням и прошлый период' },
+  { w: 'cat', name: 'Категории', d: 'Структура выручки, нажатие фильтрует дашборд' },
+  { w: 'pulse', name: 'Ритм магазинов', d: 'Каждый день магазина против его нормы' },
+  { w: 'stores', name: 'Магазины', d: 'Сравнение и переход в детализацию' },
+  { w: 'anom', name: 'Аномалии', d: 'Отклонения больше 25 % с причиной' },
+  { w: 'heat', name: 'Часы пик', d: 'Дни недели и часы работы' }
+];
+const ROUTES = { overview: 'Обзор продаж', dynamics: 'Динамика', rhythm: 'Ритм магазинов', categories: 'Категории', stores: 'Магазины', anomalies: 'Аномалии', hours: 'Часы пик' };
+const ROUTE_W = { dynamics: ['kpi', 'rev'], rhythm: ['pulse'], categories: ['rev', 'cat'], stores: ['stores'], anomalies: ['anom'], hours: ['heat'] };
+function layout() {
+  const show = w => (route === 'overview' ? !hiddenW.includes(w) : ROUTE_W[route].includes(w));
+  WIDGETS.forEach(x => { const el = $(`[data-w="${x.w}"]`); el.hidden = !show(x.w); });
+  ['#rowA', '#rowB', '#rowC', '#rowD'].forEach(id => {
+    const row = $(id), vis = [...row.children].filter(c => !c.hidden);
+    row.hidden = !vis.length; row.classList.toggle('solo', vis.length < 2);
+  });
+  $('#title').textContent = ROUTES[route]; $('#mScr').textContent = ROUTES[route];
+  document.title = (route === 'overview' ? 'Пульс — аналитика продаж сети «Хоромы»' : ROUTES[route] + ' — Пульс');
+  $('#main').dataset.route = route;
+  $$('.nav a[data-route]').forEach(a => { if (a.dataset.route === route) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+}
+
+function renderAll(animate) {
+  M = compute();
+  renderFilters(); renderTitle(); renderKPI();
+  renderCats();
+  if (!$('#w-rev').hidden) renderRev(animate);
+  if (!$('#w-pulse').hidden) renderPulse(animate);
+  renderStores(animate); renderAnoms();
+  if (!$('#w-heat').hidden) renderHeat();
+  renderViews(); save();
+  if (drawerStore != null && $('#drawer') && $('#drawer').classList.contains('on') && drawerKind === 'store') openStore(drawerStore, true);
+}
+
+/* ================= floating layers ================= */
+let popEl = null, popAnchor = null, scrimEl = null, lastFocus = null;
+function closePop() { if (!popEl) return; const p = popEl; popEl = null; p.classList.remove('on'); if (popAnchor) popAnchor.setAttribute('aria-expanded', 'false'); setTimeout(() => p.remove(), 180); popAnchor = null; }
+function openPop(anchor, html, onMount, wide) {
+  const same = popAnchor === anchor; closePop(); if (same) return null;
+  const p = document.createElement('div'); p.className = 'pop'; p.setAttribute('role', 'dialog'); p.innerHTML = html; if (wide) p.style.minWidth = wide + 'px';
+  document.body.appendChild(p); popEl = p; popAnchor = anchor; anchor.setAttribute('aria-expanded', 'true');
+  const place = () => {
+    const r = anchor.getBoundingClientRect(), pr = p.getBoundingClientRect();
+    let L = r.left, T = r.bottom + 6; if (L + pr.width > innerWidth - 12) L = Math.max(12, r.right - pr.width); if (T + pr.height > innerHeight - 12) T = Math.max(12, r.top - 6 - pr.height);
+    p.style.left = L + 'px'; p.style.top = T + 'px';
+  };
+  place(); requestAnimationFrame(() => p.classList.add('on'));
+  if (onMount) onMount(p, place);
+  const f = p.querySelector('input,button'); if (f) f.focus({ preventScroll: true });
+  return p;
+}
+document.addEventListener('pointerdown', e => { if (popEl && !popEl.contains(e.target) && !(popAnchor && popAnchor.contains(e.target))) closePop(); });
+function scrim(on, onClick) {
+  if (on) { if (!scrimEl) { scrimEl = document.createElement('div'); scrimEl.className = 'scrim'; document.body.appendChild(scrimEl); requestAnimationFrame(() => scrimEl && scrimEl.classList.add('on')); } scrimEl.onclick = onClick; }
+  else if (scrimEl) { const s = scrimEl; scrimEl = null; s.classList.remove('on'); setTimeout(() => s.remove(), 220); }
+}
+let modalEl = null;
+function closeModal() { if (!modalEl) return; const m = modalEl; modalEl = null; m.classList.remove('on'); setTimeout(() => m.remove(), 200); if (drawerEl()) scrim(true, closeDrawer); else scrim(false); if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true }); }
+function modal(html, cls, onMount) {
+  closePop(); closeModal(); lastFocus = document.activeElement;
+  const m = document.createElement('div'); m.className = 'modal ' + (cls || ''); m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.innerHTML = html;
+  document.body.appendChild(m); modalEl = m; scrim(true, closeModal); requestAnimationFrame(() => m.classList.add('on'));
+  m.addEventListener('keydown', trapTab);
+  if (onMount) onMount(m);
+  const f = m.querySelector('input,button:not(.icon-btn)') || m.querySelector('button'); if (f) f.focus();
+  return m;
+}
+function trapTab(e) {
+  if (e.key !== 'Tab') return; const el = e.currentTarget; const f = $$('button:not([disabled]),input,a[href],[tabindex="0"]', el).filter(x => x.offsetParent !== null); if (!f.length) return;
+  const a = f[0], b = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); b.focus(); } else if (!e.shiftKey && document.activeElement === b) { e.preventDefault(); a.focus(); }
+}
+const drawerEl = () => $('#drawer.on');
+let drawerStore = null, drawerKind = null;
+function openDrawer(html, kind) {
+  closePop();
+  let d = $('#drawer'); if (!d) { d = document.createElement('aside'); d.id = 'drawer'; d.className = 'drawer'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true'); document.body.appendChild(d); d.addEventListener('keydown', trapTab); }
+  const was = d.classList.contains('on'); if (!was) lastFocus = document.activeElement;
+  d.innerHTML = html; drawerKind = kind; scrim(true, closeDrawer);
+  requestAnimationFrame(() => d.classList.add('on'));
+  if (!was) setTimeout(() => { const c = d.querySelector('.dr-h .icon-btn:last-child'); if (c) c.focus({ preventScroll: true }); }, 60);
+  return d;
+}
+function closeDrawer() { const d = $('#drawer'); if (!d || !d.classList.contains('on')) return; d.classList.remove('on'); drawerStore = null; drawerKind = null; scrim(false); hideTip(); if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true }); }
+let toastT = 0;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2400); }
+
+/* ================= store detail ================= */
+function openStore(s, keep) {
+  s = +s; drawerStore = s;
+  const x = M.stores[s], st = x.st, lo = M.lo, SS = M.SS[s];
+  const rank = M.rankAll.indexOf(s) + 1;
+  const list = (state.stores.includes(s) ? M.stores.filter(y => state.stores.includes(y.s)) : M.stores.slice()).sort((a, b) => b.cur.rev - a.cur.rev).map(y => y.s);
+  const pos = list.indexOf(s);
+  const kp = k => { const m = METRICS[k], v = m.of(x.cur), p = x.prev ? m.of(x.prev) : NaN, c = chg(m, v, p); return `<div><span>${m.label}</span><b class="num">${m.v(v)}</b><em class="d ${c ? c.cls : 'flat'}">${c ? c.sign : MDASH}</em></div>`; };
+  // category shares: store vs chain (all 8 stores, all categories)
+  const sc = CATS.map((c, ci) => { let a = 0; for (let d = M.from; d <= M.to; d++) a += REV[(s * ND + d) * NC + ci]; return a; });
+  const ns = CATS.map((c, ci) => { let a = 0; for (let k = 0; k < NS; k++) for (let d = M.from; d <= M.to; d++) a += REV[(k * ND + d) * NC + ci]; return a; });
+  const sT = sc.reduce((a, b) => a + b, 0), nT = ns.reduce((a, b) => a + b, 0);
+  const mxS = Math.max(...sc.map(v => v / sT), ...ns.map(v => v / nT)) * 1.1;
+  const anoms = storeAnoms(s);
+  const bigGap = CATS.map((c, ci) => [ci, sc[ci] / sT - ns[ci] / nT]).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))[0];
+  const html = `
+    <div class="dr-h"><div><h2>${esc(st.city)}</h2><p>${esc(st.dist)} район · ${frange(M.from, M.to)}${isAllCats() ? '' : ' · ' + esc($('#catVal').textContent)}</p></div>
+      <div class="tools"><button class="icon-btn" data-nav="-1" aria-label="Предыдущий магазин" ${pos <= 0 ? 'disabled style="opacity:.35"' : ''}><svg class="ico"><use href="#i-left"/></svg></button><button class="icon-btn" data-nav="1" aria-label="Следующий магазин" ${pos >= list.length - 1 ? 'disabled style="opacity:.35"' : ''}><svg class="ico"><use href="#i-right"/></svg></button><button class="icon-btn" data-close aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div></div>
+    <div class="dr-b">
+      <div class="facts-row"><span class="tag">Управляющий: <b>${esc(st.mgr)}</b></span><span class="tag">Зал <b>${F0.format(st.area)}${NB}м²</b></span><span class="tag">Открыт в <b>${st.open}</b></span><span class="tag"><b>${rank}-е</b> место из 8 по выручке</span></div>
+      <div class="mini-kpis">${['rev', 'chk', 'avg', 'conv'].map(kp).join('')}</div>
+      <div class="dr-sec"><h3>Выручка магазина и средний магазин сети</h3><div class="legend"><span>${keyLine()}${esc(st.city)}</span><span>${keyLine('prev')}Средний магазин сети</span></div><div class="chart" id="drChart"></div></div>
+      <div class="dr-sec"><h3>Доля категорий: магазин и сеть</h3><p class="muted" style="margin:-6px 0 8px;font-size:13px">Полоса показывает долю в выручке магазина, черта — в среднем по сети. Сильнее всего отличается ${esc(CATS[bigGap[0]].name.toLowerCase())}: ${bigGap[1] > 0 ? 'на' : 'на'} ${F1.format(Math.abs(bigGap[1]) * 100)}${NB}п.${NB}п. ${bigGap[1] > 0 ? 'выше' : 'ниже'} сети.</p>
+        ${CATS.map((c, ci) => { const a = sc[ci] / sT, b = ns[ci] / nT; return `<div class="bul"><span>${esc(c.name)}</span><span class="trk"><i style="width:100%;transform:scaleX(${(a / mxS).toFixed(4)})"></i><u style="left:calc(${(b / mxS * 100).toFixed(2)}% - 1px)" title="Сеть: ${pct(b)}"></u></span><span class="r">${pct(a)}</span></div>`; }).join('')}
+      </div>
+      <div class="dr-sec"><h3>Аномалии магазина за период</h3>${anoms.length ? anoms.map(a => anomHtml(a, true)).join('') : `<div class="empty">Отклонений больше 25 % не было.</div>`}</div>
+    </div>
+    <div class="dr-f"><button class="btn" data-only="${s}">Показать только этот магазин</button><button class="btn" data-csv-store="${s}"><svg class="ico"><use href="#i-down"/></svg>CSV магазина</button></div>`;
+  const d = openDrawer(html, 'store');
+  d.setAttribute('aria-label', `${st.city}: детализация`);
+  d.onclick = e => {
+    const t = e.target.closest('button'); if (!t) return;
+    if (t.hasAttribute('data-close')) closeDrawer();
+    else if (t.dataset.nav) { const n = list[pos + +t.dataset.nav]; if (n != null) openStore(n, true); }
+    else if (t.dataset.only != null) { state.stores = [s]; closeDrawer(); renderAll(true); toast(`Показан только ${st.city}`); }
+    else if (t.dataset.csvStore != null) exportCSV('store', s);
+  };
+  // chart: store vs average store, same buckets as the main chart
+  const bk = buckets(M.from, M.to, 120);
+  const cur = bk.list.map(([a, b]) => sumR(SS.r, lo, a, b)), avg = bk.list.map(([a, b]) => sumR(M.avgStore, lo, a, b));
+  const all = cur.concat(avg), mx = Math.max(...all);
+  const lc = LineChart($('#drChart'), { height: 200 });
+  lc.set({ cur, prev: avg, zero: true, ann: null, weekly: bk.weekly, xl: bk.list.map(b => fd(bk.weekly ? b[1] : b[0])), tickFmt: tickMoney(niceTicks(0, mx, 4)), aria: `Выручка ${st.city} против среднего магазина`,
+    tip: i => { const g = avg[i] ? cur[i] / avg[i] - 1 : NaN; return `<div class="t-h">${esc(bucketLabel(bk.list[i], bk.weekly))}</div>` + tRow(keyLine(), st.city, money(cur[i])) + tRow(keyLine('prev'), 'средний магазин', money(avg[i])) + (isFinite(g) ? `<div class="t-f">${g >= 0 ? 'выше' : 'ниже'} среднего на ${pct(Math.abs(g))}</div>` : ''); } }, !keep);
+}
+function storeAnoms(s) {
+  const out = [], lo = M.lo, o = M.SS[s], multi = state.stores.length >= 2;
+  for (let d = M.from; d <= M.to; d++) { const nd = multi ? M.net.r[d - lo] / bucketNorm(M.net.r, lo, d, d) - 1 : 0; const a = storeAnomaly(o, lo, s, d, nd); if (a) out.push(a); }
+  return out.sort((a, b) => b.d - a.d);
+}
+
+/* ================= menus ================= */
+const cbx = '<span class="cb"><svg class="ico"><use href="#i-check"/></svg></span>';
+function storeMenu(anchor) {
+  const html = () => {
+    const vol = STORES.map((s, i) => (s.reg === 'volga' ? i : -1)).filter(i => i >= 0), ur = STORES.map((s, i) => (s.reg === 'ural' ? i : -1)).filter(i => i >= 0);
+    const eq = a => a.length === state.stores.length && a.every(i => state.stores.includes(i));
+    return `<h4>Магазины</h4><div class="chips"><button class="chip" data-preset="all" aria-pressed="${isAllStores()}">Все</button><button class="chip" data-preset="volga" aria-pressed="${eq(vol)}">Поволжье</button><button class="chip" data-preset="ural" aria-pressed="${eq(ur)}">Урал и Приуралье</button></div>
+    <button class="opt" role="menuitemcheckbox" data-all aria-checked="${isAllStores()}">${cbx}<b style="font-weight:500">Все магазины</b><span class="r">8</span></button><div class="sep"></div>
+    ${M.stores.slice().sort((a, b) => b.all - a.all).map(x => `<button class="opt" role="menuitemcheckbox" data-s="${x.s}" aria-checked="${state.stores.includes(x.s)}">${cbx}${esc(x.st.city)}<span class="r">${money(x.cur.rev)}</span></button>`).join('')}
+    <p class="hint" id="stHint" hidden>Хотя бы один магазин должен остаться</p>`;
+  };
+  openPop(anchor, html(), (p) => {
+    p.setAttribute('aria-label', 'Магазины');
+    p.onclick = e => {
+      const b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.preset) state.stores = b.dataset.preset === 'all' ? ALL_STORES.slice() : STORES.map((s, i) => (s.reg === b.dataset.preset ? i : -1)).filter(i => i >= 0);
+      else if (b.hasAttribute('data-all')) state.stores = ALL_STORES.slice();
+      else if (b.dataset.s != null) { const s = +b.dataset.s; if (state.stores.includes(s)) { if (state.stores.length === 1) { $('#stHint', p).hidden = false; return; } state.stores = state.stores.filter(x => x !== s); } else state.stores = state.stores.concat(s).sort((a, c) => a - c); }
+      const f = { s: b.dataset.s, preset: b.dataset.preset };
+      renderAll(true); p.innerHTML = html();
+      const again = f.s != null ? p.querySelector(`[data-s="${f.s}"]`) : f.preset ? p.querySelector(`[data-preset="${f.preset}"]`) : null; if (again) again.focus({ preventScroll: true });
+    };
+    menuKeys(p);
+  });
+}
+function catMenu(anchor) {
+  const html = () => `<h4>Категории</h4><button class="opt" role="menuitemcheckbox" data-all aria-checked="${isAllCats()}">${cbx}<b style="font-weight:500">Все категории</b><span class="r">6</span></button><div class="sep"></div>
+    ${M.cats.map(c => `<button class="opt" role="menuitemcheckbox" data-c="${c.ci}" aria-checked="${state.cats[c.ci]}">${cbx}${esc(c.c.name)}<span class="r">${money(c.cur)}</span></button>`).join('')}<p class="hint" id="ctHint" hidden>Хотя бы одна категория должна остаться</p>`;
+  openPop(anchor, html(), p => {
+    p.setAttribute('aria-label', 'Категории');
+    p.onclick = e => {
+      const b = e.target.closest('button'); if (!b) return;
+      if (b.hasAttribute('data-all')) state.cats = ALL_CATS.slice();
+      else if (b.dataset.c != null) { const c = +b.dataset.c; if (state.cats[c] && selCats().length === 1) { $('#ctHint', p).hidden = false; return; } state.cats = state.cats.slice(); state.cats[c] = !state.cats[c]; }
+      const f = b.dataset.c; renderAll(true); p.innerHTML = html(); const again = f != null ? p.querySelector(`[data-c="${f}"]`) : p.querySelector('[data-all]'); if (again) again.focus({ preventScroll: true });
+    };
+    menuKeys(p);
+  });
+}
+function menuKeys(p) {
+  p.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return; e.preventDefault();
+    const items = $$('button', p), i = items.indexOf(document.activeElement); const n = items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length]; n.focus();
+  });
+}
+function customMenu(anchor) {
+  const cur = periodRange();
+  openPop(anchor, `<h4>Свой период · данные с ${fdy(MIN_FROM)} по ${fdy(ND - 1)}</h4><form class="f-row" id="cf"><label for="cfA">Начало</label><input class="inp" type="date" id="cfA" min="${iso(MIN_FROM)}" max="${iso(ND - 1)}" value="${iso(cur.from)}" aria-describedby="cfErr"><label for="cfB">Конец</label><input class="inp" type="date" id="cfB" min="${iso(MIN_FROM)}" max="${iso(ND - 1)}" value="${iso(cur.to)}" aria-describedby="cfErr"><p class="hint err" id="cfErr" style="padding:0" hidden></p><button class="btn btn-primary" type="submit" style="justify-content:center;margin-top:4px">Применить период</button></form>`, p => {
+    p.setAttribute('aria-label', 'Свой период');
+    $('#cf', p).onsubmit = e => {
+      e.preventDefault(); const a = fromIso($('#cfA', p).value), b = fromIso($('#cfB', p).value), er = $('#cfErr', p);
+      if (a == null || b == null) { er.textContent = 'Укажите обе даты'; er.hidden = false; return; }
+      if (a > b) { er.textContent = 'Начало позже конца'; er.hidden = false; return; }
+      if (a < MIN_FROM || b > ND - 1) { er.textContent = `Данные есть с ${fdy(MIN_FROM)} по ${fdy(ND - 1)}`; er.hidden = false; return; }
+      state.p = 'custom'; state.cf = a; state.ct = b; closePop(); renderAll(true);
+    };
+  }, 280);
+}
+function exportMenu(anchor) {
+  const days = M.len * state.stores.length;
+  openPop(anchor, `<h4>Экспорт за ${frange(M.from, M.to)}, с учётом фильтров</h4>
+    <button class="opt" data-x="days">По дням и магазинам<span class="r">${F0.format(days)} ${plural(days, 'строка', 'строки', 'строк')}</span></button>
+    <button class="opt" data-x="stores">Сводка по магазинам<span class="r">${state.stores.length} ${plural(state.stores.length, 'строка', 'строки', 'строк')}</span></button>
+    <button class="opt" data-x="cats">Сводка по категориям<span class="r">6 строк</span></button>`, p => { p.setAttribute('aria-label', 'Экспорт'); p.onclick = e => { const b = e.target.closest('[data-x]'); if (b) { exportCSV(b.dataset.x); closePop(); } }; menuKeys(p); }, 300);
+}
+function csvNum(v, d = 0) { return (d ? v.toFixed(d) : String(Math.round(v))).replace('.', ','); }
+function exportCSV(kind, s) {
+  const lo = M.lo; let rows = [], name = '';
+  const span = `${iso(M.from)}_${iso(M.to)}`;
+  if (kind === 'days' || kind === 'store') {
+    const list = kind === 'store' ? [+s] : state.stores;
+    rows.push(['Дата', 'Магазин', 'Выручка, ₽', 'Чеки', 'Посетители', 'Средний чек, ₽', 'Конверсия, %']);
+    for (let d = M.from; d <= M.to; d++) list.forEach(k => { const o = M.SS[k], r = o.r[d - lo], c = o.k[d - lo], t = o.t[d - lo]; rows.push([iso(d), STORES[k].city, csvNum(r), csvNum(c), csvNum(t), csvNum(c ? r / c : 0, 2), csvNum(t ? c / t * 100 : 0, 2)]); });
+    name = kind === 'store' ? `pulse_${STORES[s].id}_${span}.csv` : `pulse_days_${span}.csv`;
+  } else if (kind === 'stores') {
+    rows.push(['Магазин', 'Район', 'Зал, м²', 'Выручка, ₽', 'Прошлый период, ₽', 'Рост, %', '₽ на м²', 'Чеки', 'Средний чек, ₽', 'Конверсия, %']);
+    M.stores.filter(x => state.stores.includes(x.s)).sort((a, b) => b.cur.rev - a.cur.rev).forEach(x => rows.push([x.st.city, x.st.dist, x.st.area, csvNum(x.cur.rev), x.prev ? csvNum(x.prev.rev) : '', isFinite(x.g) ? csvNum(x.g * 100, 1) : '', csvNum(x.m2), csvNum(x.cur.chk), csvNum(x.cur.rev / x.cur.chk, 2), csvNum(x.cur.chk / x.cur.trf * 100, 2)]));
+    name = `pulse_stores_${span}.csv`;
+  } else {
+    rows.push(['Категория', 'Выручка, ₽', 'Доля, %', 'Прошлый период, ₽', 'Рост, %', 'В фильтре']);
+    M.cats.forEach(c => rows.push([c.c.name, csvNum(c.cur), csvNum(c.share * 100, 1), isFinite(c.prev) ? csvNum(c.prev) : '', isFinite(c.g) ? csvNum(c.g * 100, 1) : '', state.cats[c.ci] ? 'да' : 'нет']));
+    name = `pulse_categories_${span}.csv`;
+  }
+  const csv = '﻿' + rows.map(r => r.map(v => { v = String(v); return /[;"\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(';')).join('\r\n');
+  const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  toast(`Файл ${name} · ${F0.format(rows.length - 1)} ${plural(rows.length - 1, 'строка', 'строки', 'строк')}`);
+}
+
+/* ================= search ================= */
+function searchIndex() {
+  const out = [];
+  M.stores.forEach(x => out.push({ g: 'Магазины', t: x.st.city, r: `${x.st.dist} · ${REG[x.st.reg]}`, k: `${x.st.city} ${x.st.dist} ${REG[x.st.reg]} ${x.st.mgr}`, run: () => openStore(x.s) }));
+  CATS.forEach((c, i) => out.push({ g: 'Категории', t: c.name, r: 'показать только её', k: c.name, run: () => { state.cats = CATS.map((_, j) => j === i); renderAll(true); } }));
+  [['7', '7 дней'], ['30', '30 дней'], ['q', 'Квартал'], ['y', 'Год']].forEach(([p, n]) => out.push({ g: 'Период', t: n, r: frange(periodRange(p).from, periodRange(p).to), k: 'период ' + n, run: () => { state.p = p; renderAll(true); } }));
+  Object.entries(ROUTES).forEach(([r, n]) => out.push({ g: 'Разделы', t: n, r: '', k: 'раздел ' + n, run: () => { location.hash = r === 'overview' ? '#/' : '#/' + r; } }));
+  [['Экспорт по дням и магазинам', () => exportCSV('days')], ['Сохранить текущий вид', saveViewModal], ['Настроить дашборд', settings], ['Сменить тему', toggleTheme], ['Горячие клавиши', keysModal], ['Сбросить фильтры', clearFilters]].forEach(([t, f]) => out.push({ g: 'Действия', t, r: '', k: t, run: f }));
+  return out;
+}
+function openSearch() {
+  const idx = searchIndex(); let act = 0, list = [];
+  const m = modal(`<div class="cmd-in"><svg class="ico"><use href="#i-search"/></svg><input id="q" type="text" placeholder="Магазин, категория или действие" aria-label="Поиск" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="res"><kbd>Esc</kbd></div><div class="res" id="res" role="listbox"></div>`, 'cmd');
+  const q = $('#q', m), res = $('#res', m);
+  const draw = () => {
+    const v = q.value.trim().toLowerCase();
+    list = idx.filter(x => !v || x.k.toLowerCase().includes(v));
+    act = clamp(act, 0, Math.max(0, list.length - 1));
+    let g = '', s = '';
+    list.forEach((x, i) => { if (x.g !== g) { g = x.g; s += `<div class="grp">${esc(g)}</div>`; } s += `<button class="opt ${i === act ? 'act' : ''}" role="option" aria-selected="${i === act}" data-i="${i}" tabindex="-1">${esc(x.t)}<span class="r">${esc(x.r)}</span></button>`; });
+    res.innerHTML = s || `<div class="empty" style="margin:8px">Ничего не нашлось. Попробуйте город или категорию.</div>`;
+    const a = res.querySelector('.act'); if (a) a.scrollIntoView({ block: 'nearest' });
+  };
+  const run = i => { const x = list[i]; if (!x) return; closeModal(); setTimeout(x.run, 30); };
+  q.addEventListener('input', () => { act = 0; draw(); });
+  q.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); act = Math.min(list.length - 1, act + 1); draw(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); act = Math.max(0, act - 1); draw(); }
+    else if (e.key === 'Enter') { e.preventDefault(); run(act); }
+  });
+  res.addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b) run(+b.dataset.i); });
+  res.addEventListener('pointermove', e => { const b = e.target.closest('[data-i]'); if (b && +b.dataset.i !== act) { act = +b.dataset.i; $$('.opt', res).forEach(o => o.classList.toggle('act', +o.dataset.i === act)); } });
+  draw(); q.focus();
+}
+
+/* ================= other dialogs ================= */
+function keysModal() {
+  const K = [['/', 'Поиск по магазинам, категориям и действиям'], ['1–4', 'Период: 7 дней, 30 дней, квартал, год'], ['N', 'Сохранить текущий вид'], ['E', 'Экспорт CSV'], ['C', 'Настроить дашборд'], ['T', 'Сменить тему'], ['B', 'Свернуть боковое меню'], ['?', 'Эта подсказка'], ['Esc', 'Закрыть панель или окно']];
+  modal(`<div class="mh"><h2>Горячие клавиши</h2><button class="icon-btn" data-x aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div><div class="mb"><div class="keys">${K.map(([k, t]) => `<kbd>${k}</kbd><span>${t}</span>`).join('')}</div></div><div class="mf"><button class="btn btn-primary" data-x>Понятно</button></div>`, '', m => { m.onclick = e => { if (e.target.closest('[data-x]')) closeModal(); }; });
+}
+function suggestName() {
+  const p = { '7': '7 дней', '30': '30 дней', q: 'квартал', y: 'год', custom: frangeS(M.from, M.to) }[state.p];
+  const sc = isAllStores() ? 'Вся сеть' : scopeLabel();
+  let ct = isAllCats() ? '' : (selCats().length <= 2 ? selCats().map(i => CATS[i].name).join(' и ') : selCats().length + ' категории');
+  if (ct) ct = ct[0] + ct.slice(1).toLowerCase();
+  return [ct ? (isAllStores() ? ct : sc + ', ' + ct.toLowerCase()) : sc, p].join(', ');
+}
+function saveViewModal() {
+  modal(`<form id="vf"><div class="mh"><h2>Сохранить вид</h2><button type="button" class="icon-btn" data-x aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div><div class="mb"><div class="f-row" style="display:grid;gap:8px"><label for="vn" style="font-weight:500">Название</label><input class="inp" id="vn" maxlength="40" value="${esc(suggestName())}" aria-describedby="vnHint"><p class="hint" id="vnHint" style="padding:0">Сохранятся период, магазины и категории: ${esc(frange(M.from, M.to))} · ${esc($('#storeVal').textContent)} · ${esc($('#catVal').textContent)}</p></div></div><div class="mf"><button type="button" class="btn" data-x>Отмена</button><button class="btn btn-primary" type="submit">Сохранить</button></div></form>`, '', m => {
+    m.onclick = e => { if (e.target.closest('[data-x]')) closeModal(); };
+    $('#vf', m).onsubmit = e => {
+      e.preventDefault(); const name = $('#vn', m).value.trim() || suggestName();
+      userViews.push({ id: 'u' + Date.now().toString(36), name, user: true, p: state.p, cf: state.cf, ct: state.ct, stores: state.stores.slice(), cats: state.cats.slice() });
+      LS.set('views', userViews); closeModal(); renderViews(); toast(`Вид «${name}» сохранён`);
+    };
+    setTimeout(() => $('#vn', m).select(), 30);
+  });
+}
+function settings() {
+  const html = () => `<div class="dr-h"><div><h2>Настройка дашборда</h2><p>Скрытые блоки можно вернуть в любой момент</p></div><div class="tools"><button class="icon-btn" data-close aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div></div>
+    <div class="dr-b">${WIDGETS.map(x => `<div class="set-row"><div><b>${x.name}</b><span>${x.d}</span></div><button class="sw-t" role="switch" aria-checked="${!hiddenW.includes(x.w)}" data-w="${x.w}" aria-label="${x.name}"></button></div>`).join('')}</div>
+    <div class="dr-f"><button class="btn" data-all>Показать все блоки</button></div>`;
+  const d = openDrawer(html(), 'settings'); d.setAttribute('aria-label', 'Настройка дашборда');
+  d.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.hasAttribute('data-close')) return closeDrawer();
+    if (b.hasAttribute('data-all')) hiddenW = [];
+    else if (b.dataset.w) { const w = b.dataset.w; hiddenW = hiddenW.includes(w) ? hiddenW.filter(x => x !== w) : hiddenW.concat(w); }
+    LS.set('hiddenW', hiddenW);
+    if (route !== 'overview') location.hash = '#/';
+    layout(); renderAll(false);
+    $$('.sw-t', d).forEach(s => s.setAttribute('aria-checked', String(!hiddenW.includes(s.dataset.w))));
+  };
+}
+function clearFilters() { state.stores = ALL_STORES.slice(); state.cats = ALL_CATS.slice(); renderAll(true); }
+function setTheme(t) { document.documentElement.dataset.theme = t; LS.set('theme', t); const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = t === 'dark' ? '#0b0b0b' : '#f4f3f0'; renderAll(false); }
+function curTheme() { const t = document.documentElement.dataset.theme; return t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+function toggleTheme() { setTheme(curTheme() === 'dark' ? 'light' : 'dark'); toast(curTheme() === 'dark' ? 'Тёмная тема' : 'Светлая тема'); }
+function setCollapsed(on) { document.body.classList.toggle('collapsed', on); LS.set('collapsed', on); $('#collapse').setAttribute('aria-label', on ? 'Развернуть меню' : 'Свернуть меню'); setTimeout(() => renderAll(false), 280); }
+function openSide() { const s = $('#side'); s.classList.add('open'); $('#mMenu').setAttribute('aria-expanded', 'true'); $('#sideClose').hidden = false; scrim(true, closeSide); setTimeout(() => $('#sideClose').focus(), 50); }
+function closeSide() { const s = $('#side'); if (!s.classList.contains('open')) return; s.classList.remove('open'); $('#mMenu').setAttribute('aria-expanded', 'false'); $('#sideClose').hidden = true; scrim(false); }
+function resetAll() {
+  LS.clear(); Object.assign(state, JSON.parse(JSON.stringify(DEF))); hiddenW = []; hiddenA = []; userViews = []; anomExpanded = false;
+  document.documentElement.removeAttribute('data-theme'); document.body.classList.remove('collapsed');
+  location.hash = '#/'; layout(); renderAll(true); toast('Настройки сброшены');
+}
+function tour() {
+  if (LS.get('tour', false)) return;
+  const t = document.createElement('div'); t.className = 'tour'; t.setAttribute('role', 'dialog'); t.setAttribute('aria-label', 'Как читать Пульс');
+  t.innerHTML = `<h2>Как читать «Пульс»</h2><ul><li>Клетка в «Ритме магазинов» показывает день магазина против его обычного дня недели. Нажмите, чтобы открыть магазин.</li><li>Категория в списке фильтрует весь дашборд, показатель сверху меняет график.</li><li class="kb"><kbd>/</kbd> открывает поиск, <kbd>?</kbd> показывает все клавиши.</li></ul><button class="btn btn-primary">Понятно</button>`;
+  document.body.appendChild(t); setTimeout(() => t.classList.add('on'), 700);
+  $('button', t).onclick = () => { LS.set('tour', true); t.classList.remove('on'); setTimeout(() => t.remove(), 300); };
+}
+
+/* ================= wiring ================= */
+$('#periodSeg').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.p === 'custom') return customMenu(b);
+  state.p = b.dataset.p; renderAll(true);
+});
+$('#periodSeg').addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const bs = $$('#periodSeg button'), i = bs.indexOf(document.activeElement); if (i < 0) return;
+  e.preventDefault(); const n = bs[(i + (e.key === 'ArrowRight' ? 1 : -1) + bs.length) % bs.length]; n.focus();
+});
+$('#storeBtn').onclick = e => storeMenu(e.currentTarget);
+$('#catBtn').onclick = e => catMenu(e.currentTarget);
+$('#clearBtn').onclick = clearFilters;
+$('#expBtn').onclick = e => exportMenu(e.currentTarget);
+$('#setBtn').onclick = settings;
+$('#searchBtn').onclick = openSearch; $('#mSearch').onclick = openSearch;
+$('#keysBtn').onclick = keysModal; $('#themeBtn').onclick = toggleTheme;
+$('#collapse').onclick = () => setCollapsed(!document.body.classList.contains('collapsed'));
+$('#mMenu').onclick = openSide; $('#sideClose').onclick = closeSide;
+$('#resetBtn').onclick = resetAll;
+$('#addView').onclick = saveViewModal;
+$('#viewList').addEventListener('click', e => {
+  const del = e.target.closest('[data-del]');
+  if (del) { const v = userViews.find(x => x.id === del.dataset.del); userViews = userViews.filter(x => x.id !== del.dataset.del); LS.set('views', userViews); renderViews(); if (v) toast(`Вид «${v.name}» удалён`); return; }
+  const b = e.target.closest('[data-view]'); if (!b) return; const v = PRESETS.concat(userViews).find(x => x.id === b.dataset.view); if (v) { applyView(v); closeSide(); }
+});
+$('#kpis').addEventListener('click', e => { const b = e.target.closest('.kpi'); if (!b) return; state.metric = b.dataset.m; renderKPI(); renderRev(true); save(); });
+$('#kpis').addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const ks = Object.keys(METRICS), i = ks.indexOf(state.metric);
+  e.preventDefault(); state.metric = ks[(i + (e.key === 'ArrowRight' ? 1 : -1) + ks.length) % ks.length]; renderKPI(); renderRev(true); save(); $(`.kpi[data-m="${state.metric}"]`).focus();
+});
+$('#w-rev').addEventListener('click', e => { const b = e.target.closest('[data-mode]'); if (!b) return; state.mode = b.dataset.mode; renderRev(false); save(); });
+$('#cats').addEventListener('click', e => {
+  const b = e.target.closest('.cat'); if (!b) return; const c = +b.dataset.c;
+  if (isAllCats()) state.cats = CATS.map((_, i) => i === c);
+  else { state.cats = state.cats.slice(); state.cats[c] = !state.cats[c]; if (!state.cats.some(Boolean)) state.cats = ALL_CATS.slice(); }
+  renderAll(true);
+});
+$('#w-cat').addEventListener('click', e => { if (e.target.id === 'catReset') { state.cats = ALL_CATS.slice(); renderAll(true); } });
+$('#sortSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.sort = b.dataset.s; renderStores(true); save(); });
+$('#stBody').addEventListener('click', e => { const tr = e.target.closest('tr'); if (tr) openStore(tr.dataset.s); });
+$('#stBody').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr')) { e.preventDefault(); openStore(e.target.dataset.s); } });
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'); if (o && !o.closest('.drawer')) { e.preventDefault(); openStore(o.dataset.open); return; }
+  const h = e.target.closest('[data-hide]'); if (h) { hiddenA = hiddenA.concat(h.dataset.hide); LS.set('hiddenA', hiddenA); renderAnoms(); renderTitle(); toast('Аномалия скрыта'); return; }
+  const g = e.target.closest('[data-goto-day]'); if (g) { const d = +g.dataset.gotoDay; state.metric = 'rev'; if (route !== 'overview' && route !== 'dynamics') location.hash = '#/dynamics'; else { renderKPI(); renderRev(false); } setTimeout(() => { $('#w-rev').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' }); const bk = buckets(M.from, M.to, 120); const i = bk.list.findIndex(b => d >= b[0] && d <= b[1]); const ch = $('#revChart'); ch.focus({ preventScroll: true }); for (let k = bk.list.length - 1; k > i; k--) ch.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' })); }, 350); return; }
+  if (e.target.id === 'anAll') { anomExpanded = true; renderAnoms(); }
+  if (e.target.id === 'anLess') { anomExpanded = false; renderAnoms(); }
+  if (e.target.id === 'anUnhide') { hiddenA = []; LS.set('hiddenA', hiddenA); renderAnoms(); renderTitle(); }
+});
+// pulse matrix interactions
+const pulseHost = $('#pulse');
+pulseHost.addEventListener('pointermove', e => { const h = pulseHit(e); if (h) pulseTip(h[0], h[1], e); else { hideTip(); const fo = $('#pulseFo'); if (fo) fo.setAttribute('visibility', 'hidden'); } });
+pulseHost.addEventListener('pointerleave', () => { hideTip(); const fo = $('#pulseFo'); if (fo) fo.setAttribute('visibility', 'hidden'); });
+pulseHost.addEventListener('click', e => {
+  const rb = e.target.closest('.rowbtn'); if (rb) return openStore(rb.dataset.s);
+  const h = pulseHit(e); if (!h) return; const r = pulseState.rows[h[0]]; if (!r.net) openStore(r.s);
+});
+pulseHost.addEventListener('keydown', e => {
+  const P = pulseState; if (!P) return; let [ri, i] = P.focus || [0, P.bk.list.length - 1];
+  if (e.key === 'ArrowRight') i++; else if (e.key === 'ArrowLeft') i--; else if (e.key === 'ArrowDown') ri++; else if (e.key === 'ArrowUp') ri--;
+  else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const r = P.rows[ri]; if (r && !r.net) openStore(r.s); return; }
+  else if (e.key === 'Escape') { hideTip(); return; } else return;
+  e.preventDefault(); ri = clamp(ri, 0, P.rows.length - 1); i = clamp(i, 0, P.bk.list.length - 1); pulseTip(ri, i);
+});
+pulseHost.addEventListener('focusin', () => { const P = pulseState; if (P && !P.focus) pulseTip(0, P.bk.list.length - 1); });
+pulseHost.addEventListener('focusout', () => { hideTip(); if (pulseState) pulseState.focus = null; const fo = $('#pulseFo'); if (fo) fo.setAttribute('visibility', 'hidden'); });
+// heat tooltips
+const heatHost = $('#heat');
+heatHost.addEventListener('pointermove', e => {
+  const c = e.target.closest('.hc'); if (!c) return hideTip();
+  const w = +c.dataset.wd, h = +c.dataset.h, v = M.heat[w][h];
+  showTip(`<div class="t-h">${WDC[w]}, ${HOURS[h]}:00${NDASH}${HOURS[h] + 1}:00</div>` + tRow('', 'выручка', money(v)) + tRow('', 'в среднем за такой час', money(M.wdCnt[w] ? v / M.wdCnt[w] : 0)) + `<div class="t-f">${heatState.tot ? pct(v / heatState.tot) : MDASH} выручки периода</div>`, e.clientX, e.clientY);
+});
+heatHost.addEventListener('pointerleave', hideTip);
+
+// routes
+function onRoute() {
+  const h = location.hash.replace(/^#\/?/, ''); route = ROUTES[h] ? h : 'overview';
+  layout(); renderAll(true); closeSide(); window.scrollTo(0, 0);
+}
+addEventListener('hashchange', onRoute);
+$$('.nav a[data-route]').forEach(a => a.addEventListener('click', () => closeSide()));
+
+// keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (popEl) { const a = popAnchor; closePop(); if (a) a.focus(); return; } if (modalEl) return closeModal(); if (drawerEl()) return closeDrawer(); closeSide(); return; }
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable;
+  if (typing || e.metaKey || e.ctrlKey || e.altKey || modalEl) return;
+  if (e.key === '/' || e.code === 'Slash' && !e.shiftKey) { e.preventDefault(); openSearch(); return; }
+  if (e.key === '?' || (e.code === 'Slash' && e.shiftKey)) { e.preventDefault(); keysModal(); return; }
+  const map = { Digit1: '7', Digit2: '30', Digit3: 'q', Digit4: 'y' };
+  if (map[e.code]) { state.p = map[e.code]; renderAll(true); return; }
+  if (e.code === 'KeyN') { e.preventDefault(); saveViewModal(); }
+  else if (e.code === 'KeyE') exportMenu($('#expBtn'));
+  else if (e.code === 'KeyC') settings();
+  else if (e.code === 'KeyT') toggleTheme();
+  else if (e.code === 'KeyB') setCollapsed(!document.body.classList.contains('collapsed'));
+});
+// resize: redraw charts at the new width without animation
+let rzT = 0, lastW = innerWidth;
+addEventListener('resize', () => { clearTimeout(rzT); rzT = setTimeout(() => { if (innerWidth === lastW) return; lastW = innerWidth; closePop(); renderAll(false); }, 120); });
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => renderAll(false));
+
+/* ================= self-check: the screen's figures must agree ================= */
+function audit() {
+  const ok = [];
+  const kpiRev = M.cur.rev, sumStores = M.stores.filter(x => state.stores.includes(x.s)).reduce((a, x) => a + x.cur.rev, 0);
+  ok.push(['выручка = сумма магазинов', Math.abs(kpiRev - sumStores) < 1]);
+  const sumCatsSel = M.cats.filter(c => state.cats[c.ci]).reduce((a, c) => a + c.cur, 0);
+  ok.push(['выручка = сумма выбранных категорий', Math.abs(kpiRev - sumCatsSel) < 1]);
+  ok.push(['доли категорий = 100 %', Math.round(M.cats.reduce((a, c) => a + c.share, 0) * 1000) === 1000]);
+  const heatTot = M.heat.reduce((a, r) => a + r.reduce((x, y) => x + y, 0), 0);
+  ok.push(['часы пик = выручка', Math.abs(heatTot - kpiRev) / kpiRev < 1e-9]);
+  const { cur } = revData(); const chartTot = state.metric === 'rev' ? cur.reduce((a, b) => a + b, 0) : kpiRev;
+  ok.push(['график = выручка', state.metric !== 'rev' || Math.abs(chartTot - kpiRev) < 1]);
+  ok.forEach(([n, v]) => console.assert(v, 'Пульс: не сходится — ' + n));
+  return ok.every(x => x[1]);
+}
+window.__pulse = { audit, state: () => JSON.parse(JSON.stringify(state)), M: () => M, compute };
+
+/* ================= start ================= */
+if (LS.get('collapsed', false)) document.body.classList.add('collapsed');
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => {
+  const h = location.hash.replace(/^#\/?/, ''); route = ROUTES[h] ? h : 'overview';
+  layout(); renderAll(true); audit(); tour();
+});
+})();
+</script>
+</body>
+</html>
