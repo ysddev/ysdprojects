@@ -56,7 +56,14 @@
 </div>
 <fieldset class="field" style="border:0;padding:0;margin:0"><span>В какие дни в меню</span>
 <div class="days"><label><input checked="" name="days[]" type="checkbox" value="1"/><span>пн</span></label><label><input checked="" name="days[]" type="checkbox" value="2"/><span>вт</span></label><label><input checked="" name="days[]" type="checkbox" value="3"/><span>ср</span></label><label><input checked="" name="days[]" type="checkbox" value="4"/><span>чт</span></label><label><input checked="" name="days[]" type="checkbox" value="5"/><span>пт</span></label><label><input checked="" name="days[]" type="checkbox" value="6"/><span>сб</span></label><label><input checked="" name="days[]" type="checkbox" value="7"/><span>вс</span></label></div>
-<small class="hint">Домашний обед понедельника — отметьте только «пн». Бизнес-обеды на всю неделю — все дни.</small>
+<small class="hint">Позиция на всю неделю — все дни. Бизнес-обеды только по будням — пн–пт.</small>
+</fieldset>
+<fieldset class="field" style="border:0;padding:0;margin:0"><span>Период (необязательно)</span>
+<div class="grid2">
+<label class="field"><span class="small">с</span><input name="date_from" type="date" value=""/></label>
+<label class="field"><span class="small">по</span><input name="date_to" type="date" value=""/></label>
+</div>
+<small class="hint">Для меню, которое меняется каждую неделю. Например, бизнес-обеды на неделю 16–20 ноября: «с 16.11 по 20.11». До этой даты сотрудники их не увидят, после — они сами пропадут. Пусто — позиция в меню всегда.</small>
 </fieldset>
 <div class="field"><span>Фото</span>
 <input accept="image/jpeg,image/png,image/webp" name="photo" type="file"/>
