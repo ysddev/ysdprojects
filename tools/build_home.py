@@ -20,7 +20,7 @@ FIRST = 12  # карточек сразу, остальные — «Показа
 CURATED = [
     "shop", "cleaning", "bots/food", "kuhni", "stroy", "salon", "miniapp", "metall", "remont", "detailing",
     "medcenter", "dental",  # первый экран: 10 премиальных сайтов + 2 бота
-    "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture",
+    "apps/crm", "slides/edu", "bots/beauty", "assistant", "online", "realty", "law", "psy", "furniture", "cosmo", "barber", "nails",
     "apps/warehouse", "slides/tender", "bots/ai", "garage", "resto", "design/nord", "apps/bi", "slides/pitch",
     "design/terra",
 ]
@@ -56,11 +56,15 @@ def build() -> str:
         f'<sup>{len(works) if c == "all" else cnt.get(c, 0)}</sup></button>'
         for c, n in CATS if c == "all" or cnt.get(c))
     cards = "".join(card(w, i) for i, w in enumerate(works))
-    stats = [(len(works), "живых проектов"), (cnt.get("site", 0), "сайтов"),
+    def pl(n, one, few, many):  # 21 живой проект, 33 живых проекта, 30 живых проектов
+        return one if n % 10 == 1 and n % 100 != 11 else few if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14 else many
+    n_all, n_site = len(works), cnt.get("site", 0)
+    stats = [(n_all, pl(n_all, "живой проект", "живых проекта", "живых проектов")),
+             (n_site, pl(n_site, "сайт", "сайта", "сайтов")),
              (cnt.get("bot", 0) + cnt.get("software", 0), "ботов и программ"), ("24/7", "открыты онлайн")]
     stats_html = "".join(f"<div><b>{v}</b><span>{t}</span></div>" for v, t in stats)
     return TEMPLATE.replace("{{LOGO}}", logo).replace("{{FILTERS}}", filters).replace("{{CARDS}}", cards) \
-        .replace("{{STATS}}", stats_html).replace("{{TOTAL}}", str(len(works))).replace("{{FIRST}}", str(FIRST)) \
+        .replace("{{STATS}}", stats_html).replace("{{TOTAL}} работающих проектов", f"{n_all} {pl(n_all, 'работающий проект', 'работающих проекта', 'работающих проектов')}").replace("{{TOTAL}}", str(n_all)).replace("{{FIRST}}", str(FIRST)) \
         .replace("{{TG}}", TG).replace("{{SITE}}", SITE)
 
 
