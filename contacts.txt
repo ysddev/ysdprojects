@@ -15,6 +15,9 @@
 #arxc.white .bg{display:none}
 #arxc.white{min-height:0;display:block}
 #arxc.white .in{padding:105px 20px 80px;gap:28px;margin:0 auto}
+#arxc.white .in{font:300 16px/1.6 var(--sans)}
+#arxc.white .lines{gap:8px}
+#arxc.white .hours{font-size:16px;opacity:1}
 #arxc.white h1{font:300 20px/30px var(--sans);letter-spacing:normal;margin-right:0;text-transform:none}
 </style>
 <section id="arxc" aria-label="Контакты">

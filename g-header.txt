@@ -102,6 +102,7 @@ body.arx-locked{overflow:hidden}
   document.getElementById('arxSvc').addEventListener('click',function(){menu.classList.add('svc')});
   document.getElementById('arxBack').addEventListener('click',function(){menu.classList.remove('svc')});
   /* счётчик корзины Tilda в шапке */
+  var cartA=root.querySelector('.cart');if(cartA)cartA.addEventListener('click',function(e){if(typeof window.tcart__openCart==='function'){e.preventDefault();e.stopPropagation();hide();window.tcart__openCart();}});
   setInterval(function(){var c=document.querySelector('.js-carticon-counter'),n=c?parseInt(c.textContent,10)||0:0,el=document.getElementById('arxCnt');if(el)el.textContent=n>0?n:'';},800);
   addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
 })();
