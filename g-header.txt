@@ -19,6 +19,9 @@
 #rec794533409 .t-text::before,#rec794510584 .t-text::before{display:block;text-align:center;font:300 20px/30px "TildaSans",Arial,sans-serif;color:#000;margin-bottom:23px}
 #rec794533409 .t-text::before{content:"Публичная оферта"}
 #rec794510584 .t-text::before{content:"Политика конфиденциальности"}
+#rec5658317001{padding-top:8px!important;padding-bottom:72px!important}
+#rec5658317001 .t119__preface{font:300 16px/1.6 "TildaSans",Arial,sans-serif!important;color:#000!important;text-align:center!important;max-width:460px!important;margin:0 auto!important;opacity:1!important}
+#rec5658317001 a{color:#000!important;font-weight:400;text-decoration:underline!important;text-underline-offset:4px}
 .t698 a[href*="wa.me"],.t-text a[href*="wa.me"],.t-descr a[href*="wa.me"]{color:#000!important}
 .t698__title{font:300 20px/30px "TildaSans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:normal!important;color:#000!important}
 /* убрать плавающую корзину и кнопку WhatsApp: корзина в шапке */
