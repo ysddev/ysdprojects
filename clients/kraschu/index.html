@@ -183,6 +183,8 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 .foot nav a{text-decoration:none}
 .foot nav a:hover{color:#fff}
 .foot .contacts{grid-column:9/13}
+.foot .contacts p{margin:0 0 6px}.foot .req{color:#b9ab9b;font-size:var(--step-small);margin-top:12px}
+.foot .last a{color:inherit}
 .foot .last{grid-column:1/13;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#b9ab9b;font-size:var(--step-small)}
 
 /* мобильная кнопка */
@@ -370,7 +372,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
       <h3>Личная консультация</h3>
       <p class="cost">5&nbsp;990&nbsp;₽</p>
       <ul><li>Онлайн-встреча со мной</li><li>Разбор ваших волос по фото и вживую на видео</li><li>Рекомендации для вас или вашего мастера</li><li>Какие средства и в каком порядке</li></ul>
-      <a class="buy" href="#price">Записаться</a>
+      <a class="buy" href="pay.html?item=consult">Записаться</a>
     </div>
   </div>
 </section>
@@ -401,8 +403,8 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   </div>
   <div class="foot">
     <nav aria-label="Подвал"><a href="#about">Обо мне</a><a href="#inside">Что внутри</a><a href="#tone">Ваш тон</a><a href="#price">Цены</a><a href="#faq">Вопросы</a></nav>
-    <div class="contacts"><p>Надежда Егорова, колорист</p><p>[Instagram] · [Telegram]</p></div>
-    <div class="last"><span>© <span id="yr">2026</span> Крашу сама</span><span>Фото-примеры: Unsplash</span></div>
+    <div class="contacts"><p>Надежда Егорова, колорист</p><p>[Instagram] · [Telegram]</p><p class="req">[ФИО, ИП или самозанятая] · ИНН [ИНН] · [Город]<br>Телефон: [телефон] · E-mail: [e-mail]</p></div>
+    <div class="last"><span>© <span id="yr">2026</span> Крашу сама</span><span><a href="oferta.html">Договор-оферта</a> · <a href="privacy.html">Политика обработки данных</a></span><span>Фото-примеры: Unsplash</span></div>
   </div>
 </footer>
 <a class="btn float off" href="#price">Купить урок</a>

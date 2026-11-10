@@ -82,6 +82,10 @@ input{font:inherit;font-size:18px;padding:14px 16px;border:1px solid #d9d0c4;bor
 .btn{border:0;cursor:pointer;width:100%}
 .btn[disabled]{opacity:.6}
 .fine{font-size:var(--step-small);color:var(--muted);margin-top:14px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:var(--step-small);color:var(--muted);margin:0 0 18px;line-height:1.45}
+.agree input{width:20px;height:20px;padding:0;margin:1px 0 0;flex:none;accent-color:var(--ink)}
+.done{display:none}.done h2{font-size:clamp(28px,3vw,40px);margin-bottom:14px}.done p{margin-bottom:10px}
+.sent .done{display:block}.sent #f{display:none}
 .spin{display:none;width:18px;height:18px;border-radius:50%;border:2px solid #fff;border-right-color:transparent;animation:sp .8s linear infinite;margin-right:10px}
 .busy .spin{display:inline-block}
 @keyframes sp{to{transform:rotate(360deg)}}
@@ -107,21 +111,34 @@ input{font:inherit;font-size:18px;padding:14px 16px;border:1px solid #d9d0c4;bor
         <button type="button" aria-pressed="true">Картой</button>
         <button type="button" aria-pressed="false">СБП</button>
       </div>
+      <label class="agree"><input type="checkbox" name="agree" required><span>Принимаю условия <a href="oferta.html" target="_blank">договора-оферты</a> и даю согласие на обработку персональных данных по <a href="privacy.html" target="_blank">политике</a></span></label>
       <button class="btn" id="go" type="submit"><span class="spin"></span>Оплатить 2 990 ₽</button>
-      <p class="fine">Оплата пройдёт на защищённой странице ЮKassa, чек придёт на почту. В этом макете деньги не списываются: после «Оплатить» откроется страница урока.</p>
+      <p class="fine">Оплата пройдёт на защищённой странице ЮKassa, чек придёт на почту. В этом макете деньги не списываются.</p>
     </form>
+    <div class="done" aria-live="polite"><h2>Спасибо, консультация оплачена</h2><p>В течение рабочего дня я напишу вам на почту, чтобы договориться о времени встречи.</p><p>Подготовьте, пожалуйста, 2–3 фото волос при дневном свете: спереди, сзади и корни крупно.</p><p class="fine">Это макет: деньги не списывались.</p></div>
   </section>
 </main>
 <script>
 [].forEach.call(document.querySelectorAll('.rv'),function(el){requestAnimationFrame(function(){el.classList.add('on')})});
 var ways=document.querySelectorAll('.ways button');
 [].forEach.call(ways,function(b){b.addEventListener('click',function(){[].forEach.call(ways,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+var consult=/[?&]item=consult/.test(location.search);
+if(consult){document.title='Оплата консультации · Крашу сама';
+  document.querySelector('.pay h1').textContent='Личная консультация';
+  document.querySelector('.lead2').textContent='Посмотрю именно ваши волосы и скажу, как прийти к блонду без потери длины.';
+  document.querySelector('.kk').textContent='Онлайн-встреча со мной';
+  document.querySelector('.pay .l ul').innerHTML='<li>Разбор ваших волос по фото и вживую на видео</li><li>Подбор средств под ваш исходный цвет</li><li>Рекомендации для вас или вашего мастера</li><li>Время встречи согласуем после оплаты</li>';
+  document.querySelector('.sum').textContent='5 990 ₽';var nx=document.querySelector('.sum+.fine');if(nx)nx.remove();
+  document.getElementById('go').lastChild.textContent='Оплатить 5 990 ₽';
+  document.querySelector('[name=email]').parentNode.firstChild.textContent='Почта для связи и чека';
+}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();
   var em=this.querySelector('[name=email]').value.trim(),err=document.getElementById('err');
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){err.textContent='Проверьте почту: на неё придёт доступ к уроку';return}
+  if(!this.querySelector('[name=agree]').checked){err.textContent='Отметьте согласие с офертой, чтобы перейти к оплате';return}
   err.textContent='';var go=document.getElementById('go');go.disabled=true;go.classList.add('busy');
   try{sessionStorage.setItem('kr_email',em)}catch(_){}
-  setTimeout(function(){location.href='lesson.html?paid=1'},1400);
+  setTimeout(function(){if(consult){document.querySelector('.pay .r').classList.add('sent');go.disabled=false;go.classList.remove('busy')}else location.href='lesson.html?paid=1'},1400);
 });
 </script>
 </body>
