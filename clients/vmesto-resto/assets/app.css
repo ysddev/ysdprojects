@@ -375,3 +375,9 @@ table.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 [data-section]+[data-section]{margin-top:28px}
 [data-section][hidden]{display:none}
+/* Дни недели и правила компании */
+.date{min-width:92px;text-align:center}
+.date b{font-size:18px;line-height:1.25}
+.quantity button[disabled]{opacity:.35;cursor:not-allowed}
+.rule-note{margin:0 0 18px;display:grid;gap:4px;font-size:14.5px}
+.rule-note b{font-weight:750}

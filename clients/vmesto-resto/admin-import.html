@@ -47,15 +47,16 @@
 <label class="field"><span>Компания</span>
 <select name="company_id" required=""><option value="">— выберите —</option><option value="2">Компания А</option><option selected="" value="1">Компания М</option><option value="3">Компания Т</option></select>
 </label>
-<label class="field"><span>Файл ведомости</span><input accept=".xlsx,.csv,.txt" name="file" type="file"/><small class="hint">.xlsx прямо из Excel. Первая строка — заголовки: «ФИО», «Табельный номер», «Почта».</small></label>
+<label class="field"><span>Файл ведомости</span><input accept=".xlsx,.csv,.txt" name="file" type="file"/><small class="hint">.xlsx прямо из Excel, первый лист. Нужны столбцы с заголовками «Сотрудник» (или «ФИО») и «Табельный номер»; строки над заголовком — название фирмы, «всего сотрудников» — пропустим.</small></label>
 <label class="field"><span>…или вставьте список</span><textarea name="text" placeholder="Смирнова Анна Петровна; 02476
 Иванов Пётр Сергеевич; 02477; ivanov@firma.ru" rows="6"></textarea>
 <small class="hint">По строке на человека: ФИО; табельный; почта. Можно скопировать столбцы из Excel.</small></label>
 <fieldset class="field" style="border:0;padding:0;margin:0"><span>Логин и первый пароль</span>
-<p class="small mut">Логин = табельный номер (формат меняется в настройках).</p>
-<label class="check"><input checked="" name="pw_mode" type="radio" value="tab"/><span>Первый пароль = табельный номер, как на старом сайте. При входе сайт попросит сменить.</span></label>
+<p class="small mut">Логин = табельный номер как в файле: МИЗК-00004, 0021mmz. Регистр и раскладка похожих букв при входе не важны.</p>
+<label class="check"><input checked="" name="pw_mode" type="radio" value="tab"/><span>Первый пароль = цифры табельного номера (МИЗК-00004 → 00004, 0021mmz → 0021). При первом входе сайт попросит сменить.</span></label>
 <label class="check"><input name="pw_mode" type="radio" value="random"/><span>Случайный пароль каждому — надёжнее, но список придётся разослать.</span></label>
 </fieldset>
+<label class="check"><input name="fire_missing" type="checkbox" value="1"/><span><b>Уволить тех, кого нет в этом файле.</b> Для обновлённой ведомости: у сотрудников компании, которых в файле нет, закроется вход. Заказы останутся в отчётах.</span></label>
 <div><button class="btn" type="submit">Загрузить</button></div>
 </form>
 </div>

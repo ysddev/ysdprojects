@@ -39,14 +39,21 @@
 <form action="#" class="inline" data-to="index.html" method="post"><button class="text-btn" type="submit">Выйти</button></form>
 </div>
 <main class="admin-main">
-<div class="stack" style="max-width:720px">
+<div class="stack" style="max-width:760px">
 <p><a class="text-btn" href="admin-users.html">← Сотрудники</a></p>
 <form action="#" class="panel stack" data-to="admin-users.html" method="post" novalidate="">
  <h1 style="font-size:32px">Смирнова Анна Петровна</h1>
-<label class="field"><span>ФИО</span><input data-login-src="" name="name" placeholder="Смирнова Анна Петровна" required="" value="Смирнова Анна Петровна"/></label>
+<fieldset class="field" style="border:0;padding:0;margin:0"><span>Роль</span>
+<div class="stack" style="gap:6px">
+<label class="check" style="min-height:0"><input checked="" name="role" type="radio" value="employee"/><span><b>Сотрудник</b> — заказывает обеды</span></label>
+<label class="check" style="min-height:0"><input name="role" type="radio" value="viewer"/><span><b>Представитель компании</b> — только смотрит и выгружает заказы своей компании, ничего не меняет</span></label>
+<label class="check" style="min-height:0"><input name="role" type="radio" value="admin"/><span><b>Администратор</b> — заказы, меню, сотрудники, отчёты — для помощника или бухгалтера</span></label>
+</div>
+</fieldset>
+<label class="field"><span>ФИО или имя</span><input data-login-src="" name="name" placeholder="Смирнова Анна Петровна" required="" value="Смирнова Анна Петровна"/></label>
 <div class="grid2">
-<label class="field"><span>Табельный номер</span><input data-tab-src="" name="tab_no" placeholder="02476" value="02476"/><small class="hint">По нему сверяетесь с ведомостью компании.</small></label>
-<label class="field"><span>Логин</span><input autocapitalize="none" data-login-dst="" data-suffix="" name="login" required="" spellcheck="false" value="02476"/><small class="hint">Подставится из табельного номера.</small></label>
+<label class="field"><span>Табельный номер</span><input data-tab-src="" name="tab_no" placeholder="МИЗК-00004" value="02476"/><small class="hint">По нему сверяетесь с ведомостью компании.</small></label>
+<label class="field"><span>Логин</span><input autocapitalize="none" data-login-dst="" data-suffix="" name="login" required="" spellcheck="false" value="02476"/><small class="hint">Подставится из табельного номера. Регистр не важен.</small></label>
 </div>
 <div class="grid2">
 <label class="field"><span>Компания</span>
@@ -54,18 +61,36 @@
 </label>
 <label class="field"><span>Почта (необязательно)</span><input name="email" type="email" value="anna@example.ru"/></label>
 </div>
-<label class="check"><input name="role" type="checkbox" value="admin"/><span>Администратор — видит заказы, меню и отчёты. Для помощника или бухгалтера.</span></label>
 <div class="row"><button class="btn" type="submit">Сохранить</button><a class="btn secondary" href="admin-users.html">Отмена</a></div>
 </form>
+<section class="panel stack">
+<h2>Заказы по месяцам</h2>
+<p class="small mut">Для расчёта при увольнении и сверки. Отменённые не считаются.</p>
+<details open="">
+<summary><b>Ноябрь 2026</b> — 2 позиции, 660 ₽ · <span class="status cancelled">сверх компенсации: 1 шт., 330 ₽</span></summary>
+<div class="table-wrap" style="margin-top:10px"><table class="tbl stackable">
+<thead><tr><th>Дата</th><th>№</th><th>Позиции</th><th>Площадка</th><th>Статус</th></tr></thead>
+<tbody>
+<tr>
+<td data-l="Дата">11.11 ср</td>
+<td data-l="№">00006</td>
+<td data-l="Позиции">Домашний обед, Бизнес-обед</td>
+<td data-l="Площадка">Площадка 1, пр. Ленина, 30</td>
+<td data-l="Статус"><span class="status new">Новый</span></td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</section>
 <div class="panel flat stack">
 <form action="#" class="row" data-to="admin-users-new.html" method="post"><input name="action" type="hidden" value="reset"/>
 <div style="flex:1;min-width:240px"><p class="small">Забыл пароль? Выдайте новый временный — старый перестанет работать, входы на других устройствах закроются.</p>
-<label class="check" style="min-height:0"><input name="reset_mode" type="checkbox" value="tab"/><span>Пароль = табельный номер (как на старом сайте)</span></label></div>
+<label class="check" style="min-height:0"><input name="reset_mode" type="checkbox" value="tab"/><span>Пароль = цифры табельного номера (02476)</span></label></div>
 <button class="btn dark" type="submit">Выдать новый пароль</button></form>
 <form action="#" class="row" data-msg="Готово. В демо изменения не сохраняются" data-to="stay" method="post"><input name="action" type="hidden" value="toggle"/>
-<p class="small" style="flex:1;min-width:240px">Уволился? Отключите доступ — история заказов останется в отчётах.</p>
-<button class="btn danger" data-confirm="Точно отключить?" type="submit">Отключить доступ</button></form>
-<p class="tiny">Создан 9 ноября, 22:37 · согласие на обработку данных 9 ноября, 22:37</p>
+<p class="small" style="flex:1;min-width:240px">Уволился? Нажмите «Уволить» — вход закроется, история заказов останется в отчётах и в этой карточке.</p>
+<button class="btn danger" data-confirm="Точно уволить?" type="submit">Уволить</button></form>
+<p class="tiny">Создан 10 ноября, 14:13 · последний вход 10 ноября, 14:14 · согласие на обработку данных 10 ноября, 14:13</p>
 </div>
 </div>
 </main>

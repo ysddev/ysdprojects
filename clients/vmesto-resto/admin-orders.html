@@ -40,8 +40,8 @@
 </div>
 <main class="admin-main">
 <div class="admin-heading">
-<div><h1>Заказы на 10 ноября, вт</h1>
-<p>Завтраки: приём закрыт · Обеды: приём до 08:00 завтра · время Томска</p></div>
+<div><h1>Заказы на 11 ноября, ср</h1>
+<p>Завтраки: приём до 20:00 сегодня · Обеды: приём до 08:00 завтра · время Томска</p></div>
 <div class="actions">
 <a class="btn secondary" href="admin-print-breakfast.html" target="_blank">Листы: завтраки</a>
 <a class="btn secondary" href="admin-print-lunch.html" target="_blank">Листы: обеды</a>
@@ -56,22 +56,22 @@
 <a class="btn secondary compact" href="admin-orders.html">Завтра</a>
 <a aria-label="Следующий день" class="btn secondary compact" href="admin-orders.html">→</a>
 </div>
-<label class="field"><span>Дата доставки</span><input name="date" type="date" value="2026-11-10"/></label>
+<label class="field"><span>Дата доставки</span><input name="date" type="date" value="2026-11-11"/></label>
 <label class="field"><span>Компания</span><select name="company"><option value="">Все</option><option value="2">Компания А</option><option value="1">Компания М</option><option value="3">Компания Т</option></select></label>
 <label class="field"><span>Статус</span><select name="status"><option value="">Любой</option><option value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option></select></label>
 <button class="btn dark" type="submit">Показать</button>
 </form>
 <div class="stats">
-<div class="stat"><span>Заказов</span><b>6</b></div>
-<div class="stat"><span>Порций</span><b>9</b></div>
-<div class="stat"><span>Площадок</span><b>4</b></div>
-<div class="stat"><span>Сумма</span><b>4 020 ₽</b></div>
+<div class="stat"><span>Заказов</span><b>4</b></div>
+<div class="stat"><span>Порций</span><b>5</b></div>
+<div class="stat"><span>Площадок</span><b>3</b></div>
+<div class="stat"><span>Сумма</span><b>1 650 ₽</b></div>
 </div>
 <div class="two">
 <div class="stack">
 <form action="#" class="row" data-to="status" method="post">
-<input name="status" type="hidden" value="accepted"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
-<input name="ids[]" type="hidden" value="1"/><input name="ids[]" type="hidden" value="2"/><input name="ids[]" type="hidden" value="4"/><input name="ids[]" type="hidden" value="3"/><input name="ids[]" type="hidden" value="6"/><input name="ids[]" type="hidden" value="5"/> <button class="btn compact" type="submit">Принять все новые (6)</button>
+<input name="status" type="hidden" value="accepted"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
+<input name="ids[]" type="hidden" value="2"/><input name="ids[]" type="hidden" value="1"/><input name="ids[]" type="hidden" value="6"/><input name="ids[]" type="hidden" value="4"/> <button class="btn compact" type="submit">Принять все новые (4)</button>
 <span class="tiny">После «Принят» сотрудник уже не может отменить заказ.</span>
 </form>
 <div class="table-wrap">
@@ -79,93 +79,99 @@
 <thead><tr><th>№</th><th>Сотрудник</th><th>Позиции</th><th class="num">Сумма</th><th>Статус</th></tr></thead>
 <tbody>
 <tr class="">
-<td data-l="№">00001<div class="tiny">09.11 22:37</div></td>
+<td data-l="№">00002<div class="tiny">10.11 14:14</div></td>
 <td><b>Кузнецова Мария Олеговна</b><div class="tiny">Компания А · таб. 11032</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Офис, ул. Учебная, 39, 3 этаж</div></td>
-<td data-l="Позиции"><div>Лёгкий обед × 1</div> </td>
-<td class="num" data-l="Сумма">380 ₽</td>
+<td data-l="Позиции"><div>Бизнес-обед × 1</div> </td>
+<td class="num" data-l="Сумма">330 ₽</td>
 <td>
 <form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="1"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
-<label class="sr" for="st1">Статус заказа 00001</label>
-<select class="status new" data-mock-auto="" id="st1" name="status">
-<option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
-<noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
-</form>
-</td>
-</tr>
-<tr class="">
-<td data-l="№">00002<div class="tiny">09.11 22:37</div></td>
-<td><b>Орлов Дмитрий Игоревич</b><div class="tiny">Компания А · таб. 11040</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Офис, ул. Учебная, 39, 3 этаж</div></td>
-<td data-l="Позиции"><div>Домашний обед с котлетой × 1</div> </td>
-<td class="num" data-l="Сумма">390 ₽</td>
-<td>
-<form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="2"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
+<input name="id" type="hidden" value="2"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
 <label class="sr" for="st2">Статус заказа 00002</label>
 <select class="status new" data-mock-auto="" id="st2" name="status">
 <option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
 <noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
 </form>
+<div class="tiny">оформлен 10.11 14:14</div>
 </td>
 </tr>
-<tr class="">
-<td data-l="№">00004<div class="tiny">09.11 22:38</div></td>
-<td><b>Иванов Пётр Сергеевич</b><div class="tiny">Компания М · таб. 02477</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 1, пр. Ленина, 30</div></td>
-<td data-l="Позиции"><div>Домашний обед × 1</div><div>Бизнес «Классика» × 1</div> <div class="tiny" style="margin-top:4px">«3 этаж»</div></td>
-<td class="num" data-l="Сумма">910 ₽</td>
+<tr class="off">
+<td data-l="№">00003<div class="tiny">10.11 14:14</div></td>
+<td><b>Орлов Дмитрий Игоревич</b><div class="tiny">Компания А · таб. 11040</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Офис, ул. Учебная, 39, 3 этаж</div></td>
+<td data-l="Позиции"><div>Лёгкий обед × 1</div> </td>
+<td class="num" data-l="Сумма">330 ₽</td>
 <td>
 <form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="4"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
-<label class="sr" for="st4">Статус заказа 00004</label>
-<select class="status new" data-mock-auto="" id="st4" name="status">
-<option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
-<noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
-</form>
-</td>
-</tr>
-<tr class="">
-<td data-l="№">00003<div class="tiny">09.11 22:37</div></td>
-<td><b>Смирнова Анна Петровна</b><div class="tiny">Компания М · таб. 02476</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 1, пр. Ленина, 30</div></td>
-<td data-l="Позиции"><div>Домашний обед × 1</div><div>Бизнес «Классика» × 1</div> <div class="tiny" style="margin-top:4px">«3 этаж, кабинет 312»</div></td>
-<td class="num" data-l="Сумма">910 ₽</td>
-<td>
-<form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="3"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
+<input name="id" type="hidden" value="3"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
 <label class="sr" for="st3">Статус заказа 00003</label>
-<select class="status new" data-mock-auto="" id="st3" name="status">
-<option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
+<select class="status cancelled" data-mock-auto="" id="st3" name="status">
+<option value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option selected="" value="cancelled">Отменён</option> </select>
 <noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
 </form>
+<div class="tiny">отменил сотрудник, 10.11 14:14</div> <div class="tiny">оформлен 10.11 14:14</div>
 </td>
 </tr>
 <tr class="">
-<td data-l="№">00006<div class="tiny">09.11 22:38</div></td>
-<td><b>Смирнова Анна Петровна</b><div class="tiny">Компания М · таб. 02476</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 2, ул. Нахимова, 8</div></td>
-<td data-l="Позиции"><div>Домашний обед × 1</div><div>Бизнес «Классика» × 1</div> <div class="tiny" style="margin-top:4px">«3 этаж, кабинет 312»</div></td>
-<td class="num" data-l="Сумма">910 ₽</td>
+<td data-l="№">00001<div class="tiny">10.11 14:13</div></td>
+<td><b>Иванов Пётр Сергеевич</b><div class="tiny">Компания М · таб. 02477</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 1, пр. Ленина, 30</div></td>
+<td data-l="Позиции"><div>Домашний обед × 1</div> </td>
+<td class="num" data-l="Сумма">330 ₽</td>
 <td>
 <form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="6"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
+<input name="id" type="hidden" value="1"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
+<label class="sr" for="st1">Статус заказа 00001</label>
+<select class="status new" data-mock-auto="" id="st1" name="status">
+<option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
+<noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
+</form>
+<div class="tiny">оформлен 10.11 14:13</div>
+</td>
+</tr>
+<tr class="off">
+<td data-l="№">00005<div class="tiny">10.11 14:14</div></td>
+<td><b>Иванов Пётр Сергеевич</b><div class="tiny">Компания М · таб. 02477</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 1, пр. Ленина, 30</div></td>
+<td data-l="Позиции"><div>Лёгкий обед × 1</div> </td>
+<td class="num" data-l="Сумма">330 ₽</td>
+<td>
+<form action="#" class="inline" data-to="status" method="post">
+<input name="id" type="hidden" value="5"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
+<label class="sr" for="st5">Статус заказа 00005</label>
+<select class="status cancelled" data-mock-auto="" id="st5" name="status">
+<option value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option selected="" value="cancelled">Отменён</option> </select>
+<noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
+</form>
+<div class="tiny">отменил сотрудник, 10.11 14:14</div> <div class="tiny">оформлен 10.11 14:14</div>
+</td>
+</tr>
+<tr class="">
+<td data-l="№">00006<div class="tiny">10.11 14:14</div></td>
+<td><b>Смирнова Анна Петровна</b><div class="tiny">Компания М · таб. 02476</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Площадка 1, пр. Ленина, 30</div></td>
+<td data-l="Позиции"><div>Домашний обед × 1</div><div>Бизнес-обед × 1</div> <div class="tiny" style="margin-top:4px">«3 этаж, кабинет 312»</div></td>
+<td class="num" data-l="Сумма">660 ₽</td>
+<td>
+<form action="#" class="inline" data-to="status" method="post">
+<input name="id" type="hidden" value="6"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
 <label class="sr" for="st6">Статус заказа 00006</label>
 <select class="status new" data-mock-auto="" id="st6" name="status">
 <option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
 <noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
 </form>
+<div class="tiny">оформлен 10.11 14:14</div>
 </td>
 </tr>
 <tr class="">
-<td data-l="№">00005<div class="tiny">09.11 22:38</div></td>
+<td data-l="№">00004<div class="tiny">10.11 14:14</div></td>
 <td><b>Белова Елена Викторовна</b><div class="tiny">Компания Т · таб. 30115</div><div class="tiny"><svg aria-hidden="true" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg> Склад, Иркутский тракт, 201</div></td>
-<td data-l="Позиции"><div>Бизнес «Классика» × 1</div> <div class="tiny" style="margin-top:4px">«3 этаж»</div></td>
-<td class="num" data-l="Сумма">520 ₽</td>
+<td data-l="Позиции"><div>Завтрак × 1</div> </td>
+<td class="num" data-l="Сумма">330 ₽</td>
 <td>
 <form action="#" class="inline" data-to="status" method="post">
-<input name="id" type="hidden" value="5"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-10"/>
-<label class="sr" for="st5">Статус заказа 00005</label>
-<select class="status new" data-mock-auto="" id="st5" name="status">
+<input name="id" type="hidden" value="4"/><input name="back" type="hidden" value="index.php?p=a-orders&amp;date=2026-11-11"/>
+<label class="sr" for="st4">Статус заказа 00004</label>
+<select class="status new" data-mock-auto="" id="st4" name="status">
 <option selected="" value="new">Новый</option><option value="accepted">Принят</option><option value="done">Выполнен</option><option value="cancelled">Отменён</option> </select>
 <noscript><button class="btn compact secondary" type="submit">OK</button></noscript>
 </form>
+<div class="tiny">оформлен 10.11 14:14</div>
 </td>
 </tr>
 </tbody>
@@ -175,11 +181,11 @@
 <aside class="stack">
 <div class="panel">
 <h3 style="margin-bottom:12px">На кухню</h3>
-<ul class="kitchen"><li class="grp">Домашние обеды</li><li><span>Домашний обед</span><b>3</b></li><li><span>Домашний обед с котлетой</span><b>1</b></li><li class="grp">Лёгкие обеды</li><li><span>Лёгкий обед</span><b>1</b></li><li class="grp">Бизнес-обеды</li><li><span>Бизнес «Классика»</span><b>4</b></li></ul>
+<ul class="kitchen"><li class="grp">Завтраки</li><li><span>Завтрак</span><b>1</b></li><li class="grp">Домашние обеды</li><li><span>Домашний обед</span><b>2</b></li><li class="grp">Бизнес-обеды</li><li><span>Бизнес-обед</span><b>2</b></li></ul>
 </div>
 <div class="panel">
 <h3 style="margin-bottom:12px">Доставка по площадкам</h3>
-<ul class="kitchen"><li class="grp">Компания А</li><li><span>Офис, ул. Учебная, 39, 3 этаж</span><b>2</b></li><li class="grp">Компания М</li><li><span>Площадка 1, пр. Ленина, 30</span><b>4</b></li><li><span>Площадка 2, ул. Нахимова, 8</span><b>2</b></li><li class="grp">Компания Т</li><li><span>Склад, Иркутский тракт, 201</span><b>1</b></li></ul>
+<ul class="kitchen"><li class="grp">Компания А</li><li><span>Офис, ул. Учебная, 39, 3 этаж</span><b>1</b></li><li class="grp">Компания М</li><li><span>Площадка 1, пр. Ленина, 30</span><b>3</b></li><li class="grp">Компания Т</li><li><span>Склад, Иркутский тракт, 201</span><b>1</b></li></ul>
 </div>
 </aside>
 </div>

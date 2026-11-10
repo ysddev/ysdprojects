@@ -34,7 +34,7 @@
 
     if (to === 'login') {
       var l = (($('input[name=login]', f) || {}).value || '').trim().toLowerCase();
-      location.href = (l === 'olga' || l === 'admin') ? 'admin-orders.html' : (l === 'new' ? 'welcome.html' : 'menu.html');
+      location.href = (l === 'olga' || l === 'admin') ? 'admin-orders.html' : (l === 'boris' ? 'company-report.html' : (l === 'new' ? 'welcome.html' : 'menu.html'));
       return;
     }
     if (to === 'status') {

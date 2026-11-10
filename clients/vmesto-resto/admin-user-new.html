@@ -39,14 +39,21 @@
 <form action="#" class="inline" data-to="index.html" method="post"><button class="text-btn" type="submit">Выйти</button></form>
 </div>
 <main class="admin-main">
-<div class="stack" style="max-width:720px">
+<div class="stack" style="max-width:760px">
 <p><a class="text-btn" href="admin-users.html">← Сотрудники</a></p>
 <form action="#" class="panel stack" data-to="admin-users-new.html" method="post" novalidate="">
  <h1 style="font-size:32px">Новый сотрудник</h1>
-<label class="field"><span>ФИО</span><input data-login-src="" name="name" placeholder="Смирнова Анна Петровна" required="" value=""/></label>
+<fieldset class="field" style="border:0;padding:0;margin:0"><span>Роль</span>
+<div class="stack" style="gap:6px">
+<label class="check" style="min-height:0"><input checked="" name="role" type="radio" value="employee"/><span><b>Сотрудник</b> — заказывает обеды</span></label>
+<label class="check" style="min-height:0"><input name="role" type="radio" value="viewer"/><span><b>Представитель компании</b> — только смотрит и выгружает заказы своей компании, ничего не меняет</span></label>
+<label class="check" style="min-height:0"><input name="role" type="radio" value="admin"/><span><b>Администратор</b> — заказы, меню, сотрудники, отчёты — для помощника или бухгалтера</span></label>
+</div>
+</fieldset>
+<label class="field"><span>ФИО или имя</span><input data-login-src="" name="name" placeholder="Смирнова Анна Петровна" required="" value=""/></label>
 <div class="grid2">
-<label class="field"><span>Табельный номер</span><input data-tab-src="" name="tab_no" placeholder="02476" value=""/><small class="hint">По нему сверяетесь с ведомостью компании.</small></label>
-<label class="field"><span>Логин</span><input autocapitalize="none" data-login-dst="" data-suffix="" name="login" required="" spellcheck="false" value=""/><small class="hint">Подставится из табельного номера.</small></label>
+<label class="field"><span>Табельный номер</span><input data-tab-src="" name="tab_no" placeholder="МИЗК-00004" value=""/><small class="hint">По нему сверяетесь с ведомостью компании.</small></label>
+<label class="field"><span>Логин</span><input autocapitalize="none" data-login-dst="" data-suffix="" name="login" required="" spellcheck="false" value=""/><small class="hint">Подставится из табельного номера. Регистр не важен.</small></label>
 </div>
 <div class="grid2">
 <label class="field"><span>Компания</span>
@@ -54,8 +61,7 @@
 </label>
 <label class="field"><span>Почта (необязательно)</span><input name="email" type="email" value=""/></label>
 </div>
-<label class="field"><span>Временный пароль</span><input autocomplete="off" name="password" placeholder="пусто — придумаем сами" value=""/><small class="hint">Сотрудник сменит его при первом входе.</small></label>
-<label class="check"><input name="role" type="checkbox" value="admin"/><span>Администратор — видит заказы, меню и отчёты. Для помощника или бухгалтера.</span></label>
+<label class="field"><span>Временный пароль</span><input autocomplete="off" name="password" placeholder="пусто — придумаем сами" value=""/><small class="hint">Человек сменит его при первом входе.</small></label>
 <div class="row"><button class="btn" type="submit">Создать</button><a class="btn secondary" href="admin-users.html">Отмена</a></div>
 </form>
 </div>

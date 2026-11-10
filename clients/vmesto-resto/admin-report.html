@@ -50,17 +50,18 @@
 <a class="btn secondary compact" href="admin-report.html">Прошлый месяц</a>
 </div>
 <div class="grid2">
-<label class="field"><span>С</span><input name="from" type="date" value="2026-11-10"/></label>
-<label class="field"><span>По</span><input name="to" type="date" value="2026-11-10"/></label>
+<label class="field"><span>С</span><input name="from" type="date" value="2026-11-11"/></label>
+<label class="field"><span>По</span><input name="to" type="date" value="2026-11-11"/></label>
 </div>
 <label class="field"><span>Компания</span><select name="company"><option value="">Все компании</option><option value="2">Компания А</option><option value="1">Компания М</option><option value="3">Компания Т</option></select></label>
-<div class="notice info">За период: <b>6</b> заказов на <b>4 020 ₽</b>.</div>
+<div class="notice info">За период: <b>4</b> заказа на <b>1 650 ₽</b>.</div>
 <div class="row"><button class="btn secondary" type="submit">Пересчитать</button><button class="btn" name="download" type="submit" value="1"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M8 13h2M14 13h2M8 17h2M14 17h2"></path></svg> Скачать .xlsx</button></div>
 </form>
 <div class="panel flat small stack" style="--gap:6px">
 <b>Что в файле</b>
 <p>«Заказы» — строка на каждую позицию: дата, №, компания, площадка, табельный номер, сотрудник, раздел, позиция, количество, цена, сумма. С фильтрами.</p>
-<p>«Сверка по сотрудникам» — табельный номер, ФИО, сколько заказов и на какую сумму. Для сверки с ведомостью компании.</p>
+<p>«Сверка по сотрудникам» — табельный номер, ФИО, дни, позиции, сумма; сколько оплачивает работодатель и сколько удержать из зарплаты (по правилам компании).</p>
+<p>«Больше одной в день» — каждый день, когда сотрудник взял две позиции и больше. «Отмены» — кто, что и когда отменил.</p>
 <p>«По площадкам» — итоги по каждой площадке. «По дням» — сколько каких порций было каждый день.</p>
 </div>
 </div>

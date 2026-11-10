@@ -41,7 +41,7 @@
 <main class="admin-main">
 <div class="stack" style="max-width:900px">
 <p><a class="text-btn" href="admin-companies.html">← Компании</a></p>
-<div class="admin-heading" style="margin:0"><div><h1>Компания М</h1><p>5 сотрудников · <a class="text-btn" href="admin-users.html">список</a> · <a class="text-btn" href="admin-import.html">загрузить ведомость</a></p></div></div>
+<div class="admin-heading" style="margin:0"><div><h1>Компания М</h1><p>3 сотрудника · <a class="text-btn" href="admin-users.html">список</a> · <a class="text-btn" href="admin-import.html">загрузить ведомость</a></p></div></div>
 <section class="panel stack sect" id="places">
 <h2>Площадки</h2>
 <p class="mut small">Адреса, куда возить обеды. Сотрудник выбирает площадку при заказе и видит только площадки своей компании.</p>
@@ -76,6 +76,28 @@
 <small class="hint">По строке на площадку: название; адрес. Можно сразу все 10.</small></label>
 <div><button class="btn" type="submit">Добавить</button></div>
 </form>
+</section>
+<form action="#" class="panel stack sect" data-to="stay" id="rules" method="post">
+<input name="action" type="hidden" value="rules"/>
+<h2>Правила заказа</h2>
+<div class="grid2">
+<label class="field"><span>Позиций на человека в день</span><input inputmode="numeric" name="day_limit" value="2"/>
+<small class="hint">1 — только одна позиция, 2 — две разные. 0 — общая настройка сайта. При лимите каждую позицию можно взять один раз.</small></label>
+<label class="field"><span>Работодатель оплачивает в день</span><input inputmode="numeric" name="comp_per_day" value="1"/>
+<small class="hint">Сколько позиций компенсирует компания. Остальное в отчёте попадёт в «Удержать из зарплаты». 0 — не считать.</small></label>
+</div>
+<label class="field"><span>Памятка сотрудникам в меню</span><textarea name="note" placeholder="Компенсация работодателем — только за один обед, второй удерживается из зарплаты по полной стоимости." rows="3">Компенсация работодателем — только за один обед. Вторая позиция удерживается из зарплаты по полной стоимости — 330 ₽.</textarea>
+<small class="hint">Видна сотрудникам этой компании над меню.</small></label>
+<div><button class="btn" type="submit">Сохранить правила</button></div>
+</form>
+<section class="panel stack sect" id="viewers">
+<h2>Представитель компании</h2>
+<p class="mut small">Отдельный вход для ответственного от компании: видит и выгружает в Excel только заказы своей компании за любой период. Ничего не может изменить.</p>
+<div class="row" style="justify-content:space-between;border-top:1px solid var(--line);padding-top:10px">
+<div><b>Борис (представитель)</b> <span class="tiny">логин boris · ещё не входил</span></div>
+<a class="btn secondary compact" href="admin-user.html">Открыть</a>
+</div>
+<div><a class="btn secondary" href="admin-user-new.html"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg> Дать доступ представителю</a></div>
 </section>
 <form action="#" class="panel stack" data-to="stay" method="post">
  <h2>Компания</h2>

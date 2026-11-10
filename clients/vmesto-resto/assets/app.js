@@ -59,6 +59,7 @@
   var cart = $('#cart'), bar = $('.cartbar'), scrim = $('.scrim');
   var max = parseInt(form.getAttribute('data-max'), 10) || 0;
   var already = parseInt(form.getAttribute('data-already'), 10) || 0;
+  var each = form.hasAttribute('data-each'); // лимит компании: каждая позиция не больше одной
   var submit = $('[data-submit]', cart);
   var isAdmin = submit.hasAttribute('data-admin');
   var fmt = function (kop) {
@@ -72,7 +73,7 @@
     cards.forEach(function (c) {
       var inp = $('input[type=hidden]', c);
       if (!inp) return;
-      var q = Math.max(0, Math.min(20, parseInt(inp.value, 10) || 0));
+      var q = Math.max(0, Math.min(each ? 1 : 20, parseInt(inp.value, 10) || 0));
       inp.value = q;
       $('output', c).textContent = q;
       c.classList.toggle('in', q > 0);
@@ -93,9 +94,20 @@
     $('[data-empty]', cart).hidden = count > 0;
     $('[data-total]', cart).textContent = fmt(total);
     var over = max > 0 && already + count > max;
+    var full = max > 0 && already + count >= max;
+    // Лимит набран — остальные «В корзину» гаснут, «+» у выбранных тоже
+    cards.forEach(function (c) {
+      var inp = $('input[type=hidden]', c);
+      if (!inp) return;
+      var q = parseInt(inp.value, 10) || 0;
+      var add = $('[data-add]', c), plus = $('[data-plus]', c);
+      if (add) add.disabled = full && q === 0;
+      if (plus) plus.disabled = full || (each && q >= 1);
+    });
     var lim = $('[data-limit]', cart);
     lim.hidden = !over;
     if (over) lim.textContent = 'На день можно не больше ' + max + ' ' + plural(max, 'позиции', 'позиций', 'позиций') + (already ? ' (уже заказано ' + already + ')' : '') + '.';
+    else if (full && count > 0) { lim.hidden = false; lim.textContent = max === 1 ? 'Одна позиция в день — уже выбрана.' : 'Лимит на день набран: ' + max + ' ' + plural(max, 'позиция', 'позиции', 'позиций') + '.'; }
     submit.disabled = count === 0 || over || isAdmin;
     var words = count + ' ' + plural(count, 'позиция', 'позиции', 'позиций');
     if (bar) {

@@ -50,18 +50,19 @@
 <input name="p" type="hidden" value="a-users"/>
 <label class="field"><span>Компания</span><select data-mock-auto="" name="company"><option value="">Все</option><option value="2">Компания А</option><option selected="" value="1">Компания М</option><option value="3">Компания Т</option></select></label>
 <label class="field"><span>Поиск</span><input name="s" placeholder="ФИО, логин или табельный" value=""/></label>
+<label class="field"><span>Статус</span><select data-mock-auto="" name="st"><option value="">Все</option><option value="active">Работают</option><option value="fired">Уволены</option></select></label>
 <button class="btn dark" type="submit">Найти</button>
-<span class="tiny" style="padding-bottom:12px">Найдено: 5</span>
+<span class="tiny" style="padding-bottom:12px">Найдено: 4</span>
 </form>
 <div class="table-wrap">
 <table class="tbl stackable">
 <thead><tr><th>ФИО</th><th>Табельный</th><th>Логин</th><th>Компания</th><th>Последний вход</th><th></th></tr></thead>
 <tbody>
 <tr class="">
-<td><a href="admin-user.html">Ёлкина Юлия Андреевна</a>
-</td>
-<td data-l="Табельный">02502</td>
-<td data-l="Логин"><code>02502</code></td>
+<td><a href="admin-user.html">Борис (представитель)</a>
+<span class="status accepted">представитель</span></td>
+<td data-l="Табельный">—</td>
+<td data-l="Логин"><code>boris</code></td>
 <td data-l="Компания">Компания М</td>
 <td data-l="Вход"><span class="tiny">ещё не входил</span></td>
 <td><a class="btn secondary compact" href="admin-user.html">Изменить</a></td>
@@ -72,7 +73,7 @@
 <td data-l="Табельный">02477</td>
 <td data-l="Логин"><code>02477</code></td>
 <td data-l="Компания">Компания М</td>
-<td data-l="Вход">9 ноября, 22:38</td>
+<td data-l="Вход">10 ноября, 14:14</td>
 <td><a class="btn secondary compact" href="admin-user.html">Изменить</a></td>
 </tr>
 <tr class="">
@@ -81,16 +82,7 @@
 <td data-l="Табельный">40001</td>
 <td data-l="Логин"><code>new</code></td>
 <td data-l="Компания">Компания М</td>
-<td data-l="Вход">9 ноября, 22:38</td>
-<td><a class="btn secondary compact" href="admin-user.html">Изменить</a></td>
-</tr>
-<tr class="">
-<td><a href="admin-user.html">Сидоров Алексей Николаевич</a>
-</td>
-<td data-l="Табельный">02501</td>
-<td data-l="Логин"><code>02501</code></td>
-<td data-l="Компания">Компания М</td>
-<td data-l="Вход"><span class="tiny">ещё не входил</span></td>
+<td data-l="Вход">10 ноября, 14:14</td>
 <td><a class="btn secondary compact" href="admin-user.html">Изменить</a></td>
 </tr>
 <tr class="">
@@ -99,7 +91,7 @@
 <td data-l="Табельный">02476</td>
 <td data-l="Логин"><code>02476</code></td>
 <td data-l="Компания">Компания М</td>
-<td data-l="Вход">9 ноября, 22:38</td>
+<td data-l="Вход">10 ноября, 14:14</td>
 <td><a class="btn secondary compact" href="admin-user.html">Изменить</a></td>
 </tr>
 </tbody>
