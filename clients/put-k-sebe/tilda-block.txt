@@ -62,7 +62,7 @@ a{color:inherit}
 .card .hero-copy{margin:auto 0;padding:56px 0 40px;display:flex;flex-direction:column;align-items:center}
 .card h1{font-size:var(--step-hero);max-width:12ch}
 .card h1 span{display:block}
-.card .lead{margin-top:36px;font-size:var(--step-lead);line-height:1.35;max-width:30ch;text-wrap:balance;font-family:var(--display);font-weight:500;letter-spacing:-.005em}
+.card .lead{margin-top:36px;font-size:var(--step-lead);line-height:1.3;max-width:34ch;text-wrap:balance;font-family:var(--display);font-weight:500;letter-spacing:-.005em}
 .card .btn{margin-top:40px}
 .card nav{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;font-size:var(--step-small)}
 
@@ -104,6 +104,7 @@ a{color:inherit}
 .js .chapters .more[hidden]{display:none}
 .open-toc{margin-top:8px}
 .toc .inline-photo{display:none}
+.quote{margin:72px 0 0;max-width:24ch;font-family:var(--display);font-weight:500;font-size:clamp(1.625rem,1.2rem + 1.2vw,2.25rem);line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
 
 /* ---------- тарифы ---------- */
 .plans{padding:clamp(120px,12vw,200px) 0 0}
@@ -133,8 +134,8 @@ footer nav a{color:var(--ink)}
 footer .r{text-align:right}
 
 /* ---------- уведомление о кнопке оплаты (прототип) ---------- */
-.note{position:fixed;left:50%;bottom:24px;z-index:20;max-width:min(92vw,440px);padding:16px 20px;background:var(--ink);color:var(--bg);font-size:var(--step-small);transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
-.note.on{opacity:1;transform:translate(-50%,0)}
+.note{position:fixed;left:50%;bottom:24px;z-index:20;max-width:min(92vw,440px);padding:16px 20px;background:var(--ink);color:var(--bg);font-size:var(--step-small);transform:translate(-50%,16px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease),visibility 0s linear .3s}
+.note.on{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
 
 /* ---------- появление ---------- */
 .js .rise{opacity:0;transform:translate3d(0,24px,0);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
@@ -163,6 +164,7 @@ footer .r{text-align:right}
   .who-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
   .toc .inline-photo{display:block;margin:40px 0 0;aspect-ratio:4/5;overflow:hidden}
   .toc .inline-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+  .quote{margin-top:32px;font-size:1.5rem}
   .walk{padding:20px 16px 16px;margin-top:40px}
   .walk .row{height:96px;gap:2px}
   .walk .walk-out{font-size:1.5rem}
@@ -199,7 +201,7 @@ footer .r{text-align:right}
       <div class="posts" aria-hidden="true" id="heroPosts"></div>
       <div class="hero-copy">
         <h1 id="h1" class="rise"><span>История меня.</span> <span>Путь к&nbsp;себе</span></h1>
-        <p class="lead rise" style="--d:90ms">Автобиографическая книга. 180&nbsp;страниц о&nbsp;самом личном.</p>
+        <p class="lead rise" style="--d:90ms">Это история о&nbsp;любви, материнстве, ошибках, страхах, потере самого дорогого и&nbsp;о&nbsp;женщине, которая учится жить заново</p>
         <a class="btn rise" style="--d:180ms" href="#tarify">Выбрать тариф</a>
       </div>
       <nav aria-label="Разделы">
@@ -233,6 +235,7 @@ footer .r{text-align:right}
       </div>
 
       <figure class="inline-photo"><img src="https://static.tildacdn.com/tila3562-6463-4131-b862-633436306636/elena-son.jpg" width="720" height="978" alt="Автор книги обнимает сына, оба в белых свитерах" loading="lazy"></figure>
+      <blockquote class="quote rise">Я&nbsp;не&nbsp;смогла изменить то, что со&nbsp;мной произошло. Но&nbsp;я&nbsp;смогла выбрать, что делать со&nbsp;своей жизнью дальше</blockquote>
 
       <div class="chapters" id="chapters" hidden>
         <h3>История</h3>
