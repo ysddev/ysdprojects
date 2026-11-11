@@ -90,6 +90,11 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 .about .col{display:flex;flex-direction:column;gap:56px;padding-top:8px;max-width:440px}
 .about h3{font-size:22px;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;color:var(--l9)}
 .about .col p{color:#efe7dc;font-size:17px}
+.about .col p+p{margin-top:14px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.ba figure{margin:0}
+.ba .slot{aspect-ratio:4/5;border-radius:var(--swatch);border:1.5px dashed var(--l7);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:var(--l8);font-size:15px}
+.ba figcaption{margin-top:12px;font-size:15px;line-height:1.4;color:#efe7dc}
 .cap{font-size:var(--step-small);color:var(--muted);margin-top:10px}
 .about .cap{color:#b9ab9b}
 
@@ -97,6 +102,11 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 .inside{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
 .inside .intro{grid-column:1/4;padding-right:16px}
 .inside .intro p{margin-top:20px;max-width:30ch}
+.inside .intro p+p{margin-top:12px}
+.bonus{grid-column:1/-1;margin-top:14px;background:var(--l10);border-radius:28px;padding:26px 30px;display:grid;grid-template-columns:auto 1fr;gap:8px 28px;align-items:baseline}
+.bonus h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(24px,2.2vw,32px);letter-spacing:-.02em;color:var(--l5)}
+.bonus p{font-size:18px;max-width:46ch}
+@media (max-width:900px){.bonus{grid-template-columns:1fr;padding:22px}}
 .tiles{grid-column:4/13;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:10px}
 .tile{min-width:0}
 .tile .pic{aspect-ratio:4/5;border-radius:var(--swatch);overflow:hidden}
@@ -156,6 +166,16 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 @media (hover:hover) and (pointer:fine){.plan .buy:hover{filter:brightness(.92)}}
 
 /* вопросы — простые раскрывающиеся строки */
+.who .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.who .h2{grid-column:1/5}
+.wlist{grid-column:6/13;display:grid}
+.wlist .w{padding:26px 0;border-top:1px solid #e6dccd;display:grid;gap:8px}
+.wlist .w:last-child{border-bottom:1px solid #e6dccd}
+.wlist h3{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2;padding-left:22px;position:relative}
+.wlist h3::before{content:"";position:absolute;left:0;top:.2em;width:11px;height:18px;border-radius:var(--swatch);background:var(--l8)}
+.wlist .no h3::before{background:var(--l3)}
+.wlist p{color:var(--muted);max-width:52ch;padding-left:22px}
+@media (max-width:900px){.who .h2,.wlist{grid-column:1/-1}}
 .faq .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
 .faq .h2{grid-column:1/5}
 .qlist{grid-column:6/13}
@@ -218,6 +238,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   .about .col{gap:32px;order:2}
   .about .shape{order:3}
   .inside .intro,.tiles{grid-column:1/-1}
+  .inside .intro{margin-bottom:22px}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .tile h3{font-size:17px}.tile p{font-size:15px}
   .scale-sec .head h2,.scale-sec .head p{grid-column:1/-1}
@@ -271,7 +292,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
       <a class="mark" href="#top">Крашу сама</a>
       <div>
       <h1><span class="w"><span>Крашу</span></span> <span class="w"><em>сама</em></span></h1>
-      <p class="sub">Онлайн-урок колориста Надежды Егоровой: как окрасить волосы в&nbsp;блонд самой, без обламывания и&nbsp;потери длины.</p>
+      <p class="sub">Эксклюзивный урок по&nbsp;окрашиванию волос: тот самый блонд, который отрастает и&nbsp;не&nbsp;ломается.</p>
       <div class="acts"><a class="btn light" href="#price">Купить урок</a><a class="link" href="#tone">Какой у меня тон?</a></div>
       <p class="quote">«Хватит экспериментировать! Красота и длина волос в&nbsp;твоих руках!»<span>Надежда Егорова, колорист, 18&nbsp;лет стажа</span></p>
       </div>
@@ -285,18 +306,22 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 <section id="about" aria-labelledby="about-h">
   <div class="about">
     <div>
-      <h2 id="about-h" class="rv">18 лет красила других. Теперь крашу себя сама</h2>
+      <h2 id="about-h" class="rv">Привет, дорогая!</h2>
       <div class="shape rv"><video src="video/nadezhda.mp4" poster="video/nadezhda.webp" muted loop playsinline preload="metadata" width="540" height="960" aria-label="Надежда: раньше красилась в парикмахерской, теперь красит сама"></video><button class="snd" type="button" aria-pressed="false">Включить звук</button></div>
     </div>
     <div class="col">
       <div class="rv">
-        <h3>Обо мне</h3>
-        <p>Меня зовут Надежда Егорова, я колорист со стажем 18 лет. За это время через мои руки прошли несколько тысяч женщин. За эти годы я нашла то самое безопасное окрашивание блонда, которое не «обламывается».</p>
+        <p>Добро пожаловать на обучение для женщин от Егоровой Надежды, колориста, которая за 18 лет перетрогала тысячи прекрасных головушек, подстригая и окрашивая их с закрытыми глазами.</p>
+        <p>Здесь ты не услышишь непонятных слов и сложных терминов, всё самым доступным и простым языком.</p>
+        <p>Возможно ли окрасить волосы самой? Конечно, да! Потому что бухгалтер Ирина и тренер Ольга уже освоили программу, не имея опыта в колористике.</p>
+        <p>Бери с собой свои шикарные ручки, остальное найдёшь здесь: собрание всех секретов того самого блонда, который отрастает и не ломается!</p>
       </div>
       <div class="rv">
-        <h3>Почему я учу этому</h3>
-        <p>Раньше, когда я ходила краситься к другим мастерам, мои волосы ломались, не успевая отрастать. Когда от окрашивания волосы постоянно обламывались, я прибегала к наращиванию.</p>
-        <p style="margin-top:12px">Сейчас я отрастила свои длинные волосы и крашу их в блонд сама, не теряя длины. И тебя научу.</p>
+        <p>Раньше, когда походы к другим колористам были вслепую, сидела в кресле обычным клиентом, который на всё согласен, мои волосы выглядели так:</p>
+        <div class="ba">
+          <figure><div class="slot" role="img" aria-label="Место для фото: волосы раньше"><span>Фото «раньше»</span></div><figcaption>Волосы ломались, не успевая отрастать…</figcaption></figure>
+          <figure><div class="slot" role="img" aria-label="Место для фото: волосы сейчас"><span>Фото «сейчас»</span></div><figcaption>Сейчас крашу свои волосы САМА! И тебя научу!</figcaption></figure>
+        </div>
       </div>
       <a class="btn light rv" href="#price">Хочу научиться</a>
     </div>
@@ -306,16 +331,15 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 <section id="inside" aria-labelledby="inside-h">
   <div class="wrap inside">
     <div class="intro rv">
-      <h2 id="inside-h" class="h2">Что внутри урока</h2>
-      <p>Всё, что я делаю со своими волосами, по шагам. Подойдёт девушкам без опыта и мастерам.</p>
+      <h2 id="inside-h" class="h2">Что тебе даст обучение?</h2>
+      <p>Знания и практику, которые ты сможешь применить на себе, своей маме или подруге.</p>
+      <p>Перестать молча соглашаться на «вам и так очень идёт» и начать самой контролировать и понимать все процессы.</p>
     </div>
     <div class="tiles">
       <div class="tile wide rv"><div class="pic" style="background:var(--l8)"><img src="img/osvet-1600.webp" srcset="img/osvet-900.webp 900w, img/osvet-1600.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" width="800" height="600" loading="lazy" alt="Светлые волосы в салоне после осветления"></div><h3>Осветление без обламывания</h3><p>Мой безопасный способ блонда</p></div>
-      <div class="tile rv"><div class="pic" style="background:var(--l10)"><img src="img/podbor-1000.webp" srcset="img/podbor-600.webp 600w, img/podbor-1000.webp 1000w" sizes="(max-width:900px) 50vw, 20vw" width="600" height="800" loading="lazy" alt="Колорист смешивает краску в чаше"></div><h3>Подбор средств</h3><p>Что купить под ваш исходный цвет</p></div>
-      <div class="tile rv"><div class="pic" style="background:var(--l9)"><img src="img/nanes-1000.webp" srcset="img/nanes-600.webp 600w, img/nanes-1000.webp 1000w" sizes="(max-width:900px) 50vw, 20vw" width="600" height="800" loading="lazy" alt="Колорист разделяет волосы на пряди"></div><h3>Нанесение самой себе</h3><p>Корни и длина, сзади тоже</p></div>
-      <div class="tile rv"><div class="pic" style="background:var(--l7)"><img src="img/ton-1000.webp" srcset="img/ton-600.webp 600w, img/ton-1000.webp 1000w" sizes="(max-width:900px) 50vw, 20vw" width="600" height="800" loading="lazy" alt="Ровный светлый блонд, вид со спины"></div><h3>Тонирование</h3><p>Как убрать желтизну</p></div>
       <div class="tile rv"><div class="pic" style="background:var(--l10)"><img src="img/uhod-1000.webp" srcset="img/uhod-600.webp 600w, img/uhod-1000.webp 1000w" sizes="(max-width:900px) 50vw, 20vw" width="600" height="800" loading="lazy" alt="Светлые волосы на ветру"></div><h3>Уход после</h3><p>Чтобы длина сохранилась</p></div>
-      <div class="tile wide rv"><div class="pic" style="background:var(--l9)"><img src="img/oshibki-1600.webp" srcset="img/oshibki-900.webp 900w, img/oshibki-1600.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" width="800" height="600" loading="lazy" alt="Светлые и тёмные пряди"></div><h3>Ошибки</h3><p>Что ломает волосы и как этого избежать</p></div>
+      <div class="tile rv"><div class="pic" style="background:var(--l9)"><img src="img/oshibki-1600.webp" srcset="img/oshibki-900.webp 900w, img/oshibki-1600.webp 1600w" sizes="(max-width:900px) 50vw, 20vw" width="800" height="600" loading="lazy" alt="Светлые и тёмные пряди"></div><h3>Ошибки</h3><p>Что ломает волосы и как этого избежать</p></div>
+      <div class="bonus rv"><h3>И шикарный бонус</h3><p>В подарок урок по уходу: самодиагностика своих волос и подбор уходовой косметики.</p></div>
     </div>
   </div>
 </section>
@@ -323,8 +347,8 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
 <section id="tone" class="scale-sec" aria-labelledby="tone-h">
   <div class="wrap">
     <div class="head">
-      <h2 id="tone-h" class="h2 rv">Какой у вас тон сейчас?</h2>
-      <p class="rv">Колористы меряют цвет уровнями: 1 — чёрный, 10 — самый светлый блонд. Отметьте свой цвет и желаемый, покажу, с чего начать.</p>
+      <h2 id="tone-h" class="h2 rv">Какой у тебя тон сейчас?</h2>
+      <p class="rv">Колористы меряют цвет уровнями: 1 — чёрный, 10 — самый светлый блонд. Отметь свой цвет и желаемый, покажу, с чего начать.</p>
     </div>
     <div class="levels">
       <p class="row-label" id="now-l">Сейчас</p>
@@ -333,8 +357,8 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
       <div class="swatches" role="group" aria-labelledby="want-l" data-row="want"></div>
     </div>
     <div class="result" aria-live="polite">
-      <p class="big" id="r-big">Выберите два тона</p>
-      <div class="txt"><p id="r-txt">Это ориентир, а не диагноз: точнее скажу на консультации по фото ваших волос.</p></div>
+      <p class="big" id="r-big">Выбери два тона</p>
+      <div class="txt"><p id="r-txt">Это ориентир, а не диагноз: точнее скажу на консультации по фото твоих волос.</p></div>
       <a class="btn" href="#price" id="r-btn">Смотреть цены</a>
     </div>
   </div>
@@ -344,14 +368,25 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   <div class="wrap">
     <div class="head">
       <h2 id="how-h" class="h2 rv">Как проходит урок</h2>
-      <p class="rv">От покупки до вашего блонда. Смотрите в своём темпе и возвращайтесь к видео столько раз, сколько нужно.</p>
+      <p class="rv">От покупки до твоего блонда. Смотри в своём темпе и возвращайся к видео столько раз, сколько нужно.</p>
     </div>
     <div class="acc" role="list">
-      <button class="stage s1" aria-expanded="true"><span class="vname">Покупка</span><span class="body"><h3>Покупка</h3><p>Оплачиваете урок, и доступ приходит сразу, без ожидания.</p></span></button>
-      <button class="stage s2" aria-expanded="false"><span class="vname">Смотрите</span><span class="body"><h3>Смотрите</h3><p>Видео с телефона в любое время, по шагам, как я крашу свои волосы.</p></span></button>
-      <button class="stage s3" aria-expanded="false"><span class="vname">Готовитесь</span><span class="body"><h3>Готовитесь</h3><p>Покупаете средства по списку из урока под свой исходный цвет.</p></span></button>
-      <button class="stage s4" aria-expanded="false"><span class="vname">Красите сама</span><span class="body"><h3>Красите сама</h3><p>Повторяете за мной дома: корни, длина, тонирование.</p></span></button>
-      <button class="stage s5" aria-expanded="false"><span class="vname">Ваш блонд</span><span class="body"><h3>Ваш блонд</h3><p>Светлые волосы без обламывания и потери длины.</p></span></button>
+      <button class="stage s1" aria-expanded="true"><span class="vname">Покупка</span><span class="body"><h3>Покупка</h3><p>Оплачиваешь урок, и доступ приходит сразу, без ожидания.</p></span></button>
+      <button class="stage s2" aria-expanded="false"><span class="vname">Смотришь</span><span class="body"><h3>Смотришь</h3><p>Видео с телефона в любое время, по шагам, как я крашу свои волосы.</p></span></button>
+      <button class="stage s3" aria-expanded="false"><span class="vname">Готовишься</span><span class="body"><h3>Готовишься</h3><p>Покупаешь средства по списку из урока под свой исходный цвет.</p></span></button>
+      <button class="stage s4" aria-expanded="false"><span class="vname">Красишь сама</span><span class="body"><h3>Красишь сама</h3><p>Повторяешь за мной дома: корни, длина, тонирование.</p></span></button>
+      <button class="stage s5" aria-expanded="false"><span class="vname">Твой блонд</span><span class="body"><h3>Твой блонд</h3><p>Светлые волосы без обламывания и потери длины.</p></span></button>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="who" aria-labelledby="who-h">
+  <div class="wrap">
+    <h2 id="who-h" class="h2 rv">Кому подойдёт</h2>
+    <div class="wlist">
+      <div class="w rv"><h3>Для кого подойдёт урок</h3><p>Для всех, кто уже носит блонд и хочет светлые, длинные волосы.</p></div>
+      <div class="w rv"><h3>Для кого подойдёт консультация</h3><p>Если твои волосы окрашены краской в тёмный цвет, если ты сомневаешься и не нашла свой образ или тебе нужны чёткие инструкции для своего мастера.</p></div>
+      <div class="w no rv"><h3>Кому НЕ подойдёт</h3><p>Если ты не хочешь ничего менять и твой обломанный блонд спереди до уровня ушей и сзади максимум до плеч тебя полностью устраивает!</p></div>
     </div>
   </div>
 </section>
@@ -360,18 +395,18 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   <div class="wrap price">
     <div class="ph rv">
       <h2 id="price-h" class="h2">Урок или разбор лично</h2>
-      <p>Урок, чтобы научиться самой. Консультация, если хотите, чтобы я посмотрела именно ваши волосы.</p>
+      <p>Урок, чтобы научиться самой. Консультация, если хочешь, чтобы я посмотрела именно твои волосы.</p>
     </div>
     <div class="plan p1 rv">
       <h3>Урок «Крашу сама»</h3>
       <p class="cost">2&nbsp;990&nbsp;₽</p><p class="cost-next">стартовая цена до 15 декабря, потом 3&nbsp;990&nbsp;₽</p>
-      <ul><li>Видеоурок по шагам</li><li>Список средств под ваш цвет</li><li>Доступ сразу после оплаты</li></ul>
+      <ul><li>Видеоурок по шагам</li><li>Список средств под твой цвет</li><li>Доступ сразу после оплаты</li></ul>
       <a class="buy" href="pay.html">Купить урок</a>
     </div>
     <div class="plan p2 rv">
       <h3>Личная консультация</h3>
       <p class="cost">5&nbsp;990&nbsp;₽</p>
-      <ul><li>Онлайн-встреча со мной</li><li>Разбор ваших волос по фото и вживую на видео</li><li>Рекомендации для вас или вашего мастера</li><li>Какие средства и в каком порядке</li></ul>
+      <ul><li>Онлайн-встреча со мной</li><li>Разбор твоих волос по фото и вживую на видео</li><li>Рекомендации для тебя или твоего мастера</li><li>Какие средства и в каком порядке</li></ul>
       <a class="buy" href="pay.html?item=consult">Записаться</a>
     </div>
   </div>
@@ -382,10 +417,10 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
     <h2 id="faq-h" class="h2 rv">Частые вопросы</h2>
     <div class="qlist">
       <div class="qa open"><button class="q" aria-expanded="true" aria-controls="a1"><span>Подойдёт, если я никогда не красилась сама?</span><i aria-hidden="true"></i></button><div class="a" id="a1"><p>Да. Урок для девушек, которые хотят красить дома, и для мастеров. Всё показано по шагам, без профессиональных слов.</p></div></div>
-      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a2"><span>У меня тёмные или уже окрашенные волосы, получится блонд?</span><i aria-hidden="true"></i></button><div class="a" id="a2"><p>Краска не осветляет ранее окрашенные волосы, поэтому путь из тёмного в блонд обычно в несколько этапов. Лучше начать с консультации: посмотрю ваши волосы и скажу, с чего начать.</p></div></div>
-      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a3"><span>Как я получу урок?</span><i aria-hidden="true"></i></button><div class="a" id="a3"><p>Сразу после оплаты вам придёт доступ к видео, смотреть можно с телефона в любое время. [Срок доступа уточняется.]</p></div></div>
-      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a4"><span>Что нужно купить для окрашивания?</span><i aria-hidden="true"></i></button><div class="a" id="a4"><p>Список средств есть в уроке, под ваш исходный цвет. Покупать заранее ничего не нужно.</p></div></div>
-      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a5"><span>Чем консультация отличается от урока?</span><i aria-hidden="true"></i></button><div class="a" id="a5"><p>Урок учит методу. На консультации я разбираю именно ваши волосы и даю рекомендации вам или вашему мастеру.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a2"><span>У меня тёмные или уже окрашенные волосы, получится блонд?</span><i aria-hidden="true"></i></button><div class="a" id="a2"><p>Краска не осветляет ранее окрашенные волосы, поэтому путь из тёмного в блонд обычно в несколько этапов. Лучше начать с консультации: посмотрю твои волосы и скажу, с чего начать.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a3"><span>Как я получу урок?</span><i aria-hidden="true"></i></button><div class="a" id="a3"><p>Сразу после оплаты тебе придёт доступ к видео, смотреть можно с телефона в любое время. [Срок доступа уточняется.]</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a4"><span>Что нужно купить для окрашивания?</span><i aria-hidden="true"></i></button><div class="a" id="a4"><p>Список средств есть в уроке, под твой исходный цвет. Покупать заранее ничего не нужно.</p></div></div>
+      <div class="qa"><button class="q" aria-expanded="false" aria-controls="a5"><span>Чем консультация отличается от урока?</span><i aria-hidden="true"></i></button><div class="a" id="a5"><p>Урок учит методу. На консультации я разбираю именно твои волосы и даю рекомендации тебе или твоему мастеру.</p></div></div>
     </div>
   </div>
 </section>
@@ -402,7 +437,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
     <span style="background:var(--l10);height:100%">К</span><span style="background:var(--l9);height:92%">р</span><span style="background:var(--l8);height:84%">а</span><span style="background:var(--l7);height:78%;color:#fff">ш</span><span style="background:var(--l5);height:70%;color:#fff">у</span><span style="background:var(--l10);height:64%">с</span><span style="background:var(--l9);height:72%">а</span><span style="background:var(--l8);height:80%">м</span><span style="background:var(--l7);height:88%;color:#fff">а</span>
   </div>
   <div class="foot">
-    <nav aria-label="Подвал"><a href="#about">Обо мне</a><a href="#inside">Что внутри</a><a href="#tone">Ваш тон</a><a href="#price">Цены</a><a href="#faq">Вопросы</a></nav>
+    <nav aria-label="Подвал"><a href="#about">Обо мне</a><a href="#inside">Что даст обучение</a><a href="#tone">Твой тон</a><a href="#who">Кому подойдёт</a><a href="#price">Цены</a><a href="#faq">Вопросы</a></nav>
     <div class="contacts"><p>Надежда Егорова, колорист</p><p>[Instagram] · [Telegram]</p><p class="req">[ФИО, ИП или самозанятая] · ИНН [ИНН] · [Город]<br>Телефон: [телефон] · E-mail: [e-mail]</p></div>
     <div class="last"><span>© <span id="yr">2026</span> Крашу сама</span><span><a href="oferta.html">Договор-оферта</a> · <a href="privacy.html">Политика обработки данных</a></span><span>Фото-примеры: Unsplash</span></div>
   </div>
@@ -480,7 +515,7 @@ function tone() {
     btn.textContent = 'Купить урок';
   } else {
     big.textContent = `${d} уровней — лучше в несколько этапов`;
-    txt.textContent = 'Из тёмного в светлый блонд за один раз волосы обычно ломаются. Начните с консультации: разберу ваши волосы и составлю план.';
+    txt.textContent = 'Из тёмного в светлый блонд за один раз волосы обычно ломаются. Начни с консультации: разберу твои волосы и составлю план.';
     btn.textContent = 'Записаться на консультацию';
   }
 }
