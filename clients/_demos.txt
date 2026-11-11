@@ -1,0 +1,3 @@
+# Демо, которые надо выложить на ysdprojects.space/clients/<имя>/ вручную (по одному в строке).
+# Обычно список ведёт бот сам: demo.ysdprojects.space/_demos.json
+uchebny-centr-dpo-06efc1

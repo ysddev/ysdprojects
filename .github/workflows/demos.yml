@@ -1,0 +1,31 @@
+name: demos
+# Демо клиентов с сервера бота → ysdprojects.space/clients/<slug>/ (открывается там, где сервер бота недоступен).
+# Раз в 10 минут и при правке списка; полная сборка сайта (mirror) забирает их тем же скриптом.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/10 * * * *'
+  push:
+    paths: ['clients/_demos.txt', 'tools/pull_demos.py', '.github/workflows/demos.yml']
+permissions:
+  contents: write
+concurrency: { group: demos, cancel-in-progress: false }
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: gh-pages, path: pages, fetch-depth: 1 }
+      - name: Pull demos from the bot server
+        run: python3 tools/pull_demos.py pages
+      - name: Publish
+        run: |
+          cd pages
+          git config user.name "ysd-mirror"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A clients
+          if git diff --cached --quiet; then echo "нет новых демо"; exit 0; fi
+          git commit -q -m "Демо клиентов $(date -u +%FT%H:%M)"
+          git push origin gh-pages
