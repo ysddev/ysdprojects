@@ -1,0 +1,125 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Lora:wght@400;500&display=swap&subset=cyrillic" rel="stylesheet"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:10px}
+@media (max-width:1199px){html{font-size:8px}}
+@media (max-width:959px){html{font-size:20px}}
+@media (max-width:639px){html{font-size:15px}}
+@media (max-width:479px){html{font-size:10px}}
+body{background:#f3efea;color:#2e2722;font-family:'Lora',Georgia,serif;font-size:1.7rem;line-height:1.55}
+img{display:block}
+h1,h2,h3,.d{font-family:'Cormorant Garamond','Times New Roman',serif;font-weight:500;letter-spacing:-.02em;line-height:1}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:5.2rem;padding:0 3rem;background:#2e2722;color:#f3efea;font-family:'Lora',serif;font-weight:500;font-size:1.7rem;text-decoration:none}
+.btn.light{background:#f3efea;color:#3d4a4b}
+.split{display:flex;gap:1.2rem;padding:0 1.2rem}
+.split>.col{flex:1 1 0;min-width:0}
+.pic{overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}
+/* hero */
+.hero{padding-top:1.2rem}
+.hero .card{height:70rem;background:#e7dfd5;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 5rem 2.4rem}
+.hero .pic{height:70rem}
+.band{display:flex;align-items:flex-end;gap:.3rem;height:5rem;align-self:stretch;margin:0 -5rem}
+.band i{flex:1 1 0;display:block}
+.hero h1{font-size:6.4rem;margin-top:11rem}
+.hero .lead{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2.4rem;line-height:1.3;max-width:44rem;margin-top:3.2rem}
+.hero .btn{margin-top:3.6rem}
+.hero nav{margin-top:auto;display:flex;gap:2.8rem;font-size:1.4rem}
+/* who */
+.who .txt{padding:11rem 5rem 9rem 6rem}
+.who h2,.toc h2,.plans h2{font-size:4.6rem}
+.who ul{list-style:none;margin-top:5rem}
+.who li{display:flex;gap:1.8rem;align-items:flex-start;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2.4rem;line-height:1.25;margin-bottom:3.4rem;max-width:44rem}
+.who li b{flex:none;display:block;width:1rem;height:2.2rem;background:#2e2722;margin-top:.4rem}
+.who .pic{height:72rem;margin-top:1.2rem}
+/* toc */
+.toc{padding-top:1.2rem}
+.toc .txt{padding:9rem 5rem 6rem 6rem}
+.toc .intro{margin-top:2.4rem;max-width:44rem}
+.walkph{margin-top:4.8rem;height:31rem;background:#e7dfd5}
+.quote{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:3.2rem;line-height:1.2;letter-spacing:-.01em;max-width:40rem;margin-top:6rem}
+.toc .pic{height:86rem}
+.toc .pic.m{display:none}
+/* plans */
+.plans{padding:12rem 1.2rem 0}
+.plans .head{display:flex;justify-content:space-between;align-items:flex-end;padding:0 6rem;margin-bottom:4.8rem}
+.plans .head p{max-width:36rem;color:#62554a;font-size:1.6rem}
+.fields{display:flex}
+.plan{display:flex;flex-direction:column;padding:5rem;height:58rem}
+.plan.self{flex:5 1 0;background:#e7dfd5}
+.plan.sup{flex:7 1 0;background:#3d4a4b;color:#f3efea}
+.plan h3{font-size:4.6rem}
+.plan .for{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2.4rem;line-height:1.3;max-width:42rem;margin-top:2.4rem}
+.plan .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end}
+.price{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:11rem;line-height:.85;letter-spacing:-.03em}
+/* info */
+.info{padding:12rem 7.2rem 0;display:flex;gap:6rem}
+.info h2{font-size:2.8rem;flex:1 1 0}
+.info .r{flex:1 1 0}
+.info p{color:#62554a;font-size:1.5rem;max-width:52rem}
+.info .links{margin-top:1.6rem;font-size:1.6rem}
+.info .links a{display:block;margin-bottom:1.2rem}
+.footer{display:flex;justify-content:space-between;align-items:baseline;padding:14rem 7.2rem 3rem;font-size:1.4rem;color:#62554a}
+.footer nav{display:flex;gap:2.4rem;color:#2e2722}
+@media (max-width:959px){
+ body{font-size:1.5rem}
+ .split{flex-direction:column;gap:0}
+ .split>.col{flex:none}
+ .hero .pic{order:-1;height:38rem}
+ .hero .card{height:auto;padding:0 2rem 2.4rem;margin:-2.4rem 1.2rem 0;position:relative}
+ .band{height:3.6rem;margin:0 -2rem;gap:.2rem}
+ .hero h1{font-size:4rem;margin-top:3.6rem}
+ .hero .lead{font-size:1.9rem;margin-top:2.2rem;max-width:none}
+ .hero .btn{width:100%;margin-top:3rem;font-size:1.6rem}
+ .hero nav{margin-top:2.8rem;gap:2.2rem}
+ .who .txt{padding:8rem 0.8rem 1rem}
+ .who h2,.toc h2,.plans h2{font-size:3.2rem}
+ .who ul{margin-top:3.6rem}
+ .who li{font-size:2rem;margin-bottom:2.8rem;gap:1.4rem;max-width:none}
+ .who li b{width:.8rem;height:1.8rem}
+ .who .pic{height:37rem;margin-top:1.6rem}
+ .toc .txt{padding:7rem .8rem 0;display:flex;flex-direction:column}
+ .toc .intro{margin-top:1.8rem;max-width:none}
+ .walkph{margin-top:3.2rem;height:27rem}
+ .toc .pic.d{display:none}
+ .toc .pic.m{display:block;height:37rem;margin-top:3.2rem}
+ .quote{font-size:2.4rem;margin-top:3rem;max-width:26rem}
+ .plans{padding:8rem 1.2rem 0}
+ .plans .head{display:block;padding:0 .8rem;margin-bottom:3rem}
+ .plans .head p{margin-top:1.6rem;font-size:1.5rem;max-width:none}
+ .fields{flex-direction:column}
+ .plan{height:auto;padding:2.8rem 2rem 2.4rem;flex:none!important}
+ .plan.sup{order:-1}
+ .plan h3{font-size:3.2rem}
+ .plan .for{font-size:1.9rem;margin-top:1.8rem;max-width:none}
+ .plan .foot{display:block;margin-top:4.4rem}
+ .price{font-size:7.6rem}
+ .plan .btn{width:100%;margin-top:2.4rem;font-size:1.6rem}
+ .info{display:block;padding:8rem 2rem 0}
+ .info h2{font-size:2.4rem;margin-bottom:1.6rem}
+ .info p{font-size:1.4rem}
+ .footer{display:block;padding:8rem 2rem 2.4rem;font-size:1.3rem}
+ .footer nav{margin:1rem 0}
+}
+</style></head><body><section class="hero split"><div class="col card"><div class="band"><i style="height:100.0%;background:#2e2722"></i><i style="height:97.6%;background:#2e2722"></i><i style="height:95.3%;background:#2e2722"></i><i style="height:92.9%;background:#2e2722"></i><i style="height:90.5%;background:#2e2722"></i><i style="height:88.2%;background:#2e2722"></i><i style="height:85.8%;background:#2e2722"></i><i style="height:83.5%;background:#2e2722"></i><i style="height:81.1%;background:#2e2722"></i><i style="height:78.7%;background:#2e2722"></i><i style="height:76.4%;background:#2e2722"></i><i style="height:74.0%;background:#2e2722"></i><i style="height:71.6%;background:#2e2722"></i><i style="height:69.3%;background:#2e2722"></i><i style="height:66.9%;background:#2e2722"></i><i style="height:64.5%;background:#2e2722"></i><i style="height:62.2%;background:#2e2722"></i><i style="height:59.8%;background:#2e2722"></i><i style="height:57.5%;background:#2e2722"></i><i style="height:55.1%;background:#2e2722"></i><i style="height:52.7%;background:#2e2722"></i><i style="height:50.4%;background:#2e2722"></i><i style="height:48.0%;background:#2e2722"></i><i style="height:45.6%;background:#3d4a4b"></i><i style="height:43.3%;background:#3d4a4b"></i><i style="height:40.9%;background:#3d4a4b"></i><i style="height:38.5%;background:#3d4a4b"></i><i style="height:36.2%;background:#3d4a4b"></i><i style="height:33.8%;background:#3d4a4b"></i><i style="height:31.5%;background:#3d4a4b"></i><i style="height:29.1%;background:#3d4a4b"></i><i style="height:26.7%;background:#3d4a4b"></i><i style="height:24.4%;background:#3d4a4b"></i><i style="height:22.0%;background:#62554a"></i></div>
+<h1>История меня.<br>Путь к&nbsp;себе</h1>
+<p class="lead">Это история о&nbsp;любви, материнстве, ошибках, страхах, потере самого дорогого и&nbsp;о&nbsp;женщине, которая учится жить заново</p>
+<a class="btn" href="#tarify">Выбрать тариф</a>
+<nav><a href="#dlya">Для кого</a><a href="#soderzhanie">Содержание</a><a href="#tarify">Тарифы</a></nav></div>
+<div class="col pic"><img src="https://static.tildacdn.com/tila3030-3665-4264-a336-343930626532/elena-sea.jpg" alt="Автор книги у моря"></div></section><section class="who split"><div class="col txt"><h2>Эта книга для&nbsp;тех,&nbsp;кто</h2><ul>
+<li><b></b><span>хочет узнать, о&nbsp;чём я&nbsp;молчала</span></li>
+<li><b></b><span>проживает горе и&nbsp;не&nbsp;знает, как жить дальше</span></li>
+<li><b></b><span>нуждается в&nbsp;поддержке</span></li>
+<li><b></b><span>проходит сложный этап (горе, развод, увольнение, любые потери) и&nbsp;хочет разделить свою боль</span></li>
+<li><b></b><span>не&nbsp;знает, как начать снова радоваться жизни</span></li></ul></div>
+<div class="col pic"><img src="https://static.tildacdn.com/tila3635-6463-4838-b135-353331323161/elena-shore.jpg" alt="Автор книги стоит у моря"></div></section><section class="toc split"><div class="col txt"><h2>Содержание</h2>
+<p class="intro">Двадцать три главы истории и&nbsp;десять глав с&nbsp;практическими заданиями. Ведите ползунок, чтобы пройти по&nbsp;главам.</p>
+<div class="walkph"></div>
+<div class="pic m"><img src="https://static.tildacdn.com/tila3562-6463-4131-b862-633436306636/elena-son.jpg" alt="Автор книги с сыном"></div>
+<p class="quote">Я&nbsp;не&nbsp;смогла изменить то, что со&nbsp;мной произошло. Но&nbsp;я&nbsp;смогла выбрать, что делать со&nbsp;своей жизнью дальше</p></div>
+<div class="col pic d"><img src="https://static.tildacdn.com/tila3562-6463-4131-b862-633436306636/elena-son.jpg" alt="Автор книги с сыном"></div></section><section class="plans"><div class="head"><h2>Тарифы</h2><p>Книгу можно прочитать самостоятельно, а&nbsp;можно пройти этот путь вместе с&nbsp;автором.</p></div>
+<div class="fields"><div class="plan self"><h3>Я сама</h3><p class="for">Просто книга, без обратной связи и&nbsp;практических заданий. Книга остаётся у&nbsp;вас навсегда.</p>
+<div class="foot"><p class="price">1090&nbsp;₽</p><a class="btn" href="#oplata-1090">Купить</a></div></div>
+<div class="plan sup"><h3>С моей поддержкой</h3><p class="for">Книга, практические задания и&nbsp;чат с&nbsp;моей поддержкой: доступ на&nbsp;месяц. Книга остаётся у&nbsp;вас навсегда.</p>
+<div class="foot"><p class="price">2990&nbsp;₽</p><a class="btn light" href="#oplata-2990">Купить</a></div></div></div></section><section class="info"><h2>Информация</h2><div class="r"><p>[Продавец: ИП или самозанятый, ФИО, ИНН]. [Как и куда приходит книга после оплаты]. [Как попасть в чат поддержки].</p>
+<div class="links"><a href="#oferta">Публичная оферта</a><a href="#privacy">Политика конфиденциальности</a></div></div></section>
+<footer class="footer"><span>Книга «История меня. Путь к себе»</span><nav><a href="#dlya">Для кого</a><a href="#soderzhanie">Содержание</a><a href="#tarify">Тарифы</a></nav><span>2026</span></footer></body></html>
