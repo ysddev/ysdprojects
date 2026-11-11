@@ -1,0 +1,20 @@
+name: probe
+# Проверка сервера бота снаружи: жив ли, какая версия, давно ли запущен. Секретов и данных клиентов в ответе нет.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Health
+        run: |
+          date -u +"%FT%TZ"
+          curl -s -m 20 https://demo.ysdprojects.space/health || echo "no answer"
+          echo
+          sleep 30
+          date -u +"%FT%TZ"
+          curl -s -m 20 https://demo.ysdprojects.space/health || echo "no answer"
+          echo
