@@ -1,0 +1,67 @@
+<!-- ПОЛЗУНОК «ПРОЙТИ ПО ГЛАВАМ». Чтобы изменить название главы, поменяйте текст в кавычках в списке ниже. Последняя строка списка — заключение. -->
+<div class="glw-wrap"><div class="glw">
+  <div class="glw-row" aria-hidden="true"></div>
+  <input class="glw-range" type="range" min="1" max="34" value="1" aria-label="Пройти по главам">
+  <p class="glw-out" aria-live="polite"></p>
+</div></div>
+<style>
+.glw-wrap{width:100%;height:100%;container-type:size}
+.glw{box-sizing:border-box;width:100%;height:100%;padding:34px 30px 26px;padding:6.6cqw 5.8cqw 5cqw;display:flex;flex-direction:column;color:#2e2722;font-family:'Cormorant Garamond','Times New Roman',serif;font-variant-numeric:lining-nums}
+.glw-row{flex:1 1 auto;min-height:0;display:flex;align-items:flex-end;gap:.7%}
+.glw-row i{flex:1 1 0;display:block;background:#2e2722;opacity:.28;transform-origin:bottom;transition:opacity .25s,transform .35s}
+.glw-row i.pr{background:#3d4a4b}
+.glw-row i.end{background:#62554a}
+.glw-row i.past{opacity:.6}
+.glw-row i.now{opacity:1;transform:scaleY(1.12)}
+.glw-range{display:block;width:100%;height:40px;margin:10px 0 0;padding:0;accent-color:#2e2722;cursor:pointer}
+.glw-out{margin:4px 0 0;min-height:2.3em;font-weight:500;font-size:25px;font-size:4.9cqw;line-height:1.15;letter-spacing:-.01em}
+.glw-out b{font-weight:500;color:#62554a}
+@container (max-aspect-ratio: 13/10){.glw-out{font-size:7.2cqw}.glw-range{margin-top:6px}}
+</style>
+<script>
+(function(){
+var GLAVY = [
+  "Девочка, с которой всё началось",
+  "Маленькая Елена",
+  "Мама. Моя первая любовь",
+  "Папа. Любовь, которую я училась понимать",
+  "О чём я молчала",
+  "Девочка, которая взрослела слишком",
+  "Мужчина, с которым я связала свою жизнь",
+  "Брак, который ломал меня",
+  "День, когда я стала мамой",
+  "Мы с Ксюшей",
+  "Новая семья и новая жизнь в Рязани",
+  "Когда привычная жизнь закончилась",
+  "Израиль. Три часа ожидания",
+  "Искать любой шанс",
+  "Инфекционная больница. Быть рядом",
+  "Ещё один путь",
+  "Паллиатив. Восемь месяцев",
+  "Последнее утро",
+  "После прощания",
+  "Три версии меня",
+  "Любовь, которая остаётся. О Денисе и нашей семье",
+  "Я снова учусь мечтать",
+  "Ксюша навсегда в моей жизни",
+  "Сначала разреши себе быть",
+  "Попробуй услышать себя",
+  "Найди свои опоры",
+  "Ты имеешь право на границы",
+  "Радость — не предательство",
+  "Сохраняй память так, как хочется тебе",
+  "Просить о помощи — не слабость",
+  "Как быть рядом с человеком, который переживает утрату",
+  "Трудные дни и записка себе",
+  "Не нужно возвращаться к прежнему себе",
+  "Жизнь продолжается. Любовь остаётся"
+];
+var box=document.querySelector('.glw'); if(!box) return;
+var row=box.querySelector('.glw-row'), input=box.querySelector('.glw-range'), out=box.querySelector('.glw-out');
+var N=GLAVY.length; input.max=N;
+for(var n=1;n<=N;n++){var i=document.createElement('i'); if(n===N) i.className='end'; else if(n>23) i.className='pr'; i.style.height=(100-(n-1)*62/(N-1))+'%'; row.appendChild(i);}
+function show(n){var label=(n===N)?'Заключение.':'Глава '+n+'.'; out.innerHTML='<b>'+label+'</b> '+GLAVY[n-1]; input.setAttribute('aria-valuetext',label+' '+GLAVY[n-1]);
+ for(var j=0;j<row.children.length;j++){var c=row.children[j]; c.classList.toggle('now',j===n-1); c.classList.toggle('past',j<n-1);}}
+input.addEventListener('input',function(){show(+input.value)}); show(1);
+})();
+</script>
