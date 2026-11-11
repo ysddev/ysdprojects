@@ -1,31 +1,43 @@
 name: demos
 # Демо клиентов с сервера бота → ysdprojects.space/clients/<slug>/ (открывается там, где сервер бота недоступен).
-# Раз в 10 минут и при правке списка; полная сборка сайта (mirror) забирает их тем же скриптом.
+# 11.11: расписание GitHub «раз в 10 минут» за три с половиной часа не сработало ни разу, и четыре демо остались
+# только на сервере бота. Теперь один запуск дежурит 55 минут и проверяет сервер бота каждые полторы минуты, а в конце
+# сам запускает следующий. Расписание раз в час осталось запасным: поднимет дежурство, если цепочка оборвётся.
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '17 * * * *'
   push:
     paths: ['clients/_demos.txt', 'tools/pull_demos.py', '.github/workflows/demos.yml']
 permissions:
   contents: write
+  actions: write
 concurrency: { group: demos, cancel-in-progress: false }
 jobs:
   pull:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 70
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with: { ref: gh-pages, path: pages, fetch-depth: 1 }
-      - name: Pull demos from the bot server
-        run: python3 tools/pull_demos.py pages
-      - name: Publish
+      - name: Watch the bot server for new demos
         run: |
-          cd pages
-          git config user.name "ysd-mirror"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A clients
-          if git diff --cached --quiet; then echo "нет новых демо"; exit 0; fi
-          git commit -q -m "Демо клиентов $(date -u +%FT%H:%M)"
-          git push origin gh-pages
+          git -C pages config user.name "ysd-mirror"
+          git -C pages config user.email "actions@users.noreply.github.com"
+          end=$((SECONDS + 3300))
+          while [ $SECONDS -lt $end ]; do
+            git -C pages pull -q --rebase origin gh-pages || true
+            python3 tools/pull_demos.py pages | tail -1
+            git -C pages add -A clients
+            if ! git -C pages diff --cached --quiet; then
+              git -C pages commit -q -m "Демо клиентов $(date -u +%FT%H:%M)"
+              git -C pages push -q origin gh-pages || git -C pages pull -q --rebase origin gh-pages
+            fi
+            sleep 90
+          done
+      - name: Hand over to the next run
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run demos.yml --ref main -R ${{ github.repository }}
