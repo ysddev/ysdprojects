@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
 <title>Автошкола «Старт» — права категорий A, B, C в Екатеринбурге</title>
@@ -990,7 +991,7 @@ main{position:relative;z-index:1;background:var(--bg)}
   <div></div>
   <div class="wrap">
     <svg class="wm" viewBox="0 0 1000 214" role="img" aria-label="Старт"><text x="-6" y="200" textLength="1012" lengthAdjust="spacingAndGlyphs" font-size="262">СТАРТ</text></svg>
-    <div class="legal"><span>Автошкола «Старт», Екатеринбург</span><span>Концепт-проект · сайт разработан <a class="lnk" href="https://ysddev.com">YSD DEV</a></span></div>
+    <div class="legal"><span>Автошкола «Старт», Екатеринбург</span><span>Сайт разработан <a class="lnk" href="https://ysddev.com">YSD DEV</a></span></div>
   </div>
 </footer>
 
@@ -1239,7 +1240,7 @@ main{position:relative;z-index:1;background:var(--bg)}
     if((digits.length===11?digits.slice(1):digits).length<10){$('#ePhone').textContent='Введите телефон: 10 цифр после +7.';phoneIn.setAttribute('aria-invalid','true');ok=false}
     if(!ok){(nameIn.value.trim()?phoneIn:nameIn).focus();return}
     var r=compute(),g=curGroups[S.group];
-    $('#suBody').innerHTML='<div class="done"><div class="okmark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3 tabindex="-1">Заявка принята</h3><p>'+esc(nameIn.value.trim())+', место в группе '+dstr(g)+' за вами на три дня. Администратор позвонит сегодня.</p><ol><li>Возьмите паспорт и СНИЛС на подписание договора</li><li>Запишитесь на медкомиссию — подскажем адрес рядом</li><li>Первый платёж — '+sp(Math.ceil(r.total/3/100)*100)+' ₽</li></ol><p class="concept">Это концепт-проект студии YSD DEV: заявка не отправляется.</p></div>';
+    $('#suBody').innerHTML='<div class="done"><div class="okmark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3 tabindex="-1">Заявка принята</h3><p>'+esc(nameIn.value.trim())+', место в группе '+dstr(g)+' за вами на три дня. Администратор позвонит сегодня.</p><ol><li>Возьмите паспорт и СНИЛС на подписание договора</li><li>Запишитесь на медкомиссию — подскажем адрес рядом</li><li>Первый платёж — '+sp(Math.ceil(r.total/3/100)*100)+' ₽</li></ol></div>';
     var h=$('.done h3');if(h)h.focus({preventScroll:true});
   });
 })();

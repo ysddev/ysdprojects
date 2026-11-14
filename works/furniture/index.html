@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.className+=' js'</script>
 <title>ЛЁН & ДУБ — диваны под заказ и столы из массива дуба, фабрика в Пензе</title>
@@ -1158,7 +1159,7 @@ textarea.inp{padding:14px 16px;min-height:96px;resize:vertical}
     <svg aria-hidden="true"><use href="#i-ok"/></svg>
     <h3>Заявка принята</h3>
     <p id="oOkT">Марина из шоурума позвонит в течение 15 минут в рабочее время.</p>
-    <p class="note">Это концепт-проект студии YSD DEV: заявка не отправляется.</p>
+    
     <button class="btn lt" type="button" id="oAgain">Отправить ещё одну</button>
    </div>
   </div>
@@ -1174,7 +1175,7 @@ textarea.inp{padding:14px 16px;min-height:96px;resize:vertical}
   <div><h3>Шоурум</h3><address>Пенза, ул. Суворова, 111<br>Пн–пт 10:00–20:00, сб–вс 10:00–18:00<br><a href="tel:+78412000000">+7 (8412) 00-00-00</a><br><a href="mailto:hello@furniture.ysdprojects.space">hello@furniture.ysdprojects.space</a></address></div>
  </div>
  <div class="ft-wm" aria-hidden="true"><svg viewBox="0 0 1000 196"><text x="0" y="182" font-size="196" textLength="1000" lengthAdjust="spacing">ЛЁН <tspan class="amp">&amp;</tspan> ДУБ</text></svg></div>
- <div class="ft-b"><span>© 2026 «ЛЁН &amp; ДУБ»</span><span>Концепт-проект · сайт разработан YSD DEV</span></div>
+ <div class="ft-b"><span>© 2026 «ЛЁН &amp; ДУБ»</span><span>Сайт разработан YSD DEV</span></div>
 </footer>
 
 <div class="mbar" id="mbar">
@@ -1216,7 +1217,7 @@ const FLD=(l,n,a,e)=>`<label class="fld"><span>${l}</span><input class="inp" nam
 const NAME=e=>FLD('Имя','name','autocomplete="name" required',e),TEL=e=>FLD('Телефон','phone','type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required',e);
 const m1=v=>(v/100).toFixed(1).replace('.',',')+' м';
 const cmm=v=>v<100?Math.round(v)+' см':m1(v);
-const OK=(h,t)=>`<div class="okp" tabindex="-1"><svg aria-hidden="true"><use href="#i-ok"/></svg><h3>${h}</h3><p>${t}</p><p class="note">Это концепт-проект студии YSD DEV: заявка не отправляется.</p></div>`;
+const OK=(h,t)=>`<div class="okp" tabindex="-1"><svg aria-hidden="true"><use href="#i-ok"/></svg><h3>${h}</h3><p>${t}</p></div>`;
 function tween(el,to,f,d){f=f||(n=>rub(r100(n)));d=d||650;const from=el._v==null?to:el._v;el._v=to;cancelAnimationFrame(el._r);if(RM||from===to){el.textContent=f(to);return}const t0=performance.now();const st=t=>{let p=Math.min(1,(t-t0)/d);p=1-Math.pow(1-p,4);el.textContent=f(from+(to-from)*p);if(p<1)el._r=requestAnimationFrame(st);else el.textContent=f(to)};el._r=requestAnimationFrame(st)}
 
 /* ---------- data ---------- */

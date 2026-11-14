@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('js')</script>
 <title>«Переезд за день» — квартирные переезды в Новосибирске с ценой заранее</title>
@@ -872,7 +873,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     </div>
   </div>
   <div class="f-last">
-    <p>Концепт-проект · сайт разработан YSD DEV</p>
+    <p>Сайт разработан YSD DEV</p>
     <a class="up" href="#top">Наверх</a>
   </div>
 </footer>
@@ -1130,7 +1131,7 @@ $('#oForm').addEventListener('submit',function(e){
   var dt=new Date(od.value+'T12:00:00');
   var MON=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
   var body=$('#oBody');
-  body.innerHTML='<div class="ok-box" tabindex="-1"><div class="okc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>Заявка принята</h3><p>'+esc(n.value.trim())+', '+dt.getDate()+' '+MON[dt.getMonth()]+' пока держим за вами. Расчёт: '+sp(R.price)+'&nbsp;₽.</p><ol><li>Перезвоним в течение часа и договоримся о видеозвонке</li><li>Закрепим цену и время в договоре</li><li>Накануне привезём коробки и плёнку</li></ol><p class="note">Это концепт-проект студии YSD DEV: заявка не отправляется.</p></div>';
+  body.innerHTML='<div class="ok-box" tabindex="-1"><div class="okc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>Заявка принята</h3><p>'+esc(n.value.trim())+', '+dt.getDate()+' '+MON[dt.getMonth()]+' пока держим за вами. Расчёт: '+sp(R.price)+'&nbsp;₽.</p><ol><li>Перезвоним в течение часа и договоримся о видеозвонке</li><li>Закрепим цену и время в договоре</li><li>Накануне привезём коробки и плёнку</li></ol></div>';
   $('.ok-box',body).focus();
 });
 })();

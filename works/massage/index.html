@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Массаж «Тонус» — сеанс по карте тела, Санкт-Петербург</title>
 <meta name="description" content="Массажный кабинет «Тонус» на ул. Рубинштейна, 27 в Петербурге. Отметьте на карте тела зоны, которые тянет и зажимает, — программа, длительность и цена сеанса сложатся сразу. Классический, спортивный, расслабляющий и лимфодренажный массаж, 30–120 минут, каждый день 10:00–22:00.">
@@ -910,7 +911,7 @@ fieldset.grp{border:0;margin-left:0;margin-right:0;padding:0;min-width:0}
       <p>ул. Рубинштейна, 27, второй этаж<br>Каждый день 10:00–22:00</p>
       <p><a href="tel:+78120000000">+7 (812) 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p>
     </div>
-    <p class="legal">Концепт-проект · сайт разработан YSD DEV</p>
+    <p class="legal">Сайт разработан YSD DEV</p>
   </div>
 </footer>
 
@@ -1175,7 +1176,7 @@ $('#bf').addEventListener('submit',function(e){
   if(bad){bad.focus();return}
   var dt=days[bk.day],safe=nm.value.trim().replace(/[<>&"]/g,'');
   var who=bk.master==='f'?' Мастер\u00a0— женщина.':bk.master==='m'?' Мастер\u00a0— мужчина.':'';
-  $('#formBox').innerHTML='<div class="ok" role="status" tabindex="-1"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="36" r="33"/><path d="m23 37 9 9 17-19"/></svg><h3>Заявка принята</h3><p>'+safe+', ждём вас '+(bk.day===0?'сегодня':bk.day===1?'завтра':WD[dt.getDay()]+', '+dt.getDate()+' '+MON[dt.getMonth()])+' в '+hm(bk.time)+'. '+(plan?'Программа «'+plan.name+'», '+plan.tier+' минут, '+rub(plan.price)+'.':'Классический массаж, 60 минут.')+who+' Администратор перезвонит в течение часа, чтобы подтвердить.</p><p>Приходите за 10 минут: успеете переодеться и выпить воды.</p><p class="note">Это концепт-проект студии YSD DEV: заявка не отправляется.</p><a class="btn btn-ghost" href="#top">Вернуться наверх</a></div>';
+  $('#formBox').innerHTML='<div class="ok" role="status" tabindex="-1"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="36" r="33"/><path d="m23 37 9 9 17-19"/></svg><h3>Заявка принята</h3><p>'+safe+', ждём вас '+(bk.day===0?'сегодня':bk.day===1?'завтра':WD[dt.getDay()]+', '+dt.getDate()+' '+MON[dt.getMonth()])+' в '+hm(bk.time)+'. '+(plan?'Программа «'+plan.name+'», '+plan.tier+' минут, '+rub(plan.price)+'.':'Классический массаж, 60 минут.')+who+' Администратор перезвонит в течение часа, чтобы подтвердить.</p><p>Приходите за 10 минут: успеете переодеться и выпить воды.</p><a class="btn btn-ghost" href="#top">Вернуться наверх</a></div>';
   $('#formBox .ok').focus({preventScroll:true});
   $('#formBox').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
 });

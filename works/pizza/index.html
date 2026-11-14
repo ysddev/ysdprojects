@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Дровяная — пицца из дровяной печи с доставкой по Казани</title>
 <meta name="description" content="Пиццерия «Дровяная» на Баумана, 58 в Казани: пицца из дровяной печи, тесто 48 часов. Соберите пиццу из двух половинок и платите среднюю цену. Доставка каждый день 11:00–23:00, бесплатно от 900 ₽.">
@@ -744,7 +745,7 @@ p{margin:0}
   </div>
   <div class="f-last">
     <span>«Дровяная», пицца из&nbsp;дровяной печи</span>
-    <span>Концепт-проект · сайт разработан <a href="https://ysddev.com">YSD DEV</a></span>
+    <span>Сайт разработан <a href="https://ysddev.com">YSD DEV</a></span>
   </div>
 </footer>
 
@@ -1087,7 +1088,7 @@ function renderTrack(){
   body.innerHTML='<div class="track"><p class="no num">Заказ №'+o.no+' · '+o.items+' шт. · '+rub(o.sum)+'</p><h3 aria-live="polite">'+(pickup&&o.step===3?'Готов к выдаче':STEPS[o.step].t)+'</h3>'+
     '<p class="eta">'+(o.step<4?'Примерно через <b class="num">'+ETA[o.step]+NB+'мин</b>'+(pickup?', заказ на самовывоз':(o.addr?', '+esc(o.addr):'')):'Спасибо, что выбрали «Дровяную»')+'</p>'+
     '<div class="tr-bar" role="progressbar" aria-label="Статус заказа" aria-valuemin="0" aria-valuemax="4" aria-valuenow="'+o.step+'"><i id="trFill"></i></div>'+
-    '<ol class="tr-steps">'+steps+'</ol><p class="concept">Это концепт-проект студии YSD DEV: заказ не отправляется.</p></div>';
+    '<ol class="tr-steps">'+steps+'</ol></div>';
   var fill=$('#trFill'),v=o.step>=4?1:(o.step+.5)/4.5,from=Math.max(0,(o.step-.5)/4.5);
   if(reduce){fill.style.transform='scaleX('+v+')'}else{fill.style.transform='scaleX('+from+')';requestAnimationFrame(function(){requestAnimationFrame(function(){fill.style.transform='scaleX('+v+')'})})}
 }

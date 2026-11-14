@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('js')</script>
 <title>Пенка — кофе без очереди в Telegram · Mini App от YSD DEV</title>
@@ -10,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Пенка — кофе без очереди в Telegram">
-<meta property="og:description" content="Mini App кофейни: конструктор напитка, оплата, статус заказа и экран бариста. Концепт-проект YSD DEV.">
+<meta property="og:description" content="Mini App кофейни: конструктор напитка, оплата, статус заказа и экран бариста.">
 <meta property="og:image" content="img/pour-1280.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317110E'/%3E%3Cpath d='M18 22h28l-3 28a4 4 0 0 1-4 3.6H25a4 4 0 0 1-4-3.6z' fill='%23F2E8D9'/%3E%3Cpath d='M19.4 32h25.2l-.6 6H20z' fill='%23B8D47A'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/podkova-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -817,7 +818,7 @@ label.row{cursor:pointer}
 <footer class="foot">
   <span><b translate="no">пенка</b> — кофе навынос в Новосибирске</span>
   <span class="c">Красный проспект, 41 · ул. Ленина, 12 · ул. Державина, 28</span>
-  <span class="r"><a href="https://ysddev.com" target="_blank" rel="noopener">Концепт-проект · разработка YSD DEV</a></span>
+  <span class="r"><a href="https://ysddev.com" target="_blank" rel="noopener">Разработка YSD DEV</a></span>
 </footer>
 
 <script>
@@ -1118,7 +1119,7 @@ pay.innerHTML=`<div class="bk" data-payx></div><div class="sheet" role="dialog" 
 <div class="list"><div class="row"><span class="rt">${n} ${plural(n,'позиция','позиции','позиций')}</span><span class="rp">${rub(t.sub)}</span></div>${t.gift?`<div class="row"><span class="rt">Подарок по карте</span><span class="rp">−${rub(t.gift)}</span></div>`:''}${t.pts?`<div class="row"><span class="rt">Баллы</span><span class="rp">−${rub(t.pts)}</span></div>`:''}<div class="row"><span class="rt"><b>Итого</b></span><b>${rub(t.pay)}</b></div></div>
 <div class="list"><div class="row"><span class="cardic" aria-hidden="true"><svg width="22" height="14" viewBox="0 0 22 14"><rect x="0" y="2" width="22" height="3" rx="1" fill="#F7B600"/><rect x="0" y="8" width="14" height="2" rx="1" fill="#fff" opacity=".85"/></svg></span><span class="rt">Карта •••• 4242<small>Сохранена в Telegram</small></span></div><div class="row"><span class="rt">Платёжный провайдер<small>ЮKassa через Telegram Payments</small></span></div></div>
 <button type="button" class="pbtn" data-pay><span class="t">Оплатить ${rub(t.pay)}</span><span class="spin" aria-hidden="true"></span></button>
-<p class="pay-c">Это концепт-проект студии YSD DEV: оплата не списывается.</p>
+
 <p class="pay-n">Данные карты получает платёжный провайдер, а не кофейня.</p></div></div></div>`;
 pay.classList.add('on');syncMB();setTimeout(()=>{if(phoneInView())$('[data-pay]',pay).focus({preventScroll:true})},rm()?0:80)}
 function closePay(){if(payBusy)return;pay.classList.remove('on');syncMB();setTimeout(()=>{if(!pay.classList.contains('on'))pay.innerHTML=''},380);if(document.contains(mb)&&!mbbar.inert&&phoneInView())mb.focus({preventScroll:true})}

@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NOIR — Telegram-бот записи в студию красоты</title>
 <meta name="description" content="Telegram-бот студии красоты NOIR на Малой Бронной: запись к мастеру за минуту, напоминание накануне, перенос и отмена в два нажатия, сертификаты, бонусы и отзыв после визита — и журнал администратора, где всё видно сразу.">
@@ -859,7 +860,7 @@ ul,ol{padding:0;list-style:none}
   <p class="foot-word"><span>N</span><span>O</span><span>I</span><span>R</span></p>
   <div class="foot-meta">
     <nav aria-label="Ссылки в подвале"><a href="../../salon/index.html">Сайт салона</a><button type="button" id="resetFoot">Начать переписку заново</button></nav>
-    <a href="https://ysddev.com" rel="noopener">Концепт-проект · разработка YSD DEV</a>
+    <a href="https://ysddev.com" rel="noopener">Разработка YSD DEV</a>
     <span>Москва, 2026</span>
   </div>
 </footer>
@@ -1116,7 +1117,7 @@ ok(x,m){const d=S.dr,s=SV[d.sid];if(!s||d.s==null){cbToast('Запись уже 
   if(m)choose(m,'Запись подтверждена');setStep(6);
   S.pday=b.dn;S.sel=b.id;ev(`<b>Мария Л.</b> записалась через бота: ${s.sn} у ${M(b.mid).g}, ${dShort(b.dn)}, ${hm(b.s)}`);renderPanel(b.id);flash('kAll');flash('kBot');
   say({html:`Готово, вы записаны.<br>${bLine(b)}.<br><br>Накануне вечером пришлю напоминание — подтвердить или перенести можно прямо здесь.`,kb:[[{t:ic('cal')+'Добавить в календарь',a:'ics:'+b.id}],[{t:'Мои записи',a:'my'},{t:ic('pin')+'Как добраться',a:'venue'}]]},
-    ()=>{svc('Это концепт-проект студии YSD DEV: запись не отправляется.',true);jump('Запись уже в журнале салона')});
+    ()=>{svc('',true);jump('Запись уже в журнале салона')});
   const g=gen;later(()=>{if(g===gen)remind(b.id)},9000)},
 ics(id){const b=bk(id);if(!b)return;const x=dt(b.dn);say({kind:'doc',bid:id,fname:`NOIR-${x.toISOString().slice(0,10)}.ics`,wait:500})},
 my(){const L=active();let h='<b>Ваши записи</b><br>';const kb=[];

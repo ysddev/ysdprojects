@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Остаток — складской учёт</title>
 <meta name="description" content="Остаток — веб-сервис складского учёта: остатки по ячейкам, приёмка и отгрузка со сканером, маршрут сборки, инвентаризация стеллажа и отчёты.">
@@ -675,7 +676,7 @@ button.elev-row:hover{background:var(--active)}
       <button class="nav-item" data-act="about"><svg class="ic"><use href="#i-info"/></svg><span class="label">О продукте</span></button>
       <button class="nav-item collapse-btn" data-act="collapse" aria-label="Свернуть меню"><svg class="ic"><use href="#i-side"/></svg><span class="label">Свернуть меню</span><kbd>[</kbd></button>
       <div class="user-row"><span class="av" style="--h:210">ОС</span><div class="who"><b>Олег Сафронов</b><span>Старший кладовщик</span></div></div>
-      <a class="made" href="https://ysddev.com" target="_blank" rel="noopener">Концепт-проект · разработка YSD DEV</a>
+      <a class="made" href="https://ysddev.com" target="_blank" rel="noopener">Разработка YSD DEV</a>
     </div>
   </aside>
   <div class="main-col" style="min-width:0">
@@ -2661,7 +2662,7 @@ function aboutModal() {
     <div class="modal-body" style="display:grid;gap:12px">
       <p>Остатки по ячейкам и стеллажам, приёмка и отгрузка со сканером штрихкодов, маршрут сборки по складу, инвентаризация стеллажа, журнал каждого движения и отчёты — оборотная ведомость, ABC, оборачиваемость.</p>
       <p>Остаток товара нигде не вводится руками: он всегда равен сумме прихода, расхода и пересчётов в журнале. Работает в браузере на компьютере, планшете и телефоне кладовщика.</p>
-      <p class="small muted">Концепт-проект · разработка <a class="link" href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></p>
+      <p class="small muted">Разработка <a class="link" href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></p>
     </div>
     <div class="modal-foot" style="justify-content:space-between"><button class="btn ghost" data-act="reset">${ic('undo')}Вернуть исходные данные</button><button class="btn primary" data-act="close-modal">Закрыть</button></div>`);
 }

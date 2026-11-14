@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Студия маникюра «Лак» на Покровке — конструктор маникюра и запись</title>
 <meta name="description" content="Студия маникюра «Лак» в Москве, Покровка, 41. Соберите маникюр в конструкторе: форма, длина, 14 оттенков, дизайн. Цена и время сразу, запись к мастеру с готовой картинкой.">
@@ -745,7 +746,7 @@ dialog[open].lb{animation:lbIn .45s var(--ease)}
       <a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a>
     </nav>
   </div>
-  <div class="f-legal"><span>«Лак», студия маникюра · Москва, ул. Покровка, 41, стр. 2</span><span>Концепт-проект · сайт разработан YSD DEV</span></div>
+  <div class="f-legal"><span>«Лак», студия маникюра · Москва, ул. Покровка, 41, стр. 2</span><span>Сайт разработан YSD DEV</span></div>
   <p class="f-mark" aria-hidden="true">Лак<svg class="drop" viewBox="0 0 60 84"><path class="d-fill" d="M30 2C39 20 56 37 56 55a26 26 0 0 1-52 0C4 37 21 20 30 2z"/><path d="M17 52c0-7 3-13 8-18" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/></svg></p>
 </footer>
 
@@ -1074,7 +1075,7 @@ form.addEventListener('submit',function(e){
   var when=(bk.d===0?'сегодня':bk.d===1?'завтра':WD[d.getDay()]+', '+d.getDate()+' '+MON[d.getMonth()])+' в '+hm(bk.t);
   var ok=document.createElement('div');ok.className='ok';ok.setAttribute('role','status');ok.tabIndex=-1;
   var nmv=nm.value.trim().replace(/[<>&"]/g,'');
-  ok.innerHTML='<h3>Заявка принята</h3><p>'+nmv+', ждём вас '+when+'. '+(ms==='Любой'?'Мастера подберём под дизайн.':'Мастер — '+ms+'.')+' Дизайн: '+p.S.n.toLowerCase()+', '+p.L.n.toLowerCase()+' длина, '+p.col.n.toLowerCase()+', '+p.D.n.toLowerCase()+'. Стоимость '+rub(p.price)+', в кресле '+dur(p.t)+'. Администратор позвонит, чтобы подтвердить запись.</p><p class="note">Это концепт-проект студии YSD DEV: запись не отправляется.</p><div><a class="btn btn-ink" href="#builder" id="again">Собрать ещё один дизайн</a></div>';
+  ok.innerHTML='<h3>Заявка принята</h3><p>'+nmv+', ждём вас '+when+'. '+(ms==='Любой'?'Мастера подберём под дизайн.':'Мастер — '+ms+'.')+' Дизайн: '+p.S.n.toLowerCase()+', '+p.L.n.toLowerCase()+' длина, '+p.col.n.toLowerCase()+', '+p.D.n.toLowerCase()+'. Стоимость '+rub(p.price)+', в кресле '+dur(p.t)+'. Администратор позвонит, чтобы подтвердить запись.</p><div><a class="btn btn-ink" href="#builder" id="again">Собрать ещё один дизайн</a></div>';
   form.hidden=true;formBox.appendChild(ok);ok.focus({preventScroll:true});
   ok.scrollIntoView({behavior:RM.matches?'auto':'smooth',block:'center'});
   $('#again').addEventListener('click',function(){ok.remove();form.hidden=false;form.reset();bk.t=null;renderSlots();bkSummary()});

@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('js')</script>
 <title>Юридическое бюро «Статус» — юристы в Воронеже для частных лиц и малого бизнеса</title>
@@ -958,7 +959,7 @@ legend,.lbl{display:block;font-weight:500;font-size:14px;margin-bottom:12px;padd
         <div><h3>Связаться</h3><ul><li><a href="#book">Записаться</a></li><li><a href="#contacts">Telegram</a></li><li><a href="#contacts">WhatsApp</a></li></ul></div>
       </div>
     </div>
-    <div class="ft-z"><span>Споры частных лиц и&nbsp;малого бизнеса в&nbsp;Воронеже и&nbsp;области. Сначала план и&nbsp;цена, потом договор.</span><span>Концепт-проект · сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><a href="#top">Наверх</a></div>
+    <div class="ft-z"><span>Споры частных лиц и&nbsp;малого бизнеса в&nbsp;Воронеже и&nbsp;области. Сначала план и&nbsp;цена, потом договор.</span><span>Сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><a href="#top">Наверх</a></div>
   </div>
 </footer>
 
@@ -1257,7 +1258,7 @@ if(!fErr(tel,'eTel',tel.value.replace(/\D/g,'').length!==11?'Введите но
 if(!fErr(ag,'eAgr',ag.checked?'':'Нужно согласие, чтобы мы могли перезвонить.'))bad.push(ag);
 if(bad.length){bad[0]&&bad[0].focus();return}
 var d=DL[dI].d,f=$('input[name=fmt]:checked').value,o=$('#ok');
-o.innerHTML='<div class="seal on" aria-hidden="true">'+SEAL.replace('КАРТА','ЗАПИСЬ').replace('СОСТАВЛЕНА','ПРИНЯТА')+'</div><h3>Заявка принята</h3><p>'+esc(nm.value.trim())+', администратор перезвонит на&nbsp;'+esc(tel.value).replace(/ /g,' ')+' в&nbsp;рабочее время, подтвердит запись и&nbsp;попросит прислать документы заранее.</p><dl><dt>Когда</dt><dd>'+DOWN[d.getDay()]+', '+d.getDate()+' '+MON[d.getMonth()]+', '+tm+'</dd><dt>Формат</dt><dd>'+f+'</dd><dt>Ситуация</dt><dd>'+esc(fSit.options[fSit.selectedIndex].text)+'</dd><dt>Стоимость</dt><dd>3&nbsp;000&nbsp;₽ за&nbsp;60 минут, оплата после встречи</dd></dl><p class="note">Это концепт-проект студии YSD DEV: заявка не&nbsp;отправляется.</p><button type="button" class="lnk" id="okR">Записаться ещё раз</button>';
+o.innerHTML='<div class="seal on" aria-hidden="true">'+SEAL.replace('КАРТА','ЗАПИСЬ').replace('СОСТАВЛЕНА','ПРИНЯТА')+'</div><h3>Заявка принята</h3><p>'+esc(nm.value.trim())+', администратор перезвонит на&nbsp;'+esc(tel.value).replace(/ /g,' ')+' в&nbsp;рабочее время, подтвердит запись и&nbsp;попросит прислать документы заранее.</p><dl><dt>Когда</dt><dd>'+DOWN[d.getDay()]+', '+d.getDate()+' '+MON[d.getMonth()]+', '+tm+'</dd><dt>Формат</dt><dd>'+f+'</dd><dt>Ситуация</dt><dd>'+esc(fSit.options[fSit.selectedIndex].text)+'</dd><dt>Стоимость</dt><dd>3&nbsp;000&nbsp;₽ за&nbsp;60 минут, оплата после встречи</dd></dl><button type="button" class="lnk" id="okR">Записаться ещё раз</button>';
 var sl=$('.seal',o);if(!RM){sl.classList.remove('on');requestAnimationFrame(()=>requestAnimationFrame(()=>sl.classList.add('on')))}
 $('#bf').hidden=true;o.hidden=false;o.focus({preventScroll:true});o.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});
 $('#okR').addEventListener('click',()=>{o.hidden=true;$('#bf').hidden=false;$('#bf').reset();from.hidden=true;pickDay(0);$('#fName').focus()})});

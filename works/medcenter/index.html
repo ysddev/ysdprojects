@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('js')</script>
 <title>Медцентр «Династия» — запись к врачу онлайн в Казани</title>
@@ -910,7 +911,7 @@ dialog.bk[open]::backdrop{animation:fade .3s ease}
   <div class="legal">
     <div>
       <p>Имеются противопоказания. Необходима консультация специалиста.</p>
-      <p>Концепт-проект · сайт разработан YSD&nbsp;DEV</p>
+      <p>Сайт разработан YSD&nbsp;DEV</p>
     </div>
     <a href="#top" class="lnk" style="min-height:44px">Наверх</a>
   </div>
@@ -1300,7 +1301,7 @@ dlg.addEventListener('submit',function(e){
   }
   bkIn.innerHTML='<div class="bk-h"><span></span>'+xBtn+'</div><div class="ok"><div class="mark" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h2 id="bkT" class="h3">Заявка принята</h2>'+body+
    '<p class="num">Номер записи '+nb+'. Администратор позвонит для подтверждения. За&nbsp;день до приёма придёт напоминание с&nbsp;памяткой по&nbsp;подготовке.</p>'+
-   '<p class="concept">Это концепт-проект студии YSD DEV: запись не отправляется.</p>'+
+   ''+
    '<button class="btn" type="button" data-close style="margin-top:22px">Готово</button></div>';
   var x=$('.ok .btn',bkIn);if(x)x.focus();
   lastFocus=null;render();updateAnswer();

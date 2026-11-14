@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('js')</script>
 <title>Ясна — ИИ-консультант клиники «Ясно»</title>
@@ -771,7 +772,7 @@ html.lock,html.lock body{overflow:hidden}
     <div class="tile t-ct" data-rv><a href="tel:+78460000000" class="nw">+7 (846) 000-00-00</a><p>Самара, ул. Ленинская, 147, первый этаж</p></div>
     <div class="tile t-word" data-rv aria-hidden="true"><span><svg><use href="#logo-i"/></svg>Ясно</span></div>
     <button class="tile t-go" type="button" data-go="ask" data-rv>Спросить Ясну<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32h46M36 14l18 18-18 18"/></svg></button>
-    <p class="legal">Концепт-проект · разработка <a href="https://ysddev.com">YSD DEV</a></p>
+    <p class="legal">Разработка <a href="https://ysddev.com">YSD DEV</a></p>
   </div>
 </footer>
 
@@ -948,7 +949,7 @@ case'form':{const f='f'+m.id,b=m.m==='b',v=m.v||{},dis=m.sent?' disabled':'';ret
 ${b?'':`<div class="fl"><label for="${f}q">Вопрос</label><textarea id="${f}q" name="q" rows="2"${dis}>${esc(v.q!=null?v.q:m.q||'')}</textarea></div>`}
 <label class="cb"><input type="checkbox" name="c" aria-describedby="${f}ce"${m.sent?' checked disabled':''}><span>Согласен на обработку персональных данных</span></label><span class="fe" id="${f}ce"></span>
 <button class="pbtn" type="submit">${b?'Записаться':'Отправить администратору'}</button></form>`}
-case'done':{const b=m.b;return`<div class="cd cd-ok"><div class="ok-h"><span class="ok-i">${CK}</span><b>Вы записаны</b></div><dl><div><dt>Кто</dt><dd>${esc(who(b.p))}</dd></div><div><dt>Когда</dt><dd>${cap(dl(b.d,'long'))}, ${b.t}</dd></div><div><dt>Где</dt><dd>ул. Ленинская, 147</dd></div><div><dt>Номер</dt><dd>${esc(b.id)}</dd></div></dl><button type="button" class="gbtn" data-act="ics" data-arg="${esc(b.id)}" data-keep><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Добавить в календарь</button><p class="cncpt">Это концепт-проект студии YSD DEV: запись не отправляется.</p></div>`}
+case'done':{const b=m.b;return`<div class="cd cd-ok"><div class="ok-h"><span class="ok-i">${CK}</span><b>Вы записаны</b></div><dl><div><dt>Кто</dt><dd>${esc(who(b.p))}</dd></div><div><dt>Когда</dt><dd>${cap(dl(b.d,'long'))}, ${b.t}</dd></div><div><dt>Где</dt><dd>ул. Ленинская, 147</dd></div><div><dt>Номер</dt><dd>${esc(b.id)}</dd></div></dl><button type="button" class="gbtn" data-act="ics" data-arg="${esc(b.id)}" data-keep><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Добавить в календарь</button></div>`}
 case'danger':return`<div class="dg" role="alert"><div class="dg-h"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Это может быть опасно. Звоните 103 или 112</span></div><p>Не ждите записи и не ищите ответ в чате. Если рядом кто-то есть — попросите помочь и не оставайтесь одни.</p><div class="dg-a"><a href="tel:103">Позвонить 103</a><a href="tel:112">Позвонить 112</a></div></div>`}
 return''}
 function disableIn(el){$$('button[data-act]:not([data-keep])',el).forEach(b=>{b.disabled=true})}

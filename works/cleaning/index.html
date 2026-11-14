@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Чисто. — уборка квартир в Москве с ценой до звонка</title>
 <meta name="description" content="Уборка квартир в Москве: калькулятор посчитает стоимость, время и состав бригады по площади и опциям. Дату и слот выбираете сами, цена фиксируется при бронировании.">
@@ -773,7 +774,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
       <div class="col"><b>Звонки</b>Ежедневно, 08:00–22:00<br>Уборки — с 08:00 до 21:00</div>
       <div class="col"><b>Разделы</b><a href="#calc">Калькулятор</a><a href="#book">Дата и время</a><a href="#faq">Вопросы</a></div>
     </div>
-    <div class="legal"><span>Концепт-проект · сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><a href="#top">Наверх</a></div>
+    <div class="legal"><span>Сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><a href="#top">Наверх</a></div>
   </div>
 </footer>
 
@@ -1002,7 +1003,7 @@ $('#bkForm').addEventListener('submit',function(e){
   var r=calc();
   $('#formBox').innerHTML='<div class="done" tabindex="-1" id="done"><div class="ok" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></div><h3>Заявка принята</h3><p>Менеджер перезвонит в течение 15 минут и пришлёт чек-лист уборки.</p>'+
    '<dl><dt>Уборка</dt><dd>'+esc(TYPES[st.type].full+', '+st.area+' м²')+'</dd><dt>Когда</dt><dd>'+esc(whenTxt())+'</dd><dt>Бригада</dt><dd>'+r.team+' '+plural(r.team,'клинер','клинера','клинеров')+', '+hfmt(r.onsite)+'</dd><dt>Адрес</dt><dd>'+esc($('#fAddr').value)+'</dd>'+($('#fKeys').checked?'<dt>Ключи</dt><dd>Курьер заберёт накануне</dd>':'')+'<dt>Итого</dt><dd>'+rub(r.price)+'</dd></dl>'+
-   '<p class="concept">Это концепт-проект студии YSD DEV: заявка не отправляется.</p>'+
+   ''+
    '<button type="button" class="btn ink" id="again">Новый расчёт</button></div>';
   $('#done').focus();$('#again').addEventListener('click',function(){location.reload()});
 });

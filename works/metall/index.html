@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>СтальКонструкт — завод металлоконструкций в Ногинске: расчёт, КМД, производство, монтаж</title>
 <meta name="description" content="Каркасы зданий, фермы, лестницы и опоры от КМД до монтажа. Онлайн-расчёт стоимости и срока по тоннажу, график этапов производства, загрузка ТЗ — КП с графиком от инженера.">
@@ -942,7 +943,7 @@ button.item:focus-visible .go{opacity:1;transform:none}
   </div>
   <div class="f-bot">
     <p class="wm" id="wm" aria-label="СтальКонструкт">СтальКонструкт</p>
-    <div class="legal"><span>Завод металлоконструкций · Московская область</span><span>Концепт-проект · сайт разработан <a href="https://ysddev.com">YSD DEV</a></span></div>
+    <div class="legal"><span>Завод металлоконструкций · Московская область</span><span>Сайт разработан <a href="https://ysddev.com">YSD DEV</a></span></div>
   </div>
 </footer>
 
@@ -1257,7 +1258,7 @@ button.item:focus-visible .go{opacity:1;transform:none}
     var no='СК-'+new Date().getFullYear()+'-'+String(Math.floor(1000+Math.random()*8999));
     var fl=FILES.length?FILES.length+' '+plural(FILES.length,'файл','файла','файлов'):'без файлов';
     var body=$('#tzBody');
-    body.innerHTML='<div class="done-scr" tabindex="-1"><div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>Заявка принята</h3><p>Номер запроса <b>'+no+'</b>, '+fl+($('#attCalc').checked?', расчёт приложен':'')+'. Ответ придёт на&nbsp;'+esc(ml.value.trim())+'.</p><ol><li>Инженер изучит ТЗ и позвонит в течение рабочего дня</li><li>Уточним марку стали, узлы и требования к покрытию</li><li>Пришлём КП и график этапов по вашему объекту</li></ol><p class="note">Это концепт-проект студии YSD DEV: заявка не отправляется.</p></div>';
+    body.innerHTML='<div class="done-scr" tabindex="-1"><div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>Заявка принята</h3><p>Номер запроса <b>'+no+'</b>, '+fl+($('#attCalc').checked?', расчёт приложен':'')+'. Ответ придёт на&nbsp;'+esc(ml.value.trim())+'.</p><ol><li>Инженер изучит ТЗ и позвонит в течение рабочего дня</li><li>Уточним марку стали, узлы и требования к покрытию</li><li>Пришлём КП и график этапов по вашему объекту</li></ol></div>';
     var ds=$('.done-scr',body);ds.focus({preventScroll:true});
     tzForm.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
   });

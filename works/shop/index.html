@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MIRA — уходовая косметика с понятным составом, Москва</title>
 <meta name="description" content="MIRA: уходовые средства с честной концентрацией активов. Подбор ухода за четыре вопроса, каталог, наборы, доставка по Москве от 1 дня и по всей России.">
@@ -822,7 +823,7 @@ dialog::backdrop{background:rgba(26,17,10,.55)}
     <div class="fcol c2"><h3>Покупателям</h3><ul><li><a href="#delivery">Доставка и оплата</a></li><li><a href="#faq">Частые вопросы</a></li><li><a href="#faq">Возврат</a></li><li><a href="#contacts">Контакты</a></li></ul></div>
   </div>
   <p class="giant" id="giant" aria-hidden="true"><span style="--i:0">M</span><span style="--i:1">I</span><span style="--i:2">R</span><span style="--i:3">A</span></p>
-  <div class="wrap imprint"><span>Концепт-проект · сайт разработан YSD DEV</span></div>
+  <div class="wrap imprint"><span>Сайт разработан YSD DEV</span></div>
 </footer>
 
 <button class="btn ink fab" id="fab" type="button">Подобрать уход</button>
@@ -950,7 +951,7 @@ function submitCo(){var f=$('#coF'),ok=true,nm=f.querySelector('[name=nm]'),ph=f
   if(!ok)return;
   var t=totals(),k=f.querySelector('[name=sh]:checked').value,sum=t.total+shipCost(k,t),name=nm.value.trim().split(' ')[0];
   coStep='done';cart=[];promo=false;save();
-  cBody.innerHTML='<div class="done"><h3>Заказ принят</h3><p>'+esc(name)+', спасибо! Сумма заказа — '+fmt(sum)+'.</p><p class="soft">Это концепт-проект студии YSD DEV: заказ не отправляется и оплата не списывается.</p><button class="btn" type="button" data-close>Вернуться в магазин</button></div>';cFoot.innerHTML='';cFoot.hidden=true;renderCart();
+  cBody.innerHTML='<div class="done"><h3>Заказ принят</h3><p>'+esc(name)+', спасибо! Сумма заказа — '+fmt(sum)+'.</p><button class="btn" type="button" data-close>Вернуться в магазин</button></div>';cFoot.innerHTML='';cFoot.hidden=true;renderCart();
 }
 cartDlg.addEventListener('click',function(e){var b=e.target.closest('button,a');if(e.target===cartDlg){closeCart();return}if(!b)return;
   if(b.hasAttribute('data-close')){closeCart();return}

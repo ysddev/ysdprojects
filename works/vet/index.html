@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
 <title>Лапа и хвост — круглосуточная ветклиника в Екатеринбурге</title>
@@ -825,7 +826,7 @@ h2{font-size:var(--step-head);line-height:1;letter-spacing:-0.035em;font-weight:
       </div>
     </div>
     <div class="fbot">
-      <p>Концепт-проект · сайт разработан <a href="https://ysddev.com">YSD DEV</a></p>
+      <p>Сайт разработан <a href="https://ysddev.com">YSD DEV</a></p>
       <a class="btn btn-pale" href="#main">Наверх</a>
     </div>
   </div>
@@ -1175,7 +1176,7 @@ $('#bookForm').addEventListener('submit',function(e){
    '<h3>'+(bk.mode==='now'?'Ждём вас':'Заявка принята')+'</h3>'+
    '<p>'+(bk.mode==='now'?'Дежурный врач предупреждён. Если по&nbsp;дороге станет хуже&nbsp;— звоните, подскажем, что делать.':'Администратор перезвонит в&nbsp;течение 15&nbsp;минут и&nbsp;подтвердит время.')+'</p>'+
    '<dl><dt>Кто</dt><dd>'+esc($('#fAnimal').selectedOptions[0].textContent)+'</dd><dt>Врач</dt><dd>'+esc(d.n)+'</dd><dt>Когда</dt><dd>'+esc(when)+'</dd><dt>Телефон</dt><dd>'+esc($('#fPhone').value)+'</dd></dl>'+
-   '<p class="concept">Это концепт-проект студии YSD DEV: заявка не&nbsp;отправляется.</p>'+
+   ''+
    '<button type="button" class="btn btn-soft" id="again">Новая запись</button>';
   dn.focus();
   $('#again').addEventListener('click',function(){resetForm();$('#fName').focus()});

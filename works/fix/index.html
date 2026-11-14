@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fix Point — ремонт смартфонов, ноутбуков и планшетов с ценой до визита</title>
 <meta name="description" content="Сервисный центр Fix Point: мастер диагностики онлайн покажет цену и срок ремонта до визита. Смартфоны, ноутбуки, планшеты, смарт-часы. Проверка статуса ремонта по номеру квитанции.">
@@ -548,7 +549,7 @@ ul,ol{margin:0;padding:0;list-style:none}
           <button class="btn btn-lime" type="submit">Проверить</button>
         </div>
         <p class="st-err" id="rcptErr" role="alert"></p>
-        <div class="try"><span>Демо-номера:</span>
+        <div class="try"><span>Например:</span>
           <button type="button" data-try="240117">FP-240117</button>
           <button type="button" data-try="240233">FP-240233</button>
           <button type="button" data-try="240305">FP-240305</button>
@@ -708,8 +709,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   <div class="wrap">
     <div>
       <a class="logo" href="#top"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#23272a"/><path d="M9 23V9h10M9 16h7" stroke="#c6f432" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="23" cy="22" r="2.6" fill="#c6f432"/></svg><span>Fix Point<b>_</b></span></a>
-      <p>Дизайн-концепт · сайт разработан <a href="https://ysddev.com">YSD DEV</a></p>
-      <p>Демо-проект студии YSD DEV. Компания, цены и реквизиты вымышлены.</p>
+      <p>Сайт разработан <a href="https://ysddev.com">YSD DEV</a></p>
+      
     </div>
     <p class="mono">Москва, ул. Бутырская, 46</p>
   </div>
@@ -983,7 +984,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   function showStatus(n){
     var r=RC[n];
     if(n.length!==6){rerr.textContent='Номер состоит из шести цифр, например 240117.';rin.focus();return}
-    if(!r){rerr.textContent='Квитанция FP-'+n+' не найдена. Проверьте номер в СМС или попробуйте демо-номер ниже.';
+    if(!r){rerr.textContent='Квитанция FP-'+n+' не найдена. Проверьте номер в СМС или попробуйте номер ниже.';
       out.innerHTML='<div class="st-empty st-anim"><svg viewBox="0 0 48 48" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 15v11M24 32v.5"/></svg><p>По номеру FP-'+esc(n)+' ничего не нашлось. Номер напечатан на квитанции справа вверху и пришёл в СМС при приёме.</p></div>';return}
     rerr.textContent='';
     out.innerHTML='<div class="st-anim"><div class="st-head"><div><div class="num">FP-'+n+'</div><div class="dev">'+r.dev+'</div></div><span class="badge '+r.badge[0]+'"><span class="dot" style="background:currentColor;box-shadow:none" aria-hidden="true"></span>'+r.badge[1]+'</span></div>'+
