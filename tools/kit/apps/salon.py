@@ -26,7 +26,7 @@ def gen():
                 if t + s[1] > 1260:
                     break
                 if rnd.random() < fill:
-                    st = "came" if d < 0 or (d == 0 and t < 720) else ("ok" if rnd.random() < 0.72 else "new")
+                    st = "came" if d < 0 or (d == 0 and t < 720) else ("new" if d <= 3 and rnd.random() < 0.07 else "ok")
                     if d < 0 and rnd.random() < 0.06:
                         st = "noshow"
                     c = rnd.choice(CLIENTS)
