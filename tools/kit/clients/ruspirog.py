@@ -131,7 +131,7 @@ def cfg():
         "theme": {"bg": "#ffffff", "ink": "#2a1a12", "soft": "#5c463a", "mut": "#9a8474", "line": "rgba(42,26,18,.1)", "line2": "rgba(42,26,18,.26)",
                   "card": "#fbf3e2", "ac": "#d7092f", "aci": "#fff", "ac2": "#ffd23c", "ok": "#2f8a4c", "rc": "18px", "rb": "12px", "rs": "26px",
                   "fh": '"Literata",Georgia,serif', "fe": '"Literata",Georgia,serif', "fb": '"Golos Text",system-ui,sans-serif', "fm": '"Golos Text",system-ui,sans-serif',
-                  "hw": "700", "ht": "-.02em", "hc": "none", "lw": "700", "lt": "0", "ar": "1/1", "cardbg": "#fbf3e2", "cpad": "14px", "cpadb": "16px", "rl": "8px"},
+                  "hw": "700", "ht": "-.02em", "hc": "none", "lw": "700", "lt": "0", "ar": "3/2", "cardbg": "#fbf3e2", "cpad": "14px", "cpadb": "16px", "rl": "8px"},
         "fonts": [("Literata", "literata", [700], "normal"), ("Literata", "literata", [700], "italic"), ("Golos Text", "golos-text", [400, 500, 600], "normal")],
         "strip": "Доставка <b>бесплатно от 1 500 ₽</b> в пределах 10 км · постное меню в любой пост · скидка 10% в день рождения",
         "nav": [("Меню", "catalog"), ("Рассчитать", "feat"), ("Доставка", "why"), ("Вопросы", "faq")],
@@ -170,5 +170,7 @@ def cfg():
         "css": ".hero h1{font-size:clamp(40px,5.4vw,84px);line-height:.98}.v-mega .hero h1 em{color:#ffd23c;font-style:italic}.strip b{color:#ffd23c}"
                ".badge{background:#ffd23c;color:#2a1a12}.card .nm{font-weight:600}.v-mega .hero .tile{background:#2a1a12;color:#fff7ea}"
                ".top .bar{height:76px}h1,h2,h3{hyphens:manual;-webkit-hyphens:manual}.rp-c h2{font-size:clamp(26px,2.8vw,38px)}"
-               "@media (max-width:560px){.hero h1{font-size:38px}}",
+               "@media (max-width:560px){.hero h1{font-size:38px}}"
+               ".line .ph{aspect-ratio:3/2;width:96px}.pv .gal{min-height:0;aspect-ratio:3/2;align-self:start}"
+               "@media (max-width:860px){.pv .gal{min-height:0;aspect-ratio:3/2}}",
     }
