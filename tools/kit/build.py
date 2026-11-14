@@ -1,10 +1,15 @@
-"""python -m tools.kit.build detal mebel …  — собирает работы из tools/kit/shops/<имя>.py в works/."""
+"""python -m tools.kit.build detal bots.auto …  — собирает работы из tools/kit/<раздел>/<имя>.py в works/.
+Без раздела — магазины (tools/kit/shops)."""
 import importlib
 import sys
 
-from . import shop
+from . import bot, shop
+
+KITS = {"shops": shop, "bots": bot, "clients": shop}
 
 for name in sys.argv[1:]:
-    mod = importlib.import_module(f"tools.kit.shops.{name}")
-    d = shop.build(mod.cfg())
+    part, _, mod_name = name.rpartition(".")
+    part = part or "shops"
+    mod = importlib.import_module(f"tools.kit.{part}.{mod_name}")
+    d = KITS[part].build(mod.cfg())
     print("✓", d)

@@ -300,7 +300,7 @@ var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){retur
 var fmt=function(n){return(Math.round(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₽'};
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var byId={};P.forEach(function(p){byId[p.id]=p});
-function im(name,sizes,cls){var I=C.img[name];if(!I)return'';var ws=I[3].split(',');var ss=ws.map(function(w){return'img/'+name+'-'+w+'.webp '+w+'w'}).join(', ');return'<img src="img/'+name+'-'+ws[Math.min(1,ws.length-1)]+'.webp" srcset="'+ss+'" sizes="'+(sizes||'(max-width:860px) 50vw, 25vw')+'" alt="" loading="lazy" decoding="async"'+(cls?' class="'+cls+'"':'')+'>'}
+function im(name,sizes,cls){var I=C.img[name];if(!I)return'';if(I[4])return'<img src="'+I[4]+'" alt="" loading="lazy" decoding="async"'+(cls?' class="'+cls+'"':'')+'>';var ws=I[3].split(',');var ss=ws.map(function(w){return'img/'+name+'-'+w+'.webp '+w+'w'}).join(', ');return'<img src="img/'+name+'-'+ws[Math.min(1,ws.length-1)]+'.webp" srcset="'+ss+'" sizes="'+(sizes||'(max-width:860px) 50vw, 25vw')+'" alt="" loading="lazy" decoding="async"'+(cls?' class="'+cls+'"':'')+'>'}
 var heart='<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"/></svg>';
 /* ---- каталог */
 var F={cat:'all',q:'',sort:'pop',min:'',max:'',checks:{},shown:C.pageSize||12};
@@ -452,6 +452,8 @@ def build(c: dict) -> str:
 {search}{nav}<a href="#contacts">Контакты</a></div>"""
     strip = f'<div class="strip">{c["strip"]}</div>' if c.get("strip") else ""
     H = c["hero"]
+    _hi = I[H["img"]]
+    og_img = _hi[4] if len(_hi) > 4 else f"img/{H['img']}-{_hi[3].split(',')[-1]}.webp"
     stats = "".join(f"<div><b>{e(a)}</b><span>{e(b)}</span></div>" for a, b in H.get("stats", []))
     cta = (f'<div class="cta"><a class="btn" href="#{H.get("ctaTo", "catalog")}">{e(H["cta"])}</a>'
            + (f'<a class="btn ghost" href="#{H.get("cta2To", "feat")}">{e(H["cta2"])}</a>' if H.get("cta2") else "") + "</div>")
@@ -524,7 +526,7 @@ def build(c: dict) -> str:
 <p style="font-size:13px;opacity:.6;margin-top:10px">{e(c.get('subNote', 'Новинки и скидки раз в неделю. Без спама.'))}</p></div>
 <div><h5>Покупателям</h5><ul><li><a href="#catalog">Каталог</a></li><li><a href="#feat">{e(W['nav'])}</a></li><li><a href="#why">Доставка и оплата</a></li><li><a href="#faq">Возврат</a></li></ul></div>
 <div><h5>Компания</h5><ul>{''.join(f'<li><a href="#{h}">{e(t)}</a></li>' for t, h in c['nav'][:3])}<li><a href="#contacts">Контакты</a></li></ul></div>
-<div><h5>Связаться</h5><ul><li><a href="tel:+74950000000">{e(ct.get('phone', '+7 (495) 000-00-00'))}</a></li><li>{e(ct['addr'])}</li><li>{e(ct['hours'])}</li></ul></div></div>
+<div><h5>Связаться</h5><ul><li><a href="tel:+{''.join(ch for ch in ct.get('phone', '+7 (495) 000-00-00') if ch.isdigit())}">{e(ct.get('phone', '+7 (495) 000-00-00'))}</a></li><li>{e(ct['addr'])}</li><li>{e(ct['hours'])}</li></ul></div></div>
 <div class="imprint"><span>© 2026 {e(c['brand'])}</span><span>Сайт разработан YSD DEV</span></div>
 </div></footer>"""
     dialogs = """
@@ -553,7 +555,7 @@ def build(c: dict) -> str:
 <meta property="og:title" content="{e(c['title'])}">
 <meta property="og:description" content="{e(c['desc'])}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/{H['img']}-{I[H['img']][3].split(',')[-1]}.webp">
+<meta property="og:image" content="{og_img}">
 <meta name="theme-color" content="{th['bg']}">
 <link rel="icon" href="{favicon(c.get('favLetter', c['brand'][0]), th['ac'], th['aci'])}">
 <script>document.documentElement.classList.add('js');setTimeout(function(){{if(!window.__shop)document.documentElement.classList.add('nofx')}},3500)</script>
