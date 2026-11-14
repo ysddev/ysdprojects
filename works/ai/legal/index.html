@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Параграф — ИИ-юрист: проверка договора по пунктам и протокол разногласий</title>
+<meta name="description" content="ИИ-ассистент юриста: читает договор по пунктам, находит рискованные условия, объясняет их простым языком, предлагает редакцию и собирает протокол разногласий.">
+<meta property="og:title" content="Параграф — ИИ-юрист: проверка договора по пунктам и протокол разногласий">
+<meta property="og:description" content="ИИ-ассистент юриста: читает договор по пунктам, находит рискованные условия, объясняет их простым языком, предлагает редакцию и собирает протокол разногласий.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%238a1f14%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%23ffffff%27%3E%D0%9F%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ai)document.documentElement.classList.add('nofx')},3500)</script>
+<style>
+@font-face{font-family:"Spectral";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/spectral-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/spectral-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/spectral-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/spectral-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/spectral-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/spectral-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/spectral-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Spectral";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/spectral-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-tight-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-tight-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--rb:2px;--rc:0px;--rs:2px;--hw:500;--ht:-.02em;--bg:#f6f3ec;--ink:#17140f;--soft:#514b40;--mut:#8a8375;--line:#ded8ca;--line2:#17140f;--card:#fbf9f4;--ac:#8a1f14;--aci:#ffffff;--fh:"Spectral",serif;--fb:"Inter Tight",sans-serif;--rw:4px;--rs2:2px;--wbg:#fffefb;--warn:#b67a00;--ok:#2f7a4f;--bad:#b3261a;--wsh:0 0 0 1px #17140f,10px 10px 0 #17140f;--tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.4l3 3 6-6.6' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+:root{--gut:clamp(16px,4vw,48px);--ok:#17a06a;--warn:#d99600;--bad:#d9483b}
+.wrap{width:min(1280px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.04;margin:0;overflow-wrap:break-word;text-wrap:balance}
+h2{font-size:clamp(30px,4.2vw,54px)}
+p{margin:0}
+.kick{font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--kc,var(--ac))}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:56ch;text-wrap:pretty}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec.t0{padding-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb);background:var(--ac);color:var(--aci);font-weight:600;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px -12px var(--ac)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--fh);font-weight:var(--hw);font-size:22px;display:flex;align-items:center;gap:10px;letter-spacing:var(--ht);white-space:nowrap}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ac);color:var(--aci);font-style:normal;font-size:17px;font-family:var(--fb);font-weight:700}
+.nav{display:flex;gap:24px;font-size:15px;color:var(--soft);margin-left:auto}
+.nav a:hover{color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:15px}
+/* первый экран */
+.hero{padding:clamp(36px,5.5vw,84px) 0 clamp(28px,4vw,52px)}
+.hg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:clamp(24px,5vw,80px);align-items:end}
+.hero h1{font-size:clamp(40px,6vw,86px);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hs{display:grid;gap:0}
+.hs div{padding:16px 0;border-top:1px solid var(--line2)}
+.hs div:last-child{border-bottom:1px solid var(--line2)}
+.hs b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(28px,3vw,40px);letter-spacing:-.02em;line-height:1}
+.hs span{font-size:14px;color:var(--mut)}
+.hero-center .hg{grid-template-columns:1fr;justify-items:center;text-align:center}
+.hero-center .lead{margin-inline:auto}
+.hero-center .cta{justify-content:center}
+.hero-center .hs{grid-template-columns:repeat(3,auto);gap:clamp(20px,5vw,72px);margin-top:8px}
+.hero-center .hs div{border:0!important;padding:0}
+/* рабочее окно */
+.wsx{padding-bottom:clamp(56px,8vw,110px)}
+.ws-n{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);margin-bottom:14px}
+.ws-n b{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.ws{position:relative;border-radius:var(--rw,24px);background:var(--wbg,var(--card));color:var(--wink,var(--ink));box-shadow:var(--wsh,0 60px 120px -70px rgba(0,0,0,.55),0 0 0 1px var(--line));overflow:hidden;--wl:var(--wline,color-mix(in srgb,currentColor 11%,transparent));--w2:var(--wsoft,color-mix(in srgb,currentColor 5%,transparent))}
+.ws-bar{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--wl);font-size:14px}
+.ws-bar .dots{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:36px;flex:none}
+.ws-bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ws-bar span{margin-left:auto;font-size:12.5px;opacity:.6;white-space:nowrap}
+.panes{display:grid;min-height:0}
+.pane{min-width:0;min-height:0;display:flex;flex-direction:column}
+.pane+.pane{border-left:1px solid var(--wl)}
+.pane-h{display:flex;align-items:center;gap:10px;padding:14px 18px 10px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;opacity:.62}
+.pane-h span{margin-left:auto;letter-spacing:0;text-transform:none;font-weight:500;font-size:12.5px}
+.scroll{overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;line-height:1;padding:6px 9px;border-radius:999px;background:var(--w2);white-space:nowrap}
+.tag.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:color-mix(in srgb,var(--ok) 80%,currentColor)}
+.tag.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 78%,currentColor)}
+.tag.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:color-mix(in srgb,var(--bad) 85%,currentColor)}
+.tag.ac{background:color-mix(in srgb,var(--ac) 15%,transparent);color:var(--act,var(--ac))}
+.btn-s{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 14px;border-radius:var(--rs2,10px);background:var(--ac);color:var(--aci);font-size:14px;font-weight:600;transition:filter .15s,transform .15s}
+.btn-s:hover{filter:brightness(1.06)}
+.btn-s:active{transform:scale(.98)}
+.btn-s.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.btn-s[disabled]{opacity:.5;cursor:default}
+.kv{display:flex;justify-content:space-between;gap:14px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--wl);animation:kin .3s both}
+.kv span{opacity:.62;flex:none}
+.kv b{font-weight:600;text-align:right}
+@keyframes kin{from{opacity:0;transform:translateY(6px)}}
+.meter{height:6px;border-radius:3px;background:var(--w2);overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:3px;background:var(--ac);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* чат */
+.ws-chat .panes{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);height:min(640px,78vh)}
+.chat{flex:1;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;min-height:0}
+.m{max-width:min(82%,520px);padding:10px 14px;border-radius:18px;font-size:15px;line-height:1.42;animation:kin .28s both;white-space:pre-line;overflow-wrap:break-word}
+.m.b{background:var(--cin,var(--w2));align-self:flex-start;border-bottom-left-radius:6px}
+.m.u{background:var(--cout,var(--ac));color:var(--coi,var(--aci));align-self:flex-end;border-bottom-right-radius:6px}
+.m.rich{white-space:normal;width:min(92%,560px);max-width:none;padding:0;background:none}
+.m.note{align-self:center;background:none;font-size:12.5px;opacity:.65;padding:2px 8px;text-align:center;max-width:100%}
+.its{display:grid;gap:8px}
+.it{position:relative;padding:14px 14px 12px;border-radius:16px;background:var(--cin,var(--w2));display:grid;gap:3px}
+.it .tg{font-style:normal;font-size:11.5px;font-weight:600;color:var(--act,var(--ac));letter-spacing:.02em}
+.it b{font-size:15.5px;line-height:1.25}
+.it span{font-size:13.5px;opacity:.68}
+.itf{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.itf strong{font-size:16px;white-space:nowrap}
+.itf button,.bts button{min-height:36px;padding:7px 13px;border-radius:10px;font-size:13.5px;font-weight:600;background:var(--ac);color:var(--aci)}
+.kvc{padding:14px;border-radius:16px;background:var(--cin,var(--w2));font-size:14px}
+.kvc h4{margin:0 0 8px;font-size:15px;font-weight:700}
+.kvc .r{display:flex;justify-content:space-between;gap:14px;padding:4px 0}
+.kvc .r span:first-child{opacity:.62}
+.kvc .r span:last-child{text-align:right;font-weight:500}
+.kvc .sum{margin-top:6px;padding-top:9px;border-top:1px dashed var(--wl);font-weight:700}
+.kvc .sum span:first-child{opacity:1}
+.bts{display:flex;flex-wrap:wrap;gap:6px}
+.bts button.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.tr{align-self:flex-start;display:flex;flex-wrap:wrap;gap:5px;margin:-2px 0 6px;animation:kin .3s both}
+.tr i{font-style:normal;font-size:11.5px;padding:4px 8px;border-radius:999px;background:var(--w2);opacity:.85;white-space:nowrap}
+.typing{align-self:flex-start;display:flex;align-items:center;gap:9px;padding:9px 13px;border-radius:18px;background:var(--cin,var(--w2));font-size:13.5px}
+.typing span{opacity:.7}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 18px 4px}
+.chips button{padding:8px 13px;border-radius:999px;font-size:13.5px;line-height:1.2;box-shadow:inset 0 0 0 1.5px var(--wl);text-align:left;transition:background .15s}
+.chips button:hover{background:var(--w2)}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;align-items:center}
+.inp input{flex:1;height:46px;border-radius:14px;border:0;padding:0 16px;background:var(--w2);font-size:15px;min-width:0}
+.inp input:focus{outline:0;box-shadow:0 0 0 1.5px var(--ac)}
+.inp button{width:46px;height:46px;border-radius:14px;background:var(--ac);color:var(--aci);display:grid;place-items:center;flex:none}
+.inp button svg{width:19px;height:19px;fill:currentColor}
+.ag{display:flex;align-items:center;gap:11px;padding:13px 18px;border-bottom:1px solid var(--wl)}
+.ag .av{width:38px;height:38px;border-radius:50%;background:var(--ac);color:var(--aci);display:grid;place-items:center;font-weight:700;flex:none}
+.ag b{display:block;font-size:15px;line-height:1.2}
+.ag small{font-size:12.5px;opacity:.6}
+.ag button{margin-left:auto;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--wl)}
+/* панель «что понял» */
+.brain{background:var(--bbg,transparent)}
+.bb{padding:14px 18px 16px;border-bottom:1px solid var(--wl)}
+.bb:last-child{border-bottom:0}
+.bb-h{display:flex;align-items:center;gap:9px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.bb-h i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;box-shadow:inset 0 0 0 1.5px var(--wl);flex:none;letter-spacing:0}
+.bb[data-st=wait]{opacity:.5}
+.bb[data-st=run] .bb-h i{box-shadow:none;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;color:transparent}
+.bb[data-st=done] .bb-h i{background:var(--ok);color:#fff;box-shadow:none}
+.bb .em{font-size:13.5px;opacity:.55}
+.bb .kv:last-child{border-bottom:0}
+.src{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:7px 0;font-size:13.5px;animation:kin .3s both}
+.src i{width:30px;height:30px;border-radius:9px;background:var(--w2);display:grid;place-items:center;font-style:normal;font-size:14px}
+.src b{display:block;font-size:14px;line-height:1.25}
+.src span{opacity:.62;line-height:1.3;display:block}
+.act{padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--ok) 13%,transparent);animation:kin .3s both}
+.act.h{background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.act b{display:block;font-size:14.5px}
+.act span{font-size:13px;opacity:.72}
+.cf{display:flex;align-items:center;gap:10px;font-size:12.5px;margin-top:10px}
+.cf .meter{flex:1}
+.cf b{min-width:38px;text-align:right}
+/* как работает */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:clamp(28px,4vw,48px);counter-reset:h}
+.how div{padding:clamp(20px,2.2vw,28px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);counter-increment:h;min-width:0}
+.how div::before{content:counter(h,decimal-leading-zero);display:block;font:600 13px/1 var(--fm,var(--fb));letter-spacing:.1em;color:var(--kc,var(--ac));margin-bottom:26px}
+.how b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15;margin-bottom:8px}
+.how p{color:var(--soft);font-size:15px}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(28px,4vw,48px)}
+.feat{padding:clamp(20px,2.4vw,30px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);display:flex;flex-direction:column;gap:10px;min-width:0}
+.feat i{width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:22px;margin-bottom:6px}
+.feat b{font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15}
+.feat p{color:var(--soft);font-size:15px}
+/* контроль */
+.adm{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.adm>*{min-width:0}
+.rules{display:grid;gap:18px;margin-top:26px;padding:0;list-style:none}
+.rules li{display:grid;grid-template-columns:28px 1fr;gap:14px}
+.rules li::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--ac) no-repeat center/14px;background-image:var(--tick);margin-top:1px}
+.rules b{display:block;font-size:17px}
+.rules p{color:var(--soft);font-size:15px}
+.panel{border-radius:22px;background:var(--pbg,var(--card));color:var(--pink,var(--ink));box-shadow:0 40px 80px -50px rgba(0,0,0,.45),0 0 0 1px var(--line);overflow:hidden;font-size:14px;--pl:color-mix(in srgb,currentColor 9%,transparent)}
+.panel .ph{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--pl)}
+.panel .ph i{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:40px;flex:none}
+.panel .ph span{margin-left:auto;font-size:12px;opacity:.55}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--pl)}
+.kpi div{padding:14px 18px;min-width:0}
+.kpi div+div{border-left:1px solid var(--pl)}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em;white-space:nowrap}
+.kpi span{font-size:12px;opacity:.55}
+.rows{max-height:340px;overflow:auto}
+.rowx{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 18px;border-top:1px solid var(--pl)}
+.rowx:first-child{border-top:0}
+.rowx .d{width:36px;height:36px;border-radius:10px;background:color-mix(in srgb,currentColor 6%,transparent);display:grid;place-items:center;font-size:16px}
+.rowx b{display:block;font-size:14px}
+.rowx span{font-size:12.5px;opacity:.6}
+.rowx em{font-style:normal;font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--act,var(--ac));white-space:nowrap}
+.rowx em.h{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 75%,currentColor)}
+.rowx.new{animation:flash 1.6s}
+@keyframes flash{0%{background:color-mix(in srgb,var(--ac) 22%,transparent)}100%{background:transparent}}
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--rc);overflow:hidden;margin-top:clamp(28px,4vw,44px);box-shadow:0 0 0 1px var(--line)}
+.res div{background:var(--bg);padding:clamp(20px,2.4vw,30px);min-width:0}
+.res b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(32px,4vw,52px);letter-spacing:-.03em;line-height:1;color:var(--rcx,var(--ac))}
+.res span{display:block;margin-top:10px;color:var(--soft);font-size:15px}
+.ints{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ints span{padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;font-weight:500;box-shadow:var(--csh,none)}
+.faq details{border-top:1px solid var(--line2)}
+.faq details:last-child{border-bottom:1px solid var(--line2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:clamp(17px,1.6vw,19px);font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--soft);max-width:70ch}
+.cta-b{border-radius:var(--rs);background:var(--cbg,var(--ink));color:var(--cink,var(--bg));padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-b h2{max-width:18ch}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 40px;font-size:14px;color:var(--mut)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.on,.nofx .reveal{opacity:1;transform:none}
+@media (max-width:1000px){
+ .nav{display:none}.top .btn{margin-left:auto}
+ .hg{grid-template-columns:1fr;align-items:start}
+ .hs{grid-template-columns:repeat(3,1fr);gap:14px}
+ .hs div{border:0!important;padding:0}
+ .hs b{font-size:26px}.hs span{font-size:12.5px;line-height:1.3;display:block;margin-top:4px}
+ .feats{grid-template-columns:1fr 1fr}
+ .adm{grid-template-columns:1fr}
+ .res{grid-template-columns:1fr 1fr}
+ .ws-chat .panes{grid-template-columns:1fr;height:auto}
+ .ws-chat .pane.c{height:min(600px,82vh)}
+ .pane+.pane{border-left:0;border-top:1px solid var(--wl)}
+}
+@media (max-width:640px){
+ .hero h1{font-size:clamp(36px,10.4vw,52px)}
+ .hero .cta .btn{flex:1 1 100%}
+ .hero-center .hs{gap:14px;grid-template-columns:repeat(3,1fr)}
+ .feats{grid-template-columns:1fr}
+ .ws{border-radius:18px}
+ .ws-bar .dots{display:none}
+ .m{max-width:88%}.m.rich{width:100%}
+ .chips{padding-inline:12px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chips button{flex:none;white-space:nowrap}.chat{padding-inline:12px}.inp{padding-inline:10px}
+ .ws-n{align-items:flex-start;font-size:13px}.ws-n b{margin-top:6px}
+ .kpi b{font-size:18px}.kpi div{padding:12px}
+ .rowx{padding-inline:12px;gap:10px}
+ .cta-b .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+
+
+.lg-tabs{display:flex;gap:0;border-bottom:1px solid var(--wl);overflow-x:auto;scrollbar-width:none}
+.lg-tabs button{padding:13px 18px;font-size:14px;font-weight:500;white-space:nowrap;border-right:1px solid var(--wl);opacity:.6}
+.lg-tabs button.on{opacity:1;box-shadow:inset 0 -2px 0 var(--ac)}
+.panes.lg{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);height:min(660px,80vh)}
+#lgDoc{padding:8px 26px 26px;font-family:var(--fh);font-size:16px;line-height:1.55}
+#lgDoc h4{font:600 19px/1.25 var(--fh);margin:14px 0 4px;text-align:center}
+#lgDoc .sub{text-align:center;font-size:14px;opacity:.6;margin-bottom:14px}
+.cl{margin:0;padding:7px 10px;border-left:3px solid transparent;border-radius:0 4px 4px 0;transition:background .3s,border-color .3s;scroll-margin:60px}
+.cl b{font-weight:600;margin-right:4px}
+.cl.scan{background:color-mix(in srgb,var(--ac) 8%,transparent)}
+.cl.s2{background:color-mix(in srgb,var(--bad) 10%,transparent);border-left-color:var(--bad)}
+.cl.s1{background:color-mix(in srgb,var(--warn) 13%,transparent);border-left-color:var(--warn)}
+.cl.okd{background:color-mix(in srgb,var(--ok) 9%,transparent);border-left-color:var(--ok)}
+.cl.fl{animation:lgf 1.2s}
+@keyframes lgf{30%{box-shadow:0 0 0 3px var(--ac)}}
+.cl del{opacity:.5}.cl ins{text-decoration:none;background:color-mix(in srgb,var(--ok) 18%,transparent);padding:1px 2px}
+.lg-sum{padding:4px 18px 14px;display:grid;gap:10px;border-bottom:1px solid var(--wl)}
+.lg-sc{display:flex;align-items:baseline;gap:12px}
+.lg-sc b{font:600 40px/1 var(--fh);letter-spacing:-.02em}
+.lg-sc span{font-size:14px;opacity:.7}
+#lgList{padding:12px 18px 18px;display:grid;gap:10px;align-content:start}
+.fd{padding:14px;border:1px solid var(--wl);border-radius:4px;display:grid;gap:8px;animation:kin .35s both;font-size:14px;line-height:1.45}
+.fd-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fd-h b{font-size:15px}
+.fd .fx{padding:9px 11px;background:var(--w2);border-radius:4px;font-family:var(--fh);font-size:14.5px}
+.fd .fx span{display:block;font:600 11px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:5px}
+.fd-b{display:flex;gap:8px;flex-wrap:wrap}
+.fd.done{opacity:.72}
+.lg-own{display:grid;gap:10px;padding:10px 0}
+.lg-own textarea{width:100%;min-height:300px;border:1px solid var(--wl);border-radius:4px;background:transparent;padding:12px;font:400 15px/1.5 var(--fh);resize:vertical}
+.lg-own textarea:focus{outline:2px solid var(--ac);outline-offset:1px}
+.lg-own p{font:400 13px/1.4 var(--fb);opacity:.65}
+@media (max-width:1000px){.panes.lg{grid-template-columns:1fr;height:auto}#lgDoc{max-height:430px;padding-inline:14px}#lgList{overflow:visible}}
+.hero h1{font-size:clamp(42px,6.2vw,92px);line-height:1}.hero h1 em{font-style:italic}.how div,.feat{background:transparent;border-top:2px solid var(--ink);padding-inline:0}.feat i{background:transparent;width:auto;height:auto;font-size:26px;place-items:start}.res{background:var(--ink);box-shadow:0 0 0 1px var(--ink)}.ints span{background:transparent;box-shadow:inset 0 0 0 1px var(--ink)}.tag{border-radius:2px}.panel{border-radius:4px;box-shadow:0 0 0 1px #17140f,8px 8px 0 #17140f}.rowx em,.rowx .d{border-radius:2px}.btn.ghost{box-shadow:inset 0 0 0 1.5px var(--ink)}.kick{letter-spacing:.2em}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>§</i>Параграф</a><nav class="nav"><a href="#demo">Ассистент</a><a href="#how">Как работает</a><a href="#feats">Возможности</a><a href="#control">Контроль</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#demo">Попробовать</a></div></header>
+<main>
+<section class="hero hero-split" id="top"><div class="wrap hg">
+ <div class="reveal"><div class="kick">ИИ-юрист · разбор договора</div><h1>Читает договор и находит то, <em>что обойдётся дорого</em></h1><p class="lead">Параграф проходит договор пункт за пунктом, объясняет каждый риск простым языком, предлагает свою редакцию и собирает протокол разногласий. Юрист получает готовую основу вместо чистого листа.</p>
+ <div class="cta"><a class="btn" href="#demo">Проверить договор</a><a class="btn ghost" href="#how">Как это работает</a></div></div>
+ <div class="hs reveal"><div><b>2 мин</b><span>на договор в 20 страниц</span></div><div><b>10</b><span>типов рисков в каждом пункте</span></div><div><b>−70%</b><span>времени юриста на первичную вычитку</span></div></div>
+</div></section>
+<section class="wsx" id="demo"><div class="wrap"><p class="ws-n reveal"><b></b>Проверка работает: откройте другой договор или вставьте свои пункты во вкладке «Свой текст»</p>
+<div class="ws ws-custom reveal" id="ws"><div class="ws-bar"><i class="dots"></i><b>Параграф · проверка договора</b><span id="lgSt">готов к проверке</span></div>
+<div class="lg-tabs" data-ox><button type="button" data-doc="supply" class="on">Договор поставки</button><button type="button" data-doc="rent">Договор аренды офиса</button><button type="button" data-doc="own">Свой текст</button></div>
+<div class="panes lg">
+ <div class="pane"><div class="pane-h"><b id="lgName"></b><span id="lgSide"></span></div>
+  <div class="scroll" id="lgDoc"></div></div>
+ <div class="pane"><div class="pane-h">Заключение<span id="lgCnt"></span></div>
+  <div class="lg-sum"><div class="lg-sc"><b id="lgScore">—</b><span id="lgLvl">риск не оценён</span></div><div class="meter"><i id="lgBar"></i></div>
+   <button type="button" class="btn-s g" id="lgDl" disabled>Скачать протокол разногласий</button></div>
+  <div class="scroll" id="lgList"></div></div>
+</div></div>
+</div></section>
+<section class="sec t0" id="how"><div class="wrap"><div class="reveal"><div class="kick">Как работает</div><h2 style="margin:14px 0 16px">Как Параграф читает договор</h2>
+<p class="lead">Тот же порядок, что у внимательного юриста, только за минуты и без пропущенных пунктов на двадцатой странице.</p></div><div class="how reveal"><div><b>Разбивает на пункты</b><p>Берёт текст из Word, PDF или скана, восстанавливает нумерацию и определяет, чьи интересы защищать.</p></div><div><b>Проверяет каждый пункт</b><p>Неустойки, цена, предоплата, сроки претензий, выход из договора, подсудность, продление, ответственность.</p></div><div><b>Объясняет и считает</b><p>Пишет, чем условие опасно, и переводит проценты в понятные цифры: 1% в день — это 365% годовых.</p></div><div><b>Предлагает редакцию</b><p>Даёт формулировку из вашей библиотеки условий. Принятые правки складывает в протокол разногласий.</p></div></div></div></section>
+<section class="sec t0" id="feats"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что юрист получает на выходе</h2></div>
+<div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>⚖️</i><b>Оценку риска договора</b><p>Одна цифра и список причин: сразу видно, подписывать, править или отказываться.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🔎</i><b>Замечания с привязкой к пункту</b><p>Каждое замечание ведёт к месту в тексте. Ничего не нужно искать глазами.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>✍️</i><b>Готовые формулировки</b><p>Редакции берутся из библиотеки условий вашей компании, а не придумываются на ходу.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>📄</i><b>Протокол разногласий</b><p>Редакция контрагента, ваша редакция и обоснование — файлом, который можно отправлять.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>📚</i><b>Ссылки на нормы</b><p>К замечаниям — статьи ГК и АПК, чтобы юрист мог быстро проверить вывод.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🗂</i><b>Сверку с шаблоном</b><p>Сравнивает договор контрагента с вашей типовой формой и показывает, что изменено.</p></div></div></div></section>
+<section class="sec t0" id="control"><div class="wrap adm">
+ <div class="reveal"><div class="kick">Контроль</div><h2 style="margin:14px 0 16px">Решение остаётся за юристом</h2><p class="lead">Параграф готовит черновик заключения. Что принять, что править и что подписывать, решает человек.</p><ul class="rules"><li><div><b>Не выдаёт заключение за юридическое</b><p>Это первичная вычитка: спорные места помечаются для проверки юристом.</p></div></li><li><div><b>Не придумывает нормы</b><p>Ссылается только на статьи из подключённой базы и показывает, откуда вывод.</p></div></li><li><div><b>Не правит без согласия</b><p>Каждая правка попадает в текст и протокол только после кнопки «Принять».</p></div></li><li><div><b>Не выносит документы наружу</b><p>Договоры обрабатываются в вашем контуре, доступ — по ролям.</p></div></li></ul></div>
+ <div class="panel reveal"><div class="ph"><i></i><b>Параграф · журнал проверок</b><span>сегодня</span></div><div class="kpi"><div><b id="kpi0" data-base="14">14</b><span>договоров сегодня</span></div><div><b>37</b><span>критичных условий</span></div><div><b>2 мин</b><span>на договор</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">⚖️</div><div><b>Договор подряда № 8/26</b><span>критичных: 1 · внимание: 3 · пунктов: 42</span></div><em class="">Проверен</em></div><div class="rowx"><div class="d">✍️</div><div><b>Правка к п. 6.4</b><span>неустойка 0,5% в день · договор услуг</span></div><em class="">В протокол</em></div><div class="rowx"><div class="d">👤</div><div><b>Передан юристу</b><span>нетиповая схема оплаты через третье лицо</span></div><em class="h">Юристу</em></div></div></div>
+</div></section>
+<section class="sec t0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает компания</h2></div>
+<div class="res"><div class="reveal"><b>2 мин</b><span>первичная вычитка вместо часа</span></div><div class="reveal"><b>−70%</b><span>времени юриста на типовые договоры</span></div><div class="reveal"><b>0</b><span>пунктов, пропущенных на двадцатой странице</span></div><div class="reveal"><b>1 день</b><span>на согласование вместо трёх</span></div></div><div class="ints reveal"><span>Word и PDF</span><span>Сканы с распознаванием</span><span>1С:Документооборот</span><span>Directum</span><span>Битрикс24</span><span>Консультант Плюс</span><span>Гарант</span><span>Telegram</span></div></div></section>
+<section class="sec t0" id="faq"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Параграф заменяет юриста?</summary><p>Нет. Он снимает первичную вычитку и готовит протокол, а решение и ответственность остаются за юристом. Нетиповые условия он не оценивает, а помечает для проверки.</p></details><details><summary>Откуда берутся формулировки правок?</summary><p>Из библиотеки условий вашей компании: мы загружаем ваши типовые договоры и позиции по спорным пунктам. Нет библиотеки — соберём её вместе с юристом.</p></details><details><summary>Ассистент не выдумает ответ?</summary><p>Он отвечает только по вашим данным: каталогу, базе знаний, регламентам, расписанию. Если ответа там нет или уверенность низкая, он не угадывает, а передаёт вопрос сотруднику вместе с краткой сводкой диалога.</p></details><details><summary>Сколько занимает внедрение?</summary><p>В первый день согласуем сценарии и границы: что ассистент делает сам, а что отдаёт людям. Рабочая версия на ваших данных готова за 7–10 дней, с интеграциями в учётные системы — за 2–3 недели.</p></details><details><summary>Что нужно от нас?</summary><p>Материалы, по которым отвечают ваши сотрудники: прайс, каталог, инструкции, типовые ответы, и доступ к системам, с которыми ассистент должен работать. Правила и тон согласуем с вами.</p></details><details><summary>Где хранятся данные?</summary><p>На вашем сервере или в облаке в России, по вашему выбору. Диалоги и действия ассистента пишутся в журнал, доступ к нему у тех сотрудников, которым вы его дали.</p></details></div></div></section>
+<section class="sec t0"><div class="wrap"><div class="cta-b reveal"><h2>Проверьте свой договор за две минуты</h2><a class="btn" href="#demo">Открыть проверку</a></div></div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Параграф</span><span>Ассистент разработан YSD DEV</span></footer>
+<script>window.AICFG={"demo": {"type": "custom", "note": "Проверка работает: откройте другой договор или вставьте свои пункты во вкладке «Свой текст»"}};</script>
+<script>
+(function(){
+'use strict';
+var C=window.AICFG||{},D=C.demo||{},RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SP=/[?&]fast/.test(location.search)?0:(RM?.25:1);
+function $(s,r){return(r||document).querySelector(s)}
+function $$(s,r){return[].slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function wait(ms){return new Promise(function(r){setTimeout(r,ms*SP)})}
+function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function stream(el,text,per){var p=String(text).split(/(\s+)/),i=0;return new Promise(function(res){
+ if(!SP){el.textContent=text;return res()}
+ (function tick(){if(i>=p.length)return res();el.appendChild(document.createTextNode(p[i]+(p[i+1]||'')));i+=2;
+  var sc=el.closest('.chat,.scroll');if(sc&&sc.dataset.follow!=='0')sc.scrollTop=sc.scrollHeight;setTimeout(tick,(per||24)*SP)})()})}
+var rows=$('#rows'),k0=$('#kpi0'),cnt=0;
+function log(a){if(!rows||!a)return;var r=document.createElement('div');r.className='rowx new';
+ r.innerHTML='<div class="d">'+a[0]+'</div><div><b>'+esc(a[1])+'</b><span>'+esc(a[2])+' · только что</span></div><em class="'+(a[4]||'')+'">'+esc(a[3]||'Новая')+'</em>';
+ rows.insertBefore(r,rows.firstChild);cnt++;if(k0)k0.textContent=+k0.dataset.base+cnt}
+var AIK=window.AIK={$:$,$$:$$,esc:esc,wait:wait,fmt:fmt,stream:stream,log:log,cfg:C,parts:{},speed:SP};
+
+if(D.type==='chat'){
+ var chat=$('#chat'),inp=$('#inp'),send=$('#send'),chips=$('#chips'),S=AIK.S=Object.assign({},D.defaults||{}),busy=false,touched=false,byId={};
+ (D.intents||[]).forEach(function(it){byId[it.id]=it;if(it.re)it._re=new RegExp(it.re,'i')});
+ var B={f:$('#bF'),s:$('#bS'),a:$('#bA'),c:$('#bC'),cv:$('#bCv')};
+ function fill(s){return String(s).replace(/\{([^{}]+)\}/g,function(m,k){return S[k]!=null?S[k]:m})}
+ function st(el,v){el.parentNode.dataset.st=v}
+ function conf(v){B.c.style.width=Math.round(v*100)+'%';B.cv.textContent=v?Math.round(v*100)+'%':'—';B.c.style.background=v&&v<.6?'var(--warn)':''}
+ function scroll(){chat.scrollTop=chat.scrollHeight}
+ function bubble(cls){var m=document.createElement('div');m.className='m '+cls;chat.appendChild(m);scroll();return m}
+ function card(p){
+  if(p.t==='items')return'<div class="its">'+p.items.map(function(x){return'<div class="it">'+(x.tag?'<i class="tg">'+esc(fill(x.tag))+'</i>':'')+'<b>'+esc(fill(x.n))+'</b><span>'+esc(fill(x.s))+'</span>'+
+   (x.p||x.b?'<div class="itf"><strong>'+esc(fill(x.p||''))+'</strong>'+(x.b?'<button type="button" data-go="'+x.b[1]+'" data-say="'+esc(fill(x.b[2]||x.b[0]))+'">'+esc(x.b[0])+'</button>':'')+'</div>':'')+'</div>'}).join('')+'</div>';
+  if(p.t==='kv')return'<div class="kvc">'+(p.h?'<h4>'+esc(fill(p.h))+'</h4>':'')+p.rows.map(function(r){return'<div class="r"><span>'+esc(r[0])+'</span><span>'+esc(fill(r[1]))+'</span></div>'}).join('')+
+   (p.sum?'<div class="r sum"><span>'+esc(p.sum[0])+'</span><span>'+esc(fill(p.sum[1]))+'</span></div>':'')+'</div>';
+  if(p.t==='btns')return'<div class="bts">'+p.items.map(function(b,i){return'<button type="button"'+(b[3]?' class="g"':'')+' data-go="'+b[1]+'" data-say="'+esc(fill(b[2]||b[0]))+'">'+esc(fill(b[0]))+'</button>'}).join('')+'</div>';
+  if(p.html)return p.html;
+  return''}
+ function typing(t){var el=document.createElement('div');el.className='typing';el.innerHTML='<i class="spin"></i><span></span>';el.lastChild.textContent=t;chat.appendChild(el);scroll();
+  return{el:el,set:function(x){el.lastChild.textContent=x;scroll()}}}
+ function lock(v){inp.disabled=v;send.disabled=v;inp.placeholder=v?'Ассистент отвечает…':(D.placeholder||'Напишите вопрос своими словами')}
+ function setChips(list){chips.innerHTML='';(list||[]).forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=fill(c[0]);b.dataset.go=c[1]||'';b.dataset.say=fill(c[2]||c[0]);chips.appendChild(b)})}
+ function val(x){return typeof x==='string'&&AIK.parts[x]?AIK.parts[x](S):x}
+ async function run(it,text){busy=true;lock(true);chips.innerHTML='';
+  var over=AIK.hook?AIK.hook(text||'',S,it):null;if(over&&byId[over])it=byId[over];
+  [B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);
+  var th=it.think||[],ty=typing(th[0]||'Разбираю сообщение');
+  st(B.f,'run');await wait(480);
+  var F=val(it.fields)||[];for(var i=0;i<F.length;i++){B.f.insertAdjacentHTML('beforeend','<div class="kv"><span>'+esc(F[i][0])+'</span><b>'+esc(fill(F[i][1]))+'</b></div>');await wait(170)}
+  st(B.f,'done');conf(it.conf||.92);
+  ty.set(th[1]||'Ищу в данных компании');st(B.s,'run');await wait(520);
+  var R=val(it.sources)||[];for(i=0;i<R.length;i++){B.s.insertAdjacentHTML('beforeend','<div class="src"><i>'+R[i][0]+'</i><div><b>'+esc(fill(R[i][1]))+'</b><span>'+esc(fill(R[i][2]))+'</span></div></div>');await wait(230)}
+  if(!R.length)B.s.innerHTML='<p class="em">В данных компании ответа нет</p>';
+  st(B.s,'done');ty.set(th[2]||'Пишу ответ');await wait(430);ty.el.remove();
+  var say=[];(val(it.say)||[]).forEach(function(p){p=p&&p.t==='fn'?AIK.parts[p.f](S):p;say=say.concat(p)});
+  for(i=0;i<say.length;i++){var p=say[i];if(!p)continue;
+   if(typeof p==='string'){await stream(bubble('b'),fill(p))}
+   else if(p.t==='note'){bubble('note').textContent=fill(p.text)}
+   else{bubble('b rich').innerHTML=card(p);scroll()}
+   await wait(260)}
+  st(B.a,'run');await wait(320);var A=val(it.action)||['Ответ отправлен','Клиент получил ответ в чате'];
+  B.a.innerHTML='<div class="act'+(A[2]?' '+A[2]:'')+'"><b>'+esc(fill(A[0]))+'</b><span>'+esc(fill(A[1]))+'</span></div>';st(B.a,'done');
+  var tr=document.createElement('div');tr.className='tr';tr.innerHTML=(R.length?'<i>📚 '+esc(fill(R[0][1]))+(R.length>1?' и ещё '+(R.length-1):'')+'</i>':'')+'<i>'+(A[2]?'👤 ':'✓ ')+esc(fill(A[0]))+'</i>';chat.appendChild(tr);scroll();
+  var L=val(it.log);if(L)log(L.map(function(x){return fill(x)}));
+  setChips(val(it.next)||D.chips);busy=false;lock(false);scroll();setTimeout(scroll,60)}
+ function match(t){var L=D.intents||[];for(var i=0;i<L.length;i++)if(L[i]._re&&L[i]._re.test(t))return L[i];return null}
+ function ask(text,id){if(busy||!text)return;bubble('u').textContent=text;run((id&&byId[id])||match(text)||byId[D.fallback],text)}
+ AIK.ask=ask;
+ function user(text,id){touched=true;ask(text,id)}
+ send.addEventListener('click',function(){var v=inp.value.trim();inp.value='';user(v)});
+ inp.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();send.click()}});
+ inp.addEventListener('focus',function(){touched=true});
+ document.addEventListener('click',function(ev){var b=ev.target.closest('[data-go]');if(b&&$('#ws').contains(b)){user(b.dataset.say||b.textContent,b.dataset.go)}});
+ async function hello(){chat.innerHTML='';S=AIK.S=Object.assign({},D.defaults||{});[B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);lock(true);
+  for(var i=0;i<(D.greet||[]).length;i++){await stream(bubble('b'),D.greet[i]);await wait(220)}
+  setChips(D.chips);lock(false);scroll()}
+ $('#again').addEventListener('click',function(){if(busy)return;touched=true;hello()});
+ AIK.demo=async function(){await hello();await wait(1500);if(!touched&&D.autoplay)ask(D.autoplay[0],D.autoplay[1])};
+}
+var started=false;function start(){if(started)return;started=true;if(AIK.demo)AIK.demo()}
+var io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');if(x.target.id==='ws')start();io.unobserve(x.target)}})},{threshold:.12}):null;
+$$('.reveal,#ws').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+if(!io)setTimeout(start,0);
+setTimeout(start,2600);
+window.__ai=1;
+})();
+</script>
+<script>
+(function(){var K=AIK,$=K.$,esc=K.esc,
+DOCS={supply:{name:'Договор поставки № 47',side:'проверяю в интересах Покупателя',sub:'оборудование для склада, сумма 2 480 000 ₽',cl:[
+ ['1.1','Поставщик обязуется передать, а Покупатель принять и оплатить стеллажное оборудование по Спецификации (Приложение № 1).'],
+ ['2.1','Общая стоимость товара составляет 2 480 000 рублей, включая НДС.'],
+ ['2.2','Покупатель вносит 100% предоплату в течение 3 банковских дней с даты подписания Договора.'],
+ ['2.3','Поставщик вправе в одностороннем порядке изменить цену товара при росте закупочных цен, уведомив Покупателя за 3 дня.'],
+ ['3.1','Срок поставки — 45 рабочих дней с даты поступления предоплаты на счёт Поставщика.'],
+ ['3.2','Доставка выполняется силами Поставщика до склада Покупателя. Разгрузку выполняет Покупатель.'],
+ ['4.1','Приёмка товара по количеству и комплектности проводится в момент передачи.'],
+ ['4.2','Претензии по качеству товара принимаются в течение 2 календарных дней с даты приёмки.'],
+ ['5.1','За просрочку оплаты Покупатель уплачивает неустойку в размере 1% от суммы долга за каждый день просрочки.'],
+ ['5.2','Ответственность Поставщика за просрочку поставки ограничивается суммой 10 000 рублей.'],
+ ['6.1','Поставщик вправе отказаться от исполнения Договора в одностороннем порядке, уведомив Покупателя за 5 дней.'],
+ ['7.1','Гарантийный срок на товар — 12 месяцев с даты подписания товарной накладной.'],
+ ['8.1','Все споры рассматриваются в арбитражном суде по месту нахождения Поставщика.']]},
+rent:{name:'Договор аренды офиса № 12-А',side:'проверяю в интересах Арендатора',sub:'помещение 84 м², срок 11 месяцев',cl:[
+ ['1.1','Арендодатель передаёт Арендатору во временное пользование нежилое помещение площадью 84 кв. м под офис.'],
+ ['2.1','Арендная плата составляет 168 000 рублей в месяц и вносится до 5 числа текущего месяца.'],
+ ['2.2','Арендодатель вправе индексировать арендную плату один раз в год, но не более чем на 15%.'],
+ ['2.3','Арендатор вносит обеспечительный платёж в размере двух месячных арендных плат.'],
+ ['3.1','Коммунальные услуги оплачиваются Арендатором отдельно по показаниям счётчиков.'],
+ ['4.1','Арендодатель не несёт ответственности за перебои в подаче электроэнергии, воды и интернета.'],
+ ['4.2','Текущий ремонт помещения Арендатор выполняет за свой счёт.'],
+ ['5.1','Договор считается продлённым на тот же срок, если Арендатор не заявил об отказе за 90 дней до окончания срока аренды.'],
+ ['5.2','При досрочном расторжении Договора по инициативе Арендатора обеспечительный платёж не возвращается.'],
+ ['6.1','За просрочку арендной платы начисляются пени 0,5% от суммы долга за каждый день просрочки.'],
+ ['7.1','Обстоятельства непреодолимой силы освобождают Стороны от ответственности на время их действия.'],
+ ['8.1','Споры рассматриваются в арбитражном суде по месту нахождения Арендодателя.']]},
+own:{name:'Свой текст',side:'проверяю в интересах стороны, которая платит',sub:'',cl:[]}},
+RULES=[
+{id:'pen',re:/(\d+(?:[.,]\d+)?)\s*(?:%|процент\S*)[^.;]{0,70}?(?:за каждый день|в день)/i,sev:function(m){var r=parseFloat(m[1].replace(',','.'));return r>=.5?2:r>.1?1:0},
+ title:function(m){return'Неустойка '+m[1]+'% в день'},why:function(m){var r=parseFloat(m[1].replace(',','.'));return'Это '+Math.round(r*365)+'% годовых. В деловой практике обычно 0,1% в день с потолком. Суд может снизить такую неустойку по ст. 333 ГК РФ, но доказывать несоразмерность придётся вам.'},
+ fix:'За просрочку оплаты начисляется неустойка 0,1% от суммы просроченного платежа за каждый день просрочки, но не более 10% этой суммы.'},
+{id:'price',re:/в одностороннем порядке[^.]*?(?:измен|увелич|повыс|пересм)[^.]*?(?:цен|стоимост|плат)|(?:цен|стоимост|плат)[^.]*?(?:измен|увелич|повыс|пересм)[^.]*?в одностороннем порядке/i,sev:function(){return 2},
+ title:function(){return'Цена меняется в одностороннем порядке'},why:function(){return'Контрагент может поднять цену уведомлением, а вы уже внесли деньги и обязаны доплатить. Между компаниями такое условие действует, если вы его подписали (ст. 310 ГК РФ).'},
+ fix:'Цена товара является твёрдой и изменяется только по письменному соглашению Сторон.'},
+{id:'index',re:/индексир\S+[^.]*?(\d+)\s*%/i,sev:function(m){return +m[1]>=10?1:0},title:function(m){return'Индексация до '+m[1]+'% в год'},
+ why:function(m){return'Арендодатель может поднять плату на '+m[1]+'% без объяснения причин. Привяжите индексацию к официальной инфляции или ограничьте её.'},
+ fix:'Арендодатель вправе индексировать арендную плату один раз в год на величину не выше индекса потребительских цен за предыдущий год.'},
+{id:'early',re:/досрочн\S+[^.]*?(?:штраф|неустойк|удержива|не возвраща)/i,sev:function(){return 2},title:function(){return'Досрочный выход с потерей денег'},
+ why:function(){return'Если придётся съехать раньше срока, вы теряете обеспечительный платёж целиком, даже если помещение сдано без долгов и повреждений.'},
+ fix:'При досрочном расторжении Договора по инициативе Арендатора с уведомлением за 60 дней обеспечительный платёж засчитывается в оплату последних месяцев аренды.'},
+{id:'prepay',re:/(?:100\s*%|стопроцентн\S+|полн\S+)\s*предоплат|предоплат\S*[^.]*?(?:100\s*%|в полном объ[её]ме)/i,sev:function(){return 1},
+ title:function(){return'Полная предоплата без обеспечения'},why:function(){return'Вы платите всю сумму до поставки. Если поставка сорвётся, срок возврата денег в договоре не указан.'},
+ fix:'Покупатель вносит аванс 30% от стоимости товара, оставшиеся 70% — в течение 5 рабочих дней после приёмки. При просрочке поставки более чем на 10 дней аванс возвращается в течение 3 рабочих дней.'},
+{id:'exit',re:/(?:вправе|может)[^.]*?(?:отказаться от (?:исполнения )?(?:настоящего )?Договора|расторгнуть (?:настоящий )?Договор)[^.]*?в одностороннем|в одностороннем[^.]*?(?:отказаться|расторгнуть)/i,
+ sev:function(m,t){return/кажд\S+ из сторон|люб\S+ из сторон|стороны вправе/i.test(t)?0:1},title:function(){return'Выйти из договора может только контрагент'},
+ why:function(){return'Право одностороннего отказа есть у одной стороны, срок уведомления короткий. Просим такое же право для себя и разумный срок.'},
+ fix:'Каждая из Сторон вправе отказаться от Договора, письменно уведомив другую Сторону не менее чем за 30 дней. Полученная предоплата за непоставленный товар возвращается в течение 5 рабочих дней.'},
+{id:'court',re:/суд\S*\s+по месту нахождения\s+(Поставщика|Арендодателя|Исполнителя|Продавца|Подрядчика|Лицензиара)/i,sev:function(){return 1},
+ title:function(m){return'Суд по месту нахождения '+m[1]},why:function(){return'Судиться придётся в чужом регионе: поездки и местный представитель за ваш счёт. Подсудность по договору допускает ст. 37 АПК РФ, её можно согласовать иначе.'},
+ fix:'Все споры рассматриваются в арбитражном суде по месту нахождения истца.'},
+{id:'auto',re:/автоматически\s+(?:продлева|пролонгир)|считается\s+(?:продл[её]нным|пролонгированным)/i,sev:function(){return 1},title:function(){return'Автоматическое продление'},
+ why:function(m,t){var d=t.match(/за\s+(\d+)\s+(?:календарн\S+\s+|рабоч\S+\s+)?дн/i);return'Чтобы не продлить договор, нужно успеть отказаться'+(d?' за '+d[1]+' дней':'')+' до конца срока. Пропустите дату — аренда продлится на весь новый срок.'},
+ fix:'Договор продлевается на тот же срок, если Стороны письменно подтвердили продление не позднее чем за 30 дней до окончания срока аренды.'},
+{id:'liab',re:/ответственност\S+[^.]*?(?:ограничива|не превыша|не может превыш)|не нес[её]т ответственности за/i,sev:function(){return 1},title:function(){return'Ответственность контрагента ограничена'},
+ why:function(m,t){var s=t.match(/(\d[\d\s]*)\s*руб/i);return s?'Предел '+s[1].trim()+' рублей несоизмерим с суммой договора: реальные убытки от срыва вам не возместят.':'Убытки от таких перебоев вам не возместят, даже если виноват контрагент. Оставьте исключение только для причин, которые от него не зависят.'},
+ fix:'Сторона, нарушившая Договор, возмещает другой Стороне причинённые убытки в полном объёме, если не докажет, что нарушение вызвано обстоятельствами непреодолимой силы.'},
+{id:'claim',re:/(?:претензи|недостат|замечани)[^.]*?в течение\s+(\d+)\s*(?:\([^)]*\)\s*)?(?:календарн\S+\s+|рабоч\S+\s+)?дн|в течение\s+(\d+)\s*(?:\([^)]*\)\s*)?(?:календарн\S+\s+|рабоч\S+\s+)?дн\S*[^.]*?(?:претензи|недостат|замечани)/i,
+ sev:function(m){return +(m[1]||m[2])<=3?1:0},title:function(m){var n=+(m[1]||m[2]);return'На претензии всего '+n+' '+(n===1?'день':'дня')},
+ why:function(){return'За такой срок не проверить партию и не оформить акт. Позже товар будет считаться принятым без замечаний, включая скрытые недостатки.'},
+ fix:'Покупатель вправе заявить претензии по качеству в течение 10 рабочих дней с даты приёмки, а по скрытым недостаткам — в течение гарантийного срока.'}],
+cur='supply',F=[],busy=false,run=0;
+var doc=$('#lgDoc'),list=$('#lgList');
+function render(k){cur=k;var d=DOCS[k];$('#lgName').textContent=d.name;$('#lgSide').textContent=d.side;K.$$('.lg-tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.doc===k)});
+ if(k==='own'&&!d.cl.length){doc.innerHTML='<div class="lg-own"><textarea id="lgTxt" placeholder="Вставьте текст договора или отдельные пункты. Каждый пункт — с новой строки."></textarea><button type="button" class="btn-s" id="lgGo">Разобрать текст</button><p>Текст не покидает эту страницу: разбор идёт прямо в браузере.</p></div>';reset('вставьте текст');return false}
+ doc.innerHTML='<h4>'+esc(d.name)+'</h4>'+(d.sub?'<div class="sub">'+esc(d.sub)+'</div>':'')+d.cl.map(function(c,i){return'<p class="cl" id="cl'+i+'">'+(c[0]?'<b>'+esc(c[0])+'.</b>':'')+'<span>'+esc(c[1]).replace(/(\d) (?=\d{3})/g,'$1&nbsp;')+'</span></p>'}).join('')+(k==='own'?'<p style="padding:10px"><button type="button" class="btn-s g" id="lgEd">Изменить текст</button></p>':'');
+ doc.scrollTop=0;return true}
+function reset(t){F=[];list.innerHTML='';$('#lgScore').textContent='—';$('#lgLvl').textContent=t||'идёт проверка';$('#lgBar').style.width='0';$('#lgCnt').textContent='';$('#lgDl').disabled=true}
+function score(){var s=0,b=0,w=0;F.forEach(function(f){if(f.done)return;if(f.sev===2){s+=20;b++}else{s+=7;w++}});s=Math.min(100,s);
+ $('#lgScore').textContent=s;$('#lgBar').style.width=s+'%';$('#lgBar').style.background=s>=50?'var(--bad)':s>=20?'var(--warn)':'var(--ok)';
+ $('#lgLvl').textContent='из 100 · '+(s>=50?'высокий риск':s>=20?'средний риск':'низкий риск');$('#lgCnt').textContent='критичных: '+b+' · внимание: '+w;
+ $('#lgDl').disabled=!F.some(function(f){return f.done});return[b,w]}
+function card(f){var el=document.createElement('div');el.className='fd';el.dataset.i=f.i;
+ el.innerHTML='<div class="fd-h"><span class="tag '+(f.sev===2?'bad':'warn')+'">'+(f.sev===2?'Критично':'Внимание')+'</span><b>'+(f.n?'п. '+esc(f.n)+' · ':'')+esc(f.title)+'</b></div><p>'+esc(f.why)+'</p>'+
+  (f.fix?'<div class="fx"><span>Предлагаю редакцию</span>'+esc(f.fix)+'</div><div class="fd-b"><button type="button" class="btn-s" data-fix>Принять правку</button><button type="button" class="btn-s g" data-show>Показать в тексте</button></div>':'');
+ list.appendChild(el);list.scrollTop=list.scrollHeight;return el}
+async function analyze(){var my=++run,d=DOCS[cur];busy=true;reset();$('#lgSt').textContent='проверяю пункты…';
+ for(var i=0;i<d.cl.length;i++){if(my!==run)return;var p=$('#cl'+i),t=d.cl[i][1];p.classList.add('scan');
+  doc.scrollTop=Math.max(0,p.offsetTop-doc.offsetTop-120);
+  await K.wait(230);var hit=null;
+  for(var r=0;r<RULES.length;r++){var m=t.match(RULES[r].re);if(m){var sv=RULES[r].sev(m,t);if(sv){hit={i:i,n:d.cl[i][0],rule:RULES[r],sev:sv,title:RULES[r].title(m,t),why:RULES[r].why(m,t),fix:RULES[r].fix,old:t};break}}}
+  if(my!==run)return;p.classList.remove('scan');if(hit){p.classList.add('s'+hit.sev);F.push(hit);hit.el=card(hit);score();await K.wait(260)}}
+ var all=d.cl.map(function(c){return c[1]}).join(' ');
+ if(!/непреодолимой силы|форс-мажор/i.test(all)&&d.cl.length>3){var f={i:-1,n:'',sev:1,title:'Нет условия о форс-мажоре',why:'В договоре не описано, что происходит при обстоятельствах, которые не зависят от сторон. Добавьте отдельный пункт.',fix:'',old:''};F.push(f);f.el=card(f)}
+ var c=score();doc.scrollTop=0;list.scrollTop=0;$('#lgSt').textContent='проверено пунктов: '+d.cl.length+', замечаний: '+F.length;busy=false;
+ K.log(['⚖️',d.name,'критичных: '+c[0]+' · внимание: '+c[1]+' · пунктов: '+d.cl.length,'Проверен']);
+ if(!F.length)list.innerHTML='<div class="fd"><div class="fd-h"><span class="tag ok">Чисто</span><b>Рискованных условий по моим правилам нет</b></div><p>Проверил неустойки, цену, предоплату, сроки претензий, подсудность, продление и ответственность. Окончательное решение — за юристом.</p></div>'}
+$('#ws').addEventListener('click',function(ev){var t=ev.target,b;
+ if(b=t.closest('.lg-tabs button')){run++;busy=false;if(render(b.dataset.doc))analyze();return}
+ if(t.id==='lgGo'){var v=$('#lgTxt').value.split(/\n+/).map(function(s){return s.trim()}).filter(function(s){return s.length>12});
+  if(!v.length){$('#lgTxt').focus();$('#lgTxt').placeholder='Нужен текст: хотя бы один пункт договора длиннее пары слов.';return}
+  DOCS.own.cl=v.slice(0,60).map(function(s){var m=s.match(/^(\d+(?:\.\d+)*)\.?\s+(.*)$/);return m?[m[1],m[2]]:['',s]});render('own');analyze();return}
+ if(t.id==='lgEd'){run++;var old=DOCS.own.cl.map(function(c){return(c[0]?c[0]+'. ':'')+c[1]}).join('\n');DOCS.own.cl=[];render('own');$('#lgTxt').value=old;return}
+ var fd=t.closest('.fd');if(!fd)return;var f=F.filter(function(x){return String(x.i)===fd.dataset.i&&x.el===fd})[0];if(!f)return;var p=$('#cl'+f.i);
+ if(t.hasAttribute('data-show')&&p){doc.scrollTop=p.offsetTop-doc.offsetTop-80;p.classList.remove('fl');void p.offsetWidth;p.classList.add('fl');if(window.innerWidth<=1000)doc.scrollIntoView({block:'nearest'})}
+ if(t.hasAttribute('data-fix')&&!f.done){f.done=1;fd.classList.add('done');fd.querySelector('.tag').className='tag ok';fd.querySelector('.tag').textContent='Правка принята';t.remove();
+  if(p){p.className='cl okd';p.querySelector('span').innerHTML='<del>'+esc(f.old)+'</del> <ins>'+esc(f.fix)+'</ins>'}score();
+  K.log(['✍️','Правка к '+(f.n?'п. '+f.n:'договору'),f.title+' · '+DOCS[cur].name,'В протокол'])}});
+$('#lgDl').addEventListener('click',function(){var d=DOCS[cur],L=['ПРОТОКОЛ РАЗНОГЛАСИЙ','к документу: '+d.name,''];
+ F.filter(function(f){return f.done}).forEach(function(f,i){L.push((i+1)+'. '+(f.n?'Пункт '+f.n:'Условие')+' — '+f.title,'   Редакция контрагента: '+f.old,'   Наша редакция: '+f.fix,'   Обоснование: '+f.why,'')});
+ var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+L.join('\r\n')],{type:'text/plain;charset=utf-8'}));a.download='Протокол разногласий.txt';document.body.appendChild(a);a.click();a.remove()});
+render('supply');K.demo=function(){analyze()};
+})();
+</script>
+</body>
+</html>

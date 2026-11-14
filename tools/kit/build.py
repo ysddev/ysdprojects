@@ -3,9 +3,9 @@
 import importlib
 import sys
 
-from . import bot, deck, shop
+from . import ai, bot, deck, shop
 
-KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck}
+KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck, "assist": ai}
 
 for name in sys.argv[1:]:
     part, _, mod_name = name.rpartition(".")
