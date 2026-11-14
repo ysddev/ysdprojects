@@ -15,7 +15,7 @@ def cfg() -> dict:
                        soft=("#1c1c1c", "#f5f2e8", "#a8a496", "#2b2b2b"), ac2="#f5f2e8", ac3="#8a8678", ac4="#55524a", hw="900", ht="-.01em", r="0px"),
         "palette": ["#ffd91a", "#f5f2e8", "#8a8678", "#55524a"],
         "fonts": [("Sofia Sans Condensed", "sofia-sans-condensed", [800, 900], "normal"), ("Inter Tight", "inter-tight", [400, 500, 600], "normal")],
-        "css": ".v-light{--sac:#111}.v-light h2 em{background:#ffd91a;padding:0 .12em}.v-accent h2 em,.v-accent h1 em{opacity:1;background:#111;color:#ffd91a;padding:0 .12em}"
+        "css": ".bgimg::after{background:linear-gradient(90deg,rgba(0,0,0,.93),rgba(0,0,0,.8) 60%,rgba(0,0,0,.66))}.v-light{--sac:#111}.v-light h2 em{background:#ffd91a;padding:0 .12em}.v-accent h2 em,.v-accent h1 em{opacity:1;background:#111;color:#ffd91a;padding:0 .12em}"
                "h2,.t-cover h1,.t-quote blockquote,.t-end h2{text-transform:uppercase}h2{font-size:calc(var(--u)*5.4);line-height:.96}"
                ".t-cover h1{font-size:calc(var(--u)*9);line-height:.9}.t-quote blockquote{font-size:calc(var(--u)*6.2);line-height:.95}.t-end h2{font-size:calc(var(--u)*7.4);line-height:.92}"
                ".stat b{font-size:calc(var(--u)*8)}.card i,.pts i,.plan b,.cout b,.cin .row b{font-weight:900}.card b,.pts b,.step b{font-family:var(--fb)}"

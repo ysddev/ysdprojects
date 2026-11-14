@@ -201,7 +201,7 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .toc .x{position:fixed;right:20px;top:16px;width:44px;height:44px;border-radius:50%;background:rgba(128,128,128,.2);font-size:22px}
 .hint{position:fixed;left:50%;bottom:calc(var(--bar) + 18px);transform:translateX(-50%);z-index:19;background:rgba(0,0,0,.72);color:#fff;font-size:13px;padding:9px 14px;border-radius:99px;transition:opacity .5s;pointer-events:none}
 .hint.off{opacity:0}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.hint{display:none}}
 /* телефон и узкие экраны: лента слайдов */
 @media screen and (max-width:760px),screen and (orientation:portrait) and (max-width:1100px){
 html,body{height:auto}
