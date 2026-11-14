@@ -183,5 +183,6 @@ def cfg():
         "contacts": {"addr": "Суздаль, ул. Лебедева, 4", "hours": "Мастерская открыта 11:00–19:00, кроме понедельника"},
         "order": ["catalog", "widget", "usp", "faq"], "gridTitle": "Посуда из мастерской", "gridKick": "В наличии",
         "css": ".hero h1{font-size:clamp(46px,6.8vw,108px);line-height:.96}.v-lookbook .hero h1 em{font-style:italic;color:#f1d9c4}.card .nm{font-family:var(--fh);font-size:21px;font-weight:400}"
-               ".price{font-weight:500}",
+               ".price{font-weight:500}.v-lookbook .hero h1,.v-lookbook .hero .lead,.v-lookbook .hero .kick,.v-lookbook .hero .stats{text-shadow:0 2px 26px rgba(20,14,10,.55),0 1px 3px rgba(20,14,10,.35)}"
+               ".v-lookbook .hero::after{background:linear-gradient(180deg,rgba(20,14,10,.22),rgba(20,14,10,.3) 40%,rgba(20,14,10,.8))}",
     }
