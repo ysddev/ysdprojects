@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Отель: номера, территория и бронирование дат онлайн</title>
+<meta name="description" content="Спокойный отель для отдыха пар, семей и компаний. Номера, территория, услуги и онлайн-заявка на бронирование дат заезда и выезда.">
+<meta property="og:title" content="Отель: номера, территория и бронирование дат онлайн">
+<meta property="og:description" content="Выберите даты, номер и число гостей. Заявку получит администратор и подтвердит бронь.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/s1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%232f3a33'/%3E%3Cpath d='M8 22V12h2v4h12v-4h2v10h-2v-3H10v3z' fill='%23f1ede4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f1ec;
+  --bg2:#e8e5dd;
+  --ink:#232a26;
+  --muted:#4a544d;
+  --accent:#2f5d4b;
+  --accent-ink:#ffffff;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+  --pad:clamp(20px,5vw,72px);
+}
+body.evening{
+  --bg:#1f2622;
+  --bg2:#2a332e;
+  --ink:#f1ede4;
+  --muted:#c5cbc3;
+  --accent:#d9c08a;
+  --accent-ink:#1f2622;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{
+  font-family:'Onest',sans-serif;font-size:17px;line-height:1.6;
+  background:var(--bg);color:var(--ink);
+  transition:background-color .7s var(--ease),color .7s var(--ease);
+  overflow-x:clip;hyphens:manual;overflow-wrap:break-word;max-width:100%;
+}
+img{display:block;max-width:100%;object-fit:cover}
+a{color:inherit}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.05;hyphens:manual}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1600px;margin:0 auto;width:100%}
+section{padding-top:clamp(80px,12vw,180px)}
+.wrap>*,.split>*,.rooms>*,.adv>*,.book>*,.gal>*,.room>*,.hero>*{min-width:0}
+
+/* header */
+header{position:absolute;top:0;left:0;right:0;z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600}
+.logo svg{width:34px;height:34px;flex:none}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none;font-size:16px;padding:10px 0}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;
+  background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;
+  font:500 16px 'Onest',sans-serif;text-decoration:none;cursor:pointer;
+  transition:background-color .3s var(--ease),transform .3s var(--ease),color .3s var(--ease);
+}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--ink);color:var(--bg)}}
+
+/* hero */
+.hero{padding-top:0;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:center;gap:26px;padding:130px clamp(20px,4vw,64px) 60px var(--pad);min-width:0}
+h1{font-size:clamp(2.1rem,4.4vw,4.75rem);max-width:100%}
+h1 .w{display:inline-block;vertical-align:top}
+h1 .w span{display:inline-block}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--muted);max-width:30em}
+.hero-photo{position:relative;clip-path:inset(0);min-height:420px}
+.hero-photo .pimg{position:absolute;inset:-6% 0 -6% 0}
+.hero-photo img{width:100%;height:100%}
+.tag{position:absolute;left:16px;bottom:16px;background:var(--bg);color:var(--ink);padding:6px 14px;border-radius:999px;font-size:14px;max-width:calc(100% - 32px)}
+.mode{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mode button{
+  min-height:44px;padding:8px 20px;border:0;border-radius:999px;background:var(--bg2);color:var(--ink);
+  font:500 15px 'Onest',sans-serif;cursor:pointer;transition:background-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)
+}
+.mode button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.mode button:active{transform:scale(.97)}
+.mode small{color:var(--muted);font-size:15px}
+.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+
+/* about */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:center}
+h2{font-size:clamp(1.55rem,3vw,3rem);margin-bottom:24px}
+.split p{color:var(--muted);max-width:32em}
+.split p+p{margin-top:16px}
+.pic{overflow:hidden;border-radius:18px}
+.pic img{width:100%;aspect-ratio:4/3;transition:transform .8s var(--ease)}
+@media (hover:hover) and (pointer:fine){.pic:hover img{transform:scale(1.04)}}
+
+/* rooms */
+.rooms-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.rooms-head p{color:var(--muted);max-width:26em}
+.rooms{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:auto auto;gap:24px}
+.room{background:var(--bg2);border-radius:18px;padding:14px 14px 26px;transition:background-color .7s var(--ease)}
+.room:first-child{grid-row:span 2}
+.room .pic{border-radius:12px;margin-bottom:22px}
+.room:first-child .pic img{aspect-ratio:4/3.1}
+.room:not(:first-child){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center;padding:14px}
+.room:not(:first-child) .pic{margin:0}
+.room:not(:first-child) .pic img{aspect-ratio:1/1}
+.room .txt{padding:0 12px;min-width:0}
+.room h3{font-size:2rem;margin-bottom:10px}
+.room p{color:var(--muted);font-size:16px}
+.room .meta{margin-top:12px;font-weight:500;color:var(--ink)}
+
+/* services */
+.adv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,100px);align-items:start}
+.adv-list{display:flex;flex-direction:column;min-width:0}
+.adv-list div{padding:26px 0;border-bottom:0;background:none}
+.adv-list div:nth-child(odd){background:var(--bg2);padding:26px 24px;border-radius:14px}
+.adv-list div:nth-child(even){padding:26px 24px}
+.adv-list h3{font-size:1.7rem;margin-bottom:6px}
+.adv-list p{color:var(--muted);font-size:16px}
+.stick{position:sticky;top:30px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:48px}
+.gal .pic{border-radius:14px}
+.gal .pic img{aspect-ratio:4/5}
+.gal figure:nth-child(2){margin-top:60px}
+.gal figcaption{font-size:14px;color:var(--muted);padding-top:8px}
+
+/* booking */
+.book{background:var(--bg2);border-radius:24px;padding:clamp(24px,5vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);transition:background-color .7s var(--ease)}
+.book p{color:var(--muted);max-width:26em}
+form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-size:15px;font-weight:500}
+input,select{
+  min-height:48px;padding:10px 14px;border:0;border-radius:12px;background:var(--bg);color:var(--ink);
+  font:400 16px 'Onest',sans-serif;width:100%;min-width:0;transition:background-color .7s var(--ease)
+}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sum{grid-column:1/-1;color:var(--ink);font-weight:500;min-height:1.6em}
+.ok{display:none;text-align:left}
+.ok h3{font-size:2.6rem;margin-bottom:12px}
+.booked form{display:none}
+.booked .ok{display:block;animation:in .8s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* faq */
+.faq{max-width:860px}
+.q{background:var(--bg2);border-radius:14px;margin-bottom:12px;transition:background-color .7s var(--ease)}
+.q button{
+  width:100%;min-height:60px;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;
+  padding:16px 24px;background:none;border:0;color:var(--ink);font:500 18px 'Onest',sans-serif;cursor:pointer
+}
+.q button span:first-child{min-width:0}
+.q .pm{flex:none;width:20px;height:20px;position:relative;transition:transform .4s var(--ease)}
+.q .pm::before,.q .pm::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--accent)}
+.q .pm::after{transform:rotate(90deg)}
+.q button[aria-expanded="true"] .pm{transform:rotate(45deg)}
+.ans{display:none}
+.ans p{padding:0 24px 22px;color:var(--muted)}
+.q button[aria-expanded="true"]+.ans{display:block;animation:in .5s var(--ease)}
+
+/* footer */
+footer{padding:clamp(80px,12vw,180px) 0 40px}
+.big{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,11vw,9rem);line-height:.95;margin-bottom:40px}
+.foot{display:flex;gap:32px 64px;flex-wrap:wrap;color:var(--muted)}
+.foot strong{color:var(--ink);display:block;font-weight:500}
+.fab{display:none}
+
+/* motion */
+.js h1 .w span{opacity:0;transform:translateY(.45em);transition:transform 1s var(--ease),opacity 1s var(--ease)}
+.js .lead,.js .hero-actions,.js .mode{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .hero-photo .pimg img{transform:scale(1.12);opacity:0;transition:transform 1.6s var(--ease),opacity 1.2s var(--ease)}
+.js.ready h1 .w span{transform:none;opacity:1}
+.js.ready .lead,.js.ready .hero-actions,.js.ready .mode{opacity:1;transform:none}
+.js.ready .lead{transition-delay:.45s}
+.js.ready .mode{transition-delay:.6s}
+.js.ready .hero-actions{transition-delay:.75s}
+.js.ready .hero-photo .pimg img{transform:none;opacity:1}
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.on{opacity:1;transform:none}
+.pimg{translate:0 var(--py,0px)}
+
+@media (max-width:900px){
+  nav{display:none}
+  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
+  .hero-photo{order:-1;min-height:0;height:46svh}
+  .hero-text{padding:36px var(--pad) 56px;gap:22px}
+  header{position:absolute}
+  .logo{color:var(--ink);background:var(--bg);padding:6px 16px 6px 8px;border-radius:999px}
+  .split,.adv,.book{grid-template-columns:minmax(0,1fr)}
+  .rooms{grid-template-columns:minmax(0,1fr)}
+  .room:first-child{grid-row:auto}
+  .room:not(:first-child){grid-template-columns:minmax(0,1fr)}
+  .room:not(:first-child) .pic img{aspect-ratio:4/3}
+  .stick{position:static}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal figure:nth-child(2){margin-top:0}
+  .gal figure:nth-child(3){grid-column:1/-1}
+  .gal figure:nth-child(3) img{aspect-ratio:16/9}
+  form{grid-template-columns:minmax(0,1fr)}
+  .hdr-btn{display:none}
+  .fab{display:inline-flex;position:fixed;right:16px;bottom:16px;z-index:20;min-height:52px;padding:0 28px}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .gal{grid-template-columns:minmax(0,1fr)}
+  .gal .pic img{aspect-ratio:4/3}
+  .room h3{font-size:1.7rem}
+  .ok h3{font-size:2rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js h1 .w span,.js .lead,.js .hero-actions,.js .mode,.js .rv,.js .hero-photo .pimg img{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:normal!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img{max-width:100%}</style></head>
+<body>
+
+<header>
+  <div class="bar wrap">
+    <a class="logo" href="#top" aria-label="Отель, на главную">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="currentColor"/><path d="M9 23V11h2.2v5h11.6v-5H25v12h-2.2v-3.6H11.2V23z" fill="var(--bg)"/></svg>
+      Отель
+    </a>
+    <nav aria-label="Основное меню">
+      <a href="#about">Об отеле</a>
+      <a href="#rooms">Номера</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Территория</a>
+    </nav>
+    <a class="btn hdr-btn" href="#book">Забронировать</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-top:0">
+  <div class="hero-text">
+    <h1 id="h1">Тишина, в которой хочется остаться</h1>
+    <p class="lead">Светлые номера, спокойная территория и свободные даты, которые можно выбрать прямо сейчас.</p>
+    <div class="mode" role="group" aria-label="Время суток на странице">
+      <button type="button" data-m="day" aria-pressed="true">День</button>
+      <button type="button" data-m="eve" aria-pressed="false">Вечер</button>
+      <small>Посмотрите, как отель выглядит в другое время</small>
+    </div>
+    <div class="hero-actions">
+      <a class="btn" href="#book">Забронировать</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="pimg" id="pimg">
+      <img src="img/s3.jpg" width="1600" height="1200" alt="Просторный номер с большой кроватью и мягким светом" fetchpriority="high">
+    </div>
+    <span class="tag">Фото-пример</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap split">
+    <div class="rv">
+      <h2>Место, где можно ничего не успевать</h2>
+      <p>Мы собрали отель для отдыха вдвоём, с семьёй или компанией. Здесь неспешное утро, тёплый свет вечером и время, которое принадлежит только вам.</p>
+      <p>Выберите номер, отметьте даты заезда и выезда, а остальное администратор уточнит сам.</p>
+    </div>
+    <figure class="pic rv" style="--d:90ms">
+      <img src="img/s7.jpg" width="1200" height="900" alt="Гостиная зона с диваном и мягким светом" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="wrap">
+    <div class="rooms-head rv">
+      <h2 style="margin:0">Номера</h2>
+      <p>Три категории для разных поездок. Точные площади и цены добавим после согласования с отелем, цены «от» ориентировочные.</p>
+    </div>
+    <div class="rooms">
+      <article class="room rv">
+        <figure class="pic"><img src="img/s2.jpg" width="1200" height="900" alt="Гостиничный номер с деревянными элементами" loading="lazy"></figure>
+        <div class="txt">
+          <h3>Номер для двоих</h3>
+          <p>Большая кровать, мягкий свет, тихий вид. Для пар и спокойных выходных.</p>
+          <p class="meta">Цена за ночь рассчитаем при заявке</p>
+        </div>
+      </article>
+      <article class="room rv" style="--d:80ms">
+        <figure class="pic"><img src="img/s4.jpg" width="900" height="900" alt="Белая кровать с серой подушкой" loading="lazy"></figure>
+        <div class="txt">
+          <h3>Семейный</h3>
+          <p>Больше места для гостей и вещей, отдельная зона для отдыха.</p>
+        </div>
+      </article>
+      <article class="room rv" style="--d:160ms">
+        <figure class="pic"><img src="img/s1.jpg" width="900" height="900" alt="Белое постельное бельё и плед" loading="lazy"></figure>
+        <div class="txt">
+          <h3>Для компании</h3>
+          <p>Просторная гостиная и несколько спальных мест для друзей или коллег.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap adv">
+    <div class="stick rv">
+      <h2>Всё для спокойного отдыха</h2>
+      <p style="color:var(--muted);max-width:26em">Список услуг уточним вместе с отелем, ниже то, что обычно важно гостям.</p>
+      <figure class="pic" style="margin-top:32px"><img src="img/s6.jpg" width="1200" height="900" alt="Современная гостиная с большими окнами" loading="lazy"></figure>
+    </div>
+    <div class="adv-list">
+      <div class="rv"><h3>Питание</h3><p>Завтраки и другие варианты питания, условия подскажет администратор при подтверждении заявки.</p></div>
+      <div class="rv" style="--d:70ms"><h3>Трансфер</h3><p>Поможем встретить и довезти. Стоимость рассчитаем при заказе.</p></div>
+      <div class="rv" style="--d:140ms"><h3>Спа и отдых</h3><p>Зоны для расслабления на территории, состав услуг согласуем с отелем.</p></div>
+      <div class="rv" style="--d:210ms"><h3>Мероприятия</h3><p>Небольшие праздники, встречи и семейные поводы. Расскажем, как организовать.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2 class="rv">Интерьеры и пространство</h2>
+    <div class="gal">
+      <figure class="rv"><div class="pic"><img src="img/s8.jpg" width="900" height="1125" alt="Светлая гостиная с современной мебелью" loading="lazy"></div><figcaption>Фото-пример</figcaption></figure>
+      <figure class="rv" style="--d:80ms"><div class="pic"><img src="img/s5.jpg" width="900" height="1125" alt="Серая кушетка рядом с кроватью" loading="lazy"></div><figcaption>Фото-пример</figcaption></figure>
+      <figure class="rv" style="--d:160ms"><div class="pic"><img src="img/s9.jpg" width="900" height="1125" alt="Гостиная, наполненная мебелью и светом" loading="lazy"></div><figcaption>Фото-пример</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="book rv" id="bookbox">
+      <div>
+        <h2>Выберите даты</h2>
+        <p>Отметьте заезд, выезд и число гостей. Администратор подтвердит наличие номера и вернётся с точной стоимостью.</p>
+      </div>
+      <div>
+        <form id="form" novalidate>
+          <div class="f"><label for="in">Заезд</label><input type="date" id="in" required></div>
+          <div class="f"><label for="out">Выезд</label><input type="date" id="out" required></div>
+          <div class="f"><label for="g">Гостей</label>
+            <select id="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+          <div class="f"><label for="r">Номер</label>
+            <select id="r"><option>Номер для двоих</option><option>Семейный</option><option>Для компании</option></select></div>
+          <div class="f full"><label for="n">Имя</label><input id="n" autocomplete="name" required></div>
+          <div class="f full"><label for="p">Телефон</label><input id="p" type="tel" autocomplete="tel" placeholder="+7 (000) 000-00-00" required></div>
+          <p class="sum" id="sum" aria-live="polite"></p>
+          <div class="f full"><button class="btn" type="submit">Отправить заявку</button></div>
+        </form>
+        <div class="ok" role="status">
+          <h3>Заявка принята</h3>
+          <p id="okt">Администратор свяжется с вами и подтвердит бронь.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="rv">Вопросы перед поездкой</h2>
+    <div class="faq">
+      <div class="q rv"><button type="button" aria-expanded="false"><span>Как подтверждается бронь?</span><span class="pm"></span></button><div class="ans"><div><p>После заявки администратор проверит даты и свяжется с вами, чтобы подтвердить номер и условия.</p></div></div></div>
+      <div class="q rv" style="--d:70ms"><button type="button" aria-expanded="false"><span>Нужно ли платить на сайте?</span><span class="pm"></span></button><div class="ans"><div><p>Нет, оплата на сайте не требуется. Условия оплаты уточнит администратор.</p></div></div></div>
+      <div class="q rv" style="--d:140ms"><button type="button" aria-expanded="false"><span>Можно ли приехать с детьми?</span><span class="pm"></span></button><div class="ans"><div><p>Да, для семей есть отдельная категория номера. Подробности подскажем при подтверждении.</p></div></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big rv">Отель</div>
+    <div class="foot rv">
+      <div><strong>Телефон</strong>+7 (000) 000-00-00</div>
+      <div><strong>Адрес</strong>Адрес на карте</div>
+      <div><strong>Бронирование</strong><a href="#book">Выбрать даты</a></div>
+    </div>
+  </div>
+</footer>
+
+<a class="btn fab" href="#book">Забронировать</a>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  // headline words
+  var h=document.getElementById('h1');
+  var words=h.textContent.trim().split(/\s+/);
+  h.innerHTML=words.map(function(w,i){return '<span class="w"><span style="transition-delay:'+(i*80)+'ms">'+w+'</span></span>'}).join(' ');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ready')})});
+
+  // mode toggle
+  var btns=document.querySelectorAll('.mode button');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    document.body.classList.toggle('evening',b.dataset.m==='eve');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  })});
+
+  // parallax
+  var pi=document.getElementById('pimg'),tick=false;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function par(){tick=false;if(reduce)return;var y=Math.min(window.scrollY,1200);pi.style.setProperty('--py',(y*0.08)+'px')}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(par)}},{passive:true});
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // faq
+  document.querySelectorAll('.q button').forEach(function(b){b.addEventListener('click',function(){
+    b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')==='true'?'false':'true');
+  })});
+
+  // dates
+  var din=document.getElementById('in'),dout=document.getElementById('out'),sum=document.getElementById('sum');
+  var today=new Date().toISOString().slice(0,10);
+  din.min=today;dout.min=today;
+  function nights(){
+    if(!din.value||!dout.value)return 0;
+    return Math.round((new Date(dout.value)-new Date(din.value))/86400000);
+  }
+  function word(n){var m=n%10,c=n%100;if(m===1&&c!==11)return'ночь';if(m>=2&&m<=4&&(c<12||c>14))return'ночи';return'ночей'}
+  function upd(){
+    if(din.value)dout.min=din.value;
+    var n=nights();
+    if(n>0)sum.textContent=n+' '+word(n)+', '+document.getElementById('g').value+' гост., '+document.getElementById('r').value;
+    else if(din.value&&dout.value)sum.textContent='Дата выезда должна быть позже заезда';
+    else sum.textContent='';
+  }
+  ['in','out','g','r'].forEach(function(id){document.getElementById(id).addEventListener('change',upd)});
+
+  // submit
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(nights()<=0){sum.textContent='Выберите даты заезда и выезда';din.focus();return}
+    var n=document.getElementById('n'),p=document.getElementById('p');
+    if(!n.value.trim()){n.focus();sum.textContent='Укажите имя';return}
+    if(p.value.replace(/\D/g,'').length<10){p.focus();sum.textContent='Укажите телефон';return}
+    document.getElementById('okt').textContent=n.value.trim()+', спасибо. Администратор свяжется с вами и подтвердит бронь: '+nights()+' '+word(nights())+', '+document.getElementById('r').value+'.';
+    document.getElementById('bookbox').classList.add('booked');
+  });
+})();
+</script>
+</body>
+</html>

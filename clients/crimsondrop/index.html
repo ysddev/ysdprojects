@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crimson Drop | Gothic Video Gallery</title>
+<meta name="description" content="Crimson Drop: a collection of gothic films, dark visions, and midnight stories. Vampires, haunted manors, witches and seasonal ambience.">
+<meta property="og:title" content="Crimson Drop | Gothic Video Gallery">
+<meta property="og:description" content="Gothic stories, forgotten places, and moments suspended between darkness and light.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/invitation.jpg">
+<meta name="theme-color" content="#0f0c12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0c12'/%3E%3Cpath d='M16 4C18 9 24 14 24 20a8 8 0 0 1-16 0c0-6 6-11 8-16z' fill='%239d4058'/%3E%3C/svg%3E">
+<link rel="preload" href="img/invitation.jpg" as="image">
+<script>document.documentElement.classList.add('js');try{if(sessionStorage.getItem('cd-seal')==='broken')document.documentElement.classList.add('entered')}catch(e){}</script>
+<style>
+  /* Nocturne template, recoloured to the Crimson Drop palette:
+     Oxblood #681F35, Wine #9D4058, Antique Gold #C7A56B, Candlelight #F1E3CF, Near-Black #211C26 */
+  :root { color-scheme:dark; --bg:#0f0c12; --panel:#1a1520; --ink:#f1e3cf; --muted:#ab9ea3; --accent:#c7a56b; --wine:#9d4058; --oxblood:#681f35; --line:#352a35;
+    --m:clamp(16px,2.2vw,32px); --step-small:13px; --ease:cubic-bezier(.23,1,.32,1); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:Arial,Helvetica,sans-serif; line-height:1.6; }
+  body::before { content:''; position:fixed; inset:0; z-index:-1; background:radial-gradient(ellipse at 50% 0%,#681f3566,transparent 65%); pointer-events:none; }
+  img { max-width:100%; }
+  a { color:inherit; text-decoration:none; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .skip { position:absolute; top:-100px; left:16px; padding:10px; background:var(--panel); z-index:10; }
+  .skip:focus { top:12px; }
+  .wrap { width:min(1120px,calc(100% - 48px)); margin:auto; }
+  header { border-bottom:1px solid var(--line); }
+  .nav { display:flex; justify-content:space-between; align-items:center; gap:24px; min-height:128px; }
+  .brand { display:block; line-height:0; }
+  .brand img { display:block; height:112px; width:auto; mix-blend-mode:screen; }
+  nav { display:flex; gap:26px; font-size:11px; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); }
+  nav a { padding:12px 0; }
+  @media (hover:hover) and (pointer:fine) { nav a:hover { color:var(--ink); } }
+  .hero { text-align:center; padding:84px 0 62px; }
+  .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.28em; font-size:10px; font-weight:600; }
+  .ornament { display:flex; align-items:center; justify-content:center; gap:16px; color:var(--accent); margin:0 auto 24px; }
+  .ornament::before,.ornament::after { content:''; height:1px; width:70px; background:linear-gradient(90deg,transparent,var(--accent)); opacity:.65; }
+  .ornament::after { transform:rotate(180deg); }
+  h1 { font:clamp(44px,7vw,80px)/1.1 Georgia,'Times New Roman',serif; letter-spacing:-.04em; margin:18px 0 22px; font-weight:normal; }
+  h1 em { color:var(--accent); font-weight:normal; }
+  h1:focus { outline:none; }
+  .intro { color:var(--muted); max-width:490px; margin:0 auto; font-size:14px; }
+  .section-heading { display:flex; justify-content:space-between; align-items:baseline; gap:20px; border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:28px; }
+  .section-heading h2 { font:24px Georgia,'Times New Roman',serif; margin:0; font-weight:normal; }
+  .section-heading span { color:var(--muted); font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
+  .video-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px 28px; }
+  .card { min-width:0; background:var(--panel); border:1px solid var(--line); transition:border-color .2s; }
+  @media (hover:hover) and (pointer:fine) { .card:hover { border-color:#7a4a50; } }
+  .player { background:#09080c; position:relative; aspect-ratio:16/9; overflow:hidden; }
+  .player img { display:block; width:100%; height:100%; object-fit:cover; }
+  .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .play { position:absolute; inset:0; width:100%; border:0; padding:0; background:linear-gradient(180deg,transparent 55%,#0f0c1299); cursor:pointer; }
+  .play span { position:absolute; left:50%; top:50%; width:68px; height:68px; margin:-34px 0 0 -34px; border-radius:50%; border:1px solid #c7a56bcc; background:#0f0c12b3; transition:transform .3s var(--ease),background-color .3s var(--ease); }
+  .play span::after { content:''; position:absolute; left:27px; top:22px; border-style:solid; border-width:12px 0 12px 19px; border-color:transparent transparent transparent var(--accent); }
+  .play:active span { transform:scale(.94); }
+  @media (hover:hover) and (pointer:fine) { .play:hover span { transform:scale(1.06); background:#681f35cc; } }
+  .card-body { padding:22px 24px 24px; }
+  .meta { display:flex; justify-content:space-between; gap:16px; color:var(--accent); font-size:9px; letter-spacing:.19em; text-transform:uppercase; }
+  h3 { font:27px/1.25 Georgia,'Times New Roman',serif; font-weight:normal; margin:12px 0 10px; }
+  .description { font-size:13px; color:var(--muted); margin:0; }
+  .yt { display:inline-block; margin-top:10px; padding:4px 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); border-bottom:1px solid #c7a56b55; }
+  .about { margin:72px 0 60px; padding:36px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; grid-template-columns:1fr 2fr; gap:32px; }
+  .about h2 { margin:0; font:30px Georgia,'Times New Roman',serif; font-weight:normal; }
+  .about p { margin:0; color:var(--muted); font-size:14px; max-width:600px; }
+  .about p + p { margin-top:14px; }
+  .about a { color:var(--accent); border-bottom:1px solid #c7a56b55; }
+  footer { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; padding-bottom:32px; color:var(--muted); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+  footer > a:last-child { justify-self:end; color:var(--accent); padding:12px 0; }
+  .bat { position:relative; display:block; width:clamp(240px,30vw,360px); aspect-ratio:796/207; }
+  .bat img { position:absolute; inset:0; width:100%; height:100%; }
+  .bat .l { clip-path:inset(0 56.3% 0 0); transform-origin:43.7% 50%; animation:flapL 1.5s cubic-bezier(.45,0,.55,1) infinite; }
+  .bat .r { clip-path:inset(0 0 0 56.3%); transform-origin:56.3% 50%; animation:flapR 1.5s cubic-bezier(.45,0,.55,1) infinite; }
+  .bat .b { clip-path:inset(0 43.7%); }
+  .bat { animation:hover 4.2s ease-in-out infinite; }
+  @keyframes flapL { 0%,100% { transform:skewY(-4deg); } 50% { transform:skewY(8deg); } }
+  @keyframes flapR { 0%,100% { transform:skewY(4deg); } 50% { transform:skewY(-8deg); } }
+  @keyframes hover { 50% { transform:translateY(-10px); } }
+  @media(max-width:640px) {
+    .wrap { width:calc(100% - 32px); }
+    .nav { min-height:84px; gap:12px; }
+    .brand img { height:72px; }
+    nav { gap:16px; font-size:9px; }
+    .hero { padding:58px 0 44px; }
+    .video-grid { grid-template-columns:1fr; gap:24px; }
+    .card-body { padding:20px; }
+    .about { grid-template-columns:1fr; gap:16px; margin-top:48px; }
+    footer { grid-template-columns:1fr; justify-items:center; text-align:center; gap:8px; }
+    footer .bat { order:-1; width:78vw; margin-bottom:12px; }
+    footer > a:last-child { justify-self:center; }
+  }
+
+/* ---------- the invitation ---------- */
+.gate{display:none}
+html.js:not(.entered) .gate{display:block;position:fixed;inset:0;z-index:100;background:#0b0809;overflow:hidden}
+html.js:not(.entered) body{overflow:hidden}
+.gate__art{position:absolute;left:50%;top:50%;width:max(100vw,177.78svh);aspect-ratio:16/9;transform:translate(-50%,-50%)}
+.gate__art>img{width:100%;height:100%;object-fit:cover}
+@media (max-aspect-ratio:3/4){.gate__art{width:max(100vw,125svh)}}
+.seal{position:absolute;left:44.3%;top:46.8%;width:12.2%;aspect-ratio:1;border:0;padding:0;background:none;border-radius:50%;cursor:pointer;animation:breathe 3.2s ease-in-out infinite}
+.seal span{position:absolute;inset:0;background:url(img/invitation.jpg) 50.44% 59.75%/820.5% auto no-repeat;transition:transform 900ms var(--ease),opacity 900ms var(--ease)}
+.seal__l{clip-path:polygon(0 0,53% 0,47% 28%,56% 50%,45% 73%,51% 100%,0 100%)}
+.seal__r{clip-path:polygon(53% 0,100% 0,100% 100%,51% 100%,45% 73%,56% 50%,47% 28%)}
+.seal:focus-visible{outline-offset:8px}
+@keyframes breathe{50%{transform:scale(1.035)}}
+.gate.is-broken .seal{animation:none}
+.gate.is-broken .seal__l{transform:translate(-18%,8%) rotate(-16deg);opacity:0}
+.gate.is-broken .seal__r{transform:translate(18%,10%) rotate(13deg);opacity:0}
+.gate.is-broken{opacity:0;transform:scale(1.06);transition:opacity 900ms var(--ease) 450ms,transform 1400ms var(--ease) 300ms}
+.gate__skip{position:absolute;right:var(--m);bottom:calc(var(--m) + env(safe-area-inset-bottom));z-index:2;min-height:44px;display:inline-flex;align-items:center;padding:0 4px;color:var(--ink);background:none;border:0;font:inherit;font-size:var(--step-small);cursor:pointer;text-decoration:underline;text-underline-offset:.25em;text-decoration-color:rgba(241,227,207,.5)}
+
+
+  @media(prefers-reduced-motion:reduce) {
+    .card,.play span { transition:none; }
+    *,*::before,*::after { animation:none!important; }
+    .gate.is-broken,.seal span { transition:opacity .4s!important; transform:none!important; }
+    .gate.is-broken .seal span { opacity:0; }
+  }
+</style>
+</head>
+<body>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="An invitation from Crimson Drop">
+  <div class="gate__art">
+    <img src="img/invitation.jpg" alt="A velvet envelope sealed with red wax: You have been invited. Break the seal to enter." width="1280" height="720" fetchpriority="high">
+    <button class="seal" type="button" aria-label="Break the seal and enter"><span class="seal__l"></span><span class="seal__r"></span></button>
+  </div>
+  <button class="gate__skip" type="button">Enter without breaking the seal</button>
+</div>
+
+<a class="skip" href="#gallery">Skip to videos</a>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Crimson Drop home"><img src="img/logo.jpg" alt="Crimson Drop" width="1213" height="720"></a>
+    <nav aria-label="Main navigation"><a href="#gallery">The films</a><a href="#about">About</a><a href="https://www.youtube.com/@crimsondropai" target="_blank" rel="noopener">YouTube</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="ornament" aria-hidden="true">✦</div>
+    <div class="eyebrow">An archive of dark visions</div>
+    <h1 id="page-title" tabindex="-1">Beauty in the <em>shadows.</em></h1>
+    <p class="intro">Gothic stories, forgotten places, and moments suspended between darkness and light. Enter my world, one film at a time.</p>
+  </section>
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="section-heading"><h2 id="gallery-title">The film collection</h2><span>25 films / selected works</span></div>
+    <div class="video-grid">
+<article class="card">
+  <div class="player" data-id="2KXWunQHFOw" data-title="A Haunted Victorian Holiday"><img src="https://i.ytimg.com/vi/2KXWunQHFOw/hq720.jpg" alt="" width="1280" height="720" loading="eager" decoding="async"><button class="play" type="button" aria-label="Play A Haunted Victorian Holiday"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Christmas</span><span>01</span></div><h3>A Haunted Victorian Holiday</h3><p class="description">Long ambience · 2:03:50</p><a class="yt" href="https://www.youtube.com/watch?v=2KXWunQHFOw" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="OmVrZXsKrEY" data-title="Halloween Eve Ambiance"><img src="https://i.ytimg.com/vi/OmVrZXsKrEY/hq720.jpg" alt="" width="1280" height="720" loading="eager" decoding="async"><button class="play" type="button" aria-label="Play Halloween Eve Ambiance"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Halloween</span><span>02</span></div><h3>Halloween Eve Ambiance</h3><p class="description">Long ambience · 1:10:40</p><a class="yt" href="https://www.youtube.com/watch?v=OmVrZXsKrEY" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="Mza28eA_wPA" data-title="Halloween at the Old Victorian Manor"><img src="https://i.ytimg.com/vi/Mza28eA_wPA/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Halloween at the Old Victorian Manor"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Halloween</span><span>03</span></div><h3>Halloween at the Old Victorian Manor</h3><p class="description">Long ambience · 1:05:33</p><a class="yt" href="https://www.youtube.com/watch?v=Mza28eA_wPA" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="SYqF8Pq0OlA" data-title="The Snow Queen &amp; Krampus"><img src="https://i.ytimg.com/vi/SYqF8Pq0OlA/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Snow Queen &amp; Krampus"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Winter fantasy</span><span>04</span></div><h3>The Snow Queen &amp; Krampus</h3><p class="description">Short film · 1:43</p><a class="yt" href="https://www.youtube.com/watch?v=SYqF8Pq0OlA" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="iKCKlHtlzVw" data-title="The Queen Who Became a Witch"><img src="https://i.ytimg.com/vi/iKCKlHtlzVw/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Queen Who Became a Witch"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Witches</span><span>05</span></div><h3>The Queen Who Became a Witch</h3><p class="description">Short film · 2:05</p><a class="yt" href="https://www.youtube.com/watch?v=iKCKlHtlzVw" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="AgKEvo2k7OI" data-title="Haunted New Orleans"><img src="https://i.ytimg.com/vi/AgKEvo2k7OI/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Haunted New Orleans"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Vampires &amp; ghosts</span><span>06</span></div><h3>Haunted New Orleans</h3><p class="description">Short film · 2:26</p><a class="yt" href="https://www.youtube.com/watch?v=AgKEvo2k7OI" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="VshHAkyGR14" data-title="Celestial Beings Watching Earth"><img src="https://i.ytimg.com/vi/VshHAkyGR14/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Celestial Beings Watching Earth"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Cosmic</span><span>07</span></div><h3>Celestial Beings Watching Earth</h3><p class="description">Short film · 2:36</p><a class="yt" href="https://www.youtube.com/watch?v=VshHAkyGR14" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="zl3xeSCyTSk" data-title="The Vampires of Dracula’s Castle"><img src="https://i.ytimg.com/vi/zl3xeSCyTSk/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Vampires of Dracula’s Castle"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Vampires</span><span>08</span></div><h3>The Vampires of Dracula’s Castle</h3><p class="description">Short film · 2:34</p><a class="yt" href="https://www.youtube.com/watch?v=zl3xeSCyTSk" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="CfFlyfVQzB0" data-title="Dinner with the Undead"><img src="https://i.ytimg.com/vi/CfFlyfVQzB0/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Dinner with the Undead"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Halloween</span><span>09</span></div><h3>Dinner with the Undead</h3><p class="description">Short film · 2:32</p><a class="yt" href="https://www.youtube.com/watch?v=CfFlyfVQzB0" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="0KVFV0sCsEg" data-title="The Real Housewives of Transylvania"><img src="https://i.ytimg.com/vi/0KVFV0sCsEg/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Real Housewives of Transylvania"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Vampires</span><span>10</span></div><h3>The Real Housewives of Transylvania</h3><p class="description">Short film · 1:35</p><a class="yt" href="https://www.youtube.com/watch?v=0KVFV0sCsEg" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="b3UShVCOlkY" data-title="The Vampire Ball at Versailles"><img src="https://i.ytimg.com/vi/b3UShVCOlkY/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Vampire Ball at Versailles"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Vampires</span><span>11</span></div><h3>The Vampire Ball at Versailles</h3><p class="description">Short film · 2:52</p><a class="yt" href="https://www.youtube.com/watch?v=b3UShVCOlkY" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="ehomvvmu338" data-title="Bound by Thread"><img src="https://i.ytimg.com/vi/ehomvvmu338/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Bound by Thread"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Gothic romance</span><span>12</span></div><h3>Bound by Thread</h3><p class="description">Short film · 1:46</p><a class="yt" href="https://www.youtube.com/watch?v=ehomvvmu338" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="e0lJ0TebYNI" data-title="Halloween Slasher Kings"><img src="https://i.ytimg.com/vi/e0lJ0TebYNI/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Halloween Slasher Kings"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>80s horror</span><span>13</span></div><h3>Halloween Slasher Kings</h3><p class="description">Short film · 3:01</p><a class="yt" href="https://www.youtube.com/watch?v=e0lJ0TebYNI" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="OS2fWt9xpaE" data-title="The Lost Boys Reimagined"><img src="https://i.ytimg.com/vi/OS2fWt9xpaE/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Lost Boys Reimagined"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>80s nostalgia</span><span>14</span></div><h3>The Lost Boys Reimagined</h3><p class="description">Short film · 3:00</p><a class="yt" href="https://www.youtube.com/watch?v=OS2fWt9xpaE" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="0qGYWOM91sU" data-title="A Cozy Halloween Day"><img src="https://i.ytimg.com/vi/0qGYWOM91sU/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play A Cozy Halloween Day"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Autumn</span><span>15</span></div><h3>A Cozy Halloween Day</h3><p class="description">Short film · 3:15</p><a class="yt" href="https://www.youtube.com/watch?v=0qGYWOM91sU" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="qH9mp2NDFtg" data-title="A Cozy Autumn Day in the English Countryside"><img src="https://i.ytimg.com/vi/qH9mp2NDFtg/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play A Cozy Autumn Day in the English Countryside"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Autumn</span><span>16</span></div><h3>A Cozy Autumn Day in the English Countryside</h3><p class="description">Short film · 3:27</p><a class="yt" href="https://www.youtube.com/watch?v=qH9mp2NDFtg" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="6Og9mh4ca78" data-title="Witches of the Rose Moon"><img src="https://i.ytimg.com/vi/6Og9mh4ca78/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Witches of the Rose Moon"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Witches</span><span>17</span></div><h3>Witches of the Rose Moon</h3><p class="description">Short film · 2:59</p><a class="yt" href="https://www.youtube.com/watch?v=6Og9mh4ca78" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="5TEDqpem8FE" data-title="The Vampire Family Reunion"><img src="https://i.ytimg.com/vi/5TEDqpem8FE/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Vampire Family Reunion"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Vampires</span><span>18</span></div><h3>The Vampire Family Reunion</h3><p class="description">Short film · 2:54</p><a class="yt" href="https://www.youtube.com/watch?v=5TEDqpem8FE" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="emwG0qFekK4" data-title="Waiting for Your Fisherman to Come Home"><img src="https://i.ytimg.com/vi/emwG0qFekK4/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Waiting for Your Fisherman to Come Home"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Romance</span><span>19</span></div><h3>Waiting for Your Fisherman to Come Home</h3><p class="description">Short film · 1:59</p><a class="yt" href="https://www.youtube.com/watch?v=emwG0qFekK4" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="vj5hZtkrjAo" data-title="The Last Days of Summer"><img src="https://i.ytimg.com/vi/vj5hZtkrjAo/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Last Days of Summer"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Autumn</span><span>20</span></div><h3>The Last Days of Summer</h3><p class="description">Short film · 3:35</p><a class="yt" href="https://www.youtube.com/watch?v=vj5hZtkrjAo" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="pIc_fv-x_UQ" data-title="Louisiana Swamp Witch"><img src="https://i.ytimg.com/vi/pIc_fv-x_UQ/sddefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Louisiana Swamp Witch"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Witches</span><span>21</span></div><h3>Louisiana Swamp Witch</h3><p class="description">Short film · 3:04</p><a class="yt" href="https://www.youtube.com/watch?v=pIc_fv-x_UQ" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="BzOMwC_ijI0" data-title="Witch Coven in Budapest"><img src="https://i.ytimg.com/vi/BzOMwC_ijI0/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Witch Coven in Budapest"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Witches</span><span>22</span></div><h3>Witch Coven in Budapest</h3><p class="description">Short film · 3:38</p><a class="yt" href="https://www.youtube.com/watch?v=BzOMwC_ijI0" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="PT7sfkFwxSQ" data-title="Colorado Hotel Awakens After Dark"><img src="https://i.ytimg.com/vi/PT7sfkFwxSQ/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Colorado Hotel Awakens After Dark"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Haunted places</span><span>23</span></div><h3>Colorado Hotel Awakens After Dark</h3><p class="description">Short film · 3:03</p><a class="yt" href="https://www.youtube.com/watch?v=PT7sfkFwxSQ" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="yFx8vJX7R3c" data-title="The Forgotten Circus"><img src="https://i.ytimg.com/vi/yFx8vJX7R3c/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play The Forgotten Circus"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Haunted places</span><span>24</span></div><h3>The Forgotten Circus</h3><p class="description">Short film · 5:12</p><a class="yt" href="https://www.youtube.com/watch?v=yFx8vJX7R3c" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+<article class="card">
+  <div class="player" data-id="KKzhXOF4Pc0" data-title="Ghostly Dance"><img src="https://i.ytimg.com/vi/KKzhXOF4Pc0/hq720.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><button class="play" type="button" aria-label="Play Ghostly Dance"><span aria-hidden="true"></span></button></div>
+  <div class="card-body"><div class="meta"><span>Ghosts</span><span>25</span></div><h3>Ghostly Dance</h3><p class="description">Short film · 3:15</p><a class="yt" href="https://www.youtube.com/watch?v=KKzhXOF4Pc0" target="_blank" rel="noopener">Watch on YouTube</a></div>
+</article>
+    </div>
+  </section>
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div><div class="eyebrow">Behind the veil</div><h2 id="about-title">The creator</h2></div>
+    <div>
+      <p>Beyond this doorway lie haunted forests, fading romances, autumn nights, winter magic, and worlds shaped by shadow. Every film is full of dark elegance, melancholic beauty and hypnotic atmosphere.</p>
+      <p>Short films and hour-long ambience made with AI, for relaxing, reading, studying, sleeping, or simply escaping into another world. New films on <a href="https://www.youtube.com/@crimsondropai?sub_confirmation=1" target="_blank" rel="noopener">YouTube @crimsondropai</a>.</p>
+    </div>
+  </section>
+  <footer>
+    <span>© <span id="year">2026</span> Crimson Drop. All rights reserved.</span>
+    <a class="bat" href="#top" aria-label="Back to the top"><img class="l" src="img/bat-gold.png" alt="" width="796" height="207" loading="lazy"><img class="r" src="img/bat-gold.png" alt="" width="796" height="207" loading="lazy"><img class="b" src="img/bat-gold.png" alt="" width="796" height="207" loading="lazy"></a>
+    <a href="#top">Back to the shadows ↑</a>
+  </footer>
+</main>
+<script>
+(()=>{
+  const root=document.documentElement;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* the invitation */
+  const gate=document.getElementById('gate');
+  const enter=(animate)=>{
+    try{sessionStorage.setItem('cd-seal','broken')}catch(e){}
+    const done=()=>{root.classList.add('entered');document.getElementById('page-title').focus({preventScroll:true});};
+    if(!animate||reduce){gate.classList.add('is-broken');setTimeout(done,reduce?400:0);return;}
+    gate.classList.add('is-broken');setTimeout(done,1500);
+  };
+  gate.querySelector('.seal').addEventListener('click',()=>enter(true));
+  gate.querySelector('.gate__skip').addEventListener('click',()=>enter(false));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!root.classList.contains('entered'))enter(false)});
+  if(!root.classList.contains('entered'))setTimeout(()=>gate.querySelector('.seal').focus({preventScroll:true}),400);
+  /* videos: one plays at a time, like the template */
+  const reset=p=>{if(p.dataset.thumb){p.innerHTML=p.dataset.thumb;delete p.dataset.thumb;}};
+  document.querySelector('.video-grid').addEventListener('click',e=>{
+    const btn=e.target.closest('.play'); if(!btn) return;
+    const p=btn.closest('.player');
+    document.querySelectorAll('.player[data-thumb]').forEach(reset);
+    p.dataset.thumb=p.innerHTML;
+    const f=document.createElement('iframe');
+    f.src='https://www.youtube.com/embed/'+p.dataset.id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    f.title=p.dataset.title; f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen=true;
+    p.innerHTML=''; p.appendChild(f);
+  });
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

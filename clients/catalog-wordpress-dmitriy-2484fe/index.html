@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог продукции: все товары, фильтры и где купить</title>
+<meta name="description" content="Каталог продукции компании: категории, карточки товаров, фильтры, форма заявки, блок «Где купить» и скачивание каталога.">
+<meta property="og:title" content="Каталог продукции: все товары, фильтры и где купить">
+<meta property="og:description" content="Категории, карточки товаров, форма заявки, «Где купить» и скачивание каталога в одном месте.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E6B5C'/%3E%3Crect x='8' y='8' width='7' height='16' fill='%23fff'/%3E%3Crect x='18' y='13' width='7' height='11' fill='%23fff'/%3E%3C/svg%3E">
+<script>document.documentElement.className='js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1F2EE;--s1:#E4E7E0;--s2:#D3D8CE;--ink:#161A18;--mut:#434B46;--acc:#0E6B5C;--ease:cubic-bezier(0.23,1,0.32,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 'Golos Text',system-ui,sans-serif;overflow-x:hidden;transition:background-color .5s var(--ease)}
+h1,h2,h3{font-family:'Literata',Georgia,serif;font-weight:600;line-height:1.08;hyphens:manual;letter-spacing:-.01em}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+section{padding:140px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--acc);color:#fff;border:0;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;transition:background-color .3s var(--ease),transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.link{display:inline-flex;align-items:center;min-height:52px;font-weight:500;text-decoration:underline;text-underline-offset:5px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--bg);transition:background-color .5s var(--ease)}
+.hb{display:flex;align-items:center;gap:32px;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:600;text-decoration:none;margin-right:auto;min-width:0}
+.logo svg{width:32px;height:32px;flex:none}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.hb .btn{min-height:44px;padding:0 22px}
+/* hero */
+.hero{padding:24px 0 100px}
+.hg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;min-height:calc(100svh - 120px)}
+.hg>div{min-width:0}
+.hg>div:last-child{display:flex;flex-direction:column;align-self:stretch;justify-content:center}
+h1{font-size:clamp(2.4rem,5.6vw,4.75rem);margin-bottom:24px}
+.w{display:inline-block;vertical-align:top;padding-bottom:.08em}
+.w>span{display:inline-block}
+.lead{font-size:1.15rem;color:var(--mut);max-width:30em;margin-bottom:32px}
+.acts{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-bottom:36px}
+.sw{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--mut)}
+.sw button{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;background:var(--c);transition:transform .3s var(--ease);position:relative}
+.sw button[aria-pressed="true"]::after{content:"";position:absolute;inset:14px;border-radius:50%;background:#fff}
+.sw button:active{transform:scale(.92)}
+.art{background:var(--s1);border-radius:24px;width:100%;height:min(560px,calc(100svh - 190px));min-height:360px;display:flex;align-items:flex-end;transition:background-color .5s var(--ease);overflow:hidden}
+.par{width:100%;height:100%}
+.art svg{width:100%;height:100%;display:block}
+.fa{fill:var(--acc);transition:fill .5s var(--ease)}.fb{fill:var(--s2);transition:fill .5s var(--ease)}.fc{fill:var(--ink)}.fd{fill:#fff}
+.cap{font-size:.9rem;color:var(--mut);margin-top:10px}
+/* categories */
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px}
+h2{font-size:clamp(2rem,4.2vw,3.5rem)}
+.sh p{color:var(--mut);font-size:1.1rem;max-width:28em}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.cat{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;min-height:88px;padding:20px 28px;background:var(--s1);border-radius:16px;text-decoration:none;min-width:0;transition:background-color .35s var(--ease),color .35s var(--ease)}
+.cat b{font-family:'Literata',serif;font-size:1.5rem;font-weight:600}
+.cat span{color:var(--mut);font-size:.95rem}
+.cat i{font-style:normal;font-size:1.5rem;display:inline-block;transition:transform .35s var(--ease)}
+.cat:active{transform:scale(.98)}
+.cat:last-child{grid-column:1/-1}
+/* featured */
+.fx{background:var(--s1);transition:background-color .5s var(--ease)}
+.fv{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:stretch}
+.fv>*{min-width:0}
+.pl{display:flex;flex-direction:column;gap:8px}
+.pl button{text-align:left;border:0;background:var(--bg);border-radius:14px;min-height:64px;padding:14px 24px;cursor:pointer;font-weight:500;font-size:1.05rem;transition:background-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.pl button:active{transform:scale(.97)}
+.pl button[aria-selected="true"]{background:var(--acc);color:#fff}
+.pv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center;background:var(--bg);border-radius:24px;padding:40px}
+.pv>*{min-width:0}
+.pv svg{width:100%;height:auto;display:block;background:var(--s1);border-radius:16px}
+.pv h3{font-size:1.9rem;margin-bottom:14px}
+.pv p{color:var(--mut);margin-bottom:20px}
+.sp{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin-bottom:28px}
+.sp dt{color:var(--mut)}.sp dd{font-weight:500}
+.pa{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+.pv .swap{animation:swap .6s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* where */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.tabs button{min-height:48px;padding:0 24px;border:0;border-radius:999px;background:var(--s1);cursor:pointer;font-weight:500;transition:background-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.tabs button:active{transform:scale(.97)}
+.tabs button[aria-selected="true"]{background:var(--acc);color:#fff}
+.wg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:stretch}
+.wg>*{min-width:0}
+.wp{background:var(--s1);border-radius:24px;padding:32px;min-height:360px;transition:background-color .5s var(--ease)}
+.wp>div{animation:swap .6s var(--ease)}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:16px 20px;background:var(--bg);border-radius:12px;margin-bottom:8px}
+.row span{color:var(--mut)}
+.row a{font-weight:600}
+.map svg{width:100%;height:auto;display:block}
+.dl{background:var(--acc);color:#fff;border-radius:24px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:background-color .5s var(--ease)}
+.dl h3{font-size:2rem}
+.dl .btn{background:#fff;color:var(--ink)}
+/* form */
+.fm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.fm>*{min-width:0}
+.fm p{color:var(--mut);font-size:1.1rem;margin-top:20px;max-width:26em}
+form{display:flex;flex-direction:column;gap:16px}
+label{display:flex;flex-direction:column;gap:8px;font-weight:500}
+input,textarea{background:var(--s1);border:0;border-radius:12px;padding:14px 18px;min-height:52px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.ok{background:var(--s1);border-radius:24px;padding:48px}
+.ok h3{font-size:2rem;margin-bottom:12px}
+[hidden]{display:none!important}
+footer{background:var(--ink);color:#F1F2EE;padding:100px 0 48px}
+footer .big{font-family:'Literata',serif;font-size:clamp(2.4rem,8vw,6.5rem);line-height:1;margin-bottom:48px;font-weight:600;overflow-wrap:anywhere}
+.fc2{display:flex;flex-wrap:wrap;gap:12px 48px;color:#C9CFC9}
+.fl{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:30}
+.fl .btn{width:100%;min-height:56px}
+/* motion */
+.js .w>span{opacity:0;transform:translateY(40%);transition:transform .9s var(--ease),opacity .9s var(--ease)}
+.js .go .w>span{opacity:1;transform:none}
+.js .h-in{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .go .h-in{opacity:1;transform:none}
+.js .art svg{transform:scale(1.08);transition:transform 1.4s var(--ease)}
+.js .go .art svg{transform:scale(1)}
+.js [data-r]{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+@media (hover:hover) and (pointer:fine){
+.btn:hover{background:var(--ink)}
+.dl .btn:hover{background:var(--s1)}
+.cat:hover{background:var(--acc);color:#fff}.cat:hover span{color:#fff}.cat:hover i{transform:translateX(6px)}
+.pl button:hover:not([aria-selected="true"]),.tabs button:hover:not([aria-selected="true"]){background:var(--s2)}
+.sw button:hover{transform:scale(1.08)}
+.pv svg,.art svg{transition-property:transform,opacity}
+.art:hover .par svg{transform:scale(1.04)}
+}
+@media (max-width:960px){
+section{padding:88px 0}
+.wrap{padding:0 20px}
+nav{display:none}
+.hg{grid-template-columns:minmax(0,1fr);gap:32px;min-height:0}
+.hg>div:last-child{align-self:auto}
+.art{min-height:300px;height:340px}
+.sh,.fv,.wg,.fm{grid-template-columns:minmax(0,1fr);gap:28px}
+.cats{grid-template-columns:minmax(0,1fr)}
+.pv{grid-template-columns:minmax(0,1fr);padding:24px}
+.pl{flex-direction:row;flex-wrap:wrap}
+.pl button{white-space:normal;flex:1 1 auto;min-height:52px;padding:12px 20px}
+.wp{padding:20px}
+.dl{padding:28px}
+.ok{padding:28px}
+.fl{display:block}
+.hb{gap:12px}
+.hb .btn{display:none}
+footer{padding-bottom:110px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.js .w>span,.js .h-in,.js .art svg,.js [data-r]{opacity:1!important;transform:none!important}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:normal!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img{max-width:100%}</style></head>
+<body>
+<header>
+<div class="wrap hb">
+<a class="logo" href="#top" aria-label="На главную"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" class="fa"/><rect x="8" y="8" width="7" height="16" fill="#fff"/><rect x="18" y="13" width="7" height="11" fill="#fff"/></svg>Название компании</a>
+<nav aria-label="Основное меню"><a href="#catalog">Каталог</a><a href="#featured">Избранное</a><a href="#where">Где купить</a><a href="#contact">Контакты</a></nav>
+<a class="btn" href="#contact">Оставить заявку</a>
+</div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+<div class="wrap hg">
+<div>
+<h1 id="h1">Каталог, где товар находят за минуту</h1>
+<p class="lead h-in">Все позиции по категориям, фильтры по характеристикам, заявка в один шаг и понятная кнопка «Где купить».</p>
+<div class="acts h-in"><a class="btn" href="#where">Скачать каталог</a><a class="link" href="#catalog">Смотреть категории</a></div>
+<div class="sw h-in" role="group" aria-label="Фирменный цвет">
+<span>Сайт подстроим под ваши цвета. Попробуйте:</span>
+<button type="button" style="--c:#0E6B5C" data-t="g" aria-pressed="true" aria-label="Зелёный"></button>
+<button type="button" style="--c:#1F4E9C" data-t="b" aria-pressed="false" aria-label="Синий"></button>
+<button type="button" style="--c:#A32D1F" data-t="r" aria-pressed="false" aria-label="Красный"></button>
+</div>
+</div>
+<div>
+<div class="art"><div class="par" id="par">
+<svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Рисунок: флакон, банка и коробка на полке каталога">
+<rect x="0" y="424" width="600" height="96" class="fb"/>
+<rect x="0" y="416" width="600" height="14" class="fc"/>
+<rect x="116" y="76" width="58" height="32" rx="6" class="fc"/>
+<rect x="122" y="104" width="46" height="56" class="fc"/>
+<rect x="90" y="150" width="110" height="266" rx="18" class="fa"/>
+<rect x="100" y="250" width="90" height="96" rx="8" class="fd"/>
+<rect x="112" y="268" width="66" height="8" class="fc"/><rect x="112" y="288" width="46" height="8" class="fb"/>
+<rect x="232" y="262" width="166" height="40" rx="8" class="fc"/>
+<rect x="240" y="298" width="150" height="118" rx="16" class="fd"/>
+<rect x="262" y="334" width="106" height="52" rx="6" class="fa"/>
+<rect x="430" y="196" width="130" height="220" rx="6" class="fb"/>
+<rect x="430" y="286" width="130" height="52" class="fa"/>
+<rect x="450" y="224" width="60" height="10" class="fc"/>
+<rect x="296" y="360" width="0" height="0"/>
+</svg></div></div>
+<p class="cap">Фото-пример: на сайте будут фото вашей продукции.</p>
+</div>
+</div>
+</section>
+
+<section id="catalog">
+<div class="wrap">
+<div class="sh" data-r><h2>Семь категорий, в каждой свои фильтры</h2><p>Покупатель выбирает категорию, сужает список по характеристикам и открывает карточку с фото, описанием и формой заявки.</p></div>
+<div class="cats" data-s>
+<a class="cat" href="#featured" data-r><b>Категория 1</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 2</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 3</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 4</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 5</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 6</b><span>Список и фильтры</span><i>→</i></a>
+<a class="cat" href="#featured" data-r><b>Категория 7</b><span>Список и фильтры</span><i>→</i></a>
+</div>
+</div>
+</section>
+
+<section class="fx" id="featured">
+<div class="wrap">
+<div class="sh" data-r><h2>Избранные товары</h2><p>Так будет выглядеть карточка: выберите позицию слева, и справа откроется её описание.</p></div>
+<div class="fv" data-r>
+<div class="pl" role="tablist" aria-label="Избранные товары" id="pl"></div>
+<div class="pv" id="pv" role="tabpanel" aria-live="polite"></div>
+</div>
+</div>
+</section>
+
+<section id="where">
+<div class="wrap">
+<div class="sh" data-r><h2>Где купить и скачать каталог</h2><p>Блок «Где купить» можно сделать списком городов, картой или ссылками на магазины. Посмотрите, как выглядит каждый вариант.</p></div>
+<div class="tabs" role="tablist" aria-label="Формат блока" data-r>
+<button type="button" role="tab" aria-selected="true" data-w="list">Список городов</button>
+<button type="button" role="tab" aria-selected="false" data-w="map">Карта</button>
+<button type="button" role="tab" aria-selected="false" data-w="shops">Ссылки на магазины</button>
+</div>
+<div class="wg" data-r>
+<div class="wp" id="wp" role="tabpanel"></div>
+<div class="dl"><h3>Весь ассортимент одним файлом</h3><p>Каталог в PDF можно открыть на телефоне и показать коллегам или партнёрам.</p><a class="btn" href="#contact" id="dlb">Скачать каталог</a></div>
+</div>
+</div>
+</section>
+
+<section class="fx" id="contact">
+<div class="wrap fm">
+<div data-r><h2>Нужен товар или условия для партнёров?</h2><p>Напишите, что ищете. Ответим и подскажем, где купить ближе всего.</p></div>
+<div data-r>
+<form id="form" novalidate>
+<label>Имя<input type="text" name="n" autocomplete="name" required></label>
+<label>Телефон<input type="tel" name="t" autocomplete="tel" placeholder="+7 (000) 000-00-00" required></label>
+<label>Что вас интересует<textarea name="m"></textarea></label>
+<button class="btn" type="submit">Отправить заявку</button>
+</form>
+<div class="ok" id="ok" hidden tabindex="-1"><h3>Заявка принята</h3><p>Мы получили сообщение и скоро свяжемся с вами.</p></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="big">Название компании</div>
+<div class="fc2"><span>+7 (000) 000-00-00</span><span>Адрес на карте</span><span>Это первая версия главной страницы для выбора</span></div>
+</div>
+</footer>
+<div class="fl"><a class="btn" href="#contact">Оставить заявку</a></div>
+
+<script>
+(function(){
+var d=document,root=d.documentElement;
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* h1 words */
+var h=d.getElementById('h1');
+h.innerHTML=h.textContent.trim().split(/\s+/).map(function(w,i){return '<span class="w"><span style="transition-delay:'+(i*80)+'ms">'+w+'</span></span>'}).join(' ');
+requestAnimationFrame(function(){requestAnimationFrame(function(){d.getElementById('hero').classList.add('go')})});
+d.querySelectorAll('.h-in').forEach(function(e,i){e.style.transitionDelay=(450+i*100)+'ms'});
+/* theme */
+var T={g:['#F1F2EE','#E4E7E0','#D3D8CE','#0E6B5C'],b:['#EEF1F6','#E0E6EF','#CBD4E2','#1F4E9C'],r:['#F6F1EF','#EBE2DE','#DBCDC7','#A32D1F']};
+d.querySelectorAll('.sw button').forEach(function(b){b.addEventListener('click',function(){
+var t=T[b.dataset.t],s=root.style;
+s.setProperty('--bg',t[0]);s.setProperty('--s1',t[1]);s.setProperty('--s2',t[2]);s.setProperty('--acc',t[3]);
+d.querySelectorAll('.sw button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+})});
+/* parallax */
+var par=d.getElementById('par');
+if(!rm){var tk=false;addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){var y=Math.min(scrollY,900);par.style.translate='0 '+(y*0.06)+'px';tk=false})},{passive:true})}
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+d.querySelectorAll('[data-s]').forEach(function(p){p.querySelectorAll('[data-r]').forEach(function(c,i){c.style.transitionDelay=(i*70)+'ms'})});
+d.querySelectorAll('[data-r]').forEach(function(e){io.observe(e)});
+/* products */
+function ill(k){
+var s='<svg viewBox="0 0 300 300" role="img" aria-label="Рисунок товара"><rect x="0" y="236" width="300" height="64" class="fb"/><rect x="0" y="230" width="300" height="8" class="fc"/>';
+if(k==='bottle')s+='<rect x="128" y="36" width="44" height="22" rx="4" class="fc"/><rect x="132" y="56" width="36" height="40" class="fc"/><rect x="104" y="92" width="92" height="140" rx="14" class="fa"/><rect x="112" y="130" width="76" height="70" rx="6" class="fd"/><rect x="122" y="144" width="50" height="6" class="fc"/><rect x="122" y="158" width="34" height="6" class="fb"/>';
+if(k==='jar')s+='<rect x="84" y="102" width="132" height="34" rx="6" class="fc"/><rect x="92" y="132" width="116" height="100" rx="14" class="fd"/><rect x="108" y="160" width="84" height="46" rx="6" class="fa"/>';
+if(k==='box')s+='<rect x="90" y="70" width="120" height="162" rx="4" class="fb"/><rect x="90" y="130" width="120" height="44" class="fa"/><rect x="108" y="92" width="52" height="8" class="fc"/>';
+if(k==='can')s+='<rect x="96" y="80" width="108" height="14" rx="4" class="fc"/><rect x="100" y="92" width="100" height="140" rx="6" class="fa"/><rect x="100" y="126" width="100" height="70" class="fd"/><rect x="116" y="148" width="68" height="8" class="fc"/><rect x="116" y="164" width="44" height="8" class="fb"/>';
+return s+'</svg>'}
+var P=[
+{n:'Флакон',k:'bottle',t:'Карточка с фото, подробным описанием и характеристиками из вашей таблицы.'},
+{n:'Банка',k:'jar',t:'Под каждым товаром форма заявки и кнопка «Где купить».'},
+{n:'Коробка',k:'box',t:'Все карточки собираются из одного шаблона, а вы добавляете их из админки.'},
+{n:'Канистра',k:'can',t:'Фильтры в категории помогут найти нужную позицию за пару нажатий.'}];
+var pl=d.getElementById('pl'),pv=d.getElementById('pv');
+function show(i,first){
+pl.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-selected',i===j)});
+var p=P[i];
+pv.innerHTML='<div class="'+(first?'':'swap')+'">'+ill(p.k)+'</div><div class="'+(first?'':'swap')+'"><h3>'+p.n+'</h3><p>'+p.t+'</p><dl class="sp"><dt>Артикул</dt><dd>Из вашего каталога</dd><dt>Материал</dt><dd>Из вашей таблицы</dd><dt>Размер</dt><dd>Из вашей таблицы</dd></dl><div class="pa"><a class="btn" href="#contact">Запросить</a><a class="link" href="#where">Где купить</a></div></div>';
+}
+P.forEach(function(p,i){var b=d.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=p.n;b.addEventListener('click',function(){show(i)});pl.appendChild(b)});
+show(0,true);
+/* where */
+var W={
+list:'<div>'+[1,2,3].map(function(){return '<div class="row"><b>Город</b><span>Точка продаж</span><a href="#contact">Адрес на карте</a></div>'}).join('')+'</div>',
+map:'<div class="map"><svg viewBox="0 0 400 260" role="img" aria-label="Карта с точками продаж"><rect width="400" height="260" rx="12" class="fb"/><path d="M0 170 C90 140 150 210 240 160 S360 120 400 140" fill="none" stroke="#fff" stroke-width="14"/><path d="M120 0 C140 80 110 150 150 260" fill="none" stroke="#fff" stroke-width="10"/><g class="fa"><circle cx="110" cy="100" r="14"/><circle cx="250" cy="150" r="14"/><circle cx="320" cy="70" r="14"/></g><g class="fd"><circle cx="110" cy="100" r="5"/><circle cx="250" cy="150" r="5"/><circle cx="320" cy="70" r="5"/></g></svg></div>',
+shops:'<div>'+['Интернет-магазин','Маркетплейс','Магазин-партнёр'].map(function(n){return '<div class="row"><b>'+n+'</b><span>Ссылка на товар</span><a href="#contact">Перейти</a></div>'}).join('')+'</div>'};
+var wp=d.getElementById('wp'),wt=d.querySelectorAll('.tabs button');
+function setW(k){wp.innerHTML=W[k];wt.forEach(function(b){b.setAttribute('aria-selected',b.dataset.w===k)})}
+wt.forEach(function(b){b.addEventListener('click',function(){setW(b.dataset.w)})});
+setW('list');
+/* form */
+var f=d.getElementById('form'),ok=d.getElementById('ok');
+f.addEventListener('submit',function(e){e.preventDefault();
+if(!f.n.value.trim()||!f.t.value.trim()){(f.n.value.trim()?f.t:f.n).focus();return}
+f.hidden=true;ok.hidden=false;ok.focus()});
+})();
+</script>
+</body>
+</html>

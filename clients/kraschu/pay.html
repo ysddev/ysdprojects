@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Оплата урока «Крашу сама»</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1b1512">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M8 2h16v18a8 8 0 0 1-16 0z' fill='%23e2c28c'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/playfair-display-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/playfair-display-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/playfair-display-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/playfair-display-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/playfair-display-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/playfair-display-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+:root{
+  /* тона волос: уровень 1 (чёрный) → 10 (светлый блонд) — один мотив всей страницы */
+  --l1:#1b1512;--l3:#3b2619;--l5:#6a4329;--l7:#a3713f;--l8:#c49660;--l9:#e2c28c;--l10:#f3e6c9;
+  --bg:#ffffff;--surface:#f4f1ec;--ink:#1b1512;--muted:#5b5048;--accent:#1b1512;--accent-ink:#fff;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+  --pad:clamp(16px,3.4vw,48px);
+  --ease:cubic-bezier(.23,1,.32,1);
+  --swatch:0 0 999px 999px; /* мотив: прядь-образец колориста, скруглённая снизу */
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:var(--f);font-size:var(--step-body);line-height:1.5;letter-spacing:-.005em;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-weight:700;letter-spacing:-.04em;line-height:.98;margin:0}
+h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;line-height:1.02}
+h1 em,h2 em{font-style:italic;color:var(--l7)}
+p{margin:0}
+.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:600 1.0625rem/1 var(--f);text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s}
+.btn:active{transform:scale(.97)}
+.btn.light{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--l8);outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--l3)}.btn.light:hover{background:var(--l10)}}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);border-bottom:1px solid #eee7dd}
+.logo{font-family:var(--serif);font-size:22px;text-decoration:none}
+.mock{font-size:var(--step-small);color:var(--muted);background:var(--surface);padding:6px 12px;border-radius:999px}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*80ms)}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}}
+.pay{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 70px)}
+.pay .l{background:linear-gradient(160deg,var(--l9),var(--l10) 60%);padding:clamp(28px,6vw,80px) var(--pad);display:flex;flex-direction:column;justify-content:center;gap:22px}
+.swatches{display:flex;gap:8px}
+.swatches i{width:26px;height:64px;border-radius:var(--swatch);display:block}
+.pay h1{font-size:var(--step-head)}
+.pay .l ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.pay .l li{display:flex;gap:10px;align-items:baseline}
+.pay .l li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--l7);flex:none;transform:translateY(-2px)}
+.lead2{font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.8vw,26px);line-height:1.3;max-width:28ch;color:var(--l3)}
+.kk{font-size:var(--step-small);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:-8px}
+.sum{font-family:var(--serif);font-size:clamp(34px,4vw,52px)}
+.pay .r{padding:clamp(28px,6vw,80px) var(--pad);display:flex;flex-direction:column;justify-content:center;max-width:560px;width:100%;margin:0 auto}
+label{display:grid;gap:8px;font-size:var(--step-small);color:var(--muted)}
+input{font:inherit;font-size:18px;padding:14px 16px;border:1px solid #d9d0c4;border-radius:14px;color:var(--ink)}
+.err{color:#b4232c;font-size:var(--step-small);min-height:1.4em;margin:6px 0 10px}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.ways button{min-height:64px;border-radius:14px;border:1px solid #d9d0c4;background:#fff;font:500 16px var(--f);cursor:pointer;transition:border-color .3s var(--ease),background .3s}
+.ways button[aria-pressed=true]{border-color:var(--ink);background:var(--surface)}
+.ways button:active,.btn:active{transform:scale(.97)}
+.btn{border:0;cursor:pointer;width:100%}
+.btn[disabled]{opacity:.6}
+.fine{font-size:var(--step-small);color:var(--muted);margin-top:14px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:var(--step-small);color:var(--muted);margin:0 0 18px;line-height:1.45}
+.agree input{width:20px;height:20px;padding:0;margin:1px 0 0;flex:none;accent-color:var(--ink)}
+.done{display:none}.done h2{font-size:clamp(28px,3vw,40px);margin-bottom:14px}.done p{margin-bottom:10px}
+.sent .done{display:block}.sent #f{display:none}
+.spin{display:none;width:18px;height:18px;border-radius:50%;border:2px solid #fff;border-right-color:transparent;animation:sp .8s linear infinite;margin-right:10px}
+.busy .spin{display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (max-width:820px){.pay{grid-template-columns:1fr}.pay .l{gap:14px}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="./">Крашу сама</a><span class="mock">Макет оплаты</span></header>
+<main class="pay">
+  <section class="l">
+    <div class="swatches rv" aria-hidden="true"><i style="background:var(--l5)"></i><i style="background:var(--l7)"></i><i style="background:var(--l8)"></i><i style="background:var(--l9)"></i><i style="background:#fff;border:1px solid #e6dccd"></i></div>
+    <h1 class="rv" style="--d:1">Урок «Крашу сама»</h1>
+    <p class="lead2 rv" style="--d:2">Как стать блондинкой с длинными, роскошными волосами и сохранить качество волос.</p>
+    <p class="kk rv" style="--d:3">Видеоурок по шагам</p>
+    <ul class="rv" style="--d:3"><li>Осветление без обламывания, нанесение себе самой</li><li>Список средств под ваш исходный цвет</li><li>Рекомендации по уходу</li><li>Доступ сразу после оплаты, ссылка придёт на почту</li></ul>
+    <p class="sum rv" style="--d:3">2 990 ₽</p><p class="fine rv" style="--d:3;margin-top:-10px">Стартовая цена до 15 декабря, потом 3 990 ₽</p>
+  </section>
+  <section class="r">
+    <form id="f" novalidate>
+      <label>Почта для доступа и чека<input type="email" name="email" autocomplete="email" placeholder="you@mail.ru" required></label>
+      <p class="err" id="err"></p>
+      <div class="ways" role="group" aria-label="Способ оплаты">
+        <button type="button" aria-pressed="true">Картой</button>
+        <button type="button" aria-pressed="false">СБП</button>
+      </div>
+      <label class="agree"><input type="checkbox" name="agree" required><span>Принимаю условия <a href="oferta.html" target="_blank">договора-оферты</a> и даю согласие на обработку персональных данных по <a href="privacy.html" target="_blank">политике</a></span></label>
+      <button class="btn" id="go" type="submit"><span class="spin"></span>Оплатить 2 990 ₽</button>
+      <p class="fine">Оплата пройдёт на защищённой странице ЮKassa, чек придёт на почту. В этом макете деньги не списываются.</p>
+    </form>
+    <div class="done" aria-live="polite"><h2>Спасибо, консультация оплачена</h2><p>В течение рабочего дня я напишу вам на почту, чтобы договориться о времени встречи.</p><p>Подготовьте, пожалуйста, 2–3 фото волос при дневном свете: спереди, сзади и корни крупно.</p><p class="fine">Это макет: деньги не списывались.</p></div>
+  </section>
+</main>
+<script>
+[].forEach.call(document.querySelectorAll('.rv'),function(el){requestAnimationFrame(function(){el.classList.add('on')})});
+var ways=document.querySelectorAll('.ways button');
+[].forEach.call(ways,function(b){b.addEventListener('click',function(){[].forEach.call(ways,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+var consult=/[?&]item=consult/.test(location.search);
+if(consult){document.title='Оплата консультации · Крашу сама';
+  document.querySelector('.pay h1').textContent='Личная консультация';
+  document.querySelector('.lead2').textContent='Посмотрю именно ваши волосы и скажу, как прийти к блонду без потери длины.';
+  document.querySelector('.kk').textContent='Онлайн-встреча со мной';
+  document.querySelector('.pay .l ul').innerHTML='<li>Разбор ваших волос по фото и вживую на видео</li><li>Подбор средств под ваш исходный цвет</li><li>Рекомендации для вас или вашего мастера</li><li>Время встречи согласуем после оплаты</li>';
+  document.querySelector('.sum').textContent='5 990 ₽';var nx=document.querySelector('.sum+.fine');if(nx)nx.remove();
+  document.getElementById('go').lastChild.textContent='Оплатить 5 990 ₽';
+  document.querySelector('[name=email]').parentNode.firstChild.textContent='Почта для связи и чека';
+}
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();
+  var em=this.querySelector('[name=email]').value.trim(),err=document.getElementById('err');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){err.textContent='Проверьте почту: на неё придёт доступ к уроку';return}
+  if(!this.querySelector('[name=agree]').checked){err.textContent='Отметьте согласие с офертой, чтобы перейти к оплате';return}
+  err.textContent='';var go=document.getElementById('go');go.disabled=true;go.classList.add('busy');
+  try{sessionStorage.setItem('kr_email',em)}catch(_){}
+  setTimeout(function(){if(consult){document.querySelector('.pay .r').classList.add('sent');go.disabled=false;go.classList.remove('busy')}else location.href='lesson.html?paid=1'},1400);
+});
+</script>
+</body>
+</html>

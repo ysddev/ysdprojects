@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Компании · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-companies.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a aria-current="page" href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="page-head"><div><h1>Компании</h1><p class="mut">Партнёры, чьи сотрудники заказывают обеды. Отключённая компания не может войти и заказать.</p></div></div>
+<div class="two">
+<div class="tbl-wrap">
+<table class="tbl stackable">
+<thead><tr><th>Компания</th><th>Адрес доставки</th><th class="num">Сотрудников</th><th class="num">Заказов с 1-го числа</th><th></th></tr></thead>
+<tbody>
+<tr class="">
+<td><a href="admin-company.html">АО «Томскнефтесервис»</a></td>
+<td data-l="Адрес">ул. Нахимова, 8, 3 этаж</td>
+<td class="num" data-l="Сотрудников"><a href="admin-users.html">2</a></td>
+<td class="num" data-l="Заказов">3</td>
+<td><a class="btn soft sm" href="admin-company.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-company.html">Клиника «Здоровье+»</a></td>
+<td data-l="Адрес">ул. Красноармейская, 101</td>
+<td class="num" data-l="Сотрудников"><a href="admin-users.html">1</a></td>
+<td class="num" data-l="Заказов">2</td>
+<td><a class="btn soft sm" href="admin-company.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><a href="admin-company.html">ООО «Сибирь-Софт»</a></td>
+<td data-l="Адрес">пр. Ленина, 30, офис 412</td>
+<td class="num" data-l="Сотрудников"><a href="admin-users.html">3</a></td>
+<td class="num" data-l="Заказов">5</td>
+<td><a class="btn soft sm" href="admin-company.html">Изменить</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<form action="#" class="panel stack" data-to="admin-companies.html" method="post">
+ <h3>Добавить компанию</h3>
+<label class="field"><span>Название</span><input name="name" placeholder="ООО «Сибирь-Софт»" required=""/></label>
+<label class="field"><span>Адрес доставки</span><input name="address" placeholder="пр. Ленина, 30, офис 412"/></label>
+<label class="field"><span>Контакт</span><input name="contact" placeholder="Мария, офис-менеджер, +7 …"/><small class="hint">Видите только вы.</small></label>
+<button class="btn wide" type="submit">Добавить</button>
+</form>
+</div>
+</div>
+</main>
+</body>
+</html>

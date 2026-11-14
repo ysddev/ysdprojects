@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>ООО «Сибирь-Софт» · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-company.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a aria-current="page" href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="narrow stack">
+<p><a href="admin-companies.html">← Компании</a></p>
+<form action="#" class="panel stack" data-to="admin-companies.html" method="post">
+ <h1 style="font-size:26px">ООО «Сибирь-Софт»</h1>
+<label class="field"><span>Название</span><input name="name" required="" value="ООО «Сибирь-Софт»"/></label>
+<label class="field"><span>Адрес доставки</span><input name="address" value="пр. Ленина, 30, офис 412"/><small class="hint">Сотрудники видят его в корзине, он же попадает в письмо о заказе.</small></label>
+<label class="field"><span>Контакт</span><input name="contact" value=""/></label>
+<div class="row"><button class="btn" type="submit">Сохранить</button><a class="btn ghost" href="admin-users.html">Сотрудники компании</a></div>
+</form>
+<form action="#" class="panel flat row" data-msg="Готово. В рабочей версии доступ сразу отключится" data-to="stay" method="post">
+<input name="action" type="hidden" value="toggle"/>
+<p class="small" style="flex:1;min-width:220px">Отключение закроет вход всем сотрудникам компании. История заказов сохранится, включить можно в любой момент.</p>
+<button class="btn danger" data-confirm="Точно отключить?" type="submit">Отключить компанию</button>
+</form>
+</div>
+</div>
+</main>
+</body>
+</html>

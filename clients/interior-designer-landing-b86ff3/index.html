@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Кристина | Дизайн интерьера: планировка, рендеры, авторский надзор</title>
+<meta name="description" content="Дизайн интерьера, в котором удобно жить. Планировочное решение, концепция и рендеры, рабочие чертежи, комплектация и авторский надзор. Запись на консультацию.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Кристина | Дизайн интерьера, в котором удобно жить">
+<meta property="og:description" content="Портфолио с планировками «как было» и «как стало», этапы работы и запись на консультацию.">
+<meta property="og:image" content="img/s1.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F201E'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23F3F0EA' text-anchor='middle'%3EК%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F0EA;--bg2:#E8E3DA;--paper:#FBFAF7;--ink:#1F201E;--mut:#55534E;--acc:#84642B;--acc2:#6B5022;--e:cubic-bezier(0.23,1,0.32,1);--pad:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.02;hyphens:manual;overflow-wrap:break-word}
+h2{font-size:clamp(2.4rem,5vw,4.4rem);letter-spacing:-.01em}
+h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.sec{padding:clamp(96px,12vw,180px) 0}
+.lead{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--mut);max-width:34em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:var(--acc);color:#fff;font:600 16px Manrope,sans-serif;text-decoration:none;cursor:pointer;transition:background-color .3s var(--e),color .3s var(--e),transform .2s var(--e)}
+.btn:active{transform:scale(.97)}
+.btn.lt{background:#fff;color:var(--ink)}
+.btn.gh{background:var(--bg2);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--acc2)}.btn.lt:hover{background:var(--bg2)}.btn.gh:hover{background:#DDD6CA}}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:50;color:#fff}
+.hd::before{content:"";position:absolute;inset:0;background:var(--bg);opacity:0;transition:opacity .4s var(--e)}
+.hd.sc{color:var(--ink)}
+.hd .wrap{position:relative;display:flex;align-items:center;gap:32px;height:76px}
+.logo{font:500 1.9rem/1 'Cormorant Garamond',serif;text-decoration:none;display:flex;align-items:baseline;gap:10px;margin-right:auto}
+.logo small{font:500 .85rem Manrope,sans-serif;opacity:.8}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;padding:12px 0}
+.hd .btn{min-height:46px;padding:0 22px;font-size:15px}
+.hd.sc::before{opacity:1}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2a2723}
+.hero .im{position:absolute;inset:-6% 0 0;will-change:translate}
+.hero img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--e),opacity 1.4s var(--e)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,.38) 0%,rgba(20,18,15,.08) 28%,rgba(20,18,15,.74) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,110px);padding-top:120px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.75rem);max-width:13ch;font-weight:500}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.w>span{display:inline-block;transition:transform 1.1s var(--e)}
+.hero p{margin-top:22px;max-width:30em;font-size:clamp(1rem,1.3vw,1.2rem);color:#F1EEE8}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero p,.hero .acts{transition:opacity 1s var(--e) .55s,transform 1s var(--e) .55s}
+.js .hero img{transform:scale(1.12);opacity:0}
+.js .w>span{transform:translateY(108%)}
+.js .hero p,.js .hero .acts{opacity:0;transform:translateY(18px)}
+.ld .hero img{transform:scale(1);opacity:1}
+.ld .w>span{transform:none}
+.ld .hero p,.ld .hero .acts{opacity:1;transform:none}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+
+/* plan */
+.plan-s{background:var(--bg2)}
+.pg{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
+.pg h2{max-width:10ch}
+.pg .lead{margin-top:24px}
+.tg{display:inline-flex;gap:4px;margin-top:36px;background:var(--bg);padding:5px;border-radius:999px}
+.tg button{min-height:46px;padding:0 22px;border:0;border-radius:999px;background:transparent;color:var(--mut);font:600 15px Manrope,sans-serif;cursor:pointer;transition:background-color .35s var(--e),color .35s var(--e),transform .2s var(--e)}
+.tg button:active{transform:scale(.97)}
+.tg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.chg{list-style:none;margin-top:32px;display:grid;gap:14px;max-width:30em}
+.chg li{display:flex;gap:14px;color:var(--mut);transition:opacity .5s var(--e),transform .5s var(--e)}
+.chg li::before{content:"";flex:0 0 8px;height:8px;margin-top:.62em;border-radius:50%;background:var(--ink)}
+.chg.off li{opacity:.45;transform:translateX(-6px)}
+.note{margin-top:22px;font-size:14px;color:var(--mut)}
+.cmp{position:relative;aspect-ratio:3/2;background:var(--paper);border-radius:22px;overflow:hidden;touch-action:pan-y}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%}
+.aw{position:absolute;inset:0;overflow:hidden;transform:translateX(var(--p,50%))}
+.aw svg{transform:translateX(calc(-1 * var(--p,50%)))}
+.ln{position:absolute;inset:0;transform:translateX(var(--p,50%));pointer-events:none}
+.ln::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:2px;background:var(--ink)}
+.kn{position:absolute;left:-26px;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;color:#fff}
+.cmp.an .aw,.cmp.an .aw svg,.cmp.an .ln{transition:transform .9s var(--e)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cap{display:flex;justify-content:space-between;margin-top:14px;font-size:14px;color:var(--mut)}
+.plan .wl{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:square}
+.plan .ow{stroke-width:10}
+.plan .fu{fill:var(--bg2);stroke:#8C877E;stroke-width:1.5}
+.plan text{font:500 13px Manrope,sans-serif;fill:var(--mut);text-anchor:middle}
+
+/* projects */
+.ph-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,6vw,88px)}
+.ph-h .lead{max-width:24em}
+.pf{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(40px,5vw,72px) clamp(20px,3vw,40px)}
+.pc a.ph{display:block;border-radius:18px;overflow:hidden;aspect-ratio:3/2;background:var(--bg2)}
+.pc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--e)}
+@media (hover:hover) and (pointer:fine){.pc a.ph:hover img{transform:scale(1.04)}.pc .mr:hover{color:var(--acc2)}}
+.pt{padding-top:20px}
+.pt p{color:var(--mut);margin-top:8px}
+.mr{display:inline-flex;align-items:center;gap:8px;margin-top:14px;min-height:44px;font-weight:600;text-decoration:none;transition:color .3s var(--e)}
+.p1{grid-column:1/8}
+.p2{grid-column:8/13;margin-top:clamp(0px,14vw,200px)}
+.p3{grid-column:1/13;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:clamp(24px,4vw,56px);align-items:end}
+.p3 .pt{padding-bottom:12px}
+.more{margin-top:clamp(56px,6vw,88px);font-size:clamp(1.3rem,2vw,1.7rem);font-family:'Cormorant Garamond',serif;color:var(--mut)}
+
+/* steps */
+.band{position:relative;min-height:82svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2a2723}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,0) 35%,rgba(20,18,15,.72) 100%)}
+.band .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,8vh,96px)}
+.band h2{max-width:14ch}
+.sg{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,96px)}
+.sg .side{position:sticky;top:110px;align-self:start}
+.sg .side .lead{margin-top:22px}
+.sg .side .btn{margin-top:32px}
+.st{list-style:none;display:grid;gap:10px}
+.st li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;padding:30px 32px;border-radius:20px;background:var(--paper)}
+.st li:nth-child(even){background:var(--bg2)}
+.st h3{font-size:clamp(1.6rem,2.2vw,2rem)}
+.st p{color:var(--mut)}
+
+/* form */
+.fs{background:var(--bg2)}
+.fg{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.fg .lead{margin-top:24px}
+.frm{background:var(--paper);border-radius:24px;padding:clamp(24px,4vw,48px)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.fl{display:block;margin-bottom:18px}
+.fl>span,.lg{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+.fl input,.fl textarea{width:100%;min-height:52px;padding:14px 16px;border:0;border-radius:14px;background:var(--bg);color:var(--ink);font:400 16px Manrope,sans-serif}
+.fl textarea{min-height:104px;resize:vertical}
+fieldset{border:0;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--bg);font-size:15px;font-weight:500;cursor:pointer;transition:background-color .3s var(--e),color .3s var(--e)}
+.chips input:checked+span{background:var(--ink);color:var(--bg)}
+.chips input:focus-visible+span{outline:2px solid var(--acc);outline-offset:2px}
+.ok{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mut);margin:6px 0 24px;cursor:pointer}
+.ok input{flex:0 0 22px;width:22px;height:22px;margin-top:1px;accent-color:var(--ink)}
+.err{color:#9B2C1F;font-size:14px;margin-top:12px;min-height:1.2em}
+.done{display:none;text-align:left;padding:clamp(8px,2vw,24px) 0}
+.done h3{font-size:clamp(2.2rem,4vw,3.2rem)}
+.done p{color:var(--mut);margin-top:16px;max-width:26em}
+.frm.sent form{display:none}
+.frm.sent .done{display:block;animation:up .8s var(--e)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* footer */
+.ft{background:var(--ink);color:var(--bg);padding:clamp(72px,9vw,120px) 0 40px}
+.ft .big{font-size:clamp(3.6rem,13vw,10rem);line-height:.9}
+.fc{display:flex;flex-wrap:wrap;gap:16px 40px;margin-top:48px;align-items:center}
+.fc a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;font-weight:500;transition:color .3s var(--e)}
+@media (hover:hover) and (pointer:fine){.fc a:hover{color:#D9C7A4}}
+.fn{margin-top:56px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#BDB8AE}
+.fn a{text-decoration:underline}
+
+.fab{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;transform:translateY(160%);transition:transform .5s var(--e)}
+.fab.on{transform:none}
+
+@media (max-width:980px){
+.nav{display:none}
+.pg,.sg,.fg{grid-template-columns:minmax(0,1fr)}
+.sg .side{position:static}
+.st li{grid-template-columns:minmax(0,1fr);gap:10px;padding:24px}
+}
+@media (max-width:760px){
+body{font-size:16px;padding-bottom:84px}
+.hd .btn{display:none}
+.hd .wrap{height:64px}
+.logo small{display:none}
+.fab{display:flex}
+.hero .wrap{padding-bottom:40px}
+.hero .acts .btn{flex:1 1 auto}
+.p1,.p2,.p3{grid-column:1/-1;margin-top:0}
+.p3{grid-template-columns:minmax(0,1fr);gap:0}
+.p3 .pt{padding-bottom:0}
+.row{grid-template-columns:minmax(0,1fr)}
+.cmp{aspect-ratio:4/3}
+.tg{display:flex}
+.tg button{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+.js .hero img,.js .w>span,.js .hero p,.js .hero .acts,.js [data-r]{opacity:1;transform:none}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:break-word!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img,video,svg{max-width:100%}html,body{overflow-x:clip;max-width:100%}@media(max-width:560px){h1{font-size:clamp(1.9rem,8.6vw,2.6rem)!important}h2{font-size:clamp(1.45rem,6.4vw,2rem)!important}}</style></head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap">
+    <a class="logo" href="#top">Кристина <small>дизайн интерьера</small></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#projects">Проекты</a>
+      <a href="#plan">Планировка</a>
+      <a href="#steps">Этапы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="#form" data-go>Консультация</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="im" id="hi"><img src="img/s1.jpg" width="1920" height="1280" fetchpriority="high" alt="Светлая гостиная с мягким диваном и большими окнами"></div>
+    <div class="wrap">
+      <h1 id="ht">Дизайн интерьера, в котором удобно жить</h1>
+      <p>Продумываю планировку, свет и материалы, показываю будущий интерьер на рендерах и сопровождаю ремонт до последней полки.</p>
+      <div class="acts">
+        <a class="btn" href="#form" data-go>Записаться на консультацию</a>
+        <a class="btn lt" href="#projects">Смотреть проекты</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec plan-s" id="plan">
+    <div class="wrap pg">
+      <div>
+        <h2 data-r>Сначала планировка, потом красота</h2>
+        <p class="lead" data-r>Красивую картинку нарисовать несложно. Сложнее сделать так, чтобы квартирой было удобно пользоваться каждый день. Поэтому в каждом проекте я показываю план до и после.</p>
+        <div class="tg" role="group" aria-label="Режим плана" data-r>
+          <button type="button" id="bB" aria-pressed="false">Как было</button>
+          <button type="button" id="bA" aria-pressed="true">Как стало</button>
+        </div>
+        <ul class="chg" id="chg" data-r>
+          <li>Убрали перегородку между кухней и комнатой, получилась кухня-гостиная с островом</li>
+          <li>Кладовую объединили с санузлом, поместились ванна и стиральная машина</li>
+          <li>В спальне встроенный шкаф на всю стену вместо отдельных комодов</li>
+        </ul>
+        <p class="note" data-r>Это пример. На сайте так будет показан каждый ваш проект.</p>
+      </div>
+      <div data-r>
+        <div class="cmp" id="cmp" style="--p:50%">
+          <svg class="plan" viewBox="0 0 600 400" aria-hidden="true">
+            <rect x="20" y="20" width="560" height="360" class="wl ow"/>
+            <path class="wl" d="M230 20V250M380 20V250M20 250H80M135 250H290M345 250H440M495 250H580M20 300H110M160 300H225M280 300H360M415 300H580M170 300V380M260 300V380"/>
+            <text x="125" y="140">Спальня</text><text x="305" y="140">Кухня</text><text x="480" y="140">Комната</text>
+            <text x="300" y="280">Коридор</text><text x="95" y="345">Санузел</text><text x="215" y="345">Кладовая</text><text x="420" y="345">Прихожая</text>
+          </svg>
+          <div class="aw"><svg class="plan" viewBox="0 0 600 400" aria-hidden="true" style="background:var(--paper)">
+            <rect x="20" y="20" width="560" height="360" class="wl ow"/>
+            <path class="wl" d="M230 20V250M20 250H80M135 250H230M20 300H190M245 300H260M260 300V380"/>
+            <rect class="fu" x="60" y="40" width="120" height="125" rx="6"/><rect class="fu" x="70" y="48" width="45" height="22" rx="4"/><rect class="fu" x="125" y="48" width="45" height="22" rx="4"/>
+            <rect class="fu" x="30" y="206" width="190" height="34"/>
+            <path class="fu" d="M240 30H420V66H276V150H240Z"/><rect class="fu" x="310" y="128" width="110" height="44" rx="4"/>
+            <rect class="fu" x="455" y="96" width="84" height="44" rx="22"/><rect class="fu" x="430" y="178" width="132" height="54" rx="10"/>
+            <rect class="fu" x="30" y="312" width="90" height="56" rx="16"/><circle class="fu" cx="160" cy="356" r="14"/><rect class="fu" x="198" y="316" width="46" height="46" rx="5"/>
+            <text x="125" y="192">Спальня</text><text x="345" y="214">Кухня-гостиная</text><text x="160" y="330">Санузел</text><text x="420" y="345">Прихожая</text>
+          </svg></div>
+          <div class="ln"><span class="kn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+          <input type="range" id="rg" min="0" max="100" value="50" aria-label="Сдвиньте, чтобы сравнить план до и после">
+        </div>
+        <div class="cap"><span>Обмерный план</span><span>Решение дизайнера</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="ph-h">
+        <h2 data-r>Проекты</h2>
+        <p class="lead" data-r>Рендеры крупно, а внутри каждого проекта планировка до и после и все комнаты по очереди.</p>
+      </div>
+      <div class="pf">
+        <article class="pc p1" data-r>
+          <a class="ph" href="#plan" aria-label="Открыть проект: квартира в новостройке"><img src="img/s4.jpg" width="1200" height="800" loading="lazy" alt="Гостиная с диваном, креслами и книжными полками"></a>
+          <div class="pt"><h3>Квартира в новостройке</h3><p>Кухня-гостиная, спальня, детская. Планировка с нуля после застройщика.</p><a class="mr" href="#plan">Было и стало →</a></div>
+        </article>
+        <article class="pc p2" data-r>
+          <a class="ph" href="#plan" aria-label="Открыть проект: загородный дом"><img src="img/s6.jpg" width="1200" height="800" loading="lazy" alt="Современный белый дом с панорамным остеклением"></a>
+          <div class="pt"><h3>Загородный дом</h3><p>Интерьер всех этажей и связь комнат с садом.</p><a class="mr" href="#plan">Было и стало →</a></div>
+        </article>
+        <article class="pc p3" data-r>
+          <a class="ph" href="#plan" aria-label="Открыть проект: квартира на вторичном рынке"><img src="img/s2.jpg" width="1200" height="800" loading="lazy" alt="Уютная гостиная с диваном и журнальным столиком"></a>
+          <div class="pt"><h3>Квартира после покупки вторички</h3><p>Перепланировка старой квартиры: больше света, меньше коридоров, места хранения в каждой комнате.</p><a class="mr" href="#plan">Было и стало →</a></div>
+        </article>
+      </div>
+      <p class="more" data-r>Страницы проектов с планами, подписями и всеми рендерами появятся в полной версии сайта.</p>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="band">
+      <img src="img/s7.jpg" width="1920" height="1280" loading="lazy" alt="Современный дом вечером с тёплым светом в окнах">
+      <div class="wrap"><h2 data-r>Дом, который сначала продуман на бумаге</h2></div>
+    </div>
+    <div class="sec">
+      <div class="wrap sg">
+        <div class="side">
+          <h2 data-r>От замера до новоселья</h2>
+          <p class="lead" data-r>Можно взять проект целиком или отдельную часть: планировочное решение, эскизный проект, полный дизайн-проект, авторский надзор. Стоимость зависит от площади и объёма, назову её после короткого разговора.</p>
+          <a class="btn" href="#form" data-go data-r>Обсудить проект</a>
+        </div>
+        <ol class="st">
+          <li data-r><h3>Знакомство и замер</h3><p>Разбираемся, как вы живёте, что раздражает в нынешней квартире и чего хочется. Делаю точный обмерный план.</p></li>
+          <li data-r><h3>Планировка</h3><p>Несколько вариантов расстановки стен и мебели. Выбираем тот, в котором удобно каждому члену семьи.</p></li>
+          <li data-r><h3>Концепция и рендеры</h3><p>Цвета, материалы и свет. Вы видите комнаты такими, какими они будут, ещё до начала ремонта.</p></li>
+          <li data-r><h3>Рабочие чертежи</h3><p>Альбом для строителей: розетки, свет, плитка, потолки. Меньше вопросов и переделок на объекте.</p></li>
+          <li data-r><h3>Комплектация</h3><p>Список мебели, отделки и света с артикулами, чтобы покупать спокойно и в нужном порядке.</p></li>
+          <li data-r><h3>Авторский надзор</h3><p>Приезжаю на объект, отвечаю строителям и слежу, чтобы получилось как на рендерах.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec fs" id="form">
+    <div class="wrap fg">
+      <div>
+        <h2 data-r>Обсудим ваш интерьер</h2>
+        <p class="lead" data-r>Расскажите коротко о квартире или доме. Отвечу в удобном мессенджере и предложу время консультации.</p>
+      </div>
+      <div class="frm" id="frm" data-r>
+        <form id="f" novalidate>
+          <div class="row">
+            <label class="fl"><span>Имя</span><input name="n" id="fn" autocomplete="name" required></label>
+            <label class="fl"><span>Телефон</span><input name="t" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required></label>
+          </div>
+          <fieldset><legend class="lg">Где удобно общаться</legend>
+            <div class="chips">
+              <label><input type="radio" name="m" value="tg" checked><span>Telegram</span></label>
+              <label><input type="radio" name="m" value="wa"><span>WhatsApp</span></label>
+              <label><input type="radio" name="m" value="call"><span>Звонок</span></label>
+            </div>
+          </fieldset>
+          <fieldset><legend class="lg">Что нужно</legend>
+            <div class="chips">
+              <label><input type="radio" name="s" value="1"><span>Планировка</span></label>
+              <label><input type="radio" name="s" value="2"><span>Эскизный проект</span></label>
+              <label><input type="radio" name="s" value="3" checked><span>Полный дизайн-проект</span></label>
+              <label><input type="radio" name="s" value="4"><span>Авторский надзор</span></label>
+            </div>
+          </fieldset>
+          <label class="fl"><span>Комментарий</span><textarea name="c" placeholder="Например, двухкомнатная квартира в новостройке, ремонт весной"></textarea></label>
+          <label class="ok"><input type="checkbox" id="ag" required><span>Согласна(согласен) на обработку персональных данных по <a href="#">политике конфиденциальности</a></span></label>
+          <button class="btn" type="submit">Записаться на консультацию</button>
+          <p class="err" id="er" role="alert"></p>
+        </form>
+        <div class="done" role="status" aria-live="polite">
+          <h3>Заявка принята</h3>
+          <p>Спасибо, свяжусь с вами в выбранном мессенджере и предложу время консультации.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft" id="contacts">
+  <div class="wrap">
+    <div class="big serif">Кристина</div>
+    <div class="fc">
+      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <a href="#">Telegram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Соцсети</a>
+    </div>
+    <div class="fn">
+      <span>© 2026 Кристина, дизайн интерьера · <a href="#">Политика конфиденциальности</a></span>
+      <span>Фотографии на странице показаны для примера, в готовом сайте будут ваши</span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn fab" id="fab" href="#form" data-go>Записаться на консультацию</a>
+
+<script>
+(function(){
+var d=document,R=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var h=d.getElementById('ht');
+h.innerHTML=h.textContent.trim().split(' ').map(function(w,i){return '<span class="w"><span style="transition-delay:'+(i*80)+'ms">'+w+'</span></span>'}).join(' ');
+requestAnimationFrame(function(){requestAnimationFrame(function(){d.documentElement.classList.add('ld')})});
+
+var hd=d.getElementById('hd'),hi=d.getElementById('hi'),fab=d.getElementById('fab'),hero=d.getElementById('hero'),formIn=false,tk=false;
+function onS(){var y=scrollY,vh=innerHeight;
+  hd.classList.toggle('sc',y>vh-90);
+  if(!R&&y<vh)hi.style.translate='0 '+(y*.22).toFixed(1)+'px';
+  fab.classList.toggle('on',y>vh*.8&&!formIn);tk=false}
+addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(onS)}},{passive:true});onS();
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+  var el=e.target,sib=[].filter.call(el.parentNode.children,function(c){return c.hasAttribute('data-r')});
+  el.style.transitionDelay=(Math.max(0,sib.indexOf(el))*75)+'ms';el.classList.add('in');io.unobserve(el)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+d.querySelectorAll('[data-r]').forEach(function(el){io.observe(el)});
+new IntersectionObserver(function(es){formIn=es[0].isIntersecting;onS()},{threshold:.15}).observe(d.getElementById('form'));
+
+var cmp=d.getElementById('cmp'),rg=d.getElementById('rg'),bB=d.getElementById('bB'),bA=d.getElementById('bA'),chg=d.getElementById('chg');
+function setP(v,anim){cmp.classList.toggle('an',!!anim&&!R);cmp.style.setProperty('--p',v+'%');rg.value=v;
+  var after=v<50;bA.setAttribute('aria-pressed',after);bB.setAttribute('aria-pressed',!after);chg.classList.toggle('off',v>85)}
+rg.addEventListener('input',function(){setP(+rg.value,false)});
+bB.addEventListener('click',function(){setP(100,true)});
+bA.addEventListener('click',function(){setP(0,true)});
+setP(50,false);
+var shown=false;new IntersectionObserver(function(es){if(es[0].isIntersecting&&!shown&&!R){shown=true;setTimeout(function(){setP(78,true);setTimeout(function(){setP(50,true)},1000)},500)}},{threshold:.5}).observe(cmp);
+
+d.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){var f=d.getElementById('fn');if(f)f.focus({preventScroll:true})},600)})});
+
+var f=d.getElementById('f'),er=d.getElementById('er');
+f.addEventListener('submit',function(e){e.preventDefault();
+  if(!f.n.value.trim()){er.textContent='Как к вам обращаться?';f.n.focus();return}
+  if(f.t.value.replace(/\D/g,'').length<10){er.textContent='Проверьте номер телефона';f.t.focus();return}
+  if(!d.getElementById('ag').checked){er.textContent='Нужна отметка о согласии на обработку данных';return}
+  er.textContent='';d.getElementById('frm').classList.add('sent')});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Галерея художника: живопись и графика по сериям</title>
+<meta name="description" content="Около 300 работ художника в двух разделах по пять серий. Каждую картину можно рассмотреть крупно, открыть её страницу и узнать о покупке.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Галерея художника: живопись и графика по сериям">
+<meta property="og:description" content="Картины крупно, по сериям, без лишнего. Страница каждой работы и заявка на покупку в один клик.">
+<meta property="og:image" content="img/s1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f5c4f'/%3E%3Crect x='9' y='7' width='14' height='18' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--bg:#f3f2ee;--bg2:#e7e5df;--ink:#1a1b1d;--mut:#53555a;--ac:#1f5c4f;--ac2:#163f37;--e:cubic-bezier(0.23,1,0.32,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 'Golos Text',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.c{width:min(1320px,calc(100% - 48px));margin-inline:auto}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.04;hyphens:manual;overflow-wrap:break-word;letter-spacing:-.01em}
+h2{font-size:clamp(2.3rem,4.6vw,4.2rem)}
+h3{font-size:clamp(1.7rem,2.4vw,2.3rem)}
+p{max-width:38em}
+.mut{color:var(--mut)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;background:var(--ac);color:#fff;font:500 16px/1.2 'Golos Text',sans-serif;border:0;cursor:pointer;transition:background-color .3s var(--e),transform .2s var(--e);white-space:nowrap}
+.btn:active{transform:scale(.97)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.lnk{display:inline-flex;align-items:center;min-height:52px;padding:0 6px;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+
+/* header */
+.hd{position:fixed;top:0;left:0;right:0;z-index:50;color:#fff;transition:color .4s var(--e)}
+.hd::before{content:'';position:absolute;inset:0;background:var(--bg);opacity:0;transition:opacity .4s var(--e)}
+.hd::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,17,18,.78) 0%,rgba(16,17,18,.55) 100%);opacity:1;transition:opacity .4s var(--e);pointer-events:none}
+.hd.solid{color:var(--ink)}.hd.solid::before{opacity:1}.hd.solid::after{opacity:0}
+.hd .c{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{font:600 1.65rem/1 'Cormorant Garamond',serif}
+.hd nav{display:flex;gap:4px;margin-left:auto}
+.hd nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-size:15px}
+.hd .btn{min-height:44px;padding:0 22px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:130px 0 clamp(52px,9vh,104px)}
+.hm{position:absolute;inset:-8% 0 0;z-index:0}
+.hi{width:100%;height:100%;object-fit:cover}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,17,18,.7) 0%,rgba(16,17,18,.55) 35%,rgba(16,17,18,.85) 100%)}
+.hero .c{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.7rem,6.2vw,4.75rem);max-width:11.5em;color:#fff}
+.w{display:inline-block;vertical-align:top;padding-bottom:.1em}
+.w>span{display:inline-block}
+.hero .lead{font-size:clamp(1.05rem,1.4vw,1.22rem);margin:20px 0 34px;color:#fff}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.js .w>span{transform:translateY(40%);opacity:0}
+.js .hf{opacity:0;transform:translateY(16px)}
+.js .hi{opacity:0;transform:scale(1.12)}
+.ready .w>span{transform:none;opacity:1;transition:transform 1.1s var(--e) var(--d),opacity 1.1s var(--e) var(--d)}
+.ready .hf{opacity:1;transform:none;transition:opacity 1s var(--e) .55s,transform 1s var(--e) .55s}
+.ready .hi{opacity:1;transform:scale(1);transition:opacity 1.2s var(--e),transform 2s var(--e)}
+
+section.s{padding:clamp(96px,11vw,180px) 0}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(30px)}
+.rv.in{opacity:1;transform:none;transition:opacity .9s var(--e) var(--d,0ms),transform .9s var(--e) var(--d,0ms)}
+
+/* gallery */
+.gh{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.gh p{margin-top:16px}
+.tabs{display:flex;gap:4px;background:var(--bg2);padding:5px;border-radius:999px}
+.tabs button,.chips button{min-height:44px;padding:0 22px;border-radius:999px;border:0;background:transparent;color:var(--ink);font:500 15px 'Golos Text',sans-serif;cursor:pointer;transition:background-color .35s var(--e),color .35s var(--e),transform .2s var(--e);white-space:nowrap}
+.tabs button[aria-pressed=true],.chips button[aria-pressed=true]{background:var(--ink);color:#fff}
+.tabs button:active,.chips button:active{transform:scale(.97)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:34px 0 44px;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{background:var(--bg2)}
+.grid{columns:3;column-gap:28px}
+.work{display:block;width:100%;break-inside:avoid;margin:0 0 34px;background:none;border:0;text-align:left;color:inherit;font:inherit;cursor:zoom-in}
+.fr{display:block;overflow:hidden;border-radius:12px;background:var(--bg2)}
+.fr svg{width:100%;height:auto;transition:transform .9s var(--e)}
+.work b{display:block;font:500 1.35rem/1.2 'Cormorant Garamond',serif;margin-top:14px}
+.work small{font-size:14px;color:var(--mut)}
+.work.show{animation:wi .8s var(--e) both;animation-delay:var(--d)}
+@keyframes wi{from{opacity:0;transform:translateY(26px)}}
+.more{margin-top:20px;font-size:15px;color:var(--mut)}
+
+/* site */
+.feat{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center;margin-top:clamp(48px,6vw,80px)}
+.ph{overflow:hidden;border-radius:16px}
+.ph img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .9s var(--e)}
+.feat p{margin:18px 0 0}
+.duo{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;margin-top:clamp(64px,8vw,120px)}
+.bx{border-radius:20px;padding:clamp(28px,4vw,56px)}
+.bx.l{background:var(--bg2)}
+.bx.d{background:var(--ink);color:#eeece6}
+.bx.d p{color:#c9c7c0}
+.ser{font:500 clamp(1.8rem,3.4vw,3rem)/1.15 'Cormorant Garamond',serif;margin:20px 0 22px;overflow-wrap:break-word}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:26px 0 22px;align-items:end}
+.strip svg{width:100%;height:auto;border-radius:12px}
+.quote{margin-top:clamp(64px,8vw,120px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(24px,5vw,80px)}
+.quote blockquote{font:500 clamp(1.7rem,3vw,2.7rem)/1.22 'Cormorant Garamond',serif}
+.tail{margin-top:clamp(56px,6vw,96px);font-size:clamp(1.1rem,1.5vw,1.3rem)}
+
+/* buy */
+.buy{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);background:var(--bg2)}
+.buy .bi{overflow:hidden;min-height:clamp(420px,86vh,900px)}
+.buy .bi img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--e)}
+.buy .bt{padding:clamp(48px,7vw,120px) clamp(24px,6vw,96px);display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,3vw,44px)}
+.st h3{font-size:clamp(1.5rem,2vw,2rem);margin-bottom:8px}
+
+/* contact */
+.ct{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(40px,6vw,100px);align-items:start}
+.ct .ph2{font:500 1.5rem 'Cormorant Garamond',serif;margin-top:28px;display:inline-flex;min-height:44px;align-items:center}
+.card{background:#fff;border-radius:20px;padding:clamp(24px,4vw,48px)}
+form{display:grid;gap:16px}
+label{display:grid;gap:8px;font-size:15px;font-weight:500}
+input,textarea{width:100%;min-height:52px;border:0;border-radius:12px;background:var(--bg);padding:14px 16px;font:400 16px 'Golos Text',sans-serif;color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.r2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.ok{display:none}
+.card.done form{display:none}
+.card.done .ok{display:block;animation:wi .8s var(--e) both}
+.ok h3{margin-bottom:12px}
+
+/* footer */
+footer{background:var(--ink);color:#eceae4;padding:clamp(80px,9vw,140px) 0 48px}
+footer .big{font:500 clamp(2.6rem,8vw,7rem)/1 'Cormorant Garamond',serif;overflow-wrap:break-word}
+.fl{display:flex;flex-wrap:wrap;gap:12px 36px;margin:44px 0 56px}
+.fl a{display:inline-flex;min-height:44px;align-items:center}
+footer small{color:#b4b2ab;font-size:14px;display:block}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:70;background:#121315;color:#eeece6;display:flex;flex-direction:column;padding:16px clamp(16px,4vw,56px) clamp(20px,4vw,56px);opacity:0;visibility:hidden;transition:opacity .45s var(--e),visibility 0s linear .45s;overflow:auto}
+.lb.open{opacity:1;visibility:visible;transition:opacity .45s var(--e)}
+.lbt{display:flex;justify-content:flex-end}
+.x{width:48px;height:48px;border-radius:999px;border:0;background:#2a2c2f;color:#fff;font-size:26px;line-height:1;cursor:pointer;transition:background-color .3s var(--e),transform .2s var(--e)}
+.x:active{transform:scale(.97)}
+.lbg{flex:1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.art{display:flex;justify-content:center;min-width:0}
+.art svg{max-height:80vh;width:auto;height:auto;max-width:100%;transform:scale(.95);transition:transform .7s var(--e)}
+.lb.open .art svg{transform:none}
+.lbi dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 24px;margin:24px 0}
+.lbi dt{color:#a9a7a1}
+.lbi p{color:#c9c7c0;margin-bottom:30px}
+
+.fab{display:none}
+@media (hover:hover) and (pointer:fine){
+.btn:hover{background:var(--ac2)}
+.work:hover svg,.ph:hover img,.bi:hover img{transform:scale(1.04)}
+.tabs button:hover,.chips button:hover{background:#d8d6cf}
+.tabs button[aria-pressed=true]:hover,.chips button[aria-pressed=true]:hover{background:#34363a}
+.x:hover{background:#3a3c40}
+}
+@media (max-width:1000px){.grid{columns:2}.duo,.quote{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){
+.c{width:calc(100% - 32px)}
+.hd nav{display:none}
+.hd .c{gap:12px}
+.logo{font-size:1.4rem}
+.hd .btn{padding:0 18px}
+.hero{padding-bottom:44px}
+.hm{inset:-6% 0 0}
+.grid{column-gap:14px}.work{margin-bottom:24px}.work b{font-size:1.15rem}
+.feat,.buy,.ct,.lbg{grid-template-columns:minmax(0,1fr)}
+.buy .bi{min-height:0;height:72vw}
+.r2{grid-template-columns:minmax(0,1fr)}
+.art svg{max-height:58vh}
+.fab{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:40;transform:translateY(140%);opacity:0;transition:transform .5s var(--e),opacity .5s var(--e)}
+.fab.on{transform:none;opacity:1}
+body{padding-bottom:84px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+html{scroll-behavior:auto}
+.js .rv,.js .w>span,.js .hf,.js .hi{opacity:1!important;transform:none!important}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:break-word!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img,video,svg{max-width:100%}html,body{overflow-x:clip;max-width:100%}@media(max-width:560px){h1{font-size:clamp(1.9rem,8.6vw,2.6rem)!important}h2{font-size:clamp(1.45rem,6.4vw,2rem)!important}}</style></head>
+<body>
+<header class="hd" id="hd">
+<div class="c">
+<a class="logo" href="#top">Галерея художника</a>
+<nav aria-label="Разделы">
+<a href="#gallery" data-sec="0">Живопись</a>
+<a href="#gallery" data-sec="1">Графика</a>
+<a href="#site">О художнике</a>
+<a href="#contact">Контакты</a>
+</nav>
+<a class="btn" href="#contact">Написать</a>
+</div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Главная">
+<div class="hm" id="hm"><img class="hi" src="img/s1.jpg" width="1920" height="1280" alt="Светлая современная гостиная, где картина становится главной на стене" fetchpriority="high"></div>
+<div class="c">
+<h1 id="h1">Картины крупно, по сериям, без лишнего</h1>
+<p class="lead hf">Около 300 работ в двух разделах по пять серий. Каждую можно рассмотреть вблизи и открыть её отдельную страницу.</p>
+<div class="acts hf">
+<a class="btn" href="#gallery">Смотреть работы</a>
+<a class="lnk" href="#site">О художнике</a>
+</div>
+</div>
+</section>
+
+<section class="s" id="gallery" data-rv>
+<div class="c">
+<div class="gh">
+<div class="rv">
+<h2>Работы</h2>
+<p class="mut">Выберите раздел и серию. Нажмите на картину, чтобы увидеть её крупно.</p>
+</div>
+<div class="tabs rv" role="group" aria-label="Раздел">
+<button type="button" data-tab="0" aria-pressed="true">Живопись</button>
+<button type="button" data-tab="1" aria-pressed="false">Графика</button>
+</div>
+</div>
+<div class="chips rv" id="chips" role="group" aria-label="Серия"></div>
+<div class="grid" id="grid"></div>
+<p class="more rv">Здесь часть работ для примера. В полной версии около 300 работ в десяти сериях.</p>
+</div>
+</section>
+
+<section class="s" id="site" data-rv style="padding-top:0">
+<div class="c">
+<h2 class="rv">Сайт, где главное картины</h2>
+<div class="feat">
+<div class="ph rv"><img src="img/s2.jpg" width="1500" height="1000" alt="Современная гостиная, свободная стена для картины" loading="lazy"></div>
+<div class="rv">
+<h3>Страница каждой работы</h3>
+<p class="mut">Крупное фото с увеличением, название, размер, техника, год и описание. Под ним кнопка «Узнать о покупке»: заявка уходит сразу с названием картины.</p>
+</div>
+</div>
+<div class="duo">
+<div class="bx l rv">
+<h3>Живопись</h3>
+<div class="ser">Пейзаж, Море, Город, Сад, Ночь</div>
+<p class="mut">Пять серий в одной сетке. Работы разного формата стоят плотно и спокойно, серия переключается одним касанием.</p>
+</div>
+<div class="bx d rv">
+<h3>Графика</h3>
+<div class="strip" id="strip"></div>
+<p>Пять серий работ на бумаге, тот же порядок: фильтр, крупный просмотр, страница работы.</p>
+</div>
+</div>
+<div class="quote">
+<h3 class="rv">О художнике</h3>
+<blockquote class="rv">Биография, фотографии из мастерской и выставки. Коротко и без суеты, чтобы рядом с картинами звучало слово самого художника.</blockquote>
+</div>
+<p class="tail rv">И ещё страница «Контакты» и все работы со старого сайта в полной версии.</p>
+</div>
+</section>
+
+<section class="buy" data-rv aria-label="Как купить работу">
+<div class="bi rv"><img src="img/s3.jpg" width="1600" height="1067" alt="Гостиная с диваном у стены" loading="lazy"></div>
+<div class="bt">
+<h2 class="rv">Как работа попадает к вам на стену</h2>
+<div class="st rv"><h3>Выбираете работу</h3><p class="mut">Открываете серию, смотрите картину крупно, на её странице видно размер и технику.</p></div>
+<div class="st rv"><h3>Нажимаете «Узнать о покупке»</h3><p class="mut">Заявка уходит художнику вместе с названием работы, ничего не нужно переписывать.</p></div>
+<div class="st rv"><h3>Договариваетесь лично</h3><p class="mut">Художник отвечает сам: расскажет о работе и обсудит с вами детали покупки.</p></div>
+</div>
+</section>
+
+<section class="s" id="contact" data-rv>
+<div class="c ct">
+<div>
+<h2 class="rv">Узнать о покупке или просто написать</h2>
+<p class="mut rv" style="margin-top:20px">Укажите работу, если уже выбрали, и удобный способ связи. Ответ придёт лично от художника.</p>
+<a class="ph2 rv" href="tel:+70000000000">+7 (000) 000-00-00</a>
+</div>
+<div class="card rv" id="card">
+<form id="form" novalidate>
+<div class="r2">
+<label>Имя<input name="name" required autocomplete="name"></label>
+<label>Телефон или почта<input name="contact" required></label>
+</div>
+<label>Работа<input name="work" id="workf" placeholder="Название картины, если выбрали"></label>
+<label>Сообщение<textarea name="msg" placeholder="Вопрос о работе, размере или покупке"></textarea></label>
+<button class="btn" type="submit">Отправить</button>
+</form>
+<div class="ok" role="status">
+<h3 tabindex="-1" id="okh">Заявка принята</h3>
+<p class="mut">Спасибо. Художник прочитает сообщение и ответит лично в ближайшее время.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="c">
+<div class="big">Галерея художника</div>
+<div class="fl">
+<a href="tel:+70000000000">+7 (000) 000-00-00</a>
+<a href="#gallery">Работы</a>
+<a href="#site">О художнике</a>
+<a href="#contact">Контакты</a>
+</div>
+<small>Фотографии, работы и названия серий на странице показаны для примера, в готовом сайте будут ваши.</small>
+</div>
+</footer>
+
+<a class="btn fab" id="fab" href="#contact">Узнать о покупке</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbt">
+<div class="lbt"><button class="x" type="button" id="lbx" aria-label="Закрыть">×</button></div>
+<div class="lbg">
+<div class="art" id="lba"></div>
+<div class="lbi">
+<h3 id="lbt"></h3>
+<dl><dt>Серия</dt><dd id="lbs"></dd><dt>Техника</dt><dd id="lbm"></dd><dt>Размер</dt><dd id="lbz"></dd></dl>
+<p id="lbd"></p>
+<button class="btn" type="button" id="lbb">Узнать о покупке</button>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+var E=document.documentElement,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var S=[['Пейзаж','Море','Город','Сад','Ночь'],['Наброски','Деревья','Берег','Улицы','Этюды']];
+var T=[['Туман над рекой','Северный берег','Крыши после дождя','Яблоневый сад','Луна над полем','Утро на холмах','Тихая гавань','Вечерний город','Июльский сад','Звёзды над озером'],
+['Склон','Старая ива','Отмель','Переулок','Этюд с облаком','Дорога к лесу','Сосны','Причал','Двор зимой','Холмы']];
+var R=[1.25,.8,1,1.4,.75],B=[[60,50,70,40,80],[30,42,40,29,50]];
+var PAL=[['#cdd7d4','#9db0ac','#6b8781','#3c5752','#ece2c4'],['#dfe3e8','#a9b6c4','#6f8197','#34445a','#f1ead8'],['#e9e3d3','#c3c6a8','#8e9a6e','#4f5d3c','#f4efdf'],['#d6d9e0','#8f97a8','#5a6276','#262c3a','#e8e6dd'],['#e4ddd0','#b7b8a7','#7f8a83','#3d4744','#f2ead6']];
+var W=[];
+for(var s=0;s<2;s++)for(var k=0;k<10;k++){var r=R[(k+s*2)%5],b=B[s][k%5];W.push({s:s,c:k%5,t:T[s][k],r:r,m:s?'Бумага, тушь':'Холст, масло',z:b+' × '+Math.round(b*r)+' см'})}
+function rnd(x){return function(){x=(x*16807)%2147483647;return (x-1)/2147483646}}
+function art(i){
+var w=W[i],a=600,h=Math.round(a*w.r),g=rnd(i*97+13),p=PAL[(i+w.c)%5],o='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+a+' '+h+'" width="'+a+'" height="'+h+'" role="img" aria-label="'+w.t+'">';
+function ridge(y,amp){var d='M0 '+y.toFixed(1)+' ',px=0,py=y;for(var j=1;j<=6;j++){var x=j*a/6,yy=y+(g()-.5)*h*amp;d+=j==1?'Q '+(x/2)+' '+(yy-h*.06).toFixed(1)+' '+x+' '+yy.toFixed(1)+' ':'T '+x+' '+yy.toFixed(1)+' '}return d}
+var sx=a*(.18+g()*.64),sy=h*(.14+g()*.16);
+if(!w.s){
+o+='<rect width="'+a+'" height="'+h+'" fill="'+p[0]+'"/><circle cx="'+sx+'" cy="'+sy+'" r="'+a*.07+'" fill="'+p[4]+'"/>';
+for(var n=0;n<3;n++)o+='<path d="'+ridge(h*(.42+n*.17),.12+n*.04)+'L'+a+' '+h+' L0 '+h+' Z" fill="'+p[n+1]+'"/>';
+if(w.c==1)o+='<rect y="'+h*.78+'" width="'+a+'" height="'+h*.22+'" fill="'+p[2]+'" opacity=".55"/>';
+}else{
+o+='<rect width="'+a+'" height="'+h+'" fill="#efece4"/><circle cx="'+sx+'" cy="'+sy+'" r="'+a*.06+'" fill="none" stroke="#25272b" stroke-width="2"/>';
+for(var m=0;m<3;m++){var y0=h*(.42+m*.17);for(var q=0;q<5;q++)o+='<path d="'+ridge(y0+q*7,.08+m*.03)+'" fill="none" stroke="#25272b" stroke-width="'+(1.2+m*.5)+'" opacity="'+(.35+m*.2)+'"/>'}
+}
+return o+'</svg>'}
+
+var grid=document.getElementById('grid'),chips=document.getElementById('chips'),sec=0,cat=-1;
+function drawChips(){chips.innerHTML='';['Все'].concat(S[sec]).forEach(function(n,j){var b=document.createElement('button');b.type='button';b.textContent=n;b.setAttribute('aria-pressed',j-1===cat);b.onclick=function(){cat=j-1;drawChips();render()};chips.appendChild(b)})}
+function render(){grid.innerHTML='';var n=0;W.forEach(function(w,i){if(w.s!==sec||(cat>=0&&w.c!==cat))return;var b=document.createElement('button');b.type='button';b.className='work';b.style.setProperty('--d',n++*70+'ms');b.innerHTML='<span class="fr">'+art(i)+'</span><b>'+w.t+'</b><small>'+S[w.s][w.c]+' · '+w.m+'</small>';b.onclick=function(){openLb(i,b)};grid.appendChild(b);if(!RM)requestAnimationFrame(function(){b.classList.add('show')})})}
+function setSec(v){sec=v;cat=-1;document.querySelectorAll('[data-tab]').forEach(function(t){t.setAttribute('aria-pressed',+t.dataset.tab===v)});drawChips();render()}
+document.querySelectorAll('[data-tab]').forEach(function(t){t.onclick=function(){setSec(+t.dataset.tab)}});
+document.querySelectorAll('[data-sec]').forEach(function(a){a.addEventListener('click',function(){setSec(+a.dataset.sec)})});
+setSec(0);
+var st=document.getElementById('strip');[10,12,14].forEach(function(i){st.innerHTML+=art(i)});
+
+var lb=document.getElementById('lb'),cur=0,last;
+function $(id){return document.getElementById(id)}
+function openLb(i,from){var w=W[i];cur=i;last=from;$('lba').innerHTML=art(i);$('lbt').textContent=w.t;$('lbs').textContent=(w.s?'Графика':'Живопись')+', '+S[w.s][w.c];$('lbm').textContent=w.m;$('lbz').textContent=w.z;
+$('lbd').textContent='Работа из серии «'+S[w.s][w.c]+'». На её отдельной странице будет крупное фото с увеличением, год и описание.';
+lb.classList.add('open');document.body.style.overflow='hidden';$('lbx').focus()}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+$('lbx').onclick=closeLb;
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb()});
+$('lbb').onclick=function(){$('workf').value=W[cur].t;last=null;closeLb();$('contact').scrollIntoView({behavior:RM?'auto':'smooth'});setTimeout(function(){$('form').name.focus({preventScroll:true})},600)};
+
+$('form').addEventListener('submit',function(e){e.preventDefault();var f=e.target;if(!f.name.value.trim()){f.name.focus();return}if(!f.contact.value.trim()){f.contact.focus();return}$('card').classList.add('done');$('okh').focus()});
+
+var h1=$('h1');h1.innerHTML=h1.textContent.split(' ').map(function(w,i){return '<span class="w"><span style="--d:'+i*80+'ms">'+w+'</span></span>'}).join(' ');
+requestAnimationFrame(function(){requestAnimationFrame(function(){E.classList.add('ready')})});
+
+document.querySelectorAll('[data-rv]').forEach(function(s){s.querySelectorAll('.rv').forEach(function(el,i){el.style.setProperty('--d',Math.min(i,6)*80+'ms')})});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+var hd=$('hd'),hm=$('hm'),fab=$('fab'),pastHero=false,inContact=false,tick=false;
+function fabUp(){fab.classList.toggle('on',pastHero&&!inContact)}
+new IntersectionObserver(function(es){pastHero=!es[0].isIntersecting;fabUp()},{threshold:.05}).observe(document.querySelector('.hero'));
+new IntersectionObserver(function(es){inContact=es[0].isIntersecting;fabUp()}).observe($('contact'));
+function onScroll(){var y=scrollY;hd.classList.toggle('solid',y>innerHeight*.75);if(!RM&&y<innerHeight*1.2)hm.style.translate='0 '+(y*.22).toFixed(1)+'px';tick=false}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+onScroll();
+})();
+</script>
+</body>
+</html>
