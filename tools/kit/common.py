@@ -39,6 +39,9 @@ def fonts(out_dir: str, specs: list[tuple[str, str, list[int], str]]) -> str:
             for sub, rng in (("cyrillic", CYR), ("latin", LAT)):
                 name = f"{pref}-{sub}-{w}-{style}.woff2"
                 src = _FONT_INDEX.get(name)
+                if not src:  # новый шрифт: KIT_FONTS=<папка node_modules/@fontsource> (npm i @fontsource/<имя>)
+                    cand = os.path.join(os.environ.get("KIT_FONTS", ""), pref, "files", name)
+                    src = cand if os.path.isfile(cand) else None
                 if not src:
                     raise FileNotFoundError(name)
                 dst = os.path.join(out_dir, "fonts", name)
