@@ -32,7 +32,7 @@ p{margin:0}
 .burger{display:none;width:44px;height:44px;border-radius:12px;box-shadow:inset 0 0 0 1.5px var(--line2);place-items:center;margin-left:auto}
 .burger i,.burger i::before,.burger i::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
 .burger i::before,.burger i::after{content:"";position:absolute;left:0}.burger i::before{top:-6px}.burger i::after{top:6px}
-.mnav{display:none}
+.top .mnav{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb,999px);background:var(--ac);color:var(--aci);font-weight:600;text-decoration:none;transition:transform .2s,background .2s;white-space:nowrap}
 .btn:hover{transform:translateY(-1px)}
 .btn.g{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
@@ -63,7 +63,7 @@ p{margin:0}
 .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(28px,4vw,52px)}
 .sh h2{font-size:clamp(32px,4.4vw,60px);margin-top:14px}
 .sh .lead{justify-self:end}
-.cards{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
+.cards{display:grid;grid-template-columns:repeat(var(--cd,3),minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
 .card{background:var(--card);border-radius:var(--rc,20px);padding:clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:12px;box-shadow:var(--cs,0 0 0 1px var(--line));position:relative;overflow:hidden}
 .card h3{font-size:clamp(21px,1.8vw,25px);line-height:1.15}
 .card p{color:var(--soft);font-size:15.5px}
@@ -76,14 +76,14 @@ p{margin:0}
 .card .ic svg{width:24px;height:24px}
 .card .ph{margin:calc(-1*clamp(20px,2.4vw,30px)) calc(-1*clamp(20px,2.4vw,30px)) 6px;aspect-ratio:16/10;overflow:hidden}
 .card .ph img{width:100%;height:100%;object-fit:cover}
-.steps{display:grid;grid-template-columns:repeat(var(--scols,4),minmax(0,1fr));gap:clamp(14px,2vw,24px);counter-reset:s}
+.steps{display:grid;grid-template-columns:repeat(var(--sd,4),minmax(0,1fr));gap:clamp(14px,2vw,24px);counter-reset:s}
 .steps div{padding-top:22px;border-top:2px solid var(--ink);counter-increment:s}
 .sec.dark .steps div{border-color:var(--ac)}
 .steps div::before{content:counter(s,decimal-leading-zero);display:block;font:500 13px var(--fm,var(--fb));color:var(--ac);margin-bottom:12px}
 .steps b{display:block;font:var(--hw) clamp(20px,1.7vw,24px)/1.18 var(--fh);letter-spacing:var(--ht);margin-bottom:8px}
 .steps p{color:var(--soft);font-size:15.5px}
 .steps small{display:block;margin-top:10px;font-size:13.5px;color:var(--mut)}
-.team{display:grid;grid-template-columns:repeat(var(--tcols,3),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.team{display:grid;grid-template-columns:repeat(var(--td,3),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
 .team figure{margin:0}
 .team .tp{aspect-ratio:4/5;border-radius:var(--rc,20px);overflow:hidden;background:var(--card)}
 .team .tp img{width:100%;height:100%;object-fit:cover}
@@ -132,16 +132,16 @@ p{margin:0}
 .big{font:var(--hw) clamp(38px,5vw,64px)/1 var(--fh);letter-spacing:var(--ht)}
 .panel{background:var(--card);border-radius:var(--rc,24px);padding:clamp(20px,3vw,36px);box-shadow:var(--cs,0 0 0 1px var(--line))}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:15px;z-index:60;transition:transform .35s;max-width:calc(100% - 32px)}
-.toast.on{transform:translate(-50%,0)}
+.toast{visibility:hidden}.toast.on{transform:translate(-50%,0);visibility:visible}
 .js .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
 .js .rv.on{opacity:1;transform:none}
 @media (max-width:1040px){.top nav,.top .tel{display:none}.burger{display:grid}.top .btn{display:none}
- .mnav.on{display:grid;gap:4px;padding:10px var(--gut) 18px;border-top:1px solid var(--line)}
+ .top .mnav.on{display:grid;gap:4px;padding:10px var(--gut) 18px;border-top:1px solid var(--line)}
  .mnav a{padding:12px 0;text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
- .cards{--cols:2}.steps{--scols:2}.team{--tcols:2}}
-@media (max-width:860px){.hero .g,.sh,.split{grid-template-columns:1fr}.sh .lead{justify-self:start}
+ .cards,.steps,.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.hero .g,.sh,.split{grid-template-columns:minmax(0,1fr)}.sh .lead{justify-self:start}
  .gal figure{grid-column:span 6!important}}
-@media (max-width:620px){.cards,.steps,.team{--cols:1;--scols:1;--tcols:1}.gal figure{grid-column:span 12!important}
+@media (max-width:620px){.cards,.steps,.team{grid-template-columns:minmax(0,1fr)}.gal figure{grid-column:span 12!important}
  .acts .btn{flex:1 1 100%}.form .row2{grid-template-columns:1fr}.hero.full{min-height:auto}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 """
@@ -183,12 +183,12 @@ def render(s: dict, I: dict) -> str:
             pr = (f'<div class="pr"><b>{c["price"]}</b><small>{c.get("unit", "")}</small></div>') if c.get("price") else ""
             return (f'<article class="card rv"{" style=" + chr(34) + c["style"] + chr(34) if c.get("style") else ""}>{ph}{ic}'
                     f'<h3>{c["t"]}</h3>{"<p>" + c["d"] + "</p>" if c.get("d") else ""}{ul}{pr}</article>')
-        body = f'<div class="cards" style="--cols:{s.get("cols", 3)}">' + "".join(card(c) for c in s["items"]) + "</div>"
+        body = f'<div class="cards" style="--cd:{s.get("cols", 3)}">' + "".join(card(c) for c in s["items"]) + "</div>"
     elif t == "steps":
-        body = f'<div class="steps" style="--scols:{s.get("cols", 4)}">' + "".join(
+        body = f'<div class="steps" style="--sd:{s.get("cols", 4)}">' + "".join(
             f'<div class="rv"><b>{a}</b><p>{b}</p>{"<small>" + c + "</small>" if c else ""}</div>' for a, b, c in s["items"]) + "</div>"
     elif t == "team":
-        body = f'<div class="team" style="--tcols:{s.get("cols", 3)}">' + "".join(
+        body = f'<div class="team" style="--td:{s.get("cols", 3)}">' + "".join(
             f'<figure class="rv"><div class="tp">{img(p["img"], I, "(max-width:620px) 100vw, 30vw", p["n"]) if p.get("img") else p.get("art", "")}</div>'
             f'<figcaption><b>{e(p["n"])}</b><span>{p["r"]}</span></figcaption></figure>' for p in s["items"]) + "</div>"
     elif t == "gallery":

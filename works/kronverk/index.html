@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кронверк — заказная разработка веб-сервисов и приложений для бизнеса</title>
+<meta name="description" content="Разработка веб-сервисов, CRM, мобильных приложений и интеграций. Оценка проекта на сайте, спринты по 2 недели, демо каждую пятницу. Санкт-Петербург.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Кронверк — заказная разработка веб-сервисов и приложений для бизнеса">
+<meta property="og:description" content="Разработка веб-сервисов, CRM, мобильных приложений и интеграций. Оценка проекта на сайте, спринты по 2 недели, демо каждую пятницу. Санкт-Петербург.">
+<meta name="theme-color" content="#0b0e12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%237cf0b5%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%2306110b%27%3E%D0%9A%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--bg:#0b0e12;--ink:#e8edf2;--soft:#a5aeb8;--mut:#6c7681;--line:#1f262e;--line2:#2f3842;--card:#11161c;--alt:#0f1318;--ac:#7cf0b5;--aci:#06110b;--fh:"IBM Plex Sans",sans-serif;--fb:"IBM Plex Sans",sans-serif;--fm:"IBM Plex Mono",monospace;--hw:600;--ht:-.025em;--dk:#e8edf2;--dki:#0b0e12;--rc:18px;--rb:10px;--fk:"IBM Plex Mono",monospace;--kls:.04em;--ktt:none;--har:4/5;--line0:#1f262e;--line20:#2f3842;--soft0:#a5aeb8;--mut0:#6c7681}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{max-width:100%;display:block}
+img{height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:4px}
+:root{--gut:clamp(16px,4.5vw,64px)}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.04;margin:0;text-wrap:balance}
+p{margin:0}
+.kick{font:600 12.5px/1.2 var(--fk,var(--fb));letter-spacing:var(--kls,.14em);text-transform:var(--ktt,uppercase);color:var(--kc,var(--ac))}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:var(--hw) 20px/1 var(--fh);letter-spacing:var(--ht);white-space:nowrap}
+.logo svg{width:30px;height:30px;flex:none}
+.top nav{display:flex;gap:22px;margin-left:auto;font-size:15px;color:var(--soft)}
+.top nav a{text-decoration:none;white-space:nowrap}.top nav a:hover{color:var(--ink)}
+.top .tel{font-weight:600;text-decoration:none;white-space:nowrap;font-size:15px}
+.top .btn{height:44px;padding:0 18px;font-size:15px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;box-shadow:inset 0 0 0 1.5px var(--line2);place-items:center;margin-left:auto}
+.burger i,.burger i::before,.burger i::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0}.burger i::before{top:-6px}.burger i::after{top:6px}
+.top .mnav{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb,999px);background:var(--ac);color:var(--aci);font-weight:600;text-decoration:none;transition:transform .2s,background .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn.g{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.btn.w{background:var(--bg);color:var(--ink)}
+.hero{padding:clamp(36px,6vw,88px) 0 clamp(40px,6vw,88px)}
+.hero .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:var(--h1s,clamp(42px,6vw,88px));margin:18px 0 22px}
+.hero h1 em{font-style:var(--emst,normal);color:var(--emc,var(--ac))}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:54ch;text-wrap:pretty}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.pts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:14.5px;color:var(--soft)}
+.pts span{display:flex;align-items:center;gap:8px}.pts span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ac);flex:none}
+.hph{position:relative;border-radius:var(--ra,22px);overflow:hidden;background:var(--card);aspect-ratio:var(--har,4/5)}
+.hph img,.hph>svg{width:100%;height:100%;object-fit:cover}
+.hph .tag{position:absolute;left:16px;bottom:16px;right:16px;max-width:330px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:14px 16px;font-size:14px;line-height:1.4}
+.hph .tag b{display:block;font:var(--hw) 22px/1.1 var(--fh);letter-spacing:var(--ht);margin-bottom:4px}
+.hero.full{position:relative;padding:0;min-height:min(86vh,820px);display:grid;align-items:end;color:#fff;isolation:isolate}
+.hero.full .bgph{position:absolute;inset:0;z-index:-2}.hero.full .bgph img{width:100%;height:100%;object-fit:cover}
+.hero.full::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--shade,linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)))}
+.hero.full .g{grid-template-columns:minmax(0,1fr);padding:clamp(80px,12vw,160px) 0 clamp(36px,6vw,72px)}
+.hero.full .lead{color:rgba(255,255,255,.86)}.hero.full .pts{color:rgba(255,255,255,.86)}
+.hero.full .btn.g{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec+.sec{border-top:1px solid var(--line)}
+.sec.alt{background:var(--alt);border-top:0}.sec.alt+.sec{border-top:0}
+.sec.dark{background:var(--dk,var(--ink));color:var(--dki,var(--bg));border-top:0;--line:rgba(255,255,255,.14);--line2:rgba(255,255,255,.3);--soft:rgba(255,255,255,.74);--mut:rgba(255,255,255,.56);--card:rgba(255,255,255,.06)}
+.sec.dark+.sec{border-top:0}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(28px,4vw,52px)}
+.sh h2{font-size:clamp(32px,4.4vw,60px);margin-top:14px}
+.sh .lead{justify-self:end}
+.cards{display:grid;grid-template-columns:repeat(var(--cd,3),minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
+.card{background:var(--card);border-radius:var(--rc,20px);padding:clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:12px;box-shadow:var(--cs,0 0 0 1px var(--line));position:relative;overflow:hidden}
+.card h3{font-size:clamp(21px,1.8vw,25px);line-height:1.15}
+.card p{color:var(--soft);font-size:15.5px}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:15px;color:var(--soft)}
+.card li{display:flex;gap:9px}.card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);flex:none;margin-top:9px}
+.card .pr{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card .pr b{font:var(--hw) 24px/1 var(--fh);letter-spacing:var(--ht)}
+.card .pr small{color:var(--mut);font-size:13.5px}
+.card .ic{width:46px;height:46px;border-radius:14px;background:var(--icbg,color-mix(in srgb,var(--ac) 14%,transparent));display:grid;place-items:center;color:var(--ac)}
+.card .ic svg{width:24px;height:24px}
+.card .ph{margin:calc(-1*clamp(20px,2.4vw,30px)) calc(-1*clamp(20px,2.4vw,30px)) 6px;aspect-ratio:16/10;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.steps{display:grid;grid-template-columns:repeat(var(--sd,4),minmax(0,1fr));gap:clamp(14px,2vw,24px);counter-reset:s}
+.steps div{padding-top:22px;border-top:2px solid var(--ink);counter-increment:s}
+.sec.dark .steps div{border-color:var(--ac)}
+.steps div::before{content:counter(s,decimal-leading-zero);display:block;font:500 13px var(--fm,var(--fb));color:var(--ac);margin-bottom:12px}
+.steps b{display:block;font:var(--hw) clamp(20px,1.7vw,24px)/1.18 var(--fh);letter-spacing:var(--ht);margin-bottom:8px}
+.steps p{color:var(--soft);font-size:15.5px}
+.steps small{display:block;margin-top:10px;font-size:13.5px;color:var(--mut)}
+.team{display:grid;grid-template-columns:repeat(var(--td,3),minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.team figure{margin:0}
+.team .tp{aspect-ratio:4/5;border-radius:var(--rc,20px);overflow:hidden;background:var(--card)}
+.team .tp img{width:100%;height:100%;object-fit:cover}
+.team figcaption{margin-top:14px}.team b{display:block;font-size:18px}.team span{display:block;color:var(--mut);font-size:14.5px;line-height:1.45;margin-top:3px}
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+.gal figure{margin:0;grid-column:span var(--s,4);border-radius:var(--rc,18px);overflow:hidden;background:var(--card);aspect-ratio:var(--ar,4/3);position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:color-mix(in srgb,var(--bg) 90%,transparent);border-radius:10px;padding:6px 10px;font-size:13px}
+.faq{display:grid;gap:10px;max-width:900px}
+.faq details{background:var(--card);border-radius:16px;box-shadow:0 0 0 1px var(--line);padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 30px 20px 0;font-weight:600;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:15px;font-size:24px;font-weight:400;color:var(--ac);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--soft)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.form{background:var(--card);border-radius:var(--rc,24px);padding:clamp(22px,3vw,36px);box-shadow:var(--cs,0 0 0 1px var(--line));display:grid;gap:14px}
+.sec.dark .form{background:var(--bg);color:var(--ink);--line:var(--line0);--line2:var(--line20);--soft:var(--soft0);--mut:var(--mut0)}
+.form label{display:grid;gap:6px;font-size:14px;color:var(--soft)}
+.form input,.form select,.form textarea{width:100%;height:52px;border-radius:12px;border:1.5px solid var(--line2);background:var(--bg);padding:0 14px;font-size:16px;color:var(--ink)}
+.form textarea{height:96px;padding:12px 14px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--ac)}
+.form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form .btn{width:100%;margin-top:4px}
+.form .ok{display:none;padding:16px;border-radius:12px;background:color-mix(in srgb,var(--ac) 12%,transparent);font-size:15px}
+.form.sent .ok{display:block}.form.sent .fl{display:none}
+.form .note{font-size:12.5px;color:var(--mut)}
+.contacts{display:grid;gap:18px}
+.contacts div span{display:block;font-size:13px;color:var(--mut);letter-spacing:.04em}
+.contacts div b{font-size:18px;font-weight:600}
+.map{border-radius:var(--rc,20px);overflow:hidden;aspect-ratio:16/10;background:var(--card);box-shadow:0 0 0 1px var(--line)}
+.map svg{width:100%;height:100%}
+.foot{padding:34px 0 46px;font-size:14px;color:var(--mut);border-top:1px solid var(--line)}
+.foot .in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:var(--ink)}
+.seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:color-mix(in srgb,var(--ink) 7%,transparent);flex-wrap:wrap}
+.seg button{padding:9px 16px;border-radius:999px;font-size:14.5px;font-weight:500;white-space:nowrap}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{padding:9px 15px;border-radius:999px;font-size:14.5px;box-shadow:inset 0 0 0 1.5px var(--line2);background:var(--card)}
+.chips button.on{background:var(--ac);color:var(--aci);box-shadow:none}
+.rng{display:grid;gap:8px}
+.rng .rh{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;color:var(--soft)}.rng .rh b{color:var(--ink)}
+.rng input{width:100%;accent-color:var(--ac)}
+.big{font:var(--hw) clamp(38px,5vw,64px)/1 var(--fh);letter-spacing:var(--ht)}
+.panel{background:var(--card);border-radius:var(--rc,24px);padding:clamp(20px,3vw,36px);box-shadow:var(--cs,0 0 0 1px var(--line))}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:15px;z-index:60;transition:transform .35s;max-width:calc(100% - 32px)}
+.toast{visibility:hidden}.toast.on{transform:translate(-50%,0);visibility:visible}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.on{opacity:1;transform:none}
+@media (max-width:1040px){.top nav,.top .tel{display:none}.burger{display:grid}.top .btn{display:none}
+ .top .mnav.on{display:grid;gap:4px;padding:10px var(--gut) 18px;border-top:1px solid var(--line)}
+ .mnav a{padding:12px 0;text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
+ .cards,.steps,.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.hero .g,.sh,.split{grid-template-columns:minmax(0,1fr)}.sh .lead{justify-self:start}
+ .gal figure{grid-column:span 6!important}}
+@media (max-width:620px){.cards,.steps,.team{grid-template-columns:minmax(0,1fr)}.gal figure{grid-column:span 12!important}
+ .acts .btn{flex:1 1 100%}.form .row2{grid-template-columns:1fr}.hero.full{min-height:auto}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+
+
+.mono{font:500 13px/1.6 "IBM Plex Mono",monospace;color:var(--ac)}
+.hero h1{letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hph{box-shadow:0 0 0 1px var(--line)}
+.hph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,14,18,.85));pointer-events:none}
+.hph .tag{z-index:2;background:rgba(11,14,18,.72);color:#e8edf2;box-shadow:0 0 0 1px rgba(124,240,181,.3)}
+.hph .tag b{color:var(--ac)}
+.card{background:rgba(255,255,255,.03)}
+.card:hover{box-shadow:0 0 0 1px var(--ac)}
+.est{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(14px,2vw,22px);align-items:start}
+.eq{display:grid;gap:26px}.eq .q{display:grid;gap:12px}.eq .q>b{font-weight:600}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.feat label{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line2);cursor:pointer;font-size:14.5px;line-height:1.35}
+.feat label:has(input:checked){box-shadow:inset 0 0 0 1.5px var(--ac);background:rgba(124,240,181,.06)}
+.feat input{accent-color:var(--ac);margin-top:2px}
+.feat small{display:block;color:var(--mut);font:500 12px "IBM Plex Mono",monospace;margin-top:3px}
+.er{position:sticky;top:90px;display:grid;gap:14px}
+.erow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.erow span{color:var(--soft);font-size:15px}.erow b{font:600 clamp(22px,2.2vw,30px) var(--fh);text-align:right}
+.bar{height:6px;border-radius:3px;background:var(--line)}.bar i{display:block;height:100%;border-radius:3px;background:var(--ac);transition:width .4s;width:0}
+.plan{white-space:pre-wrap;margin:6px 0 4px;color:var(--soft);font-size:12.5px}
+.er .btn{width:100%}
+.case{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.case article{border-radius:20px;padding:26px;box-shadow:0 0 0 1px var(--line);display:grid;gap:14px;align-content:start}
+.case .n{font:600 clamp(40px,4vw,56px)/1 var(--fh);color:var(--ac)}
+.case h3{font-size:21px}.case p{color:var(--soft);font-size:15px}
+.case .st{font:500 12.5px "IBM Plex Mono",monospace;color:var(--mut)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(26px,3vw,40px)}
+.stack span{font:500 13px "IBM Plex Mono",monospace;padding:7px 12px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line2);color:var(--soft)}
+@media (max-width:860px){.est,.case{grid-template-columns:1fr}.er{position:static}.feat{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap in"><a class="logo" href="#top"><svg viewBox="0 0 32 32"><path d="M16 2l12 7v14l-12 7-12-7V9z" fill="none" stroke="#7cf0b5" stroke-width="2"/><path d="M12 11v10M12 16l7-5M14 15l5 6" stroke="#e8edf2" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span>Кронверк</span></a>
+<nav aria-label="Разделы"><a href="#services">Что делаем</a><a href="#estimate">Оценка</a><a href="#cases">Кейсы</a><a href="#process">Как работаем</a><a href="#faq">Вопросы</a></nav><a class="tel" href="tel:+78120000000">+7 812 000-00-00</a><a class="btn" href="#lead">Оценить проект</a>
+<button class="burger" type="button" aria-label="Меню" aria-expanded="false"><i></i></button></div>
+<nav class="mnav" aria-label="Меню"><a href="#services">Что делаем</a><a href="#estimate">Оценка</a><a href="#cases">Кейсы</a><a href="#process">Как работаем</a><a href="#faq">Вопросы</a><a href="tel:+78120000000">+7 812 000-00-00</a></nav></header>
+<main>
+<section class="hero" id="top"><div class="wrap g"><div class="rv"><div class="kick">// заказная разработка с 2017 года</div><h1>Делаем софт, который <em>окупается</em>, а не просто запускается</h1><p class="lead">Веб-сервисы, CRM, мобильные приложения и интеграции с учётными системами для компаний от 50 сотрудников. Показываем рабочую версию каждые две недели — вы видите, за что платите.</p><div class="acts"><a class="btn" href="#estimate">Оценить проект за минуту</a><a class="btn g" href="#cases">Смотреть кейсы</a></div><div class="pts"><span>47 инженеров в штате</span><span>Фиксированная цена спринта</span><span>Код и права — ваши</span></div></div><div class="hph rv" style="--har:4/5"><img src="img/code-1100.webp" srcset="img/code-700.webp 700w, img/code-1100.webp 1100w" sizes="(max-width:860px) 100vw, 50vw" alt="Разработчики за работой" width="400" height="500" decoding="async"><div class="tag"><b>83 проекта</b>в продакшене, 9 из них — дольше 5 лет на нашей поддержке</div></div></div></section>
+<section class="sec" id="services"><div class="wrap"><div class="sh rv"><div><div class="kick">// что делаем</div><h2>Четыре направления, одна команда</h2></div><p class="lead">Не берём всё подряд: только то, где у нас есть свои наработки и люди с опытом.</p></div><div class="cards" style="--cd:2"><article class="card rv"><h3>Веб-сервисы и платформы</h3><p>Личные кабинеты, маркетплейсы услуг, внутренние порталы.</p><ul><li>нагрузка до 50 000 пользователей онлайн</li><li>SLA 99,9%</li></ul><div class="pr"><b>от 1,4 млн ₽</b><small>первый релиз</small></div></article><article class="card rv"><h3>CRM и автоматизация</h3><p>Под ваш процесс, а не процесс под коробку.</p><ul><li>импорт из старой системы</li><li>обучение сотрудников</li></ul><div class="pr"><b>от 980 тыс. ₽</b><small>первый релиз</small></div></article><article class="card rv"><h3>Мобильные приложения</h3><p>iOS и Android на Flutter — одна кодовая база.</p><ul><li>публикация в магазинах</li><li>аналитика и push</li></ul><div class="pr"><b>от 1,7 млн ₽</b><small>первый релиз</small></div></article><article class="card rv"><h3>Интеграции и учёт</h3><p>Склад, сайт, CRM и банк обмениваются данными сами.</p><ul><li>обмен каждые 5 минут</li><li>журнал ошибок</li></ul><div class="pr"><b>от 340 тыс. ₽</b><small>под ключ</small></div></article></div></div></section><section class="sec alt" id="estimate"><div class="wrap"><div class="sh rv"><div><div class="kick">// оценка</div><h2>Соберите проект — увидите срок и бюджет</h2></div><p class="lead">Оценка по нашим 83 проектам. Точную смету дадим после бесплатного созвона на 40 минут.</p></div>
+<div class="est rv">
+ <div class="panel eq">
+  <div class="q"><b>Что делаем</b><div class="chips" id="eType"></div></div>
+  <div class="q"><b>Платформы</b><div class="chips" id="ePlat"></div></div>
+  <div class="q"><b>Функции</b><div class="feat" id="eFeat"></div></div>
+ </div>
+ <div class="panel er">
+  <div class="mono">// оценка</div>
+  <div class="erow"><span>Срок до первого релиза</span><b id="eWeeks">—</b></div>
+  <div class="bar"><i id="eBar"></i></div>
+  <div class="erow"><span>Команда</span><b id="eTeam">—</b></div>
+  <div class="erow"><span>Бюджет</span><b id="eSum">—</b></div>
+  <pre class="mono plan" id="ePlan"></pre>
+  <a class="btn" href="#lead" id="eGo">Обсудить оценку</a>
+ </div>
+</div>
+</div></section><section class="sec" id="cases"><div class="wrap"><div class="sh rv"><div><div class="kick">// кейсы</div><h2>Считаем результат в цифрах заказчика</h2></div></div><div class="case"><article class="rv"><div class="st">сеть клиник · 14 филиалов · 2025</div><div class="n">−38%</div><h3>неявок на приём</h3><p>Запись, напоминания и перенос визита в мессенджере. Врачи видят расписание и анализы в одном окне.</p></article><article class="rv"><div class="st">логистика · 230 машин · 2025</div><div class="n">4 мин</div><h3>вместо 40 на маршрут</h3><p>Диспетчерская: заявки, автоматическая раскладка по машинам и статус доставки для клиента по ссылке.</p></article><article class="rv"><div class="st">производство мебели · 2026</div><div class="n">×2,4</div><h3>заказов через кабинет дилера</h3><p>Кабинет дилера с конфигуратором, остатками со склада и обменом с учётной системой каждые 5 минут.</p></article></div><div class="stack rv"><span>Python</span><span>Go</span><span>TypeScript</span><span>React</span><span>Flutter</span><span>PostgreSQL</span><span>Redis</span><span>Kubernetes</span><span>ClickHouse</span><span>LLM-ассистенты</span></div></div></section><section class="sec alt" id="process"><div class="wrap"><div class="sh rv"><div><div class="kick">// как работаем</div><h2>Спринты по две недели и демо каждую пятницу</h2></div></div><div class="steps" style="--sd:4"><div class="rv"><b>Discovery</b><p>Интервью с вашей командой, карта процессов, прототип в Figma.</p><small>2–3 недели, фиксированная цена</small></div><div class="rv"><b>Спринты</b><p>Каждые 2 недели — рабочая версия на тестовом сервере.</p><small>оплата по спринтам</small></div><div class="rv"><b>Релиз</b><p>Публикация, нагрузочное тестирование, обучение.</p><small>1 неделя</small></div><div class="rv"><b>Поддержка</b><p>Дежурный инженер, обновления, развитие по плану.</p><small>от 3 месяцев</small></div></div></div></section><section class="sec" id="office"><div class="wrap"><div class="sh rv"><div><div class="kick">// команда</div><h2>Офис на Петроградской — и удалённые инженеры по всей России</h2></div></div><div class="gal"><figure class="rv" style="--s:8;--ar:16/10"><img src="img/team-1400.webp" srcset="img/team-800.webp 800w, img/team-1400.webp 1400w" sizes="(max-width:620px) 100vw, 40vw" alt="Команда" width="1600" height="1000" loading="lazy" decoding="async"></figure><figure class="rv" style="--s:4;--ar:4/5"><img src="img/meet-1100.webp" srcset="img/meet-700.webp 700w, img/meet-1100.webp 1100w" sizes="(max-width:620px) 100vw, 40vw" alt="Планирование спринта" width="300" height="200" loading="lazy" decoding="async"></figure><figure class="rv" style="--s:6;--ar:3/2"><img src="img/desk-1100.webp" srcset="img/desk-700.webp 700w, img/desk-1100.webp 1100w" sizes="(max-width:620px) 100vw, 40vw" alt="Рабочие места" width="300" height="200" loading="lazy" decoding="async"></figure><figure class="rv" style="--s:6;--ar:3/2"><img src="img/sun-1100.webp" srcset="img/sun-700.webp 700w, img/sun-1100.webp 1100w" sizes="(max-width:620px) 100vw, 40vw" alt="Офис" width="300" height="200" loading="lazy" decoding="async"></figure></div></div></section><section class="sec alt" id="faq"><div class="wrap"><div class="sh rv"><div><div class="kick">// вопросы</div><h2>Что обычно спрашивают техдиректора</h2></div></div><div class="faq"><details class="rv" open><summary>Кому принадлежит код?</summary><p>Вам — с первого коммита. Репозиторий в вашей организации, права передаём по акту после каждого спринта.</p></details><details class="rv"><summary>Можно зайти в проект, который начинала другая команда?</summary><p>Да. Сначала двухнедельный аудит кода и архитектуры — скажем честно, что дописывать, а что переписать.</p></details><details class="rv"><summary>Работаете по фиксированной цене?</summary><p>Discovery — фикс. Разработка — фиксированная цена каждого спринта; объём спринта согласуем перед стартом.</p></details><details class="rv"><summary>Что после запуска?</summary><p>Поддержка от 3 месяцев: дежурный инженер, время реакции на критическую ошибку — 30 минут.</p></details></div></div></section>
+<section class="sec" id="lead"><div class="wrap split"><div class="rv"><div class="kick">// контакт</div><h2 style="font-size:clamp(32px,4.4vw,58px);margin:14px 0 18px">Расскажите о задаче — ответим с оценкой за 2 дня</h2><p class="lead">Пришлём вопросы, проведём созвон на 40 минут и вернёмся с вилкой бюджета и планом первого релиза.</p><div class="contacts" style="margin-top:30px"><div><span>Офис</span><b>Санкт-Петербург, Каменноостровский пр., 42</b></div><div><span>Телефон</span><b>+7 812 000-00-00</b></div><div><span>Ответ</span><b>в течение рабочего дня</b></div></div></div><form class="form rv" id="lead" novalidate data-ok="Спасибо! Пришлём вопросы и время созвона в течение рабочего дня."><div class="fl" style="display:grid;gap:14px"><div class="row2"><label>Имя<input name="name" type="text" placeholder="" required data-n="имя"></label><label>Компания<input name="company" type="text" placeholder="" data-n="компания"></label></div><div class="row2"><label>Телефон или e-mail<input name="phone" type="text" placeholder="" required data-n="телефон или e-mail"></label><label>Бюджет<select name="budget" data-n="бюджет"><option>до 1 млн ₽</option><option>1–3 млн ₽</option><option>3–10 млн ₽</option><option>больше 10 млн ₽</option></select></label></div><label>Задача<textarea name="msg" placeholder="Что нужно сделать и к какому сроку" data-n="задача"></textarea></label><button class="btn" type="submit">Отправить задачу</button><p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Перезвоним в рабочее время.</p></div><p class="ok" role="status"></p></form></div></section>
+</main>
+<footer class="foot"><div class="wrap in"><span>© 2026 ООО «Кронверк Софт», Санкт-Петербург</span><span><a href="#" data-mail="hello@kronverk.ysdprojects.space">hello@kronverk.ysdprojects.space</a></span>
+<span>Сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span></div></footer>
+<script>window.SITE={};</script>
+<script>
+(function(){
+var io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.06}):null;
+document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')})},3500);
+var b=document.querySelector('.burger'),m=document.querySelector('.mnav');
+if(b&&m){b.addEventListener('click',function(){var o=m.classList.toggle('on');b.setAttribute('aria-expanded',o)});m.addEventListener('click',function(e){if(e.target.closest('a'))m.classList.remove('on')})}
+var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);var tt;
+window.toast=function(s){t.textContent=s;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)};
+document.querySelectorAll('form.form').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();
+ var bad=[].slice.call(f.querySelectorAll('[required]')).filter(function(i){return !String(i.value||'').trim()});
+ if(bad.length){bad[0].focus();toast('Заполните: '+(bad[0].dataset.n||'поле'));return}
+ f.classList.add('sent');var ok=f.querySelector('.ok');if(ok&&f.dataset.ok)ok.textContent=f.dataset.ok})});
+document.addEventListener('click',function(ev){var a=ev.target.closest('[data-mail]');if(!a)return;ev.preventDefault();
+ var s=a.dataset.mail;try{navigator.clipboard&&navigator.clipboard.writeText(s)}catch(x){}toast('Адрес скопирован: '+s)});
+window.rub=function(n){return Math.round(n).toLocaleString('ru-RU').replace(/ /g,' ')+' ₽'};
+window.plural=function(n,a,b,c){var x=Math.abs(n)%100,y=x%10;return x>10&&x<20?c:y>1&&y<5?b:y==1?a:c};
+})();
+</script>
+<script>
+(function(){var $=function(s){return document.getElementById(s)};
+var T=[['web','Веб-сервис',6],['crm','CRM / кабинет',7],['mob','Мобильное приложение',7],['int','Интеграции',4]];
+var PL=[['web','Веб',1],['ios','iOS',1.35],['and','Android',1.3],['tg','Telegram Mini App',1.12]];
+var F=[['auth','Вход и роли','SSO, права',1],['pay','Оплата','эквайринг, чеки',1.5],['1c','Обмен с учётной системой','двусторонний',2],['chat','Чат и уведомления','push, e-mail',1.2],
+ ['rep','Отчёты и дашборды','выгрузки в Excel',1.4],['ai','ИИ-функции','поиск, ассистент',2.2],['map','Карты и логистика','маршруты',1.6],['adm','Админ-панель','контент, справочники',1]];
+var t='web',pl={web:1},f={auth:1,adm:1};
+$('eType').innerHTML=T.map(function(x){return'<button type="button" data-v="'+x[0]+'" class="'+(x[0]==t?'on':'')+'">'+x[1]+'</button>'}).join('');
+$('ePlat').innerHTML=PL.map(function(x){return'<button type="button" data-v="'+x[0]+'" class="'+(pl[x[0]]?'on':'')+'">'+x[1]+'</button>'}).join('');
+$('eFeat').innerHTML=F.map(function(x){return'<label><input type="checkbox" value="'+x[0]+'"'+(f[x[0]]?' checked':'')+'><span>'+x[1]+'<small>'+x[2]+'</small></span></label>'}).join('');
+$('eType').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;t=b.dataset.v;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)});
+ if(t=='mob'){pl={ios:1,and:1}}else if(t!='mob'&&!pl.web&&!pl.tg){pl={web:1}}[].forEach.call($('ePlat').children,function(x){x.classList.toggle('on',!!pl[x.dataset.v])});run()});
+$('ePlat').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.dataset.v;if(pl[v]&&Object.keys(pl).length>1){delete pl[v]}else pl[v]=1;b.classList.toggle('on',!!pl[v]);run()});
+$('eFeat').addEventListener('change',function(e){f[e.target.value]=e.target.checked;run()});
+function run(){var base=T.filter(function(x){return x[0]==t})[0][2];var k=0,plat=0;PL.forEach(function(x){if(pl[x[0]])plat+=x[2]});plat=1+.12*(Object.keys(pl).length-1);
+ F.forEach(function(x){if(f[x[0]])k+=x[3]});var w=Math.round((base+k*1.1)*plat);var dev=w<8?2:w<14?3:w<20?4:5;var sum=w*dev*5*11800;
+ $('eWeeks').textContent=w+' '+plural(w,'неделя','недели','недель');$('eBar').style.width=Math.min(100,w/30*100)+'%';
+ $('eTeam').textContent=dev+' разработчика + дизайнер, аналитик, QA';
+ var r=function(x){return Math.round(x/10000)*10000};$('eSum').textContent=rub(r(sum*.9))+' – '+rub(r(sum*1.15));
+ var sp=Math.ceil(w/2);$('ePlan').textContent='> спринт 0 · 1 нед · прототип и архитектура\n> спринты 1–'+sp+' · по 2 нед · демо каждую пятницу\n> релиз · неделя '+(w+1)+' · публикация и поддержка 3 мес';
+ $('eGo').dataset.v=$('eWeeks').textContent+', '+$('eSum').textContent}
+$('eGo').addEventListener('click',function(){var ta=document.querySelector('#lead textarea');if(ta)ta.value='Оценка с сайта: '+this.dataset.v+'. Функции: '+F.filter(function(x){return f[x[0]]}).map(function(x){return x[1]}).join(', ')});
+run()})();
+</script>
+</body>
+</html>
