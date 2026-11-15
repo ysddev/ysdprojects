@@ -78,10 +78,10 @@ img,svg{display:block;max-width:100%}
 .sh.top li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
 .sh.top li button{text-align:left}.sh.top li button:hover{text-decoration:underline}
 .sh.top li em{font:italic 500 15px var(--srf);color:var(--mut)}
-.ov{position:fixed;inset:0;z-index:40;pointer-events:none}
+.ov{position:fixed;inset:0;z-index:40;pointer-events:none;visibility:hidden;transition:visibility 0s .6s}
 .ov .bg{position:absolute;inset:0;background:rgba(45,44,42,.18);opacity:0;transition:opacity .4s}
 .ov .pane{position:absolute;top:0;right:0;bottom:0;width:min(780px,100%);background:#fff;box-shadow:-30px 0 60px -30px rgba(0,0,0,.35);transform:translateX(102%);transition:transform .6s cubic-bezier(.2,.8,.2,1);overflow:auto;padding:38px clamp(22px,4vw,56px) 60px}
-.ov.on{pointer-events:auto}.ov.on .bg{opacity:1}.ov.on .pane{transform:none}
+.ov.on{pointer-events:auto;visibility:visible;transition:none}.ov.on .bg{opacity:1}.ov.on .pane{transform:none}
 .pane .x{position:absolute;top:22px;right:24px;font:italic 500 18px var(--srf);color:var(--mut)}
 .pane .x:hover{color:var(--ink)}
 .pane .no{font:400 13px var(--sans);letter-spacing:.5em;color:var(--mut)}
@@ -97,7 +97,7 @@ img,svg{display:block;max-width:100%}
 .game .sub{font:italic 500 19px var(--srf);color:var(--soft);margin-top:6px}
 .game .tools{display:flex;gap:26px;justify-content:center;margin:20px 0 0;font:italic 500 17px var(--srf);color:var(--mut)}
 .game .tools button:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
-.board{position:relative;height:clamp(420px,52vw,620px);margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;touch-action:none;
+.board{position:relative;height:clamp(420px,52vw,620px);margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;touch-action:pan-y;
  background-image:radial-gradient(circle,rgba(45,44,42,.16) 1px,transparent 1.2px);background-size:24px 24px}
 .it{position:absolute;left:0;top:0;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;color:var(--soft);transition:filter .2s}
 .it.dr{cursor:grabbing;filter:drop-shadow(0 12px 14px rgba(0,0,0,.18));z-index:5}
@@ -115,7 +115,8 @@ img,svg{display:block;max-width:100%}
 .full{grid-column:1/-1}
 @media (max-width:1100px){.page{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.r{display:none}.mob{display:block!important}}
 @media (max-width:760px){.cl{height:150px}.page{grid-template-columns:1fr}.m{border-right:0;border-top:1px solid var(--line)}.sel{margin-top:40px}.l{border-right:0}
- .tl{grid-template-columns:1fr 1fr}.it.t1{font-size:84px}.it.t2{font-size:64px}.it.t3{font-size:76px}.it svg{width:100px;height:100px}}
+ .tl{grid-template-columns:1fr 1fr}.it.t1{font-size:70px}.it.t2{font-size:54px}.it.t3{font-size:62px}.it svg{width:92px;height:92px}.hint .d{display:none}.hint .mo{display:inline}}
+.hint .mo{display:none}
 .mob{display:none;grid-column:1/-1;border-top:1px solid var(--line);padding:50px 6% 20px}
 .mob h3{font:400 44px var(--scr);color:var(--soft);text-align:center;margin:0 0 20px;font-weight:400}
 .mob ol{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
@@ -137,7 +138,7 @@ img,svg{display:block;max-width:100%}
   <div class="list" id="spheres"></div>
   <p class="about">Меня зовут Вера Ланская. Я графический дизайнер и арт-директор, живу и работаю в Москве. Делаю айдентику,
   упаковку и издательский дизайн — системы, которые выдерживают десятки носителей и не теряют характер.
-  Нажмите на сферу — справа останутся только её работы.</p>
+  Нажмите на сферу — в списке работ останутся только её проекты.</p>
   <div class="lab">Клиенты:</div>
   <div class="rule"></div>
   <div class="cl"><div class="list" id="cl"></div></div>
@@ -151,7 +152,7 @@ img,svg{display:block;max-width:100%}
   <div class="yr2">2 0 2 3<i></i>2 0 2 6</div>
   <div class="sel">Избранные работы<br>Портфолио</div>
   <div class="objs" id="objs"></div>
-  <p class="hint">Листы справа выдвигаются — откройте любой</p>
+  <p class="hint"><span class="d">Листы справа выдвигаются — откройте любой</span><span class="mo">Все проекты — списком ниже, нажмите на любой</span></p>
  </section>
  <aside class="r" aria-label="Проекты"><div class="deck" id="deck"></div></aside>
  <section class="mob" aria-label="Проекты (список)"><h3>Работы</h3><ol id="mlist"></ol></section>
@@ -205,12 +206,12 @@ function art(p,s,tone){uid++;var id='f'+uid,c=tone||'#5d5a55',t=p.w.toUpperCase(
  return '<svg viewBox="0 0 200 200" role="img" aria-label="'+p.n+'">'+o+'</svg>'}
 $('objs').innerHTML=[0,5,2].map(function(i){return'<button class="obj" type="button" data-i="'+i+'">'+art(P[i])+'</button>'}).join('');
 // листы
-function deck(filter){var html='<div class="sh top"><h3>Содержание</h3><p>Восемь проектов 2023–2026. Наведите на лист — он выдвинется.</p><ol>'
+function deck(filter){mlist(filter);var html='<div class="sh top"><h3>Содержание</h3><p>Восемь проектов 2023–2026. Наведите на лист — он выдвинется.</p><ol>'
  +P.map(function(p,i){return(!filter||filter.indexOf(i)>=0)?'<li><button type="button" data-i="'+i+'">'+p.n+'</button><em>'+p.y+'</em></li>':''}).join('')+'</ol></div>';
  P.forEach(function(p,i){if(!filter||filter.indexOf(i)>=0)html+='<button class="sh" type="button" data-i="'+i+'" aria-label="'+p.n+', '+p.y+'"><span>'+p.n+'</span><small>'+p.y+'</small></button>'});
  $('deck').innerHTML=html}
 deck();
-$('mlist').innerHTML=P.map(function(p,i){return'<li><button type="button" data-i="'+i+'">'+p.n+'<em>'+p.k+', '+p.y+'</em></button></li>'}).join('');
+function mlist(f){$('mlist').innerHTML=P.map(function(p,i){return(!f||f.indexOf(i)>=0)?'<li><button type="button" data-i="'+i+'">'+p.n+'<em>'+p.k+', '+p.y+'</em></button></li>':''}).join('')}
 $('spheres').innerHTML=SP.map(function(s,i){return'<button type="button" data-s="'+i+'"><sup>'+(i+1)+'.</sup>'+s[0]+'</button>'}).join('');
 $('spheres').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var on=!b.classList.contains('on');
  [].forEach.call(this.children,function(x){x.classList.remove('on')});if(on){b.classList.add('on');deck(SP[+b.dataset.s][1])}else deck()});
@@ -228,9 +229,13 @@ document.addEventListener('keydown',function(e){if(!ov.classList.contains('on'))
 $('ml').onclick=function(e){e.preventDefault();try{navigator.clipboard.writeText(this.textContent)}catch(x){}var t=this.textContent;this.textContent='адрес скопирован';var a=this;setTimeout(function(){a.textContent=t},1400)};
 // дизайн-игра
 var B=$('board'),items=[["Л","t1"],["А","t2"],["Н","t3"],["С","t1"],["К","t2"],["А","t3"],["Я","t1"],["вера","t4"],["2 0 2 6","t4"]],inks=['#5d5a55','#2a3cff','#a8432f','#2d2c2a'],ii=0,els=[];
-function layout(mix){var w=B.clientWidth,h=B.clientHeight;els.forEach(function(el,i){var x,y;
- if(mix){x=Math.random()*(w-el.offsetWidth);y=Math.random()*(h-el.offsetHeight)}else{var n=7,step=Math.min(130,(w-80)/n);x=i<7?w/2-step*3.5+i*step:w/2+(i==7?-160:40);y=i<7?h/2-80:h/2+70}
- el.style.transform='translate('+Math.max(0,x)+'px,'+Math.max(0,y)+'px) rotate('+(mix?(Math.random()*40-20):0)+'deg)';el.dataset.x=Math.max(0,x);el.dataset.y=Math.max(0,y)})}
+function layout(mix){var w=B.clientWidth,h=B.clientHeight,nar=w<640;els.forEach(function(el,i){var x,y,ew=el.offsetWidth,eh=el.offsetHeight;
+ if(mix){x=Math.random()*Math.max(0,w-ew);y=Math.random()*Math.max(0,h-eh)}
+ else if(nar){var row=i<4?0:1,col=i<4?i:i-4,cnt=row?3:4,step=Math.min(86,(w-24)/4);
+  if(i<7){x=w/2-step*cnt/2+col*step+(step-ew)/2;y=row?h*.36:h*.08}else if(i<9){x=i==7?16:w-ew-16;y=h*.66}else{x=i==9?w*.18:w*.56;y=h*.72}}
+ else{var n=7,step=Math.min(130,(w-80)/n);x=i<7?w/2-step*3.5+i*step:w/2+(i==7?-160:40);y=i<7?h/2-80:h/2+70}
+ x=Math.min(Math.max(0,x),Math.max(0,w-ew));y=Math.min(Math.max(0,y),Math.max(0,h-eh))
+ el.style.transform='translate('+x+'px,'+y+'px) rotate('+(mix?(Math.random()*40-20):0)+'deg)';el.dataset.x=x;el.dataset.y=y})}
 items.forEach(function(t){var d=document.createElement('div');d.className='it '+t[1];d.textContent=t[0];B.appendChild(d);els.push(d)});
 [P[0],P[5]].forEach(function(p){var d=document.createElement('div');d.className='it';d.innerHTML=art(p);B.appendChild(d);els.push(d)});
 layout(false);window.addEventListener('resize',function(){layout(false)});
