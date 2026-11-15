@@ -3,13 +3,13 @@
 import importlib
 import sys
 
-from . import ai, app, bot, case, deck, shop
+from . import ai, app, bot, case, deck, free, shop, site
 
-KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck, "assist": ai, "apps": app, "design": case}
+KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck, "assist": ai, "apps": app, "design": case, "sites": site, "free": free}
 
 for name in sys.argv[1:]:
     part, _, mod_name = name.rpartition(".")
     part = part or "shops"
-    mod = importlib.import_module(f"tools.kit.{part}.{mod_name}")
+    mod = importlib.import_module(f"tools.kit.{"free_works" if part == "free" else part}.{mod_name}")
     d = KITS[part].build(mod.cfg())
     print("✓", d)
