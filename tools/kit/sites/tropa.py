@@ -113,7 +113,7 @@ def cfg() -> dict:
         "theme": {"bg": "#f5f3ee", "ink": "#1c2a20", "soft": "#4d5a50", "mut": "#86918a", "line": "#e2e0d6", "line2": "#cfcbbd",
                   "card": "#ffffff", "alt": "#ebe8de", "ac": "#2f5b3a", "aci": "#ffffff", "ac2": "#c0602c", "fh": "Bitter,serif",
                   "fb": '"Fira Sans",sans-serif', "hw": "700", "ht": "-.02em", "dk": "#1c2a20", "dki": "#f5f3ee", "rc": "16px", "rb": "10px",
-                  "shade": "linear-gradient(180deg,rgba(10,20,14,.1) 20%,rgba(10,20,14,.7))"},
+                  "shade": "linear-gradient(180deg,rgba(10,20,14,.18) 15%,rgba(10,20,14,.55) 48%,rgba(10,20,14,.78))"},
         "fonts": [("Bitter", "bitter", [600, 700], "normal"), ("Fira Sans", "fira-sans", [400, 600], "normal")],
         "images": IMAGES,
         "phone": ("+73852000000", "+7 3852 00-00-00"),
