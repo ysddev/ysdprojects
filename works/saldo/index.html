@@ -58,7 +58,7 @@ p{margin:0}
 .btn.g{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
 .btn.w{background:var(--bg);color:var(--ink)}
 .hero{padding:clamp(36px,6vw,88px) 0 clamp(40px,6vw,88px)}
-.hero .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.hero .g:not(.btn){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
 .hero h1{font-size:var(--h1s,clamp(42px,6vw,88px));margin:18px 0 22px}
 .hero h1 em{font-style:var(--emst,normal);color:var(--emc,var(--ac))}
 .lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:54ch;text-wrap:pretty}
@@ -72,7 +72,7 @@ p{margin:0}
 .hero.full{position:relative;padding:0;min-height:min(86vh,820px);display:grid;align-items:end;color:#fff;isolation:isolate}
 .hero.full .bgph{position:absolute;inset:0;z-index:-2}.hero.full .bgph img{width:100%;height:100%;object-fit:cover}
 .hero.full::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--shade,linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)))}
-.hero.full .g{grid-template-columns:minmax(0,1fr);padding:clamp(80px,12vw,160px) 0 clamp(36px,6vw,72px)}
+.hero.full .g:not(.btn){grid-template-columns:minmax(0,1fr);padding:clamp(80px,12vw,160px) 0 clamp(36px,6vw,72px)}
 .hero.full .lead{color:rgba(255,255,255,.86)}.hero.full .pts{color:rgba(255,255,255,.86)}
 .hero.full .btn.g{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
 .sec{padding:clamp(64px,9vw,120px) 0}
@@ -159,7 +159,7 @@ p{margin:0}
  .top .mnav.on{display:grid;gap:4px;padding:10px var(--gut) 18px;border-top:1px solid var(--line)}
  .mnav a{padding:12px 0;text-decoration:none;font-size:17px;border-bottom:1px solid var(--line)}
  .cards,.steps,.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:860px){.hero .g,.sh,.split{grid-template-columns:minmax(0,1fr)}.sh .lead{justify-self:start}
+@media (max-width:860px){.hero .g:not(.btn),.sh,.split{grid-template-columns:minmax(0,1fr)}.sh .lead{justify-self:start}
  .gal figure{grid-column:span 6!important}}
 @media (max-width:620px){.cards,.steps,.team{grid-template-columns:minmax(0,1fr)}.gal figure{grid-column:span 12!important}
  .acts .btn{flex:1 1 100%}.form .row2{grid-template-columns:1fr}.hero.full{min-height:auto}}
