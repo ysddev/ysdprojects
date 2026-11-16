@@ -214,16 +214,21 @@ body.home .nav .wrap{justify-content:center}
 .back:hover{color:var(--blue)}
 
 /* Галерея */
-.gallery{columns:3 280px;column-gap:20px}
-.g-item{display:block;width:100%;border:0;padding:0;background:none;text-align:left;break-inside:avoid;margin-bottom:28px}
+.g-group + .g-group{margin-top:80px}
+.g-group h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.15}
+.g-group > p{color:var(--graphite);max-width:70ch;margin:12px 0 28px;font-size:16px;line-height:1.6}
+.gallery{columns:3 280px;column-gap:16px}
+.g-item{display:block;width:100%;border:0;padding:0;background:none;text-align:left;break-inside:avoid;margin-bottom:16px;position:relative}
 .g-item img{width:100%;height:auto;background:var(--stone);transition:opacity .2s}
 .g-item:hover img{opacity:.88}
-.g-item span{display:block;font-size:14px;line-height:1.45;color:var(--graphite);padding-top:10px}
+.g-item .play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid #fff}
+.g-item .play::after{content:"";position:absolute;left:28px;top:21px;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}
 .lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;color:#fff}
 .lb.on{display:flex}
 .lb figure{display:flex;flex-direction:column;align-items:center;gap:16px}
-.lb img{max-width:88vw;max-height:78vh;width:auto;height:auto}
-.lb figcaption{max-width:88vw;text-align:center}
+.lb img,.lb video{max-width:88vw;max-height:74vh;width:auto;height:auto}
+.lb video{width:min(960px,88vw);background:#000}
+.lb figcaption{max-width:min(860px,88vw);text-align:center;line-height:1.5}
 .lb figcaption{font-size:15px;opacity:.75}
 .lb-b{position:absolute;width:52px;height:52px;border:1px solid rgba(255,255,255,.35);background:none;border-radius:50%;display:grid;place-items:center}
 .lb-b:hover{background:#fff;color:#000}
@@ -519,9 +524,9 @@ footer a:hover{opacity:1;text-decoration:underline}
   <div class="ph"><div class="wrap">
     <div class="crumb"><a href="#home">Главная</a> / Галерея</div>
     <h1>Галерея</h1><span class="tri"></span>
-    <p>Нажмите на фото, чтобы открыть крупно. Листать можно стрелками, свайпом или клавишами ← →.</p>
+    <p>Нажмите на фото, чтобы открыть крупно и прочитать подпись. Листать можно стрелками, свайпом или клавишами ← →.</p>
   </div></div>
-  <section class="band"><div class="wrap gallery" id="galleryGrid"></div></section>
+  <section class="band"><div class="wrap" id="galleryGrid"></div></section>
 </div>
 
 <!-- ============ Новости ============ -->
@@ -583,7 +588,7 @@ footer a:hover{opacity:1;text-decoration:underline}
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
   <button class="lb-b lb-x" id="lbX" aria-label="Закрыть"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
   <button class="lb-b lb-prev" id="lbP" aria-label="Предыдущее фото"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3 5 8l5 5"/></svg></button>
-  <figure><img id="lbI" alt=""><figcaption id="lbC"></figcaption></figure>
+  <figure><img id="lbI" alt=""><video id="lbV" controls playsinline preload="metadata" hidden></video><figcaption id="lbC"></figcaption></figure>
   <button class="lb-b lb-next" id="lbN" aria-label="Следующее фото"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></button>
 </div>
 
@@ -602,6 +607,9 @@ const PROJECTS = [
   {id:4,title:'Выставки и встречи',short:'Фотовыставки, вечера памяти, встречи с сослуживцами.'},
 ];
 /* Фотографии из материалов фонда */
+const CAP_PL='19 декабря 2024 года Президент Российской Федерации Владимир Путин на «Прямой линии» попросил развернуть знамя 155-й отдельной гвардейской бригады морской пехоты';
+const CAP_AW='По поручению Верховного главнокомандующего Вооружёнными силами Российской Федерации Владимира Владимировича Путина 25 октября 2023 года министр обороны РФ Сергей Шойгу вручил медаль «Золотая Звезда» Героя России командиру отдельной 155-й бригады морской пехоты Тихоокеанского флота полковнику Михаилу Гудкову';
+const CAP_MN='Торжественная церемония открытия памятника дважды Герою России генерал-майору Михаилу Гудкову прошла на территории мемориального комплекса «Пантеон защитников Отечества»';
 const PHOTOS = [
   {src:'assets/bio/roditeli.jpg', cap:'Михаил Гудков с родителями. Из личного архива'},
   {src:'assets/bio/ded.jpg', cap:'Дедушка Михаила Гудкова. Из личного архива'},
@@ -611,6 +619,25 @@ const PHOTOS = [
   {src:'assets/bio/doska.jpg', cap:'Открытие памятной доски в филиале Нахимовского военно-морского училища в Мариуполе'},
   {src:'assets/bio/byust.jpg', cap:'Открытие бюста Михаила Гудкова в филиале Нахимовского военно-морского училища в Мариуполе'},
   {src:'assets/bio/portrait-camo.jpg?v=2', cap:'Михаил Евгеньевич Гудков'},
+  {src:'assets/gallery/pryamaya-liniya-2024-poster.jpg', video:'assets/gallery/pryamaya-liniya-2024.mp4', cap:CAP_PL},
+  {src:'assets/gallery/pryamaya-liniya-2024.jpg', cap:CAP_PL},
+  {src:'assets/gallery/vruchenie-2023-1.jpg', cap:CAP_AW},
+  {src:'assets/gallery/vruchenie-2023-2.jpg', cap:CAP_AW},
+  {src:'assets/gallery/vruchenie-2023-3.jpg', cap:CAP_AW},
+  {src:'assets/gallery/vruchenie-2023-4.jpg', cap:CAP_AW},
+  {src:'assets/gallery/vruchenie-2023-5.jpg', cap:CAP_AW},
+  {src:'assets/gallery/vruchenie-2023-6.jpg', cap:CAP_AW},
+  {src:'assets/gallery/pamyatnik-01.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-02.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-03.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-04.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-05.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-06.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-07.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-08.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-09.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-10.jpg', cap:CAP_MN},
+  {src:'assets/gallery/pamyatnik-11.jpg', cap:CAP_MN},
 ];
 
 const esc = s => s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -621,7 +648,14 @@ const newsRow = n => `<li><a href="#news-${n.id}"><time datetime="${n.date}">${f
 document.getElementById('homeNews').innerHTML = NEWS.slice(0,3).map(newsRow).join('');
 document.getElementById('newsList').innerHTML = NEWS.map(newsRow).join('');
 document.getElementById('projList').innerHTML = PROJECTS.map(p=>`<li><a href="#project-${p.id}"><h3>${esc(p.title)}</h3><p>${esc(p.short)}</p>${arrow}</a></li>`).join('');
-document.getElementById('galleryGrid').innerHTML = PHOTOS.map((p,i)=>`<button class="g-item" data-ph="${i}"><img src="${p.src}" alt="${esc(p.cap)}" loading="lazy"><span>${esc(p.cap)}</span></button>`).join('');
+const GROUPS = [
+  {title:'Открытие памятника', text:CAP_MN, items:[16,17,18,19,20,21,22,23,24,25,26]},
+  {title:'Знамя бригады на «Прямой линии»', text:CAP_PL, items:[8,9]},
+  {title:'Вручение «Золотой Звезды»', text:CAP_AW, items:[10,11,12,13,14,15]},
+  {title:'Память в Мариуполе', text:'Памятная доска и бюст Михаила Гудкова в филиале Нахимовского военно-морского училища в Мариуполе.', items:[5,6]},
+  {title:'Из семейного архива', text:'Детство, учёба, служба и награды.', items:[7,0,1,2,3,4]},
+];
+document.getElementById('galleryGrid').innerHTML = GROUPS.map(g=>`<section class="g-group"><h2>${esc(g.title)}</h2><p>${esc(g.text)}</p><div class="gallery">${g.items.map(i=>{const p=PHOTOS[i]; return `<button class="g-item${p.video?' is-video':''}" data-ph="${i}" aria-label="${p.video?'Смотреть видео':'Открыть фото'}"><img src="${p.src}" alt="${esc(g.title)}" loading="lazy">${p.video?'<i class="play" aria-hidden="true"></i>':''}</button>`}).join('')}</div></section>`).join('');
 document.querySelectorAll('.thumb').forEach(b=>{ const p=PHOTOS[+b.dataset.ph]; const img=b.querySelector('img'); img.src=p.src; img.alt=p.cap; b.querySelector('span').textContent=p.cap.replace(/\. Из личного архива$/,''); });
 document.querySelectorAll('.projects i').forEach(i=>{i.style.cssText='font-style:normal;justify-self:end;width:28px;height:28px;border:1px solid #000;border-radius:50%;display:grid;place-items:center'; i.querySelector('svg').style.width='12px';});
 
@@ -671,7 +705,12 @@ route();
 /* Галерея */
 const lb=document.getElementById('lb'), lbI=document.getElementById('lbI'), lbC=document.getElementById('lbC');
 let cur=0, lastFocus=null;
-const show=i=>{cur=(i+PHOTOS.length)%PHOTOS.length; lbI.src=PHOTOS[cur].src; lbC.textContent=PHOTOS[cur].cap;};
+const lbV=document.getElementById('lbV');
+const show=i=>{cur=(i+PHOTOS.length)%PHOTOS.length; const p=PHOTOS[cur];
+  lbV.pause();
+  if(p.video){ lbI.hidden=true; lbV.hidden=false; lbV.poster=p.src; if(lbV.getAttribute('src')!==p.video) lbV.src=p.video; }
+  else { lbV.hidden=true; lbI.hidden=false; lbI.src=p.src; }
+  lbC.textContent=p.cap;};
 document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-ph]');
   if(b){ lastFocus=b; show(+b.dataset.ph); lb.classList.add('on'); document.body.style.overflow='hidden'; document.getElementById('lbX').focus(); return; }
@@ -679,7 +718,7 @@ document.addEventListener('click',e=>{
   if(r){ const d=document.getElementById('sources'); d.open=true; const li=document.getElementById('src-'+r.dataset.src);
     document.querySelectorAll('.sources li.hl').forEach(x=>x.classList.remove('hl')); if(li){ li.classList.add('hl'); li.scrollIntoView({block:'center',behavior:'smooth'}); } }
 });
-const close=()=>{lb.classList.remove('on'); document.body.style.overflow=''; lastFocus&&lastFocus.focus();};
+const close=()=>{lbV.pause(); lb.classList.remove('on'); document.body.style.overflow=''; lastFocus&&lastFocus.focus();};
 document.getElementById('lbX').onclick=close;
 document.getElementById('lbP').onclick=()=>show(cur-1);
 document.getElementById('lbN').onclick=()=>show(cur+1);
