@@ -59,16 +59,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* фальшивого курсива у Forum нет — даём лёгкий наклон */
 .plate .motto{font-style:normal;transform:skewX(-8deg);transform-origin:left}
 
-.photo-slot{justify-self:end;width:min(380px,100%);aspect-ratio:4/5;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;padding:34px 28px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.photo-slot .top{font-size:10.5px;letter-spacing:.06em;opacity:.8;display:flex;align-items:center;gap:10px;text-transform:uppercase}
-.photo-slot .top::before,.photo-slot .top::after{content:"";width:18px;height:1px;background:#fff;opacity:.7}
-.photo-slot .wm{font-size:96px;margin:30px 0 26px}
-.photo-slot .bottom{font-family:var(--serif);font-size:15px;letter-spacing:.24em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.35);padding-top:12px;margin-top:8px}
-.photo-slot small{font-size:12px;opacity:.5;margin-top:4px}
-
+.portrait-hero{justify-self:end;width:min(400px,100%);background:#fff;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.portrait-hero img{width:100%;height:auto}
 @media (prefers-reduced-motion:no-preference){
   .plate{animation:enter .9s cubic-bezier(.2,.7,.2,1) both .1s}
-  .photo-slot{animation:enter .9s cubic-bezier(.2,.7,.2,1) both .3s}
+  .portrait-hero{animation:enter .9s cubic-bezier(.2,.7,.2,1) both .3s}
   @keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 }
 
@@ -76,8 +71,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav{position:sticky;top:0;z-index:40;height:var(--navh);background:#000;color:#fff}
 .nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand .wm{font-size:24px;transform:scaleY(1.45)}
-.brand span:last-child{font-size:12px;line-height:1.25;opacity:.7;max-width:150px}
+.logo-nav{height:42px;width:auto}
 .menu{list-style:none;display:flex;height:100%}
 .menu a{display:flex;align-items:center;height:100%;padding:0 15px;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:.78;position:relative}
 .menu a:hover{opacity:1}
@@ -255,7 +249,7 @@ form.fb h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1
 footer{background:#000;color:#fff;padding:80px 0 0}
 .f-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:72px;align-items:start}
 .f-mark{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
-.f-mark .wm{font-size:88px;transform-origin:left center;margin:26px 0 30px}
+.logo-foot{width:min(340px,100%);height:auto}
 .f-mark p{font-size:14px;opacity:.65;max-width:34ch}
 footer h4{font-weight:500;font-size:14px;opacity:.5;margin-bottom:14px}
 footer ul{list-style:none;display:grid;gap:8px}
@@ -281,7 +275,7 @@ footer a:hover{opacity:1;text-decoration:underline}
   .menu a{height:auto;padding:20px 0;font-size:17px}
   .menu a[aria-current="page"]::after{left:0;right:auto;width:48px;bottom:12px}
   .hero-body{grid-template-columns:1fr;padding-bottom:28px}
-  .photo-slot{display:none}
+  .portrait-hero{order:-1;justify-self:center;width:min(260px,64%);padding:6px;margin-top:4px}
   .plate{padding:30px 26px 32px}
   .hero::after{background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.35))}
   .words{grid-template-columns:1fr;gap:32px}
@@ -320,13 +314,12 @@ footer a:hover{opacity:1;text-decoration:underline}
   .chap p{font-size:17px}
   .f2{grid-template-columns:1fr}
   .lb-prev,.lb-next{top:auto;bottom:24px;transform:none}
-  .f-mark .wm{font-size:68px}
 }
 </style>
 </head>
 <body class="home">
 
-<div class="demo" id="demo">Демо для согласования. Портрет героя, тексты проектов и контакты — после получения материалов от фонда.
+<div class="demo" id="demo">Демо для согласования. Тексты проектов и контакты — после получения материалов от фонда.
   <button aria-label="Скрыть плашку" id="demoX">×</button>
 </div>
 
@@ -374,18 +367,15 @@ footer a:hover{opacity:1;text-decoration:underline}
       <h2>Первый Дважды Герой России</h2>
       <p class="motto">Быть Воином – Жить Вечно!</p>
     </div>
-    <!-- Место под фото героя. До получения оригинала стоит знак фонда -->
-    <div class="photo-slot" aria-label="Знак фонда «Варяг»">
-      <div class="top">Фонд имени М.Е. Гудкова</div>
-      <span class="wm">Варяг</span>
-      <div class="bottom">Быть воином – жить вечно</div>
-    </div>
+    <figure class="portrait-hero">
+      <img src="assets/portrait.jpg" alt="Гвардии генерал-майор Михаил Евгеньевич Гудков" width="506" height="616">
+    </figure>
   </div>
 </header>
 
 <nav class="nav" id="nav" aria-label="Основное меню">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="На главную"><span class="wm">Варяг</span><span>Фонд имени М.Е.&nbsp;Гудкова</span></a>
+    <a class="brand" href="#home" aria-label="На главную"><img class="logo-nav" src="assets/logo-varyag-mark.png" alt="Фонд имени Дважды Героя Российской Федерации М.Е. Гудкова «Варяг»"></a>
     <ul class="menu" id="menu">
       <li><a href="#home" data-k="home">Главная</a></li>
       <li><a href="#bio" data-k="bio">Биография</a></li>
@@ -553,7 +543,7 @@ footer a:hover{opacity:1;text-decoration:underline}
     <h1>Галерея</h1><span class="tri"></span>
     <p>Нажмите на фото, чтобы открыть крупно. Листать можно стрелками, свайпом или клавишами ← →.</p>
   </div></div>
-  <section class="band"><div class="wrap gallery" id="gallery"></div></section>
+  <section class="band"><div class="wrap gallery" id="galleryGrid"></div></section>
 </div>
 
 <!-- ============ Новости ============ -->
@@ -603,8 +593,7 @@ footer a:hover{opacity:1;text-decoration:underline}
   <div class="wrap">
     <div class="f-top">
       <div class="f-mark">
-        <span class="wm">Варяг</span>
-        <p>Фонд Имени Дважды Героя Российской Федерации М.Е.&nbsp;Гудкова</p>
+        <img class="logo-foot" src="assets/logo-varyag.png" alt="Фонд имени Дважды Героя Российской Федерации М.Е. Гудкова «Варяг»">
       </div>
       <div><h4>Разделы</h4><ul><li><a href="#bio">Биография</a></li><li><a href="#fund">Работа фонда</a></li><li><a href="#projects">Наши проекты</a></li><li><a href="#news">Новости</a></li><li><a href="#gallery">Галерея</a></li></ul></div>
       <div><h4>Связаться</h4><ul><li><a href="#contacts">Контакты</a></li><li><a href="#contacts">Написать в фонд</a></li></ul></div>
@@ -653,7 +642,7 @@ const newsRow = n => `<li><a href="#news-${n.id}"><time datetime="${n.date}">${f
 document.getElementById('homeNews').innerHTML = NEWS.slice(0,3).map(newsRow).join('');
 document.getElementById('newsList').innerHTML = NEWS.map(newsRow).join('');
 document.getElementById('projList').innerHTML = PROJECTS.map(p=>`<li><a href="#project-${p.id}"><h3>${esc(p.title)}</h3><p>${esc(p.short)}</p>${arrow}</a></li>`).join('');
-document.getElementById('gallery').innerHTML = PHOTOS.map((p,i)=>`<button class="g-item" data-ph="${i}"><img src="${p.src}" alt="${esc(p.cap)}" loading="lazy"><span>${esc(p.cap)}</span></button>`).join('');
+document.getElementById('galleryGrid').innerHTML = PHOTOS.map((p,i)=>`<button class="g-item" data-ph="${i}"><img src="${p.src}" alt="${esc(p.cap)}" loading="lazy"><span>${esc(p.cap)}</span></button>`).join('');
 document.querySelectorAll('.thumb').forEach(b=>{ const p=PHOTOS[+b.dataset.ph]; const img=b.querySelector('img'); img.src=p.src; img.alt=p.cap; b.querySelector('span').textContent=p.cap.replace(/\. Из личного архива$/,''); });
 document.querySelectorAll('.projects i').forEach(i=>{i.style.cssText='font-style:normal;justify-self:end;width:28px;height:28px;border:1px solid #000;border-radius:50%;display:grid;place-items:center'; i.querySelector('svg').style.width='12px';});
 
