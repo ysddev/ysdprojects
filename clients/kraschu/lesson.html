@@ -80,10 +80,17 @@ p{margin:0}
 .list{margin-top:32px;padding:22px;border-radius:22px;border:1px solid #eee7dd}
 .list h3{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
 .list ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+.list ul.cols{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));column-gap:28px}
+.list+.list{margin-top:16px}
+.list h4{font-size:var(--step-small);text-transform:uppercase;letter-spacing:.08em;color:var(--l7);margin:18px 0 8px;font-weight:600}
+.list h4:first-of-type{margin-top:4px}
+.list p{color:var(--muted);margin:0 0 10px}
 .tg{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:18px;background:var(--surface);font-size:var(--step-small);flex-wrap:wrap}
 .tg a{display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;font-weight:600;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #e3d9cc;min-height:44px}
 @media (hover:hover) and (pointer:fine){.ch li button:not([aria-current=true]):hover{background:var(--l10)}.tg a:hover{background:var(--l10)}}
-@media (max-width:900px){.les{grid-template-columns:1fr}}
+.side{grid-column:2;grid-row:1/span 2;align-self:start}.mats{grid-column:1}
+.mats .list:first-child{margin-top:0}
+@media (max-width:900px){.les{grid-template-columns:1fr}.side,.mats{grid-column:auto;grid-row:auto}}
 </style>
 </head>
 <body>
@@ -93,19 +100,35 @@ p{margin:0}
 <main class="les">
   <section>
     <div class="player rv"><video id="v" src="video/nadezhda.mp4" poster="video/nadezhda.webp" controls playsinline preload="metadata"></video></div>
-    <h1 class="rv" style="--d:1" id="title">Осветление без обламывания</h1>
-    <p class="now rv" style="--d:2" id="desc">Мой безопасный способ блонда.</p>
-    <div class="list rv" style="--d:3"><h3>Список средств под ваш цвет</h3><ul><li>[осветлитель и оксид]</li><li>[тонер под ваш исходный тон]</li><li>[уход после окрашивания]</li><li>Кисть, чаша, перчатки, зажимы</li></ul></div>
+    <h1 class="rv" style="--d:1" id="title">Приветствие</h1>
+    <p class="now rv" style="--d:2" id="desc">Знакомство и что тебя ждёт в уроке.</p>
   </section>
   <aside class="side">
     <h2 class="rv">Шаги урока</h2>
     <ol class="ch" id="ch"></ol>
     <div class="tg rv" style="--d:7"><span>Удобнее смотреть в Telegram?</span><a href="#" id="tg">Получить также в Telegram</a></div>
   </aside>
+  <div class="mats">
+    <div class="list rv" style="--d:3"><h3>Инструменты и продукты</h3><ul class="cols"><li>Одноразовый пеньюар</li><li>Фен</li><li>Зажимы</li><li>Расчёска-хвостик для разделения</li><li>Фольга парикмахерская</li><li>Весы (кухонные)</li><li>Чашка пластиковая глубокая</li><li>Чашка пластиковая маленькая</li><li>Блендер с насадкой-венчиком</li><li>Кисть для нанесения</li><li>Осветляющий порошок</li><li>Оксид 12%</li></ul></div>
+    <div class="list rv" style="--d:4" id="formulas"><h3>Формулы</h3>
+      <h4>Осветление</h4>
+      <p>10&nbsp;г осветляющего порошка смешать с&nbsp;50&nbsp;г оксида 12%. Взбить блендером-венчиком до нежной и&nbsp;плотной массы. Использовать массу в&nbsp;течение 20&nbsp;минут.</p>
+      <p>После нанесения последней пряди выдержать 60&nbsp;минут. Смыть краситель с&nbsp;волос, вымыть голову шампунем два раза. Нанести бальзам, выдержать <span style="white-space:nowrap">2–3&nbsp;минуты</span>, смыть прохладной водой.</p>
+      <p>Промокнуть волосы полотенцем, нанести несмываемый спрей-кондиционер и&nbsp;масло для волос.</p>
+      <h4>Тонирование</h4>
+      <p>Вымыть голову шампунем два раза. Нанести маску глубокого питания или увлажнения.</p>
+      <p>Кислотный тонер Matrix желаемого оттенка смешать с&nbsp;оксидом 1,5% в&nbsp;пропорции 1:1. Нанести на&nbsp;влажные волосы, прочесать расчёской для влажных волос Love My Hair.</p>
+      <p>Выдержать 20&nbsp;минут. Смыть достаточным количеством прохладной воды. Вымыть волосы шампунем для окрашенных волос. Нанести бальзам, выдержать <span style="white-space:nowrap">2–3&nbsp;минуты</span>.</p>
+    </div>
+  </div>
 </main>
 <script>
-var steps=[["Осветление без обламывания","Мой безопасный способ блонда","var(--l5)"],["Подбор средств","Что купить под ваш исходный цвет","var(--l7)"],
-["Нанесение самой себе","Корни и длина, сзади тоже","var(--l8)"],["Тонирование","Как убрать желтизну","var(--l9)"],["Уход после","Чтобы длина сохранилась","var(--l10)"],["Ошибки","Что ломает волосы и как этого избежать","#fff"]];
+// шаги — по видео, которые Надежда присылает по порядку (16.11): приветствие, инструменты, разделение, приготовление.
+// Остальные шаги — по плану урока, пока видео не пришли
+var steps=[["Приветствие","Знакомство и что тебя ждёт в уроке","var(--l3)"],["Инструменты и продукты","Что подготовить перед окрашиванием","var(--l5)"],
+["Разделение","Как разделить волосы на зоны","var(--l7)"],["Приготовление красящего продукта","Осветлитель по формуле: взвешиваем и взбиваем","var(--l8)"],
+["Нанесение самой себе","Корни и длина, сзади тоже","var(--l9)"],["Тонирование","Как убрать желтизну","var(--l10)"],["Уход после","Чтобы длина сохранилась","#faf4ea"],
+["Ошибки","Что ломает волосы и как этого избежать","#fff"]];
 var ch=document.getElementById('ch');
 steps.forEach(function(s,i){var li=document.createElement('li');li.className='rv';li.style.setProperty('--d',i+1);
   li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s[2]+(s[2]==='#fff'?';border:1px solid #e3d9cc':'')+'"></span><span>'+(i+1)+'. '+s[0]+'<small>'+s[1]+'</small></span><time>[мин]</time></button>';
