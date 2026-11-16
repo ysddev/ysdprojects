@@ -1,0 +1,63 @@
+# Админка сайта фонда: Decap CMS.
+# Вход — по почте и паролю (Netlify Identity), правки сохраняются в репозиторий, сайт обновляется сам.
+# Пути ниже — от корня репозитория. Если сайт переедет в отдельный репозиторий,
+# убрать префикс clients/fond-gudkova/ во всех путях.
+
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ru
+site_url: https://ysdprojects.space/clients/fond-gudkova/
+display_url: https://ysdprojects.space/clients/fond-gudkova/
+logo_url: https://ysdprojects.space/clients/fond-gudkova/assets/logo-varyag-black.png
+
+media_folder: clients/fond-gudkova/assets/uploads
+public_folder: assets/uploads
+
+collections:
+  - name: content
+    label: Содержимое сайта
+    editor:
+      preview: false
+    files:
+      - name: news
+        label: Новости
+        file: clients/fond-gudkova/content/news.json
+        format: json
+        fields:
+          - name: items
+            label: Новости
+            label_singular: новость
+            widget: list
+            add_to_top: true
+            summary: "{{fields.date | date('DD.MM.YYYY')}} — {{fields.title}}"
+            fields:
+              - { name: title, label: Заголовок, widget: string }
+              - { name: date, label: Дата, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false }
+              - { name: image, label: "Фото (необязательно)", widget: image, required: false }
+              - { name: text, label: "Текст (абзацы — через пустую строку)", widget: text }
+
+      - name: gallery
+        label: Галерея
+        file: clients/fond-gudkova/content/gallery.json
+        format: json
+        fields:
+          - name: groups
+            label: Разделы галереи
+            label_singular: раздел
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Название раздела (событие)", widget: string }
+              - { name: text, label: "Описание события", widget: text, required: false }
+              - name: items
+                label: Фото
+                label_singular: фото
+                widget: list
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: image, label: Фото, widget: image }
+                  - { name: caption, label: "Подпись (если пусто — берётся описание события)", widget: string, required: false }
+                  - { name: video, label: "Видео (необязательно, mp4; тогда фото — обложка)", widget: file, required: false }
