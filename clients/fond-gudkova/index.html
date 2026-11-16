@@ -21,7 +21,7 @@
   --white:#fff; --blue:#0039a6; --red:#d52b1e; --black:#000;
   --stone:#ecedef; --stone-2:#dfe1e5; --graphite:#555a64; --rule:#cfd2d8;
   --serif:Forum, 'Times New Roman', serif; --sans:Golos, 'Segoe UI', system-ui, sans-serif; --wm:Oswald, 'Arial Narrow', sans-serif;
-  --navh:60px; --w:1200px;
+  --navh:76px; --w:1200px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
@@ -69,11 +69,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-nav{height:42px;width:auto}
-.menu{list-style:none;display:flex;height:100%}
-.menu a{display:flex;align-items:center;height:100%;padding:0 15px;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:.78;position:relative}
-.menu a:hover{opacity:1}
-.menu a[aria-current="page"]{opacity:1}
-.menu a[aria-current="page"]::after{content:"";position:absolute;left:15px;right:15px;bottom:0;height:3px;background:linear-gradient(90deg,#fff 0 33.3%,var(--blue) 0 66.6%,var(--red) 0)}
+.menu{list-style:none;display:flex;align-items:center;gap:12px;height:100%}
+/* каждый пункт — кнопка, рамка в цветах флага: белый сверху, синий по бокам, красный снизу */
+.menu a{display:flex;align-items:center;height:46px;padding:0 20px;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+  border:2px solid transparent;border-image:linear-gradient(180deg,#fff 0 33.3%,var(--blue) 33.3% 66.6%,var(--red) 66.6%) 1;transition:background .2s,color .2s}
+.menu a:hover{background:rgba(255,255,255,.12)}
+.menu a[aria-current="page"]{background:#fff;color:#000}
 body.home .brand{display:none}
 body.home .nav .wrap{justify-content:center}
 .burger{display:none;width:44px;height:44px;background:none;border:0;align-items:center;justify-content:center}
@@ -256,21 +257,20 @@ footer a:hover{opacity:1;text-decoration:underline}
 
 /* ---------- Адаптив ---------- */
 @media (max-width:1060px){
-  .menu a{padding:0 10px;letter-spacing:.08em;font-size:13px}
-  .menu a[aria-current="page"]::after{left:10px;right:10px}
+  .menu{gap:8px}
+  .menu a{padding:0 12px;letter-spacing:.04em;font-size:14px;height:42px}
   .bio2{grid-template-columns:220px minmax(0,1fr);gap:48px}
   .contacts{gap:48px}
 }
 @media (max-width:900px){
-  :root{--navh:56px}
+  :root{--navh:60px}
   .burger{display:flex}
   body.home .brand{display:flex}
   body.home .nav .wrap{justify-content:space-between}
   .menu{position:fixed;top:var(--navh);left:0;right:0;bottom:0;background:#000;flex-direction:column;height:auto;padding:12px 24px 40px;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility 0s .3s;overflow:auto}
   .nav.open .menu{transform:none;visibility:visible;transition:transform .3s}
-  .menu li{border-bottom:1px solid rgba(255,255,255,.12)}
-  .menu a{height:auto;padding:20px 0;font-size:17px}
-  .menu a[aria-current="page"]::after{left:0;right:auto;width:48px;bottom:12px}
+  .menu{gap:12px;align-items:stretch;justify-content:flex-start}
+  .menu a{height:56px;padding:0 20px;font-size:17px}
   .hero-body{grid-template-columns:1fr;padding-bottom:28px}
   .hero{grid-template-rows:auto 1fr}
   .hero-bg{position:relative;grid-row:1;height:auto;aspect-ratio:4/3.4;object-position:78% 0;z-index:-2}
@@ -346,10 +346,10 @@ footer a:hover{opacity:1;text-decoration:underline}
     <ul class="menu" id="menu">
       <li><a href="#home" data-k="home">Главная</a></li>
       <li><a href="#bio" data-k="bio">Биография</a></li>
-      <li><a href="#gallery" data-k="gallery">Галерея</a></li>
-      <li><a href="#contacts" data-k="contacts">Контакты</a></li>
       <li><a href="#fund" data-k="fund">Работа фонда</a></li>
       <li><a href="#projects" data-k="projects">Наши проекты</a></li>
+      <li><a href="#gallery" data-k="gallery">Галерея</a></li>
+      <li><a href="#contacts" data-k="contacts">Контакты</a></li>
     </ul>
     <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i></button>
   </div>
@@ -361,24 +361,12 @@ footer a:hover{opacity:1;text-decoration:underline}
   <section class="band">
     <div class="wrap words">
       <blockquote>
-        <p>Фонд — это не просто организация, это продолжение жизни Михаила в делах, которые совершаются в его честь.</p>
+        <p>Фонд — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
       </blockquote>
       <aside>
         <p>Мы надеемся, что через фонд удастся сохранить память о Михаиле и его подвиге, а также помочь тем, кто нуждается в поддержке, как это делал он.</p>
         <a class="btn" href="#fund">О работе фонда</a>
       </aside>
-    </div>
-  </section>
-
-  <section class="band stone">
-    <div class="wrap">
-      <h2 class="h-sec">Разделы</h2>
-      <ul class="index">
-        <li><a href="#bio"><b>Биография</b><span>Жизненный путь, служба и награды Михаила Евгеньевича</span><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg></i></a></li>
-        <li><a href="#fund"><b>Работа фонда</b><span>Чем занимается фонд и кому помогает</span><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg></i></a></li>
-        <li><a href="#projects"><b>Наши проекты</b><span>Дела, которые фонд ведёт в честь героя</span><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg></i></a></li>
-        <li><a href="#gallery"><b>Галерея</b><span>Фотографии из семейного архива и с мероприятий фонда</span><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg></i></a></li>
-      </ul>
     </div>
   </section>
 
@@ -479,7 +467,7 @@ footer a:hover{opacity:1;text-decoration:underline}
     <h1>Работа фонда</h1><span class="tri"></span>
   </div></div>
   <section class="band"><div class="wrap">
-    <p class="fund-lead">Фонд — это не просто организация, это продолжение жизни Михаила в делах, которые совершаются в его честь.</p>
+    <p class="fund-lead">Фонд — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
     <p class="fund-text">Мы надеемся, что через фонд удастся сохранить память о Михаиле и его подвиге, а также помочь тем, кто нуждается в поддержке, как это делал он.</p>
     <div class="dirs">
       <article><h3>Память о герое</h3><p>Рассказываем о Михаиле Евгеньевиче, его службе и подвиге, собираем фотографии и воспоминания.</p></article>
@@ -562,7 +550,7 @@ footer a:hover{opacity:1;text-decoration:underline}
       <div class="f-mark">
         <img class="logo-foot" src="assets/logo-varyag.png" alt="Фонд имени Дважды Героя Российской Федерации М.Е. Гудкова «Варяг»">
       </div>
-      <div><h4>Разделы</h4><ul><li><a href="#bio">Биография</a></li><li><a href="#fund">Работа фонда</a></li><li><a href="#projects">Наши проекты</a></li><li><a href="#news">Новости</a></li><li><a href="#gallery">Галерея</a></li></ul></div>
+      <div><h4>Разделы</h4><ul><li><a href="#bio">Биография</a></li><li><a href="#fund">Работа фонда</a></li><li><a href="#projects">Наши проекты</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#news">Новости</a></li></ul></div>
       <div><h4>Связаться</h4><ul><li><a href="#contacts">Контакты</a></li><li><a href="#contacts">Написать в фонд</a></li></ul></div>
     </div>
     <div class="f-bot"><span>© 2026 Фонд имени М.Е. Гудкова</span><a href="#contacts">Политика конфиденциальности</a></div>
