@@ -45,7 +45,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hero{position:relative;min-height:calc(100svh - var(--navh) - var(--demoh,0px));min-height:max(640px,calc(100svh - var(--navh) - var(--demoh,0px)));color:#fff;overflow:hidden;isolation:isolate;display:grid;grid-template-rows:1fr}
 .hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 45%,rgba(0,0,0,0) 60%)}
-.hero-emblem{width:86px;margin:0 0 22px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
+.hero-emblem{width:86px;margin:0 auto 22px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
 .hero-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:40px 0 48px}
 .plate{background:rgba(0,0,0,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:40px 48px 44px;max-width:660px}
 .plate .eyebrow{font-family:var(--serif);font-size:22px;letter-spacing:.3em;text-transform:uppercase}
@@ -260,6 +260,33 @@ form.fb h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1
 
 /* Подвал */
 footer{background:#000;color:#fff;padding:80px 0 0}
+.logo-b{display:none}
+/* Вариант «Красный»: красная заливка меню и подвала, в подвале чёрный логотип и текст */
+body[data-theme="red"] .nav{background:var(--red)}
+body[data-theme="red"] .menu a[aria-current="page"]{background:#fff;color:#000}
+body[data-theme="red"] .menu a:hover{background:rgba(0,0,0,.18)}
+body[data-theme="red"] footer{background:var(--red);color:#000}
+body[data-theme="red"] footer .logo-w{display:none}
+body[data-theme="red"] footer .logo-b{display:block}
+body[data-theme="red"] .f-bot{border-top-color:rgba(0,0,0,.25);opacity:.8}
+body[data-theme="red"] footer h4{opacity:.7}
+/* Вариант «Георгиевская лента»: полосы ленты фоном меню и подвала */
+body[data-theme="lenta"] .nav{background:linear-gradient(180deg,#000 0 20%,#f39200 20% 40%,#000 40% 60%,#f39200 60% 80%,#000 80%)}
+body[data-theme="lenta"] .menu a{background:#000}
+body[data-theme="lenta"] .menu a[aria-current="page"]{background:#fff;color:#000}
+body[data-theme="lenta"] .brand{background:#000;padding:4px 10px}
+body[data-theme="lenta"] footer{background:linear-gradient(180deg,#000 0 20%,#f39200 20% 40%,#000 40% 60%,#f39200 60% 80%,#000 80%);padding:56px 0}
+body[data-theme="lenta"] footer > .wrap{background:#000;padding:48px 48px 0}
+@media (max-width:900px){
+  body[data-theme="red"] .menu,body[data-theme="lenta"] .menu{background:#000}
+  body[data-theme="lenta"] footer > .wrap{padding:32px 24px 0}
+}
+/* Переключатель вариантов — только для демо */
+.theme-pick{position:fixed;left:16px;bottom:16px;z-index:60;background:#fff;color:#111;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:10px 12px;font-size:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:calc(100vw - 32px)}
+.theme-pick span{font-weight:600}
+.theme-pick button{border:1px solid #c9ccd3;background:#fff;padding:6px 10px;font-size:13px}
+.theme-pick button[aria-pressed="true"]{background:#000;color:#fff;border-color:#000}
+@media (max-width:600px){.theme-pick{left:8px;right:8px;bottom:8px;padding:6px 8px;gap:6px;font-size:12px;flex-wrap:nowrap}.theme-pick button{padding:5px 7px;font-size:12px;white-space:nowrap}}
 .f-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:72px;align-items:start}
 .f-mark{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
 .logo-foot{width:min(340px,100%);height:auto}
@@ -288,8 +315,9 @@ footer a:hover{opacity:1;text-decoration:underline}
   .menu a{height:56px;padding:0 20px;font-size:17px}
   .hero-body{grid-template-columns:1fr;padding-bottom:28px}
   .hero{grid-template-rows:auto 1fr}
-  .hero-bg{position:relative;grid-row:1;height:auto;aspect-ratio:4/3.4;object-position:78% 0;z-index:-2}
-  .hero-body{grid-row:2;margin-top:-56px}
+  .hero-bg{position:relative;grid-row:1;height:min(96vw,520px);aspect-ratio:auto;object-position:80% 12%;z-index:-2}
+  .hero-body{grid-row:2;margin-top:0;padding-top:0}
+  .plate{margin-top:-14px}
   .plate{padding:30px 26px 32px}
   .hero{background:#0a1430}
   .hero::after{display:none}
@@ -576,7 +604,8 @@ footer a:hover{opacity:1;text-decoration:underline}
   <div class="wrap">
     <div class="f-top">
       <div class="f-mark">
-        <img class="logo-foot" src="assets/logo-varyag.png" alt="Фонд имени Дважды Героя Российской Федерации М.Е. Гудкова «Варяг»">
+        <img class="logo-foot logo-w" src="assets/logo-varyag.png" alt="">
+        <img class="logo-foot logo-b" src="assets/logo-varyag-black.png" alt="Фонд имени Дважды Героя Российской Федерации М.Е. Гудкова «Варяг»">
       </div>
       <div><h4>Разделы</h4><ul><li><a href="#bio">Биография</a></li><li><a href="#fund">Работа фонда</a></li><li><a href="#projects">Наши проекты</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#news">Новости</a></li></ul></div>
       <div><h4>Связаться</h4><ul><li><a href="#contacts">Контакты</a></li><li><a href="#contacts">Написать в фонд</a></li></ul></div>
@@ -584,6 +613,13 @@ footer a:hover{opacity:1;text-decoration:underline}
     <div class="f-bot"><span>© 2026 Фонд имени М.Е. Гудкова</span><a href="#contacts">Политика конфиденциальности</a></div>
   </div>
 </footer>
+
+<div class="theme-pick" id="themePick" role="group" aria-label="Вариант оформления меню и подвала">
+  <span>Вариант:</span>
+  <button data-t="black" aria-pressed="true">Чёрный</button>
+  <button data-t="red" aria-pressed="false">Красный</button>
+  <button data-t="lenta" aria-pressed="false">Лента</button>
+</div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
   <button class="lb-b lb-x" id="lbX" aria-label="Закрыть"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
@@ -701,6 +737,13 @@ const setDemo=()=>document.documentElement.style.setProperty('--demoh',(demo.isC
 document.getElementById('demoX').onclick=()=>{demo.remove();setDemo();};
 addEventListener('resize',setDemo); setDemo();
 route();
+
+/* Варианты оформления (демо) */
+const setTheme=t=>{ if(t==='black') document.body.removeAttribute('data-theme'); else document.body.dataset.theme=t;
+  document.querySelectorAll('#themePick button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.t===t));
+  try{localStorage.setItem('gudkov-theme',t)}catch(e){} };
+document.getElementById('themePick').addEventListener('click',e=>{const b=e.target.closest('button'); if(b) setTheme(b.dataset.t);});
+try{ const t=localStorage.getItem('gudkov-theme'); if(t) setTheme(t);}catch(e){}
 
 /* Галерея */
 const lb=document.getElementById('lb'), lbI=document.getElementById('lbI'), lbC=document.getElementById('lbC');
