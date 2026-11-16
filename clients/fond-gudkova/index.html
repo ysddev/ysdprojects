@@ -42,11 +42,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .demo button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;width:32px;height:32px;font-size:18px}
 
 /* ---------- Первый экран ---------- */
-.hero{position:relative;min-height:calc(100svh - var(--navh) - var(--demoh,0px));min-height:max(640px,calc(100svh - var(--navh) - var(--demoh,0px)));color:#fff;overflow:hidden;isolation:isolate;display:grid;grid-template-rows:auto 1fr}
-.hero-flag{position:absolute;inset:0;z-index:-2;width:100%;height:100%}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.18) 48%,rgba(0,0,0,0) 70%)}
-.hero-emblem{width:104px;margin:22px auto 0;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
-.hero-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center;padding:24px 0 48px}
+.hero{position:relative;min-height:calc(100svh - var(--navh) - var(--demoh,0px));min-height:max(640px,calc(100svh - var(--navh) - var(--demoh,0px)));color:#fff;overflow:hidden;isolation:isolate;display:grid;grid-template-rows:1fr}
+.hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 45%,rgba(0,0,0,0) 60%)}
+.hero-emblem{width:86px;margin:0 0 22px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
+.hero-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:40px 0 48px}
 .plate{background:rgba(0,0,0,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:40px 48px 44px;max-width:660px}
 .plate .eyebrow{font-family:var(--serif);font-size:22px;letter-spacing:.3em;text-transform:uppercase}
 .plate .rank{font-size:17px;opacity:.82;margin-top:22px}
@@ -59,11 +59,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* фальшивого курсива у Forum нет — даём лёгкий наклон */
 .plate .motto{font-style:normal;transform:skewX(-8deg);transform-origin:left}
 
-.portrait-hero{justify-self:end;width:min(400px,100%);background:#fff;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.portrait-hero img{width:100%;height:auto}
 @media (prefers-reduced-motion:no-preference){
   .plate{animation:enter .9s cubic-bezier(.2,.7,.2,1) both .1s}
-  .portrait-hero{animation:enter .9s cubic-bezier(.2,.7,.2,1) both .3s}
   @keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 }
 
@@ -275,9 +272,12 @@ footer a:hover{opacity:1;text-decoration:underline}
   .menu a{height:auto;padding:20px 0;font-size:17px}
   .menu a[aria-current="page"]::after{left:0;right:auto;width:48px;bottom:12px}
   .hero-body{grid-template-columns:1fr;padding-bottom:28px}
-  .portrait-hero{order:-1;justify-self:center;width:min(260px,64%);padding:6px;margin-top:4px}
+  .hero{grid-template-rows:auto 1fr}
+  .hero-bg{position:relative;grid-row:1;height:auto;aspect-ratio:4/3.4;object-position:78% 0;z-index:-2}
+  .hero-body{grid-row:2;margin-top:-56px}
   .plate{padding:30px 26px 32px}
-  .hero::after{background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.35))}
+  .hero{background:#0a1430}
+  .hero::after{display:none}
   .words{grid-template-columns:1fr;gap:32px}
   .index a{grid-template-columns:minmax(0,1fr) 32px;gap:8px 16px}
   .index span{grid-column:1;grid-row:2}
@@ -302,7 +302,7 @@ footer a:hover{opacity:1;text-decoration:underline}
 @media (max-width:600px){
   body{font-size:16px}
   .wrap{width:calc(100% - 32px)}
-  .hero-emblem{width:76px;margin-top:16px}
+  .hero-emblem{width:64px;margin-bottom:16px}
   .plate .eyebrow{font-size:17px}
   .band{padding:64px 0}
   .ph{padding:48px 0 40px}
@@ -325,41 +325,11 @@ footer a:hover{opacity:1;text-decoration:underline}
 
 <!-- ============ Первый экран ============ -->
 <header class="hero" id="hero">
-  <!-- Флаг с объёмом ткани: волна по краям полос + складки светотенью -->
-  <svg class="hero-flag" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <filter id="cloth" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.0016 0.0042" numOctaves="2" seed="7" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="90" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <linearGradient id="folds" x1="0" y1="0" x2="1" y2=".22">
-        <stop offset="0" stop-color="#000" stop-opacity=".30"/>
-        <stop offset=".09" stop-color="#fff" stop-opacity=".10"/>
-        <stop offset=".18" stop-color="#000" stop-opacity=".22"/>
-        <stop offset=".30" stop-color="#fff" stop-opacity=".16"/>
-        <stop offset=".41" stop-color="#000" stop-opacity=".26"/>
-        <stop offset=".52" stop-color="#fff" stop-opacity=".12"/>
-        <stop offset=".63" stop-color="#000" stop-opacity=".20"/>
-        <stop offset=".75" stop-color="#fff" stop-opacity=".18"/>
-        <stop offset=".87" stop-color="#000" stop-opacity=".24"/>
-        <stop offset="1" stop-color="#fff" stop-opacity=".08"/>
-      </linearGradient>
-      <radialGradient id="vig" cx=".55" cy=".45" r=".8"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></radialGradient>
-    </defs>
-    <g filter="url(#cloth)">
-      <rect x="-80" y="-80" width="1760" height="380" fill="#f4f4f2"/>
-      <rect x="-80" y="300" width="1760" height="300" fill="#0039a6"/>
-      <rect x="-80" y="600" width="1760" height="380" fill="#d52b1e"/>
-    </g>
-    <rect width="1600" height="900" fill="url(#folds)" style="mix-blend-mode:soft-light"/>
-    <rect width="1600" height="900" fill="url(#folds)" opacity=".55"/>
-    <rect width="1600" height="900" fill="url(#vig)"/>
-  </svg>
-
-  <img class="hero-emblem" src="assets/emblem.svg" alt="Герб Российской Федерации">
+  <img class="hero-bg" src="assets/hero.jpg" alt="" width="1774" height="887">
 
   <div class="wrap hero-body">
     <div class="plate">
+      <img class="hero-emblem" src="assets/emblem.svg" alt="Герб Российской Федерации">
       <div class="eyebrow">Гордость России</div>
       <div class="rank">Гвардии генерал-майор</div>
       <h1>Михаил Евгеньевич Гудков</h1>
@@ -367,9 +337,6 @@ footer a:hover{opacity:1;text-decoration:underline}
       <h2>Первый Дважды Герой России</h2>
       <p class="motto">Быть Воином – Жить Вечно!</p>
     </div>
-    <figure class="portrait-hero">
-      <img src="assets/portrait.jpg" alt="Гвардии генерал-майор Михаил Евгеньевич Гудков" width="506" height="616">
-    </figure>
   </div>
 </header>
 
