@@ -65,8 +65,10 @@ p{max-width:62ch}
 .logo small{display:block;font-size:13px;color:var(--acc);font-weight:600;margin-top:3px}
 .hdr-tel{font-weight:600;text-decoration:none;white-space:nowrap;font-size:15px}
 .nav a{white-space:nowrap}
-.lv-btn{white-space:nowrap}
-@media (max-width:1520px){.hdr-tel{display:none}}
+.lv-btn{white-space:nowrap;flex-shrink:0}
+@media (min-width:1081px){.lv-btn{padding:0;width:44px;justify-content:center}.lv-btn span{display:none}}
+.hdr-tel{display:flex;align-items:center;gap:8px;min-height:44px}.hdr-tel svg{width:20px;height:20px;color:var(--acc)}
+@media (max-width:560px){.hdr-in{gap:8px}.hdr-tel{width:44px;justify-content:center;border-radius:999px;background:var(--bg2)}.hdr-tel span{display:none}}
 .nav{display:flex;gap:4px;margin-left:auto}
 .nav a{text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:500;font-size:15px;min-height:44px;display:flex;align-items:center;transition:background-color .3s var(--ease)}
 @media (hover:hover) and (pointer:fine){.nav a:hover{background:var(--bg2)}}
@@ -332,11 +334,11 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
       <a href="#sveden">Сведения</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <button class="lv-btn" id="lv" aria-pressed="false" type="button">
+    <button class="lv-btn" id="lv" aria-pressed="false" type="button" title="Версия для слабовидящих" aria-label="Версия для слабовидящих">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
       <span>Версия для слабовидящих</span>
     </button>
-    <a class="hdr-tel" href="tel:+79918558505">8 991 855-85-05</a>
+    <a class="hdr-tel" href="tel:+79918558505" aria-label="Позвонить: 8 991 855-85-05"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>8 991 855-85-05</span></a>
     <a class="btn btn-sm" href="#order">Оставить заявку</a>
   </div>
 </header>
