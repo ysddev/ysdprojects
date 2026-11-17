@@ -8,9 +8,9 @@ backend:
   branch: main
 
 locale: ru
-site_url: https://fond-gudkova.netlify.app/
-display_url: https://fond-gudkova.netlify.app/
-logo_url: https://fond-gudkova.netlify.app/assets/logo-varyag-black.png
+site_url: https://fondvaryag.ru/
+display_url: https://fondvaryag.ru/
+logo_url: https://fondvaryag.ru/assets/logo-varyag-black.png
 
 media_folder: clients/fond-gudkova/assets/uploads
 public_folder: assets/uploads
