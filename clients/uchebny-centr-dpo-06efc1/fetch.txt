@@ -1,0 +1,4 @@
+# Файлы, которые сборка сайта (mirror.yml) скачивает при публикации: <куда> <откуда>
+# .zip распаковывается, первый PDF из архива кладётся под тем же именем с .pdf, к PDF делается превью первой страницы .png
+img/banner.jpg https://static.tildacdn.com/tild3030-3436-4532-b564-636635643534/img-20200831192132-5.jpg
+docs/licenziya.zip https://islod.obrnadzor.gov.ru/extract/187731

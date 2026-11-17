@@ -27,6 +27,23 @@ jobs:
               done
             done
           done
+      - name: Client files from the web (clients/*/fetch.txt)
+        run: |
+          # строка: <куда> <откуда>; .zip распаковываем, PDF → превью первой страницы .png
+          command -v pdftoppm >/dev/null || sudo apt-get install -y -qq poppler-utils >/dev/null || true
+          for f in clients/*/fetch.txt; do
+            [ -f "$f" ] || continue; d="$(dirname "$f")"
+            grep -v '^#' "$f" | while read -r dest url; do
+              [ -n "$dest" ] || continue; mkdir -p "$d/$(dirname "$dest")"
+              curl -fsSL --retry 3 -m 90 -A "Mozilla/5.0" "$url" -o "$d/$dest" || { echo "::warning::нет файла $dest"; rm -f "$d/$dest"; continue; }
+              case "$dest" in
+                *.zip) t=$(mktemp -d); unzip -q -o "$d/$dest" -d "$t" && pdf=$(find "$t" -iname '*.pdf' | head -1) && [ -n "$pdf" ] && cp "$pdf" "$d/${dest%.zip}.pdf"; rm -rf "$t" "$d/$dest"; dest="${dest%.zip}.pdf";;
+              esac
+              case "$dest" in
+                *.pdf) [ -f "$d/$dest" ] && pdftoppm -png -r 110 -f 1 -l 1 -singlefile "$d/$dest" "$d/${dest%.pdf}" || true;;
+              esac
+            done
+          done
       - name: Add new works (hosted only here)
         run: |
           for d in works/*/; do [ -n "$(find "$d" -name index.html -print -quit)" ] && mkdir -p "site/$(basename $d)" && cp -R "$d". "site/$(basename $d)/"; done; true  # и вложенные: works/bots/food/
