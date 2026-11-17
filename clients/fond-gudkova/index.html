@@ -99,9 +99,9 @@ body.home .nav .wrap{justify-content:center}
 .note{font-size:14px;color:var(--graphite);background:var(--stone);border-left:3px solid var(--blue);padding:12px 16px}
 
 /* Обращение фонда */
-.words{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:72px;align-items:end}
-.words blockquote{font-family:var(--serif);font-size:clamp(30px,3.5vw,48px);line-height:1.18;max-width:20ch;max-width:22em}
-.words blockquote p{max-width:24ch}
+.words{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:72px;align-items:end}
+.words blockquote{font-family:var(--serif);font-size:clamp(26px,2.7vw,38px);line-height:1.18;max-width:20ch;max-width:22em}
+.words blockquote p{max-width:30ch}
 .words aside p{color:var(--graphite);font-size:17px}
 .words aside .btn{margin-top:26px}
 .words cite{display:block;font-style:normal;font-family:var(--sans);font-size:15px;color:var(--graphite);margin-top:26px}
@@ -244,7 +244,8 @@ body.home .nav .wrap{justify-content:center}
 .cl div{padding:20px 0;border-bottom:1px solid var(--rule)}
 .cl dt{font-size:14px;color:var(--graphite)}
 .cl dd{font-family:var(--serif);font-size:28px;line-height:1.25;margin-top:2px}
-.map{margin-top:32px;aspect-ratio:4/3;background:var(--stone);display:grid;place-items:center;color:var(--graphite);font-size:14px;text-align:center}
+.map{margin-top:32px;aspect-ratio:4/3;background:var(--stone)}
+.map iframe{display:block;width:100%;height:100%;border:0}
 form.fb{display:grid;gap:20px;align-content:start}
 form.fb h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.1}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -285,12 +286,6 @@ body[data-theme="lenta"] footer > .wrap{background:#000;padding:48px 48px 0}
   body[data-theme="red"] .menu,body[data-theme="darkred"] .menu,body[data-theme="lenta"] .menu{background:#000}
   body[data-theme="lenta"] footer > .wrap{padding:32px 24px 0}
 }
-/* Переключатель вариантов — только для демо */
-.theme-pick{position:fixed;left:16px;bottom:16px;z-index:60;background:#fff;color:#111;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:10px 12px;font-size:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:calc(100vw - 32px)}
-.theme-pick span{font-weight:600}
-.theme-pick button{border:1px solid #c9ccd3;background:#fff;padding:6px 10px;font-size:13px}
-.theme-pick button[aria-pressed="true"]{background:#000;color:#fff;border-color:#000}
-@media (max-width:600px){.theme-pick{left:8px;right:8px;bottom:8px;padding:6px 8px;gap:5px;font-size:12px;flex-wrap:nowrap}.theme-pick span{display:none}.theme-pick button{padding:5px 7px;font-size:12px;white-space:nowrap}}
 .f-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:72px;align-items:start}
 .f-mark{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
 .logo-foot{width:min(340px,100%);height:auto}
@@ -363,30 +358,24 @@ footer a:hover{opacity:1;text-decoration:underline}
   .f2{grid-template-columns:1fr}
   .lb-prev,.lb-next{top:auto;bottom:24px;transform:none}
 }
+/* Первый экран — баннер фонда */
+.hero.hero--banner{display:block;min-height:0;background:#24448f}
+.hero.hero--banner::after{display:none}
+.hero-banner{display:block;width:100%;height:min(50vw,max(320px,calc(100svh - var(--navh) - var(--demoh,0px))));object-fit:cover;object-position:50% 50%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body class="home" data-theme="red">
+<body class="home" data-theme="darkred">
 
-<div class="demo" id="demo">Демо для согласования. Тексты проектов и контакты — после получения материалов от фонда.
+<div class="demo" id="demo">Демо для согласования. Описания проектов — после получения материалов от фонда.
   <button aria-label="Скрыть плашку" id="demoX">×</button>
 </div>
 
 <!-- ============ Первый экран ============ -->
-<header class="hero" id="hero">
-  <img class="hero-bg" src="assets/hero.jpg" alt="" width="1774" height="887">
-
-  <div class="wrap hero-body">
-    <div class="plate">
-      <img class="hero-emblem" src="assets/emblem.svg" alt="Герб Российской Федерации">
-      <div class="eyebrow">Гордость России</div>
-      <div class="rank">Гвардии генерал-майор</div>
-      <h1>Михаил Евгеньевич Гудков</h1>
-      <div class="call"><b>ВАРЯГ</b></div>
-      <h2>Первый Дважды Герой России</h2>
-      <p class="motto">Быть Воином – Жить Вечно!</p>
-    </div>
-  </div>
+<header class="hero hero--banner" id="hero">
+  <img class="hero-banner" src="assets/hero-banner.jpg" srcset="assets/hero-banner-1200.jpg 1200w, assets/hero-banner.jpg 2400w" sizes="100vw" width="2400" height="1200" fetchpriority="high" alt="Гордость России. Гвардии генерал-майор Михаил Евгеньевич Гудков, «Варяг». Единственный дважды Герой России, Герой ДНР. Быть Воином – Жить Вечно!">
+  <h1 class="sr">Михаил Евгеньевич Гудков — единственный дважды Герой России</h1>
 </header>
 
 <nav class="nav" id="nav" aria-label="Основное меню">
@@ -410,10 +399,10 @@ footer a:hover{opacity:1;text-decoration:underline}
   <section class="band">
     <div class="wrap words">
       <blockquote>
-        <p>Фонд — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
+        <p>Благотворительный фонд имени дважды Героя Гудкова М.Е. «ВАРЯГ» — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
       </blockquote>
       <aside>
-        <p>Мы надеемся, что через фонд удастся сохранить память о Михаиле и его подвиге, а также помочь тем, кто нуждается в поддержке, как это делал он.</p>
+        <p>«Мы рассчитываем, что деятельность фонда позволит сохранить память о Михаиле и о его подвиге, а также обеспечит поддержку тем, кто в ней нуждается, — так же, как это делал он.»</p>
         <a class="btn" href="#fund">О работе фонда</a>
       </aside>
     </div>
@@ -433,16 +422,27 @@ footer a:hover{opacity:1;text-decoration:underline}
     <div>
       <div class="crumb"><a href="#home">Главная</a> / Биография</div>
       <h1>Михаил Евгеньевич Гудков</h1><span class="tri"></span>
-      <p class="bio-lead">Михаил Евгеньевич Гудков — российский военнослужащий, генерал-майор, первый и единственный дважды Герой Российской Федерации.</p>
       <dl class="facts">
         <div><dt>Звание</dt><dd>Гвардии генерал-майор</dd></div>
         <div><dt>Позывной</dt><dd>«Варяг»</dd></div>
         <div><dt>Награды</dt><dd><ul class="awards">
           <li>Дважды Герой Российской Федерации</li>
           <li>Два ордена Мужества</li>
+          <li>Медаль «За воинскую доблесть» II степени</li>
+          <li>Медаль «За укрепление боевого содружества»</li>
+          <li>Медаль «За отличие в военной службе» III степени</li>
+          <li>Медаль «За участие в военном параде в ознаменование 70-летия Победы в Великой Отечественной войне 1941–1945 гг.»</li>
+          <li>Медаль «За отличие в военной службе» II степени</li>
+          <li>Медаль «Участнику военной операции в Сирии»</li>
           <li>Медаль Жукова</li>
-          <li>Герой Приморья</li>
-          <li>Герой Донецкой Народной Республики</li>
+          <li>Медаль «За боевые отличия»</li>
+          <li>Медаль «За службу в морской пехоте»</li>
+          <li>Звание «Ветеран военной службы»</li>
+          <li>Медаль «За отличие в военной службе» I степени</li>
+          <li>Медаль «За воинскую доблесть» I степени</li>
+          <li>Медаль «Участнику специальной военной операции»</li>
+          <li>Медаль «За освобождение Мариуполя»</li>
+          <li>Медаль «За освобождение Угледара»</li>
         </ul></dd></div>
         <div><dt>Девиз</dt><dd>Быть Воином – Жить Вечно!</dd></div>
       </dl>
@@ -528,14 +528,13 @@ footer a:hover{opacity:1;text-decoration:underline}
     <h1>Работа фонда</h1><span class="tri"></span>
   </div></div>
   <section class="band"><div class="wrap">
-    <p class="fund-lead">Фонд — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
-    <p class="fund-text">Мы надеемся, что через фонд удастся сохранить память о Михаиле и его подвиге, а также помочь тем, кто нуждается в поддержке, как это делал он.</p>
+    <p class="fund-lead">Благотворительный фонд имени дважды Героя Гудкова М.Е. «ВАРЯГ» — это не просто организация, это продолжение жизни Михаила Гудкова в делах, которые совершаются в его честь.</p>
+    <p class="fund-text">«Мы рассчитываем, что деятельность фонда позволит сохранить память о Михаиле и о его подвиге, а также обеспечит поддержку тем, кто в ней нуждается, — так же, как это делал он.»</p>
     <div class="dirs">
-      <article><h3>Память о герое</h3><p>Рассказываем о Михаиле Евгеньевиче, его службе и подвиге, собираем фотографии и воспоминания.</p></article>
-      <article><h3>Помощь тем, кто в ней нуждается</h3><p>Поддерживаем людей, которым нужна помощь, — так, как это делал он сам.</p></article>
-      <article><h3>Дела в его честь</h3><p>Проводим проекты и встречи, которые продолжают начатое Михаилом.</p></article>
+      <article><h3>Память о герое</h3><p>Сохраняем историю подвига Михаила Евгеньевича: собираем архивные материалы, фотографии и личные воспоминания.</p></article>
+      <article><h3>Своих не бросаем</h3><p>Поддерживаем тех, кому нужна помощь, реализуя принцип «своих не бросаем» на деле, а не на словах.</p></article>
+      <article><h3>Продолжение дела М.Е.&nbsp;Гудкова</h3><p>Воплощаем в жизнь инициативы, начатые Михаилом Гудковым, и развиваем его дело в новых проектах фонда.</p></article>
     </div>
-    <p class="note" style="margin-top:40px">Направления сформулированы по тексту фонда. Полное описание дополним, когда фонд пришлёт.</p>
   </div></section>
 </div>
 
@@ -544,8 +543,7 @@ footer a:hover{opacity:1;text-decoration:underline}
   <div class="ph"><div class="wrap">
     <div class="crumb"><a href="#home">Главная</a> / Наши проекты</div>
     <h1>Наши проекты</h1><span class="tri"></span>
-    <p>Названия и описания проектов — примерные, заменим текстами фонда.</p>
-  </div></div>
+      </div></div>
   <section class="band"><div class="wrap"><ul class="projects" id="projList"></ul></div></section>
 </div>
 <div class="view" data-view="project">
@@ -583,13 +581,13 @@ footer a:hover{opacity:1;text-decoration:underline}
   <section class="band"><div class="wrap contacts">
     <div>
       <dl class="cl">
-        <div><dt>Адрес</dt><dd>Уточняется</dd></div>
-        <div><dt>Телефон</dt><dd>Уточняется</dd></div>
-        <div><dt>Почта</dt><dd>Уточняется</dd></div>
+        <div><dt>Адрес</dt><dd>690042, Приморский край, г.&nbsp;Владивосток, Архангельская ул., д.&nbsp;10, к.&nbsp;2</dd></div>
+        <div><dt>Почта</dt><dd><a href="mailto:fondvaryag@mail.ru">fondvaryag@mail.ru</a></dd></div>
       </dl>
-      <div class="map">Здесь будет Яндекс Карта с адресом фонда</div>
+      <div class="map"><iframe src="https://yandex.ru/map-widget/v1/?mode=search&amp;text=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA%2C%20%D0%90%D1%80%D1%85%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2010%D0%BA2&amp;z=16" title="Фонд на Яндекс Картах" loading="lazy" allowfullscreen></iframe></div>
     </div>
-    <form class="fb" id="fb" novalidate>
+    <form class="fb" id="fb" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="contact"><p hidden><label>Не заполняйте<input name="bot-field"></label></p>
       <h2>Написать в фонд</h2>
       <div class="f2">
         <label class="fl">Имя<input name="name" autocomplete="name"></label>
@@ -619,13 +617,6 @@ footer a:hover{opacity:1;text-decoration:underline}
   </div>
 </footer>
 
-<div class="theme-pick" id="themePick" role="group" aria-label="Вариант оформления меню и подвала">
-  <span>Вариант:</span>
-  <button data-t="red" aria-pressed="true">Красный</button>
-  <button data-t="darkred" aria-pressed="false">Тёмно-красный</button>
-  <button data-t="black" aria-pressed="false">Чёрный</button>
-  <button data-t="lenta" aria-pressed="false">Лента</button>
-</div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
   <button class="lb-b lb-x" id="lbX" aria-label="Закрыть"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
@@ -639,10 +630,8 @@ footer a:hover{opacity:1;text-decoration:underline}
 let NEWS = [];
 let GAL = [];      // все фото галереи подряд, для листания
 const PROJECTS = [
-  {id:1,title:'Память',short:'Памятные события, встречи и материалы о Михаиле Евгеньевиче.'},
-  {id:2,title:'Поддержка',short:'Помощь семьям и тем, кому нужна поддержка.'},
-  {id:3,title:'Молодёжи',short:'Встречи со школьниками и кадетами, уроки мужества.'},
-  {id:4,title:'Выставки и встречи',short:'Фотовыставки, вечера памяти, встречи с сослуживцами.'},
+  {id:1,title:'Документальный фильм «155 шагов по лезвию»',short:''},
+  {id:2,title:'Комикс «Варяг»',short:''},
 ];
 /* Фото в биографии (номера используются в тексте глав) */
 const BIO = [
@@ -681,7 +670,7 @@ function renderGallery(groups){
     return `<section class="g-group"><h2>${esc(g.title)}</h2>${g.text?`<p>${esc(g.text)}</p>`:''}<div class="gallery">${items}</div></section>`;
   }).join('');
 }
-document.getElementById('projList').innerHTML = PROJECTS.map(p=>`<li><a href="#project-${p.id}"><h3>${esc(p.title)}</h3><p>${esc(p.short)}</p>${arrow}</a></li>`).join('');
+document.getElementById('projList').innerHTML = PROJECTS.map(p=>`<li><a href="#project-${p.id}"><h3>${esc(p.title)}</h3>${p.short?`<p>${esc(p.short)}</p>`:''}${arrow}</a></li>`).join('');
 document.querySelectorAll('.thumb').forEach(b=>{ const p=BIO[+b.dataset.ph]; const img=b.querySelector('img'); img.src=p.src; img.alt=p.cap; b.querySelector('span').textContent=p.cap.replace(/\. Из личного архива$/,''); });
 document.querySelectorAll('.projects i').forEach(i=>{i.style.cssText='font-style:normal;justify-self:end;width:28px;height:28px;border:1px solid #000;border-radius:50%;display:grid;place-items:center'; i.querySelector('svg').style.width='12px';});
 
@@ -705,7 +694,7 @@ function route(){
   } else if((m=h.match(/^project-(\d+)$/))){
     const p = PROJECTS.find(x=>x.id==m[1]);
     if(p){ v='project'; key='projects'; title=p.title;
-      document.getElementById('projOne').innerHTML = `<h1>${esc(p.title)}</h1><p>${esc(p.short)}</p><p class="note">Полное описание проекта, его цели и фотографии добавим по материалам фонда.</p>`; }
+      document.getElementById('projOne').innerHTML = `<h1>${esc(p.title)}</h1>${p.short?`<p>${esc(p.short)}</p>`:''}<p class="note">Описание проекта скоро появится.</p>`; }
   }
   if(!document.querySelector(`.view[data-view="${v}"]`)){ v='home'; key='home'; title=''; }
   document.querySelectorAll('.view').forEach(el=>el.classList.toggle('on', el.dataset.view===v));
@@ -736,12 +725,6 @@ Promise.all([loadJSON('content/news.json',{items:[]}), loadJSON('content/gallery
 /* Вход по приглашению в админку (Netlify Identity) */
 if(window.netlifyIdentity){ netlifyIdentity.on('init',u=>{ if(!u) netlifyIdentity.on('login',()=>{ location.href='admin/'; }); }); }
 
-/* Варианты оформления (демо) */
-const setTheme=t=>{ if(t==='black') document.body.removeAttribute('data-theme'); else document.body.dataset.theme=t;
-  document.querySelectorAll('#themePick button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.t===t));
-  try{localStorage.setItem('gudkov-theme-2',t)}catch(e){} };
-document.getElementById('themePick').addEventListener('click',e=>{const b=e.target.closest('button'); if(b) setTheme(b.dataset.t);});
-try{ setTheme(localStorage.getItem('gudkov-theme-2')||'red');}catch(e){ setTheme('red'); }
 
 /* Галерея */
 const lb=document.getElementById('lb'), lbI=document.getElementById('lbI'), lbC=document.getElementById('lbC');
@@ -779,9 +762,12 @@ document.getElementById('fb').addEventListener('submit',e=>{
     m.textContent = (miss.length?`Заполните ${miss.join(' и ')}. `:'') + (!f.ok.checked?'Отметьте согласие на обработку данных.':'');
     return;
   }
-  m.className='msg on ok';
-  m.textContent='Сообщение готово к отправке. В демо оно никуда не уходит — в рабочей версии придёт на почту или в Telegram фонда.';
-  f.reset();
+  const btn=f.querySelector('button[type=submit]'); btn.disabled=true;
+  m.className='msg on'; m.textContent='Отправляем…';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(r=>{ if(!r.ok) throw 0; m.className='msg on ok'; m.textContent='Спасибо! Сообщение отправлено в фонд.'; f.reset(); })
+    .catch(()=>{ m.className='msg on err'; m.textContent='Не удалось отправить. Напишите, пожалуйста, на fondvaryag@mail.ru.'; })
+    .finally(()=>{ btn.disabled=false; });
 });
 </script>
 </body>
