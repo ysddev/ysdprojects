@@ -363,12 +363,19 @@ footer a:hover{opacity:1;text-decoration:underline}
 .hero.hero--banner::after{display:none}
 .hero-banner{display:block;width:100%;height:min(50vw,max(320px,calc(100svh - var(--navh) - var(--demoh,0px))));object-fit:cover;object-position:50% 50%}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Страница проекта: видео и фото */
+.proj-videos{display:grid;gap:28px;margin:36px 0 8px}
+.proj-video video{display:block;width:100%;max-height:80vh;background:#000}
+.proj-video figcaption{font-size:14px;color:var(--graphite);margin-top:8px}
+.proj-photos{margin-top:32px}
+#projOne{max-width:none}
+#projOne > h1, #projOne > p{max-width:760px}
 </style>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class="home" data-theme="darkred">
 
-<div class="demo" id="demo">Демо для согласования. Описания проектов — после получения материалов от фонда.
+<div class="demo" id="demo">Демо для согласования. Сведения о работе фонда — после получения материалов.
   <button aria-label="Скрыть плашку" id="demoX">×</button>
 </div>
 
@@ -630,9 +637,88 @@ footer a:hover{opacity:1;text-decoration:underline}
 let NEWS = [];
 let GAL = [];      // все фото галереи подряд, для листания
 const PROJECTS = [
-  {id:1,title:'Документальный фильм «155 шагов по лезвию»',short:''},
-  {id:2,title:'Комикс «Варяг»',short:''},
+ {
+  "id": 1,
+  "title": "Документальный фильм «155 шагов по лезвию»",
+  "short": "Фильм о жизни и боевом пути Михаила Гудкова. Предпремьерный показ — во Владивостоке в ноябре 2026 года.",
+  "text": [
+   "«Варяг. 155 шагов по лезвию» — документальный фильм о жизни и боевом пути дважды Героя России, Гвардии генерал-майора Михаила Евгеньевича Гудкова. Это один из проектов фонда «Варяг». Идея создания картины принадлежит Жанне Анатольевне Гудковой, супруге Михаила Евгеньевича и руководителю фонда.",
+   "Режиссёр Константин Добролюбов рассказывает о Михаиле Гудкове через воспоминания его родных, друзей и сослуживцев. Для режиссёра важно показать, каким Гудков был командиром и почему люди, служившие рядом с ним, помнят его как человека, умевшего объединять людей.",
+   "Личная история Михаила Евгеньевича в фильме переплетается с историей 155-й бригады морской пехоты Тихоокеанского флота, которой он командовал. Съёмки начались летом 2026 года и проходили в Приморье, Москве, Новосибирске и Донецке.",
+   "Предпремьерный показ картины состоится во Владивостоке в ноябре 2026 года."
+  ],
+  "videos": [
+   {
+    "src": "assets/projects/film-trailer.mp4",
+    "poster": "assets/projects/film-trailer.jpg",
+    "cap": "Фрагмент фильма «Варяг. 155 шагов по лезвию»"
+   }
+  ],
+  "photos": [
+   {
+    "src": "assets/projects/film-1.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-2.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-3.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-4.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-5.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-6.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   },
+   {
+    "src": "assets/projects/film-7.jpg",
+    "cap": "Со съёмок фильма «Варяг. 155 шагов по лезвию»"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "Комикс «Варяг»",
+  "short": "Комикс о Михаиле Гудкове по реальным событиям его службы. Художник — Андрей Муравьёв (DaZbastaDraw).",
+  "text": [
+   "Один из проектов Фонда имени дважды Героя России Гудкова М.Е. «Варяг» — создание комикса «Варяг» о Михаиле Евгеньевиче Гудкове. Названием комикса стал его позывной, а в основу истории легли реальные события его военной службы.",
+   "Проект создаётся при поддержке Андрея Муравьёва, художника-иллюстратора, известного под псевдонимом DaZbastaDraw. В своих работах он обращается к военной тематике и рассказывает истории людей через комиксы и карикатуру.",
+   "Готовые работы были переданы руководителю фонда Жанне Анатольевне Гудковой. Выражаем огромную благодарность Андрею Муравьёву за поддержку проекта и вклад в сохранение памяти о Михаиле Евгеньевиче."
+  ],
+  "videos": [
+   {
+    "src": "assets/projects/comic-pages.mp4",
+    "poster": "assets/projects/comic-pages.jpg",
+    "cap": "Страницы комикса «Варяг»"
+   },
+   {
+    "src": "assets/projects/comic-interview.mp4",
+    "poster": "assets/projects/comic-interview.jpg",
+    "cap": "О комиксе «Варяг»"
+   }
+  ],
+  "photos": [
+   {
+    "src": "assets/projects/comic-photo-1.jpg",
+    "cap": "Комикс «Варяг»"
+   },
+   {
+    "src": "assets/projects/comic-photo-2.jpg",
+    "cap": "Комикс «Варяг»"
+   }
+  ]
+ }
 ];
+const PROJ_PH = [];
 /* Фото в биографии (номера используются в тексте глав) */
 const BIO = [
   {src:'assets/bio/roditeli.jpg', cap:'Михаил Гудков с родителями. Из личного архива'},
@@ -644,7 +730,7 @@ const BIO = [
   {src:'assets/bio/byust.jpg', cap:'Открытие бюста Михаила Гудкова в филиале Нахимовского военно-морского училища в Мариуполе'},
   {src:'assets/bio/portrait-camo.jpg?v=2', cap:'Михаил Евгеньевич Гудков'},
 ];
-const SETS = {bio:BIO, gal:GAL};
+const SETS = {bio:BIO, gal:GAL, proj:PROJ_PH};
 
 const esc = s => String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt = d => { const x=new Date(String(d).slice(0,10)+'T12:00:00'); return isNaN(x)?'':x.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}); };
@@ -694,7 +780,10 @@ function route(){
   } else if((m=h.match(/^project-(\d+)$/))){
     const p = PROJECTS.find(x=>x.id==m[1]);
     if(p){ v='project'; key='projects'; title=p.title;
-      document.getElementById('projOne').innerHTML = `<h1>${esc(p.title)}</h1>${p.short?`<p>${esc(p.short)}</p>`:''}<p class="note">Описание проекта скоро появится.</p>`; }
+      PROJ_PH.length=0; (p.photos||[]).forEach(x=>PROJ_PH.push(x));
+      const vids=(p.videos||[]).map(x=>`<figure class="proj-video"><video src="${esc(x.src)}" poster="${esc(x.poster||'')}" controls playsinline preload="none"></video>${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('');
+      const ph=PROJ_PH.map((x,i)=>`<button class="g-item" data-set="proj" data-ph="${i}" aria-label="Открыть фото"><img src="${esc(x.src)}" alt="${esc(x.cap)}" loading="lazy"></button>`).join('');
+      document.getElementById('projOne').innerHTML = `<h1>${esc(p.title)}</h1>${(p.text||[]).map(t=>`<p>${esc(t)}</p>`).join('') || '<p class="note">Описание проекта скоро появится.</p>'}${vids?`<div class="proj-videos">${vids}</div>`:''}${ph?`<div class="gallery proj-photos">${ph}</div>`:''}`; }
   }
   if(!document.querySelector(`.view[data-view="${v}"]`)){ v='home'; key='home'; title=''; }
   document.querySelectorAll('.view').forEach(el=>el.classList.toggle('on', el.dataset.view===v));
