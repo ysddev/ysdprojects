@@ -61,3 +61,121 @@ collections:
                   - { name: image, label: Фото, widget: image }
                   - { name: caption, label: "Подпись (если пусто — берётся описание события)", widget: string, required: false }
                   - { name: video, label: "Видео (необязательно, mp4; тогда фото — обложка)", widget: file, required: false }
+
+      - name: fund
+        label: Работа фонда
+        file: clients/fond-gudkova/content/fund.json
+        format: json
+        fields:
+          - { name: lead, label: "Главная фраза вверху страницы", widget: text }
+          - { name: quote, label: "Цитата под ней", widget: text, required: false }
+          - name: directions
+            label: Направления работы
+            label_singular: направление
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Название, widget: string }
+              - { name: text, label: Описание, widget: text }
+          - name: items
+            label: "Дела фонда (материалы с фото и видео)"
+            label_singular: материал
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Заголовок, widget: string }
+              - { name: date, label: "Дата (необязательно)", widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false }
+              - { name: text, label: "Текст (абзацы — через пустую строку)", widget: text }
+              - name: videos
+                label: "Видео (необязательно)"
+                label_singular: видео
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: video, label: "Видео (mp4, лучше до 50 МБ)", widget: file }
+                  - { name: poster, label: "Обложка видео (необязательно)", widget: image, required: false }
+                  - { name: caption, label: "Подпись (необязательно)", widget: string, required: false }
+              - name: photos
+                label: "Фото (необязательно)"
+                label_singular: фото
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: image, label: Фото, widget: image }
+                  - { name: caption, label: "Подпись (необязательно)", widget: string, required: false }
+
+      - name: projects
+        label: Наши проекты
+        file: clients/fond-gudkova/content/projects.json
+        format: json
+        fields:
+          - name: items
+            label: Проекты
+            label_singular: проект
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Название проекта, widget: string }
+              - { name: short, label: "Кратко — строка в списке проектов", widget: string, required: false }
+              - { name: text, label: "Описание (абзацы — через пустую строку)", widget: text, required: false }
+              - name: videos
+                label: "Видео (необязательно)"
+                label_singular: видео
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: video, label: "Видео (mp4, лучше до 50 МБ)", widget: file }
+                  - { name: poster, label: "Обложка видео (необязательно)", widget: image, required: false }
+                  - { name: caption, label: "Подпись (необязательно)", widget: string, required: false }
+              - name: photos
+                label: "Фото (необязательно)"
+                label_singular: фото
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: image, label: Фото, widget: image }
+                  - { name: caption, label: "Подпись (необязательно)", widget: string, required: false }
+
+      - name: bio
+        label: Биография
+        file: clients/fond-gudkova/content/bio.json
+        format: json
+        fields:
+          - { name: name, label: ФИО, widget: string }
+          - { name: rank, label: Звание, widget: string }
+          - { name: callsign, label: Позывной, widget: string }
+          - { name: motto, label: Девиз, widget: string }
+          - { name: portrait, label: Портрет, widget: image }
+          - { name: awards, label: Награды, label_singular: награду, widget: list, field: { name: award, label: Награда, widget: string } }
+          - name: chapters
+            label: Главы
+            label_singular: главу
+            widget: list
+            summary: "{{fields.nav}}"
+            fields:
+              - { name: nav, label: "Короткое название (в меню глав)", widget: string }
+              - { name: title, label: Заголовок главы, widget: string }
+              - { name: text, label: "Текст главы", widget: text, hint: "Абзацы — через пустую строку. ### Подзаголовок. Список — строки с «- ». [3] — ссылка на источник № 3. [фото 2] — ссылка на 2-е фото этой главы. Хронология: «- **2005** — событие», «★» в начале — звезда." }
+              - { name: photos_title, label: "Заголовок блока фото (например, «Фото из семейного архива»)", widget: string, required: false }
+              - name: photos
+                label: Фото главы
+                label_singular: фото
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: image, label: Фото, widget: image }
+                  - { name: caption, label: Подпись, widget: string, required: false }
+          - name: sources
+            label: Источники
+            label_singular: источник
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { name: text, label: Название, widget: string }
+              - { name: url, label: "Ссылка", widget: string, required: false }
