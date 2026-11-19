@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1650">
+<title>Татьяна Морозова — дизайн-система и первый экран</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url(fonts/cormorant-garamond-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url(fonts/cormorant-garamond-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url(fonts/cormorant-garamond-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url(fonts/cormorant-garamond-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+
+:root{
+  --graphite:#1A1A1A; --gold:#D4AF37; --ivory:#F8F4E9;
+  --ink-2:#5C5A55; --ivory-deep:#EFE7D6; --line:#E2D8C2; --gold-deep:#A8862A;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E4E2DD;font-family:var(--sans);color:var(--graphite);width:1650px;padding:80px 105px 120px;-webkit-font-smoothing:antialiased}
+.frame-label{font:500 13px/16px var(--sans);color:#7A7872;margin:0 0 12px;letter-spacing:.02em}
+.frame{background:var(--ivory);position:relative;overflow:hidden}
+.block{margin-bottom:96px}
+
+/* общие элементы */
+.eyebrow{display:flex;align-items:center;gap:16px;font:600 12px/16px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--graphite)}
+.eyebrow::before{content:"";width:48px;height:1px;background:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 32px;font:500 15px/20px var(--sans);letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.btn-primary{background:var(--graphite);color:var(--ivory)}
+.btn-primary.hover{background:#000}
+.btn-secondary{border:1px solid var(--graphite);color:var(--graphite)}
+.btn-secondary.hover{background:var(--graphite);color:var(--ivory)}
+.link{display:inline-flex;align-items:center;gap:10px;font:500 15px/20px var(--sans);color:var(--graphite);text-decoration:none;padding-bottom:6px;border-bottom:1px solid var(--gold)}
+.link.hover{border-bottom-color:var(--graphite)}
+.roman{font:500 italic 28px/1 var(--serif);color:var(--gold-deep)}
+
+/* ====== дизайн-система ====== */
+.ds{width:1440px;padding:96px 120px 120px}
+.ds-head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.ds-title{font:500 64px/68px var(--serif)}
+.ds-meta{font:400 15px/24px var(--sans);color:var(--ink-2);text-align:right}
+.ds-sec{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:56px 0;border-bottom:1px solid var(--line)}
+.ds-sec:last-child{border-bottom:0;padding-bottom:0}
+.ds-sec h3{font:500 32px/38px var(--serif)}
+.ds-sec .note{font:400 14px/22px var(--sans);color:var(--ink-2);margin-top:12px}
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sw{border:1px solid var(--line);background:#fff}
+.sw .chip{height:160px}
+.sw .info{padding:20px 24px 24px;display:flex;flex-direction:column;gap:6px}
+.sw .name{font:500 22px/28px var(--serif)}
+.sw .hex{font:600 12px/16px var(--sans);letter-spacing:.14em;color:var(--ink-2)}
+.sw .role{font:400 14px/22px var(--sans);color:var(--ink-2)}
+.swatches.small{grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.swatches.small .chip{height:72px}
+.swatches.small .name{font:500 18px/24px var(--serif)}
+.type-row{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line)}
+.type-row:first-child{border-top:0;padding-top:0}
+.type-spec{font:500 12px/18px var(--sans);color:var(--ink-2);letter-spacing:.02em}
+.type-spec b{display:block;font-weight:600;color:var(--graphite);font-size:13px;margin-bottom:2px}
+.t-display{font:500 76px/78px var(--serif);letter-spacing:-.01em}
+.t-h2{font:500 52px/56px var(--serif)}
+.t-h3{font:500 34px/40px var(--serif)}
+.t-accent{font:500 italic 34px/40px var(--serif);color:var(--gold-deep)}
+.t-body-l{font:400 18px/30px var(--sans)}
+.t-body{font:400 16px/26px var(--sans)}
+.t-caption{font:600 12px/16px var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.state{display:flex;flex-direction:column;gap:12px}
+.state span{font:500 12px/16px var(--sans);color:var(--ink-2)}
+.space-list{display:flex;flex-direction:column;gap:14px}
+.space-item{display:flex;align-items:center;gap:24px}
+.space-item i{display:block;height:16px;background:var(--gold);opacity:.85}
+.space-item span{font:500 13px/16px var(--sans);color:var(--ink-2);width:220px}
+.grid-demo{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;height:120px}
+.grid-demo div{background:rgba(212,175,55,.14);border-left:1px solid rgba(212,175,55,.5);border-right:1px solid rgba(212,175,55,.5)}
+.orn{display:flex;gap:56px;align-items:center}
+.orn-item{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.orn-item>span{font:500 12px/16px var(--sans);color:var(--ink-2)}
+.diamond{display:flex;align-items:center;gap:14px;width:200px}
+.diamond::before,.diamond::after{content:"";flex:1;height:1px;background:var(--gold)}
+.diamond i{width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rule{padding:24px;border:1px solid var(--line);background:#fff}
+.rule .roman{font-size:24px}
+.rule p{font:400 15px/24px var(--sans);color:var(--ink-2);margin-top:12px}
+.rule b{display:block;font:500 22px/28px var(--serif);color:var(--graphite);margin-top:8px}
+
+/* ====== первый экран, компьютер ====== */
+.hero{width:1440px;height:900px;padding:0 120px}
+.nav{height:96px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font:600 20px/24px var(--serif);letter-spacing:.22em;text-transform:uppercase}
+.menu{display:flex;gap:40px;font:500 14px/20px var(--sans)}
+.menu a{color:var(--graphite);text-decoration:none}
+.nav .link{font-size:14px;padding-bottom:4px}
+.hero-body{display:grid;grid-template-columns:640px 1fr;gap:80px;padding-top:80px}
+.hero-text{display:flex;flex-direction:column;gap:32px;padding-top:24px}
+.hero h1{font:500 76px/78px var(--serif);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--graphite)}
+.lead{font:400 18px/30px var(--sans);color:var(--ink-2);max-width:540px}
+.cta{display:flex;align-items:center;gap:40px;margin-top:8px}
+.arch-wrap{position:relative;width:440px;height:600px;justify-self:end}
+.arch-line{position:absolute;inset:0;border:1px solid var(--gold);border-radius:220px 220px 0 0}
+.arch{position:absolute;left:20px;top:20px;right:20px;bottom:0;border-radius:200px 200px 0 0;background:linear-gradient(180deg,#EDE4D0 0%,#E3D7BD 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:40px}
+.arch-cap{font:500 12px/16px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#8C8577}
+.steps{position:absolute;left:120px;right:120px;bottom:0;height:120px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:var(--ivory)}
+.step{display:flex;gap:20px;align-items:flex-start;padding:32px 40px 0 0}
+.step+.step{padding-left:40px;border-left:1px solid var(--line)}
+.step b{display:block;font:500 22px/26px var(--serif);margin-bottom:4px}
+.step p{font:400 14px/22px var(--sans);color:var(--ink-2)}
+
+/* ====== телефон и пост ====== */
+.pair{display:flex;gap:60px;align-items:flex-start}
+.m{width:390px;height:844px;padding:0 20px}
+.m .nav{height:72px}
+.m .logo{font-size:15px;letter-spacing:.2em}
+.burger{width:28px;display:flex;flex-direction:column;gap:7px}
+.burger i{display:block;height:1px;background:var(--graphite)}
+.m-body{display:flex;flex-direction:column;gap:24px;padding-top:40px}
+.m h1{font:500 42px/44px var(--serif);letter-spacing:-.01em}
+.m .lead{font-size:16px;line-height:26px}
+.m .btn{width:100%}
+.m .link{align-self:flex-start}
+.m .arch-wrap{width:300px;height:380px;justify-self:auto;margin:16px auto 0}
+.m .arch-line{border-radius:150px 150px 0 0}
+.m .arch{left:14px;top:14px;right:14px;border-radius:136px 136px 0 0}
+
+.post{width:1080px;height:1350px;padding:64px}
+.post-in{position:absolute;inset:40px;border:1px solid var(--gold)}
+.post-top{position:relative;display:flex;justify-content:space-between;align-items:center;padding:24px 32px 0}
+.post-top .eyebrow{font-size:20px;line-height:24px;letter-spacing:.2em}
+.post-top .eyebrow::before{width:64px}
+.post-num{font:500 20px/24px var(--sans);letter-spacing:.12em;color:var(--ink-2)}
+.post-big{position:absolute;right:96px;top:140px;width:420px;height:560px}
+.post-big .arch-line{border-radius:210px 210px 0 0}
+.post-big .digit{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 420px/1 var(--serif);color:var(--gold);padding-bottom:70px}
+.post-text{position:absolute;left:96px;right:96px;bottom:160px;display:flex;flex-direction:column;gap:40px}
+.post h2{font:500 96px/96px var(--serif);letter-spacing:-.01em;max-width:820px}
+.post h2 em{font-style:italic}
+.post p{font:400 30px/46px var(--sans);color:var(--ink-2);max-width:800px}
+.post-foot{position:absolute;left:96px;right:96px;bottom:72px;display:flex;justify-content:space-between;font:500 20px/24px var(--sans);letter-spacing:.06em;color:var(--graphite)}
+.post-foot span:last-child{border-bottom:1px solid var(--gold);padding-bottom:6px}
+</style>
+</head>
+<body>
+
+<!-- 1. ДИЗАЙН-СИСТЕМА -->
+<section class="block">
+  <div class="frame-label">01 · Дизайн-система</div>
+  <div class="frame ds" id="ds">
+    <div class="ds-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:20px">Татьяна Морозова · бизнес-консультант</div>
+        <div class="ds-title">Дизайн-система</div>
+      </div>
+      <div class="ds-meta">Неоклассика, премиальный минимализм<br>Версия 1 · ноябрь 2026</div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Цвет</h3><p class="note">Золото — только линии, цифры и акценты, не больше 5% площади. Заливки золотом не делаем.</p></div>
+      <div>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#F8F4E9;border-bottom:1px solid var(--line)"></div><div class="info"><span class="name">Слоновая кость</span><span class="hex">#F8F4E9</span><span class="role">Фон страниц и постов</span></div></div>
+          <div class="sw"><div class="chip" style="background:#1A1A1A"></div><div class="info"><span class="name">Графит</span><span class="hex">#1A1A1A</span><span class="role">Текст, кнопки, иконки</span></div></div>
+          <div class="sw"><div class="chip" style="background:#D4AF37"></div><div class="info"><span class="name">Благородное золото</span><span class="hex">#D4AF37</span><span class="role">Тонкие линии, крупные цифры</span></div></div>
+        </div>
+        <div class="swatches small">
+          <div class="sw"><div class="chip" style="background:#5C5A55"></div><div class="info"><span class="name">Графит 70</span><span class="hex">#5C5A55</span><span class="role">Второстепенный текст</span></div></div>
+          <div class="sw"><div class="chip" style="background:#EFE7D6"></div><div class="info"><span class="name">Кость глубокая</span><span class="hex">#EFE7D6</span><span class="role">Карточки, подложки</span></div></div>
+          <div class="sw"><div class="chip" style="background:#E2D8C2"></div><div class="info"><span class="name">Линия</span><span class="hex">#E2D8C2</span><span class="role">Разделители, рамки</span></div></div>
+          <div class="sw"><div class="chip" style="background:#A8862A"></div><div class="info"><span class="name">Охра</span><span class="hex">#A8862A</span><span class="role">Золото в мелком тексте</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Типографика</h3><p class="note">Заголовки — Cormorant Garamond, текст — Manrope. Курсив Cormorant — для одного акцентного слова.</p></div>
+      <div>
+        <div class="type-row"><div class="type-spec"><b>Display / H1</b>Cormorant 500 · 76/78<br>телефон 42/44</div><div class="t-display">Порядок в управлении</div></div>
+        <div class="type-row"><div class="type-spec"><b>H2</b>Cormorant 500 · 52/56<br>телефон 34/38</div><div class="t-h2">Как я работаю с собственниками</div></div>
+        <div class="type-row"><div class="type-spec"><b>H3</b>Cormorant 500 · 34/40<br>телефон 26/32</div><div class="t-h3">Диагностика управления</div></div>
+        <div class="type-row"><div class="type-spec"><b>Акцент</b>Cormorant 500 italic · 34/40</div><div class="t-accent">хирургическая точность</div></div>
+        <div class="type-row"><div class="type-spec"><b>Текст L</b>Manrope 400 · 18/30<br>телефон 16/26</div><div class="t-body-l">Помогаю выстроить систему управления, в которой компания работает без ежедневного ручного контроля.</div></div>
+        <div class="type-row"><div class="type-spec"><b>Текст</b>Manrope 400 · 16/26</div><div class="t-body">Роли, регламенты и отчётность — так, чтобы решения принимались без вас, а вы видели картину целиком.</div></div>
+        <div class="type-row"><div class="type-spec"><b>Подпись</b>Manrope 600 · 12/16 · +18%</div><div class="t-caption">Бизнес-консультант для собственников МСБ</div></div>
+      </div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Кнопки</h3><p class="note">Прямые углы, без теней и градиентов. На экране — одна главная кнопка.</p></div>
+      <div class="row" style="gap:48px">
+        <div class="state"><a class="btn btn-primary">Записаться на диагностику</a><span>Главная</span></div>
+        <div class="state"><a class="btn btn-primary hover">Записаться на диагностику</a><span>Главная · наведение</span></div>
+        <div class="state"><a class="btn btn-secondary">Подробнее</a><span>Второстепенная</span></div>
+        <div class="state"><a class="btn btn-secondary hover">Подробнее</a><span>Наведение</span></div>
+        <div class="state"><a class="link">Как я работаю <span>→</span></a><span>Ссылка</span></div>
+      </div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Отступы и сетка</h3><p class="note">Контейнер 1200, 12 колонок, промежуток 24. Телефон: 4 колонки, поля 20.</p></div>
+      <div style="display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start">
+        <div class="space-list">
+          <div class="space-item"><span>4 · внутри элементов</span><i style="width:4px"></i></div>
+          <div class="space-item"><span>8 · иконка и текст</span><i style="width:8px"></i></div>
+          <div class="space-item"><span>16 · строки в группе</span><i style="width:16px"></i></div>
+          <div class="space-item"><span>24 · промежуток сетки</span><i style="width:24px"></i></div>
+          <div class="space-item"><span>40 · между группами</span><i style="width:40px"></i></div>
+          <div class="space-item"><span>64 · блоки на телефоне</span><i style="width:64px"></i></div>
+          <div class="space-item"><span>120 · блоки на компьютере</span><i style="width:120px"></i></div>
+        </div>
+        <div class="grid-demo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Орнамент</h3><p class="note">Архитектура неоклассики: арка, тонкая линия, римские цифры. Только контуром.</p></div>
+      <div class="orn">
+        <div class="orn-item"><div style="position:relative;width:120px;height:160px"><div class="arch-line" style="border-radius:60px 60px 0 0"></div></div><span>Арка — рамка для фото</span></div>
+        <div class="orn-item"><div class="diamond"><i></i></div><span>Разделитель</span></div>
+        <div class="orn-item"><div style="display:flex;gap:28px"><span class="roman">I</span><span class="roman">II</span><span class="roman">III</span></div><span>Нумерация шагов</span></div>
+        <div class="orn-item"><div class="eyebrow">Раздел</div><span>Подпись раздела</span></div>
+      </div>
+    </div>
+
+    <div class="ds-sec">
+      <div><h3>Принципы</h3></div>
+      <div class="rules">
+        <div class="rule"><span class="roman">I</span><b>Тишина вместо крика</b><p>Много воздуха, никаких восклицаний, капслока и ярких плашек.</p></div>
+        <div class="rule"><span class="roman">II</span><b>Золото — штрихом</b><p>Линии в 1 пиксель, цифры, подчёркивания. Статус — в сдержанности.</p></div>
+        <div class="rule"><span class="roman">III</span><b>Одна сетка везде</b><p>Сайт, посты и обложки собраны на одной модульной сетке — лента выглядит продолжением сайта.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ПЕРВЫЙ ЭКРАН · КОМПЬЮТЕР -->
+<section class="block">
+  <div class="frame-label">02 · Сайт · первый экран · 1440</div>
+  <div class="frame hero" id="hero">
+    <div class="nav">
+      <div class="logo">Татьяна Морозова</div>
+      <nav class="menu"><a>Подход</a><a>Услуги</a><a>Кейсы</a><a>Обо мне</a><a>Контакты</a></nav>
+      <a class="link">Связаться</a>
+    </div>
+    <div class="hero-body">
+      <div class="hero-text">
+        <div class="eyebrow">Бизнес-консультант для собственников МСБ</div>
+        <h1>Порядок в&nbsp;управлении. <em>Свобода</em> от операционки.</h1>
+        <p class="lead">Помогаю собственникам малого и среднего бизнеса выстроить систему управления, в которой компания работает без ежедневного ручного контроля.</p>
+        <div class="cta"><a class="btn btn-primary">Записаться на диагностику</a><a class="link">Как я работаю <span>→</span></a></div>
+      </div>
+      <div class="arch-wrap"><div class="arch-line"></div><div class="arch"><span class="arch-cap">Здесь будет ваш портрет</span></div></div>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="roman">I</span><div><b>Диагностика</b><p>Находим, где теряются деньги, время и решения</p></div></div>
+      <div class="step"><span class="roman">II</span><div><b>Система</b><p>Роли, регламенты и отчётность без лишней бюрократии</p></div></div>
+      <div class="step"><span class="roman">III</span><div><b>Передача</b><p>Команда работает сама, вы управляете по цифрам</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ТЕЛЕФОН + 4. ПОСТ -->
+<section class="block pair">
+  <div>
+    <div class="frame-label">03 · Сайт · первый экран · 390</div>
+    <div class="frame m" id="mobile">
+      <div class="nav"><div class="logo">Т. Морозова</div><div class="burger"><i></i><i></i></div></div>
+      <div class="m-body">
+        <div class="eyebrow">Бизнес-консультант</div>
+        <h1>Порядок в&nbsp;управлении. <em style="font-style:italic">Свобода</em> от операционки.</h1>
+        <p class="lead">Помогаю собственникам малого и среднего бизнеса выстроить систему, в которой компания работает без ежедневного ручного контроля.</p>
+        <a class="btn btn-primary">Записаться на диагностику</a>
+        <a class="link">Как я работаю <span>→</span></a>
+        <div class="arch-wrap"><div class="arch-line"></div><div class="arch"></div></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="frame-label">04 · Пост VK / Instagram · 1080×1350</div>
+    <div class="frame post" id="post">
+      <div class="post-in"></div>
+      <div class="post-top"><div class="eyebrow">Татьяна Морозова</div><div class="post-num">01 / 06</div></div>
+      <div class="post-big"><div class="arch-line"></div><div class="digit">5</div></div>
+      <div class="post-text">
+        <h2>признаков, что бизнес держится <em>только</em> на вас</h2>
+        <p>Если без вашего звонка не закрывается ни одна сделка, это не преданность команды, а отсутствие системы. Разбираем, как это исправить.</p>
+      </div>
+      <div class="post-foot"><span>Управление · Система</span><span>Листайте →</span></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
