@@ -1,0 +1,304 @@
+{
+ "projects": [
+  {
+   "slug": "dom-vo-dvore",
+   "year": 2025,
+   "area": 420,
+   "ru": {
+    "title": "Дом с внутренним двором",
+    "place": "Подмосковье",
+    "type": "Частный дом",
+    "text": "Дом собран вокруг двора с бассейном: все жилые комнаты смотрят внутрь, на воду и сад, а к улице обращены глухие стены. Консольная кровля из лиственницы даёт тень летом и пускает низкое солнце зимой."
+   },
+   "en": {
+    "title": "Courtyard house",
+    "place": "Moscow region",
+    "type": "Private house",
+    "text": "The house wraps around a courtyard with a pool: every living room faces inward to the water and garden, while blank walls face the street. A cantilevered larch roof shades the rooms in summer and lets the low winter sun in."
+   },
+   "cover": "img/dom-vo-dvore/card.jpg",
+   "photos": [
+    {
+     "src": "img/dom-vo-dvore/01.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "src": "img/dom-vo-dvore/02.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "src": "img/dom-vo-dvore/03.jpg",
+     "w": 1600,
+     "h": 1000
+    },
+    {
+     "src": "img/dom-vo-dvore/04.jpg",
+     "w": 1280,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-vo-dvore/05.jpg",
+     "w": 1600,
+     "h": 1067
+    }
+   ]
+  },
+  {
+   "slug": "beton-v-lesu",
+   "year": 2024,
+   "area": 260,
+   "ru": {
+    "title": "Бетонный дом в лесу",
+    "place": "Истра",
+    "type": "Частный дом",
+    "text": "Монолитный бетон с отпечатком доски и минимум отделки. Дом стоит между деревьями, не трогая ни одного ствола, а круглое окно в торце смотрит прямо в лес."
+   },
+   "en": {
+    "title": "Concrete house in the woods",
+    "place": "Istra",
+    "type": "Private house",
+    "text": "Board-formed concrete and almost no finishing. The house sits between the trees without touching a single trunk, and a round window at the end looks straight into the forest."
+   },
+   "cover": "img/beton-v-lesu/card.jpg",
+   "photos": [
+    {
+     "src": "img/beton-v-lesu/01.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "src": "img/beton-v-lesu/02.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "src": "img/beton-v-lesu/03.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "src": "img/beton-v-lesu/04.jpg",
+     "w": 1092,
+     "h": 1600
+    },
+    {
+     "src": "img/beton-v-lesu/05.jpg",
+     "w": 1280,
+     "h": 1600
+    },
+    {
+     "src": "img/beton-v-lesu/06.jpg",
+     "w": 1280,
+     "h": 1600
+    }
+   ]
+  },
+  {
+   "slug": "belaya-villa",
+   "year": 2024,
+   "area": 380,
+   "ru": {
+    "title": "Белая вилла",
+    "place": "Сочи",
+    "type": "Частный дом",
+    "text": "Два вытянутых белых объёма спускаются к морю террасами. Глубокие свесы защищают стекло от южного солнца, а интерьер продолжает фасад: белая штукатурка, светлый камень, открытые кухня и гостиная."
+   },
+   "en": {
+    "title": "White villa",
+    "place": "Sochi",
+    "type": "Private house",
+    "text": "Two long white volumes step down to the sea in terraces. Deep overhangs shield the glass from the southern sun, and the interior continues the facade: white plaster, pale stone, an open kitchen and living room."
+   },
+   "cover": "img/belaya-villa/card.jpg",
+   "photos": [
+    {
+     "src": "img/belaya-villa/01.jpg",
+     "w": 1600,
+     "h": 900
+    },
+    {
+     "src": "img/belaya-villa/02.jpg",
+     "w": 1201,
+     "h": 1600
+    },
+    {
+     "src": "img/belaya-villa/03.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/belaya-villa/04.jpg",
+     "w": 1280,
+     "h": 1600
+    },
+    {
+     "src": "img/belaya-villa/05.jpg",
+     "w": 1429,
+     "h": 1600
+    },
+    {
+     "src": "img/belaya-villa/06.jpg",
+     "w": 1280,
+     "h": 1600
+    }
+   ]
+  },
+  {
+   "slug": "dom-sredi-sosen",
+   "year": 2023,
+   "area": 180,
+   "ru": {
+    "title": "Дом среди сосен",
+    "place": "Карелия",
+    "type": "Загородный дом",
+    "text": "Небольшой дом для отдыха на сваях: так он меньше всего задевает корни и мох. Снаружи тёмная термодоска, внутри тёплое дерево и кровать у панорамного окна."
+   },
+   "en": {
+    "title": "House among the pines",
+    "place": "Karelia",
+    "type": "Country house",
+    "text": "A small retreat on piles, so it barely disturbs the roots and moss. Dark thermo-treated timber outside, warm wood inside and a bed set by a panoramic window."
+   },
+   "cover": "img/dom-sredi-sosen/card.jpg",
+   "photos": [
+    {
+     "src": "img/dom-sredi-sosen/01.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-sredi-sosen/02.jpg",
+     "w": 1068,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-sredi-sosen/03.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-sredi-sosen/04.jpg",
+     "w": 1600,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-sredi-sosen/05.jpg",
+     "w": 1067,
+     "h": 1600
+    }
+   ]
+  },
+  {
+   "slug": "kvartira-hamovniki",
+   "year": 2025,
+   "area": 140,
+   "ru": {
+    "title": "Квартира в Хамовниках",
+    "place": "Москва",
+    "type": "Интерьер",
+    "text": "Квартира для семьи из трёх человек. Убрали коридор и объединили кухню со столовой, а системы хранения спрятали в стеновые панели из дуба."
+   },
+   "en": {
+    "title": "Apartment in Khamovniki",
+    "place": "Moscow",
+    "type": "Interior",
+    "text": "An apartment for a family of three. We removed the corridor, joined the kitchen and dining room, and hid the storage inside oak wall panels."
+   },
+   "cover": "img/kvartira-hamovniki/card.jpg",
+   "photos": [
+    {
+     "src": "img/kvartira-hamovniki/01.jpg",
+     "w": 1600,
+     "h": 1280
+    },
+    {
+     "src": "img/kvartira-hamovniki/02.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/kvartira-hamovniki/03.jpg",
+     "w": 1600,
+     "h": 900
+    },
+    {
+     "src": "img/kvartira-hamovniki/04.jpg",
+     "w": 1600,
+     "h": 900
+    },
+    {
+     "src": "img/kvartira-hamovniki/05.jpg",
+     "w": 1064,
+     "h": 1600
+    },
+    {
+     "src": "img/kvartira-hamovniki/06.jpg",
+     "w": 1200,
+     "h": 1600
+    }
+   ]
+  },
+  {
+   "slug": "dom-galereya",
+   "year": 2023,
+   "area": 300,
+   "ru": {
+    "title": "Дом-галерея",
+    "place": "Московская область",
+    "type": "Частный дом",
+    "text": "Дом для коллекционера: белые стены, верхний свет и лестница как главная скульптура. Все материалы подобраны так, чтобы не спорить с работами на стенах."
+   },
+   "en": {
+    "title": "Gallery house",
+    "place": "Moscow region",
+    "type": "Private house",
+    "text": "A house for a collector: white walls, overhead light and a staircase as the main sculpture. Every material was chosen so as not to compete with the works on the walls."
+   },
+   "cover": "img/dom-galereya/card.jpg",
+   "photos": [
+    {
+     "src": "img/dom-galereya/01.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "src": "img/dom-galereya/02.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-galereya/03.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-galereya/04.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "src": "img/dom-galereya/05.jpg",
+     "w": 1600,
+     "h": 1050
+    },
+    {
+     "src": "img/dom-galereya/06.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "src": "img/dom-galereya/07.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "src": "img/dom-galereya/08.jpg",
+     "w": 1280,
+     "h": 1600
+    }
+   ]
+  }
+ ]
+}
