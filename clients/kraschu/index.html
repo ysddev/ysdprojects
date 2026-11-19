@@ -93,6 +93,7 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 .about .col p+p{margin-top:14px}
 .ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
 .ba figure{margin:0}
+.ba img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--swatch)}
 .ba .slot{aspect-ratio:4/5;border-radius:var(--swatch);border:1.5px dashed var(--l7);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:var(--l8);font-size:15px}
 .ba figcaption{margin-top:12px;font-size:15px;line-height:1.4;color:#efe7dc}
 .cap{font-size:var(--step-small);color:var(--muted);margin-top:10px}
@@ -319,8 +320,8 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
       <div class="rv">
         <p>Раньше, когда походы к другим колористам были вслепую, сидела в кресле обычным клиентом, который на всё согласен, мои волосы выглядели так:</p>
         <div class="ba">
-          <figure><div class="slot" role="img" aria-label="Место для фото: волосы раньше"><span>Фото «раньше»</span></div><figcaption>Волосы ломались, не успевая отрастать…</figcaption></figure>
-          <figure><div class="slot" role="img" aria-label="Место для фото: волосы сейчас"><span>Фото «сейчас»</span></div><figcaption>Сейчас крашу свои волосы САМА! И тебя научу!</figcaption></figure>
+          <figure><img src="img/ba-before.webp" width="640" height="800" loading="lazy" alt="Надежда раньше: светлые волосы до плеч"><figcaption>Волосы ломались, не успевая отрастать…</figcaption></figure>
+          <figure><img src="img/ba-after.webp" width="640" height="800" loading="lazy" alt="Надежда сейчас: длинные светлые волосы, крашу сама"><figcaption>Сейчас крашу свои волосы САМА! И тебя научу!</figcaption></figure>
         </div>
       </div>
       <a class="btn light rv" href="#price">Хочу научиться</a>
