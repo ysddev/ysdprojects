@@ -8,7 +8,7 @@
 <meta name="description" content="Дизайн интерьера, в котором удобно жить. Планировочное решение, концепция и рендеры, рабочие чертежи, комплектация и авторский надзор. Запись на консультацию.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Кристина Крыжановская | Дизайн интерьера, в котором удобно жить">
-<meta property="og:description" content="Проект «Цифровое убежище»: квартира в тёмных тонах с деревом и камнем. Этапы работы и запись на консультацию.">
+<meta property="og:description" content="Проект «Цифровое убежище»: квартира в тёмных тонах с деревом и камнем, план до и после, этапы работы и запись на консультацию.">
 <meta property="og:image" content="img/hero.jpg">
 <meta property="og:locale" content="ru_RU">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F201E'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23F3F0EA' text-anchor='middle'%3EК%3C/text%3E%3C/svg%3E">
@@ -82,22 +82,13 @@ h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
 .chg{list-style:none;margin-top:32px;display:grid;gap:14px;max-width:30em}
 .chg li{display:flex;gap:14px;color:var(--mut);transition:opacity .5s var(--e),transform .5s var(--e)}
 .chg li::before{content:"";flex:0 0 8px;height:8px;margin-top:.62em;border-radius:50%;background:var(--ink)}
-.chg.off li{opacity:.45;transform:translateX(-6px)}
+.chg.off li{opacity:.4}
 .note{margin-top:22px;font-size:14px;color:var(--mut)}
-.cmp{position:relative;aspect-ratio:3/2;background:var(--paper);border-radius:22px;overflow:hidden;touch-action:pan-y}
-.cmp svg{position:absolute;inset:0;width:100%;height:100%}
-.aw{position:absolute;inset:0;overflow:hidden;transform:translateX(var(--p,50%))}
-.aw svg{transform:translateX(calc(-1 * var(--p,50%)))}
-.ln{position:absolute;inset:0;transform:translateX(var(--p,50%));pointer-events:none}
-.ln::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:2px;background:var(--ink)}
-.kn{position:absolute;left:-26px;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;color:#fff}
-.cmp.an .aw,.cmp.an .aw svg,.cmp.an .ln{transition:transform .9s var(--e)}
-.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.cap{display:flex;justify-content:space-between;margin-top:14px;font-size:14px;color:var(--mut)}
-.plan .wl{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:square}
-.plan .ow{stroke-width:10}
-.plan .fu{fill:var(--bg2);stroke:#8C877E;stroke-width:1.5}
-.plan text{font:500 13px Manrope,sans-serif;fill:var(--mut);text-anchor:middle}
+.cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin-top:14px;font-size:14px;color:var(--mut)}
+.pln{position:relative;aspect-ratio:686/800;max-height:78vh;margin:0 auto;background:#fff;border-radius:22px;overflow:hidden}
+.pln img{position:absolute;inset:4%;width:92%;height:92%;object-fit:contain;transition:opacity .6s var(--e)}
+.pln .pb{opacity:0}
+.pln.before .pb{opacity:1}.pln.before .pa{opacity:0}
 
 /* projects */
 .ph-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,6vw,88px)}
@@ -218,7 +209,6 @@ body{font-size:16px;padding-bottom:84px}
 .p3{grid-template-columns:minmax(0,1fr);gap:0}
 .p3 .pt{padding-bottom:0}
 .row{grid-template-columns:minmax(0,1fr)}
-.cmp{aspect-ratio:4/3}
 .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
 .gal figure.wd,.gal figure.wd.xl,.gal.flt figure.wd{grid-column:span 2;aspect-ratio:4/3}
 .gal.flt figure.tl{grid-column:span 1}
@@ -310,40 +300,25 @@ body{font-size:16px;padding-bottom:84px}
     <div class="wrap pg">
       <div>
         <h2 data-r>Сначала планировка, потом красота</h2>
-        <p class="lead" data-r>Красивую картинку нарисовать несложно. Сложнее сделать так, чтобы квартирой было удобно пользоваться каждый день. Поэтому в каждом проекте я показываю план до и после.</p>
-        <div class="tg" role="group" aria-label="Режим плана" data-r>
+        <p class="lead" data-r>Красивую картинку нарисовать несложно. Сложнее сделать так, чтобы квартирой было удобно пользоваться каждый день. В «Цифровом убежище» из открытой студии 58&nbsp;м² получилась квартира с отдельной спальней, гардеробной и кухней-гостиной.</p>
+        <div class="tg" role="group" aria-label="План квартиры" data-r>
           <button type="button" id="bB" aria-pressed="false">Как было</button>
           <button type="button" id="bA" aria-pressed="true">Как стало</button>
         </div>
         <ul class="chg" id="chg" data-r>
-          <li>Убрали перегородку между кухней и комнатой, получилась кухня-гостиная с островом</li>
-          <li>Кладовую объединили с санузлом, поместились ванна и стиральная машина</li>
-          <li>В спальне встроенный шкаф на всю стену вместо отдельных комодов</li>
+          <li>Отдельная спальня-кабинет у окна: подиум с большим матрасом и рабочий стол вдоль подоконника</li>
+          <li>Кухня-гостиная-столовая с островом, угловым диваном и выходом на балкон</li>
+          <li>Гардеробная с местом для стиральной машины</li>
+          <li>Санузел с душевой рядом с прихожей, в прихожей шкафы во всю стену</li>
+          <li>Балкон 5&nbsp;м² стал зоной отдыха с шезлонгом</li>
         </ul>
-        <p class="note" data-r>Это пример. На сайте так будет показан каждый ваш проект.</p>
       </div>
       <div data-r>
-        <div class="cmp" id="cmp" style="--p:50%">
-          <svg class="plan" viewBox="0 0 600 400" aria-hidden="true">
-            <rect x="20" y="20" width="560" height="360" class="wl ow"/>
-            <path class="wl" d="M230 20V250M380 20V250M20 250H80M135 250H290M345 250H440M495 250H580M20 300H110M160 300H225M280 300H360M415 300H580M170 300V380M260 300V380"/>
-            <text x="125" y="140">Спальня</text><text x="305" y="140">Кухня</text><text x="480" y="140">Комната</text>
-            <text x="300" y="280">Коридор</text><text x="95" y="345">Санузел</text><text x="215" y="345">Кладовая</text><text x="420" y="345">Прихожая</text>
-          </svg>
-          <div class="aw"><svg class="plan" viewBox="0 0 600 400" aria-hidden="true" style="background:var(--paper)">
-            <rect x="20" y="20" width="560" height="360" class="wl ow"/>
-            <path class="wl" d="M230 20V250M20 250H80M135 250H230M20 300H190M245 300H260M260 300V380"/>
-            <rect class="fu" x="60" y="40" width="120" height="125" rx="6"/><rect class="fu" x="70" y="48" width="45" height="22" rx="4"/><rect class="fu" x="125" y="48" width="45" height="22" rx="4"/>
-            <rect class="fu" x="30" y="206" width="190" height="34"/>
-            <path class="fu" d="M240 30H420V66H276V150H240Z"/><rect class="fu" x="310" y="128" width="110" height="44" rx="4"/>
-            <rect class="fu" x="455" y="96" width="84" height="44" rx="22"/><rect class="fu" x="430" y="178" width="132" height="54" rx="10"/>
-            <rect class="fu" x="30" y="312" width="90" height="56" rx="16"/><circle class="fu" cx="160" cy="356" r="14"/><rect class="fu" x="198" y="316" width="46" height="46" rx="5"/>
-            <text x="125" y="192">Спальня</text><text x="345" y="214">Кухня-гостиная</text><text x="160" y="330">Санузел</text><text x="420" y="345">Прихожая</text>
-          </svg></div>
-          <div class="ln"><span class="kn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
-          <input type="range" id="rg" min="0" max="100" value="50" aria-label="Сдвиньте, чтобы сравнить план до и после">
+        <div class="pln" id="pln">
+          <img class="pb" src="img/plan-before.png" width="666" height="800" loading="lazy" alt="План до: открытая студия 58,4 м² и балкон 4,96 м²">
+          <img class="pa" src="img/plan-after.png" width="686" height="800" loading="lazy" alt="План после: спальня, гостиная-столовая, гардеробная, прихожая, санузел и балкон">
         </div>
-        <div class="cap"><span>Обмерный план</span><span>Решение дизайнера</span></div>
+        <div class="cap"><span id="plc">Решение дизайнера</span><span>Площадь 58,4 м² + балкон 4,96 м²</span></div>
       </div>
     </div>
   </section>
@@ -458,14 +433,10 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 d.querySelectorAll('[data-r]').forEach(function(el){io.observe(el)});
 new IntersectionObserver(function(es){formIn=es[0].isIntersecting;onS()},{threshold:.15}).observe(d.getElementById('form'));
 
-var cmp=d.getElementById('cmp'),rg=d.getElementById('rg'),bB=d.getElementById('bB'),bA=d.getElementById('bA'),chg=d.getElementById('chg');
-function setP(v,anim){cmp.classList.toggle('an',!!anim&&!R);cmp.style.setProperty('--p',v+'%');rg.value=v;
-  var after=v<50;bA.setAttribute('aria-pressed',after);bB.setAttribute('aria-pressed',!after);chg.classList.toggle('off',v>85)}
-rg.addEventListener('input',function(){setP(+rg.value,false)});
-bB.addEventListener('click',function(){setP(100,true)});
-bA.addEventListener('click',function(){setP(0,true)});
-setP(50,false);
-var shown=false;new IntersectionObserver(function(es){if(es[0].isIntersecting&&!shown&&!R){shown=true;setTimeout(function(){setP(78,true);setTimeout(function(){setP(50,true)},1000)},500)}},{threshold:.5}).observe(cmp);
+var pln=d.getElementById('pln'),plc=d.getElementById('plc'),bB=d.getElementById('bB'),bA=d.getElementById('bA'),chg=d.getElementById('chg');
+function setPl(before){pln.classList.toggle('before',before);bB.setAttribute('aria-pressed',before);bA.setAttribute('aria-pressed',!before);chg.classList.toggle('off',before);plc.textContent=before?'Обмерный план':'Решение дизайнера'}
+bB.addEventListener('click',function(){setPl(true)});
+bA.addEventListener('click',function(){setPl(false)});
 
 d.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){var f=d.getElementById('fn');if(f)f.focus({preventScroll:true})},600)})});
 
