@@ -33,7 +33,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#E4E2DD;font-family:var(--sans);color:var(--graphite);width:1650px;padding:80px 105px 120px;-webkit-font-smoothing:antialiased}
 .frame-label{font:500 13px/16px var(--sans);color:#7A7872;margin:0 0 12px;letter-spacing:.02em}
-.frame{background:var(--ivory) var(--grain);position:relative;overflow:hidden}
+.frame{background:var(--ivory);position:relative;overflow:hidden}
 .frame.dark{background:var(--night);color:var(--ivory)}
 .block{margin-bottom:96px}
 .pair{display:flex;gap:60px;align-items:flex-start}
@@ -132,7 +132,7 @@ h1 em,h2 em{font-style:italic}
 .arch-wrap{position:relative;width:440px;height:600px;justify-self:end}
 .arch-line{position:absolute;inset:0;border:1px solid var(--gold);border-radius:220px 220px 0 0}
 .arch{position:absolute;left:20px;top:20px;right:20px;bottom:0;border-radius:200px 200px 0 0}
-.aud{position:absolute;left:120px;right:120px;bottom:0;height:128px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--ivory) var(--grain)}
+.aud{position:absolute;left:120px;right:120px;bottom:0;height:128px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--ivory)}
 .aud-item{display:flex;gap:24px;align-items:flex-start;padding:30px 48px 0 0}
 .aud-item+.aud-item{padding-left:48px;border-left:1px solid var(--line)}
 .aud-item b{display:flex;justify-content:space-between;align-items:baseline;font:500 26px/30px var(--serif);margin-bottom:8px}
@@ -142,7 +142,7 @@ h1 em,h2 em{font-style:italic}
 
 /* ====== вариант Б · Ювелирный дом ====== */
 .b{width:1440px;height:900px}
-.b-photo{position:absolute;inset:0;filter:brightness(1.35) contrast(1.05)}
+.b-photo{position:absolute;inset:0}
 .b-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,17,.35) 0%,rgba(18,18,17,.15) 38%,rgba(18,18,17,.78) 80%,#121211 100%)}
 .b-frame{position:absolute;inset:28px;border:1px solid var(--night-line);pointer-events:none}
 .b-nav{position:relative;height:110px;margin:0 120px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid rgba(248,244,233,.14)}
@@ -199,7 +199,7 @@ h1 em,h2 em{font-style:italic}
 .pa-text h2{font:500 76px/80px var(--serif);letter-spacing:-.01em}
 .post-foot{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font:500 18px/22px var(--sans);letter-spacing:.16em;text-transform:uppercase;padding-top:28px;border-top:1px solid var(--line)}
 .post-foot .logo{font-size:22px;letter-spacing:.22em;text-transform:uppercase}
-.pb-photo{position:absolute;inset:0;filter:brightness(1.35) contrast(1.05)}
+.pb-photo{position:absolute;inset:0}
 .pb-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,17,.1) 0%,rgba(18,18,17,.35) 45%,rgba(18,18,17,.92) 75%,#121211 100%)}
 .pb-frame{position:absolute;inset:40px;border:1px solid var(--night-line)}
 .pb-text{position:absolute;left:120px;right:120px;bottom:230px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px}
@@ -272,7 +272,7 @@ h1 em,h2 em{font-style:italic}
       <div class="photos">
         <div class="photo ph-arch" style="background-image:url(img/colonnade-900.webp)"></div>
         <div class="photo" style="background-image:url(img/corridor-1080.webp)"></div>
-        <div class="photo" style="background-image:url(img/rotunda-1600.webp)"></div>
+        <div class="photo" style="background-image:url(img/rotunda-lit-1600.webp)"></div>
         <p>Светлая тема — тёплый камень и длинные тени.<br>Тёмная — ночная архитектура, затемнение к низу кадра. Портрет Татьяны — в арке или на графите.</p>
       </div>
     </div>
@@ -351,7 +351,7 @@ h1 em,h2 em{font-style:italic}
 <section class="block">
   <div class="frame-label">03 · Вариант Б «Ювелирный дом» · первый экран · 1440</div>
   <div class="frame dark b" id="b">
-    <div class="b-photo photo" style="background-image:url(img/rotunda-2800.webp)"></div>
+    <div class="b-photo photo" style="background-image:url(img/rotunda-lit-2800.webp)"></div>
     <div class="b-shade"></div>
     <div class="b-frame"></div>
     <div class="b-nav">
@@ -406,7 +406,7 @@ h1 em,h2 em{font-style:italic}
   <div>
     <div class="frame-label">06 · Б · телефон · 390</div>
     <div class="frame dark mb" id="bm">
-      <div class="b-photo photo" style="background-image:url(img/rotunda-post-1080.webp)"></div>
+      <div class="b-photo photo" style="background-image:url(img/rotunda-lit-post-1080.webp)"></div>
       <div class="b-shade"></div>
       <div class="b-frame"></div>
       <div class="mb-nav"><div class="logo">Т. Морозова</div><div class="burger" style="color:var(--ivory)"><i></i><i></i></div></div>
@@ -422,7 +422,7 @@ h1 em,h2 em{font-style:italic}
   <div>
     <div class="frame-label">07 · Б · пост ВК / Instagram · 1080×1350</div>
     <div class="frame dark post" id="bp">
-      <div class="pb-photo photo" style="background-image:url(img/rotunda-post-2160.webp)"></div>
+      <div class="pb-photo photo" style="background-image:url(img/rotunda-lit-post-2160.webp)"></div>
       <div class="pb-shade"></div>
       <div class="pb-frame"></div>
       <div class="pb-text">
