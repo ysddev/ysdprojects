@@ -527,10 +527,17 @@ $('#leadForm').addEventListener('submit', async e => {
     'Дата': new Date().toLocaleString('ru-RU',{timeZone:'Europe/Moscow'}),
     _subject: 'Новая заявка с сайта «ВСЁ ЗА ВАС»', _template: 'table', _captcha: 'false'
   };
-  try {
-    const r = await fetch('https://formsubmit.co/ajax/' + SITE.email, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(body)});
+  // на хостинге клиента заявка уходит через send.php; если его нет (демо) — через FormSubmit
+  const send = async (url, payload) => {
+    const r = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(payload)});
     const j = await r.json().catch(() => ({}));
-    if (!r.ok || String(j.success) === 'false') throw 0;
+    return r.ok && String(j.success) !== 'false';
+  };
+  try {
+    let ok = false;
+    if (!location.hostname.endsWith('ysdprojects.space')) ok = await send('send.php', {...data, website: ''}).catch(() => false);
+    if (!ok) ok = await send('https://formsubmit.co/ajax/' + SITE.email, body);
+    if (!ok) throw 0;
     goal('lead');
     f.style.display='none'; $('#thanks').style.display='block';
     $('#thanks').scrollIntoView({behavior:'smooth',block:'center'});
