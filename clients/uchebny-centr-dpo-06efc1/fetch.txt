@@ -3,4 +3,3 @@
 img/banner.jpg https://static.tildacdn.com/tild3030-3436-4532-b564-636635643534/img-20200831192132-5.jpg
 # Выписка из реестра лицензий (islod.obrnadzor.gov.ru) с GitHub не скачивается — таймаут; PDF положить руками в docs/licenziya.pdf и превью docs/licenziya.png
 img/diplomy.jpg https://cdn.profi.ru/xfiles/ofiles/95949625/ce947e3120dc40ccad724b8b0cc52206.jpg
-img/obuchenie.jpg https://cdn.profi.ru/xfiles/ofiles/95949625/5d5bf1ba67b24393a4cd076fa2190edc.jpg
