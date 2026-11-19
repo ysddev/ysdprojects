@@ -25,7 +25,7 @@
 
 :root{
   --graphite:#1A1A1A; --gold:#D4AF37; --ivory:#F8F4E9;
-  --ink-2:#5C5A55; --ivory-deep:#EFE7D6; --line:#E2D8C2; --ochre:#A8862A;
+  --ink-2:#5C5A55; --ivory-deep:#ECE9E1; --line:#DAD6CC; --ochre:#A8862A;
   --night:#121211; --night-line:rgba(212,175,55,.38); --ivory-70:rgba(248,244,233,.72);
   --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -53,7 +53,18 @@ body{background:#E4E2DD;font-family:var(--sans);color:var(--graphite);width:1650
 .link{display:inline-flex;align-items:center;gap:10px;font:500 15px/20px var(--sans);padding-bottom:6px;border-bottom:1px solid var(--gold);white-space:nowrap}
 .roman{font:500 italic 28px/1 var(--serif);color:var(--ochre)}
 .dark .roman{color:var(--gold)}
-h1 em,h2 em{font-style:italic}
+h1 em,h2 em{font-style:normal}
+.a-text h1 em,.m h1 em,.pa-text h2 em{color:var(--ochre)}
+.brand{display:flex;flex-direction:column;gap:7px}
+.brand-sub{font:600 10px/12px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--ink-2)}
+.dark .brand-sub{color:var(--ivory-70)}
+.b-nav .brand{align-items:center}
+.rect-wrap{position:relative;width:440px;height:600px;justify-self:end}
+.rect-line{position:absolute;left:24px;top:-24px;right:-24px;bottom:24px;border:1px solid var(--gold)}
+.rect{position:absolute;inset:0}
+.mono{position:absolute;font:600 640px/1 var(--serif);letter-spacing:-.06em;color:#EEEAE1;pointer-events:none;white-space:nowrap}
+.dark .mono{color:rgba(248,244,233,.03)}
+.t-mono{font:600 140px/1 var(--serif);letter-spacing:-.06em;color:#E3DFD5}
 
 /* ====== дизайн-система ====== */
 .ds{width:1440px;padding:96px 120px 120px}
@@ -124,7 +135,7 @@ h1 em,h2 em{font-style:italic}
 .logo{font:600 20px/24px var(--serif);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
 .menu{display:flex;gap:40px;font:500 14px/20px var(--sans)}
 .nav .link{font-size:14px;padding-bottom:4px}
-.a-body{display:grid;grid-template-columns:660px 1fr;gap:60px;padding-top:72px}
+.a-body{position:relative;display:grid;grid-template-columns:660px 1fr;gap:60px;padding-top:72px}
 .a-text{display:flex;flex-direction:column;gap:30px;padding-top:28px}
 .a-text h1{font:500 80px/80px var(--serif);letter-spacing:-.015em}
 .lead{font:400 18px/30px var(--sans);color:var(--ink-2);max-width:560px}
@@ -132,7 +143,7 @@ h1 em,h2 em{font-style:italic}
 .arch-wrap{position:relative;width:440px;height:600px;justify-self:end}
 .arch-line{position:absolute;inset:0;border:1px solid var(--gold);border-radius:220px 220px 0 0}
 .arch{position:absolute;left:20px;top:20px;right:20px;bottom:0;border-radius:200px 200px 0 0}
-.aud{position:absolute;left:120px;right:120px;bottom:0;height:128px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--ivory)}
+.aud{z-index:1;position:absolute;left:120px;right:120px;bottom:0;height:128px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--ivory)}
 .aud-item{display:flex;gap:24px;align-items:flex-start;padding:30px 48px 0 0}
 .aud-item+.aud-item{padding-left:48px;border-left:1px solid var(--line)}
 .aud-item b{display:flex;justify-content:space-between;align-items:baseline;font:500 26px/30px var(--serif);margin-bottom:8px}
@@ -173,6 +184,8 @@ h1 em,h2 em{font-style:italic}
 .m .lead{font-size:16px;line-height:26px}
 .m .btn{width:100%}
 .m .link{align-self:flex-start}
+.m .m-rect{width:310px;height:360px;justify-self:auto;margin:30px 0 0}
+.m .m-rect .rect-line{left:14px;top:-14px;right:-14px;bottom:14px}
 .m .arch-wrap{width:300px;height:380px;justify-self:auto;margin:14px auto 0}
 .m .arch-line{border-radius:150px 150px 0 0}
 .m .arch{left:14px;top:14px;right:14px;border-radius:136px 136px 0 0}
@@ -209,6 +222,7 @@ h1 em,h2 em{font-style:italic}
 .pb-text h2 em{color:var(--gold)}
 .pb-foot{position:absolute;left:120px;right:120px;bottom:104px;display:flex;justify-content:center}
 .pb-foot .logo{font-size:22px;color:var(--ivory)}
+.pb-foot .brand-sub{font-size:15px;line-height:18px}
 </style>
 </head>
 <body>
@@ -219,14 +233,14 @@ h1 em,h2 em{font-style:italic}
   <div class="frame ds" id="ds">
     <div class="ds-head">
       <div>
-        <div class="eyebrow" style="margin-bottom:20px">Татьяна Морозова · антикризисное управление</div>
+        <div class="eyebrow" style="margin-bottom:20px">Татьяна Морозова · ИНТУИТ</div>
         <div class="ds-title">Дизайн-система</div>
       </div>
-      <div class="ds-meta">Неоклассика, тактильный люкс<br>Версия 1 · ноябрь 2026</div>
+      <div class="ds-meta">Неоклассика, холодный люкс<br>Версия 1 · ноябрь 2026</div>
     </div>
 
     <div class="ds-sec">
-      <div><h3>Цвет</h3><p class="note">Золото — только тонкие линии и курсивный акцент. Крупные элементы — охрой. Заливки золотом не делаем.</p></div>
+      <div><h3>Цвет</h3><p class="note">Золото — только линии в 1 px. Акцентное слово в заголовке — охрой. Заливки золотом не делаем.</p></div>
       <div>
         <div class="swatches">
           <div class="sw"><div class="chip" style="background:#F8F4E9;border-bottom:1px solid var(--line)"></div><div class="info"><span class="name">Слоновая кость</span><span class="hex">#F8F4E9</span><span class="role">Фон, светлая тема</span></div></div>
@@ -244,12 +258,12 @@ h1 em,h2 em{font-style:italic}
     </div>
 
     <div class="ds-sec">
-      <div><h3>Типографика</h3><p class="note">Заголовки — Cormorant Garamond, текст — Manrope. Курсив — одно ключевое слово в заголовке.</p></div>
+      <div><h3>Типографика</h3><p class="note">Заголовки — Cormorant Garamond, текст — Manrope. Без курсива: прямой шрифт звучит твёрже.</p></div>
       <div>
         <div class="type-row"><div class="type-spec"><b>Display / H1</b>Cormorant 500 · 80/80<br>телефон 44/44</div><div class="t-display">Хаос — в алгоритм</div></div>
         <div class="type-row"><div class="type-spec"><b>H2</b>Cormorant 500 · 52/56<br>телефон 34/38</div><div class="t-h2">Работаю с причинами, а&nbsp;не&nbsp;с&nbsp;симптомами</div></div>
         <div class="type-row"><div class="type-spec"><b>H3</b>Cormorant 500 · 34/40<br>телефон 26/32</div><div class="t-h3">Аудит «Слепые зоны»</div></div>
-        <div class="type-row"><div class="type-spec"><b>Акцент</b>Cormorant 500 italic · 34/40</div><div class="t-accent">холодная голова</div></div>
+        <div class="type-row"><div class="type-spec"><b>Акцент</b>Cormorant 500 · охра</div><div class="t-accent" style="font-style:normal">холодная голова</div></div>
         <div class="type-row"><div class="type-spec"><b>Текст L</b>Manrope 400 · 18/30<br>телефон 16/26</div><div class="t-body-l">Нахожу паттерны в мышлении, решениях и процессах, которые стоят вам денег, времени и нервов.</div></div>
         <div class="type-row"><div class="type-spec"><b>Текст</b>Manrope 400 · 16/26</div><div class="t-body">Анализирую систему принятия решений, окружение и расход ресурсов. Результат — карта ограничений и пошаговый протокол.</div></div>
         <div class="type-row"><div class="type-spec"><b>Подпись</b>Manrope 600 · 12/16 · +18%</div><div class="t-caption">Антикризисное управление · личный аудит</div></div>
@@ -268,20 +282,20 @@ h1 em,h2 em{font-style:italic}
     </div>
 
     <div class="ds-sec">
-      <div><h3>Фото</h3><p class="note">Архитектура неоклассики, свет и тень, камень. Без улыбающихся людей из фотобанков.</p></div>
+      <div><h3>Фото</h3><p class="note">Архитектура неоклассики в ч/б. Никаких улыбающихся людей из фотобанков.</p></div>
       <div class="photos">
-        <div class="photo ph-arch" style="background-image:url(img/colonnade-900.webp)"></div>
-        <div class="photo" style="background-image:url(img/corridor-1080.webp)"></div>
+        <div class="photo" style="background-image:url(img/colonnade-bw-900.webp)"></div>
+        <div class="photo" style="background-image:url(img/corridor-bw-1080.webp)"></div>
         <div class="photo" style="background-image:url(img/rotunda-lit-1600.webp)"></div>
-        <p>Светлая тема — тёплый камень и длинные тени.<br>Тёмная — ночная архитектура, затемнение к низу кадра. Портрет Татьяны — в арке или на графите.</p>
+        <p>Только чёрно-белое: жёсткий свет, тень, камень. Без тёплых тонов.<br>Портрет Татьяны — чёрно-белый, прямой взгляд, без улыбки «на камеру».</p>
       </div>
     </div>
 
     <div class="ds-sec">
-      <div><h3>Голос</h3><p class="note">Холодно, точно, без утешений. Глаголы действия, протокол вместо советов.</p></div>
+      <div><h3>Голос</h3><p class="note">Холодно и ультимативно. Ни намёка на «плакательную жилетку».</p></div>
       <div class="voice">
-        <div><b>Пишем</b><p>Перевожу хаос в чёткий алгоритм действий. Результат — протокол, а не мотивация.</p></div>
-        <div class="no"><b>Не пишем</b><p>Раскройте свой потенциал и выйдите на новый уровень уже сегодня!</p></div>
+        <div><b>Пишем</b><p>60 минут жёсткой калибровки. Результат — протокол действий, а не мотивация.</p></div>
+        <div class="no"><b>Не пишем</b><p>Я рядом и поддержу вас, вместе мы справимся со всем!</p></div>
       </div>
     </div>
 
@@ -302,9 +316,10 @@ h1 em,h2 em{font-style:italic}
     </div>
 
     <div class="ds-sec">
-      <div><h3>Орнамент</h3><p class="note">Арка, тонкая линия, римские цифры. Только контуром.</p></div>
+      <div><h3>Орнамент</h3><p class="note">Прямые углы, тонкая линия, римские цифры, монограмма. Никаких закруглений.</p></div>
       <div class="orn">
-        <div class="orn-item"><div style="position:relative;width:120px;height:160px"><div class="arch-line" style="border-radius:60px 60px 0 0"></div></div><span>Арка — рамка для фото</span></div>
+        <div class="orn-item"><div style="position:relative;width:120px;height:160px;margin-top:12px"><div class="rect-line" style="left:12px;top:-12px;right:-12px;bottom:12px"></div><div style="position:absolute;inset:0;background:#BDBAB2"></div></div><span>Рамка со сдвигом — для фото</span></div>
+        <div class="orn-item"><div class="t-mono">ТМ</div><span>Монограмма — фон экрана</span></div>
         <div class="orn-item"><div class="diamond"><i></i></div><span>Разделитель</span></div>
         <div class="orn-item"><div style="display:flex;gap:28px"><span class="roman">I</span><span class="roman">II</span><span class="roman">III</span></div><span>Нумерация форматов</span></div>
         <div class="orn-item"><div class="eyebrow">Раздел</div><span>Подпись раздела</span></div>
@@ -314,8 +329,8 @@ h1 em,h2 em{font-style:italic}
     <div class="ds-sec">
       <div><h3>Принципы</h3></div>
       <div class="rules">
-        <div class="rule"><span class="roman">I</span><b>Тишина вместо крика</b><p>Много воздуха, никаких восклицаний, капслока и ярких плашек.</p></div>
-        <div class="rule"><span class="roman">II</span><b>Золото — штрихом</b><p>Линии в 1 пиксель и одно курсивное слово. Статус — в сдержанности.</p></div>
+        <div class="rule"><span class="roman">I</span><b>Холод вместо утешения</b><p>Прямые углы, прямой шрифт, ч/б фото. Ни одного мягкого элемента.</p></div>
+        <div class="rule"><span class="roman">II</span><b>Золото — штрихом</b><p>Линии в 1 пиксель и одно слово охрой. Статус — в сдержанности.</p></div>
         <div class="rule"><span class="roman">III</span><b>Одна сетка везде</b><p>Сайт, посты и обложки на одной модульной сетке — лента читается как продолжение сайта.</p></div>
       </div>
     </div>
@@ -326,8 +341,9 @@ h1 em,h2 em{font-style:italic}
 <section class="block">
   <div class="frame-label">02 · Вариант А «Галерея» · первый экран · 1440</div>
   <div class="frame hero" id="a">
-    <div class="nav">
-      <div class="logo">Татьяна Морозова</div>
+    <div class="mono" style="left:60px;top:150px">ТМ</div>
+    <div class="nav" style="position:relative">
+      <div class="brand"><div class="logo">Татьяна Морозова</div><div class="brand-sub">ИНТУИТ · антикризисное управление</div></div>
       <nav class="menu"><span>Частным клиентам</span><span>Компаниям</span><span>Подход</span><span>Обо мне</span><span>Контакты</span></nav>
       <span class="link">Связаться</span>
     </div>
@@ -335,10 +351,10 @@ h1 em,h2 em{font-style:italic}
       <div class="a-text">
         <div class="eyebrow">Антикризисное управление и личный аудит</div>
         <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
-        <p class="lead">Не даю советов и не продаю «волшебные таблетки». Нахожу паттерны в мышлении, решениях и процессах, которые стоят вам денег, времени и нервов, — и убираю их.</p>
+        <p class="lead">Без утешений и «волшебных таблеток». Вскрываю паттерны мышления, решений и процессов, которые стоят вам денег, времени и нервов, и перевожу их в протокол действий.</p>
         <div class="cta"><span class="btn btn-primary">Записаться на сессию</span><span class="link">Форматы работы <span>→</span></span></div>
       </div>
-      <div class="arch-wrap"><div class="arch-line"></div><div class="arch photo" style="background-image:url(img/colonnade-900.webp)"></div></div>
+      <div class="rect-wrap"><div class="rect-line"></div><div class="rect photo" style="background-image:url(img/colonnade-bw-1400.webp)"></div></div>
     </div>
     <div class="aud">
       <div class="aud-item"><span class="roman">I</span><div><b>Частным клиентам <small>7 форматов →</small></b><p>Экстренная сессия, аудит «Слепые зоны», подготовка к сложным переговорам</p></div></div>
@@ -354,15 +370,16 @@ h1 em,h2 em{font-style:italic}
     <div class="b-photo photo" style="background-image:url(img/rotunda-lit-2800.webp)"></div>
     <div class="b-shade"></div>
     <div class="b-frame"></div>
+    <div class="mono" style="left:50%;top:40px;transform:translateX(-50%);font-size:820px">ТМ</div>
     <div class="b-nav">
       <nav class="menu"><span>Частным клиентам</span><span>Компаниям</span><span>Подход</span></nav>
-      <div class="logo">Татьяна Морозова</div>
+      <div class="brand"><div class="logo">Татьяна Морозова</div><div class="brand-sub">ИНТУИТ</div></div>
       <span class="link">Связаться</span>
     </div>
     <div class="b-body">
       <div class="eyebrow center">Антикризисное управление и личный аудит</div>
       <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
-      <p class="lead">Не даю советов и не продаю «волшебные таблетки». Нахожу паттерны, которые стоят вам денег, времени и нервов, — и убираю их.</p>
+      <p class="lead">Без утешений и «волшебных таблеток». Вскрываю паттерны, которые стоят вам денег, времени и нервов, и перевожу их в протокол действий.</p>
       <div class="cta"><span class="btn btn-light">Записаться на сессию</span><span class="link">Форматы работы <span>→</span></span></div>
     </div>
     <div class="b-aud">
@@ -377,26 +394,26 @@ h1 em,h2 em{font-style:italic}
   <div>
     <div class="frame-label">04 · А · телефон · 390</div>
     <div class="frame m" id="am">
-      <div class="nav"><div class="logo">Т. Морозова</div><div class="burger"><i></i><i></i></div></div>
+      <div class="nav"><div class="brand"><div class="logo">Т. Морозова</div><div class="brand-sub">ИНТУИТ</div></div><div class="burger"><i></i><i></i></div></div>
       <div class="m-body">
         <div class="eyebrow">Антикризисное управление</div>
         <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
-        <p class="lead">Нахожу паттерны, которые стоят вам денег, времени и нервов, — и убираю их.</p>
+        <p class="lead">Вскрываю паттерны, которые стоят вам денег, времени и нервов. Перевожу их в протокол действий.</p>
         <span class="btn btn-primary">Записаться на сессию</span>
         <span class="link">Форматы работы <span>→</span></span>
-        <div class="arch-wrap"><div class="arch-line"></div><div class="arch photo" style="background-image:url(img/colonnade-900.webp)"></div></div>
+        <div class="rect-wrap m-rect"><div class="rect-line"></div><div class="rect photo" style="background-image:url(img/colonnade-bw-900.webp)"></div></div>
       </div>
     </div>
   </div>
   <div>
     <div class="frame-label">05 · А · пост ВК / Instagram · 1080×1350</div>
     <div class="frame post" id="ap">
-      <div class="pa-photo photo" style="background-image:url(img/corridor-2160.webp)"></div>
+      <div class="pa-photo photo" style="background-image:url(img/corridor-bw-2160.webp)"></div>
       <div class="pa-text">
         <div class="eyebrow">Личный аудит</div>
-        <h2>Я не даю советов. Я нахожу, что стоит вам денег, времени и&nbsp;<em>нервов</em></h2>
+        <h2>Я не даю советов. Я&nbsp;вскрываю то, что стоит вам денег, времени и&nbsp;<em>нервов</em></h2>
       </div>
-      <div class="post-foot"><span class="logo">Татьяна Морозова</span><span>Антикризисное управление</span></div>
+      <div class="post-foot"><span class="logo">Татьяна Морозова</span><span>ИНТУИТ</span></div>
     </div>
   </div>
 </section>
@@ -409,11 +426,11 @@ h1 em,h2 em{font-style:italic}
       <div class="b-photo photo" style="background-image:url(img/rotunda-lit-post-1080.webp)"></div>
       <div class="b-shade"></div>
       <div class="b-frame"></div>
-      <div class="mb-nav"><div class="logo">Т. Морозова</div><div class="burger" style="color:var(--ivory)"><i></i><i></i></div></div>
+      <div class="mb-nav"><div class="brand"><div class="logo">Т. Морозова</div><div class="brand-sub">ИНТУИТ</div></div><div class="burger" style="color:var(--ivory)"><i></i><i></i></div></div>
       <div class="mb-body">
         <div class="eyebrow center">Антикризисное управление</div>
         <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
-        <p class="lead">Нахожу паттерны, которые стоят вам денег, времени и нервов, — и убираю их.</p>
+        <p class="lead">Вскрываю паттерны, которые стоят вам денег, времени и нервов. Перевожу их в протокол действий.</p>
         <span class="btn btn-light">Записаться на сессию</span>
         <span class="link">Форматы работы <span>→</span></span>
       </div>
@@ -429,7 +446,7 @@ h1 em,h2 em{font-style:italic}
         <div class="eyebrow center">Для компаний</div>
         <h2>Работаю с причинами, а&nbsp;не&nbsp;с&nbsp;<em>симптомами</em></h2>
       </div>
-      <div class="pb-foot"><span class="logo">Татьяна Морозова</span></div>
+      <div class="pb-foot"><div class="brand" style="align-items:center"><span class="logo">Татьяна Морозова</span><span class="brand-sub">ИНТУИТ</span></div></div>
     </div>
   </div>
 </section>
