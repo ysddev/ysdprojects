@@ -192,7 +192,7 @@ figcaption{font-size:14px;color:var(--ink2);margin-top:10px}
 .step h3{font-size:22px;margin-bottom:6px}
 .step p{color:var(--ink2)}
 .steps-ph{flex:1;min-height:320px;position:relative}
-.steps-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.steps-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 78%}
 @media (max-width:900px){.steps-wrap{grid-template-columns:1fr}.steps-ph{flex:none;aspect-ratio:20/21;min-height:0}}
 
 /* license & documents (как niidpo.ru) */
@@ -398,17 +398,16 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
 
 <section class="wrap sec rv" id="programs" aria-labelledby="cat-t">
   <div class="cat-head">
-    <h2 id="cat-t" class="st">Популярные программы</h2>
+    <h2 id="cat-t" class="st">Образовательные программы</h2>
     <p class="lead st" style="--i:1;max-width:44ch">Выберите программу и впишите имя справа: так будет выглядеть ваш документ по итогам обучения.</p>
   </div>
   <div class="chips st" style="--i:2" role="group" aria-label="Фильтр по направлению">
     <button class="chip" type="button" data-f="all" aria-pressed="true">Все</button>
     <button class="chip" type="button" data-f="pk" aria-pressed="false">Повышение квалификации</button>
     <button class="chip" type="button" data-f="pp" aria-pressed="false">Переподготовка</button>
-    <button class="chip" type="button" data-f="safe" aria-pressed="false">Охрана труда и безопасность</button>
-    <button class="chip" type="button" data-f="edu" aria-pressed="false">Образование</button>
-    <button class="chip" type="button" data-f="mgmt" aria-pressed="false">Управление и кадры</button>
-    <button class="chip" type="button" data-f="fin" aria-pressed="false">Финансы и закупки</button>
+    <button class="chip" type="button" data-f="smk" aria-pressed="false">Системы менеджмента качества</button>
+    <button class="chip" type="button" data-f="mgmt" aria-pressed="false">Управление</button>
+    <button class="chip" type="button" data-f="tech" aria-pressed="false">Техника и оборудование</button>
   </div>
   <div class="cat">
     <div class="list st" style="--i:3" id="list" aria-live="polite"></div>
@@ -420,7 +419,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
         <div class="dt" id="pdt">Удостоверение о повышении квалификации</div>
         <div>
           <div class="who" id="pwho">Фамилия Имя Отчество</div>
-          <div class="what">прошёл(а) обучение по программе<br><b id="pprog">Охрана труда для руководителей и специалистов</b></div>
+          <div class="what">прошёл(а) обучение по программе<br><b id="pprog">Бизнес-процессы, организационное проектирование, механизмы и системы управления</b></div>
         </div>
         <div class="foot">
           <span id="phrs">в объёме от 16 часов</span>
@@ -454,7 +453,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
       </div>
     </div>
     <figure class="st" style="--i:2">
-      <div class="ph steps-ph"><img src="img/how-1300.webp" srcset="img/how-700.webp 700w, img/how-1300.webp 1300w" sizes="(max-width:900px) 92vw, 640px" width="1300" height="1365" loading="lazy" alt="Слушатели вместе разбирают задание за ноутбуком"></div>
+      <div class="ph steps-ph"><img src="img/obuchenie.jpg" width="1280" height="1920" loading="lazy" alt="Две слушательницы занимаются за ноутбуком в библиотеке"></div>
     </figure>
   </div>
 </section>
@@ -640,15 +639,12 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
   var D = {pk:{doc:'Удостоверение о повышении квалификации',hrs:'в объёме от 16 часов',kind:'Повышение квалификации',form:'Дистанционно'},
            pp:{doc:'Диплом о профессиональной переподготовке',hrs:'в объёме от 250 часов',kind:'Профессиональная переподготовка',form:'Дистанционно'}};
   var P = [
-    {t:'Охрана труда для руководителей и специалистов',type:'pk',dir:'safe'},
-    {t:'Пожарная безопасность для ответственных лиц',type:'pk',dir:'safe'},
-    {t:'Специалист в области охраны труда',type:'pp',dir:'safe'},
-    {t:'Педагог дополнительного образования',type:'pp',dir:'edu'},
-    {t:'Современные методики обучения и воспитания',type:'pk',dir:'edu'},
-    {t:'Управление персоналом и кадровое делопроизводство',type:'pp',dir:'mgmt'},
-    {t:'Менеджмент в организации',type:'pk',dir:'mgmt'},
-    {t:'Контрактная система в сфере закупок',type:'pk',dir:'fin'},
-    {t:'Бухгалтерский учёт и налогообложение',type:'pp',dir:'fin'}
+    {t:'Бизнес-процессы, организационное проектирование, механизмы и системы управления',type:'pk',dir:'mgmt'},
+    {t:'Внутренний аудитор систем менеджмента качества (ISO 9001:2015 / ГОСТ Р ИСО 9001-2015)',type:'pk',dir:'smk'},
+    {t:'Разработка и внедрение систем менеджмента качества',type:'pk',dir:'smk'},
+    {t:'Внутренний аудит системы менеджмента органов по сертификации продукции в соответствии с ГОСТ Р ИСО 19011-2021 (подготовка внутренних аудиторов)',type:'pk',dir:'smk'},
+    {t:'Подготовка экспертов по сертификации и специалистов по разработке систем менеджмента качества организаций в соответствии с ГОСТ Р ИСО 9001-2015 (ISO 9001:2015)',type:'pk',dir:'smk'},
+    {t:'Технологические машины и оборудование',type:'pp',dir:'tech'}
   ];
   var list = document.getElementById('list'), sel = 0, filter = 'all';
   var fprog = document.getElementById('fprog');
