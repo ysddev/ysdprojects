@@ -288,6 +288,8 @@ form{display:flex;flex-direction:column;gap:16px}
 .agree{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink2);cursor:pointer}
 .agree input{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);flex-shrink:0}
 .agree.err{color:#B3261E}
+.agree a,.fnote a{color:var(--acc)}
+.fnote{font-size:14px;color:var(--ink2);margin:0}
 .ok{display:none;background:var(--paper);border-radius:20px;padding:clamp(28px,4vw,48px)}
 .ok.on{display:block;animation:fadeUp .7s var(--ease) both}
 .ok svg{width:56px;height:56px;margin-bottom:20px}
@@ -603,8 +605,9 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
           <div class="fld" id="fpW"><label for="fphone">Телефон</label><input id="fphone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required></div>
         </div>
         <div class="fld"><label for="fmsg">Комментарий</label><textarea id="fmsg" name="msg" placeholder="Например, сколько сотрудников и к какому сроку нужен документ"></textarea></div>
-        <label class="agree" id="agW"><input type="checkbox" id="fagree" required><span>Согласен(на) на обработку персональных данных в соответствии с <a href="#contacts">политикой конфиденциальности</a></span></label>
+        <label class="agree" id="agW"><input type="checkbox" id="fagree" required><span>Даю <a href="soglasie.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и подтверждаю, что ознакомлен(а) с <a href="politika.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
         <button class="btn" type="submit" style="align-self:flex-start">Отправить заявку</button>
+        <p class="fnote">Обучение проводится по <a href="oferta.html" target="_blank" rel="noopener">договору-оферте</a>. Договор считается заключённым после оплаты счёта или онлайн-оплаты.</p>
       </form>
       <div class="ok" id="ok" role="status" aria-live="polite">
         <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="#5A2D91"/><path d="M17 29l7 7 15-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -624,7 +627,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     <div class="st" style="--i:1"><h4>Телефон и почта</h4><a href="tel:+79918558505">8 991 855-85-05</a><br><a href="mailto:center.consultlab@mail.ru">center.consultlab@mail.ru</a></div>
     <div class="st" style="--i:2"><h4>Адрес</h4><p>143081, Московская обл., г.о. Одинцовский, с. Перхушково, мкр. Равновесие, д. 7</p></div>
     <div class="st" style="--i:3"><h4>Обучение</h4><a href="#programs">Каталог программ</a><br><a href="sveden.html">Сведения об организации</a></div>
-    <div class="st" style="--i:4"><h4>Документы</h4><a href="#docs">Лицензия</a><br><a href="#contacts">Договор-оферта</a><br><a href="#contacts">Политика обработки персональных данных</a></div>
+    <div class="st" style="--i:4"><h4>Документы</h4><a href="#docs">Лицензия</a><br><a href="oferta.html">Договор-оферта</a><br><a href="oferta.html#oplata">Оплата и возврат</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на обработку персональных данных</a></div>
   </div>
   <div class="fcopy"><span>ООО «КОНСАЛТЛАБ», Учебный центр ДПО</span><span>ИНН 5032384038, ОГРН 1245000107692</span><span>Лицензия № Л035-01255-50/03123432 от 04.09.2025</span></div>
 </footer>
