@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');try{var _f=new URLSearchParams(location.search).get('f');if(/^[0-3]$/.test(_f))document.documentElement.dataset.f=_f}catch(e){}</script>
 <title>Ателье пространства Кристины Крыжановской — дизайн интерьера</title>
 <meta name="description" content="Дизайн интерьера по индивидуальным меркам: планировка, рендеры, рабочие чертежи и авторский надзор. Проекты в ЖК River Sky, EVER, «Кинетик», «Авиатика» и «Барклая 6».">
 <meta property="og:type" content="website">
@@ -29,6 +29,34 @@
 @font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prata-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Prata';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prata-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Tenor Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/tenor-sans-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Tenor Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/tenor-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Forum';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/forum-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Forum';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/forum-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/raleway-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/raleway-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/raleway-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/raleway-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/raleway-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/raleway-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+html[data-f="1"] :is(h1,h2,h3,h4,.serif,.logo,.pcn,.pbh,.abq){font-family:'Prata',serif!important;font-weight:400!important;letter-spacing:-.005em}
+html[data-f="1"] :is(h1,h2){line-height:1.08!important}
+html[data-f="2"] :is(h1,h2,h3,h4,.serif,.logo,.pcn,.pbh,.abq){font-family:'Tenor Sans',sans-serif!important;font-weight:400!important;letter-spacing:.01em}
+html[data-f="2"] h1{font-size:clamp(1.9rem,4vw,4rem)!important;line-height:1.1!important}
+html[data-f="2"] h2{font-size:clamp(1.4rem,2.6vw,2.6rem)!important;line-height:1.12}
+html[data-f="2"] :is(h3,.pcn,.pbh,.abq){font-size:.86em}
+html[data-f="2"] .logo{font-size:1.45rem}
+html[data-f="3"] :is(h1,h2,h3,h4,.serif,.logo,.pcn,.pbh,.abq){font-family:'Forum',serif!important;font-weight:400!important;letter-spacing:.005em}
+html[data-f="3"] body,html[data-f="3"] :is(p,a,li,span,button,input,textarea,label,legend,small,figcaption):not(.serif,.logo,.pcn,.abq){font-family:'Raleway',sans-serif}
+html[data-f="3"] .logo small{font-family:'Raleway',sans-serif!important}
+.fsw{position:fixed;left:16px;bottom:16px;z-index:90;display:none;align-items:center;gap:6px;padding:8px 10px;border-radius:999px;background:rgba(31,32,30,.88);color:#F3F0EA;font:500 14px Manrope,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.fsw.on{display:flex}
+.fsw b{font-weight:500;margin:0 6px 0 4px}
+.fsw button{min-width:40px;height:36px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:inherit;font:600 14px Manrope,sans-serif;cursor:pointer}
+.fsw button[aria-pressed=true]{background:#F3F0EA;color:#1F201E}
+@media (max-width:760px){.fsw{bottom:92px;left:12px}}
 :root{--bg:#F3F0EA;--bg2:#E8E3DA;--paper:#FBFAF7;--ink:#1F201E;--mut:#55534E;--acc:#84642B;--acc2:#6B5022;--e:cubic-bezier(0.23,1,0.32,1);--pad:clamp(20px,5vw,72px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -184,7 +212,7 @@ h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
 .pln{aspect-ratio:auto;max-height:none;width:100%}
 .ab{background:var(--paper)}
 .abg{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:center}
-.abi{border-radius:22px;overflow:hidden;aspect-ratio:4/5}
+.abi{border-radius:22px;overflow:hidden;max-width:420px;width:100%;justify-self:center;background:#2a2723}
 .abi img{width:100%;height:100%;object-fit:cover}
 .abg .kick,.hero .kick{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:18px}
 .hero .kick{color:#E9DCC2}
@@ -197,7 +225,7 @@ h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
 .vid video{display:block;width:100%;height:auto;border-radius:18px;background:#2a2723}
 .vcap{margin-top:10px;font-size:14px;color:var(--mut)}
 .sv{margin-top:36px;max-width:340px}
-.abi video{width:100%;height:100%;object-fit:cover;display:block}
+.abi video{width:100%;height:auto;display:block}
 .pcs{grid-template-columns:repeat(5,minmax(0,1fr))}
 /* steps */
 .band{position:relative;min-height:82svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2a2723}
@@ -287,7 +315,7 @@ body{font-size:16px;padding-bottom:84px}
 .pcd{flex:0 0 62%;scroll-snap-align:start}
 .mas figcaption{font-size:12px;left:6px;bottom:6px;padding:4px 9px}
 .pbl{padding:22px 16px;border-radius:18px}
-.abi{aspect-ratio:4/3}
+.abi{max-width:360px}
 .lb{padding:64px 8px}
 .tg{display:flex}
 .tg button{flex:1}
@@ -612,7 +640,7 @@ body{font-size:16px;padding-bottom:84px}
 
   <section class="sec ab" id="about">
     <div class="wrap abg">
-      <div class="abi" data-r><video src="video/brand.mp4" poster="video/brand.jpg" width="720" height="960" autoplay muted loop playsinline preload="metadata" aria-label="Материалы, ткани и чертежи в работе"></video></div>
+      <div class="abi" data-r><video src="video/brand.mp4" poster="video/brand.jpg" width="720" height="960" controls playsinline preload="metadata" aria-label="Видео: Кристина Крыжановская и материалы в работе"></video></div>
       <div>
         <p class="kick" data-r>Ателье пространства</p>
         <h2 data-r>Интерьер по индивидуальным меркам</h2>
@@ -706,6 +734,7 @@ body{font-size:16px;padding-bottom:84px}
   </div>
 </footer>
 
+<div class="fsw" id="fsw" role="group" aria-label="Вариант шрифта"><b>Шрифт:</b><button type="button" data-v="0">Сейчас</button><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр визуализации">
   <img id="lbi" src="img/avi-01.jpg" alt="">
   <button class="x" type="button" aria-label="Закрыть">×</button>
@@ -767,6 +796,9 @@ d.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;
 var tx=0;lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1))});
 
+(function(){var p=new URLSearchParams(location.search),w=d.getElementById('fsw');if(!p.has('f'))return;w.classList.add('on');
+function set(v){d.documentElement.dataset.f=v;[].forEach.call(w.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',b.dataset.v===v)});p.set('f',v);history.replaceState(null,'','?'+p.toString()+location.hash)}
+set(/^[0-3]$/.test(p.get('f'))?p.get('f'):'0');[].forEach.call(w.querySelectorAll('button'),function(b){b.addEventListener('click',function(){set(b.dataset.v)})})})();
 var f=d.getElementById('f'),er=d.getElementById('er');
 f.addEventListener('submit',function(e){e.preventDefault();
   if(!f.n.value.trim()){er.textContent='Как к вам обращаться?';f.n.focus();return}
