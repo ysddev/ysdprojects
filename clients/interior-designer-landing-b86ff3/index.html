@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
 <title>Ателье пространства Кристины Крыжановской — дизайн интерьера</title>
-<meta name="description" content="Дизайн интерьера по индивидуальным меркам: планировка, рендеры, рабочие чертежи и авторский надзор. Проекты в ЖК River Sky, EVER, «Кинетик» и «Авиатика».">
+<meta name="description" content="Дизайн интерьера по индивидуальным меркам: планировка, рендеры, рабочие чертежи и авторский надзор. Проекты в ЖК River Sky, EVER, «Кинетик», «Авиатика» и «Барклая 6».">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ателье пространства Кристины Крыжановской">
-<meta property="og:description" content="Хороший интерьер — как костюм, сшитый на заказ. Четыре проекта с рендерами и планировками до и после.">
+<meta property="og:description" content="Хороший интерьер — как костюм, сшитый на заказ. Пять проектов с рендерами и планировками до и после.">
 <meta property="og:image" content="https://ysdprojects.space/clients/interior-designer-landing-b86ff3/img/avi-01.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:url" content="https://ysdprojects.space/clients/interior-designer-landing-b86ff3/">
@@ -193,6 +193,12 @@ h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
 .abq{margin-top:32px;font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.15;max-width:20ch}
 .abs{margin-top:14px;font-size:15px;color:var(--mut)}
 
+.vid{margin-top:clamp(40px,5vw,64px);max-width:560px}
+.vid video{display:block;width:100%;height:auto;border-radius:18px;background:#2a2723}
+.vcap{margin-top:10px;font-size:14px;color:var(--mut)}
+.sv{margin-top:36px;max-width:340px}
+.abi video{width:100%;height:100%;object-fit:cover;display:block}
+.pcs{grid-template-columns:repeat(5,minmax(0,1fr))}
 /* steps */
 .band{position:relative;min-height:82svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2a2723}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -253,7 +259,7 @@ fieldset{border:0;margin-bottom:18px}
 .nav{display:none}
 .bur{display:block}
 .pg,.sg,.fg,.pj-h,.res,.abg{grid-template-columns:minmax(0,1fr)}
-.pcs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pcs{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sg .side{position:static}
 .st li{grid-template-columns:minmax(0,1fr);gap:10px;padding:24px}
 }
@@ -277,6 +283,8 @@ body{font-size:16px;padding-bottom:84px}
 .rooms{flex-wrap:nowrap;overflow-x:auto;margin-right:calc(-1 * var(--pad));padding-right:var(--pad);scrollbar-width:none}
 .rooms button{flex:0 0 auto}
 .mas{columns:2}
+.pcs{display:flex;overflow-x:auto;margin-right:calc(-1 * var(--pad));padding-right:var(--pad);scrollbar-width:none;scroll-snap-type:x mandatory}
+.pcd{flex:0 0 62%;scroll-snap-align:start}
 .mas figcaption{font-size:12px;left:6px;bottom:6px;padding:4px 9px}
 .pbl{padding:22px 16px;border-radius:18px}
 .abi{aspect-ratio:4/3}
@@ -331,7 +339,7 @@ body{font-size:16px;padding-bottom:84px}
     <div class="wrap">
       <div class="pjs-h">
         <h2 data-r>Проекты</h2>
-        <p class="lead" data-r>Четыре квартиры, четыре характера. Выберите проект, чтобы посмотреть рендеры по комнатам и планировку до и после.</p>
+        <p class="lead" data-r>Пять квартир, пять характеров. Выберите проект, чтобы посмотреть рендеры по комнатам и планировку до и после.</p>
       </div>
       <div class="pcs" role="group" aria-label="Проекты" data-r>
         <button type="button" class="pcd" data-p="dig" aria-pressed="true" aria-controls="p-dig">
@@ -351,14 +359,19 @@ body{font-size:16px;padding-bottom:84px}
         </button>
         <button type="button" class="pcd" data-p="avi" aria-pressed="false" aria-controls="p-avi">
           <span class="pci"><img src="img/avi-01.jpg" width="1280" height="960" loading="lazy" alt=""></span>
-          <span class="pcn">Квартира в ЖК «Авиатика»</span>
+          <span class="pcn">Спокойная классика</span>
           <span class="pcm">ЖК «Авиатика» · 105 м²</span>
+        </button>
+        <button type="button" class="pcd" data-p="bar" aria-pressed="false" aria-controls="p-bar">
+          <span class="pci"><img src="img/bar-01.jpg" width="1280" height="1280" loading="lazy" alt=""></span>
+          <span class="pcn">Квартира для аренды</span>
+          <span class="pcm">ЖК «Барклая 6» · 45 м²</span>
         </button>
       </div>
       <article class="prj" id="p-dig">
         <div class="pj-h">
           <div>
-            <p class="kick">Проект 1 из 4</p>
+            <p class="kick">Проект 1 из 5</p>
             <h3 class="pjt">Цифровое убежище</h3>
             <div class="tags"><span>ЖК River Sky</span><span>58 м²</span><span>Графит и шоколад</span><span>Дерево и камень</span><span>Спальня-кабинет</span></div>
           </div>
@@ -403,7 +416,7 @@ body{font-size:16px;padding-bottom:84px}
       <article class="prj" id="p-ever" hidden>
         <div class="pj-h">
           <div>
-            <p class="kick">Проект 2 из 4</p>
+            <p class="kick">Проект 2 из 5</p>
             <h3 class="pjt">Уединение и комфорт</h3>
             <div class="tags"><span>ЖК EVER</span><span>40 м²</span><span>Тёплая тёмная палитра</span><span>Экран 75″</span><span>Гардеробная</span></div>
           </div>
@@ -445,7 +458,7 @@ body{font-size:16px;padding-bottom:84px}
       <article class="prj" id="p-kin" hidden>
         <div class="pj-h">
           <div>
-            <p class="kick">Проект 3 из 4</p>
+            <p class="kick">Проект 3 из 5</p>
             <h3 class="pjt">Анатомия света</h3>
             <div class="tags"><span>ЖК «Кинетик»</span><span>38 м²</span><span>Минимализм и неоклассика</span><span>Топлёное молоко</span><span>Push-to-open</span></div>
           </div>
@@ -489,11 +502,11 @@ body{font-size:16px;padding-bottom:84px}
       <article class="prj" id="p-avi" hidden>
         <div class="pj-h">
           <div>
-            <p class="kick">Проект 4 из 4</p>
-            <h3 class="pjt">Квартира в ЖК «Авиатика»</h3>
-            <div class="tags"><span>ЖК «Авиатика»</span><span>105 м²</span><span>Гостиная и кухня</span><span>Детская</span><span>Два санузла</span></div>
+            <p class="kick">Проект 4 из 5</p>
+            <h3 class="pjt">Спокойная классика</h3>
+            <div class="tags"><span>ЖК «Авиатика»</span><span>105 м²</span><span>Современная классика</span><span>Мрамор и молдинги</span><span>Детская</span></div>
           </div>
-          <p class="lead">Просторная квартира для семьи: гостиная, отдельная кухня, мастер-спальня, детская, большая гардеробная, постирочная, гостевой санузел и мастер-санузел.</p>
+          <p class="lead">Четырёхкомнатная квартира для семейной пары с дочерью трёх лет. Заказчики ценят спокойную, но статусную эстетику, поэтому основой стала современная классика в светлой палитре: мягкие оттенки стен, молдинги, натуральный мрамор и продуманная эргономика. Гостиная и кухня-столовая — единое пространство для общения и гостей, а спальня родителей и большая гардеробная отделены, там тишина и личный комфорт.</p>
         </div>
         <div class="mas">
           <figure><img src="img/avi-01.jpg" width="1280" height="960" loading="lazy" alt="Гостиная — проект в ЖК «Авиатика»"><figcaption>Гостиная</figcaption></figure>
@@ -524,6 +537,11 @@ body{font-size:16px;padding-bottom:84px}
           <figure><img src="img/avi-26.jpg" width="683" height="1280" loading="lazy" alt="Мастер-санузел — проект в ЖК «Авиатика»"><figcaption>Мастер-санузел</figcaption></figure>
           <figure><img src="img/avi-27.jpg" width="939" height="1280" loading="lazy" alt="Мастер-санузел — проект в ЖК «Авиатика»"><figcaption>Мастер-санузел</figcaption></figure>
           <figure><img src="img/avi-28.jpg" width="939" height="1280" loading="lazy" alt="Мастер-санузел — проект в ЖК «Авиатика»"><figcaption>Мастер-санузел</figcaption></figure>
+          <figure><img src="img/avi-29.jpg" width="1280" height="960" loading="lazy" alt="Спальня — проект в ЖК «Авиатика»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/avi-30.jpg" width="1280" height="960" loading="lazy" alt="Спальня — проект в ЖК «Авиатика»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/avi-31.jpg" width="1280" height="960" loading="lazy" alt="Спальня — проект в ЖК «Авиатика»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/avi-32.jpg" width="1280" height="960" loading="lazy" alt="Гостиная — проект в ЖК «Авиатика»"><figcaption>Гостиная</figcaption></figure>
+          <figure><img src="img/avi-33.jpg" width="960" height="1280" loading="lazy" alt="Балкон — проект в ЖК «Авиатика»"><figcaption>Балкон</figcaption></figure>
         </div>
         <div class="pg pbl">
           <div>
@@ -532,7 +550,7 @@ body{font-size:16px;padding-bottom:84px}
               <button type="button" class="tb" aria-pressed="false">Как было</button>
               <button type="button" class="ta" aria-pressed="true">Как стало</button>
             </div>
-            <ul class="chg"><li>Гостиная 19,8 м² и отдельная кухня-столовая 14,8 м²</li><li>Детская 15,6 м² и мастер-спальня 11,9 м²</li><li>Гардеробная 15,7 м² и постирочная с местом для хранения</li><li>Гостевой санузел и мастер-санузел</li></ul>
+            <ul class="chg"><li>Гостиная: камин из итальянского керамогранита Patagonia с выразительным рисунком, консоль из натурального мрамора и молдинги</li><li>Кухня-столовая: фасады из шпона эвкалипта, обеденная группа у окна и мраморный подоконник как продолжение отделки</li><li>Спальня родителей: изголовье из итальянского шенилла и выход на балкон через раздвижную алюминиевую дверь</li><li>Детская: пастельные оттенки, безопасная кровать, игровая зона и системы хранения</li><li>Два санузла: итальянская сантехника, смесители и аксессуары Gessi</li></ul>
           </div>
           <div>
             <div class="pln" style="aspect-ratio:1371/1299">
@@ -542,13 +560,59 @@ body{font-size:16px;padding-bottom:84px}
             <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 104,9 м²</span></div>
           </div>
         </div>
+      
+        <div class="res"><h3>Что получилось</h3><p>Светлый статусный интерьер, в котором удобно всей семье: продуманные системы хранения, безопасные маршруты передвижения и места для игр ребёнка.</p></div>
+      </article>
+      <article class="prj" id="p-bar" hidden>
+        <div class="pj-h">
+          <div>
+            <p class="kick">Проект 5 из 5</p>
+            <h3 class="pjt">Квартира для аренды</h3>
+            <div class="tags"><span>ЖК «Барклая 6»</span><span>45 м²</span><span>Для сдачи в аренду</span><span>Гардеробная за стеклом</span></div>
+          </div>
+          <p class="lead">Квартира для сдачи в аренду — для тех, кто ценит эстетику и функциональность на каждом метре. Несмотря на компактную площадь, планировка выстроена вокруг приватности: общественная зона отделена от личного пространства, а гардеробная стала полноценным продолжением спальни, а не просто нишей.</p>
+        </div>
+        <div class="mas">
+          <figure><img src="img/bar-01.jpg" width="1280" height="1280" loading="lazy" alt="Кухня-гостиная — проект в ЖК «Барклая 6»"><figcaption>Кухня-гостиная</figcaption></figure>
+          <figure><img src="img/bar-02.jpg" width="1280" height="1280" loading="lazy" alt="Кухня-гостиная — проект в ЖК «Барклая 6»"><figcaption>Кухня-гостиная</figcaption></figure>
+          <figure><img src="img/bar-03.jpg" width="1280" height="1067" loading="lazy" alt="Спальня — проект в ЖК «Барклая 6»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/bar-04.jpg" width="1280" height="1067" loading="lazy" alt="Спальня — проект в ЖК «Барклая 6»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/bar-05.jpg" width="1280" height="1067" loading="lazy" alt="Спальня — проект в ЖК «Барклая 6»"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/bar-06.jpg" width="1280" height="1280" loading="lazy" alt="Гардеробная — проект в ЖК «Барклая 6»"><figcaption>Гардеробная</figcaption></figure>
+          <figure><img src="img/bar-07.jpg" width="1280" height="1280" loading="lazy" alt="Гардеробная — проект в ЖК «Барклая 6»"><figcaption>Гардеробная</figcaption></figure>
+          <figure><img src="img/bar-08.jpg" width="1280" height="1280" loading="lazy" alt="Прихожая — проект в ЖК «Барклая 6»"><figcaption>Прихожая</figcaption></figure>
+          <figure><img src="img/bar-09.jpg" width="1024" height="1280" loading="lazy" alt="Санузел — проект в ЖК «Барклая 6»"><figcaption>Санузел</figcaption></figure>
+          <figure><img src="img/bar-10.jpg" width="1024" height="1280" loading="lazy" alt="Санузел — проект в ЖК «Барклая 6»"><figcaption>Санузел</figcaption></figure>
+        </div>
+        <div class="vid">
+          <video src="video/bar-1.mp4" poster="video/bar-1.jpg" width="900" height="900" controls playsinline preload="none"></video>
+          <p class="vcap">Видео: квартира до ремонта и по проекту</p>
+        </div>
+        <div class="pg pbl">
+          <div>
+            <h4 class="pbh">Планировка: как было и как стало</h4>
+            <div class="tg" role="group" aria-label="План квартиры">
+              <button type="button" class="tb" aria-pressed="false">Как было</button>
+              <button type="button" class="ta" aria-pressed="true">Как стало</button>
+            </div>
+            <ul class="chg"><li>Кухня-гостиная: барный стол для завтрака или работы, мягкий диван напротив ТВ-зоны, кухня со встроенной техникой и шкафами до потолка</li><li>Спальня и гардеробная разделены стеклянными перегородками с тонировкой: пространство кажется шире, а вещи скрыты от посторонних глаз</li><li>Кровать с подсветкой за изголовьем и дизайнерский подвесной светильник</li><li>Санузел: фактурный керамогранит, душевая с прозрачным стеклом, подвесная сантехника и зеркальный шкаф с подсветкой</li></ul>
+          </div>
+          <div>
+            <div class="pln" style="aspect-ratio:1392/940">
+              <img class="pb" src="img/plan-bar-before.png" width="1392" height="940" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-bar-after.png" width="1392" height="940" loading="lazy" alt="Планировка дизайнера">
+            </div>
+            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 45,5 м²</span></div>
+          </div>
+        </div>
+        <div class="res"><h3>Что получилось</h3><p>Гардеробная за тонированным стеклом даёт ощущение дорогого бутика и сохраняет приватность спальни, а свет при этом проходит в гардеробную. Компактная квартира, которую приятно снимать и легко содержать.</p></div>
       </article>
     </div>
   </section>
 
   <section class="sec ab" id="about">
     <div class="wrap abg">
-      <div class="abi" data-r><img src="img/about.jpg" width="1280" height="960" loading="lazy" alt="Гардеробная с островом и подсветкой — проект в ЖК «Авиатика»"></div>
+      <div class="abi" data-r><video src="video/brand.mp4" poster="video/brand.jpg" width="720" height="960" autoplay muted loop playsinline preload="metadata" aria-label="Материалы, ткани и чертежи в работе"></video></div>
       <div>
         <p class="kick" data-r>Ателье пространства</p>
         <h2 data-r>Интерьер по индивидуальным меркам</h2>
@@ -571,6 +635,7 @@ body{font-size:16px;padding-bottom:84px}
           <h2 data-r>От замера до новоселья</h2>
           <p class="lead" data-r>Можно взять проект целиком или отдельную часть: планировочное решение, эскизный проект, полный дизайн-проект, авторский надзор. Стоимость зависит от площади и объёма, назову её после короткого разговора.</p>
           <a class="btn" href="#form" data-go data-r>Обсудить проект</a>
+          <div class="vid sv" data-r><video src="video/real.mp4" poster="video/real.jpg" width="540" height="720" controls playsinline preload="none"></video><p class="vcap">Видео: от черновой отделки до готового интерьера</p></div>
         </div>
         <ol class="st">
           <li data-r><h3>Знакомство и замер</h3><p>Разбираемся, как вы живёте, что раздражает в нынешней квартире и чего хочется. Делаю точный обмерный план.</p></li>
