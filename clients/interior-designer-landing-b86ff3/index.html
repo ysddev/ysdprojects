@@ -227,6 +227,16 @@ h3{font-size:clamp(1.7rem,2.4vw,2.2rem)}
 .sv{margin-top:36px;max-width:340px}
 .abi video{width:100%;height:auto;display:block}
 .pcs{grid-template-columns:repeat(5,minmax(0,1fr))}
+.pln.cmp{position:relative;width:100%;background:#fff;border-radius:22px;overflow:hidden;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none}
+.pln.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1!important;transition:none;pointer-events:none}
+.pln.cmp .pa{clip-path:inset(0 0 0 var(--p))}
+.pln.cmp::after{content:"";position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:var(--acc);pointer-events:none}
+.knob{position:absolute;top:50%;left:var(--p);z-index:2;width:48px;height:48px;margin:-24px 0 0 -24px;border:0;border-radius:50%;background:var(--acc);color:#fff;cursor:ew-resize;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.knob span::before,.knob span::after{content:"";position:absolute;top:50%;width:0;height:0;margin-top:-6px;border:6px solid transparent}
+.knob span::before{left:9px;border-right-color:#fff}.knob span::after{right:9px;border-left-color:#fff}
+.lbl{position:absolute;top:12px;z-index:1;padding:5px 12px;border-radius:999px;background:rgba(31,32,30,.72);color:#F3F0EA;font-size:13px;font-weight:600;pointer-events:none}
+.lb1{left:12px}.lb2{right:12px}
+.hint{margin-top:22px;font-size:14px;color:var(--mut)}
 /* steps */
 .band{position:relative;min-height:82svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#2a2723}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -425,18 +435,17 @@ body{font-size:16px;padding-bottom:84px}
         <div class="pg pbl">
           <div>
             <h4 class="pbh">Планировка: как было и как стало</h4>
-            <div class="tg" role="group" aria-label="План квартиры">
-              <button type="button" class="tb" aria-pressed="false">Как было</button>
-              <button type="button" class="ta" aria-pressed="true">Как стало</button>
-            </div>
+            <p class="hint">Потяните ползунок, чтобы сравнить «было» и «стало»</p>
             <ul class="chg"><li>Отдельная спальня-кабинет у окна: подиум с большим матрасом и рабочий стол вдоль подоконника</li><li>Кухня-гостиная-столовая с островом, угловым диваном и выходом на балкон</li><li>Гардеробная с местом для стиральной машины</li><li>Санузел с душевой у прихожей, в прихожей шкафы во всю стену</li><li>Балкон стал зоной отдыха с шезлонгом</li></ul>
           </div>
           <div>
-            <div class="pln" style="aspect-ratio:1097/1321">
-              <img class="pb" src="img/plan-river-before.png" width="1097" height="1321" loading="lazy" alt="Обмерный план до перепланировки">
-              <img class="pa" src="img/plan-river-after.png" width="1097" height="1321" loading="lazy" alt="Планировка дизайнера">
+            <div class="pln cmp" style="aspect-ratio:1024/1232;--p:50%">
+              <img class="pb" src="img/plan-river-before.png" width="1024" height="1232" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-river-after.png" width="1024" height="1232" loading="lazy" alt="Планировка дизайнера">
+              <span class="lbl lb1">Было</span><span class="lbl lb2">Стало</span>
+              <button type="button" class="knob" role="slider" aria-label="Сравнение планов: было и стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></button>
             </div>
-            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 58,4 м² + балкон 4,86 м²</span></div>
+            <div class="cap"><span>Слева — как было, справа — как стало</span><span>Площадь 58,4 м² + балкон 4,86 м²</span></div>
           </div>
         </div>
         <div class="res"><h3>Что получилось</h3><p>Квартира получилась такой, как хотел заказчик: брутальная, но уютная, технологичная и визуально просторная. Тёмные тона не уменьшают пространство, если грамотно работать с фактурами, светом и планировкой.</p></div>
@@ -467,18 +476,17 @@ body{font-size:16px;padding-bottom:84px}
         <div class="pg pbl">
           <div>
             <h4 class="pbh">Планировка: как было и как стало</h4>
-            <div class="tg" role="group" aria-label="План квартиры">
-              <button type="button" class="tb" aria-pressed="false">Как было</button>
-              <button type="button" class="ta" aria-pressed="true">Как стало</button>
-            </div>
+            <p class="hint">Потяните ползунок, чтобы сравнить «было» и «стало»</p>
             <ul class="chg"><li>Медиацентр: экран 75″ стал композиционным центром гостиной, напротив — глубокий диван для кино и игр</li><li>Спальная зона с подиумом и большим ортопедическим матрасом отделена от гостиной перегородкой</li><li>Полноценная гардеробная за раздвижной дверью, которая не нарушает геометрию пространства</li><li>Лаконичная кухня со встроенной техникой и столешницей из натурального камня</li></ul>
           </div>
           <div>
-            <div class="pln" style="aspect-ratio:1396/1243">
-              <img class="pb" src="img/plan-ever-before.png" width="1396" height="1243" loading="lazy" alt="Обмерный план до перепланировки">
-              <img class="pa" src="img/plan-ever-after.png" width="1396" height="1243" loading="lazy" alt="Планировка дизайнера">
+            <div class="pln cmp" style="aspect-ratio:1277/1133;--p:50%">
+              <img class="pb" src="img/plan-ever-before.png" width="1277" height="1133" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-ever-after.png" width="1277" height="1133" loading="lazy" alt="Планировка дизайнера">
+              <span class="lbl lb1">Было</span><span class="lbl lb2">Стало</span>
+              <button type="button" class="knob" role="slider" aria-label="Сравнение планов: было и стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></button>
             </div>
-            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 40 м²</span></div>
+            <div class="cap"><span>Слева — как было, справа — как стало</span><span>Площадь 40 м²</span></div>
           </div>
         </div>
         <div class="res"><h3>Что получилось</h3><p>Пространство организовано по принципу «всё под рукой, ничего лишнего». Тёмные тона здесь не давят, а дают ощущение защищённости — особенно ценное для человека, который много времени проводит в цифровой среде.</p></div>
@@ -511,18 +519,17 @@ body{font-size:16px;padding-bottom:84px}
         <div class="pg pbl">
           <div>
             <h4 class="pbh">Планировка: как было и как стало</h4>
-            <div class="tg" role="group" aria-label="План квартиры">
-              <button type="button" class="tb" aria-pressed="false">Как было</button>
-              <button type="button" class="ta" aria-pressed="true">Как стало</button>
-            </div>
+            <p class="hint">Потяните ползунок, чтобы сравнить «было» и «стало»</p>
             <ul class="chg"><li>Кухня-гостиная: гладкие фасады без ручек (push-to-open) и фартук из светлого кварцевого агломерата с текстурой мрамора</li><li>Спальня: мягкое изголовье из шенилла, льняной текстиль и туалетный столик у окна с зеркалом с подсветкой</li><li>Прихожая: закрытая система хранения до потолка, чтобы верхняя одежда не была на виду</li><li>Санузел: белоснежная сантехника, умный унитаз и легко моющиеся поверхности</li><li>Зона отдыха: диван с памятью формы, большой телевизор и саундбар</li></ul>
           </div>
           <div>
-            <div class="pln" style="aspect-ratio:1390/1258">
-              <img class="pb" src="img/plan-kin-before.png" width="1390" height="1258" loading="lazy" alt="Обмерный план до перепланировки">
-              <img class="pa" src="img/plan-kin-after.png" width="1390" height="1258" loading="lazy" alt="Планировка дизайнера">
+            <div class="pln cmp" style="aspect-ratio:1250/1144;--p:50%">
+              <img class="pb" src="img/plan-kin-before.png" width="1250" height="1144" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-kin-after.png" width="1250" height="1144" loading="lazy" alt="Планировка дизайнера">
+              <span class="lbl lb1">Было</span><span class="lbl lb2">Стало</span>
+              <button type="button" class="knob" role="slider" aria-label="Сравнение планов: было и стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></button>
             </div>
-            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 38,27 м²</span></div>
+            <div class="cap"><span>Слева — как было, справа — как стало</span><span>Площадь 38,27 м²</span></div>
           </div>
         </div>
         <div class="res"><h3>Что получилось</h3><p>Этот проект — баланс между эстетикой «девичьего» интерьера и взрослой дисциплиной. Светлые тона здесь не модный тренд, а инструмент психологической разгрузки.</p></div>
@@ -574,18 +581,17 @@ body{font-size:16px;padding-bottom:84px}
         <div class="pg pbl">
           <div>
             <h4 class="pbh">Планировка: как было и как стало</h4>
-            <div class="tg" role="group" aria-label="План квартиры">
-              <button type="button" class="tb" aria-pressed="false">Как было</button>
-              <button type="button" class="ta" aria-pressed="true">Как стало</button>
-            </div>
+            <p class="hint">Потяните ползунок, чтобы сравнить «было» и «стало»</p>
             <ul class="chg"><li>Гостиная: камин из итальянского керамогранита Patagonia с выразительным рисунком, консоль из натурального мрамора и молдинги</li><li>Кухня-столовая: фасады из шпона эвкалипта, обеденная группа у окна и мраморный подоконник как продолжение отделки</li><li>Спальня родителей: изголовье из итальянского шенилла и выход на балкон через раздвижную алюминиевую дверь</li><li>Детская: пастельные оттенки, безопасная кровать, игровая зона и системы хранения</li><li>Два санузла: итальянская сантехника, смесители и аксессуары Gessi</li></ul>
           </div>
           <div>
-            <div class="pln" style="aspect-ratio:1371/1299">
-              <img class="pb" src="img/plan-avi-before.png" width="1371" height="1299" loading="lazy" alt="Обмерный план до перепланировки">
-              <img class="pa" src="img/plan-avi-after.png" width="1371" height="1299" loading="lazy" alt="Планировка дизайнера">
+            <div class="pln cmp" style="aspect-ratio:1279/1213;--p:50%">
+              <img class="pb" src="img/plan-avi-before.png" width="1279" height="1213" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-avi-after.png" width="1279" height="1213" loading="lazy" alt="Планировка дизайнера">
+              <span class="lbl lb1">Было</span><span class="lbl lb2">Стало</span>
+              <button type="button" class="knob" role="slider" aria-label="Сравнение планов: было и стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></button>
             </div>
-            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 104,9 м²</span></div>
+            <div class="cap"><span>Слева — как было, справа — как стало</span><span>Площадь 104,9 м²</span></div>
           </div>
         </div>
       
@@ -619,18 +625,17 @@ body{font-size:16px;padding-bottom:84px}
         <div class="pg pbl">
           <div>
             <h4 class="pbh">Планировка: как было и как стало</h4>
-            <div class="tg" role="group" aria-label="План квартиры">
-              <button type="button" class="tb" aria-pressed="false">Как было</button>
-              <button type="button" class="ta" aria-pressed="true">Как стало</button>
-            </div>
+            <p class="hint">Потяните ползунок, чтобы сравнить «было» и «стало»</p>
             <ul class="chg"><li>Кухня-гостиная: барный стол для завтрака или работы, мягкий диван напротив ТВ-зоны, кухня со встроенной техникой и шкафами до потолка</li><li>Спальня и гардеробная разделены стеклянными перегородками с тонировкой: пространство кажется шире, а вещи скрыты от посторонних глаз</li><li>Кровать с подсветкой за изголовьем и дизайнерский подвесной светильник</li><li>Санузел: фактурный керамогранит, душевая с прозрачным стеклом, подвесная сантехника и зеркальный шкаф с подсветкой</li></ul>
           </div>
           <div>
-            <div class="pln" style="aspect-ratio:1392/940">
-              <img class="pb" src="img/plan-bar-before.png" width="1392" height="940" loading="lazy" alt="Обмерный план до перепланировки">
-              <img class="pa" src="img/plan-bar-after.png" width="1392" height="940" loading="lazy" alt="Планировка дизайнера">
+            <div class="pln cmp" style="aspect-ratio:1257/852;--p:50%">
+              <img class="pb" src="img/plan-bar-before.png" width="1257" height="852" loading="lazy" alt="Обмерный план до перепланировки">
+              <img class="pa" src="img/plan-bar-after.png" width="1257" height="852" loading="lazy" alt="Планировка дизайнера">
+              <span class="lbl lb1">Было</span><span class="lbl lb2">Стало</span>
+              <button type="button" class="knob" role="slider" aria-label="Сравнение планов: было и стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></button>
             </div>
-            <div class="cap"><span class="plc">Решение дизайнера</span><span>Площадь 45,5 м²</span></div>
+            <div class="cap"><span>Слева — как было, справа — как стало</span><span>Площадь 45,5 м²</span></div>
           </div>
         </div>
         <div class="res"><h3>Что получилось</h3><p>Гардеробная за тонированным стеклом даёт ощущение дорогого бутика и сохраняет приватность спальни, а свет при этом проходит в гардеробную. Компактная квартира, которую приятно снимать и легко содержать.</p></div>
@@ -780,9 +785,13 @@ function openP(id,scroll){pcs.forEach(function(b){b.setAttribute('aria-pressed',
   d.querySelectorAll('.prj').forEach(function(a){a.hidden=a.id!=='p-'+id});
   if(scroll){var t=d.getElementById('p-'+id).getBoundingClientRect().top+scrollY-90;scrollTo({top:t,behavior:'smooth'})}}
 pcs.forEach(function(b){b.addEventListener('click',function(){openP(b.dataset.p,true)})});
-d.querySelectorAll('.pbl').forEach(function(pb){var pl=pb.querySelector('.pln'),tb=pb.querySelector('.tb'),ta=pb.querySelector('.ta'),ch=pb.querySelector('.chg'),c=pb.querySelector('.plc');
-  function set(bf){pl.classList.toggle('before',bf);tb.setAttribute('aria-pressed',bf);ta.setAttribute('aria-pressed',!bf);ch.classList.toggle('off',bf);c.textContent=bf?'Обмерный план':'Решение дизайнера'}
-  tb.addEventListener('click',function(){set(true)});ta.addEventListener('click',function(){set(false)})});
+d.querySelectorAll('.pln.cmp').forEach(function(c){var k=c.querySelector('.knob'),drag=false;
+  function set(v){v=Math.max(0,Math.min(100,v));c.style.setProperty('--p',v+'%');k.setAttribute('aria-valuenow',Math.round(v))}
+  function fromX(x){var r=c.getBoundingClientRect();set((x-r.left)/r.width*100)}
+  c.addEventListener('pointerdown',function(e){drag=true;c.setPointerCapture(e.pointerId);fromX(e.clientX)});
+  c.addEventListener('pointermove',function(e){if(drag)fromX(e.clientX)});
+  c.addEventListener('pointerup',function(){drag=false});c.addEventListener('pointercancel',function(){drag=false});
+  k.addEventListener('keydown',function(e){var v=parseFloat(c.style.getPropertyValue('--p'))||50;if(e.key==='ArrowLeft'){set(v-5);e.preventDefault()}if(e.key==='ArrowRight'){set(v+5);e.preventDefault()}})});
 var lb=d.getElementById('lb'),lbi=d.getElementById('lbi'),lbc=d.getElementById('lbc'),cur=0;
 function vis(){return curFigs()}
 function show(i){var v=vis();cur=(i+v.length)%v.length;var im=v[cur].querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=im.alt+' · '+(cur+1)+' из '+v.length}
