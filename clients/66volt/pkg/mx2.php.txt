@@ -1,0 +1,10 @@
+<?php
+$home = getenv('HOME');
+$f = $home . '/www/akb66-data/config.php'; $s = file_get_contents($f);
+$s2 = preg_replace("/'max_chat_id'\s*=>\s*'[^']*'/", "'max_chat_id'  => '583136797,1027804876'", $s, 1);
+if ($s2 && $s2 !== $s) { file_put_contents($f, $s2, LOCK_EX); echo "chat_ids saved\n"; }
+require $home . '/www/akb-66.ru/api/lib.php';
+foreach (['583136797', '1027804876'] as $c) {
+  $r = max_api('POST', '/messages', ['chat_id' => $c], ['text' => "66 Вольт: уведомления о заказах с сайта akb-66.ru подключены ✅ Сюда будут приходить новые заказы и заявки."]);
+  echo "chat $c http=", $r['_http'] ?? '-', " ", isset($r['message']) ? 'sent' : mb_substr(json_encode($r, JSON_UNESCAPED_UNICODE), 0, 150), "\n";
+}
