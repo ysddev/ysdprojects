@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Цветы Маргариты: соберите букет прямо в Telegram</title>
+<meta name="description" content="Миллион цветов для вашего букета. Выберите цветы поштучно или готовый букет и оформите заказ в Telegram за пару касаний.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цветы Маргариты: букет в Telegram">
+<meta property="og:description" content="Соберите букет по стеблю или выберите готовый. Заказ за пару касаний прямо в мессенджере.">
+<meta property="og:image" content="img/s1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23B8325A'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F7C6D3'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF3F2;--bg2:#F4E6E6;--ink:#1F2A23;--mut:#4E5850;--acc:#B8325A;--e:cubic-bezier(0.23,1,0.32,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.6 'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+h1,h2,h3{font-family:Prata,Georgia,serif;font-weight:400;line-height:1.08;hyphens:manual;overflow-wrap:break-word;letter-spacing:-.01em}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{width:min(1240px,calc(100% - 40px));margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;border:0;background:var(--acc);color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;white-space:normal;transition:background-color .3s var(--e),transform .16s var(--e),opacity .3s}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.lt{background:#fff;color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:#962446}.btn.lt:hover{background:var(--bg2)}.zoom:hover img{transform:scale(1.04)}nav a:hover{opacity:.75}}
+/* шапка */
+.hd{position:absolute;inset:0 0 auto;z-index:5;color:#fff}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.logo{display:flex;align-items:center;gap:10px;font-family:Prata,serif;font-size:21px;text-decoration:none;color:inherit}
+nav{display:flex;gap:30px}
+nav a{text-decoration:none;font-weight:500;padding:12px 0;transition:opacity .3s}
+.cart{min-height:46px;padding:10px 20px}
+.cart b{display:inline-block}
+.cart b.bm{animation:bm .5s var(--e)}
+@keyframes bm{40%{transform:scale(1.5)}}
+/* первый экран */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#3a2229}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.js .hero-img{animation:hz 1.7s var(--e) both}
+@keyframes hz{from{transform:scale(1.12);opacity:0}to{transform:none;opacity:1}}
+.veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,14,18,.42) 0%,rgba(26,14,18,0) 30%,rgba(26,14,18,.74) 100%)}
+.hero .wrap{position:relative;padding:150px 0 clamp(44px,8vh,96px)}
+h1{font-size:clamp(2.3rem,1.2rem + 4.4vw,4.75rem);max-width:14ch}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em}
+h1 .w>span{display:inline-block}
+.js h1 .w>span{transform:translateY(110%);animation:up 1.1s var(--e) forwards}
+@keyframes up{to{transform:none}}
+.lead{font-size:clamp(17px,1.2vw,19px);max-width:40ch;margin-top:18px;color:#FBF1F3}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:38px;font-size:15px;color:#F6E9EC}
+.js .fade{opacity:0;animation:fd 1s var(--e) forwards}
+@keyframes fd{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* общее */
+section{padding:clamp(88px,11vw,170px) 0}
+h2{font-size:clamp(2.1rem,1.2rem + 3vw,3.7rem);max-width:15ch}
+.sub{color:var(--mut);max-width:44ch;margin-top:18px;font-size:18px}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--e),transform .9s var(--e);transition-delay:var(--d,0ms)}
+.js .in .rv{opacity:1;transform:none}
+/* конструктор */
+.bgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"t p" "r p";gap:0 clamp(40px,6vw,96px);align-items:start}
+.bt{grid-area:t}.pw{grid-area:p;align-self:center}.rows{grid-area:r;margin-top:36px;display:grid;gap:8px}
+.row{display:flex;align-items:center;gap:14px;padding:10px 12px 10px 18px;background:var(--bg2);border-radius:18px}
+.dot{width:22px;height:22px;border-radius:50%;flex:none}
+.rn{flex:1;min-width:0}.rn b{display:block;font-weight:600}.rn small{color:var(--mut);font-size:14px}
+.step{display:flex;align-items:center;gap:4px;flex:none}
+.step button{width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:22px;line-height:1;cursor:pointer;transition:transform .16s var(--e)}
+.step button:active{transform:scale(.9)}
+.step output{min-width:30px;text-align:center;font-weight:600;font-size:18px}
+.hint{font-size:14px;color:var(--mut);margin-top:10px}
+.tg{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.tg button{min-height:44px;padding:8px 18px;border-radius:999px;border:0;background:var(--bg2);color:var(--ink);font:500 15px 'Golos Text',sans-serif;cursor:pointer;transition:transform .16s var(--e)}
+.tg button:active{transform:scale(.97)}
+.tg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.ph{width:min(370px,100%);margin-inline:auto;background:#151515;border-radius:46px;padding:10px;--tb:#fff;--tt:#1F2A23;--th:#5E6660}
+.ph[data-t=d]{--tb:#17212B;--tt:#F1F3F5;--th:#AAB4BE}
+.scr{border-radius:36px;background:var(--tb);color:var(--tt);padding:16px 18px 18px}
+.scr.sw{animation:sw .4s var(--e)}
+@keyframes sw{50%{opacity:.15;transform:scale(.985)}}
+.tbar{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--th)}
+.tbar b{color:var(--tt);font-weight:600;font-size:15px}
+#bq{width:100%;height:auto;display:block;margin:4px 0}
+.hh{transform-box:fill-box;transform-origin:center}
+.pop{animation:pop .7s var(--e) both}
+@keyframes pop{from{transform:scale(0);opacity:0}}
+.comp{font-size:14px;color:var(--th);min-height:2.8em}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:8px 0 14px}
+.tot strong{font-family:Prata,serif;font-weight:400;font-size:28px}
+.tot span{color:var(--th);font-size:15px}
+.mainb{width:100%}
+/* каталог */
+.cats{background:var(--bg2)}
+.cat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:56px}
+.cd{background:#FFFDFC;border-radius:24px;padding:12px;display:flex;flex-direction:column}
+.cd figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
+.cd img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--e)}
+.a{grid-row:span 2}.a figure{aspect-ratio:auto;flex:1;min-height:340px}
+.b,.c,.d{flex-direction:row}
+.b figure,.c figure{width:42%;flex:none}
+.d{grid-column:1/-1}.d figure{width:min(30%,320px);flex:none}
+.ci{padding:18px 16px 8px 20px;display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
+.ci h3{font-size:clamp(1.3rem,1rem + 1vw,1.9rem)}
+.ci p{color:var(--mut)}
+.buy{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.pr{font-weight:600;font-size:18px}
+.buy .btn{min-height:46px;padding:10px 20px}
+.more{margin-top:36px;font-size:18px;max-width:52ch}
+/* как работает */
+.how{padding:0;background:#1F2A23;color:#F4ECEA;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.how figure{margin:0;overflow:hidden;min-height:620px}
+.how figure img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--e)}
+.how .tx{padding:clamp(72px,9vw,150px) clamp(20px,6vw,96px)}
+.st{margin-top:34px;max-width:42ch}
+.st b{display:block;font-family:Prata,serif;font-weight:400;font-size:clamp(1.5rem,1rem + 1.2vw,2.1rem);margin-bottom:6px}
+.st p{color:#D8D0CC}
+.msg{background:#2D3D32;border-radius:20px;padding:20px 22px;margin-top:44px;max-width:440px;font-size:15px;line-height:1.55}
+.msg b{display:block;font-size:16px;margin-bottom:6px}
+.msg small{display:block;margin-top:8px;color:#C7BFBA}
+/* заказ */
+.ord{background:var(--bg2)}
+.ogrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.sum{background:#FFFDFC;border-radius:22px;padding:22px 24px;margin-top:34px}
+.sum ul{list-style:none;padding:0;display:grid;gap:8px}
+.sum li{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sum li span{min-width:0;overflow-wrap:anywhere}
+.sum .em{color:var(--mut)}
+.rm{border:0;background:none;color:var(--acc);font:500 15px 'Golos Text',sans-serif;min-height:44px;padding:0 4px;cursor:pointer;flex:none}
+.sumt{display:flex;justify-content:space-between;margin-top:14px;padding-top:14px;font-weight:600;font-size:19px;background:linear-gradient(var(--bg2),var(--bg2)) top/100% 2px no-repeat}
+.fl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.f{display:grid;gap:6px;font-size:15px;font-weight:500}
+.full{grid-column:1/-1}
+input,textarea{font:17px 'Golos Text',sans-serif;padding:14px 16px;border:0;border-radius:14px;background:#fff;color:var(--ink);min-height:52px;width:100%}
+textarea{resize:vertical;min-height:96px}
+[aria-invalid=true]{box-shadow:inset 0 0 0 2px var(--acc)}
+.seg{display:flex;gap:8px}
+.seg label{flex:1;position:relative}
+.seg input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:52px;padding:8px 12px;border-radius:999px;background:#fff;font-weight:600;cursor:pointer;text-align:center;transition:transform .16s var(--e)}
+.seg input:checked+span{background:var(--ink);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--acc);outline-offset:3px}
+.send{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:8px}
+#er{color:var(--acc);font-weight:500}
+.ok{background:#FFFDFC;border-radius:24px;padding:clamp(28px,5vw,56px)}
+.ok.show{animation:fd .8s var(--e)}
+.ok h3{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin-bottom:12px}
+.ok p{color:var(--mut);max-width:40ch;margin-bottom:24px}
+/* подвал */
+.ft{background:var(--ink);color:#F4ECEA;padding:90px 0 40px}
+.big{font-family:Prata,serif;font-size:clamp(2.6rem,1rem + 7vw,7rem);line-height:1;overflow-wrap:break-word}
+.fc{display:flex;flex-wrap:wrap;gap:12px 48px;margin-top:40px;font-size:18px}
+.fc a{text-decoration:none;padding:10px 0}
+.note{margin-top:56px;font-size:14px;color:#BDB6B1}
+.toast{position:fixed;left:50%;top:16px;z-index:40;background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-weight:500;transform:translate(-50%,-180%);opacity:0;transition:transform .5s var(--e),opacity .3s;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+.fab{display:none}
+@media (max-width:900px){nav{display:none}}
+@media (max-width:860px){
+.bgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "p" "r"}
+.pw{margin-top:40px}
+.cat{grid-template-columns:minmax(0,1fr)}
+.a{grid-row:auto}.a figure{aspect-ratio:4/5;flex:none;min-height:0}
+.how,.ogrid{grid-template-columns:minmax(0,1fr)}
+.how figure{min-height:0;aspect-ratio:4/5}
+.fab{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:20;transform:translateY(170%);transition:transform .5s var(--e)}
+.fab.show{transform:none}
+body{padding-bottom:84px}
+}
+@media (max-width:560px){
+body{font-size:16px}
+.hd .logo{font-size:18px}
+.fl{grid-template-columns:minmax(0,1fr)}
+.b figure,.c figure,.d figure{width:40%}
+.ci{padding:12px 6px 4px 14px}
+.ci p{font-size:15px}
+.buy .btn{padding:10px 16px}
+.row{padding:8px 8px 8px 14px;gap:10px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+html{scroll-behavior:auto}
+.js .rv,.js .fade{opacity:1;transform:none}
+.js h1 .w>span{transform:none}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:break-word!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img,video,svg{max-width:100%}html,body{overflow-x:clip;max-width:100%}@media(max-width:560px){h1{font-size:clamp(1.9rem,8.6vw,2.6rem)!important}h2{font-size:clamp(1.45rem,6.4vw,2rem)!important}}</style></head>
+<body>
+<header class="hd">
+<div class="wrap">
+<a class="logo" href="#top" aria-label="Цветы Маргариты, наверх"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><g fill="#F7C6D3"><circle cx="16" cy="8" r="6"/><circle cx="24" cy="16" r="6"/><circle cx="16" cy="24" r="6"/><circle cx="8" cy="16" r="6"/></g><circle cx="16" cy="16" r="4.5" fill="#B8325A"/></svg>Цветы Маргариты</a>
+<nav aria-label="Разделы"><a href="#build">Собрать букет</a><a href="#cat">Каталог</a><a href="#how">Как это работает</a></nav>
+<a class="btn lt cart" href="#order">Корзина <b id="cq">0</b></a>
+</div>
+</header>
+
+<main>
+<section class="hero" id="top">
+<img class="hero-img" src="img/s1.jpg" width="1920" height="1280" alt="Розовые розы крупным планом" fetchpriority="high">
+<div class="veil"></div>
+<div class="wrap">
+<h1>Миллион цветов для вашего букета</h1>
+<p class="lead fade" style="animation-delay:.75s">Выберите цветы поштучно или готовый букет и оформите заказ прямо в Telegram за пару касаний.</p>
+<div class="acts fade" style="animation-delay:.9s"><a class="btn" href="#build">Собрать букет</a><a class="btn lt" href="#cat">Смотреть каталог</a></div>
+<div class="facts fade" style="animation-delay:1.05s"><span>Каталог до 200 позиций</span><span>Корзина не теряется</span><span>Заказ сразу приходит в Telegram</span></div>
+</div>
+</section>
+
+<section id="build" data-rv>
+<div class="wrap bgrid">
+<div class="bt">
+<h2 class="rv">Букет растёт с каждым стеблем</h2>
+<p class="sub rv">Добавляйте цветы, и букет собирается прямо на экране, а сумма считается сразу. Так это выглядит в приложении.</p>
+</div>
+<div class="pw rv">
+<div class="tg" role="group" aria-label="Тема Telegram"><button type="button" data-t="l" aria-pressed="true">Светлая тема</button><button type="button" data-t="d" aria-pressed="false">Тёмная тема</button></div>
+<div class="ph" data-t="l">
+<div class="scr">
+<div class="tbar"><span>Закрыть</span><b>Цветы Маргариты</b><span>мини-приложение</span></div>
+<svg id="bq" viewBox="0 0 300 320" role="img" aria-label="Ваш букет">
+<g id="stems" fill="none" stroke="#5E8A68" stroke-width="2.2" stroke-linecap="round"></g>
+<path d="M86 196H214L173 314H127Z" fill="#EBC6D0"/><path d="M150 196H214L173 314H150Z" fill="#DDB0BD"/><path d="M132 258h36v12h-36z" fill="#9B3F5A"/>
+<g id="heads"></g>
+</svg>
+<p class="comp" id="comp" aria-live="polite"></p>
+<div class="tot"><span id="bn"></span><strong id="bs"></strong></div>
+<button class="btn mainb" id="addb" type="button">Положить букет в корзину</button>
+</div>
+</div>
+</div>
+<div class="rows" id="rows"></div>
+</div>
+</section>
+
+<section class="cats" id="cat" data-rv>
+<div class="wrap">
+<h2 class="rv">Цветы и готовые букеты</h2>
+<p class="sub rv">Крупное фото, цена и кнопка «В корзину» в каждой карточке. Покупатель листает каталог как ленту.</p>
+<div class="cat">
+<article class="cd a rv zoom"><figure><img src="img/s2.jpg" width="900" height="1125" loading="lazy" alt="Букет из розовых и белых роз"></figure>
+<div class="ci"><h3>Розы, розовые и белые</h3><p>Поштучно или готовым букетом, соберём в любой пропорции.</p><div class="buy"><span class="pr">от 180 ₽ за стебель</span><button class="btn add" type="button" data-n="Роза" data-p="180">В корзину</button></div></div></article>
+<article class="cd b rv zoom"><figure><img src="img/s4.jpg" width="900" height="1125" loading="lazy" alt="Сборный букет в розовых и красных тонах"></figure>
+<div class="ci"><h3>Букет в розовых и красных тонах</h3><p>Сборный, с зеленью и упаковкой.</p><div class="buy"><span class="pr">от 3 900 ₽</span><button class="btn add" type="button" data-n="Букет в розовых тонах" data-p="3900">В корзину</button></div></div></article>
+<article class="cd c rv zoom"><figure><img src="img/s5.jpg" width="900" height="1125" loading="lazy" alt="Яркий букет из садовых цветов"></figure>
+<div class="ci"><h3>Яркий микс садовых цветов</h3><p>Когда хочется много цвета и настроения.</p><div class="buy"><span class="pr">от 4 500 ₽</span><button class="btn add" type="button" data-n="Яркий микс" data-p="4500">В корзину</button></div></div></article>
+<article class="cd d rv zoom"><figure><img src="img/s6.jpg" width="900" height="1125" loading="lazy" alt="Полевые цветы в глиняном кувшине"></figure>
+<div class="ci"><h3>Полевые цветы</h3><p>Простой живой букет для дома, такой ставят прямо в кувшин на стол.</p><div class="buy"><span class="pr">от 2 800 ₽</span><button class="btn add" type="button" data-n="Полевые цветы" data-p="2800">В корзину</button></div></div></article>
+</div>
+<p class="more rv">И ещё до 200 позиций в полной версии: категории, поиск и карточка с описанием каждого цветка.</p>
+</div>
+</section>
+
+<section class="how" id="how" data-rv>
+<figure class="zoom"><img src="img/s3.jpg" width="1200" height="1500" loading="lazy" alt="Букет из разноцветных полевых цветов"></figure>
+<div class="tx">
+<h2 class="rv">Заказ приходит вам в Telegram</h2>
+<div class="st rv"><b>Покупатель выбирает</b><p>Открывает приложение из бота, собирает букет по стеблю или берёт готовый.</p></div>
+<div class="st rv"><b>Оформляет</b><p>Имя, телефон, доставка или самовывоз, дата и время. Обязательные поля проверяются сами.</p></div>
+<div class="st rv"><b>Вы получаете сообщение</b><p>С составом, суммой и контактами. Цветы и цены меняете в простой таблице, без программиста.</p></div>
+<div class="msg rv"><b>Новый заказ</b>Роза ×7, Эустома ×3, Эвкалипт ×2<br>Итого: 2 100 ₽<br>Анна, +7 (000) 000-00-00<br>Доставка, завтра к 14:00<small>Пример сообщения владельцу</small></div>
+</div>
+</section>
+
+<section class="ord" id="order" data-rv>
+<div class="wrap ogrid">
+<div>
+<h2 class="rv">Оформление в пару касаний</h2>
+<p class="sub rv">Это тот же экран, что увидит покупатель. Попробуйте.</p>
+<div class="sum rv"><ul id="sumL"></ul><div class="sumt"><span>Итого</span><span id="sumT">0 ₽</span></div></div>
+</div>
+<div class="rv">
+<form id="fm" novalidate>
+<div class="fl">
+<label class="f">Имя<input id="nm" name="name" autocomplete="name" required></label>
+<label class="f">Телефон<input id="ph" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required></label>
+<div class="f full"><span id="dlt">Получение</span><div class="seg" role="radiogroup" aria-labelledby="dlt"><label><input type="radio" name="dl" value="d" checked><span>Доставка</span></label><label><input type="radio" name="dl" value="p"><span>Самовывоз</span></label></div></div>
+<label class="f full" id="adr">Адрес доставки<input name="addr" autocomplete="street-address" required></label>
+<label class="f">Дата<input id="dt" type="date" name="date" required></label>
+<label class="f">Время<input type="time" name="time"></label>
+<label class="f full">Комментарий<textarea name="cm" placeholder="Например, текст для открытки"></textarea></label>
+<div class="send full"><button class="btn" type="submit">Отправить заказ</button><span id="er" aria-live="polite"></span></div>
+</div>
+</form>
+<div class="ok" id="ok" hidden><h3>Заказ принят</h3><p>В рабочем приложении он сразу приходит владельцу в Telegram с составом, суммой и контактами покупателя.</p><button class="btn" type="button" id="again">Собрать ещё один букет</button></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="ft">
+<div class="wrap">
+<div class="big">Цветы Маргариты</div>
+<div class="fc"><a href="tel:+70000000000">+7 (000) 000-00-00</a><span>Telegram: через бота магазина</span><span>Адрес на карте</span></div>
+<p class="note">Фотографии на странице показаны для примера, в готовом приложении будут ваши.</p>
+</div>
+</footer>
+
+<a class="btn fab" href="#order">Оформить заказ <span id="fabt"></span></a>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmt=n=>n.toLocaleString('ru-RU');
+const pl=(n,a,b,c)=>{const t=n%100,m=n%10;return t>10&&t<20?c:m===1?a:m>1&&m<5?b:c};
+
+const h=$('h1');
+h.innerHTML=h.textContent.trim().split(/\s+/).map((w,i)=>`<span class="w"><span style="animation-delay:${150+i*90}ms">${w}</span></span>`).join(' ');
+
+const F=[
+{n:'Роза',p:180,c:'#D94A72',s:'<circle r="13" fill="#D94A72"/><circle r="8" fill="#A92A50"/><circle r="3.5" fill="#E8789A"/>'},
+{n:'Пион',p:450,c:'#F2A9BD',s:'<circle r="15" fill="#F2A9BD"/><circle r="10" fill="#F7C6D3"/><circle r="5" fill="#E27D99"/>'},
+{n:'Эустома',p:220,c:'#E3CBD7',s:'<circle r="12" fill="#F3E8EE"/><circle r="7" fill="#E3CBD7"/><circle r="3" fill="#8DAF84"/>'},
+{n:'Тюльпан',p:140,c:'#E5484D',s:'<ellipse rx="10" ry="13" fill="#E5484D"/><ellipse rx="4.5" ry="13" fill="#C22F38"/>'},
+{n:'Гортензия',p:520,c:'#9DBBE0',s:'<circle r="15" fill="#B7CEEB"/><g fill="#8DADD6"><circle cx="-7" cy="-5" r="4"/><circle cx="6" cy="-7" r="4"/><circle cx="8" cy="5" r="4"/><circle cx="-5" cy="7" r="4"/><circle r="3.5"/></g>'},
+{n:'Эвкалипт',p:90,c:'#7FA88B',s:'<g fill="#7FA88B"><ellipse rx="4.5" ry="10" transform="rotate(-35)"/><ellipse rx="4.5" ry="10" transform="rotate(35)"/><ellipse rx="4" ry="9" cy="-6"/></g>'}
+];
+let seq=[0,2,0,5,0,2,0,0,5,2,0,0];
+
+$('#rows').innerHTML=F.map((f,i)=>`<div class="row rv"><span class="dot" style="background:${f.c}"></span><div class="rn"><b>${f.n}</b><small>${f.p} ₽ за стебель</small></div><div class="step"><button type="button" data-i="${i}" data-d="-1" aria-label="Убрать: ${f.n}">−</button><output id="o${i}">0</output><button type="button" data-i="${i}" data-d="1" aria-label="Добавить: ${f.n}">+</button></div></div>`).join('')+'<p class="hint rv">Цены для примера, в приложении будут ваши.</p>';
+
+function draw(nw){
+let st='',hd='';
+seq.forEach((t,i)=>{
+const a=i*2.39996+.6,r=8+15*Math.sqrt(i),x=150+r*Math.cos(a),y=108+r*.8*Math.sin(a);
+st+=`<path d="M${x.toFixed(1)} ${y.toFixed(1)}Q${((x+150)/2).toFixed(1)} ${((y+250)/2+10).toFixed(1)} ${(150+(x-150)*.06).toFixed(1)} 250"/>`;
+hd=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><g class="hh${i===nw?' pop':''}">${F[t].s}</g></g>`+hd;
+});
+$('#stems').innerHTML=st;$('#heads').innerHTML=hd;
+const cnt=F.map((_,i)=>seq.filter(t=>t===i).length);
+cnt.forEach((c,i)=>$('#o'+i).textContent=c);
+const sum=seq.reduce((s,t)=>s+F[t].p,0);
+$('#bn').textContent=seq.length+' '+pl(seq.length,'стебель','стебля','стеблей');
+$('#bs').textContent=fmt(sum)+' ₽';
+$('#comp').textContent=seq.length?F.map((f,i)=>cnt[i]?f.n+' ×'+cnt[i]:'').filter(Boolean).join(', '):'Добавьте цветы в букет';
+$('#addb').disabled=!seq.length;
+}
+draw(-1);
+
+$('#rows').addEventListener('click',e=>{
+const b=e.target.closest('button');if(!b)return;
+const i=+b.dataset.i;
+if(+b.dataset.d>0){if(seq.length>=40){toast('В одном букете до 40 стеблей');return}seq.push(i);draw(seq.length-1)}
+else{const k=seq.lastIndexOf(i);if(k<0)return;seq.splice(k,1);draw(-1)}
+});
+
+$$('.tg button').forEach(b=>b.addEventListener('click',()=>{
+const ph=$('.ph'),t=b.dataset.t;if(ph.dataset.t===t)return;
+$$('.tg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+if(RM){ph.dataset.t=t;return}
+const s=$('.scr');s.classList.remove('sw');void s.offsetWidth;s.classList.add('sw');
+setTimeout(()=>ph.dataset.t=t,180);
+}));
+
+let tt;
+function toast(m){const el=$('#toast');el.textContent=m;el.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('on'),1800)}
+
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem('mrg-cart'))||[]}catch(e){}
+function save(){try{localStorage.setItem('mrg-cart',JSON.stringify(cart))}catch(e){}render()}
+function addCart(n,p){const it=cart.find(x=>x.n===n);it?it.q++:cart.push({n,p,q:1});save();toast('Добавлено в корзину');const c=$('#cq');c.classList.remove('bm');void c.offsetWidth;c.classList.add('bm')}
+function render(){
+const q=cart.reduce((s,x)=>s+x.q,0),t=cart.reduce((s,x)=>s+x.p*x.q,0);
+$('#cq').textContent=q;
+$('#fabt').textContent=t?'· '+fmt(t)+' ₽':'';
+$('#sumL').innerHTML=cart.length?cart.map((x,i)=>`<li><span>${x.n} ×${x.q}</span><button type="button" class="rm" data-k="${i}">Убрать</button></li>`).join(''):'<li class="em">Корзина пока пустая: добавьте букет или цветы выше.</li>';
+$('#sumT').textContent=fmt(t)+' ₽';
+}
+render();
+
+$('#sumL').addEventListener('click',e=>{const b=e.target.closest('.rm');if(!b)return;cart.splice(+b.dataset.k,1);save()});
+$('#addb').addEventListener('click',()=>{if(!seq.length)return;addCart('Букет: '+$('#comp').textContent,seq.reduce((s,t)=>s+F[t].p,0))});
+$$('.add').forEach(b=>b.addEventListener('click',()=>addCart(b.dataset.n,+b.dataset.p)));
+
+const fm=$('#fm'),adr=$('#adr');
+$('#dt').min=new Date().toISOString().slice(0,10);
+$$('input[name=dl]').forEach(r=>r.addEventListener('change',()=>{const d=$('input[name=dl]:checked').value==='d';adr.hidden=!d;adr.querySelector('input').required=d}));
+fm.addEventListener('submit',e=>{
+e.preventDefault();let bad=null;
+fm.querySelectorAll('[required]').forEach(i=>{
+const ok=i.id==='ph'?i.value.replace(/\D/g,'').length>=10:i.value.trim()!=='';
+i.setAttribute('aria-invalid',!ok);if(!ok&&!bad)bad=i});
+if(bad){$('#er').textContent='Заполните отмеченные поля';bad.focus();return}
+if(!cart.length){$('#er').textContent='Добавьте в корзину букет или цветы';return}
+$('#er').textContent='';fm.hidden=true;const ok=$('#ok');ok.hidden=false;ok.classList.add('show');cart=[];save();
+});
+$('#again').addEventListener('click',()=>{fm.reset();adr.hidden=false;adr.querySelector('input').required=true;$('#ok').hidden=true;fm.hidden=false;$('#build').scrollIntoView({behavior:RM?'auto':'smooth'})});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px -6% 0px'});
+$$('[data-rv]').forEach(s=>{s.querySelectorAll('.rv').forEach((el,i)=>el.style.setProperty('--d',Math.min(i,9)*75+'ms'));io.observe(s)});
+
+const hi=$('.hero-img');let tk=0;
+if(!RM)addEventListener('scroll',()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;const y=scrollY;if(y<innerHeight*1.3)hi.style.translate=`0 ${(y*.28).toFixed(1)}px`})},{passive:true});
+
+let hv=true,ov=false;const fab=$('.fab');
+const fo=new IntersectionObserver(es=>{es.forEach(e=>{if(e.target.id==='top')hv=e.isIntersecting;else ov=e.isIntersecting});fab.classList.toggle('show',!hv&&!ov)},{threshold:0});
+fo.observe($('#top'));fo.observe($('#order'));
+})();
+</script>
+</body>
+</html>

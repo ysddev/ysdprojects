@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+<title>Секретарь — ИИ-ассистент команды в Telegram · YSD DEV</title>
+<meta name="description" content="ИИ-секретарь в Telegram для команды кофейной обжарочной: утренняя сводка дел, ответы на отзывы, посты и КП, пересказ договоров, ответы по регламентам со ссылкой на пункт, голосовые и напоминания. Панель руководителя с журналом и лимитами.">
+<meta name="theme-color" content="#0034eb">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Секретарь — ИИ-ассистент команды в Telegram">
+<meta property="og:description" content="Сводка дня в 8:45, отзывы, договоры, КП и ответы по документам компании — в одном чате. Работа студии YSD DEV.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230034eb'/%3E%3Cpath d='M21.5 10.6a7.6 7.6 0 1 0 0 10.8' fill='none' stroke='%23F2F1EC' stroke-width='3.4' stroke-linecap='round'/%3E%3Ccircle cx='23.6' cy='16' r='2.1' fill='%23e9e34a'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/fira-sans-extra-condensed-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fira-sans-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Fira Sans Extra Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/fira-sans-extra-condensed-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Fira Sans Extra Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/fira-sans-extra-condensed-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fira Sans Extra Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/fira-sans-extra-condensed-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/fira-sans-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/fira-sans-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/fira-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/fira-sans-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/fira-sans-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/fira-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/fira-sans-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/fira-sans-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/fira-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --cobalt:#0034eb;--cobalt-2:#002fd6;--cobalt-3:#0028b8;--on-c:#ffffff;--muted-c:#c9d3ff;
+  --paper:#efefec;--paper-2:#e3e3df;--paper-3:#d3d3ce;--text:#0b1430;--muted:#4a5270;
+  --hl:#e9e34a;--hl-ink:#111111;
+  --ok:#1f7a4a;--warn:#9a4a00;--bad:#b3261e;
+  --tg-wall:#cfdae6;--tg-in:#ffffff;--tg-out:#e3f6d1;--tg-blue:#1f6fbf;--tg-meta:#6b7785;--tg-meta-out:#4f8b4b;--tg-btn:#5a7590;--tg-line:#e6ebf0;
+  --display:"Fira Sans Extra Condensed","Arial Narrow",sans-serif;
+  --font:"Fira Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --s-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --s-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --s-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --s-head:clamp(2.75rem,1.4rem + 5.4vw,6.25rem);
+  --m:clamp(16px,2.6vw,40px);
+  --ease:cubic-bezier(.23,1,.32,1);
+  --r:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--text);font:400 var(--s-body)/1.5 var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hl);outline-offset:2px;border-radius:6px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+::selection{background:var(--hl);color:var(--hl-ink)}
+.num{font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:1.0625rem;text-decoration:none;white-space:nowrap;transition:transform .16s var(--ease),background-color .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-hl{background:var(--hl);color:var(--hl-ink)}
+.btn-c{background:var(--cobalt);color:var(--on-c)}
+.btn-p{background:var(--paper);color:var(--cobalt)}
+.btn svg{width:18px;height:18px}
+@media (hover:hover) and (pointer:fine){
+  .btn-hl:hover{background:#f3ee6a}.btn-c:hover{background:var(--cobalt-3)}.btn-p:hover{background:#fff}
+}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:40;height:64px;display:flex;align-items:center;gap:28px;padding:0 var(--m);background:var(--paper);color:var(--cobalt);transition:background-color .3s,color .3s}
+.hd[data-ch="cobalt"]{background:var(--cobalt);color:var(--on-c)}
+.hd-brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:1.125rem;letter-spacing:-.01em;margin-right:auto}
+.hd-brand svg{width:30px;height:30px}
+.hd-brand .mk-bg{fill:currentColor;transition:fill .3s}
+.hd-brand .mk-c{stroke:var(--paper);transition:stroke .3s}
+.hd[data-ch="cobalt"] .mk-c{stroke:var(--cobalt)}
+.hd nav{display:flex;gap:26px}
+.hd nav a{text-decoration:none;font-weight:500;font-size:1rem;padding:10px 0;position:relative}
+.hd nav a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+@media (hover:hover) and (pointer:fine){.hd nav a:hover::after{transform:scaleX(1)}}
+.hd .btn{min-height:44px;padding:0 20px;font-size:1rem}
+.hd[data-ch="paper"] .hd-cta{background:var(--cobalt);color:var(--on-c)}
+.hd[data-ch="cobalt"] .hd-cta{background:var(--hl);color:var(--hl-ink)}
+
+/* hero */
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;max-height:1100px;background:var(--paper);overflow:hidden;color:var(--on-c)}
+.hero::after{content:"";position:absolute;left:0;right:0;top:50%;bottom:0;background:var(--cobalt);z-index:0}
+.h1{position:absolute;z-index:1;left:var(--m);right:var(--m);top:50%;transform:translateY(-66%);margin:0;font:700 clamp(64px,11vw,180px)/.88 var(--display);letter-spacing:-.012em;text-transform:uppercase;text-align:center}
+.h1-l{display:block}
+.h1-l.b,.h1-l.c{position:absolute;inset:0}
+.h1-l.a{color:var(--cobalt);clip-path:inset(0 0 34% 0)}
+.h1-l.b{color:var(--paper);clip-path:inset(66% 0 0 0)}
+.h1-l.c{color:transparent}
+.ln{display:block;white-space:nowrap}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em .04em;margin:0 -.02em -.04em}
+.w>i{display:inline-block;font-style:normal}
+.slot{display:inline-block;width:2.25em;height:.84em;vertical-align:top;margin:.02em .14em 0 0}
+.slot-b{display:flex;align-items:center;gap:.55em;width:100%;height:100%;border-radius:clamp(16px,1.6vw,26px);background:#fff;color:var(--text);padding:0 clamp(14px,1.4vw,24px);text-transform:none;font:500 clamp(15px,1.7vw,27px)/1.22 var(--font);letter-spacing:0;text-align:left;}
+.slot-av{flex:none;width:2.4em;height:2.4em;border-radius:50%;background:var(--cobalt);display:grid;place-items:center}
+.slot-av svg{width:1.3em;height:1.3em}
+.slot-t{min-width:0;display:flex;flex-direction:column}
+.slot-t b{font-weight:600;color:var(--text)}
+.slot-s{color:var(--tg-blue);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:baseline;gap:.15em}
+.slot-s span{display:inline-block;transition:opacity .25s,transform .25s var(--ease)}
+.slot-s span.sw{opacity:0;transform:translateY(6px)}
+.ell i{display:inline-block;font-style:normal;animation:ell 1.2s infinite}
+.ell i:nth-child(2){animation-delay:.2s}.ell i:nth-child(3){animation-delay:.4s}
+@keyframes ell{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.hero-ft{position:absolute;z-index:1;left:var(--m);right:var(--m);bottom:clamp(36px,6.5vh,64px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero-ft p{margin:0;max-width:44ch;font-size:var(--s-lead);line-height:1.36;color:var(--on-c)}
+.hero-act{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero-mslot{display:none}
+
+/* chapters */
+.ch-c{background:var(--cobalt);color:var(--on-c)}
+.ch-p{background:var(--paper);color:var(--text)}
+.wrap{padding-left:var(--m);padding-right:var(--m);max-width:1520px;margin:0 auto}
+.h2{margin:0;font:700 var(--s-head)/.9 var(--display);letter-spacing:-.01em;text-transform:uppercase}
+.lead{font-size:var(--s-lead);line-height:1.4;margin:22px 0 0;max-width:34ch}
+
+/* try */
+.try{padding:clamp(56px,9vw,128px) 0 clamp(96px,12vw,200px)}
+.try-g{display:grid;grid-template-columns:minmax(360px,420px) minmax(0,1fr);gap:clamp(40px,6vw,104px);align-items:start}
+.tg-col{position:sticky;top:84px;min-width:0}
+.right{min-width:0}
+.right>section+section{margin-top:clamp(96px,10vw,160px)}
+.r-h .lead{color:var(--muted-c)}
+.r-h .lead b{color:var(--on-c);font-weight:500}
+.r-h{margin-bottom:36px}
+
+/* ===== Telegram ===== */
+.tg{scroll-margin-top:72px;position:relative;display:flex;flex-direction:column;height:min(780px,calc(100vh - 176px));min-height:560px;border-radius:28px;overflow:hidden;background:var(--tg-wall);color:#0f1419;font-size:15.5px;line-height:1.38;isolation:isolate}
+.tg-top{position:relative;z-index:6;display:flex;align-items:center;gap:10px;height:62px;padding:0 8px 0 12px;background:#fff;flex:none}
+.tg-back{width:28px;height:44px;display:grid;place-items:center;color:var(--tg-blue)}
+.tg-back svg{width:12px;height:20px}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--cobalt);display:grid;place-items:center}
+.av svg{width:20px;height:20px}
+.tg-who{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1;text-align:left;min-height:44px;justify-content:center}
+.tg-who b{font-weight:600;font-size:16px;line-height:1.2}
+.tg-who #st{font-size:13.5px;color:var(--tg-meta);line-height:1.3;white-space:nowrap}
+.tg-who #st.on{color:var(--tg-blue)}
+.ib{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;color:#6d7883;flex:none;transition:background-color .15s,transform .15s}
+.ib svg{width:22px;height:22px}
+.ib:active{transform:scale(.92)}
+@media (hover:hover) and (pointer:fine){.ib:hover{background:#eef2f6}}
+.kpop,.cmds{position:absolute;z-index:20;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(16,30,54,.22);padding:6px;min-width:220px}
+.kpop{top:56px;right:10px}
+.kpop button,.cmds button{display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;padding:11px 12px;border-radius:9px;min-height:44px;font-size:15px}
+.kpop button:hover,.cmds button:hover,.kpop button:focus-visible,.cmds button:focus-visible{background:#eef3f8}
+.cmds{left:10px;right:10px;bottom:66px;max-height:min(380px,70%);overflow:auto}
+.cmds code{font:600 14.5px var(--font);color:var(--tg-blue);min-width:92px}
+.cmds span{color:#4b5560}
+.tg-pin{display:flex;align-items:center;gap:10px;width:100%;flex:none;padding:7px 14px;background:#fff;border-top:1px solid var(--tg-line);text-align:left;position:relative;z-index:5;min-height:48px}
+.tg-pin i{width:2px;align-self:stretch;background:var(--tg-blue);border-radius:2px}
+.tg-pin b{display:block;font-size:13.5px;color:var(--tg-blue);font-weight:600;line-height:1.25}
+.tg-pin span span{display:block;font-size:14px;color:#3a4651;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.tg-pin>span{min-width:0}
+.feed{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 10px 10px;scroll-behavior:auto;overscroll-behavior:contain}
+.feed:focus-visible{outline-offset:-3px}
+.row{display:flex;margin-top:3px}
+.row.tail{margin-bottom:9px}
+.row.me{justify-content:flex-end}
+.row.sys{justify-content:center;margin:10px 0}
+.sysp{background:#5a6d82;color:#fff;font-size:13.5px;font-weight:500;padding:3px 11px;border-radius:999px;line-height:1.45;text-align:center;max-width:85%}
+.blk{max-width:86%;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.row.me .blk{align-items:flex-end}
+.blk.wide{width:86%}
+.bub{position:relative;background:var(--tg-in);border-radius:17px;padding:7px 11px 7px 12px;min-width:76px;max-width:100%;overflow-wrap:anywhere;word-break:normal}
+.row.me .bub{background:var(--tg-out)}
+.row.bot.tail .bub{border-bottom-left-radius:5px}
+.row.me.tail .bub{border-bottom-right-radius:5px}
+.bub .txt b{font-weight:600}
+.bub .txt i{font-style:italic;color:#3e4a55}
+.meta{float:right;display:inline-flex;align-items:center;gap:3px;margin:6px -3px -3px 10px;font-size:12.5px;line-height:1;color:var(--tg-meta);white-space:nowrap;position:relative;top:4px}
+.row.me .meta{color:var(--tg-meta-out)}
+.tk{width:17px;height:11px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tk .t2{opacity:0;transition:opacity .25s}
+.tk.rd .t2{opacity:1}
+.bub mark,.docv mark{background:var(--hl);color:inherit;padding:0 .12em;border-radius:3px}
+.bub blockquote{margin:6px 0 2px;padding:4px 0 4px 10px;border-left:3px solid var(--tg-blue);background:#eef5fd;border-radius:0 8px 8px 0}
+.bub blockquote.zh{font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif}
+.cite{display:block;margin-top:6px;font-size:14px;color:#3c5a78}
+.bub .tag{color:var(--tg-blue)}
+.bub .warn{color:var(--warn)}
+.bub ol,.bub ul{margin:4px 0 0;padding-left:1.25em}
+.bub li{margin:2px 0}
+.bub h5{margin:8px 0 2px;font:600 13px var(--font);color:var(--tg-blue)}
+.bub h5:first-child{margin-top:2px}
+.stars{display:inline-flex;gap:1px;vertical-align:-2px}
+.stars svg{width:15px;height:15px}
+.fwd{font-size:14px;color:var(--tg-blue);margin-bottom:3px}
+.fwd b{font-weight:600}
+.caret{display:inline-block;width:7px;height:1.05em;vertical-align:-2px;margin-left:1px;background:var(--tg-blue);border-radius:1px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.row.in{animation:rowin .42s var(--ease) both}
+.row.me.in{transform-origin:100% 100%}
+.row.bot.in{transform-origin:0 100%}
+@keyframes rowin{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+.typing .bub{padding:11px 14px;min-width:0}
+.dots{display:flex;gap:4px;align-items:center;height:14px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#9aa7b4;animation:dot 1.1s infinite var(--ease)}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,70%,100%{transform:translateY(0);opacity:.45}35%{transform:translateY(-4px);opacity:1}}
+.ikb{display:grid;gap:5px;margin-top:5px;width:100%}
+.ikr{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:5px}
+.ikb button,.ikb a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 10px;border-radius:12px;background:var(--tg-btn);color:#fff;font-weight:500;font-size:14.5px;line-height:1.2;text-align:center;text-decoration:none;transition:transform .15s var(--ease),background-color .2s,box-shadow .2s;position:relative}
+.ikb button:active,.ikb a:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.ikb button:hover,.ikb a:hover{background:#4c667f}}
+.ikb .picked{background:#4a6277}
+.ikb .busy{opacity:.7}
+.ikb svg{width:14px;height:14px;flex:none}
+.ikb .hint{outline:3px solid var(--hl);outline-offset:0;animation:hintp 1.6s var(--ease) infinite}
+@keyframes hintp{50%{outline-offset:3px}}
+.row.kbin .ikb>*{animation:rowin .4s var(--ease) both}
+.row.kbin .ikb>*:nth-child(2){animation-delay:.05s}.row.kbin .ikb>*:nth-child(3){animation-delay:.1s}.row.kbin .ikb>*:nth-child(4){animation-delay:.15s}
+.streaming .ikb{visibility:hidden}
+.sx{opacity:0;transition:opacity .35s}
+.sx.on{opacity:1}
+/* file */
+.file{display:flex;gap:11px;align-items:center;padding:3px 0}
+.fi{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 11.5px var(--font);letter-spacing:.02em}
+.fi-pdf{background:#d1453b}.fi-doc{background:#2f6fd0}.fi-xls{background:#1f7a4a}
+.fmeta{display:flex;flex-direction:column;min-width:0}
+.fmeta b{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fmeta small{font-size:13px;color:var(--tg-meta)}
+.row.me .fmeta small{color:var(--tg-meta-out)}
+/* progress */
+.prog{display:flex;flex-direction:column;gap:7px;min-width:220px}
+.prog i{display:block;height:4px;border-radius:4px;background:#e2e8ee;position:relative;overflow:hidden}
+.prog i::after{content:"";position:absolute;inset:0;background:var(--tg-blue);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .55s var(--ease)}
+/* photo */
+.bub.t-photo{padding:3px 3px 7px}
+.bub.t-photo .txt{padding:6px 9px 0}
+.bub.t-photo .meta{margin-right:6px}
+.pcov{position:relative;margin:0;border-radius:14px 14px 6px 6px;overflow:hidden;aspect-ratio:16/10;background:var(--c,#7a3a17)}
+.pcov img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.2s var(--ease)}
+.pcov.ld img{transform:none}
+.pcov-t{position:absolute;left:10px;bottom:10px;background:var(--paper);color:var(--text);padding:8px 11px 9px;border-radius:9px;max-width:calc(100% - 20px)}
+.pcov-t small{display:block;font:600 11.5px var(--font);letter-spacing:.06em;color:var(--cobalt)}
+.pcov-t b{display:block;font:700 22px/1 var(--display);text-transform:uppercase;letter-spacing:-.005em;margin-top:2px}
+.pcov-t span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+.pcov.gen{background:var(--cobalt)}
+.pcov.gen .pcov-t{background:transparent;color:#fff;left:14px;bottom:14px}
+.pcov.gen .pcov-t small{color:var(--hl)}
+.pcov.gen .pcov-t b{font-size:28px}
+.pcov.gen .pcov-t span{color:var(--muted-c)}
+/* kp card */
+.bub.t-card{padding:0;overflow:hidden;width:100%}
+.kp{padding:12px 13px 10px}
+.kp-h span{display:block;font-size:12.5px;color:var(--tg-meta)}
+.kp-h strong{display:block;font-weight:600;font-size:16px;line-height:1.25;margin:2px 0 8px}
+.kp table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.kp th{font-weight:500;color:var(--tg-meta);text-align:right;padding:4px 0 4px 6px;border-bottom:1px solid var(--tg-line)}
+.kp th:first-child,.kp td:first-child{text-align:left;padding-left:0}
+.kp td{text-align:right;padding:5px 0 5px 6px;border-bottom:1px solid #f0f3f6}
+.kp dl{margin:8px 0 0;font-variant-numeric:tabular-nums}
+.kp dl div{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:2px 0}
+.kp dt{color:#4b5560}.kp dd{margin:0}
+.kp .tot{font-weight:600;font-size:16px;padding-top:6px}
+.kp .tot dt{color:#0f1419}
+.kp p{margin:8px 0 0;font-size:13.5px;color:#3e4a55}
+.kp .kp-f{color:var(--tg-meta);font-size:12.5px}
+.t-card .meta{margin:0 10px 8px 0;top:0}
+/* invoice */
+.bub.t-invoice{padding:3px 3px 7px;width:100%}
+.inv{border-radius:14px 14px 6px 6px;background:var(--cobalt);color:#fff;padding:16px 16px 14px}
+.inv b{display:block;font:700 46px/1 var(--display);letter-spacing:-.01em}
+.inv span{display:block;font-size:14px;color:var(--muted-c);margin-top:4px}
+.bub.t-invoice .txt{padding:6px 9px 0}
+.inv-p{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--tg-line)}
+.inv-p b{font-size:17px}
+.inv-p small{font-size:13px;color:var(--tg-meta)}
+/* voice */
+.bub.t-voice{min-width:236px}
+.vc{display:flex;align-items:center;gap:10px}
+.vc-play{flex:none;width:42px;height:42px;border-radius:50%;background:#58a14f;color:#fff;display:grid;place-items:center;transition:transform .15s}
+.vc-play:active{transform:scale(.93)}
+.vc-play svg{width:16px;height:16px}
+.row.bot .vc-play{background:var(--tg-blue)}
+.vc-w{display:flex;align-items:center;gap:2px;height:26px;flex:1}
+.vc-w i{flex:1;max-width:3px;min-width:2px;border-radius:2px;background:#9dc994;transform-origin:center;transition:background-color .2s}
+.vc-w i.p{background:#3f8a37}
+.vc-d{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tg-meta-out);margin-top:2px}
+.vc-tr{flex:none;width:30px;height:24px;border-radius:7px;background:#cfeabc;color:#3f8a37;display:grid;place-items:center;font:600 11.5px var(--font)}
+.vc-tr.on{background:#3f8a37;color:#fff}
+.vc-tx{margin-top:6px;padding-top:6px;border-top:1px solid #c7e3b4;font-size:15px}
+.vc-tx:empty{display:none}
+.vc-tx .lbl{display:block;font-size:12.5px;color:var(--tg-meta-out);margin-bottom:1px}
+.shimmer{display:inline-flex;gap:4px;align-items:center;height:18px}
+.shimmer i{width:6px;height:6px;border-radius:50%;background:#7fb873;animation:dot 1.1s infinite var(--ease)}
+.shimmer i:nth-child(2){animation-delay:.15s}.shimmer i:nth-child(3){animation-delay:.3s}
+/* composer */
+.cmp{position:relative;z-index:6;flex:none;display:flex;align-items:center;gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));background:#fff;min-height:62px}
+.tg-menu{display:flex;align-items:center;gap:6px;height:36px;padding:0 13px 0 10px;border-radius:999px;background:var(--tg-blue);color:#fff;font-weight:500;font-size:14.5px;flex:none;transition:transform .15s}
+.tg-menu svg{width:16px;height:16px}
+.tg-menu:active{transform:scale(.95)}
+.cmp input{flex:1;min-width:0;height:40px;border:0;background:#f1f4f7;border-radius:20px;padding:0 14px;font-size:16px;outline:none;color:#0f1419}
+.cmp input::placeholder{color:#6f7a85}
+.cmp input:focus-visible{box-shadow:0 0 0 2px var(--tg-blue)}
+.send{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--tg-blue);flex:none;transition:transform .15s}
+.send svg{width:24px;height:24px}
+.send:active{transform:scale(.9)}
+
+.rec{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:0 8px 0 16px;background:#fff;z-index:2}
+.rec-dot{width:11px;height:11px;border-radius:50%;background:#e5483c;animation:recb 1s infinite}
+@keyframes recb{50%{opacity:.25}}
+.rec-t{font-variant-numeric:tabular-nums;font-size:15px;min-width:36px}
+.rec-l{flex:1;display:flex;align-items:center;gap:2px;height:28px;overflow:hidden}
+.rec-l i{width:3px;flex:none;border-radius:2px;background:var(--tg-blue);height:4px;transition:height .12s}
+.rec-x{color:#5c6773;font-size:14.5px;padding:0 8px;min-height:44px}
+.rec-go{width:44px;height:44px;border-radius:50%;background:var(--tg-blue);color:#fff;display:grid;place-items:center;flex:none}
+.rec-go svg{width:20px;height:20px}
+.rkb{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px;background:#e4e9ee;position:relative;z-index:6}
+.rkb button{min-height:44px;background:#fff;border-radius:10px;font-size:14.5px;font-weight:500;padding:6px 8px;line-height:1.2}
+.rkb button:active{transform:scale(.97)}
+.tg-down{position:absolute;right:12px;bottom:76px;z-index:7;width:42px;height:42px;border-radius:50%;background:#fff;color:#6d7883;display:grid;place-items:center}
+.tg-down svg{width:20px;height:20px}
+/* sheet inside tg */
+.sheetW{position:absolute;inset:0;z-index:30}
+.sh-bg{position:absolute;inset:0;background:rgba(10,18,30,.42);opacity:0;transition:opacity .3s}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:86%;display:flex;flex-direction:column;background:#fff;border-radius:18px 18px 0 0;transform:translateY(100%);transition:transform .38s var(--ease);box-shadow:0 -8px 40px rgba(10,18,30,.25)}
+.sheetW.open .sh-bg{opacity:1}.sheetW.open .sheet{transform:none}
+.sh-h{display:flex;align-items:flex-start;gap:10px;padding:16px 10px 8px 18px}
+.sh-h>div{flex:1;min-width:0}
+.sh-h b{display:block;font-size:17px;font-weight:600;line-height:1.3}
+.sh-h small{display:block;color:var(--tg-meta);font-size:13.5px;margin-top:2px}
+.sh-b{padding:4px 18px 20px;overflow:auto;font-size:15px}
+.sh-b p{margin:0 0 10px}
+.docv{background:#f7f6f1;border-radius:12px;padding:12px 14px;font-size:14.5px;line-height:1.5}
+.docv h4{margin:6px 0 6px;font-size:14.5px;font-weight:600}
+.docv p{margin:0 0 8px}
+.docv-f{font-size:13.5px;color:#5c6773;margin-top:10px!important}
+.sh-list{margin:6px 0 0;padding-left:1.2em}
+.sh-list li{margin:4px 0}
+.pay-r{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--tg-line);font-size:15px}
+.pay-r span{color:#5c6773}
+.pay-b{margin-top:16px;width:100%;min-height:50px;border-radius:12px;background:var(--tg-blue);color:#fff;font-weight:600;font-size:16px;transition:transform .15s}
+.pay-b:active{transform:scale(.98)}
+.pay-b:disabled{opacity:.75}
+.attach-f{width:100%;text-align:left;border-radius:12px;padding:8px 10px;background:#f3f6f9}
+.attach-f:hover{background:#e9eef3}
+.tg-foot{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;margin:14px 4px 0}
+.tg-reset{flex:none;min-height:44px;margin-top:-11px;font-size:15px;font-weight:500;color:var(--on-c);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.45)}
+.tg-hint{margin:0;font-size:15px;color:var(--muted-c);min-height:3em;line-height:1.4}
+.tg-hint b{color:var(--on-c);font-weight:500}
+/* push */
+.push{position:fixed;z-index:60;top:74px;right:var(--m);width:min(380px,calc(100vw - 32px));display:flex;gap:11px;align-items:flex-start;text-align:left;padding:12px 14px;border-radius:18px;background:#fff;color:#0f1419;box-shadow:0 16px 48px rgba(6,16,60,.28);transform:translateY(-16px);opacity:0;transition:transform .45s var(--ease),opacity .3s}
+.push.on{transform:none;opacity:1}
+.push .av{width:36px;height:36px}
+.push-t{flex:1;min-width:0;font-size:14.5px;line-height:1.35}
+.push-t b{display:block;font-weight:600}
+.push-t span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#3b4652}
+.push time{font-size:12.5px;color:var(--tg-meta)}
+
+/* ===== paper sheets (planner, panel) ===== */
+.sh{background:var(--paper);color:var(--text);border-radius:var(--r);padding:clamp(18px,2.2vw,28px)}
+.sh+.sh{margin-top:16px}
+.sh-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px}
+.sh-hd h3{margin:0;font-size:1.25rem;font-weight:600;line-height:1.25}
+.sh-hd p,.sh-hd .sub{margin:3px 0 0;font-size:.9375rem;color:var(--muted)}
+.pl-prog{text-align:right;flex:none}
+.pl-prog b{display:block;font:700 2.25rem/1 var(--display);color:var(--cobalt)}
+.pl-prog span{font-size:.875rem;color:var(--muted)}
+.pl-bar{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:8px;width:132px}
+.pl-bar i{height:6px;border-radius:3px;background:var(--paper-3);position:relative;overflow:hidden}
+.pl-bar i::after{content:"";position:absolute;inset:0;background:var(--cobalt);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.pl-bar i.on::after{transform:none}
+.tasks{list-style:none;margin:0;padding:0}
+.task{border-top:1px solid var(--paper-3)}
+.task:last-child{border-bottom:1px solid var(--paper-3)}
+.task button{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;padding:14px 4px;min-height:64px;border-radius:10px;transition:background-color .2s}
+@media (hover:hover) and (pointer:fine){.task button:hover{background:var(--paper-2)}.task button:hover .tk-go{transform:translateX(3px);opacity:1}}
+.tk-box{width:24px;height:24px;border-radius:50%;border:2px solid #8a90a6;display:grid;place-items:center;color:#fff;transition:background-color .3s,border-color .3s,transform .3s var(--ease)}
+.tk-box svg{width:14px;height:14px;opacity:0;transform:scale(.4);transition:opacity .2s,transform .35s var(--ease)}
+.task.ok .tk-box{background:var(--cobalt);border-color:var(--cobalt)}
+.task.ok .tk-box svg{opacity:1;transform:none}
+.tk-t{min-width:0}
+.tk-t b{position:relative;display:inline;font-weight:500;font-size:1.0625rem;line-height:1.35}
+.tk-t b::before{content:"";position:absolute;left:-2px;right:-2px;top:.08em;bottom:.02em;background:var(--hl);border-radius:3px;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.tk-t b span{position:relative}
+.task.ok .tk-t b::before{transform:scaleX(1)}
+.tk-t{isolation:isolate}
+.tk-t small{display:block;font-size:.9375rem;color:var(--muted);margin-top:2px}
+.tk-go{font-size:.9375rem;font-weight:500;color:var(--cobalt);white-space:nowrap;opacity:.9;transition:transform .2s var(--ease),opacity .2s;display:flex;align-items:center;gap:4px}
+.tk-go svg{width:16px;height:16px}
+.task.ok .tk-go{color:var(--muted)}
+.task.nx button{background:var(--paper-2)}
+.cal{margin-top:28px}
+.cal h4{margin:0 0 12px;font-size:1.0625rem;font-weight:600}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.day{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 0 8px;border-radius:12px;background:var(--paper-2);min-height:72px;transition:background-color .2s,color .2s,transform .15s}
+.day:active{transform:scale(.96)}
+.day small{font-size:.8125rem;color:var(--muted)}
+.day b{font-size:1.25rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.day .dd{display:flex;gap:3px;height:6px;margin-top:3px}
+.day .dd i{width:5px;height:5px;border-radius:50%;background:var(--cobalt)}
+.day[aria-pressed="true"]{background:var(--cobalt);color:var(--on-c)}
+.day[aria-pressed="true"] small{color:var(--muted-c)}
+.day[aria-pressed="true"] .dd i{background:var(--hl)}
+@media (hover:hover) and (pointer:fine){.day:hover{background:var(--paper-3)}.day[aria-pressed="true"]:hover{background:var(--cobalt-3)}}
+.evs{list-style:none;margin:14px 0 0;padding:0}
+.ev{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--paper-3);font-size:1rem}
+.ev time{font-weight:600;font-variant-numeric:tabular-nums;color:var(--cobalt)}
+.ev small{display:block;color:var(--muted);font-size:.875rem}
+.ev.new{animation:evin .6s var(--ease) both}
+@keyframes evin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.ev-empty{padding:12px 0;border-top:1px solid var(--paper-3);color:var(--muted);font-size:.9375rem}
+
+/* panel */
+.log{list-style:none;margin:0;padding:0}
+.le{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:13px 0;border-top:1px solid var(--paper-3)}
+.le.fresh{animation:fresh 1.6s var(--ease) both}
+@keyframes fresh{0%{opacity:0;transform:translateY(-10px)}20%{opacity:1;transform:none}}
+.av-e{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:.8125rem;font-weight:600;background:var(--bg);color:var(--fg)}
+.le-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.le-h b{font-weight:600;font-size:.9375rem}
+.le-h time{margin-left:auto;font-size:.875rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tg-t{flex:none;white-space:nowrap;font-size:.8125rem;font-weight:500;padding:2px 9px;border-radius:999px;background:#dfe5fb;color:#14287a}
+.tg-t.pay{background:#dcefe2;color:#0e3d22}
+.le p{margin:3px 0 0;font-size:1rem;line-height:1.4;overflow-wrap:anywhere}
+.le-f{font-size:.875rem;color:var(--muted);margin-top:3px}
+.more{margin-top:10px;min-height:44px;font-weight:500;color:var(--cobalt);font-size:1rem}
+.lim-n{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.lim-n b{font:700 clamp(3rem,2rem + 3vw,4.5rem)/.95 var(--display);color:var(--cobalt);font-variant-numeric:tabular-nums}
+.lim-n span{font-size:1.0625rem;color:var(--muted)}
+.lim-n .pct{margin-left:auto;font-weight:600;font-size:1rem;padding:3px 10px;border-radius:999px;background:var(--paper-2)}
+.lim-n .pct.w{background:#fde9c8;color:#6b3300}
+.lim-bar{position:relative;display:flex;gap:2px;height:14px;margin:16px 0 8px;border-radius:4px;background:var(--paper-2);overflow:visible}
+.lim-bar i{display:block;height:100%;transition:width .7s var(--ease)}
+.lim-bar i:first-child{border-radius:4px 0 0 4px}
+.lim-80{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--text);opacity:.55}
+.lim-80 span{position:absolute;top:-22px;left:-14px;font-size:.8125rem;color:var(--muted);white-space:nowrap}
+.lim-leg{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 18px}
+.lim-leg li{display:flex;align-items:center;gap:8px;font-size:.9375rem}
+.lim-leg li i{width:10px;height:10px;border-radius:3px;background:var(--c)}
+.lim-leg li b{margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums}
+.lim-note{font-size:.9375rem;color:var(--muted);margin:14px 0 0}
+.lim-note.w{color:#7a3a00}
+.lim-buy{margin-top:16px}
+.set-g{margin-top:18px}
+.set-g:first-of-type{margin-top:0}
+.set-l{display:block;font-weight:600;font-size:.9375rem;margin-bottom:8px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;background:var(--paper-2);border-radius:12px;border:0;margin:0}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;min-height:40px;padding:0 16px;border-radius:9px;font-weight:500;font-size:.9375rem;transition:background-color .2s,color .2s}
+.seg input:checked+span{background:var(--cobalt);color:#fff}
+.seg input:focus-visible+span{outline:3px solid var(--hl);outline-offset:1px}
+.docs{display:grid;gap:2px}
+.doc{display:grid;grid-template-columns:40px minmax(0,1fr) 48px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--paper-3);cursor:pointer}
+.doc .fi{width:38px;height:38px;font-size:10.5px}
+.doc-t b{display:block;font-weight:500;font-size:.9375rem;overflow-wrap:anywhere}
+.doc-t small{display:block;font-size:.8125rem;color:var(--muted)}
+.doc.off .doc-t,.doc.off .fi{opacity:.55}
+.sw{position:relative;width:46px;height:28px}
+.sw input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.sw i{position:absolute;inset:0;border-radius:999px;background:#b9b6ad;transition:background-color .25s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.sw input:checked+i{background:var(--cobalt)}
+.sw input:checked+i::after{transform:translateX(18px)}
+.sw input:focus-visible+i{outline:3px solid var(--hl);outline-offset:2px}
+.set-n{margin:16px 0 0;font-size:.9375rem;color:var(--muted);min-height:1.5em;transition:color .3s}
+.set-n.flash{color:var(--cobalt);font-weight:500}
+
+/* features */
+.feat-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end}
+.feat-t{grid-column:1 / span 8;min-width:0}
+.feat-ph{grid-column:9 / span 4;margin:0;min-width:0}
+.feat-ph .fr{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--paper-3)}
+.feat-ph img{width:100%;height:112%;object-fit:cover;translate:0 var(--py,0px);transition:transform .6s var(--ease)}
+@media (hover:hover) and (pointer:fine){.feat-ph:hover img{transform:scale(1.04)}}
+.feat-ph figcaption{margin-top:10px;font-size:.9375rem;color:var(--muted)}
+.feat{padding:clamp(96px,12vw,200px) 0}
+.pw{margin:44px 0 0;font:500 clamp(1.375rem,1rem + 1.1vw,2rem)/1.34 var(--font);letter-spacing:-.012em}
+.pw .pic{display:inline-block;width:2.3em;height:1.04em;vertical-align:-.2em;border-radius:.24em;overflow:hidden;margin:0 .06em;background:var(--paper-3)}
+.pw .pic img{width:100%;height:115%;object-fit:cover;translate:0 var(--py,0px);transition:transform .5s var(--ease)}
+@media (hover:hover) and (pointer:fine){.pw .pic:hover img{transform:scale(1.04)}}
+.caps{list-style:none;margin:clamp(56px,7vw,96px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px clamp(24px,3vw,48px)}
+.caps li{min-width:0}
+.caps h3{margin:0 0 8px;font:700 clamp(1.75rem,1.3rem + 1vw,2.25rem)/1 var(--display);text-transform:uppercase;color:var(--cobalt)}
+.caps p{margin:0;font-size:1.0625rem;line-height:1.5}
+
+/* how */
+.how{padding:clamp(96px,12vw,200px) 0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));row-gap:56px}
+.st{grid-column:var(--c) / span 7;min-width:0}
+.st h2,.st h3{margin:0;font:700 clamp(2.25rem,1.2rem + 3.2vw,4.5rem)/1 var(--display);text-transform:uppercase;letter-spacing:-.005em}
+.st:last-child h3{color:var(--hl)}
+.st p{margin:12px 0 0;max-width:36ch;color:var(--muted-c);font-size:1.0625rem}
+.stack{margin:clamp(64px,8vw,112px) 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.stack li{list-style:none;padding:10px 16px;border-radius:999px;background:var(--cobalt-3);font-weight:500;font-size:1rem}
+.stack{padding:0}
+
+/* price */
+.price{padding:clamp(96px,12vw,200px) 0}
+.price .h2{font-size:clamp(3rem,1.2rem + 6.4vw,7.5rem);max-width:12em}
+.pb{display:inline-block;background:var(--hl);color:var(--hl-ink);padding:0 .15em;border-radius:.06em;white-space:nowrap}
+.price-ft{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end;margin-top:64px}
+.price-ft p{grid-column:1 / span 6;margin:0;font-size:var(--s-lead);line-height:1.4}
+.price-a{grid-column:9 / span 4;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.price-a a.tl{font-weight:500;color:var(--cobalt);text-underline-offset:4px;min-height:44px;display:flex;align-items:center}
+
+/* footer */
+.ft{position:relative;overflow:hidden;background:var(--cobalt);color:var(--on-c);padding-top:clamp(80px,10vw,140px)}
+.ft-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.ft-i{grid-column:1 / span 7}
+.ft-i h2{margin:0 0 32px;font:700 clamp(2.75rem,1.2rem + 4.4vw,5.75rem)/.92 var(--display);text-transform:uppercase}
+.ft-l{grid-column:10 / span 3;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ft-l a{display:inline-flex;min-height:40px;align-items:center;text-decoration:none;font-size:1.0625rem}
+.ft-l a:hover{text-decoration:underline;text-underline-offset:4px}
+.ft-legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:clamp(72px,9vw,128px);font-size:.875rem;color:var(--muted-c)}
+.ft-name{display:block;font:700 27vw/.8 var(--display);text-transform:uppercase;white-space:nowrap;letter-spacing:-.02em;color:var(--on-c);margin:8px 0 0 -.03em;transform:translateY(24%);user-select:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px)}
+.js .rv.on{opacity:1;transform:none;transition:opacity .6s var(--ease) var(--d,0s),transform .7s var(--ease) var(--d,0s)}
+.js .w>i{transform:translateY(105%)}
+.js .hero.go .w>i{transform:none;transition:transform .9s var(--ease) var(--d,0s)}
+.js .hero .slot-b,.js .hero .hero-mslot{opacity:0;transform:scale(.9)}
+.js .hero.go .slot-b,.js .hero.go .hero-mslot{opacity:1;transform:none;transition:opacity .5s var(--ease) .55s,transform .7s var(--ease) .55s}
+.js .hero-ft>*{opacity:0;transform:translateY(14px)}
+.js .hero.go .hero-ft>*{opacity:1;transform:none;transition:opacity .6s var(--ease) var(--d,.6s),transform .7s var(--ease) var(--d,.6s)}
+.js .tg-in{opacity:0;transform:translateY(28px) scale(.98)}
+.js .tg-in.on{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
+
+/* responsive */
+@media (max-width:1099px){
+  .hd nav{display:none}
+  .try-g{grid-template-columns:minmax(0,1fr);row-gap:0}
+  .right,.right>section:first-child{display:contents}
+  .right>section:first-child .r-h{order:-1;margin-bottom:28px}
+  .tg-col{order:0}
+  #plan{order:1;margin-top:40px}
+  #panel{order:2;margin-top:clamp(96px,14vw,140px)}
+  .tg-col{position:relative;top:auto;max-width:560px;width:100%;margin:0 auto}
+  .tg{height:min(720px,calc(100svh - 88px));min-height:520px}
+  .right{max-width:none}
+  .r-h{margin-top:0}
+  .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .feat-t{grid-column:1 / -1}.feat-ph{grid-column:1 / span 7}
+  .st{grid-column:var(--cm,1) / span 10}
+}
+@media (max-width:700px){
+  .hd{height:56px;gap:12px}
+  .hd .btn{min-height:40px;padding:0 14px;font-size:.9375rem}
+  html{scroll-padding-top:64px}
+  .hero{height:auto;min-height:max(100svh,720px)}
+  .h1{line-height:.94}
+  .hero-act .btn-p{display:none}
+  .hero::after{top:41%}
+  .h1{top:41%;font-size:min(14.4vw,92px)}
+  .h1 .slot{display:none}
+  .hero-mslot{display:block;width:min(300px,86vw);height:64px;margin:0 auto}
+  .hero-mslot .slot-b{font-size:14px;border-radius:16px}
+  .hero-ft{gap:20px;bottom:28px}
+  .hero-ft p{font-size:1.0625rem;max-width:30ch}
+  .hero-act .btn{min-height:50px}
+  .try{padding-top:64px}
+  .tg-col{margin:0 -4px;width:auto}
+  .tg{border-radius:22px;height:min(700px,calc(100svh - 72px))}
+  .r-h{margin-bottom:24px}
+  .h2{font-size:clamp(2.5rem,11vw,3.5rem)}
+  .lead{font-size:1.125rem}
+  .sh{padding:18px 16px;border-radius:12px}
+  .task button{grid-template-columns:26px minmax(0,1fr);gap:12px}
+  .tk-go{display:none}
+  .week{gap:4px}
+  .day{min-height:64px;padding:8px 0 6px}
+  .day b{font-size:1.0625rem}
+  .ev{grid-template-columns:54px minmax(0,1fr)}
+  .pw{margin-top:28px;font-size:1.25rem;line-height:1.4}
+  .feat-ph{grid-column:1 / -1}.feat-ph .fr{aspect-ratio:16/11}
+  .caps{grid-template-columns:minmax(0,1fr);gap:26px}
+  .steps{row-gap:36px}
+  .st{grid-column:1 / -1;padding-left:calc(var(--i) * 6vw)}
+  .st h2,.st h3{font-size:clamp(1.9rem,8.4vw,2.6rem)}
+  .price .h2{font-size:clamp(2.1rem,9.4vw,3.4rem)}
+  .price .h2 .pb{display:inline-block;margin:.08em 0}
+  .price-ft{display:flex;flex-direction:column;align-items:stretch;gap:24px;margin-top:36px}
+  .price-ft p{font-size:1.0625rem}
+  .price-a{align-items:stretch}
+  .price-a .btn{width:100%}
+  .ft-i,.ft-l{grid-column:1 / -1}
+  .ft-l{flex-direction:row;flex-wrap:wrap;gap:4px 20px}
+  .ft-i h2{font-size:clamp(2.4rem,11vw,3.4rem)}
+  .ft-i .btn{width:100%}
+  .ft-name{font-size:34vw}
+  .push{top:64px;left:16px;right:16px;width:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .feat-ph img{translate:none}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  .js .rv,.js .w>i,.js .hero-ft>*,.js .tg-in,.js .hero .slot-b,.js .hero .hero-mslot{opacity:1!important;transform:none!important}
+  .pcov img{transform:none}
+  .pw .pic img{translate:none}
+}
+</style>
+</head>
+<body>
+<a class="vh" href="#try">К чату с ботом</a>
+<header class="hd" id="hd" data-ch="paper">
+  <a class="hd-brand" href="#top" aria-label="Секретарь — в начало">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect class="mk-bg" width="32" height="32" rx="8"/><path class="mk-c" d="M21.5 10.6a7.6 7.6 0 1 0 0 10.8" fill="none" stroke-width="3.4" stroke-linecap="round"/><circle cx="23.6" cy="16" r="2.1" fill="#e9e34a"/></svg>
+    <span>Секретарь</span>
+  </a>
+  <nav aria-label="Разделы">
+    <a href="#try">Попробовать</a>
+    <a href="#panel">Панель</a>
+    <a href="#features">Возможности</a>
+    <a href="#price">Стоимость</a>
+  </nav>
+  <a class="btn hd-cta" href="https://ysddev.com" target="_blank" rel="noopener">Обсудить проект</a>
+</header>
+
+<main id="top">
+<section class="hero" id="hero" data-ch="paper" aria-labelledby="h1">
+  <h1 class="h1" id="h1">
+    <span class="h1-l a"><span class="ln"><span class="w"><i style="--d:.05s">ИИ-секретарь</i></span></span><span class="ln"><span class="slot" aria-hidden="true"></span><span class="w"><i style="--d:.16s">в</i></span> <span class="w"><i style="--d:.22s">Telegram</i></span></span></span>
+    <span class="h1-l b" aria-hidden="true"><span class="ln"><span class="w"><i style="--d:.05s">ИИ-секретарь</i></span></span><span class="ln"><span class="slot"></span><span class="w"><i style="--d:.16s">в</i></span> <span class="w"><i style="--d:.22s">Telegram</i></span></span></span>
+    <span class="h1-l c" aria-hidden="true"><span class="ln"><span class="w"><i style="--d:.05s">ИИ-секретарь</i></span></span><span class="ln"><span class="slot"><span class="slot-b" data-slot><span class="slot-av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M17.5 6.6a7.5 7.5 0 1 0 0 10.8"/></svg></span><span class="slot-t"><b>Секретарь</b><span class="slot-s"><span data-st>печатает</span><span class="ell"><i>.</i><i>.</i><i>.</i></span></span></span></span></span><span class="w"><i style="--d:.16s">в</i></span> <span class="w"><i style="--d:.22s">Telegram</i></span></span></span>
+  </h1>
+  <div class="hero-ft">
+    <div class="hero-mslot" aria-hidden="true"><span class="slot-b" data-slot><span class="slot-av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M17.5 6.6a7.5 7.5 0 1 0 0 10.8"/></svg></span><span class="slot-t"><b>Секретарь</b><span class="slot-s"><span data-st>печатает</span><span class="ell"><i>.</i><i>.</i><i>.</i></span></span></span></span></div>
+    <p style="--d:.62s">Ассистент команды кофейной обжарочной: в&nbsp;8:45 присылает сводку дня, отвечает на&nbsp;отзывы, пишет посты и&nbsp;КП, читает договоры и&nbsp;находит ответы в&nbsp;регламентах со&nbsp;ссылкой на&nbsp;пункт.</p>
+    <div class="hero-act" style="--d:.74s"><a class="btn btn-hl" href="#try">Попробовать в чате</a><a class="btn btn-p" href="#panel">Панель руководителя</a></div>
+  </div>
+</section>
+
+<section class="try ch-c" id="try" data-ch="cobalt" aria-label="Чат с ботом и панель руководителя">
+  <div class="wrap try-g">
+    <div class="tg-col">
+      <div class="tg tg-in" id="tg" data-ui role="region" aria-label="Чат с ботом «Секретарь» в Telegram">
+        <div class="tg-top">
+          <span class="tg-back" aria-hidden="true"><svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg></span>
+          <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M17.5 6.6a7.5 7.5 0 1 0 0 10.8"/></svg></span>
+          <button type="button" class="tg-who" id="botInfo" aria-label="О боте «Секретарь»"><b>Секретарь</b><span id="st" aria-live="off">бот</span></button>
+          <button type="button" class="ib" id="kebab" aria-label="Меню чата" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
+          <div class="kpop" id="kpop" role="menu" hidden>
+            <button type="button" role="menuitem" data-k="today">Сводка дня</button>
+            <button type="button" role="menuitem" data-k="info">О боте</button>
+            <button type="button" role="menuitem" data-k="reset">Начать заново</button>
+          </div>
+        </div>
+        <button type="button" class="tg-pin" id="pin"><i></i><span><b>Закреплённое сообщение</b><span>Сводка на четверг, 22 октября</span></span></button>
+        <div class="feed" id="feed" role="log" aria-live="polite" aria-label="Сообщения" tabindex="0"></div>
+        <button type="button" class="tg-down" id="down" hidden aria-label="К последнему сообщению"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="cmds" id="cmds" role="menu" aria-label="Команды бота" hidden></div>
+        <form class="cmp" id="cmp" autocomplete="off">
+          <button type="button" class="tg-menu" id="menuB" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h7"/></svg>Меню</button>
+          <button type="button" class="ib" id="attach" aria-label="Прикрепить файл"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5l-8.2 8.2a5.3 5.3 0 0 1-7.5-7.5l8.6-8.6a3.5 3.5 0 0 1 5 5l-8.6 8.6a1.8 1.8 0 0 1-2.5-2.5l7.9-7.9"/></svg></button>
+          <label class="vh" for="msg">Сообщение боту</label>
+          <input id="msg" type="text" placeholder="Сообщение" enterkeyhint="send">
+          <button type="button" class="ib" id="kbT" aria-pressed="false" aria-label="Клавиатура бота"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg></button>
+          <button type="button" class="send" id="mic" aria-label="Записать голосовое"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+          <button type="submit" class="send" id="send" aria-label="Отправить" hidden><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4l17.5-7.5a1 1 0 0 0 0-1.8L3.4 3.6a.9.9 0 0 0-1.3 1l1.9 6.4 9 1-9 1-1.9 6.4a.9.9 0 0 0 1.3 1z"/></svg></button>
+          <div class="rec" id="rec" hidden>
+            <span class="rec-dot" aria-hidden="true"></span><span class="rec-t" id="recT">0:00</span>
+            <span class="rec-l" id="recL" aria-hidden="true"></span>
+            <button type="button" class="rec-x" id="recX">Отмена</button>
+            <button type="button" class="rec-go" id="recGo" aria-label="Отправить голосовое"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4l17.5-7.5a1 1 0 0 0 0-1.8L3.4 3.6a.9.9 0 0 0-1.3 1l1.9 6.4 9 1-9 1-1.9 6.4a.9.9 0 0 0 1.3 1z"/></svg></button>
+          </div>
+        </form>
+        <div class="rkb" id="rkb" hidden></div>
+        <div class="sheetW" id="sheetW" hidden>
+          <div class="sh-bg" data-close></div>
+          <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shT">
+            <div class="sh-h"><div><b id="shT"></b><small id="shS"></small></div><button type="button" class="ib sh-x" data-close aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <div class="sh-b" id="shB"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tg-foot"><p class="tg-hint" id="mhint" aria-live="polite"></p><button type="button" class="tg-reset" id="resetB">Начать заново</button></div>
+    </div>
+
+    <div class="right">
+      <section aria-labelledby="dayH">
+        <div class="r-h">
+          <h2 class="h2 rv" id="dayH">Утро Анны</h2>
+          <p class="lead rv" style="--d:.08s">Сводка пришла в&nbsp;8:45. Отдайте Секретарю любое дело из&nbsp;списка&nbsp;— <b>нажмите его, напишите боту своими словами или&nbsp;надиктуйте голосовое</b>.</p>
+        </div>
+        <div class="sh plan rv" style="--d:.14s" data-ui id="plan">
+          <div class="sh-hd">
+            <div><h3>Четверг, 22 октября</h3><p>Анна Белова, управляющая «Сорок зёрен»</p></div>
+            <div class="pl-prog"><b class="num" id="progN">0 из 6</b><span>дел сделано</span><div class="pl-bar" id="progBar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          </div>
+          <ol class="tasks" id="tasks"></ol>
+          <div class="cal">
+            <h4 id="calH">Календарь</h4>
+            <div class="week" id="week" role="group" aria-labelledby="calH"></div>
+            <ul class="evs" id="evs" aria-live="polite"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel" aria-labelledby="panelH">
+        <div class="r-h">
+          <h2 class="h2 rv" id="panelH">Панель руководителя</h2>
+          <p class="lead rv" style="--d:.08s">Каждый запрос из&nbsp;чата сразу попадает в&nbsp;журнал. <b>Переключите тон или документ&nbsp;— бот ответит иначе.</b></p>
+        </div>
+        <div class="sh rv" data-ui>
+          <div class="sh-hd"><div><h3>Журнал запросов</h3><p class="sub num" id="logN">сегодня · 9 запросов</p></div></div>
+          <ol class="log" id="log"></ol>
+          <button type="button" class="more" id="logMore" aria-expanded="false" hidden>Показать все</button>
+        </div>
+        <div class="sh rv" data-ui>
+          <div class="sh-hd"><div><h3>Лимит запросов</h3><p>октябрь · тариф «Команда»</p></div></div>
+          <div class="lim-n"><b id="limUsed" class="num">2 392</b><span>из <span id="limTotal" class="num">3 000</span></span><span class="pct num" id="limPct">79%</span></div>
+          <div class="lim-bar" id="limBar" role="img" aria-label="Использовано 2 392 из 3 000 запросов"></div>
+          <ul class="lim-leg" id="limLeg"></ul>
+          <p class="lim-note" id="limNote"></p>
+          <button type="button" class="btn btn-c lim-buy" id="limBuy">Выставить счёт на пакет в чат</button>
+        </div>
+        <div class="sh rv" data-ui>
+          <div class="sh-hd"><div><h3>Настройки ассистента</h3><p>Меняются сразу для всей команды</p></div></div>
+          <div class="set-g"><span class="set-l" id="toneL">Тон компании</span><div class="seg" id="toneG" role="radiogroup" aria-labelledby="toneL"></div></div>
+          <div class="set-g"><span class="set-l" id="modelL">Языковая модель</span><div class="seg" id="modelG" role="radiogroup" aria-labelledby="modelL"></div></div>
+          <div class="set-g"><span class="set-l" id="docsL">База знаний · подключено 5 из 6</span><div class="docs" id="docsG"></div></div>
+          <p class="set-n" id="setN" aria-live="polite">Подключите «Стандарты сервиса» — бот сообщит об этом в чате.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="feat ch-p" id="features" data-ch="paper" aria-labelledby="featH">
+  <div class="wrap">
+    <div class="feat-g"><div class="feat-t">
+    <h2 class="h2 rv" id="featH">Деловой порядок<br>без лишних рук</h2>
+    <p class="pw rv" style="--d:.08s">Секретарь отвечает гостям, пишет посты о&nbsp;новых сортах <span class="pic"><img src="img/leaf-480.webp" srcset="img/leaf-480.webp 480w, img/leaf-960.webp 960w" sizes="120px" width="480" height="300" alt="Кофейные зёрна и осенние листья на столе" loading="lazy" decoding="async"></span>, читает договоры <span class="pic"><img src="img/pen-480.webp" srcset="img/pen-480.webp 480w, img/pen-960.webp 960w" sizes="120px" width="480" height="300" alt="Перьевая ручка на светлом столе" loading="lazy" decoding="async"></span> и&nbsp;находит в&nbsp;них риски, считает КП по&nbsp;прайсу <span class="pic"><img src="img/drip-480.webp" srcset="img/drip-480.webp 480w, img/drip-960.webp 960w" sizes="120px" width="480" height="300" alt="Дрип-пакет на стеклянной чашке" loading="lazy" decoding="async"></span>&nbsp;— а&nbsp;в&nbsp;8:45 присылает сводку дня.</p>
+    </div>
+    <figure class="feat-ph rv" style="--d:.16s"><div class="fr"><img src="img/roast-600.webp" srcset="img/roast-600.webp 600w, img/roast-1000.webp 1000w" sizes="(max-width:700px) 92vw, 30vw" width="600" height="750" alt="Свежеобжаренное зерно остывает в лотке ростера" loading="lazy" decoding="async"></div><figcaption>Обжарка под заказ: прайс, остатки и сроки бот берёт из документов обжарочной.</figcaption></figure>
+    </div>
+    <ul class="caps">
+      <li class="rv"><h3>Отзывы</h3><p>Три варианта ответа в&nbsp;тоне компании; можно смягчить или сократить. Компенсацию берёт из&nbsp;регламента.</p></li>
+      <li class="rv" style="--d:.06s"><h3>Договоры</h3><p>Пересказывает документ, отмечает рискованные пункты, готовит протокол разногласий и&nbsp;напоминает о&nbsp;подписании.</p></li>
+      <li class="rv" style="--d:.12s"><h3>База знаний</h3><p>Отвечает по&nbsp;регламентам, прайсам и&nbsp;политикам&nbsp;— и&nbsp;даёт ссылку на&nbsp;пункт с&nbsp;выделенным фрагментом.</p></li>
+      <li class="rv"><h3>Тексты и КП</h3><p>Посты, коммерческие предложения и&nbsp;переводы на&nbsp;английский и&nbsp;китайский&nbsp;— по&nbsp;шаблонам и&nbsp;актуальным ценам.</p></li>
+      <li class="rv" style="--d:.06s"><h3>Сводка и голосовые</h3><p>Утром присылает дела на&nbsp;день, расшифровывает голосовые, ставит напоминания и&nbsp;задачи коллегам.</p></li>
+      <li class="rv" style="--d:.12s"><h3>Доступ и контроль</h3><p>Вход по&nbsp;приглашению, роли и&nbsp;лимиты сотрудников. Руководитель видит журнал, расход и&nbsp;подключённые документы.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="how ch-c" id="how" data-ch="cobalt" aria-labelledby="howH">
+  <div class="wrap">
+    <ol class="steps">
+      <li class="st rv" style="--c:1;--cm:1;--i:0"><h2 id="howH">Сначала сотрудник пишет или говорит.</h2><p>Обычный Telegram, вход по&nbsp;приглашению: бот знает, кто спрашивает, и&nbsp;ведёт лимит каждого.</p></li>
+      <li class="st rv" style="--c:3;--cm:2;--i:1"><h3>Потом бот ищет в документах.</h3><p>Поиск по&nbsp;смыслу в&nbsp;базе знаний находит нужный пункт регламента, прайса или договора.</p></li>
+      <li class="st rv" style="--c:5;--cm:3;--i:2"><h3>Модель отвечает вашим тоном.</h3><p>YandexGPT или GigaChat&nbsp;— на&nbsp;выбор, с&nbsp;глоссарием и&nbsp;шаблонами компании.</p></li>
+      <li class="st rv" style="--c:6;--cm:3;--i:3"><h3>Руководитель видит всё.</h3><p>Журнал, лимиты и&nbsp;настройки&nbsp;— в&nbsp;панели; документы подключаются одним переключателем.</p></li>
+    </ol>
+    <ul class="stack rv" aria-label="Технологии">
+      <li>Python</li><li>aiogram 3</li><li>YandexGPT или GigaChat</li><li>RAG по документам компании</li><li>PostgreSQL + pgvector</li><li>Redis</li><li>Docker</li>
+    </ul>
+  </div>
+</section>
+
+<section class="price ch-p" id="price" data-ch="paper" aria-labelledby="priceH">
+  <div class="wrap">
+    <h2 class="h2 rv" id="priceH">Секретарь за&nbsp;14&nbsp;дней <span class="pb">от 55&nbsp;000&nbsp;₽</span></h2>
+    <div class="price-ft">
+      <p class="rv" style="--d:.08s">Бот на&nbsp;ваших документах и&nbsp;в&nbsp;вашем тоне, утренняя сводка, панель руководителя с&nbsp;журналом и&nbsp;лимитами, роли сотрудников, YandexGPT или GigaChat на&nbsp;выбор.</p>
+      <div class="price-a rv" style="--d:.14s"><a class="btn btn-c" href="https://ysddev.com" target="_blank" rel="noopener">Обсудить проект</a><a class="tl" href="#try">Сначала попробовать в&nbsp;чате</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft" data-ch="cobalt">
+  <div class="wrap">
+    <div class="ft-g">
+      <div class="ft-i rv"><h2>Нужен такой же секретарь?</h2><a class="btn btn-hl" href="https://ysddev.com" target="_blank" rel="noopener">Написать в YSD DEV</a></div>
+      <ul class="ft-l rv" style="--d:.08s">
+        <li><a href="#try">Попробовать бота</a></li>
+        <li><a href="#panel">Панель руководителя</a></li>
+        <li><a href="#features">Возможности</a></li>
+        <li><a href="https://ysddev.com" target="_blank" rel="noopener">ysddev.com</a></li>
+      </ul>
+    </div>
+    <div class="ft-legal"><span>Разработка YSD DEV</span><span>2026</span></div>
+  </div>
+  <span class="ft-name" aria-hidden="true">Секретарь</span>
+</footer>
+
+<button type="button" class="push" id="push" hidden></button>
+<script>
+(()=>{'use strict';
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOB=matchMedia('(max-width: 1099px)');
+const KEY='ysd-secretary-v3';
+const pad=n=>String(n).padStart(2,'0');
+const BASE=8*60+46;
+const nf=n=>Math.round(n).toLocaleString('ru-RU').replace(/[\s\u202f]/g,'\u00a0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip=h=>{const d=document.createElement('div');d.innerHTML=String(h).replace(/<br\s*\/?>/gi,' ').replace(/<\/(h5|li|p)>/gi,' ');return d.textContent.replace(/\s+/g,' ').trim()};
+const plural=(n,a,b,c)=>{n=Math.abs(n)%100;const m=n%10;return n>10&&n<20?c:m>1&&m<5?b:m===1?a:c};
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const fmtMin=m=>pad(Math.floor(m/60)%24)+':'+pad(m%60);
+
+/* ---------- icons ---------- */
+const AV='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M17.5 6.6a7.5 7.5 0 1 0 0 10.8"/></svg>';
+const TICK='<svg class="tk" viewBox="0 0 18 11" aria-hidden="true"><path d="M1 5.8l3.3 3.3L11 2.3"/><path class="t2" d="M8.2 8l1.1 1.1L16 2.3"/></svg>';
+const CHECK='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>';
+const ARR='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+const LINK='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg>';
+const PLAY='<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z"/></svg>';
+const PAUSE='<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg>';
+const STAR=f=>'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z" fill="'+(f?'#e8a317':'#cfd6de')+'"/></svg>';
+const stars=n=>'<span class="stars" role="img" aria-label="Оценка '+n+' из 5">'+[1,2,3,4,5].map(i=>STAR(i<=n)).join('')+'</span>';
+
+/* ---------- data ---------- */
+const EMP={anna:{n:'Анна Белова',r:'управляющая',i:'АБ',h:225,d:'Анне Беловой',g:'Анны',f:1},vera:{n:'Вера Миронова',r:'SMM',i:'ВМ',h:335,d:'Вере Мироновой',g:'Веры',f:1},kirill:{n:'Кирилл Соколов',r:'опт',i:'КС',h:150,d:'Кириллу Соколову',g:'Кирилла',f:0},oleg:{n:'Олег Дьячков',r:'закупки',i:'ОД',h:35,d:'Олегу Дьячкову',g:'Олега',f:0},nina:{n:'Нина Петрова',r:'бухгалтерия',i:'НП',h:275,d:'Нине Петровой',g:'Нины',f:1}};
+const EMP_ORDER=['vera','kirill','anna','oleg','nina'];
+const SHADE={vera:'#0034eb',kirill:'#3d64f0',anna:'#7b93f3',oleg:'#a8b8f6',nina:'#cdd6f5'};
+const SEED=[[8*60+41,'vera','Пост','Анонс мастер-класса 31 октября — три варианта заголовка',2,'Карта сортов и обжарок.pdf',3.7],[8*60+28,'kirill','КП','Кофейня «Дрова», 25 кг в месяц, скидка 5%',3,'Прайс-лист опт 2026.xlsx',2.8],[8*60+13,'oleg','Перевод','Письмо поставщику фильтров, с русского на английский',1,'',3.3],[7*60+55,'nina','База знаний','«Как оформить возврат по браку?»',1,'Политика возврата v3.pdf',3.4],[7*60+36,'vera','Ответ на отзыв','Оценка 3 из 5 · «Долго ждали заказ у окна»',2,'',4.2]];
+const TONE={friendly:'дружелюбный',biz:'деловой',exp:'экспертный'};
+const DOCS={
+ ret:{name:'Политика возврата v3.pdf',meta:'12 стр. · обновлён 3 октября',ext:'PDF'},
+ price:{name:'Прайс-лист опт 2026.xlsx',meta:'4 листа · обновлён 1 октября',ext:'XLS'},
+ deliv:{name:'Регламент доставки.docx',meta:'6 стр. · обновлён 22 сентября',ext:'DOC'},
+ staff:{name:'Регламент для сотрудников.docx',meta:'18 стр. · обновлён 15 сентября',ext:'DOC'},
+ sorts:{name:'Карта сортов и обжарок.pdf',meta:'9 стр. · обновлён 7 октября',ext:'PDF'},
+ serv:{name:'Стандарты сервиса.pdf',meta:'7 стр. · загружен сегодня',ext:'PDF'}};
+const MENU=[['review','Ответить на отзыв','m_review'],['post','Пост для соцсетей','m_post'],['doc','Пересказать документ','m_doc'],['tr','Перевести','m_tr'],['kp','Составить КП','m_kp'],['kb','Спросить базу знаний','m_kb']];
+const CMD=[['start','Главное меню','menu0'],['today','Сводка дня','today'],['review','Ответить на отзыв','m_review'],['post','Пост для соцсетей','m_post'],['summary','Пересказать документ','m_doc'],['translate','Перевести текст','m_tr'],['kp','Составить КП','m_kp'],['ask','Спросить базу знаний','m_kb'],['remind','Поставить напоминание','remind'],['limit','Остаток лимита','limit']];
+const TASKS=[
+ {k:'review',t:'Ответить Ксении на отзыв',s:'2 из 5 на картах · доставка опоздала',a:'rv:0',sum:'Ксения оставила отзыв на 2 из 5 — доставка опоздала на два дня.'},
+ {k:'doc',t:'Проверить договор № 47/26',s:'«Зелёный караван» · подписание 28 октября',a:'m_doc',say:'Перескажи договор № 47/26 от «Зелёного каравана»',sum:'«Зелёный караван» прислал договор № 47/26, подписание 28 октября.'},
+ {k:'kb',t:'Подсказать Нине срок возврата',s:'вопрос из чата смен · политика возврата',a:'kb:ret',sum:'Нина спрашивает в чате смен, какой у нас срок возврата.'},
+ {k:'post',t:'Пост про «Листопад» для Веры',s:'соцсети · до 12:00',a:'post:0',say:'Напиши пост про осенний бленд «Листопад»',sum:'Вера ждёт пост про осенний бленд «Листопад» до 12:00.'},
+ {k:'tr',t:'Подтвердить заказ Ли Вэю',s:'письмо поставщику фильтров',a:'tr_ex',sum:'Ли Вэй ждёт подтверждения заказа фильтров.'},
+ {k:'kp',t:'КП для «Утро на Волге»',s:'40 кг в месяц · Ольга ждёт сегодня',a:'kp:0',say:'Собери КП для «Утро на Волге»',sum:'«Утро на Волге» просят КП на 40 кг в месяц.'}];
+const GUIDE=['review','doc','kb'];
+const HINTS={m_review:'Начните с дела <b>«Ответить Ксении на отзыв»</b> — или кнопкой в чате.',rv:'Выберите <b>отзыв Ксении на 2 из 5</b>.',rv_soft:'Попросите <b>сделать ответ мягче</b>.',more:'Нажмите <b>«Другие задачи»</b> или возьмите следующее дело из списка.',m_doc:'Теперь — <b>«Пересказать документ»</b>: договор № 47/26.',doc_send:'Отправьте боту <b>договор_поставки.pdf</b>.',m_kb:'Спросите <b>базу знаний</b>.',kb:'Спросите <b>про срок возврата</b>.',src:'Откройте <b>источник ответа</b> — бот выделил пункт маркером.',free:'Пишите боту своими словами или <b>нажмите микрофон</b> — голосовое тоже поймёт.'};
+const WD=['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+const DAYS=[22,23,24,25,26,27,28];
+const wd=d=>WD[(4+d-22)%7];
+const WDF={22:'сегодня',23:'завтра, в пятницу',24:'в субботу',25:'в воскресенье',26:'в понедельник',27:'во вторник',28:'в среду'};
+
+const REV=[
+ {st:2,name:'Ксения Р.',src:'Ксения Р. · отзыв на картах',sh:'доставка опоздала на два дня',
+  text:'Заказывала на сайте «Эфиопию Иргачеффе» — доставка опоздала на два дня, пачка пришла помятой. Сам кофе вкусный, но осадок остался.',
+  sum:'Недовольна доставкой и упаковкой, к самому кофе претензий нет.',
+  v:['Ксения, спасибо, что написали, и простите за такой опыт. Посылка шла на два дня дольше, а пачка пришла помятой — так быть не должно. Мы уже разбираемся со службой доставки. В личных сообщениях ждёт промокод на бесплатную доставку и 200 г «Эфиопии» в подарок к следующему заказу. Очень рады, что сам кофе понравился!',
+     'Ксения, здравствуйте. Приносим извинения за задержку и повреждённую упаковку. Мы проверили заказ: посылка задержалась на сортировочном пункте перевозчика. Компенсацию — бесплатную доставку следующего заказа — направили вам в личные сообщения. Спасибо, что помогаете нам становиться лучше.',
+     'Ксения, простите за задержку и помятую пачку 🙏 Промокод на бесплатную доставку и подарок уже у вас в личных сообщениях. Рады, что кофе понравился!'],
+  soft:'Ксения, нам правда очень жаль. Вы ждали кофе, а получили задержку и помятую пачку — понимаем, как это обидно. Спасибо, что всё равно оценили вкус. Мы написали вам в личные сообщения: там промокод на бесплатную доставку и небольшой подарок. Хочется, чтобы следующий заказ принёс только радость.',
+  short:['Простите за задержку и помятую пачку — промокод и подарок уже в личных сообщениях 🙏','Извините за доставку. Компенсация — в личных сообщениях.','Спасибо, что написали! Исправимся — подарок ждёт вас в личке.']},
+ {st:5,name:'Дмитрий Л.',src:'Дмитрий Л. · отзыв на картах',sh:'лучший раф, бариста Егор',
+  text:'Лучший раф в городе! Бариста Егор запомнил, что я пью на овсяном, и в следующий раз сделал без напоминаний. Спасибо!',
+  sum:'Восторженный отзыв, отмечает конкретного бариста — стоит поблагодарить и упомянуть Егора.',
+  v:['Дмитрий, спасибо за такие тёплые слова! Передали Егору — он очень обрадовался. Внимание к гостям для нас важнее любого рецепта. Кстати, в кофейнях новый сезонный бленд «Листопад» — попробуйте его в рафе на овсяном 🍂','Дмитрий, здравствуйте! Благодарим за высокую оценку и за то, что отметили работу Егора. Обязательно передадим команде. Ждём вас снова.','Спасибо, Дмитрий! Егор передаёт привет — овсяный раф будет ждать вас ☕'],
+  soft:'Дмитрий, вы нас растрогали 🧡 Егор весь день улыбался после вашего отзыва. Приходите ещё — ваш раф на овсяном мы помним.',
+  short:['Спасибо! Егор передаёт привет ☕','Спасибо за отзыв — передали Егору!','Рады стараться — ждём вас снова 🧡']},
+ {st:3,name:'Ирина С.',src:'Ирина С. · отзыв в соцсети',sh:'долго ждали капучино',
+  text:'Атмосфера отличная, но в субботу днём ждали капучино 15 минут, а столики у окна были не убраны.',
+  sum:'Смешанный отзыв: хвалит атмосферу, недовольна скоростью и чистотой в часы пик.',
+  v:['Ирина, спасибо за честный отзыв и тёплые слова об атмосфере! 15 минут на капучино — слишком долго, а неубранные столики — наша недоработка. По субботам с 12 до 16 теперь выходит дополнительный бариста. Будем рады угостить вас капучино в следующий визит — просто покажите этот ответ.','Ирина, здравствуйте. Благодарим за обратную связь. Мы проанализировали загрузку в выходные и усилили смену в часы пик. Вопрос с уборкой столов передали администратору кофейни.','Ирина, спасибо! Субботнюю смену уже усилили, а капучино в следующий раз — за наш счёт ☕'],
+  soft:'Ирина, спасибо, что заметили хорошее, и простите за долгое ожидание. Понимаем: в выходной хочется отдыхать, а не ждать. Мы усилили субботнюю смену и попросили администратора внимательнее следить за залом. Капучино в следующий визит — от нас.',
+  short:['Спасибо! Субботнюю смену усилили — капучино за нами ☕','Извините за ожидание, уже исправили.','Спасибо за отзыв — учли и исправились!']}];
+const POSTS=[
+ {topic:'Осенний бленд «Листопад»',img:'leaf',c:'#8a3d17',cov:['Сорок зёрен','Листопад','сезонный бленд · 250 г'],src:'Карта сортов и обжарок.pdf',
+  h:['«Листопад» уже в обжарке: орех, печёное яблоко и немного корицы','Кофе, который пахнет октябрём','Новый сезонный бленд — только до конца ноября'],
+  alt:['Пахнет октябрём: встречайте «Листопад»','Сезонный бленд, который хочется пить под пледом','Орех, яблоко, карамель — в одной чашке'],
+  body:'Мы собрали «Листопад» из бразильского и колумбийского зерна и обжарили его чуть темнее обычного. В чашке — грецкий орех, печёное яблоко и мягкая карамельная сладость. Хорош в эспрессо, с молоком и в фильтре.\n\n☕ Во всех трёх кофейнях — уже сегодня\n📦 На сайте — пачки 250 г и 1 кг\n🍂 Только до 30 ноября\n\nВ субботу с 12:00 наливаем фильтр на пробу — приходите!\n\n#сороказёрен #листопад #кофеярославль',
+  exp:'Профиль: Бразилия Моджиана 60% и Колумбия Уила 40%, обжарка чуть темнее средней. Для эспрессо — 18 г на 38 г за 28 секунд.',
+  short:'«Листопад» — наш осенний бленд: орех, печёное яблоко, карамель. Уже в кофейнях и на сайте, только до 30 ноября 🍂'},
+ {topic:'Мастер-класс по воронке 31 октября',img:'funnel',c:'#1f2a24',cov:['31 октября · 14:00','Мастер-класс','по воронке · 8 мест'],src:'Карта сортов и обжарок.pdf',
+  h:['Учимся заваривать воронку как бариста — за два часа','Мастер-класс: идеальный фильтр дома','8 мест на субботу, 31 октября'],
+  alt:['Сварите кофе лучше, чем в кофейне','Два часа — и вы на «ты» с воронкой','Суббота, 14:00: альтернатива для начинающих'],
+  body:'31 октября проводим мастер-класс по альтернативе: разберём помол, температуру воды и пропорции, заварим три сорта и сравним вкус.\n\n🕑 Суббота, 31 октября, 14:00–16:00\n📍 Кофейня на набережной\n💳 1 500 ₽, оборудование дадим\n👥 8 мест\n\nКаждый участник уносит пачку зерна 250 г. Записаться — в личных сообщениях.\n\n#сороказёрен #мастеркласс #воронка',
+  exp:'В программе: конические и плоскодонные воронки, помол 600–800 мкм, вода 93 °C, пропорция 1:16.',
+  short:'31 октября — мастер-класс по воронке: 2 часа, 3 сорта, 1 500 ₽. Всего 8 мест — пишите в личные сообщения ☕'},
+ {topic:'Скидка 20% на дрип-пакеты',img:'drip',c:'#4a4a48',cov:['до 31 октября','−20%','на дрип-пакеты'],src:'Прайс-лист опт 2026.xlsx',
+  h:['Дрип-пакеты −20% до конца октября','Кофе в дорогу: минус 20% на дрип-пакеты','Свежий фильтр без кофемашины — и дешевле'],
+  alt:['−20% на кофе, который заваривается прямо в чашке','Офисный кофе стал вкуснее и дешевле','Дрип-пакеты по осенней цене'],
+  body:'До 31 октября все дрип-пакеты — со скидкой 20%. Внутри 11 г свежеобжаренного кофе: надорвите, повесьте на чашку, залейте водой. Три минуты — и у вас хороший фильтр в офисе, поезде или на даче.\n\n🎒 Наборы по 10 и 25 штук\n🏷 Скидка уже в цене на сайте и в кофейнях\n⏳ До 31 октября\n\n#сороказёрен #дрип #кофевдорогу',
+  exp:'Как заваривать: 11 г среднего помола на 180 мл воды 92–94 °C, 2,5–3 минуты.',
+  short:'Дрип-пакеты −20% до 31 октября. Три минуты — и хороший фильтр где угодно ☕'}];
+const CONTRACT={
+ sum:'<b>Договор поставки № 47/26 от 2 октября 2026</b><br>Поставщик — ООО «Зелёный караван», покупатель — «Сорок зёрен». 14 страниц, 11 разделов.<h5>Коротко</h5>• Предмет: зелёная арабика, 1 200 кг в квартал партиями по 400 кг.<br>• Цена: 1 180 ₽/кг, фиксирована до 31.12.2026.<br>• Оплата: 50% предоплата, остаток — в течение 10 банковских дней.<br>• Приёмка по качеству: 3 рабочих дня.<br>• Срок: до 31.12.2027, с автопролонгацией.<h5>Риски</h5>⚠️ <mark>п. 4.2</mark> — поставщик может поднять цену при росте биржевых котировок на 8%, предупредив всего за 5 рабочих дней. Права расторгнуть договор при этом нет.<br>⚠️ <mark>п. 7.1</mark> — неустойка несимметрична: у нас 0,5% в день, у поставщика — 0,1%.<br>⚠️ <mark>п. 9.3</mark> — споры рассматривает суд по месту поставщика, в Новороссийске.<br><br>Рекомендую до подписания отправить протокол разногласий по этим трём пунктам.',
+ proto:'<b>Протокол разногласий к договору № 47/26</b><h5>п. 4.2 · изменение цены</h5>Редакция поставщика: уведомление за 5 рабочих дней.<br>Наша редакция: уведомление за 30 календарных дней и право покупателя расторгнуть договор без штрафов.<h5>п. 7.1 · неустойка</h5>Редакция поставщика: 0,5% в день для покупателя.<br>Наша редакция: 0,1% в день для обеих сторон, но не более 10% суммы партии.<h5>п. 9.3 · подсудность</h5>Редакция поставщика: суд по месту поставщика.<br>Наша редакция: Арбитражный суд Ярославской области.'};
+const DOCQ=[
+ {k:['неусто','штраф','пени','пеня','просроч'],a:'По <mark>п. 7.1</mark> за просрочку оплаты мы платим <b>0,5% в день</b>, а поставщик за срыв поставки — только <b>0,1% в день</b> (п. 7.2). Предлагаю выровнять до 0,1% для обеих сторон.'},
+ {k:['расторг','расторж','выйти из','отказат'],a:'По <mark>п. 10.2</mark> расторгнуть договор в одностороннем порядке можно, предупредив за <b>60 дней</b>. Если поставщик поднимет цену по п. 4.2, отдельного права на расторжение нет — его стоит добавить.'},
+ {k:['оплат','плат','предоплат','деньг'],a:'По <mark>п. 5.1–5.2</mark>: <b>50% предоплаты</b> при заказе партии, остальные 50% — в течение <b>10 банковских дней</b> после поставки.'},
+ {k:['цен','стоим','подорож','котиров'],a:'Цена — <b>1 180 ₽/кг</b>, фиксирована до 31.12.2026 (п. 4.1). Но по <mark>п. 4.2</mark> поставщик может её поднять при росте котировок больше чем на 8%, предупредив за 5 рабочих дней.'},
+ {k:['качеств','приёмк','приемк','претензи','брак'],a:'Претензии по качеству — в течение <b>3 рабочих дней</b> после приёмки, с актом и фото (<mark>п. 6.3</mark>). Для зелёного зерна это мало: лучше 10 дней, чтобы успеть сделать пробную обжарку.'},
+ {k:['срок','действ','пролонг','продлев'],a:'Договор действует до <b>31.12.2027</b> и продлевается на год автоматически, если никто не откажется за 30 дней (<mark>п. 11.1</mark>).'},
+ {k:['суд','спор','арбитраж'],a:'Споры — в арбитражном суде по месту нахождения поставщика, в Новороссийске (<mark>п. 9.3</mark>). Удобнее — Арбитражный суд Ярославской области.'},
+ {k:['объём','объем','кг','сколько зерна','парти'],a:'Объём — <b>1 200 кг</b> зелёного зерна в квартал, партиями по 400 кг; график поставок — в приложении № 2 (<mark>п. 2.1</mark>).'}];
+const DQ_BTN=['Какая неустойка?','Можно ли расторгнуть?','Когда платить?'];
+const KB=[
+ {id:'ret',doc:'ret',k:['возврат','вернуть','вернут','возвращ'],q:'Какой у нас срок возврата?',cite:'п. 2.1–2.3',page:'стр. 4',match:94,
+  a:'<b>14 дней</b> с момента получения — для нераспечатанного зерна, дрип-пакетов и аксессуаров. Вскрытые пачки обратно не принимаем, кроме брака: тогда срок <b>30 дней</b>, нужны фото и номер партии.<br><br>Деньги возвращаем тем же способом, что и оплата, в течение <b>7 дней</b> после того, как товар вернётся на склад.',
+  x:'<h4>2. Возврат товара надлежащего качества</h4><p>2.1. <mark>Покупатель вправе вернуть нераспечатанный товар (зерно, дрип-пакеты, аксессуары) в течение 14 (четырнадцати) календарных дней с момента получения.</mark></p><p>2.2. Товар во вскрытой упаковке возврату не подлежит, за исключением случаев, предусмотренных разделом 3.</p><p>2.3. <mark>Денежные средства возвращаются тем же способом, которым была произведена оплата, в течение 7 (семи) дней</mark> с момента поступления товара на склад.</p><h4>3. Товар ненадлежащего качества</h4><p>3.1. При обнаружении брака покупатель вправе обратиться в течение 30 дней, приложив фото упаковки и номер партии.</p>'},
+ {id:'brak',doc:'ret',k:['брак','бракован','испорч','плесен','повреж'],q:'Что делать, если пачка с браком?',cite:'п. 3.1–3.3',page:'стр. 5',match:91,
+  a:'Если пачка с браком, у клиента <b>30 дней</b> на обращение. Нужны фото пачки и номер партии — он на клапане. Дальше по выбору клиента: замена или возврат денег. Обратную доставку в этом случае оплачиваем мы.',
+  x:'<h4>3. Товар ненадлежащего качества</h4><p>3.1. <mark>При обнаружении брака покупатель вправе обратиться в течение 30 (тридцати) дней с момента получения, приложив фотографии упаковки и номер партии.</mark></p><p>3.2. <mark>По выбору покупателя продавец заменяет товар или возвращает денежные средства.</mark></p><p>3.3. <mark>Расходы на обратную доставку товара ненадлежащего качества несёт продавец.</mark></p>'},
+ {id:'deliv',doc:'deliv',k:['доставк','доставля','курьер','привез','отгруз'],q:'Сколько стоит доставка опта?',cite:'п. 1.2–1.4',page:'стр. 1',match:92,
+  a:'Оптовым клиентам доставка по Ярославлю <b>бесплатная от 20 кг</b>, при меньшем объёме — <b>350 ₽</b> за отгрузку. Отгружаем по вторникам и пятницам, заказ принимаем до 16:00 накануне. В другие города — транспортной компанией по её тарифу, обычно 2–5 дней.',
+  x:'<h4>1. Оптовые отгрузки</h4><p>1.1. Отгрузки оптовым клиентам осуществляются по вторникам и пятницам.</p><p>1.2. <mark>Доставка по г. Ярославлю бесплатна при объёме отгрузки от 20 кг. При меньшем объёме стоимость доставки составляет 350 ₽.</mark></p><p>1.3. <mark>Заказы принимаются до 16:00 дня, предшествующего отгрузке.</mark></p><p>1.4. <mark>Доставка в другие населённые пункты осуществляется транспортной компанией по тарифам перевозчика.</mark></p><h4>3. Задержки</h4><p>3.2. При задержке доставки более чем на 1 день по вине компании клиенту предоставляется бесплатная доставка следующего заказа.</p>'},
+ {id:'perk',doc:'staff',k:['сотрудник','персонал','для своих','бариста'],q:'Какая скидка у сотрудников?',cite:'п. 6.2',page:'стр. 12',match:89,
+  a:'Сотрудникам — скидка <b>30%</b> на зерно и аксессуары и <b>два напитка</b> за смену бесплатно. Скидка не суммируется с акциями.',
+  x:'<h4>6. Льготы сотрудникам</h4><p>6.1. Сотрудникам предоставляется бесплатное обучение в школе бариста компании.</p><p>6.2. <mark>Сотрудники получают скидку 30% на зерно и аксессуары, а также два напитка за смену бесплатно. Скидка не суммируется с акциями.</mark></p>'},
+ {id:'opt',doc:'price',k:['опт','скидк','прайс','цен','стоимост'],q:'Какие скидки у нас для опта?',cite:'лист «Условия»',page:'лист 2',match:93,
+  a:'Базовые оптовые цены за 1 кг: «База» — <b>1 450 ₽</b>, Колумбия Уила — <b>1 890 ₽</b>, «Листопад» — <b>1 690 ₽</b>. Скидки: от 30 кг в месяц — до <b>7%</b>, от 60 кг — до <b>10%</b>. Больше 10% — только по согласованию с собственником.',
+  x:'<h4>Лист «Условия»</h4><p>Цены указаны за 1 кг обжаренного зерна, с НДС.</p><p><mark>«База» (Бразилия Моджиана) — 1 450 ₽; Колумбия Уила — 1 890 ₽; «Листопад» (сезонный) — 1 690 ₽.</mark></p><p><mark>Объём от 30 кг в месяц — скидка до 7%. Объём от 60 кг в месяц — скидка до 10%.</mark></p><p>Скидка свыше 10% согласуется с собственником компании.</p>'},
+ {id:'store',doc:'sorts',k:['хран','вскры','свеж','годн','холодильн'],q:'Как хранить зерно после вскрытия?',cite:'раздел «Хранение»',page:'стр. 3',match:95,
+  a:'После вскрытия закройте пачку зажимом на клапане и храните при комнатной температуре — без холодильника и солнца. Лучший вкус — <b>4 недели</b> после обжарки, срок годности — <b>12 месяцев</b>. Молотый кофе — до <b>7 дней</b>.',
+  x:'<h4>Хранение</h4><p><mark>Вскрытую пачку плотно закрывайте зажимом на клапане и храните при комнатной температуре, вдали от солнца. Холодильник не подходит: зерно впитывает влагу и запахи.</mark></p><p><mark>Пик вкуса — первые 4 недели после обжарки. Срок годности зерна — 12 месяцев, молотого кофе после вскрытия — 7 дней.</mark></p>'},
+ {id:'vac',doc:'staff',k:['отпуск'],q:'Как оформить отпуск?',cite:'п. 4.1–4.3',page:'стр. 7',match:90,
+  a:'Заявление на отпуск подаётся управляющей минимум за <b>14 дней</b>. График отпусков на 2027 год собираем до <b>1 декабря 2026</b>. Летом в каждой кофейне одновременно в отпуске может быть не больше одного бариста.',
+  x:'<h4>4. Отпуска</h4><p>4.1. <mark>Заявление на отпуск подаётся управляющей не позднее чем за 14 календарных дней.</mark></p><p>4.2. <mark>График отпусков на следующий год формируется до 1 декабря.</mark></p><p>4.3. <mark>В период с июня по август в каждой кофейне одновременно в отпуске может находиться не более одного бариста.</mark></p>'},
+ {id:'serv',doc:'serv',k:['приветств','гост','стандарт','дресс','фартук','внешн'],q:'Как приветствовать гостя?',cite:'п. 1.1–1.3',page:'стр. 2',match:93,
+  a:'Гостя приветствуем в первые <b>10 секунд</b> — с улыбкой и зрительным контактом: «Добрый день! Вам как обычно или подсказать что-то новое?» Постоянных гостей, которые представились, называем по имени.<br><br>Внешний вид — фирменный фартук и однотонная одежда без надписей.',
+  x:'<h4>1. Встреча гостя</h4><p>1.1. <mark>Бариста приветствует гостя в течение 10 секунд после входа: улыбка, зрительный контакт, фраза «Добрый день! Вам как обычно или подсказать что-то новое?».</mark></p><p>1.2. <mark>Постоянных гостей, которые представились, называем по имени.</mark></p><p>1.3. <mark>Внешний вид: фирменный фартук, однотонная одежда без надписей, волосы собраны.</mark></p>'},
+ {id:'shift',doc:'staff',k:['смен','график','выходн','расписан'],q:'Как поменяться сменой?',cite:'п. 2.3',page:'стр. 3',match:88,
+  a:'Смены — по <b>12 часов</b> (8:00–20:00), график 2/2. Поменяться сменой можно, если договориться с коллегой и предупредить управляющую не позже чем за <b>48 часов</b> — в общем чате смен.',
+  x:'<h4>2. Рабочее время</h4><p>2.1. Продолжительность смены — 12 часов, с 8:00 до 20:00, график 2/2.</p><p>2.3. <mark>Обмен сменами допускается по договорённости сотрудников при уведомлении управляющей не позднее чем за 48 часов в общем чате смен.</mark></p>'}];
+const TR={ru:'Добрый день, Ли Вэй! Подтверждаем заказ: две кофемолки G-60 и 40 упаковок фильтров. Просим отгрузить до 1 ноября и прислать трек-номер. Спасибо!',
+ en:'Good afternoon, Li Wei! We confirm our order: two G-60 coffee grinders and 40 packs of filters. Please ship by November 1 and send us the tracking number. Thank you!',
+ zh:'李伟，您好！我们确认订单：两台 G-60 咖啡磨豆机和 40 包滤纸。请于 11 月 1 日前发货，并告知物流单号。谢谢！',
+ enF:'Dear Mr. Li,<br><br>We hereby confirm our order for two (2) G-60 coffee grinders and forty (40) packs of paper filters. We kindly ask you to dispatch the goods no later than November 1, 2026, and to provide the tracking number.<br><br>Best regards,<br>Anna Belova, Operations Manager',
+ zhF:'尊敬的李伟先生：<br>您好！我方确认订购 G-60 咖啡磨豆机两台及滤纸四十包。烦请于 2026 年 11 月 1 日前安排发货，并提供物流跟踪号。<br>此致<br>敬礼！<br>安娜·别洛娃，运营经理'};
+const KP=[
+ {client:'кофейни «Утро на Волге»',short:'Утро на Волге',person:'Ольга',vol:40,no:118,file:'КП-118_Утро_на_Волге.pdf',items:[['«База», Бразилия',25,1450],['Колумбия Уила',10,1890],['«Листопад»',5,1690]],opts:[[5,'5%'],[7,'7% · рекомендую'],[10,'10%']],q:'Для 40 кг в месяц прайс разрешает скидку до 7%. Какую закладываем?'},
+ {client:'офиса «Северный код»',short:'Северный код',person:'Максим',vol:12,no:119,file:'КП-119_Северный_код.pdf',items:[['«База», Бразилия',8,1450],['Колумбия Уила',4,1890]],opts:[[0,'Без скидки · рекомендую'],[5,'5%']],q:'Для 12 кг в месяц скидка по прайсу не положена. Делаем без скидки или 5% в виде исключения?'}];
+const VOICE=[
+ {d:6,x:'Напомни завтра в десять позвонить Ольге из «Утра на Волге» по КП.',go:'v_rem'},
+ {d:4,x:'Какой у нас срок возврата, если пачка с браком?',go:'v_kb'},
+ {d:8,x:'Поставь Нине задачу: проверить счёт «Зелёного каравана» до пятницы.',go:'v_task'}];
+const EV0=[{d:22,t:'16:00',x:'Приём заказов на пятничную отгрузку',s:'Регламент доставки, п. 1.3'},{d:23,t:'09:00',x:'Отгрузка оптовым клиентам',s:'вторник и пятница'},{d:26,t:'16:00',x:'Приём заказов на вторничную отгрузку',s:'Регламент доставки, п. 1.3'},{d:27,t:'09:00',x:'Отгрузка оптовым клиентам',s:'вторник и пятница'},{d:28,t:'12:00',x:'Подписание договора № 47/26',s:'«Зелёный караван»'}];
+
+/* ---------- state ---------- */
+const sceneMin=()=>BASE+Math.max(0,Math.floor((Date.now()-S.t0)/60000));
+const hhmm=()=>fmtMin(sceneMin());
+function fresh(){
+ const s={v:3,t0:Date.now(),seq:0,msgs:[],used:2392,limit:3000,paid:0,limPushed:0,tone:'friendly',model:'YandexGPT',docs:{ret:1,price:1,deliv:1,staff:1,sorts:1,serv:0},log:[],done:[],doneAt:{},finale:0,mode:null,ctx:{},hint:'m_review',emp:{vera:862,kirill:641,anna:455,oleg:268,nina:166},ev:EV0.map(e=>({...e})),sel:22,vi:0};
+ SEED.forEach(e=>s.log.push({m:e[0],who:e[1],type:e[2],q:e[3],cost:e[4],src:e[5],model:'YandexGPT',ms:e[6]}));
+ s.msgs.push({id:++s.seq,who:'sys',type:'sys',html:'Сегодня'});
+ s.msgs.push({id:++s.seq,who:'bot',type:'text',html:'',summary:1,kb:null,t:'08:45'});
+ return s}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.v===3&&Array.isArray(s.msgs)&&s.docs&&s.emp&&s.ev)return s}catch(e){}return null}
+let S=load()||fresh();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}updatePh()}
+
+/* ---------- async engine ---------- */
+let GEN=0;const TIMERS=new Set();const CANCEL={c:1};
+function later(fn,ms){const g=GEN;const id=setTimeout(()=>{TIMERS.delete(id);if(g===GEN)fn()},ms);TIMERS.add(id);return id}
+function wait(ms){const g=GEN;return new Promise((res,rej)=>{const id=setTimeout(()=>{TIMERS.delete(id);g===GEN?res():rej(CANCEL)},RM?Math.min(ms,40):ms);TIMERS.add(id)})}
+let Q=Promise.resolve();
+function run(fn){const g=GEN;const p=Q.then(()=>{if(g===GEN)return fn()}).catch(e=>{if(e!==CANCEL&&window.console)console.warn(e)});Q=p;return p}
+const feed=$('#feed');let typRow=null;
+const nearBottom=()=>feed.scrollHeight-feed.scrollTop-feed.clientHeight<170;
+function toBottom(force){if(force||nearBottom())feed.scrollTop=feed.scrollHeight}
+function setStatus(l){const st=$('#st');if(l){st.innerHTML=esc(l)+'<span class="ell" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span>';st.classList.add('on')}else{st.textContent='бот';st.classList.remove('on')}}
+async function typing(label,ms){setStatus(label);if(!typRow){typRow=document.createElement('div');typRow.className='row bot typing tail'+(RM?'':' in');typRow.dataset.who='typing';typRow.innerHTML='<div class="blk"><div class="bub"><span class="dots" role="img" aria-label="Бот печатает"><i></i><i></i><i></i></span></div></div>';feed.appendChild(typRow);toBottom(true)}await wait(ms)}
+function untype(){if(typRow){typRow.remove();typRow=null}}
+
+/* ---------- message rendering ---------- */
+function metaHTML(m){return '<span class="meta">'+m.t+(m.who==='me'?TICK.replace('class="tk"','class="tk'+(m.read?' rd':'')+'"'):'')+'</span>'}
+function docHTML(x){return '<div class="file"><span class="fi fi-'+x.ext.toLowerCase()+'" aria-hidden="true">'+x.ext+'</span><span class="fmeta"><b>'+esc(x.name)+'</b><small>'+esc(x.size)+'</small></span></div>'}
+function coverHTML(x){
+ const p=POSTS.find(p=>p.img===x.img);
+ if(!p){return '<figure class="pcov gen"><div class="pcov-t"><small>Сорок зёрен</small><b>'+esc(x.title||'Новости')+'</b><span>новости обжарочной</span></div></figure>'}
+ return '<figure class="pcov" style="--c:'+p.c+'"><img src="img/'+p.img+'-480.webp" srcset="img/'+p.img+'-480.webp 480w, img/'+p.img+'-960.webp 960w" sizes="340px" width="480" height="300" alt="Обложка поста: '+esc(p.topic)+'" loading="lazy" decoding="async"><div class="pcov-t"><small>'+p.cov[0]+'</small><b>'+p.cov[1]+'</b><span>'+p.cov[2]+'</span></div></figure>'}
+function bars(seed,n){let x=seed*9301+49297;const a=[];for(let i=0;i<n;i++){x=(x*9301+49297)%233280;const r=x/233280;a.push(Math.round(18+70*Math.abs(Math.sin(i*.55+seed))*.6+r*36))}return a.map(v=>Math.min(100,v))}
+function voiceHTML(m){const x=m.x;const b=bars(x.seed||3,34);
+ return '<div class="vc"><button type="button" class="vc-play" data-play="'+m.id+'" aria-label="Прослушать голосовое">'+PLAY+'</button><div><div class="vc-w" aria-hidden="true">'+b.map(v=>'<i style="height:'+v+'%"></i>').join('')+'</div><div class="vc-d"><span class="num">0:'+pad(x.d)+'</span><span class="vc-tr'+(x.tx?' on':'')+'" aria-hidden="true">Аа</span></div></div></div><div class="vc-tx">'+(x.tx?'<span class="lbl">Расшифровка</span>'+esc(x.tx):'')+'</div>'}
+function bodyHTML(m){
+ switch(m.type){
+  case 'fwd':return '<div class="fwd">Переслано от <b>'+esc(m.x.from)+'</b></div><div class="txt">'+m.html+'</div>';
+  case 'doc':return docHTML(m.x)+(m.html?'<div class="txt">'+m.html+'</div>':'');
+  case 'photo':return coverHTML(m.x)+'<div class="txt">'+m.html+'</div>';
+  case 'invoice':return '<div class="inv"><b>+1 000</b><span>запросов к ассистенту</span></div><div class="txt">'+m.html+'</div>';
+  case 'voice':return voiceHTML(m);
+  default:return '<div class="txt">'+m.html+'</div>'}}
+function kbEl(m){const k=document.createElement('div');k.className='ikb';
+ m.kb.forEach(row=>{const r=document.createElement('div');r.className='ikr';
+  row.forEach(b=>{let el;if(b.url){el=document.createElement('a');el.href=b.url;el.target='_blank';el.rel='noopener';el.innerHTML=esc(b.t)+LINK}
+   else{el=document.createElement('button');el.type='button';el.dataset.a=b.a;el.dataset.m=m.id;if(m.picked&&m.picked.indexOf(b.a)>-1)el.classList.add('picked');el.innerHTML=(b.ok?CHECK:'')+esc(b.t)}
+   r.appendChild(el)});k.appendChild(r)});return k}
+function rowEl(m,anim){const r=document.createElement('div');r.dataset.who=m.who;r.id='m'+m.id;
+ if(m.type==='sys'){r.className='row sys'+(anim&&!RM?' in':'');r.innerHTML='<span class="sysp">'+m.html+'</span>';return r}
+ r.className='row '+(m.who==='me'?'me':'bot')+' tail'+(anim&&!RM?' in':'');
+ const blk=document.createElement('div');blk.className='blk'+(m.type==='card'||m.type==='invoice'||m.type==='photo'?' wide':'');
+ const b=document.createElement('div');b.className='bub t-'+m.type;
+ if(m.summary)m.html=summaryHTML(true);
+ b.innerHTML=bodyHTML(m)+metaHTML(m);blk.appendChild(b);
+ if(m.summary)m.kb=menuKb();
+ if(m.kb)blk.appendChild(kbEl(m));
+ r.appendChild(blk);
+ const im=$('.pcov img',r);if(im){const ok=()=>im.closest('.pcov').classList.add('ld');if(im.complete&&im.naturalWidth)ok();else{im.addEventListener('load',ok,{once:true});im.addEventListener('error',()=>{im.remove()},{once:true})}}
+ return r}
+function attach(row,who,before){const prev=before?before.previousElementSibling:feed.lastElementChild;if(prev&&prev.dataset.who===who)prev.classList.remove('tail');before?feed.insertBefore(row,before):feed.appendChild(row)}
+function renderAll(){feed.innerHTML='';typRow=null;S.msgs.forEach(m=>attach(rowEl(m,false),m.who));applyHint();feed.scrollTop=feed.scrollHeight}
+
+async function stream(el,html){
+ el.innerHTML=html;
+ const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const ns=[];while(w.nextNode())ns.push(w.currentNode);
+ const full=ns.map(n=>n.nodeValue);ns.forEach(n=>{n.nodeValue=''});
+ const hid=$$('blockquote,.cite,h5,ol,ul',el);hid.forEach(x=>x.classList.add('sx'));
+ const caret=document.createElement('span');caret.className='caret';caret.setAttribute('aria-hidden','true');
+ feed.setAttribute('aria-busy','true');
+ const total=full.join('').length;const step=Math.max(2,Math.ceil(total/Math.min(140,Math.max(36,total/5))));
+ try{for(let i=0;i<ns.length;i++){const n=ns[i],t=full[i];const host=n.parentNode;hid.forEach(x=>{if(x.contains(n))x.classList.add('on')});
+   if(host)host.appendChild(caret);
+   for(let j=0;j<t.length;j+=step){n.nodeValue=t.slice(0,j+step);if(host&&caret.parentNode!==host)host.appendChild(caret);else if(host)host.appendChild(caret);toBottom();await wait(16)}
+   n.nodeValue=t}}
+ finally{caret.remove();ns.forEach((n,i)=>{n.nodeValue=full[i]});hid.forEach(x=>x.classList.add('on'));feed.removeAttribute('aria-busy')}}
+async function botSay(o){
+ await typing(o.typing||'печатает',o.delay==null?650:o.delay);
+ const m={id:++S.seq,who:'bot',type:o.type||'text',html:o.html,kb:o.kb||null,t:hhmm(),x:o.x||null};
+ const row=rowEl(m,true);const doStream=o.stream!==false&&!RM&&(m.type==='text'||m.type==='photo');
+ untype();if(doStream){row.classList.add('streaming');$('.txt',row).innerHTML=''}
+ attach(row,'bot');toBottom(true);S.msgs.push(m);
+ if(doStream){setStatus(o.typing||'печатает');await stream($('.txt',row),m.html);row.classList.remove('streaming');if(m.kb)row.classList.add('kbin')}
+ setStatus();save();applyHint();toBottom();if(o.push)showPush(m);return m}
+function meSay(o){if(typeof o==='string')o={html:esc(o)};
+ const m={id:++S.seq,who:'me',type:o.type||'text',html:o.html||'',x:o.x||null,t:hhmm(),read:0};
+ const row=rowEl(m,true);attach(row,'me',typRow);toBottom(true);S.msgs.push(m);save();
+ later(()=>{m.read=1;const t=$('.tk',row);if(t)t.classList.add('rd');save()},RM?10:500);return m}
+function sysSay(html){const m={id:++S.seq,who:'sys',type:'sys',html};attach(rowEl(m,true),'sys',typRow);S.msgs.push(m);save();toBottom(true)}
+
+/* ---------- summary & menu ---------- */
+function menuKb(){const b=MENU.map(m=>({t:m[1],a:m[2],ok:S.done.indexOf(m[0])>-1}));return [[b[0],b[1]],[b[2],b[3]],[b[4],b[5]]]}
+function summaryHTML(first){
+ const n=Object.values(S.docs).filter(Boolean).length;
+ const items=TASKS.map(t=>{const ok=S.done.indexOf(t.k)>-1;return '<li>'+(ok&&!first?'<s>'+t.sum+'</s> — готово':t.sum)+'</li>'}).join('');
+ const ev=S.ev.filter(e=>e.d===22).map(e=>e.t+' — '+e.x.charAt(0).toLowerCase()+e.x.slice(1)).join('<br>')||'Встреч нет.';
+ const pct=Math.floor(S.used/S.limit*100);
+ const head=first?'<b>Доброе утро, Анна!</b> Сводка на четверг, 22 октября.':'<b>Сводка на '+hhmm()+'</b> · сделано '+S.done.length+' из 6.';
+ return head+'<h5>Дела на сегодня</h5><ol>'+items+'</ol><h5>Календарь</h5>'+ev+'<br>28 октября — подписание договора № 47/26.<h5>Лимит</h5>'+nf(S.used)+' из '+nf(S.limit)+' запросов — '+pct+'%. База знаний: '+n+' '+plural(n,'документ','документа','документов')+'.<br><br>'+(first?'Выберите дело ниже или просто напишите, что нужно сделать. Можно голосовым.':'Что берём следующим?')}
+function greetHTML(){const n=Object.values(S.docs).filter(Boolean).length;return 'Здравствуйте, Анна! Я <b>Секретарь</b> — ассистент команды «Сорок зёрен».<br>Подключён к базе знаний: '+n+' '+plural(n,'документ','документа','документов')+' — регламенты, прайс, политика возврата.<br><br>Выберите задачу, напишите своими словами или надиктуйте голосовое.'}
+
+/* ---------- hints ---------- */
+function guideNext(){return GUIDE.some(k=>S.done.indexOf(k)<0)?'more':null}
+function setHint(h){S.hint=h;save();applyHint()}
+function applyHint(){
+ $$('.hint',feed).forEach(e=>e.classList.remove('hint'));const h=S.hint;
+ if(h){const els=$$('[data-a="'+h+'"]',feed);const el=els[els.length-1];if(el)el.classList.add('hint')}
+ const key=h?h.split(':')[0]:'free';$('#mhint').innerHTML=HINTS[key]||HINTS.free;
+ const nx=GUIDE.find(k=>S.done.indexOf(k)<0);$$('.task').forEach(li=>li.classList.toggle('nx',li.dataset.k===nx))}
+
+/* ---------- planner ---------- */
+function renderTasks(){
+ $('#tasks').innerHTML=TASKS.map(t=>{const ok=S.done.indexOf(t.k)>-1;return '<li class="task'+(ok?' ok':'')+'" data-k="'+t.k+'"><button type="button" data-task="'+t.k+'" aria-label="'+esc(t.t)+(ok?' — сделано':' — отдать Секретарю')+'"><span class="tk-box" aria-hidden="true">'+CHECK+'</span><span class="tk-t"><b><span>'+esc(t.t)+'</span></b><small>'+(ok?'сделано в '+S.doneAt[t.k]+' · '+esc(t.s):esc(t.s))+'</small></span><span class="tk-go" aria-hidden="true">'+(ok?'ещё раз':'Отдать боту')+ARR+'</span></button></li>'}).join('');
+ $('#progN').textContent=S.done.length+' из 6';
+ $$('#progBar i').forEach((i,k)=>i.classList.toggle('on',k<S.done.length));applyHint()}
+function renderWeek(){
+ $('#week').innerHTML=DAYS.map(d=>{const c=S.ev.filter(e=>e.d===d).length;return '<button type="button" class="day" data-day="'+d+'" aria-pressed="'+(S.sel===d)+'" aria-label="'+wd(d)+', '+d+' октября: '+c+' '+plural(c,'событие','события','событий')+'"><small>'+wd(d)+'</small><b>'+d+'</b><span class="dd">'+'<i></i>'.repeat(Math.min(3,c))+'</span></button>'}).join('')}
+function renderEvs(fresh){
+ const L=S.ev.filter(e=>e.d===S.sel).sort((a,b)=>a.t.localeCompare(b.t));
+ $('#evs').innerHTML=L.length?L.map(e=>'<li class="ev'+(fresh&&e===fresh?' new':'')+'"><time>'+e.t+'</time><div>'+esc(e.x)+(e.s?'<small>'+esc(e.s)+'</small>':'')+'</div></li>').join(''):'<li class="ev-empty">'+cap(wd(S.sel)==='Сб'||wd(S.sel)==='Вс'?'выходной — ':'')+'событий нет. Скажите боту «Напомни…», и он появится здесь.</li>'}
+function addEv(e){S.ev.push(e);S.sel=e.d;save();renderWeek();renderEvs(e)}
+
+/* ---------- business panel ---------- */
+let logAll=false;
+function tagCls(t){return t==='Оплата'?'pay':''}
+function renderLog(flash){
+ const L=S.log.slice(0,logAll?14:6);
+ $('#log').innerHTML=L.map((e,i)=>{const p=EMP[e.who]||EMP.anna;const c=e.cost?e.cost+' '+plural(e.cost,'запрос','запроса','запросов'):'платёж';
+  return '<li class="le'+(flash&&i===0&&!RM?' fresh':'')+'"><span class="av-e" style="--bg:hsl('+p.h+' 70% 89%);--fg:hsl('+p.h+' 55% 24%)" aria-hidden="true">'+p.i+'</span><div><div class="le-h"><b>'+p.n+'</b><span class="tg-t '+tagCls(e.type)+'">'+e.type+'</span><time class="num">'+fmtMin(e.m)+'</time></div><p>'+esc(e.q)+'</p><div class="le-f">'+c+(e.cost?' · '+String((e.ms||2.4).toFixed(1)).replace('.',',')+' с · '+e.model:'')+(e.src?' · '+esc(e.src):'')+'</div></div></li>'}).join('');
+ const sum=S.log.reduce((a,e)=>a+(e.cost||0),0);
+ $('#logN').textContent='сегодня · '+sum+' '+plural(sum,'запрос','запроса','запросов');
+ const mb=$('#logMore');mb.hidden=S.log.length<=6;mb.textContent=logAll?'Свернуть':'Показать все ('+S.log.length+')';mb.setAttribute('aria-expanded',String(logAll))}
+let limShown=null;
+function renderLimit(){
+ const from=limShown==null?S.used:limShown;limShown=S.used;const el=$('#limUsed');
+ if(RM||from===S.used)el.textContent=nf(S.used);else{const t0=performance.now(),d=700;const step=t=>{const k=Math.min(1,(t-t0)/d);el.textContent=nf(from+(S.used-from)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+ $('#limTotal').textContent=nf(S.limit);const pct=S.used/S.limit;const pe=$('#limPct');pe.textContent=Math.floor(pct*100)+'%';pe.classList.toggle('w',pct>=.8&&!S.paid);
+ $('#limBar').innerHTML=EMP_ORDER.map(k=>'<i style="width:'+(S.emp[k]/S.limit*100).toFixed(2)+'%;background:'+SHADE[k]+'"></i>').join('')+'<span class="lim-80" style="left:'+(.8*S.limit/S.limit*100)+'%"><span>80%</span></span>';
+ $('#limBar').setAttribute('aria-label','Использовано '+nf(S.used)+' из '+nf(S.limit)+' запросов');
+ $('#limLeg').innerHTML=EMP_ORDER.map(k=>'<li><i style="--c:'+SHADE[k]+'"></i>'+EMP[k].n.split(' ')[0]+(k==='anna'?' (вы)':'')+'<b>'+nf(S.emp[k])+'</b></li>').join('');
+ $('#limBuy').hidden=!!S.paid;const n=$('#limNote');
+ if(S.paid){n.textContent='Пакет «+1 000 запросов» оплачен — хватит до конца месяца с запасом.';n.classList.remove('w')}
+ else if(pct>=.8){n.textContent='Использовано больше 80%: при текущем темпе лимит закончится 27 октября.';n.classList.add('w')}
+ else{n.textContent='Пунктир — порог 80%: бот предупредит в чате и предложит пакет.';n.classList.remove('w')}}
+function renderSettings(){
+ $('#toneG').innerHTML=Object.keys(TONE).map(k=>'<label><input type="radio" name="tone" value="'+k+'"'+(S.tone===k?' checked':'')+'><span>'+cap(TONE[k])+'</span></label>').join('');
+ $('#modelG').innerHTML=['YandexGPT','GigaChat'].map(k=>'<label><input type="radio" name="model" value="'+k+'"'+(S.model===k?' checked':'')+'><span>'+k+'</span></label>').join('');
+ $('#docsG').innerHTML=Object.keys(DOCS).map(k=>{const d=DOCS[k];return '<label class="doc'+(S.docs[k]?'':' off')+'"><span class="fi fi-'+d.ext.toLowerCase()+'" aria-hidden="true">'+d.ext+'</span><span class="doc-t"><b>'+d.name+'</b><small>'+d.meta+'</small></span><span class="sw"><input type="checkbox" role="switch" data-doc="'+k+'"'+(S.docs[k]?' checked':'')+' aria-label="'+esc(d.name)+'"><i></i></span></label>'}).join('');
+ docsLabel()}
+function docsLabel(){const n=Object.values(S.docs).filter(Boolean).length;$('#docsL').textContent='База знаний · подключено '+n+' из '+Object.keys(DOCS).length}
+function setNote(t){const n=$('#setN');n.textContent=t;n.classList.add('flash');clearTimeout(setNote.t);setNote.t=setTimeout(()=>n.classList.remove('flash'),2200)}
+function log(e){
+ S.log.unshift({m:sceneMin(),who:e.who||'anna',type:e.type,q:e.q,cost:e.cost||0,src:e.src||'',model:S.model,ms:1.6+Math.random()*3});
+ if(S.log.length>40)S.log.pop();
+ if(e.cost){S.used+=e.cost;S.emp[e.who||'anna']+=e.cost}
+ renderLog(true);renderLimit();save();
+ if(!S.limPushed&&!S.paid&&S.used>=S.limit*.8){S.limPushed=1;save();later(()=>run(limitPush),2400)}}
+function done(k,e){log(e);if(S.done.indexOf(k)<0){S.done.push(k);S.doneAt[k]=hhmm();renderTasks()}save();
+ if(S.done.length>=3&&!S.finale){S.finale=1;save();later(()=>run(finale),4600)}}
+
+/* ---------- sheets, popovers, push ---------- */
+let lastFocus=null,sheetOnClose=null,pushT=0;
+function openSheet(t,s,html,onClose){closePops();$('#shT').textContent=t;$('#shS').textContent=s||'';$('#shB').innerHTML=html;const w=$('#sheetW');w.hidden=false;lastFocus=document.activeElement;sheetOnClose=onClose||null;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{w.classList.add('open');const x=$('.sh-x',w);if(x)x.focus({preventScroll:true})}))}
+function closeSheet(){const w=$('#sheetW');if(w.hidden)return;w.classList.remove('open');setTimeout(()=>{if(!w.classList.contains('open'))w.hidden=true},RM?0:380);
+ if(lastFocus&&lastFocus.focus&&document.contains(lastFocus))lastFocus.focus({preventScroll:true});const f=sheetOnClose;sheetOnClose=null;if(f)f()}
+function closePops(){$('#kpop').hidden=true;$('#kebab').setAttribute('aria-expanded','false');$('#cmds').hidden=true;$('#menuB').setAttribute('aria-expanded','false')}
+let chatVis=true;
+function showPush(m){if(chatVis)return;const p=$('#push');
+ p.innerHTML='<span class="av" aria-hidden="true">'+AV+'</span><span class="push-t"><b>Секретарь</b><span>'+esc(strip(m.html)).slice(0,140)+'</span></span><time>сейчас</time>';
+ p.dataset.m=m.id;p.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.add('on')));clearTimeout(pushT);pushT=setTimeout(hidePush,5200)}
+function hidePush(){const p=$('#push');p.classList.remove('on');setTimeout(()=>{if(!p.classList.contains('on'))p.hidden=true},RM?0:500)}
+function feedTo(el,smooth){if(!el)return;const t=el.offsetTop-feed.offsetTop-8;feed.scrollTo({top:Math.max(0,t),behavior:smooth&&!RM?'smooth':'auto'})}
+function toChat(){if(!chatVis){$('#tg').scrollIntoView({block:MOB.matches?'start':'center',behavior:RM?'auto':'smooth'})}}
+function botInfo(){openSheet('Секретарь','бот · ассистент команды «Сорок зёрен»','<p>Помогает сотрудникам с текстами и документами: присылает утреннюю сводку, отвечает на отзывы, пишет посты и КП, пересказывает договоры, переводит письма, отвечает по базе знаний, понимает голосовые и ставит напоминания.</p><p>Доступ — только для сотрудников по приглашению. Каждый запрос попадает в журнал руководителя.</p><ul class="sh-list">'+CMD.map(c=>'<li><b>/'+c[0]+'</b> — '+c[1].charAt(0).toLowerCase()+c[1].slice(1)+'</li>').join('')+'</ul>')}
+
+/* ---------- scenarios ---------- */
+function curRev(){return S.ctx.rv==='c'?S.ctx.cr:REV[S.ctx.rv||0]}
+async function sayMenu(t){await botSay({html:t,kb:menuKb(),delay:450})}
+async function startReview(){S.mode='review';await botSay({html:'Пришлите текст отзыва или перешлите его сюда. Можно взять отзыв из утренней сводки:',kb:[[{t:'Ксения, 2 из 5: «доставка опоздала»',a:'rv:0'}],[{t:'Дмитрий, 5 из 5: «лучший раф»',a:'rv:1'}],[{t:'Ирина, 3 из 5: «ждали 15 минут»',a:'rv:2'}]]});if(S.hint==='m_review')setHint('rv:0')}
+async function answerReview(r,n){
+ const rec=S.tone==='friendly'?0:1;const delivNote=n===0&&S.docs.deliv?' Компенсацию взял из «Регламента доставки», п. 3.2.':'';
+ const html='<b>Отзыв на '+r.st+' из 5.</b> '+r.sum+'<h5>1 · Тёплый</h5>'+r.v[0]+'<h5>2 · Деловой</h5>'+r.v[1]+'<h5>3 · Коротко</h5>'+r.v[2]+'<br><br><i>Тон компании — '+TONE[S.tone]+', ему ближе вариант '+(rec+1)+'.'+delivNote+'</i>';
+ await botSay({typing:'пишет ответ',delay:900,html,kb:[[{t:'Сделать мягче',a:'rv_soft'},{t:'Короче',a:'rv_short'}],[{t:'Другие задачи',a:'more'}]]});
+ done('review',{type:'Ответ на отзыв',q:'Оценка '+r.st+' из 5 · '+r.name+' — '+r.sh,cost:2,src:delivNote?'Регламент доставки.docx':''});
+ if(S.hint&&S.hint.indexOf('rv')===0||S.hint==='m_review')setHint('rv_soft');else if(!S.hint)setHint(guideNext())}
+function rvAct(n){n=+n||0;const r=REV[n];S.ctx.rv=n;S.mode=null;meSay({type:'fwd',x:{from:r.src},html:stars(r.st)+'<br>'+esc(r.text)});return run(()=>answerReview(r,n))}
+const NEG=/долг|плох|ужас|холодн|грязн|опозд|невкусн|хам|дорог|не понрав|разочар|медлен|забыл|ошиб|сломал|кисл|горьк|груб|задерж|не приш|испорч|не вкус/i;
+const POS=/спасиб|вкусн|отличн|лучш|класс|люблю|уютн|рекоменд|супер|прекрасн|приятн|нравит|обожа|восторг|молодц/i;
+function customReview(text){
+ const neg=NEG.test(text),pos=POS.test(text);const q=text.replace(/\s+/g,' ').split(' ').slice(0,7).join(' ').replace(/[.,!?:;]+$/,'');let r;
+ if(neg&&pos)r={st:3,sum:'Смешанный отзыв: есть и похвала, и претензия — поблагодарим и решим проблему.',v:['Спасибо, что отметили хорошее и честно написали о том, что не понравилось. «'+q+'…» — мы прочитали это внимательно и уже разбираемся с командой. Напишите нам в личные сообщения: хотим всё исправить и угостить вас кофе.','Здравствуйте! Благодарим за подробный отзыв. Мы передали замечания управляющей и вернёмся с решением в течение дня.','Спасибо за честность 🙏 Хорошее сохраним, остальное исправим — напишем вам в личные сообщения.'],soft:'Спасибо вам за тёплые слова — и простите за то, что подпортило впечатление. Нам важно, чтобы каждый визит был приятным. Мы уже разбираемся и будем рады угостить вас кофе в следующий раз.',short:['Спасибо! Учли замечания — кофе за нами ☕','Благодарим, уже исправляем.','Спасибо за отзыв — исправимся!']};
+ else if(neg)r={st:2,sum:'Негативный отзыв — извиняемся, объясняем, что делаем, и предлагаем компенсацию.',v:['Спасибо, что написали, и простите, что так вышло. «'+q+'…» — мы прочитали это внимательно и уже разбираемся с командой. Напишите нам в личные сообщения, пожалуйста: хотим всё исправить и пригласить вас на кофе за наш счёт.','Здравствуйте! Благодарим за обратную связь. Мы передали ваш отзыв управляющей и проверим ситуацию в течение дня. Свяжемся с вами в личных сообщениях, чтобы предложить решение.','Простите за этот опыт 🙏 Уже разбираемся — напишем вам в личные сообщения.'],soft:'Нам правда очень жаль, что вы столкнулись с этим. Понимаем, как это неприятно. Мы уже разбираемся и очень хотим, чтобы следующий визит всё исправил — напишите нам, пожалуйста.',short:['Простите! Уже разбираемся — напишем вам 🙏','Извините, исправим.','Спасибо, что сказали — исправимся.']};
+ else r={st:5,sum:'Позитивный отзыв — благодарим и приглашаем вернуться.',v:['Спасибо за такие тёплые слова! Передадим команде — для бариста это лучшая мотивация. Ждём вас снова: в кофейнях новый сезонный бленд «Листопад», попробуйте 🍂','Здравствуйте! Благодарим за высокую оценку. Рады, что вам понравилось, — будем держать планку.','Спасибо! Очень приятно 🧡 Ждём снова.'],soft:'Спасибо огромное — вы сделали нам день! Приходите ещё, будем рады видеть вас снова.',short:['Спасибо! Ждём снова ☕','Благодарим за отзыв!','Очень приятно — до встречи 🧡']};
+ r.name='гостя';r.sh='«'+q.slice(0,40)+'…»';S.ctx.cr=r;S.ctx.rv='c';S.mode=null;return answerReview(r,-1)}
+function toneTx(p){let lines=p.body.split('\n');
+ if(S.tone==='biz'){lines=lines.map(l=>/^\p{Extended_Pictographic}/u.test(l)?'— '+l.replace(/(\p{Extended_Pictographic}|️|‍)+\s?/gu,'').trim():l.replace(/\s?(\p{Extended_Pictographic}|️|‍)+/gu,'').replace(/!/g,'.'))}
+ let t=lines.join('\n');if(S.tone==='exp')t=t.replace(/\n\n(#[^\n]*)$/,'\n\n'+p.exp+'\n\n$1');
+ return esc(t).replace(/\n/g,'<br>').replace(/#[a-zа-яё0-9_]+/gi,'<span class="tag">$&</span>')}
+async function startPost(){S.mode='post';await botSay({html:'О чём пост? Напишите тему своими словами или выберите:',kb:[[{t:'Осенний бленд «Листопад»',a:'post:0'}],[{t:'Мастер-класс по воронке 31 октября',a:'post:1'}],[{t:'Скидка 20% на дрип-пакеты',a:'post:2'}]]})}
+function customPost(topic){topic=topic.replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').slice(0,80);const T=cap(topic);
+ return {topic:T,img:'gen',src:'',h:[T+': коротко о главном','Новости «Сорок зёрен»: '+topic,T+' — рассказываем подробности'],alt:['Есть новость: '+topic,T+' — что важно знать','Коротко и по делу: '+topic],body:'Делимся новостью: '+topic+'.\n\nПодробности расскажем в кофейнях и в сторис — заходите, ответим на вопросы за чашкой кофе.\n\n☕ Все три кофейни — ежедневно с 8:00 до 22:00\n📲 Вопросы — в личные сообщения\n\n#сороказёрен #кофеярославль',exp:'Совет: добавьте к посту живое фото из кофейни — такие публикации собирают больше откликов.',short:T+' — подробности в кофейнях и в личных сообщениях ☕'}}
+async function makePost(p){S.ctx.post=p;S.mode=null;
+ await botSay({typing:'пишет пост',delay:800,html:'Тема: <b>'+esc(p.topic)+'</b><h5>Варианты заголовка</h5>1. '+esc(p.h[0])+'<br>2. '+esc(p.h[1])+'<br>3. '+esc(p.h[2])});
+ await botSay({type:'photo',x:{img:p.img,title:p.topic.slice(0,28)},typing:'подбирает обложку',delay:700,html:toneTx(p),kb:[[{t:'Другие заголовки',a:'post_h'},{t:'Короче',a:'post_s'}],[{t:'Другие задачи',a:'more'}]]});
+ done('post',{type:'Пост',q:p.topic+' · тон: '+TONE[S.tone],cost:2,src:p.src});
+ if(S.hint!=='src'&&(!S.hint||S.hint.indexOf('m_')===0))setHint(guideNext())}
+async function startDoc(){S.mode='docwait';await botSay({html:'Пришлите файл — PDF, DOCX или скан до 20 МБ. Сделаю краткое содержание и отмечу рискованные пункты.',kb:[[{t:'Отправить договор_поставки.pdf',a:'doc_send'}]]});if(S.hint==='m_doc'||S.hint==='more')setHint('doc_send')}
+async function progressMsg(){
+ await typing('читает документ',500);untype();
+ const m={id:++S.seq,who:'bot',type:'text',html:'',t:hhmm()};const row=rowEl(m,true);const txt=$('.txt',row);row.classList.add('streaming');attach(row,'bot');setStatus('читает документ');
+ const steps=['Извлекаю текст — 14 страниц','Разбиваю на фрагменты — 38','Сверяю с типовым договором компании','Ищу рискованные условия'];
+ txt.innerHTML='<span class="prog"><span></span><i></i></span>';const lab=$('.prog>span',txt),bar=$('.prog>i',txt);
+ for(let i=0;i<steps.length;i++){lab.textContent=steps[i]+'…';bar.style.setProperty('--p',((i+1)/steps.length).toFixed(2));toBottom(true);await wait(640)}
+ m.html='Прочитал 14 страниц за 2,5 с · 38 фрагментов · <b>3 риска</b>';txt.innerHTML=m.html;row.classList.remove('streaming');setStatus();S.msgs.push(m);save()}
+function docSend(){meSay({type:'doc',x:{name:'договор_поставки.pdf',size:'412 КБ · 14 страниц',ext:'PDF'}});
+ return run(async()=>{await progressMsg();
+  await botSay({typing:'пишет пересказ',delay:350,html:CONTRACT.sum,kb:[[{t:'Протокол разногласий',a:'doc_proto'}],[{t:'Вопрос по договору',a:'doc_ask'},{t:'Другие задачи',a:'more'}]]});
+  S.mode='docq';done('doc',{type:'Пересказ документа',q:'договор_поставки.pdf · 14 страниц, найдено 3 риска',cost:5});
+  if(!S.hint||['doc_send','m_doc','more'].indexOf(S.hint)>-1)setHint(guideNext())})}
+const has=(t,k)=>new RegExp('(^|[^а-яёa-z])'+k).test(t);
+function docQ(t){return DOCQ.find(d=>d.k.some(k=>has(t,k)))}
+async function docAnswer(d){S.mode='docq';await botSay({typing:'ищет в договоре',delay:900,html:d?d.a:'В договоре нет прямого ответа на этот вопрос. Могу рассказать про предмет, цену, оплату, приёмку, ответственность или расторжение.'});if(d)log({type:'Пересказ документа',q:'Вопрос по договору № 47/26',cost:1})}
+async function startTr(){S.mode='tr';await botSay({html:'Пришлите текст — переведу на английский или китайский с учётом глоссария компании. Или возьмите письмо из сводки:',kb:[[{t:'Письмо Ли Вэю о заказе',a:'tr_ex'}]]})}
+async function trOut(lang,formal){S.ctx.lang=lang;const en=formal?TR.enF:TR.en,zh=formal?TR.zhF:TR.zh;
+ let html=formal?'Официальная версия — для деловой переписки:':'Готово. Глоссарий компании: «трек-номер» — tracking number, «фильтры» — paper filters.';
+ if(lang!=='zh')html+='<h5>Английский</h5><blockquote>'+en+'</blockquote>';
+ if(lang!=='en')html+='<h5>Китайский</h5><blockquote class="zh">'+zh+'</blockquote>';
+ await botSay({typing:'переводит',delay:700,html,kb:formal?[[{t:'Другой язык',a:'tr_ex'},{t:'Другие задачи',a:'more'}]]:[[{t:'Официальнее',a:'tr_formal'}],[{t:'Другой язык',a:'tr_ex'},{t:'Другие задачи',a:'more'}]]});
+ done('tr',{type:'Перевод',q:'Письмо Ли Вэю, с русского на '+(lang==='both'?'английский и китайский':lang==='en'?'английский':'китайский')+(formal?', официально':''),cost:lang==='both'?2:1})}
+async function startKp(){S.mode='kp';await botSay({html:'Для кого готовим КП? Цены возьму из прайса, условия — из регламента доставки.',kb:[[{t:'Кофейня «Утро на Волге» · 40 кг/мес',a:'kp:0'}],[{t:'Офис «Северный код» · 12 кг/мес',a:'kp:1'}]]})}
+function kpCalc(k,pct){const sum=k.items.reduce((a,i)=>a+i[1]*i[2],0);const disc=Math.round(sum*pct/100);return {sum,disc,tot:sum-disc}}
+async function makeKp(pct){const n=S.ctx.kp||0,k=KP[n];S.ctx.pct=pct;S.mode=null;
+ if(!S.docs.price){await botSay({typing:'ищет прайс',delay:900,html:'⚠️ Документ «Прайс-лист опт 2026.xlsx» отключён в базе знаний — без него не могу подставить актуальные цены. Включите его в настройках или пришлите прайс файлом.',kb:[[{t:'Подключить прайс-лист',a:'en:price'}],[{t:'Другие задачи',a:'more'}]]});S.ctx.kpPending=1;return}
+ const c=kpCalc(k,pct);const free=k.vol>=20;
+ const deliv=S.docs.deliv?(free?'Доставка по Ярославлю — бесплатно (заказ от 20 кг).':'Доставка — 350 ₽ за отгрузку, бесплатно от 20 кг.'):'<span class="warn">Условия доставки — уточните: регламент доставки отключён.</span>';
+ await botSay({typing:'собирает КП',delay:800,html:'Готово — КП № '+k.no+' для '+k.client+'. Цены — из «Прайс-листа опт 2026»'+(S.docs.deliv?', доставка — по «Регламенту доставки».':'. Регламент доставки отключён, условия доставки впишите вручную.')+(pct>7?' Скидка выше 7% — отметил, что нужно согласование.':'')});
+ const rows=k.items.map(i=>'<tr><td>'+i[0]+'</td><td>'+i[1]+'</td><td>'+nf(i[2])+'</td><td>'+nf(i[1]*i[2])+'</td></tr>').join('');
+ const html='<div class="kp"><div class="kp-h"><span>Коммерческое предложение № '+k.no+'</span><strong>Поставка кофе для '+k.client+'</strong></div><table><thead><tr><th>Позиция</th><th>кг</th><th>₽/кг</th><th>Сумма, ₽</th></tr></thead><tbody>'+rows+'</tbody></table><dl><div><dt>Итого</dt><dd>'+nf(c.sum)+' ₽</dd></div>'+(pct?'<div><dt>Скидка '+pct+'%'+(pct>7?' · на согласовании':'')+'</dt><dd>−'+nf(c.disc)+' ₽</dd></div>':'')+'<div class="tot"><dt>В месяц</dt><dd>'+nf(c.tot)+' ₽</dd></div></dl><p>'+deliv+' Обжарка под заказ, отгрузки по вторникам и пятницам. Тестовые 2 кг — бесплатно.</p><p class="kp-f">Действует до 15 ноября 2026 · Анна Белова, «Сорок зёрен»</p></div>';
+ await botSay({type:'card',stream:false,delay:400,typing:'оформляет документ',html,kb:[[{t:'Скачать PDF',a:'kp_pdf'},{t:'Письмо клиенту',a:'kp_mail'}],[{t:'Другие задачи',a:'more'}]]});
+ done('kp',{type:'КП',q:k.short+', '+k.vol+' кг/мес'+(pct?', скидка '+pct+'%':'')+' — '+nf(c.tot)+' ₽',cost:3,src:'Прайс-лист опт 2026.xlsx'})}
+async function startKb(){S.mode='kb';await botSay({html:'Спросите что угодно о работе компании — отвечу по документам из базы знаний и дам ссылку на пункт.',kb:[[{t:'Какой у нас срок возврата?',a:'kb:ret'}],[{t:'Сколько стоит доставка опта?',a:'kb:deliv'}],[{t:'Как хранить зерно после вскрытия?',a:'kb:store'}]]});if(S.hint==='m_kb'||S.hint==='more')setHint('kb:ret')}
+function kbMatch(t){let best=null,bs=0;KB.forEach(e=>{const s=e.k.reduce((a,k)=>a+(has(t,k)?1:0),0);if(s>bs){bs=s;best=e}});return best}
+async function kbAnswer(e,q){S.mode='kb';
+ if(!S.docs[e.doc]){await botSay({typing:'ищет в документах',delay:1100,html:'Не нашёл ответа в подключённых документах. Похоже, нужный — «'+DOCS[e.doc].name+'» — отключён в настройках базы знаний.',kb:[[{t:'Подключить документ',a:'en:'+e.doc+':'+e.id}]]});log({type:'База знаний',q:'«'+(q||e.q)+'» — источник отключён',cost:1});return}
+ await botSay({typing:'ищет в документах',delay:1200,html:e.a+'<span class="cite">Источник: '+DOCS[e.doc].name+', '+e.cite+'</span>',kb:[[{t:'Открыть источник · '+e.cite,a:'src:'+e.id}],[{t:'Другие задачи',a:'more'}]]});
+ done('kb',{type:'База знаний',q:'«'+(q||e.q)+'»',cost:1,src:DOCS[e.doc].name});
+ if(S.hint&&(S.hint.indexOf('kb')===0||S.hint==='m_kb'||S.hint==='more'))setHint('src:'+e.id)}
+function openSrc(id){const e=KB.find(x=>x.id===id);if(!e)return;const d=DOCS[e.doc];
+ openSheet(d.name,e.page+' · '+e.cite+' · совпадение '+e.match+'%','<div class="docv">'+e.x+'</div><p class="docv-f">Фрагмент из базы знаний «Сорок зёрен» · '+d.meta+'. Маркером выделено то, на чём основан ответ.</p>',()=>{if(S.hint&&S.hint.indexOf('src')===0)setHint(guideNext())})}
+async function limitPush(){await botSay({push:true,delay:300,stream:false,html:'⚠️ <b>Использовано 80% лимита</b> на октябрь: '+nf(S.used)+' из '+nf(S.limit)+' запросов. При текущем темпе лимит закончится 27 октября — за 4 дня до конца месяца.'});await sayInvoice()}
+async function sayInvoice(){await botSay({type:'invoice',delay:600,stream:false,html:'<b>Пакет «+1 000 запросов»</b><br>Добавится к лимиту октября. Оплата с баланса аккаунта компании, закрывающие документы — в панели.<span class="inv-p"><b>1 490 ₽</b><small>разово</small></span>',kb:[[{t:'Оплатить 1 490 ₽',a:'pay'}]]})}
+function payFlow(){
+ if(S.paid){run(()=>botSay({html:'Пакет «+1 000 запросов» уже оплачен — лимит на октябрь: '+nf(S.limit)+'.',delay:400}));return}
+ openSheet('Подтвердите оплату','Секретарь · пакет запросов','<div class="pay-r"><span>Пакет</span><b>+1 000 запросов</b></div><div class="pay-r"><span>Тариф</span><b>«Команда», октябрь</b></div><div class="pay-r"><span>Плательщик</span><b>«Сорок зёрен»</b></div><div class="pay-r"><span>Способ</span><b>Баланс аккаунта</b></div><div class="pay-r"><span>Сумма</span><b>1 490 ₽</b></div><button type="button" class="pay-b" id="payGo">Оплатить 1 490 ₽</button>');
+ $('#payGo').addEventListener('click',e=>{const b=e.currentTarget;b.disabled=true;b.textContent='Проводим платёж…';
+  later(()=>{closeSheet();S.paid=1;S.limit=4000;renderLimit();log({type:'Оплата',q:'Пакет «+1 000 запросов» · 1 490 ₽',cost:0});
+   run(async()=>{sysSay('Платёж 1 490 ₽ прошёл');await botSay({delay:500,html:'Готово — лимит на октябрь увеличен до <b>4 000 запросов</b>. Осталось '+nf(S.limit-S.used)+': хватит до конца месяца с запасом.'})})},RM?50:1100)})}
+async function finale(){const n=S.done.length;
+ await botSay({delay:700,html:'<b>Вы закрыли '+n+' '+plural(n,'дело','дела','дел')+' из 6.</b> В октябре команда «Сорок зёрен» отправила Секретарю '+nf(S.used)+' '+plural(S.used,'запрос','запроса','запросов')+'.<br><br>Такого же ассистента можно собрать для вашей компании за две недели — на ваших документах и в вашем тоне.',kb:[[{t:'Обсудить проект в YSD DEV',url:'https://ysddev.com'}],[{t:'Продолжить',a:'more'}]]});
+ if(!S.hint||S.hint==='more')setHint(null)}
+
+/* ---------- reminders, tasks, voice ---------- */
+const NUMW={'восемь':8,'девять':9,'десять':10,'одиннадцать':11,'двенадцать':12,'час':13,'два':14,'три':15,'четыре':16,'пять':17,'шесть':18};
+function parseRem(text){const t=text.toLowerCase();let d=null,tm=null,rel=0;
+ if(/послезавтра/.test(t))d=24;else if(/завтра/.test(t))d=23;else if(/сегодня/.test(t))d=22;
+ [['понедельник',26],['вторник',27],['сред',28],['пятниц',23],['суббот',24],['воскрес',25]].forEach(([w,v])=>{if(d==null&&new RegExp('(^|\\s)(в|во|на)\\s'+w).test(t))d=v});
+ let m=t.match(/через\s+(\d+|минуту|пару минут|полчаса|час)\s*(мин|минут|минуты|час|часа|часов)?/);
+ if(m){rel=m[1]==='минуту'?1:m[1]==='пару минут'?2:m[1]==='полчаса'?30:m[1]==='час'?60:(+m[1])*(/час/.test(m[2]||'')?60:1);rel=Math.min(rel,600);const at=sceneMin()+rel;d=22;tm=fmtMin(at)}
+ if(!tm){m=t.match(/(?:в|к|на)\s+(\d{1,2})(?:[:.](\d{2}))?(?!\s*(?:дн|кг|%|мин))/);if(m&&+m[1]<24)tm=pad(+m[1])+':'+(m[2]||'00');
+  else{m=t.match(/(?:в|к)\s+(восемь|девять|десять|одиннадцать|двенадцать|час|два|три|четыре|пять|шесть)\b/);if(m)tm=pad(NUMW[m[1]])+':00'}}
+ if(d==null)d=tm&&tm>hhmm()?22:23;if(!tm)tm='10:00';
+ let what=text.replace(/^\s*(пожалуйста,?\s*)?(напомни(те)?|поставь напоминание)\s*(мне)?\s*(,\s*)?/i,'')
+  .replace(/через\s+(\d+|минуту|пару минут|полчаса|час)\s*(мин\w*|час\w*)?/i,'')
+  .replace(/(послезавтра|завтра|сегодня)/i,'').replace(/(в|во|на)\s+(понедельник|вторник|среду|пятницу|субботу|воскресенье)/i,'')
+  .replace(/(в|к|на)\s+\d{1,2}([:.]\d{2})?(\s*час\w*)?/i,'').replace(/(в|к)\s+(восемь|девять|десять|одиннадцать|двенадцать|час|два|три|четыре|пять|шесть)\b/i,'')
+  .replace(/^\s*(о том,?\s*)?(что|чтобы)\s+/i,'').replace(/\s+/g,' ').replace(/^[\s,.:—-]+|[\s.!]+$/g,'').trim();
+ if(!what)what='напоминание';return {d,t:tm,what:cap(what),rel}}
+function remText(r){return (r.rel?'через '+r.rel+' '+plural(r.rel,'минуту','минуты','минут')+', в '+r.t:WDF[r.d]+(r.d===22?'':' '+r.d+' октября')+', в '+r.t)}
+async function doRemind(text,fromVoice){const r=parseRem(text);
+ const e={d:r.d,t:r.t,x:r.what,s:fromVoice?'из голосового':'напоминание'};addEv(e);
+ await botSay({typing:'ставит напоминание',delay:600,html:'Готово. Напомню '+remText(r)+': <b>'+esc(r.what)+'</b>.'+(r.rel?'':' Событие уже в календаре.'),kb:[[{t:'Сдвинуть на час',a:'rem_sh'},{t:'Другие задачи',a:'more'}]]});
+ S.ctx.lastEv=S.ev.length-1;log({type:fromVoice?'Голосовое':'Напоминание',q:cap(remText(r))+' — '+r.what,cost:1});
+ if(r.rel)later(()=>run(()=>botSay({push:true,stream:false,delay:200,html:'🔔 <b>Напоминание</b><br>'+esc(r.what)})),RM?1500:r.rel*60000)}
+const WHO=[[/вер(е|ы|у|а)\b/i,'vera'],[/кирилл(у|а)?\b/i,'kirill'],[/олег(у|а)?\b/i,'oleg'],[/нин(е|ы|у|а)\b/i,'nina']];
+async function doTask(text,fromVoice){const w=WHO.find(x=>x[0].test(text));const who=w?w[1]:'nina';const p=EMP[who];
+ let what=text.replace(/^.*?задач[уи]?\s*[:,—-]?\s*/i,'').replace(/\s*(до|к)\s+(пятниц\w*|понедельник\w*|вторник\w*|сред\w*|завтра|субботы)\s*\.?$/i,'').replace(/[.!]+$/,'').trim();
+ if(!what)what='задача от Анны';what=cap(what);
+ const dm=text.match(/(пятниц|понедельник|вторник|сред|суббот|завтра)/i);const d=dm?{'пятниц':23,'понедельник':26,'вторник':27,'сред':28,'суббот':24,'завтра':23}[dm[1].toLowerCase()]:23;
+ addEv({d,t:'18:00',x:p.n.split(' ')[0]+': '+what.charAt(0).toLowerCase()+what.slice(1),s:'задача · '+p.r});
+ await botSay({typing:'ставит задачу',delay:700,html:'Поставил задачу <b>'+p.d+'</b> ('+p.r+'): '+esc(what.charAt(0).toLowerCase()+what.slice(1))+'. Срок — '+WDF[d].replace('завтра, в ','')+', '+d+' октября, до 18:00. '+p.n.split(' ')[0]+' получила уведомление в Telegram.',kb:[[{t:'Другие задачи',a:'more'}]]});
+ log({type:fromVoice?'Голосовое':'Задача',q:'Задача для '+p.g+': '+what,cost:1})}
+let rec=null;
+function startRec(){if(rec)return;closePops();const v=VOICE[S.vi%VOICE.length];const R=$('#rec'),L=$('#recL');R.hidden=false;
+ L.innerHTML='<i></i>'.repeat(40);const bs=$$('i',L);let t0=performance.now();
+ rec={v,iv:setInterval(()=>{const s=Math.floor((performance.now()-t0)/1000*(v.d/2.6));$('#recT').textContent='0:'+pad(Math.min(v.d,s));bs.forEach(b=>{b.style.height=(4+Math.random()*(RM?6:22))+'px'})},120)};
+ rec.auto=setTimeout(()=>stopRec(true),RM?400:2600);$('#recGo').focus({preventScroll:true})}
+function stopRec(send){if(!rec)return;clearInterval(rec.iv);clearTimeout(rec.auto);$('#rec').hidden=true;const v=rec.v;rec=null;$('#mic').focus({preventScroll:true});
+ if(send){S.vi++;sendVoice(v)}}
+function sendVoice(v){S.mode=null;const m=meSay({type:'voice',x:{d:v.d,seed:S.vi+2,tx:''}});
+ return run(async()=>{await wait(500);setStatus('расшифровывает голосовое');const row=$('#m'+m.id);const box=row&&$('.vc-tx',row);const tr=row&&$('.vc-tr',row);
+  if(box){box.innerHTML='<span class="lbl">Расшифровка</span><span class="shimmer" aria-label="Расшифровывается"><i></i><i></i><i></i></span>';if(tr)tr.classList.add('on');toBottom(true);await wait(1100);
+   box.innerHTML='<span class="lbl">Расшифровка</span><span class="vt"></span>';const vt=$('.vt',box);
+   if(RM)vt.textContent=v.x;else{for(let i=0;i<=v.x.length;i+=3){vt.textContent=v.x.slice(0,i);toBottom();await wait(22)}vt.textContent=v.x}}
+  m.x.tx=v.x;save();setStatus();
+  if(v.go==='v_rem')await doRemind(v.x,true);
+  else if(v.go==='v_task')await doTask(v.x,true);
+  else{const e=KB.find(k=>k.id==='brak');await kbAnswer(e,v.x)}})}
+function playVoice(btn){const row=btn.closest('.row');const m=S.msgs.find(x=>'m'+x.id===row.id);if(!m)return;const bs=$$('.vc-w i',row);
+ if(btn._t){clearInterval(btn._t);btn._t=0;btn.innerHTML=PLAY;bs.forEach(b=>b.classList.remove('p'));return}
+ btn.innerHTML=PAUSE;btn.setAttribute('aria-label','Пауза');let k=0;const per=(m.x.d*1000)/bs.length;
+ btn._t=setInterval(()=>{if(k<bs.length){bs[k++].classList.add('p')}else{clearInterval(btn._t);btn._t=0;btn.innerHTML=PLAY;btn.setAttribute('aria-label','Прослушать голосовое');bs.forEach(b=>b.classList.remove('p'))}},RM?5:per)}
+
+/* ---------- actions ---------- */
+const ACT={
+ menu0:()=>run(async()=>{S.mode=null;await botSay({html:greetHTML(),kb:menuKb(),delay:500})}),
+ today:()=>run(async()=>{S.mode=null;await botSay({typing:'собирает сводку',html:summaryHTML(false),kb:menuKb(),delay:700})}),
+ more:()=>run(async()=>{S.mode=null;await sayMenu('Что ещё сделаем?');if(S.hint==='more'||!S.hint){const k=GUIDE.find(g=>S.done.indexOf(g)<0);setHint(k?'m_'+k:null)}}),
+ m_review:()=>run(startReview),rv:a=>rvAct(a),
+ rv_soft:()=>run(async()=>{const r=curRev();await botSay({typing:'переписывает',html:'Сделал мягче — больше сочувствия, меньше официальности:<br><br>'+r.soft,kb:[[{t:'Короче',a:'rv_short'},{t:'Другие задачи',a:'more'}]]});log({type:'Ответ на отзыв',q:'Сделать мягче · '+r.name,cost:1});if(!S.hint||S.hint==='rv_soft')setHint(guideNext())}),
+ rv_short:()=>run(async()=>{const r=curRev();await botSay({typing:'сокращает',html:'Коротко, в одну строку:<br><br>1. '+r.short[0]+'<br>2. '+r.short[1]+'<br>3. '+r.short[2],kb:[[{t:'Сделать мягче',a:'rv_soft'},{t:'Другие задачи',a:'more'}]]});log({type:'Ответ на отзыв',q:'Короче · '+r.name,cost:1});if(S.hint==='rv_soft')setHint(guideNext())}),
+ m_post:()=>run(startPost),post:a=>run(()=>makePost(POSTS[+a||0])),
+ post_h:()=>run(async()=>{const p=S.ctx.post||POSTS[0];await botSay({typing:'подбирает заголовки',html:'Ещё три заголовка:<br><br>1. '+esc(p.alt[0])+'<br>2. '+esc(p.alt[1])+'<br>3. '+esc(p.alt[2]),kb:[[{t:'Короче',a:'post_s'},{t:'Другие задачи',a:'more'}]]});log({type:'Пост',q:'Другие заголовки · '+p.topic,cost:1})}),
+ post_s:()=>run(async()=>{const p=S.ctx.post||POSTS[0];await botSay({typing:'сокращает',html:'Короткая версия — для сторис или канала:<br><br>'+esc(p.short),kb:[[{t:'Другие заголовки',a:'post_h'},{t:'Другие задачи',a:'more'}]]});log({type:'Пост',q:'Короткая версия · '+p.topic,cost:1})}),
+ m_doc:()=>run(startDoc),doc_send:()=>docSend(),
+ doc_proto:()=>run(async()=>{await botSay({typing:'готовит протокол',html:CONTRACT.proto});
+  await botSay({type:'doc',stream:false,delay:500,x:{name:'Протокол_разногласий_47-26.docx',size:'38 КБ',ext:'DOC'},html:'Файл готов — можно отправлять поставщику. Добавил в календарь: отправить до 27 октября.'});
+  if(!S.ev.some(e=>e.k==='proto'))addEv({d:27,t:'12:00',x:'Отправить протокол разногласий «Зелёному каравану»',s:'до подписания 28 октября',k:'proto'});
+  log({type:'Пересказ документа',q:'Протокол разногласий к договору № 47/26',cost:2});
+  later(()=>run(()=>botSay({push:true,stream:false,delay:300,html:'🔔 <b>Напоминание</b><br>Подписание договора № 47/26 с «Зелёным караваном» — 28 октября. Протокол разногласий лучше отправить до 27 октября.',kb:[[{t:'Напомнить завтра',a:'snooze'}]]})),9000)}),
+ doc_ask:()=>run(async()=>{S.mode='docq';await botSay({html:'Спрашивайте — про цену, оплату, неустойку, приёмку или расторжение. Например:',kb:DQ_BTN.map((q,i)=>[{t:q,a:'dq:'+i}])})}),
+ dq:a=>{const q=DQ_BTN[+a||0];meSay(q);return run(()=>docAnswer(docQ(q.toLowerCase())))},
+ m_tr:()=>run(startTr),
+ tr_ex:()=>{meSay(TR.ru);return run(async()=>{S.mode=null;await botSay({html:'На какой язык переводим?',delay:450,kb:[[{t:'Английский',a:'tr:en'},{t:'Китайский',a:'tr:zh'}],[{t:'Оба языка',a:'tr:both'}]]})})},
+ tr:a=>run(()=>trOut(a||'en',false)),tr_formal:()=>run(()=>trOut(S.ctx.lang||'en',true)),
+ m_kp:()=>run(startKp),
+ kp:a=>run(async()=>{const n=+a||0;S.ctx.kp=n;const k=KP[n];await botSay({html:k.q,delay:500,kb:[k.opts.map(o=>({t:o[1],a:'kpd:'+o[0]}))]})}),
+ kpd:a=>run(()=>makeKp(+a||0)),
+ kp_pdf:()=>run(async()=>{const k=KP[S.ctx.kp||0];await botSay({type:'doc',stream:false,delay:700,typing:'отправляет файл',x:{name:k.file,size:'186 КБ · 2 страницы',ext:'PDF'},html:'С логотипом и реквизитами компании.'})}),
+ kp_mail:()=>run(async()=>{const k=KP[S.ctx.kp||0],pct=S.ctx.pct||0,c=kpCalc(k,pct);await botSay({typing:'пишет письмо',html:'<b>Тема:</b> Коммерческое предложение — поставка кофе для «'+k.short+'»<br><br>Здравствуйте, '+k.person+'!<br><br>Как и договаривались, отправляем предложение на поставку '+k.vol+' кг кофе в месяц.'+(pct?' С учётом скидки '+pct+'%':' Итого')+' — '+nf(c.tot)+' ₽ в месяц. Можем привезти 2 кг на тест уже в эту пятницу — просто ответьте на письмо.<br><br>Анна Белова<br>«Сорок зёрен»',kb:[[{t:'Другие задачи',a:'more'}]]});log({type:'КП',q:'Письмо клиенту · '+k.short,cost:1})}),
+ m_kb:()=>run(startKb),
+ kb:a=>{const e=KB.find(x=>x.id===a)||KB[0];meSay(e.q);return run(()=>kbAnswer(e))},
+ src:a=>openSrc(a),
+ en:a=>{const p=String(a||'').split(':');const d=p[0];if(!DOCS[d])return;S.docs[d]=1;renderSettings();save();setNote('Документ «'+DOCS[d].name+'» подключён');
+  return run(async()=>{await botSay({delay:400,html:'Подключил «'+DOCS[d].name+'». Повторяю…'});if(p[1]){const e=KB.find(x=>x.id===p[1]);if(e)await kbAnswer(e)}else if(d==='price'&&S.ctx.kpPending){S.ctx.kpPending=0;await makeKp(S.ctx.pct||0)}})},
+ limit:()=>run(async()=>{const p=Math.floor(S.used/S.limit*100);await botSay({html:'Лимит на октябрь: использовано <b>'+nf(S.used)+' из '+nf(S.limit)+'</b> запросов ('+p+'%). Больше всего — у Веры (SMM): '+nf(S.emp.vera)+'.',kb:S.paid?null:[[{t:'Пополнить лимит',a:'buy'}]]})}),
+ buy:()=>run(sayInvoice),pay:()=>payFlow(),
+ snooze:()=>run(async()=>{addEv({d:23,t:'10:00',x:'Подписание договора № 47/26 — проверить протокол',s:'напоминание'});await botSay({html:'Хорошо, напомню завтра в 10:00. Добавил в календарь.',delay:400})}),
+ remind:()=>run(async()=>{S.mode='rem';await botSay({html:'Что и когда напомнить? Напишите, например: «Напомни в 15:00 позвонить в «Дрова»». Или надиктуйте голосовое.',kb:[[{t:'Через минуту — сделать перерыв на кофе',a:'rem_ex'}]]})}),
+ rem_ex:()=>{const t='Напомни через минуту сделать перерыв на кофе';meSay(t);return run(()=>doRemind(t,false))},
+ rem_sh:()=>run(async()=>{const e=S.ev[S.ctx.lastEv];if(!e){await botSay({html:'Нечего сдвигать — напоминаний пока нет.'});return}const [h,mi]=e.t.split(':').map(Number);e.t=pad(Math.min(23,h+1))+':'+pad(mi);S.sel=e.d;save();renderWeek();renderEvs(e);await botSay({delay:400,html:'Сдвинул на '+e.t+': <b>'+esc(e.x)+'</b>.'})})
+};
+function act(a){if(!a)return;const i=a.indexOf(':');const k=i>-1?a.slice(0,i):a,arg=i>-1?a.slice(i+1):'';const f=ACT[k];closePops();if(f)return f(arg)}
+function sendCmd(label,a){meSay(label);act(a)}
+
+/* ---------- free text ---------- */
+function onText(raw){const text=raw.trim();if(!text)return;meSay(text);const t=text.toLowerCase();
+ if(t[0]==='/'){const c=CMD.find(c=>t.split(/[\s@]/)[0]==='/'+c[0]);if(c){act(c[2]);return}run(()=>botSay({html:'Не знаю такой команды. Все команды — в кнопке «Меню» слева от поля ввода.'}));return}
+ if(/напомн|напоминани/.test(t)&&!/^как|\?$/.test(t)){run(()=>doRemind(text,false));return}
+ if(S.mode==='rem'&&text.length>3){run(()=>doRemind('напомни '+text,false));return}
+ if(/(постав|дай|добав|назнач)\S*\s.{0,24}задач|задач\S*\s+(вер|кирилл|олег|нин)/.test(t)){run(()=>doTask(text,false));return}
+ if(S.mode==='review'&&text.length>=15){run(()=>customReview(text));return}
+ if(S.mode==='post'&&text.length>=3&&!/^(отзыв|договор|перевед|кп)\b/.test(t)){run(()=>makePost(customPost(text)));return}
+ const kb=kbMatch(t),dq=docQ(t);
+ if(S.mode==='docq'&&dq&&(!kb||/договор|поставщик/.test(t))){run(()=>docAnswer(dq));return}
+ if(S.mode==='tr'&&/[а-яё]/i.test(text)&&text.length>8&&!kb){run(()=>botSay({html:'Возьму в работу. Сейчас в очереди письмо Ли Вэю из утренней сводки — переведём его первым?',kb:[[{t:'Перевести письмо Ли Вэю',a:'tr_ex'}]]}));return}
+ if(S.mode==='kp'&&!kb){run(()=>botSay({html:'Выберите клиента — данные возьму из карточки в CRM:',kb:[[{t:'«Утро на Волге» · 40 кг/мес',a:'kp:0'}],[{t:'«Северный код» · 12 кг/мес',a:'kp:1'}]]}));return}
+ const question=/\?|^(как|какой|какая|какие|сколько|где|когда|можно|что|кто|почему|зачем|есть ли)\b/.test(t);
+ if(kb&&(S.mode==='kb'||question)){run(()=>kbAnswer(kb,text.slice(0,80)));return}
+ if(/сводк|что (у меня )?(на|сегодня)|план на день|дела на/.test(t)){act('today');return}
+ if(/^(привет|здравств|добр(ый|ое|ого)|доброе|хай|hello|hi)\b/.test(t)){run(()=>botSay({html:'Здравствуйте, Анна! Чем помочь?',kb:menuKb()}));return}
+ if(/спасиб|благодар/.test(t)){run(()=>botSay({html:'Пожалуйста! Если нужно что-то ещё — я здесь.'}));return}
+ if(/что (ты )?умеешь|кто ты|помощь|help|как работа/.test(t)){run(()=>botSay({html:'Присылаю утреннюю сводку, отвечаю на отзывы, пишу посты, пересказываю договоры, перевожу письма, собираю КП, ищу ответы в документах компании, ставлю напоминания и задачи. С чего начнём?',kb:menuKb()}));return}
+ if(/лимит|расход/.test(t)){act('limit');return}
+ if(/отзыв/.test(t)&&text.length<60){run(startReview);return}
+ if(/пост|соцсет|сторис|публикац|анонс/.test(t)){run(startPost);return}
+ if(/договор|документ|pdf|пересказ|резюм|прочита/.test(t)){run(startDoc);return}
+ if(/перев|англ|китай|english|chinese/.test(t)){run(startTr);return}
+ if(/(^|\s)кп(\s|$|\W)|коммерческ|предложени/.test(t)){run(startKp);return}
+ if(kb){run(()=>kbAnswer(kb,text.slice(0,80)));return}
+ if(text.length>40&&(NEG.test(text)||POS.test(text))){run(()=>customReview(text));return}
+ run(()=>botSay({delay:700,html:'Не до конца понял задачу. Выберите, что сделать, или спросите базу знаний: про возврат, доставку, скидки, хранение зерна, отпуск или смены. Ещё могу поставить напоминание — «Напомни завтра в 11 …».',kb:menuKb()}))}
+const PH={review:'Текст отзыва…',post:'Тема поста…',docq:'Вопрос по договору…',kb:'Ваш вопрос…',tr:'Текст…',rem:'Что и когда напомнить…'};
+function updatePh(){const i=$('#msg');if(i)i.placeholder=PH[S.mode]||'Сообщение'}
+
+/* ---------- wiring ---------- */
+function reset(){GEN++;TIMERS.forEach(id=>clearTimeout(id));TIMERS.clear();Q=Promise.resolve();if(rec){clearInterval(rec.iv);clearTimeout(rec.auto);rec=null;$('#rec').hidden=true}
+ try{localStorage.removeItem(KEY)}catch(e){}S=fresh();save();limShown=null;closeSheet();closePops();hidePush();setStatus();untype();
+ $('#rkb').hidden=true;$('#kbT').setAttribute('aria-pressed','false');renderAll();renderLog(false);renderLimit();renderSettings();renderTasks();renderWeek();renderEvs()}
+feed.addEventListener('click',e=>{const pl=e.target.closest('[data-play]');if(pl){playVoice(pl);return}
+ const b=e.target.closest('.ikb button');if(!b)return;const m=S.msgs.find(x=>String(x.id)===b.dataset.m);
+ if(m){m.picked=m.picked||[];if(m.picked.indexOf(b.dataset.a)<0)m.picked.push(b.dataset.a)}
+ b.classList.add('picked','busy');setTimeout(()=>b.classList.remove('busy'),RM?50:650);act(b.dataset.a)});
+feed.addEventListener('scroll',()=>{$('#down').hidden=feed.scrollHeight-feed.scrollTop-feed.clientHeight<320},{passive:true});
+$('#down').addEventListener('click',()=>{feed.scrollTo({top:feed.scrollHeight,behavior:RM?'auto':'smooth'})});
+const inp=$('#msg'),sendB=$('#send'),micB=$('#mic');
+function sync(){const v=!!inp.value.trim();sendB.hidden=!v;micB.hidden=v}
+inp.addEventListener('input',sync);
+$('#cmp').addEventListener('submit',e=>{e.preventDefault();const v=inp.value;if(!v.trim())return;inp.value='';sync();closePops();onText(v)});
+micB.addEventListener('click',startRec);
+$('#recX').addEventListener('click',()=>stopRec(false));
+$('#recGo').addEventListener('click',()=>stopRec(true));
+$('#menuB').addEventListener('click',e=>{e.stopPropagation();const c=$('#cmds');const open=c.hidden;closePops();
+ if(open){c.innerHTML=CMD.map(x=>'<button type="button" role="menuitem" data-cmd="'+x[0]+'"><code>/'+x[0]+'</code><span>'+x[1]+'</span></button>').join('');c.hidden=false;$('#menuB').setAttribute('aria-expanded','true');const f=$('button',c);if(f)f.focus({preventScroll:true})}});
+$('#cmds').addEventListener('click',e=>{const b=e.target.closest('[data-cmd]');if(!b)return;const c=CMD.find(x=>x[0]===b.dataset.cmd);closePops();inp.focus({preventScroll:true});if(c)sendCmd('/'+c[0],c[2])});
+$('#kebab').addEventListener('click',e=>{e.stopPropagation();const p=$('#kpop');const open=p.hidden;closePops();if(open){p.hidden=false;$('#kebab').setAttribute('aria-expanded','true');const f=$('button',p);if(f)f.focus({preventScroll:true})}});
+$('#kpop').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;closePops();const k=b.dataset.k;if(k==='reset')reset();else if(k==='info')botInfo();else sendCmd('/today','today')});
+[$('#kpop'),$('#cmds')].forEach(menu=>menu.addEventListener('keydown',e=>{const items=$$('button',menu);const i=items.indexOf(document.activeElement);if(e.key==='ArrowDown'){e.preventDefault();items[(i+1)%items.length].focus()}else if(e.key==='ArrowUp'){e.preventDefault();items[(i-1+items.length)%items.length].focus()}}));
+$('#pin').addEventListener('click',()=>{const m=S.msgs.find(x=>x.summary);const el=m&&$('#m'+m.id);feedTo(el,true)});
+$('#botInfo').addEventListener('click',botInfo);
+$('#resetB').addEventListener('click',reset);
+$('#attach').addEventListener('click',()=>{openSheet('Отправить файл','Недавние файлы','<button type="button" class="attach-f" id="attF">'+docHTML({name:'договор_поставки.pdf',size:'412 КБ · 14 страниц · вчера',ext:'PDF'})+'</button><p class="docv-f">Бот принимает PDF, DOCX, XLSX и сканы до 20 МБ.</p>');$('#attF').addEventListener('click',()=>{closeSheet();act('doc_send')})});
+$('#kbT').addEventListener('click',()=>{const r=$('#rkb');const open=r.hidden;r.hidden=!open;$('#kbT').setAttribute('aria-pressed',String(open));if(open){r.innerHTML=MENU.map(m=>'<button type="button" data-a="'+m[2]+'" data-label="'+m[1]+'">'+m[1]+'</button>').join('')}toBottom(true)});
+$('#rkb').addEventListener('click',e=>{const b=e.target.closest('button');if(b)sendCmd(b.dataset.label,b.dataset.a)});
+$('#push').addEventListener('click',()=>{const el=$('#m'+$('#push').dataset.m);hidePush();toChat();if(el)setTimeout(()=>feedTo(el,true),RM?0:450)});
+$('#sheetW').addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeSheet()});
+document.addEventListener('click',e=>{if(!e.target.closest('#kpop,#kebab,#cmds,#menuB'))closePops()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(rec)stopRec(false);else if(!$('#sheetW').hidden)closeSheet();else closePops()}
+ if(e.key==='Tab'&&!$('#sheetW').hidden){const f=$$('button,[href],input',$('.sheet')).filter(x=>!x.disabled);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+$('#tasks').addEventListener('click',e=>{const b=e.target.closest('[data-task]');if(!b)return;const t=TASKS.find(x=>x.k===b.dataset.task);if(!t)return;toChat();
+ const go=()=>{if(t.say){meSay(t.say);if(t.k==='doc'){run(startDoc)}else act(t.a)}else act(t.a)};
+ if(!chatVis&&!RM)setTimeout(go,520);else go()});
+$('#week').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(!b)return;S.sel=+b.dataset.day;save();renderWeek();renderEvs()});
+$('#logMore').addEventListener('click',()=>{logAll=!logAll;renderLog(false)});
+$('#toneG').addEventListener('change',e=>{S.tone=e.target.value;save();setNote('Тон «'+TONE[S.tone]+'» — применится к следующему ответу')});
+$('#modelG').addEventListener('change',e=>{S.model=e.target.value;save();setNote('Модель '+S.model+' — новые запросы пойдут через неё')});
+$('#docsG').addEventListener('change',e=>{const k=e.target.dataset.doc;if(!k)return;S.docs[k]=e.target.checked?1:0;e.target.closest('.doc').classList.toggle('off',!S.docs[k]);save();docsLabel();
+ setNote(S.docs[k]?'«'+DOCS[k].name+'» подключён — бот сообщил команде в чате':'«'+DOCS[k].name+'» отключён — бот не будет на него ссылаться');docNotice(k)});
+function docNotice(k){clearTimeout(docNotice.t[k]);const g=GEN;docNotice.t[k]=setTimeout(()=>{if(g!==GEN)return;const on=S.docs[k];
+ run(()=>botSay({push:true,stream:false,delay:300,html:on?'<b>База знаний обновлена</b><br>Руководитель подключил «'+DOCS[k].name+'» — теперь отвечаю и по нему.'+(k==='serv'?' Спросите, например, как приветствовать гостя.':''):'<b>База знаний обновлена</b><br>«'+DOCS[k].name+'» отключён — больше не ссылаюсь на него в ответах.',kb:on&&k==='serv'?[[{t:'Как приветствовать гостя?',a:'kb:serv'}]]:null}))},700)}
+docNotice.t={};
+$('#limBuy').addEventListener('click',()=>{if(S.paid)return;toChat();run(async()=>{await botSay({push:true,stream:false,delay:300,html:'Руководитель предлагает пополнить лимит на октябрь — счёт ниже.'});await sayInvoice()})});
+
+/* ---------- page motion ---------- */
+const hero=$('#hero');
+const goHero=()=>hero.classList.add('go');
+if(RM)goHero();else{let gone=0;const f=()=>{if(!gone){gone=1;requestAnimationFrame(goHero)}};(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(f);setTimeout(f,700)}
+const STS=['печатает','читает договор','ищет в регламенте','расшифровывает голосовое','собирает КП','готовит сводку'];let sti=0;
+if(!RM)setInterval(()=>{if(document.hidden||scrollY>innerHeight)return;sti=(sti+1)%STS.length;$$('[data-st]').forEach(s=>{s.classList.add('sw');setTimeout(()=>{s.textContent=STS[sti];s.classList.remove('sw')},250)})},2300);
+const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'}):null;
+$$('.rv,.tg-in').forEach(el=>io?io.observe(el):el.classList.add('on'));
+if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{chatVis=e.intersectionRatio>.35}),{threshold:[0,.35,.6,1]}).observe($('#tg'))}
+const hd=$('#hd');const chs=$$('[data-ch]').filter(x=>x!==hd);const pics=$$('.pw .pic img,.feat-ph img');let tick=0;
+function onScroll(){tick=0;const y=hd.offsetHeight/2;let ch='paper';for(const s of chs){const r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y){ch=s.dataset.ch;break}}hd.dataset.ch=ch;
+ if(!RM)pics.forEach(im=>{const r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const k=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.setProperty('--py',(k*-14).toFixed(1)+'px')})}
+addEventListener('scroll',()=>{if(!tick){tick=1;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+
+renderAll();renderLog(false);renderLimit();renderSettings();renderTasks();renderWeek();renderEvs();updatePh();applyHint();sync();
+})();
+</script>
+</body>
+</html>

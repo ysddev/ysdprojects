@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ПаркетДекор — как пользоваться админкой</title>
+<meta name="description" content="Инструкция для владельца магазина паркетдекор.рф: тексты, товары, фото, заказы.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235B3F2C'/%3E%3Cpath d='M8 22l8-8 8 8M8 14l8-8 8 8' stroke='%23F3ECE2' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Commissioner;font-weight:400;font-display:swap;src:url(commissioner-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0400-04FF,U+2116}
+@font-face{font-family:Commissioner;font-weight:400;font-display:swap;src:url(commissioner-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2192}
+@font-face{font-family:Commissioner;font-weight:600;font-display:swap;src:url(commissioner-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0400-04FF,U+2116}
+@font-face{font-family:Commissioner;font-weight:600;font-display:swap;src:url(commissioner-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2192}
+@font-face{font-family:Commissioner;font-weight:700;font-display:swap;src:url(commissioner-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0400-04FF,U+2116}
+:root{--bg:#FBF8F3;--panel:#F3ECE2;--ink:#2B221C;--muted:#6F6359;--brand:#5B3F2C;--line:#E7DDD0;--warn:#8A3B12;--warn-bg:#FBEBDD}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.6 Commissioner,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--brand);text-underline-offset:3px}
+header{background:var(--ink);color:#F6EFE6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header .wrap{padding-top:40px;padding-bottom:40px}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.01em}.logo span{color:#C9A27E}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:18px 0 10px;letter-spacing:-.02em;font-weight:700}
+.lead{color:#D8CCBE;max-width:640px;margin:0}
+.grid{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;padding-top:40px;padding-bottom:80px}
+nav.toc{position:sticky;top:24px;align-self:start}
+nav.toc b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+nav.toc a{display:block;padding:8px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:15px}
+nav.toc a:hover{background:var(--panel)}
+section{scroll-margin-top:20px;padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+h2{font-size:26px;line-height:1.25;margin:0 0 14px;letter-spacing:-.01em}
+h3{font-size:18px;margin:24px 0 8px}
+.path{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-weight:600;white-space:nowrap}
+code{background:var(--panel);border-radius:5px;padding:1px 6px;font-size:.92em}
+ol,ul{padding-left:22px;margin:10px 0}li{margin:6px 0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--panel);font-weight:600}
+tr:last-child td{border-bottom:0}
+.note{background:var(--panel);border-radius:12px;padding:14px 18px;margin:16px 0}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:14px 18px;margin:16px 0}
+.warn strong{color:var(--warn)}
+footer{color:var(--muted);font-size:14px;padding:0 0 40px}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr);gap:8px;padding-top:24px}nav.toc{position:static;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}nav.toc b{width:100%}nav.toc a{background:var(--panel);padding:8px 12px;font-size:14px}}
+@media print{header{background:none;color:var(--ink)}.lead{color:var(--muted)}nav.toc{display:none}.grid{display:block}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo">Паркет<span>Декор</span></div>
+  <h1>Как пользоваться админкой</h1>
+  <p class="lead">В админке меняются тексты, фото, цены и видны заказы. Здесь — что где лежит и чего лучше не трогать. Сайт работает на OpenCart&nbsp;3.</p>
+</div></header>
+
+<div class="wrap grid">
+<nav class="toc" aria-label="Содержание">
+  <b>Содержание</b>
+  <a href="#vhod">Вход</a>
+  <a href="#teksty">Тексты страниц</a>
+  <a href="#tovary">Товары</a>
+  <a href="#foto">Фото разделов и главной</a>
+  <a href="#zakazy">Заказы, отзывы, заявки</a>
+  <a href="#avto">Что обновляется само</a>
+  <a href="#ne-trogat">Что лучше не трогать</a>
+</nav>
+
+<main>
+<section id="vhod">
+  <h2>Вход</h2>
+  <ol>
+    <li>Откройте <a href="https://xn--80aicbwd2abkgr.xn--p1ai/admin/" rel="noopener"><b>паркетдекор.рф/admin/</b></a> — лучше в Chrome или Яндекс Браузере, с компьютера.</li>
+    <li>Логин — тот, что мы прислали вам отдельно. Вход привязан к почте winwoodmsk@yandex.ru.</li>
+    <li>Пароль задаёте сами: на странице входа нажмите «Забыли пароль?», укажите winwoodmsk@yandex.ru и перейдите по ссылке из письма. Письмо может попасть в «Спам».</li>
+    <li>После входа откроется «Панель состояния» — сводка заказов и посетителей. Всё меню — слева.</li>
+  </ol>
+  <p class="note">Пароль никому не пересылайте в переписке. Забыли — снова «Забыли пароль?».</p>
+</section>
+
+<section id="teksty">
+  <h2>Тексты страниц</h2>
+  <p>Меню <span class="path">Каталог → Статьи</span> (в некоторых версиях — «Информация»). Здесь все страницы из верхнего меню и подвала сайта.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Страница</th><th>Что в ней</th></tr></thead>
+    <tbody>
+      <tr><td>Доставка и оплата</td><td>Доставка, самовывоз, приёмка, оплата</td></tr>
+      <tr><td>О компании</td><td>Рассказ о магазине</td></tr>
+      <tr><td>Дизайнерам</td><td>Условия и анкета на сотрудничество</td></tr>
+      <tr><td>Публичная оферта, Политика ПДн, Согласие, Политика cookie</td><td>Юридические тексты — меняйте только после согласования с юристом</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Как исправить текст</h3>
+  <ol>
+    <li>Нажмите синюю кнопку с карандашом справа от нужной страницы.</li>
+    <li>Во вкладке «Основное» правьте поле «Описание», как в Word: жирный, списки, ссылки.</li>
+    <li>Нажмите синюю кнопку с дискетой вверху справа («Сохранить»). Обновите страницу сайта — изменение уже там.</li>
+  </ol>
+  <p class="note">Текст из Word вставляйте через <b>Ctrl+Shift+V</b> — так не перенесутся чужие шрифты и цвета. Поля во вкладках «Данные» и «SEO» не меняйте: от них зависят адреса страниц.</p>
+</section>
+
+<section id="tovary">
+  <h2>Товары</h2>
+  <p>Меню <span class="path">Каталог → Товары</span>. Править вручную стоит паркет WINWOOD, плинтусы и молдинги: обои и ламинат поставщики обновляют сами (<a href="#avto">подробнее</a>).</p>
+  <p><b>Найти товар.</b> Справа блок «Фильтр»: введите начало названия или артикул (поле «Модель») и нажмите «Фильтр». Открыть товар — кнопка с карандашом.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Что поменять</th><th>Вкладка и поле</th></tr></thead>
+    <tbody>
+      <tr><td>Название, описание</td><td>«Основное» → «Название товара», «Описание»</td></tr>
+      <tr><td>Цена</td><td>«Данные» → «Цена» (паркет — за м², плинтусы и молдинги — за шт.). 0 = «Цена по запросу»</td></tr>
+      <tr><td>Скрыть с сайта</td><td>«Данные» → «Статус»: «Отключено». Удалять не нужно</td></tr>
+      <tr><td>Наличие</td><td>«Данные» → «Состояние на складе»</td></tr>
+      <tr><td>Фото</td><td>«Изображения» (ниже)</td></tr>
+      <tr><td>Характеристики (сорт, толщина, производитель)</td><td>«Атрибуты»</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Фото товара</h3>
+  <ol>
+    <li>Во вкладке «Изображения» нажмите на картинку, затем на карандаш — откроется менеджер изображений.</li>
+    <li>Кнопка со стрелкой вверх загружает файл с компьютера, потом нажмите на загруженную картинку.</li>
+    <li>Дополнительные фото — кнопка «+» ниже и так же.</li>
+    <li>Сохраните товар (дискета вверху).</li>
+  </ol>
+  <p class="note">Фото — JPG, от 1200 пикселей по длинной стороне и до 2 МБ. Имя файла латиницей без пробелов, например <code>ww-elochka-dub-1.jpg</code>. Берите свои фото или фото поставщиков, не картинки из интернета: на них есть авторские права.</p>
+</section>
+
+<section id="foto">
+  <h2>Фото разделов и главной</h2>
+  <h3>Картинка раздела</h3>
+  <p>Плитки «Паркет», «Ламинат», фабрики обоев и т. д.:</p>
+  <ol>
+    <li><span class="path">Каталог → Категории</span>, карандаш у нужного раздела.</li>
+    <li>Вкладка «Данные» → «Изображение категории»: нажмите на картинку → карандаш → загрузите или выберите фото.</li>
+    <li>Сохраните.</li>
+  </ol>
+  <p>Разделы на главной странице берут картинки оттуда же. Лучше всего смотрятся горизонтальные интерьерные фото от 1200 пикселей.</p>
+  <h3>Галерея «Паркет в интерьерах»</h3>
+  <p>На главной показываются до 8 фото из папки <code>pd/int</code> в менеджере изображений — по порядку имён файлов: int-1, int-2… Чтобы добавить фото, откройте менеджер изображений в любом товаре, зайдите в папки pd → int и загрузите файл с именем вроде <code>int-9.jpg</code>. Товар при этом не сохраняйте.</p>
+  <h3>Большое фото вверху главной и две плитки под ним</h3>
+  <p>«Паркет» и «Обои и краска» заданы в дизайне сайта. Их замену присылайте нам.</p>
+</section>
+
+<section id="zakazy">
+  <h2>Заказы, отзывы, заявки</h2>
+  <p>Всё, что оставляют покупатели, приходит письмом на <b>winwoodmsk@yandex.ru</b>. Проверяйте и папку «Спам»; если письма сайта попали туда, нажмите «Не спам».</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Что</th><th>Как приходит</th><th>Где смотреть и что делать</th></tr></thead>
+    <tbody>
+      <tr><td>Заказ</td><td>Письмо «Заказ №…»</td><td><span class="path">Продажи → Заказы</span> → глаз у заказа. Внизу в «Истории» меняйте статус («Обработка», «Выполнен»). Галочка «Уведомить покупателя» отправит ему письмо</td></tr>
+      <tr><td>Отзыв о товаре</td><td>Письмо о новом отзыве</td><td><span class="path">Каталог → Отзывы</span>. На сайте отзыв появится только после вашей проверки: откройте его, поставьте «Статус: Включено» и сохраните. Спам — удалите</td></tr>
+      <tr><td>«Заказать звонок»</td><td>Письмо «Заказ звонка: имя, телефон»</td><td>Только в почте — перезвоните по номеру из письма</td></tr>
+      <tr><td>Анкета дизайнера, обратная связь</td><td>Письмо с формы контактов</td><td>Только в почте, отвечайте на него</td></tr>
+      <tr><td>Чат на сайте</td><td>Уведомление Jivo</td><td>Приложение или кабинет Jivo</td></tr>
+      <tr><td>Кнопка Max</td><td>Сообщение в Max</td><td>Приходит в ваш профиль «Паркет WIN WOOD от производителя»</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="avto">
+  <h2>Что обновляется само</h2>
+  <p>Товары поставщиков сайт обновляет сам. Ручная правка их цены, наличия или описания перезапишется при следующем обновлении, а удалённый товар появится снова. Чтобы убрать такой товар насовсем — напишите нам.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Поставщик</th><th>Что на сайте</th><th>Как обновляется</th></tr></thead>
+    <tbody>
+      <tr><td>MY STEP</td><td>Ламинат, SPC, подложка, плинтус</td><td>Цены и остатки — каждый час</td></tr>
+      <tr><td>SURGAZ</td><td>Обои Marburg, Rasch, Grandeco, Zambaiti, Fipar, Artsimple, HYGGE, краска, клей</td><td>Ассортимент — каждое утро, цены и остатки — каждый час днём. Если смените пароль от облака SURGAZ, введите новый на странице <a href="https://xn--80aicbwd2abkgr.xn--p1ai/admin/pd-surgaz.php" rel="noopener">паркетдекор.рф/admin/pd-surgaz.php</a></td></tr>
+      <tr><td>studio106</td><td>Обои Allori, Grifoni, Rossi, Bartalucci, Borzagi, Bruno Zoff</td><td>Наличие — 3 раза в день, фото — ночью. Новый прайс (.xlsx) загружаете сами на <a href="https://xn--80aicbwd2abkgr.xn--p1ai/admin/pd-price.php" rel="noopener">паркетдекор.рф/admin/pd-price.php</a></td></tr>
+    </tbody>
+  </table></div>
+  <p>Паркет WINWOOD, плинтусы и молдинги сами не обновляются — их правьте спокойно. Карта сайта для Яндекса и резервная копия базы делаются каждую ночь.</p>
+</section>
+
+<section id="ne-trogat">
+  <h2>Что лучше не трогать</h2>
+  <ul>
+    <li><span class="path">Система → Настройки</span> — почта, режим обслуживания, оплата: одна галочка может закрыть сайт или остановить письма.</li>
+    <li><span class="path">Расширения</span> и <span class="path">Дизайн</span> (включая SEO URL) — на них держится внешний вид и адреса страниц.</li>
+    <li>Удаление и переименование разделов каталога — по именам разделов импорт раскладывает товары.</li>
+  </ul>
+  <p class="warn"><strong>Если что-то сломалось или сомневаетесь</strong> — напишите нам до того, как нажимать «Сохранить».</p>
+</section>
+</main>
+</div>
+<footer><div class="wrap">Инструкция к сайту паркетдекор.рф · ноябрь 2026</div></footer>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Дачник — портал поставщиков сети садовых центров</title>
+<meta name="description" content="Портал поставщиков розничной сети: запросы цен и предложения, заказы на поставку, запись на приёмку на склад, оплаты по отсрочке и рейтинг поставщика.">
+<meta property="og:title" content="Дачник — портал поставщиков сети садовых центров">
+<meta property="og:description" content="Портал поставщиков розничной сети: запросы цен и предложения, заказы на поставку, запись на приёмку на склад, оплаты по отсрочке и рейтинг поставщика.">
+<meta name="theme-color" content="#f3f6ef">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%232f7d3c%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%23ffffff%27%3E%D0%94%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/montserrat-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/montserrat-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/montserrat-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--bg:#f3f6ef;--side:#1f3a24;--sink:#e7efe1;--sline:#2c4a31;--son:#2f5435;--sonk:#d6f28a;--ink:#1d2a1f;--mut:#6f7e70;--line:#dfe6d9;--card:#ffffff;--ac:#2f7d3c;--aci:#ffffff;--fh:"Montserrat",sans-serif;--fb:"Golos Text",sans-serif;--fm:"IBM Plex Mono",monospace;--hw:700;--ht:-.02em;--ok:#2f9d55;--warn:#cf8a14;--bad:#d0463e;--info:#3a77c9}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14.5px/1.45 var(--fb);-webkit-font-smoothing:antialiased;overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px;border-radius:6px}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:root{--ok:#1e9e62;--warn:#d98a00;--bad:#d64045;--info:#2f6fde;--idle:#8a93a3;--r:12px;--rs:8px}
+.app{display:grid;grid-template-columns:var(--sw,236px) minmax(0,1fr);height:100vh;height:100dvh}
+.side{background:var(--side);color:var(--sink);display:flex;flex-direction:column;gap:2px;padding:16px 12px;border-right:1px solid var(--sline,var(--line));min-height:0;overflow-y:auto}
+.org{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.org i{width:36px;height:36px;border-radius:10px;background:var(--ac);color:var(--aci);display:grid;place-items:center;font:700 16px/1 var(--fh);font-style:normal;flex:none}
+.org b{display:block;font:700 15.5px/1.15 var(--fh);letter-spacing:var(--ht,-.01em)}
+.org small{display:block;font-size:12px;opacity:.6;line-height:1.3}
+.nv{display:flex;align-items:center;gap:11px;width:100%;padding:9px 10px;border-radius:var(--rs);text-align:left;font-weight:500;opacity:.78;transition:background .15s,opacity .15s}
+.nv:hover{opacity:1;background:var(--shov,color-mix(in srgb,currentColor 7%,transparent))}
+.nv.on{opacity:1;background:var(--son,color-mix(in srgb,var(--ac) 14%,transparent));color:var(--sonk,inherit)}
+.nv em{margin-left:auto;font-style:normal;font-size:11.5px;font-weight:600;min-width:22px;padding:2px 7px;border-radius:999px;background:var(--ac);color:var(--aci);text-align:center}
+.nv em.z{display:none}
+.sp{flex:1;min-height:12px}
+.me{display:flex;align-items:center;gap:10px;padding:10px 8px 2px;border-top:1px solid var(--sline,var(--line));margin-top:8px}
+.me i{width:32px;height:32px;border-radius:50%;background:var(--avbg,color-mix(in srgb,var(--ac) 22%,transparent));display:grid;place-items:center;font:600 12px/1 var(--fb);font-style:normal;flex:none}
+.me b{display:block;font-size:13.5px;line-height:1.2}.me small{font-size:12px;opacity:.6}
+.dev{font-size:11.5px;opacity:.45;padding:8px 8px 0}
+.main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.top{display:flex;align-items:center;gap:14px;padding:16px 26px;border-bottom:1px solid var(--line);background:var(--topbg,var(--bg))}
+.ttl{min-width:0;flex:1}
+.ttl h1{margin:0;font:var(--hw,700) 22px/1.15 var(--fh);letter-spacing:var(--ht,-.01em);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ttl p{margin:2px 0 0;font-size:13px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr{position:relative;width:min(280px,30vw)}
+.sr input{width:100%;height:38px;border-radius:var(--rs);border:1px solid var(--line);background:var(--card);padding:0 12px 0 36px;font-size:14px}
+.sr input:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 18%,transparent)}
+.sr svg{position:absolute;left:11px;top:10px;opacity:.5}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:38px;padding:0 15px;border-radius:var(--rs);background:var(--ac);color:var(--aci);font-weight:600;font-size:14px;white-space:nowrap;transition:filter .15s,transform .1s}
+.bt:hover{filter:brightness(1.07)}.bt:active{transform:scale(.98)}
+.bt.g{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line2,var(--line))}
+.bt.dz{background:color-mix(in srgb,var(--bad) 12%,transparent);color:var(--bad)}
+.bt.sm{height:32px;padding:0 11px;font-size:13px}
+.bt[disabled]{opacity:.45;pointer-events:none}
+.mb{display:none}
+#view{flex:1;overflow:auto;padding:22px 26px 40px;min-height:0}
+.vh{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}
+.ch{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);background:var(--card);white-space:nowrap}
+.ch b{font-weight:600;opacity:.55}
+.ch.on{background:var(--ink);color:var(--bg);box-shadow:none}.ch.on b{opacity:.7}
+.vh .grow{flex:1}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:18px}
+.kp{background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:var(--csh,0 0 0 1px var(--line))}
+.kp span{display:block;font-size:12.5px;color:var(--mut)}
+.kp b{display:block;font:var(--hw,700) 24px/1.2 var(--fh);letter-spacing:-.02em;margin-top:4px;white-space:nowrap}
+.kp b .num{font:inherit;letter-spacing:inherit}
+.kp small{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.kp.ac{background:var(--ac);color:var(--aci)}.kp.ac span,.kp.ac small{color:inherit;opacity:.75}
+.tw{background:var(--card);border-radius:var(--r);box-shadow:var(--csh,0 0 0 1px var(--line));overflow:hidden}
+table.t{width:100%;border-collapse:collapse}
+.t th{text-align:left;font-size:12px;font-weight:600;color:var(--mut);padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap;cursor:pointer;user-select:none}
+.t th.r,.t td.r{text-align:right}
+.t th.s::after{content:" ↓";opacity:.6}.t th.s.up::after{content:" ↑"}
+.t td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.t tr:last-child td{border-bottom:0}
+.t tbody tr{cursor:pointer;transition:background .12s}
+.t tbody tr:hover{background:color-mix(in srgb,var(--ac) 5%,transparent)}
+.t tr.fl{animation:fl 1.4s}
+@keyframes fl{0%{background:color-mix(in srgb,var(--ac) 22%,transparent)}}
+.t td b{font-weight:600}
+.t td small{display:block;color:var(--mut);font-size:12.5px}
+.num{font-family:var(--fm,var(--fb));font-variant-numeric:tabular-nums;white-space:nowrap}
+.pl{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;line-height:1;padding:5px 9px;border-radius:999px;white-space:nowrap;background:color-mix(in srgb,var(--tc) 14%,transparent);color:color-mix(in srgb,var(--tc) 82%,var(--ink))}
+.pl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tc)}
+.pl.ok{--tc:var(--ok)}.pl.warn{--tc:var(--warn)}.pl.bad{--tc:var(--bad)}.pl.info{--tc:var(--info)}.pl.idle{--tc:var(--idle)}.pl.ac{--tc:var(--ac)}
+.em{padding:40px 16px;text-align:center;color:var(--mut)}
+.bar2{height:6px;border-radius:3px;background:color-mix(in srgb,var(--ink) 8%,transparent);overflow:hidden;min-width:60px}
+.bar2 i{display:block;height:100%;background:var(--ac);border-radius:3px}
+/* канбан */
+.bd{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(212px,1fr);gap:14px;align-items:start;overflow-x:auto;padding-bottom:6px}
+.col{background:var(--colbg,color-mix(in srgb,var(--ink) 4%,transparent));border-radius:var(--r);padding:10px;min-height:120px;transition:background .15s}
+.col.ov{background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.col h3{display:flex;align-items:center;gap:8px;margin:2px 4px 10px;font:600 13.5px/1.2 var(--fb)}
+.col h3 em{font-style:normal;font-size:12px;color:var(--mut);margin-left:auto}
+.cd{background:var(--card);border-radius:10px;padding:12px;margin-bottom:8px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 0 0 1px var(--line);cursor:grab;font-size:13.5px}
+.cd:active{cursor:grabbing}
+.cd b{display:block;font-size:14px;line-height:1.3;margin-bottom:3px}
+.cd small{display:block;color:var(--mut);font-size:12.5px}
+.cd .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 8px;margin-top:9px}
+.cd.dg{opacity:.4}
+/* расписание */
+.dt{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.dt::-webkit-scrollbar{display:none}
+.dt button{flex:none;padding:8px 13px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);background:var(--card);font-size:13px;line-height:1.2;text-align:center}
+.dt button small{display:block;font-size:11.5px;color:var(--mut)}
+.dt button.on{background:var(--ac);color:var(--aci);box-shadow:none}.dt button.on small{color:inherit;opacity:.75}
+.gw{overflow:auto;background:var(--card);border-radius:var(--r);box-shadow:var(--csh,0 0 0 1px var(--line));max-height:calc(100dvh - 250px)}
+.gr{display:grid;position:relative;min-width:calc(64px + var(--nr) * 150px)}
+.gr .hc{position:sticky;top:0;z-index:3;background:var(--card);padding:10px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.25;min-width:0}
+.gr .hc b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gr .hc small{color:var(--mut);font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gr .tc{position:sticky;left:0;z-index:2;background:var(--card);font:500 11.5px/1 var(--fm,var(--fb));color:var(--mut);padding:4px 8px 0 10px;border-right:1px solid var(--line)}
+.gr .cl{border-bottom:1px dashed color-mix(in srgb,var(--line) 70%,transparent);border-right:1px solid var(--line);min-height:var(--rh,30px);transition:background .12s}
+.gr .cl.h{border-bottom-style:solid}
+.gr .cl:hover{background:color-mix(in srgb,var(--ac) 8%,transparent);cursor:copy}
+.gr .cl.off{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--ink) 4%,transparent) 0 4px,transparent 4px 9px);cursor:not-allowed}
+.bk{position:absolute;z-index:1;border-radius:8px;padding:5px 8px;font-size:12px;line-height:1.25;overflow:hidden;cursor:pointer;background:color-mix(in srgb,var(--tc,var(--ac)) 16%,var(--card));box-shadow:inset 3px 0 0 var(--tc,var(--ac));transition:transform .12s,box-shadow .12s}
+.bk:hover{transform:translateY(-1px);box-shadow:inset 3px 0 0 var(--tc,var(--ac)),0 6px 16px -8px rgba(0,0,0,.4);z-index:2}
+.bk b{display:block;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk small{display:block;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk.fl{animation:fl 1.4s}
+.now{position:absolute;left:64px;right:0;height:2px;background:var(--bad);z-index:2;pointer-events:none}
+.now::before{content:"";position:absolute;left:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--bad)}
+/* карточка справа */
+.scrim{position:fixed;inset:0;background:rgba(10,14,22,.36);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--card);z-index:41;transform:translateX(102%);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px -30px rgba(0,0,0,.5)}
+.dr.on{transform:none}
+.dr-h{display:flex;align-items:flex-start;gap:12px;padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+.dr-h div{flex:1;min-width:0}
+.dr-h h2{margin:0;font:var(--hw,700) 19px/1.25 var(--fh);letter-spacing:var(--ht,-.01em)}
+.dr-h p{margin:4px 0 0;color:var(--mut);font-size:13px}
+.xb{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:none}
+.xb:hover{background:color-mix(in srgb,var(--ink) 7%,transparent)}
+.dr-b{flex:1;overflow-y:auto;padding:16px 22px}
+.fs{display:grid;grid-template-columns:auto 1fr;gap:9px 16px;font-size:14px;margin-bottom:18px}
+.fs span{color:var(--mut)}.fs b{font-weight:500;text-align:right;overflow-wrap:anywhere}
+.dr-b h4{margin:18px 0 10px;font:600 12px/1 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tl li{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:13.5px;line-height:1.35}
+.tl li::before{content:"";width:9px;height:9px;border-radius:50%;margin-top:4px;background:var(--ac)}
+.tl li small{display:block;color:var(--mut);font-size:12px}
+.nt{padding:11px 13px;border-radius:10px;background:color-mix(in srgb,var(--warn) 13%,transparent);font-size:13.5px;margin-bottom:14px}
+.nt.ok{background:color-mix(in srgb,var(--ok) 12%,transparent)}.nt.bad{background:color-mix(in srgb,var(--bad) 11%,transparent)}
+.dr-f{display:flex;flex-wrap:wrap;gap:8px;padding:14px 22px 20px;border-top:1px solid var(--line)}
+.dr-f .bt{flex:1 1 auto}
+/* формы */
+.md{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .18s}
+.md.on{opacity:1;pointer-events:auto}
+.md form{width:min(480px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;background:var(--card);border-radius:16px;box-shadow:0 40px 100px -30px rgba(0,0,0,.6);transform:translateY(10px);transition:transform .2s}
+.md.on form{transform:none}
+.md h2{margin:0;font:var(--hw,700) 19px/1.25 var(--fh)}
+.md .mh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 6px}
+.md .mbd{padding:8px 20px;display:grid;gap:12px}
+.md label{display:grid;gap:5px;font-size:13px;color:var(--mut)}
+.md input,.md select,.md textarea{height:40px;border-radius:var(--rs);border:1px solid var(--line);background:var(--bg);padding:0 12px;font-size:14.5px;color:var(--ink);width:100%}
+.md textarea{height:auto;min-height:76px;padding:10px 12px;resize:vertical}
+.md input:focus,.md select:focus,.md textarea:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 18%,transparent)}
+.md .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.md .hint{font-size:12.5px;color:var(--mut)}
+.md .err{color:var(--bad);font-size:13px}
+.md .mf{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px 20px}
+/* журнал и уведомления */
+.lg{list-style:none;margin:0;padding:0;background:var(--card);border-radius:var(--r);box-shadow:var(--csh,0 0 0 1px var(--line))}
+.lg li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.lg li:last-child{border-bottom:0}
+.lg li>div{min-width:0}
+.lg li i{width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--ac) 12%,transparent);display:grid;place-items:center;font-style:normal;font-size:15px}
+.lg li small{color:var(--mut);font-size:12.5px;white-space:nowrap}
+.lg li.fl{animation:fl 1.4s}
+.ts{position:fixed;right:20px;bottom:20px;z-index:60;display:grid;gap:8px;justify-items:end}
+.tst{background:var(--ink);color:var(--bg);padding:11px 15px;border-radius:12px;font-size:13.5px;box-shadow:0 14px 34px -14px rgba(0,0,0,.6);animation:tin .25s both;max-width:min(380px,calc(100vw - 32px))}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}}
+.ab p{margin:0 0 12px;color:var(--mut);font-size:14px;line-height:1.5}
+.ab ul{margin:0;padding-left:18px;display:grid;gap:7px;font-size:14px}
+.ab .dv{margin-top:16px;font-size:12.5px;color:var(--mut)}
+.pane{background:var(--card);border-radius:var(--r);box-shadow:var(--csh,0 0 0 1px var(--line));padding:16px}
+.pane h3{margin:0 0 12px;font:600 15px/1.2 var(--fh)}
+.g2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:1100px){.g2{grid-template-columns:1fr}}
+@media (max-width:760px){
+ body{font-size:14px}
+ .app{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}
+ .side{order:2;flex-direction:row;padding:6px 8px calc(6px + env(safe-area-inset-bottom));border-right:0;border-top:1px solid var(--sline,var(--line));overflow-x:auto;overflow-y:hidden;gap:2px;scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .org,.sp,.me,.dev,.side .nv.ab2{display:none}
+ .nv{flex:none;flex-direction:column;gap:3px;width:auto;min-width:68px;padding:6px 8px;font-size:11px;position:relative;text-align:center}
+ .nv svg.i{width:20px;height:20px}
+ .nv em{position:absolute;top:2px;right:8px;margin:0;font-size:10px;min-width:16px;padding:1px 5px}
+ .top{padding:12px 16px;gap:10px;flex-wrap:wrap}
+ .ttl h1{font-size:18px}.ttl p{display:none}
+ .sr{order:3;width:100%}
+ .mb{display:grid;width:38px;height:38px;border-radius:10px;place-items:center;box-shadow:inset 0 0 0 1px var(--line)}
+ .top .bt span{display:none}.top .bt{width:38px;padding:0}
+ #view{padding:14px 16px 28px}
+ .kpis{grid-template-columns:1fr 1fr;gap:8px}.kp{padding:12px}.kp b{font-size:19px}
+ .vh{flex-wrap:nowrap;overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px 2px;scrollbar-width:none}.vh::-webkit-scrollbar{display:none}
+ .vh .grow{display:none}
+ .tw{background:none;box-shadow:none;overflow:visible}
+ table.t,.t tbody{display:block}.t thead{display:none}
+ .t tr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;background:var(--card);border-radius:var(--r);box-shadow:var(--csh,0 0 0 1px var(--line));padding:12px 14px;margin-bottom:8px}
+ .t td{display:block;padding:0;border:0;text-align:left!important;min-width:0}
+ .t td:first-child{grid-column:1/-1}
+ .t td[data-l]::before{content:attr(data-l);display:block;font-size:11px;color:var(--mut);margin-bottom:1px}
+ .t td.hm{display:none}
+ .bd{grid-auto-columns:minmax(78vw,1fr);scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px}.col{scroll-snap-align:start}
+ .gr{min-width:calc(52px + var(--nr) * 132px)}.now{left:52px}
+ .gw{max-height:none}
+ .dr{width:100%;top:auto;height:92dvh;border-radius:18px 18px 0 0;transform:translateY(102%)}
+ .md{align-items:end;padding:0}.md form{border-radius:18px 18px 0 0;max-height:92dvh}
+ .md .two{grid-template-columns:1fr}
+ .ts{left:16px;right:16px;bottom:84px;justify-items:stretch}
+ .lg li{grid-template-columns:34px 1fr;padding:12px}.lg li>.bt,.lg li>small:last-child{grid-column:2;justify-self:start}
+ .pane{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.org i{background:#d6f28a;color:#1f3a24}.kp.ac{background:#1f3a24}
+.rt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.rt .kp b{font-size:30px}.rt .kp small b{display:inline;font:inherit;color:var(--ok)}
+.bars{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:end;height:200px;padding:10px 4px 0}
+.bars div{display:grid;gap:6px;justify-items:center;font-size:12px;color:var(--mut);height:100%;align-content:end}
+.bars i{display:block;width:100%;max-width:46px;border-radius:8px 8px 3px 3px;background:var(--ac)}
+.bars i.low{background:var(--warn)}.bars b{color:var(--ink);font:500 12px var(--fm)}
+.tips{display:grid;gap:10px;margin:0;padding:0;list-style:none}.tips li{padding:12px 14px;border-radius:12px;background:#f3f6ef;font-size:14px}
+@media (max-width:760px){.rt{grid-template-columns:1fr}.bars{gap:6px}}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="side" id="side" aria-label="Разделы"></nav>
+<div class="main">
+<header class="top"><button class="mb" type="button" data-about aria-label="О продукте"><svg class="i" viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v5M12 7.5h.01"/></svg></button>
+<div class="ttl"><h1 id="vt"></h1><p id="vs"></p></div>
+<label class="sr"><svg class="i" viewBox="0 0 24 24"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5"/></svg><input id="q" type="search" aria-label="Поиск" autocomplete="off"></label>
+<button class="bt" id="pa" type="button" hidden></button></header>
+<main id="view"></main>
+</div>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="dr" id="dr" aria-label="Карточка"></aside>
+<div class="md" id="md"><form id="mf" novalidate></form></div>
+<div class="ts" id="ts" aria-live="polite"></div>
+<script>window.APPCFG={"brand": "Дачник", "org": "Портал поставщиков", "logo": "Д", "user": ["ООО «Агро-Сад»", "Константин Белов, менеджер"], "views": [{"id": "rfq", "label": "Запросы цен", "icon": "doc", "type": "table", "entity": "q", "title": "Запросы цен", "sub": "Отправьте цену до окончания приёма предложений", "filter": "st", "pill": "qst", "search": "Товар или номер", "find": ["id", "item"], "badge": "D.q.filter(function(r){return r.st==='open'}).length", "kpis": [["Ждут вашей цены", "D.q.filter(function(r){return r.st==='open'}).length", "", "ac"], ["Выиграно в ноябре", "D.q.filter(function(r){return r.st==='won'}).length+2"], ["Доля побед", "'41%'"]], "cols": [["item", "Товар", "b", "", "", "{id} · {qty}"], ["due", "Приём до", "html", "", "A.dueh(r)"], ["my", "Ваша цена", "money", "r"], ["st", "Статус", "pill:qst"]]}, {"id": "po", "label": "Заказы", "icon": "box", "type": "table", "entity": "o", "title": "Заказы на поставку", "sub": "Подтвердите заказ и запишитесь на приёмку", "filter": "st", "pill": "ost", "search": "Номер или товар", "find": ["id", "what"], "badge": "D.o.filter(function(r){return r.st==='new'||r.st==='confirmed'}).length", "kpis": [["Заказов в работе", "D.o.filter(function(r){return r.st!=='accepted'}).length"], ["На сумму", "sum(D.o.filter(function(r){return r.st!=='accepted'}),'sum')", "money", "ac"], ["Ближайшая приёмка", "(function(){var s=D.o.filter(function(r){return r.st==='slot'}).sort(function(a,b){return a.day-b.day})[0];return s?A.dfmt(s.day)+(s.slot?', '+s.slot:''):'—'})()"]], "cols": [["what", "Заказ", "b", "", "", "{id} · {wh}"], ["sum", "Сумма", "money", "r"], ["day", "Поставка", "date"], ["st", "Статус", "pill:ost"]]}, {"id": "pay", "label": "Оплаты", "icon": "money", "type": "table", "entity": "p", "title": "Оплаты", "sub": "Отсрочка 30 дней с даты приёмки", "filter": "st", "pill": "pst", "kpis": [["Ждём оплату", "sum(D.p.filter(function(r){return r.st!=='paid'}),'sum')", "money", "ac"], ["Ближайший платёж", "(function(){var s=D.p.filter(function(r){return r.st==='wait'}).sort(function(a,b){return a.due-b.due})[0];return s?A.dfmt(s.due):'—'})()"], ["Получено в ноябре", "sum(D.p.filter(function(r){return r.st==='paid'}),'sum')", "money"]], "cols": [["id", "Счёт", "b", "", "", "по заказу {po}"], ["sum", "Сумма", "money", "r"], ["due", "Дата оплаты", "date"], ["st", "Статус", "pill:pst"]]}, {"id": "rating", "label": "Рейтинг", "icon": "chart", "type": "custom", "title": "Ваш рейтинг поставщика", "sub": "От рейтинга зависит доля в запросах цен и отсрочка"}, {"id": "log", "label": "Журнал", "icon": "log", "type": "log", "title": "Журнал", "sub": "Предложения, заказы и приёмка"}], "data": {"q": [{"id": "Q-1184", "item": "Грунт универсальный 50 л", "qty": "2 400 мешков", "due": 2, "st": "open", "my": null, "best": null, "hist": [["", "Запрос опубликован"]]}, {"id": "Q-1186", "item": "Семена газона «Спортивный» 1 кг", "qty": "900 упаковок", "due": 3, "st": "open", "my": null, "best": null, "hist": [["", "Запрос опубликован"]]}, {"id": "Q-1179", "item": "Торф верховой 250 л", "qty": "320 тюков", "due": 1, "st": "quoted", "my": 615, "best": 598, "hist": [["", "Запрос опубликован"]]}, {"id": "Q-1177", "item": "Удобрение «Осеннее» 2,5 кг", "qty": "1 150 упаковок", "due": -1, "st": "won", "my": 342, "best": 342, "hist": [["", "Запрос опубликован"]]}, {"id": "Q-1172", "item": "Кора сосны, фракция 15–25 мм, 60 л", "qty": "700 мешков", "due": -4, "st": "lost", "my": 389, "best": 361, "hist": [["", "Запрос опубликован"]]}, {"id": "Q-1188", "item": "Дренаж керамзит 20 л", "qty": "1 600 мешков", "due": 4, "st": "open", "my": null, "best": null, "hist": [["", "Запрос опубликован"]]}], "o": [{"id": "З-50417", "what": "Грунт универсальный 50 л · 1 800 мешков", "sum": 619200, "st": "new", "day": 5, "wh": "РЦ Север", "hist": [["", "Заказ размещён"]]}, {"id": "З-50411", "what": "Удобрение «Осеннее» 2,5 кг · 1 150 упак.", "sum": 393300, "st": "confirmed", "day": 3, "wh": "РЦ Юг", "hist": [["", "Заказ размещён"]]}, {"id": "З-50406", "what": "Торф верховой 250 л · 240 тюков", "sum": 147600, "st": "slot", "day": 1, "wh": "РЦ Север", "hist": [["", "Заказ размещён"]]}, {"id": "З-50398", "what": "Кора сосны 60 л · 400 мешков", "sum": 155600, "st": "shipped", "day": 0, "wh": "РЦ Юг", "hist": [["", "Заказ размещён"]]}, {"id": "З-50382", "what": "Грунт для рассады 20 л · 2 200 мешков", "sum": 398200, "st": "accepted", "day": -6, "wh": "РЦ Север", "hist": [["", "Заказ размещён"]]}, {"id": "З-50371", "what": "Песок кварцевый 25 кг · 600 мешков", "sum": 117000, "st": "accepted", "day": -11, "wh": "РЦ Юг", "hist": [["", "Заказ размещён"]]}], "p": [{"id": "С-8812", "po": "З-50382", "sum": 398200, "due": 9, "st": "wait"}, {"id": "С-8796", "po": "З-50371", "sum": 117000, "due": -2, "st": "paid"}, {"id": "С-8770", "po": "З-50355", "sum": 286450, "due": -15, "st": "paid"}, {"id": "С-8804", "po": "З-50398", "sum": 155600, "due": 21, "st": "plan"}]}, "pills": {"qst": {"open": ["Ждёт цену", "warn"], "quoted": ["Цена отправлена", "info"], "won": ["Выиграли", "ok"], "lost": ["Не выбраны", "idle"]}, "ost": {"new": ["Подтвердите", "bad"], "confirmed": ["Запишитесь на приёмку", "warn"], "slot": ["Окно на приёмку", "info"], "shipped": ["Отгружен", "ac"], "accepted": ["Принят складом", "ok"]}, "pst": {"plan": ["По графику", "idle"], "wait": ["Ждёт оплаты", "warn"], "paid": ["Оплачен", "ok"]}}, "cards": {"q": {"title": "{item}", "sub": "Запрос {id} · {qty}", "hist": 1, "note": "r.st==='open'?['Приём предложений '+(r.due<=0?'сегодня до 18:00':'до '+A.dfmt(r.due))+'. Цена — за единицу с доставкой до склада, с НДС.','']:r.st==='lost'?['Выбрали цену '+A.money(r.best)+'. Ваша была на '+Math.round((r.my/r.best-1)*1000)/10+'% выше.','']:r.st==='won'?['Ваше предложение выбрано. Заказ уже в разделе «Заказы».','ok']:null", "fields": [["st", "Статус", "pill:qst"], ["qty", "Объём"], ["due", "Приём до", "date"], ["my", "Ваша цена за ед.", "money"], ["lead", "Срок поставки", "", "r.lead?r.lead+' дн.':''"]], "actions": [{"label": "Отправить цену", "when": "r.st==='open'", "form": "quote"}, {"label": "Изменить цену", "when": "r.st==='quoted'", "form": "quote", "style": "g"}]}, "o": {"title": "Заказ {id}", "sub": "{wh}", "hist": 1, "note": "r.st==='new'?['Подтвердите объём и дату поставки до конца дня, иначе заказ уйдёт другому поставщику.','bad']:r.st==='confirmed'?['Выберите окно на приёмку: без записи склад машину не примет.','']:null", "fields": [["st", "Статус", "pill:ost"], ["what", "Состав"], ["sum", "Сумма", "money"], ["day", "Поставка", "date"], ["slot", "Окно приёмки"], ["upd", "УПД"]], "actions": [{"label": "Подтвердить заказ", "when": "r.st==='new'", "set": {"st": "confirmed"}, "log": "Заказ {id} подтверждён", "logSub": "{what}", "toast": "Подтверждено. Теперь запишитесь на приёмку", "icon": "✓"}, {"label": "Записаться на приёмку", "when": "r.st==='confirmed'", "form": "slot"}, {"label": "Отгрузили", "when": "r.st==='slot'", "form": "ship"}, {"label": "Перенести окно", "when": "r.st==='slot'", "form": "slot", "style": "g"}]}, "p": {"title": "Счёт {id}", "sub": "по заказу {po}", "fields": [["st", "Статус", "pill:pst"], ["sum", "Сумма", "money"], ["due", "Дата оплаты", "date"]]}}, "forms": {"quote": {"title": "Цена: {item}", "hint": "Объём {qty}. Укажите цену за единицу с доставкой до склада, с НДС.", "fields": [["my", "Цена за единицу, ₽", "number", null, "half", "", 1], ["lead", "Срок поставки, дней", "number", null, "half", "5", 1], ["note", "Комментарий закупщику", "textarea", null, null, "Например: отгрузка партиями по 400 мешков"]], "set": {"st": "quoted"}, "submit": "Отправить предложение", "log": "Отправлена цена: {item}", "logSub": "{my:money} за ед. · {lead} дн.", "hist": "Предложение: {my:money} за ед.", "toast": "Предложение у закупщика. Итог — после окончания приёма", "icon": "💬"}, "slot": {"title": "Приёмка: заказ {id}", "hint": "Склад {wh}. Окна по 1 часу, разгрузка до 40 минут.", "fields": [["day", "День", "select", "[1,2,3,4,5].map(function(d){return[d,A.dwd(d)]})", "half"], ["slot", "Окно", "select", ["08:00–09:00", "09:00–10:00", "11:00–12:00", "13:00–14:00", "15:00–16:00"], "half"], ["car", "Машина", "text", null, null, "Госномер, например А123ВС 178", 1]], "check": "(+x.day===2&&x.slot==='09:00–10:00')||(+x.day===1&&x.slot==='08:00–09:00')?'Это окно уже занято другим поставщиком. Выберите другое':''", "set": {"st": "slot"}, "submit": "Записаться", "log": "Запись на приёмку: {id}", "logSub": "{wh} · {day:dwd}, {slot} · {car}", "hist": "Окно приёмки: {slot}", "toast": "Записали. Пропуск для машины придёт на почту", "icon": "🚚"}, "ship": {"title": "Отгрузка: заказ {id}", "fields": [["upd", "Номер УПД", "text", null, null, "Например: 1187", 1]], "set": {"st": "shipped"}, "submit": "Отправить УПД через ЭДО", "log": "Отгружен заказ {id}", "logSub": "УПД № {upd} отправлен через ЭДО", "hist": "Отгружен, УПД № {upd}", "toast": "УПД ушёл через ЭДО. Склад ждёт машину", "icon": "📦"}}, "about": {"h": "Дачник — портал поставщиков", "p": ["Поставщики сами отвечают на запросы цен, подтверждают заказы, записываются на приёмку и видят, когда им заплатят. Закупщикам сети не нужно собирать предложения по почте и обзванивать склады.", "Попробуйте отправить предложение на запрос цен, подтвердить заказ и записаться на приёмку."], "f": ["Запросы цен: предложение и итог отбора", "Заказы: подтверждение объёма и даты", "Запись на приёмку в свободное окно склада", "Оплаты по отсрочке с датами", "Рейтинг поставщика: сроки, комплектность, претензии", "Электронные документы через ЭДО"]}, "log": [["12:14", "🏆", "Предложение выбрано: Удобрение «Осеннее»", "заказ З-50411 на 393 300 ₽"], ["10:02", "📨", "Новый запрос цен: Дренаж керамзит 20 л", "1 600 мешков"], ["вчера", "✓", "Заказ З-50382 принят складом", "расхождений нет"]], "icons": {"home": "M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z", "list": "M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01", "board": "M4 4h5v16H4zM10 4h5v10h-5zM16 4h4v13h-4z", "cal": "M4 6h16v14H4zM4 10h16M8 3v5M16 3v5", "users": "M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 12 0v1M16 3.5a4 4 0 0 1 0 7.5M22 21v-1a6 6 0 0 0-4-5.6", "money": "M3 7h18v10H3zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 10v4M18 10v4", "doc": "M6 3h8l5 5v13H6zM14 3v5h5M9 13h7M9 17h7", "truck": "M2 6h12v10H2zM14 9h4l3 3v4h-7M6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", "map": "M9 4 3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14", "chat": "M4 5h16v11H8l-4 4z", "box": "M3 7.5 12 3l9 4.5v9L12 21l-9-4.5zM3 7.5 12 12l9-4.5M12 12v9", "chart": "M4 20V10M10 20V4M16 20v-7M22 20H2", "tool": "M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z", "log": "M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "key": "M15 7a4 4 0 1 1-3.5 6H8v3H5v-3H3v-3h8.5A4 4 0 0 1 15 7z", "bell": "M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4", "cap": "M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5", "gauge": "M4 18a8 8 0 1 1 16 0M12 18l4-6", "pin": "M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12zM12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", "plus": "M12 5v14M5 12h14", "search": "M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-5-5", "x": "M6 6l12 12M18 6 6 18", "info": "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v5M12 7.5h.01", "menu": "M4 7h16M4 12h16M4 17h16"}};</script>
+<script>
+(function(){'use strict';
+var C=window.APPCFG,D=JSON.parse(JSON.stringify(C.data)),A=window.APP={C:C,D:D,hooks:{},views:{}},cur=null,q='',flt={},sort={},openRow=null;
+function $(s,r){return(r||document).querySelector(s)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ic(n){return'<svg class="i" viewBox="0 0 24 24"><path d="'+(C.icons[n]||'')+'"/></svg>'}
+var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],WD=['вс','пн','вт','ср','чт','пт','сб'];
+var T0=new Date();T0.setHours(0,0,0,0);
+function day(n){var d=new Date(T0);d.setDate(d.getDate()+(+n||0));return d}
+function money(v){return v==null||v===''?'—':Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₽'}
+function num(v){return v==null?'—':(Math.round(v*10)/10).toString().replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function hm(m){m=Math.round(m);return Math.floor(m/60)+':'+('0'+m%60).slice(-2)}
+function dfmt(n,y){if(n==null||n==='')return'—';var d=day(n);var r=d.getDate()+' '+MN[d.getMonth()];if(n===0)return'сегодня';if(n===1)return'завтра';if(n===-1)return'вчера';return r}
+function dwd(n){var d=day(n);return d.getDate()+' '+MN[d.getMonth()]+', '+WD[d.getDay()]}
+function fmt(v,f,r){if(!f)return esc(v);if(typeof f==='function')return f(v,r);
+ if(f==='money')return'<span class="num">'+money(v)+'</span>';if(f==='num')return'<span class="num">'+num(v)+'</span>';
+ if(f==='date')return esc(dfmt(v));if(f==='dwd')return esc(dwd(v));if(f==='time')return'<span class="num">'+hm(v)+'</span>';
+ if(f==='pct')return'<span class="num">'+num(v)+'%</span>';
+ if(f.indexOf('pill:')===0){var m=(C.pills[f.slice(5)]||{})[v];return m?'<span class="pl '+m[1]+'">'+esc(m[0])+'</span>':esc(v)}
+ if(f.indexOf('bar:')===0){var mx=+f.slice(4)||100;return'<div class="bar2"><i style="width:'+Math.min(100,v/mx*100)+'%"></i></div>'}
+ if(f==='b')return'<b>'+esc(v)+'</b>';if(f==='html')return v==null?'':String(v);return esc(v)}
+A.fmt=fmt;A.money=money;A.num=num;A.hm=hm;A.dfmt=dfmt;A.dwd=dwd;A.day=day;A.esc=esc;A.ic=ic;
+function tpl(s,r){return String(s).replace(/\{([\w.]+)(?::(\w+))?\}/g,function(m,k,f){var v=r?r[k]:undefined;if(v===undefined&&A.S)v=A.S[k];
+ if(v===undefined)return m;return f==='money'?money(v):f==='date'?dfmt(v):f==='dwd'?dwd(v):f==='time'?hm(v):f==='num'?num(v):v})}
+A.tpl=tpl;
+function sum(a,k){return a.reduce(function(s,r){return s+(+(typeof k==='function'?k(r):r[k])||0)},0)}
+function ev(expr,r,extra){try{return new Function('r','D','sum','A','x','return ('+expr+')')(r,D,sum,A,extra)}catch(e){console.error(expr,e);return null}}
+A.ev=ev;
+/* журнал */
+var LOG=(C.log||[]).map(function(x){return{t:x[0],i:x[1],x:x[2],s:x[3]||''}});
+function clock(){var d=new Date();return('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+A.log=function(icon,text,sub){LOG.unshift({t:clock(),i:icon,x:text,s:sub||'',n:1});badges();if(cur&&cur.type==='log')render()};
+A.toast=function(t){var el=document.createElement('div');el.className='tst';el.textContent=t;$('#ts').appendChild(el);setTimeout(function(){el.style.opacity='0';el.style.transition='opacity .3s'},2600);setTimeout(function(){el.remove()},3000)};
+/* меню */
+function nav(){var h='<div class="org"><i>'+esc(C.logo)+'</i><div><b>'+esc(C.brand)+'</b><small>'+esc(C.org)+'</small></div></div>';
+ C.views.forEach(function(v){h+='<button class="nv" data-v="'+v.id+'" type="button">'+ic(v.icon)+'<span>'+esc(v.label)+'</span><em class="z" data-b="'+v.id+'"></em></button>'});
+ h+='<div class="sp"></div><button class="nv ab2" type="button" data-about>'+ic('info')+'<span>О продукте</span></button><div class="me"><i>'+esc(C.user[0].split(' ').map(function(w){return w[0]}).join('').slice(0,2))+'</i><div><b>'+esc(C.user[0])+'</b><small>'+esc(C.user[1])+'</small></div></div><div class="dev">Разработка YSD DEV</div>';
+ $('#side').innerHTML=h;badges()}
+function badges(){C.views.forEach(function(v){var el=document.querySelector('[data-b="'+v.id+'"]');if(!el)return;var n=v.badge?ev(v.badge):(v.type==='log'?LOG.filter(function(x){return x.n}).length:0);el.textContent=n||'';el.classList.toggle('z',!n)})}
+A.badges=badges;
+function go(id,keep){var v=C.views.filter(function(x){return x.id===id})[0]||C.views[0];cur=v;if(openRow||$('#md').classList.contains('on'))close();if(!keep){q='';$('#q').value=''}
+ document.querySelectorAll('.nv[data-v]').forEach(function(b){b.classList.toggle('on',b.dataset.v===v.id)});
+ $('#vt').textContent=v.title||v.label;$('#vs').textContent=v.sub||'';
+ var pa=$('#pa');if(v.primary){pa.hidden=false;pa.innerHTML=ic('plus')+'<span>'+esc(v.primary[0])+'</span>';pa.dataset.form=v.primary[1]}else pa.hidden=true;
+ $('.sr').hidden=!(v.search);if(v.search)$('#q').placeholder=v.search;
+ if(v.type==='log')LOG.forEach(function(x){x.n=0});
+ try{history.replaceState(null,'','#'+v.id)}catch(e){}
+ render();badges();$('#view').scrollTop=0}
+A.go=go;
+function rowsOf(v){var R=D[v.entity]||[];if(v.where)R=R.filter(function(r){return ev(v.where,r)});
+ if(q&&v.search){var s=q.toLowerCase();R=R.filter(function(r){return(v.find||Object.keys(r)).some(function(k){return String(r[k]==null?'':r[k]).toLowerCase().indexOf(s)>=0})})}return R}
+function chips(v,R){if(!v.filter)return'';var f=v.filter,pm=C.pills[v.pill||f]||{},cnt={},opts=v.filterOpts||Object.keys(pm);R.forEach(function(r){cnt[r[f]]=(cnt[r[f]]||0)+1});
+ var on=flt[v.id]||'';var h='<button class="ch'+(on?'':' on')+'" data-f="">Все <b>'+R.length+'</b></button>';
+ opts.forEach(function(o){if(!cnt[o]&&v.hideEmpty!==false)return;h+='<button class="ch'+(on===o?' on':'')+'" data-f="'+esc(o)+'">'+esc(pm[o]?pm[o][0]:o)+' <b>'+(cnt[o]||0)+'</b></button>'});return h}
+function kpis(v){if(!v.kpis)return'';return'<div class="kpis">'+v.kpis.map(function(k,i){var val=ev(k[1]);return'<div class="kp'+(k[3]==='ac'?' ac':'')+'"><span>'+esc(k[0])+'</span><b>'+(k[2]?fmt(val,k[2]):esc(val))+'</b>'+(k[4]?'<small>'+esc(ev(k[4]))+'</small>':'')+'</div>'}).join('')+'</div>'}
+var V={};
+V.table=function(v,el){var all=rowsOf(v),f=flt[v.id],R=f?all.filter(function(r){return String(r[v.filter])===f}):all.slice();
+ var s=sort[v.id]||v.sort;if(s){var k=s[0],dir=s[1];R.sort(function(a,b){var x=a[k],y=b[k];return(typeof x==='number'&&typeof y==='number'?x-y:String(x).localeCompare(String(y),'ru'))*dir})}
+ var h=kpis(v)+(v.filter||v.tools?'<div class="vh">'+chips(v,all)+'<span class="grow"></span>'+(v.tools||'')+'</div>':'');
+ h+='<div class="tw"><table class="t"><thead><tr>'+v.cols.map(function(c){var cl=(c[3]||'')+(s&&s[0]===c[0]?' s'+(s[1]<0?' up':''):'');return'<th class="'+cl+'" data-s="'+c[0]+'">'+esc(c[1])+'</th>'}).join('')+'</tr></thead><tbody>';
+ if(!R.length)h+='<tr><td colspan="'+v.cols.length+'"><div class="em">Ничего не нашлось</div></td></tr>';
+ R.forEach(function(r){h+='<tr data-id="'+r.id+'"'+(r._fl?' class="fl"':'')+'>'+v.cols.map(function(c,i){var val=c[4]?ev(c[4],r):r[c[0]];var sub=c[5]?'<small>'+esc(tpl(c[5],r))+'</small>':'';
+  return'<td class="'+(c[3]||'')+'"'+(i?' data-l="'+esc(c[1])+'"':'')+'>'+fmt(val,c[2],r)+sub+'</td>'}).join('')+'</tr>';delete r._fl});
+ el.innerHTML=h+'</tbody></table></div>'};
+V.board=function(v,el){var R=rowsOf(v),h=kpis(v)+'<div class="bd" data-ox>';
+ v.cols.forEach(function(c){var L=R.filter(function(r){return r[v.field]===c});var m=(C.pills[v.pill||v.field]||{})[c]||[c,'idle'];
+  h+='<div class="col" data-c="'+esc(c)+'"><h3><span class="pl '+m[1]+'">'+esc(m[0])+'</span><em>'+L.length+(v.colSum?' · '+money(sum(L,v.colSum)):'')+'</em></h3>';
+  L.forEach(function(r){h+='<div class="cd'+(r._fl?' fl':'')+'" draggable="true" data-id="'+r.id+'"><b>'+esc(tpl(v.card[0],r))+'</b><small>'+esc(tpl(v.card[1],r))+'</small>'+(v.card[2]?'<div class="ft">'+tpl(v.card[2],r)+'</div>':'')+'</div>';delete r._fl});
+  h+='</div>'});el.innerHTML=h+'</div>'};
+V.grid=function(v,el){var S=A.S=A.S||{};var dk=v.id+'_d';if(S[dk]==null)S[dk]=v.days[0];var dsel=S[dk];
+ var res=typeof v.res==='string'?ev(v.res):v.res,from=v.from,to=v.to,st=v.step,rows=(to-from)/st,rh=v.rh||30;
+ var h=kpis(v)+'<div class="dt">'+v.days.map(function(d){var x=day(d);return'<button type="button" data-d="'+d+'" class="'+(d===dsel?'on':'')+'">'+(d===0?'Сегодня':d===1?'Завтра':WD[x.getDay()].replace(/^./,function(a){return a.toUpperCase()}))+'<small>'+x.getDate()+' '+MN[x.getMonth()].slice(0,3)+'</small></button>'}).join('')+'</div>';
+ h+='<div class="gw" data-ox><div class="gr" style="--nr:'+res.length+';--rh:'+rh+'px;grid-template-columns:'+(innerWidth<=760?52:64)+'px repeat('+res.length+',minmax(0,1fr));grid-template-rows:auto repeat('+rows+','+rh+'px)"><div class="hc" style="left:0;z-index:4;position:sticky"></div>';
+ res.forEach(function(r){h+='<div class="hc"><b>'+esc(r.name)+'</b><small>'+esc(r.sub||'')+'</small></div>'});
+ for(var i=0;i<rows;i++){var t=from+i*st;h+='<div class="tc">'+(t%60===0?hm(t):'')+'</div>';res.forEach(function(r,j){var off=r.off&&ev(r.off,null,{t:t,d:dsel});h+='<div class="cl'+((t+st)%60===0?' h':'')+(off?' off':'')+'" data-r="'+esc(r.id)+'" data-t="'+t+'"></div>'})}
+ h+='</div></div>';el.innerHTML=h;var gr=el.querySelector('.gr'),hd=gr.querySelector('.hc'),hh=hd.offsetHeight,cw=(gr.clientWidth-(innerWidth<=760?52:64))/res.length;
+ rowsOf(v).filter(function(b){return b[v.dayKey||'day']===dsel}).forEach(function(b){var j=res.map(function(r){return r.id}).indexOf(b[v.resKey]);if(j<0)return;
+  var top=hh+(b.start-from)/st*rh,ht=b.dur/st*rh-3,left=(innerWidth<=760?52:64)+j*cw+3;var m=(C.pills[v.tonePill||v.tone]||{})[b[v.tone]]||[0,'ac'];
+  var div=document.createElement('div');div.className='bk'+(b._fl?' fl':'');delete b._fl;div.dataset.id=b.id;div.style.cssText='top:'+top+'px;height:'+ht+'px;left:'+left+'px;width:'+(cw-6)+'px;--tc:var(--'+m[1]+')';
+  div.innerHTML='<b>'+esc(tpl(v.card[0],b))+'</b><small>'+esc(tpl(v.card[1],b))+'</small>';gr.appendChild(div)});
+ if(dsel===0){var n=new Date(),nm=n.getHours()*60+n.getMinutes();if(nm>from&&nm<to){var ln=document.createElement('div');ln.className='now';ln.style.top=(hh+(nm-from)/st*rh)+'px';gr.appendChild(ln)}}};
+V.log=function(v,el){el.innerHTML='<ul class="lg">'+LOG.map(function(x,i){return'<li'+(i<1&&x.t===clock()?' class="fl"':'')+'><i>'+x.i+'</i><div>'+esc(x.x)+(x.s?'<small style="display:block">'+esc(x.s)+'</small>':'')+'</div><small>'+esc(x.t)+'</small></li>'}).join('')+'</ul>'};
+V.custom=function(v,el){(A.views[v.id]||function(){})(el,v)};
+function render(){var el=$('#view');if(A.hooks.before)A.hooks.before(cur);V[cur.type](cur,el);if(A.hooks.after)A.hooks.after(cur,el)}
+A.render=render;
+/* карточка */
+function ent(name){return D[name]}
+A.find=function(e,id){return(D[e]||[]).filter(function(r){return String(r.id)===String(id)})[0]};
+function open(e,id){var r=A.find(e,id),cfg=(C.cards||{})[e];if(!r||!cfg)return;openRow={e:e,id:id};
+ var h='<div class="dr-h"><div><h2>'+esc(tpl(cfg.title,r))+'</h2><p>'+(cfg.sub?tpl(esc(cfg.sub),r):'')+'</p></div><button class="xb" type="button" data-x>'+ic('x')+'</button></div><div class="dr-b">';
+ if(cfg.note){var nt=ev(cfg.note,r);if(nt)h+='<div class="nt '+(nt[1]||'')+'">'+esc(nt[0])+'</div>'}
+ h+='<div class="fs">'+cfg.fields.filter(function(f){var v=f[3]?ev(f[3],r):r[f[0]];return v!=null&&v!==''}).map(function(f){var v=f[3]?ev(f[3],r):r[f[0]];return'<span>'+esc(f[1])+'</span><b>'+fmt(v,f[2],r)+'</b>'}).join('')+'</div>';
+ if(cfg.extra)h+=ev(cfg.extra,r)||'';
+ if(cfg.hist&&r.hist&&r.hist.length)h+='<h4>История</h4><ul class="tl">'+r.hist.slice().reverse().map(function(x){return'<li><div>'+esc(x[1])+'<small>'+esc(x[0])+'</small></div></li>'}).join('')+'</ul>';
+ h+='</div>';var acts=(cfg.actions||[]).filter(function(a){return!a.when||ev(a.when,r)});
+ if(acts.length)h+='<div class="dr-f">'+acts.map(function(a,i){return'<button type="button" class="bt'+(a.style?' '+a.style:'')+'" data-a="'+cfg.actions.indexOf(a)+'">'+esc(tpl(a.label,r))+'</button>'}).join('')+'</div>';
+ $('#dr').innerHTML=h;$('#dr').classList.add('on');$('#scrim').classList.add('on')}
+A.open=open;
+function close(){$('#dr').classList.remove('on');$('#md').classList.remove('on');$('#scrim').classList.remove('on');openRow=null}
+A.close=close;
+function act(i){var o=openRow;if(!o)return;var r=A.find(o.e,o.id),a=C.cards[o.e].actions[i];if(!r||!a)return;
+ if(a.form){formOpen(a.form,r);return}
+ if(a.fn){A.hooks[a.fn](r,a);return}
+ apply(r,a);}
+function apply(r,a){if(a.set)Object.keys(a.set).forEach(function(k){var v=a.set[k];r[k]=typeof v==='string'&&v.charAt(0)==='='?ev(v.slice(1),r):v});
+ if(a.hist!==false&&(a.log||a.hist)){r.hist=r.hist||[];r.hist.push(['сегодня, '+clock(),tpl(a.hist||a.log,r)])}
+ if(a.log)A.log(a.icon||'✓',tpl(a.log,r),a.logSub?tpl(a.logSub,r):'');if(a.toast)A.toast(tpl(a.toast,r));
+ r._fl=1;if(A.hooks.changed)A.hooks.changed(r,a);render();badges();$('#md').classList.remove('on');if(openRow&&!a.close)open(openRow.e,openRow.id);else close()}
+A.apply=apply;
+/* формы */
+var FM=null;
+function formOpen(id,row,pre){var f=C.forms[id];FM={id:id,row:row};var vals=Object.assign({},f.defaults||{},pre||{});
+ var h='<div class="mh"><h2>'+esc(row?tpl(f.title,row):f.title)+'</h2><button class="xb" type="button" data-x>'+ic('x')+'</button></div><div class="mbd">'+(f.hint?'<p class="hint">'+esc(row?tpl(f.hint,row):f.hint)+'</p>':'');
+ var fl=f.fields,i=0;while(i<fl.length){var a=fl[i],b=fl[i+1];if(a[4]==='half'&&b&&b[4]==='half'){h+='<div class="two">'+fld(a,vals)+fld(b,vals)+'</div>';i+=2}else{h+=fld(a,vals);i++}}
+ h+='<p class="err" id="fe" hidden></p></div><div class="mf"><button class="bt g" type="button" data-x>Отмена</button><button class="bt" type="submit">'+esc(f.submit||'Сохранить')+'</button></div>';
+ $('#mf').innerHTML=h;$('#md').classList.add('on');$('#scrim').classList.add('on');var first=$('#mf input,#mf select,#mf textarea');if(first&&innerWidth>760)setTimeout(function(){first.focus()},50)}
+A.form=formOpen;
+function fld(d,vals){var k=d[0],v=vals[k]!=null?vals[k]:'',t=d[2]||'text',opts=d[3];if(typeof opts==='string')opts=ev(opts);
+ var inp;if(t==='select')inp='<select name="'+k+'">'+opts.map(function(o){var ov=Array.isArray(o)?o[0]:o,ol=Array.isArray(o)?o[1]:o;return'<option value="'+esc(ov)+'"'+(String(ov)===String(v)?' selected':'')+'>'+esc(ol)+'</option>'}).join('')+'</select>';
+ else if(t==='textarea')inp='<textarea name="'+k+'">'+esc(v)+'</textarea>';
+ else inp='<input name="'+k+'" type="'+(t==='money'?'number':t)+'" value="'+esc(v)+'"'+(t==='number'||t==='money'?' inputmode="numeric" min="0"':'')+(d[5]?' placeholder="'+esc(d[5])+'"':'')+'>';
+ return'<label>'+esc(d[1])+inp+'</label>'}
+function submit(ev0){ev0.preventDefault();var f=C.forms[FM.id],data={};[].forEach.call($('#mf').elements,function(x){if(x.name)data[x.name]=x.type==='number'?(x.value===''?'':+x.value):(x.tagName==='SELECT'&&/^-?\d+(\.\d+)?$/.test(x.value)?+x.value:x.value)});
+ var bad=(f.fields||[]).filter(function(d){return d[6]&&(data[d[0]]===''||data[d[0]]==null)});if(bad.length){var e=$('#fe');e.hidden=false;e.textContent='Заполните: '+bad.map(function(d){return d[1].toLowerCase()}).join(', ');return}
+ if(f.check){var msg=ev(f.check,FM.row,data);if(msg){var e2=$('#fe');e2.hidden=false;e2.textContent=msg;return}}
+ if(f.fn){A.hooks[f.fn](data,FM.row);close();render();badges();return}
+ if(FM.row){var a=Object.assign({},f,{set:Object.assign({},f.set||{})});Object.keys(data).forEach(function(k){a.set[k]=data[k]});apply(FM.row,a);return}
+ var L=D[f.entity],r=Object.assign({},f.add||{},data);r.id=(f.idp||'')+(Math.max.apply(null,L.map(function(x){return parseInt(String(x.id).replace(/\D/g,''))||0}).concat([0]))+1);
+ if(f.compute)Object.keys(f.compute).forEach(function(k){r[k]=ev(f.compute[k],r)});
+ r.hist=[['сегодня, '+clock(),tpl(f.hist||'Создано',r)]];r._fl=1;L.unshift(r);
+ if(f.log)A.log(f.icon||'＋',tpl(f.log,r),f.logSub?tpl(f.logSub,r):'');if(f.toast)A.toast(tpl(f.toast,r));if(A.hooks.added)A.hooks.added(r,f);close();if(f.go)go(f.go,true);else render();badges()}
+/* события */
+document.addEventListener('click',function(e){var t=e.target,b;
+ if(b=t.closest('.nv[data-v]')){go(b.dataset.v);return}
+ if(t.closest('[data-about]')){aboutOpen();return}
+ if(t.closest('[data-x]')||t.id==='scrim'){close();return}
+ if(b=t.closest('#pa')){formOpen(b.dataset.form,null,cur&&cur.type==='grid'?{}:null);return}
+ if(b=t.closest('[data-a]')){act(+b.dataset.a);return}
+ if(b=t.closest('.ch[data-f]')){flt[cur.id]=b.dataset.f;render();return}
+ if(b=t.closest('th[data-s]')){var s=sort[cur.id]||cur.sort||[];sort[cur.id]=[b.dataset.s,s[0]===b.dataset.s?-s[1]:1];render();return}
+ if(b=t.closest('.dt button[data-d]')){A.S[cur.id+'_d']=+b.dataset.d;render();return}
+ if(b=t.closest('.bk[data-id]')){open(cur.entity,b.dataset.id);return}
+ if(b=t.closest('.cl[data-r]')){if(b.classList.contains('off'))return;if(cur.form){var p={};p[cur.resKey]=b.dataset.r;p.start=+b.dataset.t;p[cur.dayKey||'day']=A.S[cur.id+'_d'];formOpen(cur.form,null,p)}return}
+ if(b=t.closest('tr[data-id],.cd[data-id],[data-open]')){if(b.dataset.open){var p2=b.dataset.open.split(':');open(p2[0],p2[1])}else open(cur.entity,b.dataset.id);return}
+ if(b=t.closest('[data-go]')){go(b.dataset.go);return}
+ if(b=t.closest('[data-fn]')){A.hooks[b.dataset.fn](b);return}
+ if(b=t.closest('[data-form]')){formOpen(b.dataset.form);return}});
+$('#mf').addEventListener('submit',submit);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'&&!$('.sr').hidden){e.preventDefault();$('#q').focus()}});
+$('#q').addEventListener('input',function(){q=this.value.trim();render()});
+/* перетаскивание в канбане */
+var drag=null;
+document.addEventListener('dragstart',function(e){var c=e.target.closest&&e.target.closest('.cd[data-id]');if(!c)return;drag=c.dataset.id;c.classList.add('dg');try{e.dataTransfer.setData('text/plain',drag)}catch(x){}});
+document.addEventListener('dragend',function(e){drag=null;document.querySelectorAll('.cd.dg').forEach(function(c){c.classList.remove('dg')});document.querySelectorAll('.col.ov').forEach(function(c){c.classList.remove('ov')})});
+document.addEventListener('dragover',function(e){var c=e.target.closest&&e.target.closest('.col');if(c&&drag){e.preventDefault();document.querySelectorAll('.col.ov').forEach(function(x){if(x!==c)x.classList.remove('ov')});c.classList.add('ov')}});
+document.addEventListener('drop',function(e){var c=e.target.closest&&e.target.closest('.col');if(!c||!drag)return;e.preventDefault();var r=A.find(cur.entity,drag);var to=c.dataset.c;if(!r||r[cur.field]===to)return;
+ var mv=(cur.moves||{})[to]||{};if(mv.form){openRow={e:cur.entity,id:r.id};formOpen(mv.form,r);return}var a=Object.assign({},mv);a.set=Object.assign({},mv.set||{});a.set[cur.field]=to;if(!a.log)a.log=tpl(cur.moveLog||'{'+cur.field+'}',r).replace(/\{.*?\}/,'')+' → '+((C.pills[cur.pill||cur.field]||{})[to]||[to])[0];a.close=1;apply(r,a)});
+function aboutOpen(){var ab=C.about;FM=null;$('#mf').innerHTML='<div class="mh"><h2>'+esc(ab.h)+'</h2><button class="xb" type="button" data-x>'+ic('x')+'</button></div><div class="mbd ab">'+ab.p.map(function(p){return'<p>'+esc(p)+'</p>'}).join('')+'<ul>'+ab.f.map(function(x){return'<li>'+esc(x)+'</li>'}).join('')+'</ul><p class="dv">Разработка YSD DEV</p></div><div class="mf"><button class="bt" type="button" data-x>Понятно</button></div>';
+ $('#md').classList.add('on');$('#scrim').classList.add('on')}
+A.about=aboutOpen;
+addEventListener('resize',function(){if(cur&&cur.type==='grid')render()});
+if(C.init)ev(C.init);
+setTimeout(function(){if(A.hooks.init)A.hooks.init();nav();var h0=(location.hash||'').slice(1);go(C.views.some(function(v){return v.id===h0})?h0:C.views[0].id);window.__app=1},0);
+})();
+</script>
+<script>
+(function(){var A=APP;
+A.dueh=function(r){if(r.st!=='open')return A.esc(A.dfmt(r.due));return'<span class="pl '+(r.due<=1?'bad':r.due<=2?'warn':'idle')+'">'+(r.due<=0?'сегодня':A.dfmt(r.due))+'</span>'};
+A.views.rating=function(el){var m=[['июн',91.2],['июл',93.8],['авг',89.6],['сен',95.1],['окт',96.4],['ноя',94.7]];
+ el.innerHTML='<div class="rt"><div class="kp ac"><span>Поставки в срок</span><b>94,7%</b><small>норма сети — от 92%</small></div><div class="kp"><span>Комплектность</span><b>98,1%</b><small>привезли столько, сколько заказали</small></div><div class="kp"><span>Претензии по качеству</span><b>2</b><small>за 6 месяцев, обе закрыты</small></div></div>'+
+ '<div class="g2"><div class="pane"><h3>Поставки в срок по месяцам</h3><div class="bars">'+m.map(function(x){return'<div><b>'+String(x[1]).replace('.',',')+'%</b><i class="'+(x[1]<92?'low':'')+'" style="height:'+((x[1]-80)*7)+'px"></i>'+x[0]+'</div>'}).join('')+'</div></div>'+
+ '<div class="pane"><h3>Как поднять рейтинг</h3><ul class="tips"><li>Записывайтесь на приёмку минимум за 2 дня: в августе 3 поставки сдвинули окно в последний момент.</li><li>Рейтинг выше 95% — отсрочка сокращается с 30 до 21 дня.</li><li>Отвечайте на запросы цен в первые сутки: такие предложения закупщики смотрят первыми.</li></ul></div></div>'};
+})();
+</script>
+</body>
+</html>

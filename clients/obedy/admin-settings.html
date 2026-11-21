@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Настройки · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-settings.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a aria-current="page" href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-msg="Настройки сохранены (в макете — для примера)" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="narrow stack" style="max-width:760px">
+<div class="page-head" style="margin:0"><div><h1>Настройки</h1><p class="mut">Время везде — томское (UTC+7).</p></div></div>
+<form action="#" class="stack" data-msg="Настройки сохранены (в макете — для примера)" data-to="stay" method="post" novalidate="" style="--gap:22px">
+
+<section class="panel stack sect" id="orders">
+<h2>Приём заказов</h2>
+<div class="grid2">
+<label class="field"><span>Заказы принимаются до</span><input inputmode="numeric" name="cutoff_time" placeholder="10:00" value="10:00"/></label>
+<label class="field"><span>Какого дня</span><select name="cutoff_mode">
+<option selected="" value="same">в день доставки</option>
+<option value="prev">накануне доставки</option></select></label>
+</div>
+<fieldset class="field" style="border:0;padding:0;margin:0"><legend style="font-size:14px;font-weight:500;margin-bottom:6px">Дни доставки</legend>
+<div class="days"><label><input checked="" name="workdays[]" type="checkbox" value="1"/><span>пн</span></label><label><input checked="" name="workdays[]" type="checkbox" value="2"/><span>вт</span></label><label><input checked="" name="workdays[]" type="checkbox" value="3"/><span>ср</span></label><label><input checked="" name="workdays[]" type="checkbox" value="4"/><span>чт</span></label><label><input checked="" name="workdays[]" type="checkbox" value="5"/><span>пт</span></label><label><input name="workdays[]" type="checkbox" value="6"/><span>сб</span></label><label><input name="workdays[]" type="checkbox" value="7"/><span>вс</span></label></div></fieldset>
+<div class="grid2">
+<label class="field"><span>На сколько дней вперёд можно заказать</span><input inputmode="numeric" name="days_ahead" value="5"/><small class="hint">Считаются только дни доставки.</small></label>
+<label class="field"><span>Обедов на человека в день</span><input inputmode="numeric" name="max_per_day" value="0"/><small class="hint">0 — без ограничения.</small></label>
+</div>
+<label class="check"><input checked="" name="allow_cancel" type="checkbox" value="1"/><span>Сотрудник может сам отменить заказ, пока идёт приём и заказ не принят в работу</span></label>
+</section>
+<section class="panel stack sect" id="mail">
+<h2>Почта</h2>
+<label class="field"><span>Куда присылать заказы</span><input name="notify_email" type="email" value="olga@example.ru"/></label>
+<label class="check"><input checked="" name="daily_summary" type="checkbox" value="1"/><span>После окончания приёма присылать одно письмо-сводку: сколько каких обедов и куда везти</span></label>
+<details class="stack">
+<summary style="cursor:pointer;font-weight:500;min-height:44px;display:flex;align-items:center">Отправка писем (SMTP) — чтобы письма не попадали в спам</summary>
+<p class="small mut">Без SMTP письма уходят средствами хостинга и часто попадают в «Спам». Надёжнее — ящик на Яндексе или Mail.ru: в его настройках создайте «пароль приложения» и укажите его ниже.</p>
+<div class="grid2">
+<label class="field"><span>Сервер</span><input name="smtp_host" placeholder="smtp.yandex.ru" value=""/></label>
+<label class="field"><span>Порт</span><input inputmode="numeric" name="smtp_port" value="465"/></label>
+<label class="field"><span>Шифрование</span><select name="smtp_secure"><option selected="" value="ssl">SSL (порт 465)</option><option value="tls">STARTTLS (порт 587)</option><option value="none">нет</option></select></label>
+<label class="field"><span>Логин ящика</span><input autocomplete="off" name="smtp_user" placeholder="zakaz@yandex.ru" value=""/></label>
+<label class="field"><span>Пароль приложения</span><input autocomplete="new-password" name="smtp_pass" placeholder="" type="password" value=""/></label>
+<label class="field"><span>Адрес отправителя</span><input name="mail_from" placeholder="как логин ящика" type="email" value=""/></label>
+<label class="field"><span>Имя отправителя</span><input name="mail_from_name" value="Обеды"/></label>
+</div>
+</details>
+<div><button class="btn ghost sm" formnovalidate="" name="action" type="submit" value="test">Отправить тестовое письмо</button> <span class="tiny">Сначала сохраните настройки.</span></div>
+</section>
+<section class="panel stack sect" id="look">
+<h2>Название и контакты</h2>
+<div class="grid2">
+<label class="field"><span>Название сервиса</span><input name="service_name" value="Обеды"/></label>
+<label class="field"><span>Подпись под названием</span><input name="service_tagline" value="Томск, для партнёров"/></label>
+</div>
+<label class="field"><span>Куда обращаться, если забыли пароль</span><input name="help_contact" placeholder="+7 (3822) 00-00-00 или почта" value="+7 (3822) 00-00-00"/><small class="hint">Видно на странице входа.</small></label>
+</section>
+<section class="panel stack sect" id="legal">
+<h2>Для политики обработки данных</h2>
+<p class="small mut">Подставляется в <a href="policy.html" target="_blank">политику</a>. Сотрудники соглашаются с ней при первом входе.</p>
+<div class="grid2">
+<label class="field"><span>ИП или организация</span><input name="op_name" placeholder="ИП Иванова Ольга Сергеевна" value="[ИП или ООО клиента]"/></label>
+<label class="field"><span>ИНН</span><input inputmode="numeric" name="op_inn" value=""/></label>
+<label class="field"><span>Адрес</span><input name="op_address" value=""/></label>
+<label class="field"><span>Почта для обращений</span><input name="op_email" type="email" value=""/></label>
+</div>
+</section>
+<div class="row"><button class="btn" type="submit">Сохранить настройки</button><a class="btn ghost" href="password.html">Сменить свой пароль</a></div>
+</form>
+</div>
+</div>
+</main>
+</body>
+</html>

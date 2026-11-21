@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Марк — ИИ-поддержка сервиса для онлайн-школ «Парта»</title>
+<meta name="description" content="ИИ-ассистент первой линии поддержки: отвечает по базе знаний, сам проверяет платежи и письма, заводит заявки инженерам и передаёт оператору то, что нельзя решать без человека.">
+<meta property="og:title" content="Марк — ИИ-поддержка сервиса для онлайн-школ «Парта»">
+<meta property="og:description" content="ИИ-ассистент первой линии поддержки: отвечает по базе знаний, сам проверяет платежи и письма, заводит заявки инженерам и передаёт оператору то, что нельзя решать без человека.">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%238b6cff%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%23ffffff%27%3E%D0%9F%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ai)document.documentElement.classList.add('nofx')},3500)</script>
+<style>
+@font-face{font-family:"Geologica";font-style:normal;font-weight:300;font-display:swap;src:url(fonts/geologica-cyrillic-300-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:300;font-display:swap;src:url(fonts/geologica-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/geologica-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/geologica-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/geologica-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/geologica-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/geologica-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Geologica";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/geologica-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--rb:12px;--rc:18px;--rs:24px;--hw:600;--ht:-.035em;--bg:#0b0d12;--ink:#eef0f5;--soft:#a9afbd;--mut:#6d7485;--line:#1b202a;--line2:#2a313e;--card:#12161e;--ac:#8b6cff;--aci:#ffffff;--act:#b3a0ff;--fh:"Geologica",sans-serif;--fb:"Geologica",sans-serif;--fm:"JetBrains Mono",monospace;--rw:20px;--wbg:#10141c;--cbg:#8b6cff;--cink:#ffffff;--wsh:0 0 0 1px #262d3a,0 60px 140px -60px rgba(139,108,255,.45);--ok:#3ddc97;--warn:#ffb547;--tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.4l3 3 6-6.6' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+:root{--gut:clamp(16px,4vw,48px);--ok:#17a06a;--warn:#d99600;--bad:#d9483b}
+.wrap{width:min(1280px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.04;margin:0;overflow-wrap:break-word;text-wrap:balance}
+h2{font-size:clamp(30px,4.2vw,54px)}
+p{margin:0}
+.kick{font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--kc,var(--ac))}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:56ch;text-wrap:pretty}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec.t0{padding-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb);background:var(--ac);color:var(--aci);font-weight:600;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px -12px var(--ac)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--fh);font-weight:var(--hw);font-size:22px;display:flex;align-items:center;gap:10px;letter-spacing:var(--ht);white-space:nowrap}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ac);color:var(--aci);font-style:normal;font-size:17px;font-family:var(--fb);font-weight:700}
+.nav{display:flex;gap:24px;font-size:15px;color:var(--soft);margin-left:auto}
+.nav a:hover{color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:15px}
+/* первый экран */
+.hero{padding:clamp(36px,5.5vw,84px) 0 clamp(28px,4vw,52px)}
+.hg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:clamp(24px,5vw,80px);align-items:end}
+.hero h1{font-size:clamp(40px,6vw,86px);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hs{display:grid;gap:0}
+.hs div{padding:16px 0;border-top:1px solid var(--line2)}
+.hs div:last-child{border-bottom:1px solid var(--line2)}
+.hs b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(28px,3vw,40px);letter-spacing:-.02em;line-height:1}
+.hs span{font-size:14px;color:var(--mut)}
+.hero-center .hg{grid-template-columns:1fr;justify-items:center;text-align:center}
+.hero-center .lead{margin-inline:auto}
+.hero-center .cta{justify-content:center}
+.hero-center .hs{grid-template-columns:repeat(3,auto);gap:clamp(20px,5vw,72px);margin-top:8px}
+.hero-center .hs div{border:0!important;padding:0}
+/* рабочее окно */
+.wsx{padding-bottom:clamp(56px,8vw,110px)}
+.ws-n{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);margin-bottom:14px}
+.ws-n b{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.ws{position:relative;border-radius:var(--rw,24px);background:var(--wbg,var(--card));color:var(--wink,var(--ink));box-shadow:var(--wsh,0 60px 120px -70px rgba(0,0,0,.55),0 0 0 1px var(--line));overflow:hidden;--wl:var(--wline,color-mix(in srgb,currentColor 11%,transparent));--w2:var(--wsoft,color-mix(in srgb,currentColor 5%,transparent))}
+.ws-bar{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--wl);font-size:14px}
+.ws-bar .dots{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:36px;flex:none}
+.ws-bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ws-bar span{margin-left:auto;font-size:12.5px;opacity:.6;white-space:nowrap}
+.panes{display:grid;min-height:0}
+.pane{min-width:0;min-height:0;display:flex;flex-direction:column}
+.pane+.pane{border-left:1px solid var(--wl)}
+.pane-h{display:flex;align-items:center;gap:10px;padding:14px 18px 10px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;opacity:.62}
+.pane-h span{margin-left:auto;letter-spacing:0;text-transform:none;font-weight:500;font-size:12.5px}
+.scroll{overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;line-height:1;padding:6px 9px;border-radius:999px;background:var(--w2);white-space:nowrap}
+.tag.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:color-mix(in srgb,var(--ok) 80%,currentColor)}
+.tag.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 78%,currentColor)}
+.tag.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:color-mix(in srgb,var(--bad) 85%,currentColor)}
+.tag.ac{background:color-mix(in srgb,var(--ac) 15%,transparent);color:var(--act,var(--ac))}
+.btn-s{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 14px;border-radius:var(--rs2,10px);background:var(--ac);color:var(--aci);font-size:14px;font-weight:600;transition:filter .15s,transform .15s}
+.btn-s:hover{filter:brightness(1.06)}
+.btn-s:active{transform:scale(.98)}
+.btn-s.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.btn-s[disabled]{opacity:.5;cursor:default}
+.kv{display:flex;justify-content:space-between;gap:14px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--wl);animation:kin .3s both}
+.kv span{opacity:.62;flex:none}
+.kv b{font-weight:600;text-align:right}
+@keyframes kin{from{opacity:0;transform:translateY(6px)}}
+.meter{height:6px;border-radius:3px;background:var(--w2);overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:3px;background:var(--ac);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* чат */
+.ws-chat .panes{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);height:min(640px,78vh)}
+.chat{flex:1;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;min-height:0}
+.m{max-width:min(82%,520px);padding:10px 14px;border-radius:18px;font-size:15px;line-height:1.42;animation:kin .28s both;white-space:pre-line;overflow-wrap:break-word}
+.m.b{background:var(--cin,var(--w2));align-self:flex-start;border-bottom-left-radius:6px}
+.m.u{background:var(--cout,var(--ac));color:var(--coi,var(--aci));align-self:flex-end;border-bottom-right-radius:6px}
+.m.rich{white-space:normal;width:min(92%,560px);max-width:none;padding:0;background:none}
+.m.note{align-self:center;background:none;font-size:12.5px;opacity:.65;padding:2px 8px;text-align:center;max-width:100%}
+.its{display:grid;gap:8px}
+.it{position:relative;padding:14px 14px 12px;border-radius:16px;background:var(--cin,var(--w2));display:grid;gap:3px}
+.it .tg{font-style:normal;font-size:11.5px;font-weight:600;color:var(--act,var(--ac));letter-spacing:.02em}
+.it b{font-size:15.5px;line-height:1.25}
+.it span{font-size:13.5px;opacity:.68}
+.itf{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.itf strong{font-size:16px;white-space:nowrap}
+.itf button,.bts button{min-height:36px;padding:7px 13px;border-radius:10px;font-size:13.5px;font-weight:600;background:var(--ac);color:var(--aci)}
+.kvc{padding:14px;border-radius:16px;background:var(--cin,var(--w2));font-size:14px}
+.kvc h4{margin:0 0 8px;font-size:15px;font-weight:700}
+.kvc .r{display:flex;justify-content:space-between;gap:14px;padding:4px 0}
+.kvc .r span:first-child{opacity:.62}
+.kvc .r span:last-child{text-align:right;font-weight:500}
+.kvc .sum{margin-top:6px;padding-top:9px;border-top:1px dashed var(--wl);font-weight:700}
+.kvc .sum span:first-child{opacity:1}
+.bts{display:flex;flex-wrap:wrap;gap:6px}
+.bts button.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.tr{align-self:flex-start;display:flex;flex-wrap:wrap;gap:5px;margin:-2px 0 6px;animation:kin .3s both}
+.tr i{font-style:normal;font-size:11.5px;padding:4px 8px;border-radius:999px;background:var(--w2);opacity:.85;white-space:nowrap}
+.typing{align-self:flex-start;display:flex;align-items:center;gap:9px;padding:9px 13px;border-radius:18px;background:var(--cin,var(--w2));font-size:13.5px}
+.typing span{opacity:.7}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 18px 4px}
+.chips button{padding:8px 13px;border-radius:999px;font-size:13.5px;line-height:1.2;box-shadow:inset 0 0 0 1.5px var(--wl);text-align:left;transition:background .15s}
+.chips button:hover{background:var(--w2)}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;align-items:center}
+.inp input{flex:1;height:46px;border-radius:14px;border:0;padding:0 16px;background:var(--w2);font-size:15px;min-width:0}
+.inp input:focus{outline:0;box-shadow:0 0 0 1.5px var(--ac)}
+.inp button{width:46px;height:46px;border-radius:14px;background:var(--ac);color:var(--aci);display:grid;place-items:center;flex:none}
+.inp button svg{width:19px;height:19px;fill:currentColor}
+.ag{display:flex;align-items:center;gap:11px;padding:13px 18px;border-bottom:1px solid var(--wl)}
+.ag .av{width:38px;height:38px;border-radius:50%;background:var(--ac);color:var(--aci);display:grid;place-items:center;font-weight:700;flex:none}
+.ag b{display:block;font-size:15px;line-height:1.2}
+.ag small{font-size:12.5px;opacity:.6}
+.ag button{margin-left:auto;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--wl)}
+/* панель «что понял» */
+.brain{background:var(--bbg,transparent)}
+.bb{padding:14px 18px 16px;border-bottom:1px solid var(--wl)}
+.bb:last-child{border-bottom:0}
+.bb-h{display:flex;align-items:center;gap:9px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.bb-h i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;box-shadow:inset 0 0 0 1.5px var(--wl);flex:none;letter-spacing:0}
+.bb[data-st=wait]{opacity:.5}
+.bb[data-st=run] .bb-h i{box-shadow:none;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;color:transparent}
+.bb[data-st=done] .bb-h i{background:var(--ok);color:#fff;box-shadow:none}
+.bb .em{font-size:13.5px;opacity:.55}
+.bb .kv:last-child{border-bottom:0}
+.src{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:7px 0;font-size:13.5px;animation:kin .3s both}
+.src i{width:30px;height:30px;border-radius:9px;background:var(--w2);display:grid;place-items:center;font-style:normal;font-size:14px}
+.src b{display:block;font-size:14px;line-height:1.25}
+.src span{opacity:.62;line-height:1.3;display:block}
+.act{padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--ok) 13%,transparent);animation:kin .3s both}
+.act.h{background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.act b{display:block;font-size:14.5px}
+.act span{font-size:13px;opacity:.72}
+.cf{display:flex;align-items:center;gap:10px;font-size:12.5px;margin-top:10px}
+.cf .meter{flex:1}
+.cf b{min-width:38px;text-align:right}
+/* как работает */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:clamp(28px,4vw,48px);counter-reset:h}
+.how div{padding:clamp(20px,2.2vw,28px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);counter-increment:h;min-width:0}
+.how div::before{content:counter(h,decimal-leading-zero);display:block;font:600 13px/1 var(--fm,var(--fb));letter-spacing:.1em;color:var(--kc,var(--ac));margin-bottom:26px}
+.how b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15;margin-bottom:8px}
+.how p{color:var(--soft);font-size:15px}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(28px,4vw,48px)}
+.feat{padding:clamp(20px,2.4vw,30px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);display:flex;flex-direction:column;gap:10px;min-width:0}
+.feat i{width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:22px;margin-bottom:6px}
+.feat b{font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15}
+.feat p{color:var(--soft);font-size:15px}
+/* контроль */
+.adm{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.adm>*{min-width:0}
+.rules{display:grid;gap:18px;margin-top:26px;padding:0;list-style:none}
+.rules li{display:grid;grid-template-columns:28px 1fr;gap:14px}
+.rules li::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--ac) no-repeat center/14px;background-image:var(--tick);margin-top:1px}
+.rules b{display:block;font-size:17px}
+.rules p{color:var(--soft);font-size:15px}
+.panel{border-radius:22px;background:var(--pbg,var(--card));color:var(--pink,var(--ink));box-shadow:0 40px 80px -50px rgba(0,0,0,.45),0 0 0 1px var(--line);overflow:hidden;font-size:14px;--pl:color-mix(in srgb,currentColor 9%,transparent)}
+.panel .ph{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--pl)}
+.panel .ph i{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:40px;flex:none}
+.panel .ph span{margin-left:auto;font-size:12px;opacity:.55}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--pl)}
+.kpi div{padding:14px 18px;min-width:0}
+.kpi div+div{border-left:1px solid var(--pl)}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em;white-space:nowrap}
+.kpi span{font-size:12px;opacity:.55}
+.rows{max-height:340px;overflow:auto}
+.rowx{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 18px;border-top:1px solid var(--pl)}
+.rowx:first-child{border-top:0}
+.rowx .d{width:36px;height:36px;border-radius:10px;background:color-mix(in srgb,currentColor 6%,transparent);display:grid;place-items:center;font-size:16px}
+.rowx b{display:block;font-size:14px}
+.rowx span{font-size:12.5px;opacity:.6}
+.rowx em{font-style:normal;font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--act,var(--ac));white-space:nowrap}
+.rowx em.h{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 75%,currentColor)}
+.rowx.new{animation:flash 1.6s}
+@keyframes flash{0%{background:color-mix(in srgb,var(--ac) 22%,transparent)}100%{background:transparent}}
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--rc);overflow:hidden;margin-top:clamp(28px,4vw,44px);box-shadow:0 0 0 1px var(--line)}
+.res div{background:var(--bg);padding:clamp(20px,2.4vw,30px);min-width:0}
+.res b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(32px,4vw,52px);letter-spacing:-.03em;line-height:1;color:var(--rcx,var(--ac))}
+.res span{display:block;margin-top:10px;color:var(--soft);font-size:15px}
+.ints{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ints span{padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;font-weight:500;box-shadow:var(--csh,none)}
+.faq details{border-top:1px solid var(--line2)}
+.faq details:last-child{border-bottom:1px solid var(--line2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:clamp(17px,1.6vw,19px);font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--soft);max-width:70ch}
+.cta-b{border-radius:var(--rs);background:var(--cbg,var(--ink));color:var(--cink,var(--bg));padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-b h2{max-width:18ch}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 40px;font-size:14px;color:var(--mut)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.on,.nofx .reveal{opacity:1;transform:none}
+@media (max-width:1000px){
+ .nav{display:none}.top .btn{margin-left:auto}
+ .hg{grid-template-columns:1fr;align-items:start}
+ .hs{grid-template-columns:repeat(3,1fr);gap:14px}
+ .hs div{border:0!important;padding:0}
+ .hs b{font-size:26px}.hs span{font-size:12.5px;line-height:1.3;display:block;margin-top:4px}
+ .feats{grid-template-columns:1fr 1fr}
+ .adm{grid-template-columns:1fr}
+ .res{grid-template-columns:1fr 1fr}
+ .ws-chat .panes{grid-template-columns:1fr;height:auto}
+ .ws-chat .pane.c{height:min(600px,82vh)}
+ .pane+.pane{border-left:0;border-top:1px solid var(--wl)}
+}
+@media (max-width:640px){
+ .hero h1{font-size:clamp(36px,10.4vw,52px)}
+ .hero .cta .btn{flex:1 1 100%}
+ .hero-center .hs{gap:14px;grid-template-columns:repeat(3,1fr)}
+ .feats{grid-template-columns:1fr}
+ .ws{border-radius:18px}
+ .ws-bar .dots{display:none}
+ .m{max-width:88%}.m.rich{width:100%}
+ .chips{padding-inline:12px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chips button{flex:none;white-space:nowrap}.chat{padding-inline:12px}.inp{padding-inline:10px}
+ .ws-n{align-items:flex-start;font-size:13px}.ws-n b{margin-top:6px}
+ .kpi b{font-size:18px}.kpi div{padding:12px}
+ .rowx{padding-inline:12px;gap:10px}
+ .cta-b .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+
+.kick,.pane-h,.bb-h,.how div::before{font-family:var(--fm);font-weight:500;letter-spacing:.08em}body{font-weight:300}.hero h1{font-size:clamp(40px,6.4vw,92px);max-width:16ch;margin-inline:auto}.hero{background:radial-gradient(60% 70% at 50% 0,rgba(139,108,255,.22),transparent 70%)}.kv b,.m.u,.btn{font-weight:500}.cta-b .btn{background:#0b0d12;color:#fff}.feat i{background:#1a1f2a}.lead{font-weight:300}.hs b{color:#b3a0ff}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>П</i>Парта</a><nav class="nav"><a href="#demo">Ассистент</a><a href="#how">Как работает</a><a href="#feats">Возможности</a><a href="#control">Контроль</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#demo">Попробовать</a></div></header>
+<main>
+<section class="hero hero-center" id="top"><div class="wrap hg">
+ <div class="reveal"><div class="kick">ИИ-поддержка сервиса</div><h1>Первая линия, которая <em>решает, а&nbsp;не&nbsp;отписывается</em></h1><p class="lead">Марк отвечает клиентам сервиса за секунды: находит ответ в базе знаний, сам проверяет платёж или письмо, заводит заявку инженерам. Оператору достаётся только то, что нельзя решить без человека.</p>
+ <div class="cta"><a class="btn" href="#demo">Написать в поддержку</a><a class="btn ghost" href="#how">Как это работает</a></div></div>
+ <div class="hs reveal"><div><b>68%</b><span>обращений без оператора</span></div><div><b>7 сек</b><span>до первого ответа</span></div><div><b>24/7</b><span>без очереди и выходных</span></div></div>
+</div></section>
+<section class="wsx" id="demo"><div class="wrap"><p class="ws-n reveal"><b></b>Чат работает: выберите обращение или опишите проблему своими словами, например «ошибка 502 при загрузке видео в сафари!!»</p>
+<div class="ws ws-chat reveal" id="ws"><div class="panes">
+ <div class="pane c"><div class="ag"><div class="av">М</div><div><b>Марк</b><small>ИИ-ассистент поддержки «Парты»</small></div><button type="button" id="again">↻ Заново</button></div>
+  <div class="chat" id="chat" aria-live="polite"></div><div class="chips" id="chips" data-ox></div>
+  <div class="inp"><input id="inp" placeholder="Опишите проблему своими словами" aria-label="Сообщение ассистенту" autocomplete="off"><button id="send" type="button" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5l.02 6.6L15 12 3.02 13.9z"/></svg></button></div></div>
+ <div class="pane brain"><div class="pane-h">Что происходит за ответом</div><div class="scroll">
+  <div class="bb" data-st="wait"><div class="bb-h"><i>1</i>Понял из сообщения</div><div id="bF"></div><div class="cf"><span>Уверенность</span><div class="meter"><i id="bC"></i></div><b id="bCv">—</b></div></div>
+  <div class="bb" data-st="wait"><div class="bb-h"><i>2</i>Где проверил</div><div id="bS"></div></div>
+  <div class="bb" data-st="wait"><div class="bb-h"><i>3</i>Что сделал</div><div id="bA"></div></div>
+ </div></div>
+</div></div>
+</div></section>
+<section class="sec t0" id="how"><div class="wrap"><div class="reveal"><div class="kick">Как работает</div><h2 style="margin:14px 0 16px">Что происходит за каждым ответом</h2>
+<p class="lead">Клиент видит чат поддержки. Рядом показано, что Марк понял, что проверил в системах и что сделал сам.</p></div><div class="how reveal"><div><b>Понимает обращение</b><p>Определяет тему, тон и детали: код ошибки, устройство, раздел. На раздражённые сообщения поднимает приоритет.</p></div><div><b>Проверяет в системах</b><p>Смотрит не только базу знаний, но и сам аккаунт: платежи, письма, подписку, статус сервиса.</p></div><div><b>Решает сам, что можно</b><p>Возвращает дубль платежа, высылает ссылку, меняет тариф, заводит заявку инженерам.</p></div><div><b>Передаёт остальное</b><p>Спорные возвраты, жалобы и вопросы без ответа в базе уходят оператору со сводкой и проверками.</p></div></div></div></section>
+<section class="sec t0" id="feats"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что Марк закрывает без оператора</h2></div>
+<div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>💳</i><b>Платежи и возвраты</b><p>Находит дубли и ошибки списаний в журнале платежей и оформляет возврат в пределах лимита.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🔑</i><b>Вход и доступ</b><p>Проверяет, дошло ли письмо, высылает ссылку повторно или включает вход по коду.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>💼</i><b>Тарифы и подписка</b><p>Считает доплату по дням, меняет тариф, отключает автопродление.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>🛠</i><b>Неполадки</b><p>Сверяется со статусом сервиса и заводит заявку с кодом ошибки, устройством и приоритетом.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🌡</i><b>Тон обращения</b><p>Замечает раздражение и срочность, поднимает приоритет и сокращает срок ответа.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>👤</i><b>Передача оператору</b><p>Отдаёт диалог со сводкой: что спросили, что проверено, что уже сделано.</p></div></div></div></section>
+<section class="sec t0" id="control"><div class="wrap adm">
+ <div class="reveal"><div class="kick">Контроль</div><h2 style="margin:14px 0 16px">Лимиты, которые Марк не переходит</h2><p class="lead">Вы решаете, что ассистенту можно делать самому. Каждое действие и каждая передача оператору попадают в журнал.</p><ul class="rules"><li><div><b>Возвраты только в пределах лимита</b><p>Дубль платежа до 5 000 ₽ возвращает сам. Всё остальное решает оператор.</p></div></li><li><div><b>Не гадает</b><p>Если ответа нет в базе знаний или уверенность ниже порога, зовёт человека.</p></div></li><li><div><b>Не закрывает обращение молча</b><p>Клиент всегда знает, что сделано, кто отвечает дальше и в какой срок.</p></div></li><li><div><b>Не выдаёт себя за человека</b><p>Представляется ассистентом и подключает оператора по первой просьбе.</p></div></li></ul></div>
+ <div class="panel reveal"><div class="ph"><i></i><b>Парта · журнал поддержки</b><span>сегодня</span></div><div class="kpi"><div><b id="kpi0" data-base="132">132</b><span>обращения сегодня</span></div><div><b>91</b><span>решено без оператора</span></div><div><b>7 сек</b><span>первый ответ</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">🔑</div><div><b>Включён вход по коду</b><span>письма не доходят до клиента</span></div><em class="">Решено</em></div><div class="rowx"><div class="d">👤</div><div><b>Передано оператору</b><span>спор о возврате за прошлый месяц</span></div><em class="h">Оператору</em></div><div class="rowx"><div class="d">🛠</div><div><b>Заявка № S-20417</b><span>не открывается сертификат · инженерам</span></div><em class="">Заявка</em></div></div></div>
+</div></section>
+<section class="sec t0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает сервис</h2></div>
+<div class="res"><div class="reveal"><b>68%</b><span>обращений решает первая линия без людей</span></div><div class="reveal"><b>7 сек</b><span>до первого ответа днём и ночью</span></div><div class="reveal"><b>−43%</b><span>нагрузки на операторов</span></div><div class="reveal"><b>0</b><span>обращений, закрытых без ответа</span></div></div><div class="ints reveal"><span>Usedesk</span><span>Omnidesk</span><span>HelpDeskEddy</span><span>Jira Service Management</span><span>ЮKassa</span><span>CloudPayments</span><span>Telegram</span><span>Чат на сайте</span></div></div></section>
+<section class="sec t0" id="faq"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Как Марк проверяет платежи и письма?</summary><p>Через доступ к вашим системам: журналу платежей, почтовой рассылке, базе аккаунтов. Права выдаёте вы: что можно читать и какие действия разрешены.</p></details><details><summary>Что, если ассистент ошибётся с возвратом?</summary><p>Действия с деньгами ограничены лимитом и правилами: только подтверждённый дубль и только до заданной суммы. Всё остальное он передаёт оператору.</p></details><details><summary>Ассистент не выдумает ответ?</summary><p>Он отвечает только по вашим данным: каталогу, базе знаний, регламентам, расписанию. Если ответа там нет или уверенность низкая, он не угадывает, а передаёт вопрос сотруднику вместе с краткой сводкой диалога.</p></details><details><summary>Сколько занимает внедрение?</summary><p>В первый день согласуем сценарии и границы: что ассистент делает сам, а что отдаёт людям. Рабочая версия на ваших данных готова за 7–10 дней, с интеграциями в учётные системы — за 2–3 недели.</p></details><details><summary>Что нужно от нас?</summary><p>Материалы, по которым отвечают ваши сотрудники: прайс, каталог, инструкции, типовые ответы, и доступ к системам, с которыми ассистент должен работать. Правила и тон согласуем с вами.</p></details><details><summary>Где хранятся данные?</summary><p>На вашем сервере или в облаке в России, по вашему выбору. Диалоги и действия ассистента пишутся в журнал, доступ к нему у тех сотрудников, которым вы его дали.</p></details></div></div></section>
+<section class="sec t0"><div class="wrap"><div class="cta-b reveal"><h2>Проверьте, как Марк решит ваше обращение</h2><a class="btn" href="#demo">Написать Марку</a></div></div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Парта</span><span>Ассистент разработан YSD DEV</span></footer>
+<script>window.AICFG={"demo": {"type": "chat", "agent": "Марк", "role": "ИИ-ассистент поддержки «Парты»", "note": "Чат работает: выберите обращение или опишите проблему своими словами, например «ошибка 502 при загрузке видео в сафари!!»", "placeholder": "Опишите проблему своими словами", "b2": "Где проверил", "greet": ["Здравствуйте! Я Марк, ИИ-ассистент поддержки «Парты». Опишите, что случилось, — проверю и помогу."], "chips": [["С меня дважды списали оплату", "double"], ["Не приходит письмо для входа", "login"], ["Хочу сменить тариф", "tariff"], ["Не загружается видео урока", "bug", "Не загружается видео урока на айфоне"]], "autoplay": ["С меня дважды списали оплату", "double"], "fallback": "unknown", "intents": [{"id": "human", "label": "нужен оператор", "re": "оператор|человек|живо\\S+ сотрудник|специалист|жалоб|претенз|суд", "conf": 0.92, "think": ["Понимаю просьбу", "Собираю сводку обращения", "Зову оператора"], "fields": "fields", "sources": [["👤", "Смена поддержки", "свободна Алина, вторая линия"]], "say": ["Подключаю оператора. Алина ответит здесь в течение 3 минут. Переписку и всё, что я уже проверил, она видит — повторять не придётся."], "action": ["Диалог передан оператору", "со сводкой и результатами проверок", "h"], "log": ["👤", "Передано оператору", "клиент попросил человека · сводка приложена", "Оператору", "h"]}, {"id": "double", "label": "двойное списание", "re": "дважды|два раза|двойн|списал|списан|лишн\\S+ плат", "conf": 0.96, "think": ["Понимаю обращение", "Проверяю платежи аккаунта", "Оформляю возврат"], "fields": "fields", "sources": [["💳", "Платежи аккаунта", "2 списания по 2 990 ₽ с разницей 40 секунд"], ["📄", "Регламент возвратов", "дубль возвращаем сразу, без заявления"]], "say": ["Вижу два одинаковых списания за тариф «Старт» с разницей в 40 секунд — второе лишнее. Это дубль платёжной системы, извините за неудобство.", {"t": "kv", "h": "Возврат № В-7731", "rows": [["Сумма", "2 990 ₽"], ["Куда", "на карту, с которой платили"], ["Срок", "до 3 рабочих дней"]], "sum": ["Статус", "оформлен"]}, "Подписка активна до {_end}, больше ничего делать не нужно. Когда банк зачислит деньги, пришлю уведомление."], "action": ["Возврат 2 990 ₽ оформлен", "дубль подтверждён по журналу платежей"], "log": ["↩️", "Возврат № В-7731", "дубль платежа · 2 990 ₽", "Возврат"], "next": [["Хочу сменить тариф", "tariff"], ["Позовите оператора", "human"]]}, {"id": "login", "label": "не может войти", "re": "войти|вход|парол|письм|код(?![а-яё])|ссылк|логин|авториз", "conf": 0.94, "think": ["Понимаю обращение", "Проверяю журнал писем", "Отправляю ссылку"], "fields": "fields", "sources": [["✉️", "Журнал писем", "письмо со ссылкой отправлено, попало в «Рассылки»"], ["📚", "База знаний", "статья «Не приходит письмо для входа»"]], "say": ["Проверил: письмо со ссылкой для входа мы отправили, но почтовый сервис отложил его в папку «Рассылки». Я выслал ссылку ещё раз, она действует 30 минут.", "Если письма нет и там, скажите — включу вход по коду из СМС на номер из профиля."], "action": ["Ссылка для входа отправлена повторно", "письмо ушло, действует 30 минут"], "log": ["✉️", "Повторная ссылка для входа", "письмо было в «Рассылках»", "Решено"], "next": [["Письма всё равно нет", "sms"], ["Позовите оператора", "human"]]}, {"id": "sms", "label": "вход по коду", "re": "смс|sms|всё равно нет|все равно нет|не пришло", "conf": 0.93, "think": ["Понимаю обращение", "Проверяю профиль", "Включаю вход по коду"], "fields": "fields", "sources": [["👤", "Профиль", "номер телефона подтверждён"], ["📚", "База знаний", "статья «Вход по коду из СМС»"]], "say": ["Включил вход по коду. На странице входа нажмите «Войти по номеру» — код придёт на телефон из профиля. Почту потом можно сменить в настройках."], "action": ["Вход по коду из СМС включён", "для аккаунта с подтверждённым номером"], "log": ["🔑", "Включён вход по коду", "письма не доходят до клиента", "Решено"]}, {"id": "refund", "label": "возврат денег", "re": "верн\\S+ деньги|возврат|отмен|отключ|отказ", "conf": 0.88, "think": ["Понимаю обращение", "Смотрю регламент возвратов", "Передаю оператору"], "fields": "fields", "sources": [["📄", "Регламент возвратов", "возврат за неиспользованный период решает оператор"], ["💳", "Подписка", "«Старт», оплачено до {_end}"]], "say": ["Автопродление я отключил, новых списаний не будет, доступ останется до {_end}.", "Возврат за оставшиеся дни по регламенту решает оператор. Передал ему обращение с расчётом, ответ придёт сюда в течение часа."], "action": ["Автопродление отключено, возврат — оператору", "сумма выше лимита ассистента", "h"], "log": ["👤", "Возврат за неиспользованный период", "автопродление отключено · нужен оператор", "Оператору", "h"]}, {"id": "upgrade", "label": "переход на тариф", "re": "переведи|перейти на|подключи\\S* «?команд|да, меня", "conf": 0.95, "think": ["Понимаю просьбу", "Считаю доплату", "Меняю тариф"], "fields": [["Запрос", "переход на «Команду»"], ["Доплата", "{_add}"]], "sources": [["💼", "Тарифы", "«Команда», 7 490 ₽ в месяц"], ["💳", "Подписка", "оплачено до {_end}"]], "say": ["Готово: тариф «Команда» включён, место для 10 преподавателей и свой домен уже доступны. Счёт на доплату {_add} отправил на почту, оплатить можно в течение 3 дней."], "action": ["Тариф изменён на «Команда»", "счёт на доплату {_add} выставлен"], "log": ["⬆️", "Переход на тариф «Команда»", "доплата {_add} · счёт выставлен", "Продажа"]}, {"id": "tariff", "label": "смена тарифа", "re": "тариф|подписк|продл|апгрейд|дороже|дешевле|преподавател", "conf": 0.93, "think": ["Понимаю вопрос", "Смотрю подписку и тарифы", "Считаю доплату"], "fields": "fields", "sources": [["💳", "Подписка", "«Старт», оплачено до {_end}"], ["💼", "Тарифы", "«Старт», «Команда», «Школа»"]], "say": ["Сейчас у вас «Старт»: один преподаватель, до 100 учеников. Оплачено до {_end}.", {"t": "kv", "h": "Переход на «Команду»", "rows": [["Что добавится", "10 преподавателей, свой домен"], ["Цена", "7 490 ₽ в месяц"], ["Осталось дней", "{_left}"]], "sum": ["Доплата сейчас", "{_add}"]}, "Доплата посчитана только за оставшиеся дни месяца. Перевести?", {"t": "btns", "items": [["Да, переведите", "upgrade", "Да, меня устраивает, переведите"], ["Позже", "later", "Пока не нужно", 1]]}], "action": ["Расчёт отправлен", "доплата посчитана по дням до конца периода"]}, {"id": "later", "label": "отложил решение", "re": "пока не|позже|подумаю", "conf": 0.9, "fields": [["Запрос", "отложил смену тарифа"]], "sources": [["💼", "Тарифы", "расчёт сохранён в обращении"]], "say": ["Хорошо, ничего не меняю. Расчёт сохранил в обращении — когда решите, достаточно написать «переведите на Команду»."], "action": ["Тариф не менялся", "расчёт сохранён в истории обращения"]}, {"id": "bug", "label": "неполадка", "re": "ошибк|не работа|не загруж|не открыва|не запуска|завис|видео|\\b[45]\\d\\d\\b|баг|сломал|вылета", "conf": 0.9, "think": ["Понимаю обращение", "Проверяю статус сервиса", "Завожу заявку"], "fields": "fields", "sources": [["🟢", "Статус сервиса", "все системы работают"], ["🛠", "Известные неполадки", "видео в Safari — исправление сегодня"]], "say": [{"t": "fn", "f": "bug"}], "action": ["Заявка № S-20418 создана", "инженеры получили описание и приоритет"], "log": ["🛠", "Заявка № S-20418", "неполадка в кабинете · передано инженерам", "Заявка"], "next": [["Позовите оператора", "human"], ["Хочу сменить тариф", "tariff"]]}, {"id": "unknown", "label": "вопрос вне базы знаний", "conf": 0.41, "fields": "fields", "sources": [], "think": ["Понимаю обращение", "Ищу в базе знаний", "Зову оператора"], "say": ["В базе знаний точного ответа нет, а гадать в поддержке нельзя. Передал вопрос оператору вместе с перепиской, он ответит здесь в течение 15 минут."], "action": ["Передано оператору", "уверенность ниже порога 60%", "h"], "log": ["👤", "Передано оператору", "ответа нет в базе знаний", "Оператору", "h"]}]}};</script>
+<script>
+(function(){
+'use strict';
+var C=window.AICFG||{},D=C.demo||{},RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SP=/[?&]fast/.test(location.search)?0:(RM?.25:1);
+function $(s,r){return(r||document).querySelector(s)}
+function $$(s,r){return[].slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function wait(ms){return new Promise(function(r){setTimeout(r,ms*SP)})}
+function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function stream(el,text,per){var p=String(text).split(/(\s+)/),i=0;return new Promise(function(res){
+ if(!SP){el.textContent=text;return res()}
+ (function tick(){if(i>=p.length)return res();el.appendChild(document.createTextNode(p[i]+(p[i+1]||'')));i+=2;
+  var sc=el.closest('.chat,.scroll');if(sc&&sc.dataset.follow!=='0')sc.scrollTop=sc.scrollHeight;setTimeout(tick,(per||24)*SP)})()})}
+var rows=$('#rows'),k0=$('#kpi0'),cnt=0;
+function log(a){if(!rows||!a)return;var r=document.createElement('div');r.className='rowx new';
+ r.innerHTML='<div class="d">'+a[0]+'</div><div><b>'+esc(a[1])+'</b><span>'+esc(a[2])+' · только что</span></div><em class="'+(a[4]||'')+'">'+esc(a[3]||'Новая')+'</em>';
+ rows.insertBefore(r,rows.firstChild);cnt++;if(k0)k0.textContent=+k0.dataset.base+cnt}
+var AIK=window.AIK={$:$,$$:$$,esc:esc,wait:wait,fmt:fmt,stream:stream,log:log,cfg:C,parts:{},speed:SP};
+
+if(D.type==='chat'){
+ var chat=$('#chat'),inp=$('#inp'),send=$('#send'),chips=$('#chips'),S=AIK.S=Object.assign({},D.defaults||{}),busy=false,touched=false,byId={};
+ (D.intents||[]).forEach(function(it){byId[it.id]=it;if(it.re)it._re=new RegExp(it.re,'i')});
+ var B={f:$('#bF'),s:$('#bS'),a:$('#bA'),c:$('#bC'),cv:$('#bCv')};
+ function fill(s){return String(s).replace(/\{([^{}]+)\}/g,function(m,k){return S[k]!=null?S[k]:m})}
+ function st(el,v){el.parentNode.dataset.st=v}
+ function conf(v){B.c.style.width=Math.round(v*100)+'%';B.cv.textContent=v?Math.round(v*100)+'%':'—';B.c.style.background=v&&v<.6?'var(--warn)':''}
+ function scroll(){chat.scrollTop=chat.scrollHeight}
+ function bubble(cls){var m=document.createElement('div');m.className='m '+cls;chat.appendChild(m);scroll();return m}
+ function card(p){
+  if(p.t==='items')return'<div class="its">'+p.items.map(function(x){return'<div class="it">'+(x.tag?'<i class="tg">'+esc(fill(x.tag))+'</i>':'')+'<b>'+esc(fill(x.n))+'</b><span>'+esc(fill(x.s))+'</span>'+
+   (x.p||x.b?'<div class="itf"><strong>'+esc(fill(x.p||''))+'</strong>'+(x.b?'<button type="button" data-go="'+x.b[1]+'" data-say="'+esc(fill(x.b[2]||x.b[0]))+'">'+esc(x.b[0])+'</button>':'')+'</div>':'')+'</div>'}).join('')+'</div>';
+  if(p.t==='kv')return'<div class="kvc">'+(p.h?'<h4>'+esc(fill(p.h))+'</h4>':'')+p.rows.map(function(r){return'<div class="r"><span>'+esc(r[0])+'</span><span>'+esc(fill(r[1]))+'</span></div>'}).join('')+
+   (p.sum?'<div class="r sum"><span>'+esc(p.sum[0])+'</span><span>'+esc(fill(p.sum[1]))+'</span></div>':'')+'</div>';
+  if(p.t==='btns')return'<div class="bts">'+p.items.map(function(b,i){return'<button type="button"'+(b[3]?' class="g"':'')+' data-go="'+b[1]+'" data-say="'+esc(fill(b[2]||b[0]))+'">'+esc(fill(b[0]))+'</button>'}).join('')+'</div>';
+  if(p.html)return p.html;
+  return''}
+ function typing(t){var el=document.createElement('div');el.className='typing';el.innerHTML='<i class="spin"></i><span></span>';el.lastChild.textContent=t;chat.appendChild(el);scroll();
+  return{el:el,set:function(x){el.lastChild.textContent=x;scroll()}}}
+ function lock(v){inp.disabled=v;send.disabled=v;inp.placeholder=v?'Ассистент отвечает…':(D.placeholder||'Напишите вопрос своими словами')}
+ function setChips(list){chips.innerHTML='';(list||[]).forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=fill(c[0]);b.dataset.go=c[1]||'';b.dataset.say=fill(c[2]||c[0]);chips.appendChild(b)})}
+ function val(x){return typeof x==='string'&&AIK.parts[x]?AIK.parts[x](S):x}
+ async function run(it,text){busy=true;lock(true);chips.innerHTML='';
+  var over=AIK.hook?AIK.hook(text||'',S,it):null;if(over&&byId[over])it=byId[over];
+  [B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);
+  var th=it.think||[],ty=typing(th[0]||'Разбираю сообщение');
+  st(B.f,'run');await wait(480);
+  var F=val(it.fields)||[];for(var i=0;i<F.length;i++){B.f.insertAdjacentHTML('beforeend','<div class="kv"><span>'+esc(F[i][0])+'</span><b>'+esc(fill(F[i][1]))+'</b></div>');await wait(170)}
+  st(B.f,'done');conf(it.conf||.92);
+  ty.set(th[1]||'Ищу в данных компании');st(B.s,'run');await wait(520);
+  var R=val(it.sources)||[];for(i=0;i<R.length;i++){B.s.insertAdjacentHTML('beforeend','<div class="src"><i>'+R[i][0]+'</i><div><b>'+esc(fill(R[i][1]))+'</b><span>'+esc(fill(R[i][2]))+'</span></div></div>');await wait(230)}
+  if(!R.length)B.s.innerHTML='<p class="em">В данных компании ответа нет</p>';
+  st(B.s,'done');ty.set(th[2]||'Пишу ответ');await wait(430);ty.el.remove();
+  var say=[];(val(it.say)||[]).forEach(function(p){p=p&&p.t==='fn'?AIK.parts[p.f](S):p;say=say.concat(p)});
+  for(i=0;i<say.length;i++){var p=say[i];if(!p)continue;
+   if(typeof p==='string'){await stream(bubble('b'),fill(p))}
+   else if(p.t==='note'){bubble('note').textContent=fill(p.text)}
+   else{bubble('b rich').innerHTML=card(p);scroll()}
+   await wait(260)}
+  st(B.a,'run');await wait(320);var A=val(it.action)||['Ответ отправлен','Клиент получил ответ в чате'];
+  B.a.innerHTML='<div class="act'+(A[2]?' '+A[2]:'')+'"><b>'+esc(fill(A[0]))+'</b><span>'+esc(fill(A[1]))+'</span></div>';st(B.a,'done');
+  var tr=document.createElement('div');tr.className='tr';tr.innerHTML=(R.length?'<i>📚 '+esc(fill(R[0][1]))+(R.length>1?' и ещё '+(R.length-1):'')+'</i>':'')+'<i>'+(A[2]?'👤 ':'✓ ')+esc(fill(A[0]))+'</i>';chat.appendChild(tr);scroll();
+  var L=val(it.log);if(L)log(L.map(function(x){return fill(x)}));
+  setChips(val(it.next)||D.chips);busy=false;lock(false);scroll();setTimeout(scroll,60)}
+ function match(t){var L=D.intents||[];for(var i=0;i<L.length;i++)if(L[i]._re&&L[i]._re.test(t))return L[i];return null}
+ function ask(text,id){if(busy||!text)return;bubble('u').textContent=text;run((id&&byId[id])||match(text)||byId[D.fallback],text)}
+ AIK.ask=ask;
+ function user(text,id){touched=true;ask(text,id)}
+ send.addEventListener('click',function(){var v=inp.value.trim();inp.value='';user(v)});
+ inp.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();send.click()}});
+ inp.addEventListener('focus',function(){touched=true});
+ document.addEventListener('click',function(ev){var b=ev.target.closest('[data-go]');if(b&&$('#ws').contains(b)){user(b.dataset.say||b.textContent,b.dataset.go)}});
+ async function hello(){chat.innerHTML='';S=AIK.S=Object.assign({},D.defaults||{});[B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);lock(true);
+  for(var i=0;i<(D.greet||[]).length;i++){await stream(bubble('b'),D.greet[i]);await wait(220)}
+  setChips(D.chips);lock(false);scroll()}
+ $('#again').addEventListener('click',function(){if(busy)return;touched=true;hello()});
+ AIK.demo=async function(){await hello();await wait(1500);if(!touched&&D.autoplay)ask(D.autoplay[0],D.autoplay[1])};
+}
+var started=false;function start(){if(started)return;started=true;if(AIK.demo)AIK.demo()}
+var io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');if(x.target.id==='ws')start();io.unobserve(x.target)}})},{threshold:.12}):null;
+$$('.reveal,#ws').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+if(!io)setTimeout(start,0);
+setTimeout(start,2600);
+window.__ai=1;
+})();
+</script>
+<script>
+(function(){var K=AIK,MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+K.hook=function(t,S,it){var m,d=new Date(),dim=new Date(d.getFullYear(),d.getMonth()+1,0).getDate(),left=dim-d.getDate()+1;
+ S['Запрос']=it.label||'вопрос';S._end=dim+' '+MN[d.getMonth()];S._left=left;S._add=K.fmt(Math.round((7490-2990)*left/dim/10)*10)+' ₽';
+ var hot=/!!|безобраз|сколько можно|ужас|кошмар|достал|надоел|срочно|немедленно/i.test(t);
+ if(hot){S['Тон']='раздражён, приоритет повышен';S._hot=1}else{delete S['Тон'];S._hot=0}
+ if(m=t.match(/\b([45]\d\d)\b/))S['Код ошибки']=m[1];else delete S['Код ошибки'];
+ m=t.match(/safari|сафари|chrome|хром|firefox|айфон|iphone|android|андроид|ipad|айпад|приложени\S*|телефон\S*/i);if(m)S['Где']=m[0].toLowerCase();else delete S['Где'];
+ m=t.match(/видео|урок\S*|домашк\S*|домашн\S+ задани\S*|сертификат\S*|чат\S*|вебинар\S*|расписани\S*/i);if(m)S['Раздел']=m[0].toLowerCase();else delete S['Раздел']};
+K.parts.fields=function(S){return['Запрос','Тон','Раздел','Код ошибки','Где'].filter(function(k){return S[k]}).map(function(k){return[k,S[k]]})};
+K.parts.bug=function(S){var s=['Статус сервиса сейчас зелёный, массовых сбоев нет.'];
+ if(S['Раздел']==='видео'||/safari|сафари|айфон|iphone|ipad|айпад/.test(S['Где']||''))s=['Это известная неполадка: видео в Safari на iPhone и iPad может не запускаться с первого раза. Исправление выйдет сегодня до 20:00. Пока помогает открыть урок в Chrome или в приложении «Парта».'];
+ else s.push('Чтобы инженеры не переспрашивали, я собрал всё, что уже понял из вашего сообщения, и завёл заявку.');
+ s.push({t:'kv',h:'Заявка № S-20418',rows:[['Проблема',S['Раздел']?'раздел «'+S['Раздел']+'»':'ошибка в кабинете'],['Код ошибки',S['Код ошибки']||'не указан'],['Где',S['Где']||'не указано'],['Приоритет',S._hot?'высокий':'обычный']],sum:['Срок ответа',S._hot?'до 1 часа':'до 4 часов']});
+ if(!S['Код ошибки']&&!S['Где'])s.push('Если напишете, на каком устройстве и что именно видно на экране, добавлю в заявку — так починят быстрее.');return s};
+})();
+</script>
+</body>
+</html>

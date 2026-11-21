@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>Бухгалтерские и юридические услуги для ООО и ИП</title>
+<meta name="description" content="Бухгалтерское и юридическое обслуживание для ООО и ИП. Понятные цены, расчёт стоимости онлайн, заявка за минуту.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Бухгалтерия и право для ООО и ИП">
+<meta property="og:description" content="Бухгалтерское и юридическое обслуживание для ООО и ИП. Рассчитайте ориентир по стоимости и оставьте заявку.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231D6B4E'/%3E%3Cpath d='M10 23V9h9M10 16h7' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7F4;
+  --surface:#E8EEE9;
+  --ink:#14211C;
+  --muted:#4A5A52;
+  --accent:#1D6B4E;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+  --gap:clamp(72px,11vw,160px);
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden;hyphens:manual}
+h1,h2,h3{font-family:"Literata",Georgia,serif;font-weight:600;line-height:1.08;hyphens:manual;overflow-wrap:break-word}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+section{padding:var(--gap) 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border:0;border-radius:999px;background:var(--accent);color:#fff;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;transition:background-color .3s var(--ease),transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn.sm{min-height:46px;padding:0 22px;font-size:.95rem}
+.link{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--ink)}
+  .link:hover{text-decoration-thickness:2px}
+}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.mark{font-family:"Literata",serif;font-weight:600;font-size:1.2rem;text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:6px}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;text-decoration:none;font-weight:500;color:var(--muted);transition:transform .3s var(--ease),color .3s var(--ease)}
+@media (hover:hover) and (pointer:fine){nav a:hover{color:var(--ink);transform:translateY(-2px)}}
+
+/* hero */
+.hero{padding:clamp(24px,4vw,56px) 0 var(--gap);min-height:calc(100svh - 76px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(32px,5vw,88px);align-items:center;width:100%}
+.hero .wrap>*{min-width:0}
+h1{font-size:clamp(2.5rem,5.3vw,4.75rem);letter-spacing:-.015em;max-width:13ch}
+.hw{display:inline-block;vertical-align:top}
+.hw>span{display:inline-block}
+.lead{margin-top:28px;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:34em}
+.hero-actions{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+
+.js .hw>span{transform:translateY(40%);opacity:0}
+.js .fade{opacity:0;transform:translateY(18px)}
+.js .panel{opacity:0;scale:1.07}
+.loaded .hw>span{transform:none;opacity:1;transition:transform 1s var(--ease),opacity 1s var(--ease);transition-delay:calc(var(--i)*80ms)}
+.loaded .fade{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--t,.5s)}
+.loaded .panel{opacity:1;scale:1;transition:opacity 1.1s var(--ease),scale 1.4s var(--ease);transition-delay:.25s}
+
+/* calculator */
+.panel{background:var(--surface);border-radius:20px;padding:clamp(22px,3vw,36px);will-change:translate}
+.panel h2{font-size:1.5rem;margin-bottom:22px}
+.seg{position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:999px;padding:4px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:999px;font-weight:600;cursor:pointer;transition:color .3s var(--ease),background-color .3s var(--ease)}
+.seg .thumb{display:none}
+.seg input:checked+label{color:#fff;background:var(--ink)}
+.seg input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
+.field{margin-top:22px}
+.field .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:500}
+.field output{font-variant-numeric:tabular-nums;font-weight:600}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:#C8D3CC}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:#C8D3CC}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-11px;border-radius:50%;background:var(--ink);border:0}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--ink);border:0}
+.result{margin-top:26px;background:var(--bg);border-radius:16px;padding:20px 22px}
+.result small{display:block;color:var(--muted);font-size:.95rem}
+.price{display:block;font-family:"Literata",serif;font-weight:600;font-size:clamp(2rem,3.4vw,2.8rem);color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.15;margin-top:2px}
+.price.tick{animation:tick .5s var(--ease)}
+@keyframes tick{from{opacity:.3;transform:translateY(8px)}to{opacity:1;transform:none}}
+.note{margin-top:14px;font-size:.9rem;color:var(--muted)}
+.panel .btn{margin-top:18px;width:100%}
+
+/* common */
+.rv{}
+.js .rv{opacity:0;transform:translateY(26px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*75ms)}
+h2.big{font-size:clamp(2rem,4.2vw,3.5rem);letter-spacing:-.01em;max-width:18ch}
+.sub{margin-top:20px;color:var(--muted);max-width:36em;font-size:1.1rem}
+
+/* directions */
+.dirs{margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dir{background:var(--surface);border-radius:20px;padding:clamp(22px,3.2vw,44px);min-width:0}
+.dir h3{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:8px}
+.dir>p{color:var(--muted);max-width:28em}
+.rows{list-style:none;margin-top:28px}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:18px 0;background:linear-gradient(0deg,#CBD6CE,#CBD6CE) bottom/100% 1px no-repeat}
+.row:last-child{background:none}
+.row .t{flex:1 1 220px;min-width:0;transition:transform .4s var(--ease)}
+.row b{display:block;font-weight:600;font-size:1.1rem}
+.row span.d{display:block;color:var(--muted);font-size:.95rem;margin-top:2px}
+.row .link{flex:0 0 auto}
+@media (hover:hover) and (pointer:fine){.row:hover .t{transform:translateX(8px)}}
+
+/* process */
+.process .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+.process .wrap>*{min-width:0}
+.process .stick{position:sticky;top:110px}
+.steps{display:grid;gap:14px;list-style:none}
+.step{background:var(--surface);border-radius:20px;padding:clamp(22px,3vw,36px)}
+.step:nth-child(even){background:#DDE6DF}
+.step h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin-bottom:8px}
+.step p{color:var(--muted);max-width:32em}
+
+/* benefits */
+.ben{margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px) clamp(32px,6vw,96px)}
+.ben>*{min-width:0}
+.ben h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin-bottom:12px}
+.ben p{color:var(--muted);max-width:30em}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+.faq .wrap>*{min-width:0}
+.acc{display:grid;gap:10px}
+.qa{background:var(--surface);border-radius:16px}
+.qa button{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:64px;padding:14px 24px;background:none;border:0;text-align:left;font-weight:600;font-size:1.1rem;cursor:pointer;border-radius:16px}
+.qa .pm{flex:0 0 auto;width:20px;height:20px;position:relative;transition:transform .5s var(--ease)}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:0;top:9px;width:20px;height:2px;background:var(--ink)}
+.qa .pm::after{transform:rotate(90deg)}
+.qa button[aria-expanded=true] .pm{transform:rotate(135deg)}
+.pan{display:none}
+.pan p{padding:0 24px 22px;color:var(--muted);max-width:36em}
+.qa button[aria-expanded=true]+.pan{display:block;animation:tick .5s var(--ease)}
+
+/* form */
+.apply .box{background:var(--surface);border-radius:24px;padding:clamp(24px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
+.apply .box>*{min-width:0}
+.apply h2{font-size:clamp(2rem,4.2vw,3.5rem);max-width:12ch}
+form{display:grid;gap:14px}
+.f{display:grid;gap:6px;font-weight:500}
+.f input[type=text],.f input[type=tel]{min-height:52px;padding:0 18px;border:0;border-radius:12px;background:var(--bg)}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pick input{position:absolute;opacity:0;pointer-events:none}
+.pick label{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:12px;background:var(--bg);font-weight:600;cursor:pointer;transition:transform .3s var(--ease),background-color .3s var(--ease),color .3s var(--ease)}
+.pick label:active{transform:scale(.97)}
+.pick input:checked+label{background:var(--ink);color:#fff}
+.pick input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:var(--muted);min-height:44px;cursor:pointer}
+.agree input{width:24px;height:24px;flex:0 0 24px;margin-top:1px;accent-color:var(--accent)}
+.done{display:none;padding:12px 0}
+.done h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:12px}
+.done p{color:var(--muted)}
+.sent form{display:none}
+.sent .done{display:block;animation:tick .6s var(--ease)}
+
+/* footer */
+footer{padding:var(--gap) 0 40px}
+.fbig{font-family:"Literata",serif;font-weight:600;font-size:clamp(2.4rem,8vw,7rem);line-height:1;letter-spacing:-.02em;max-width:11ch}
+.contacts{margin-top:clamp(36px,5vw,64px);display:flex;flex-wrap:wrap;gap:12px 56px;font-size:1.15rem}
+.contacts a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:500}
+.contacts span{display:inline-flex;align-items:center;min-height:44px}
+.copy{margin-top:48px;color:var(--muted);font-size:.9rem}
+
+.fab{display:none}
+
+@media (max-width:980px){
+  nav{display:none}
+  .hero{min-height:0;display:block}
+  .hero .wrap{grid-template-columns:1fr}
+  h1{max-width:14ch}
+  .dirs,.ben,.apply .box{grid-template-columns:1fr}
+  .process .wrap,.faq .wrap{grid-template-columns:1fr}
+  .process .stick{position:static}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .bar .btn{display:none}
+  .bar{min-height:64px}
+  .fab{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:30;box-shadow:none;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+  .fab.off{transform:translateY(120%);opacity:0;pointer-events:none}
+  footer{padding-bottom:110px}
+  .pick,.seg{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .hw>span,.js .fade,.js .rv,.js .panel{opacity:1!important;transform:none!important;scale:1!important}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:normal!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img{max-width:100%}</style></head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">Бухгалтерия и право</a>
+    <nav aria-label="Основная навигация">
+      <a href="#uslugi">Услуги</a>
+      <a href="#process">Как работаем</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="btn sm" href="#zayavka">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>
+        <span class="hw"><span style="--i:0">Бухгалтерия</span></span>
+        <span class="hw"><span style="--i:1">и</span></span>
+        <span class="hw"><span style="--i:2">право</span></span>
+        <span class="hw"><span style="--i:3">для</span></span>
+        <span class="hw"><span style="--i:4">ООО</span></span>
+        <span class="hw"><span style="--i:5">и</span></span>
+        <span class="hw"><span style="--i:6">ИП</span></span>
+      </h1>
+      <p class="lead fade" style="--t:.55s">Берём на себя учёт, отчётность и юридические вопросы, чтобы вы занимались бизнесом. Цену знаете заранее и она записана в договоре.</p>
+      <div class="hero-actions fade" style="--t:.7s">
+        <a class="btn" href="#zayavka">Оставить заявку</a>
+        <a class="link" href="#uslugi">Смотреть услуги</a>
+      </div>
+    </div>
+
+    <div class="panel" id="calc" aria-labelledby="calc-h">
+      <h2 id="calc-h">Сколько стоит обслуживание</h2>
+      <div class="seg" role="radiogroup" aria-label="Форма бизнеса">
+        <span class="thumb" aria-hidden="true"></span>
+        <input type="radio" name="type" id="t-ooo" value="ooo" checked><label for="t-ooo">ООО</label>
+        <input type="radio" name="type" id="t-ip" value="ip"><label for="t-ip">ИП</label>
+      </div>
+      <div class="field">
+        <div class="top"><label for="staff">Сотрудников</label><output id="staffOut" for="staff">3</output></div>
+        <input type="range" id="staff" min="0" max="50" value="3">
+      </div>
+      <div class="field">
+        <div class="top"><label for="ops">Операций в месяц</label><output id="opsOut" for="ops">60</output></div>
+        <input type="range" id="ops" min="0" max="500" step="10" value="60">
+      </div>
+      <div class="result" aria-live="polite">
+        <small>Ориентир на месяц</small>
+        <span class="price" id="price">от 12 000 ₽</span>
+      </div>
+      <p class="note">Это пример расчёта: в прототипе стоят условные ставки, ваши тарифы подставим после согласования. Точную цену назовём после разбора задачи.</p>
+      <a class="btn" href="#zayavka">Узнать точную цену</a>
+    </div>
+  </div>
+</section>
+
+<section id="uslugi">
+  <div class="wrap">
+    <h2 class="big rv">Два направления, один подрядчик</h2>
+    <p class="sub rv">Выберите свою форму бизнеса, и вы увидите, чем мы занимаемся именно для вас.</p>
+    <div class="dirs">
+      <article class="dir rv">
+        <h3>ООО</h3>
+        <p>Для компаний, которым нужен порядок в учёте и договорах.</p>
+        <ul class="rows">
+          <li class="row"><div class="t"><b>Ведение бухгалтерского учёта</b><span class="d">Первичка, проводки, взаимодействие с банком и контрагентами</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Отчётность и налоги</b><span class="d">Подготовка и сдача в срок, расчёт платежей</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Регистрация и изменения</b><span class="d">Открытие ООО, смена адреса, состава, устава</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Юридическое сопровождение</b><span class="d">Договоры, консультации, споры с контрагентами</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+        </ul>
+      </article>
+      <article class="dir rv">
+        <h3>ИП</h3>
+        <p>Для предпринимателей, которые не хотят разбираться в бумагах сами.</p>
+        <ul class="rows">
+          <li class="row"><div class="t"><b>Ведение учёта ИП</b><span class="d">Доходы, расходы, книга учёта, выбор системы налогообложения</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Отчётность и налоги</b><span class="d">Декларации и взносы вовремя и без ошибок</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Регистрация и закрытие</b><span class="d">Открытие ИП, изменение данных, закрытие</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+          <li class="row"><div class="t"><b>Юридическая помощь</b><span class="d">Договоры с клиентами и поставщиками, консультации</span></div><a class="link" href="#zayavka">Узнать цену</a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="stick">
+      <h2 class="big rv">Как мы работаем</h2>
+      <p class="sub rv">Четыре понятных шага от первого сообщения до спокойной работы.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><h3>Вы оставляете заявку</h3><p>Коротко расскажите о компании: форма, сфера, примерный объём. Подробные документы пока не нужны.</p></li>
+      <li class="step rv"><h3>Мы разбираем задачу</h3><p>Изучаем вашу ситуацию и предлагаем набор услуг, который действительно нужен, без лишнего.</p></li>
+      <li class="step rv"><h3>Фиксируем цену в договоре</h3><p>Вы заранее знаете, сколько платите и за что. Цена не меняется, пока не меняется задача.</p></li>
+      <li class="step rv"><h3>Берём работу на себя</h3><p>Ведём учёт, сдаём отчётность и отвечаем на юридические вопросы. Вы получаете понятный результат простым языком.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="pochemu">
+  <div class="wrap">
+    <h2 class="big rv">Почему с нами спокойно</h2>
+    <div class="ben">
+      <div class="rv"><h3>Бухгалтерия и юристы рядом</h3><p>Не нужно искать двух подрядчиков и объяснять одно и то же дважды. Учёт и право решаются в одном месте.</p></div>
+      <div class="rv"><h3>Цена известна заранее</h3><p>Стоимость обслуживания вы видите до начала работы, а в договоре она закреплена без скрытых доплат.</p></div>
+      <div class="rv"><h3>Говорим простым языком</h3><p>Объясняем налоги и договоры так, чтобы вы понимали, за что отвечаете и что решать вам.</p></div>
+      <div class="rv"><h3>Только ООО и ИП</h3><p>Мы не распыляемся на всё подряд. Два направления, в которых хорошо знаем задачи малого и среднего бизнеса.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div>
+      <h2 class="big rv">Вопросы и ответы</h2>
+    </div>
+    <div class="acc">
+      <div class="qa rv">
+        <button type="button" aria-expanded="false" aria-controls="a1" id="q1">С чего начать работу?<span class="pm" aria-hidden="true"></span></button>
+        <div class="pan" id="a1" role="region" aria-labelledby="q1"><div><p>Оставьте заявку на сайте. Мы свяжемся, уточним детали по вашей компании и предложим подходящий набор услуг.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false" aria-controls="a2" id="q2">От чего зависит стоимость?<span class="pm" aria-hidden="true"></span></button>
+        <div class="pan" id="a2" role="region" aria-labelledby="q2"><div><p>От формы бизнеса, числа сотрудников и количества операций. Ориентир можно увидеть в калькуляторе выше, точную цену назовём после разбора.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false" aria-controls="a3" id="q3">Вы работаете и с ООО, и с ИП?<span class="pm" aria-hidden="true"></span></button>
+        <div class="pan" id="a3" role="region" aria-labelledby="q3"><div><p>Да, это два наших направления. Для каждого свой набор услуг и своя цена.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button type="button" aria-expanded="false" aria-controls="a4" id="q4">Цена потом не вырастет?<span class="pm" aria-hidden="true"></span></button>
+        <div class="pan" id="a4" role="region" aria-labelledby="q4"><div><p>Цена фиксируется в договоре и остаётся прежней, пока не меняется объём задачи. Если он меняется, мы заранее скажем, что добавилось и сколько это стоит.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="zayavka">
+  <div class="wrap">
+    <div class="box rv" id="box">
+      <div>
+        <h2>Оставьте заявку</h2>
+        <p class="sub">Напишите, как к вам обращаться и куда ответить. Остальное уточним сами.</p>
+      </div>
+      <div>
+        <form id="form" novalidate>
+          <div class="f">
+            <span id="dl">Направление</span>
+            <div class="pick" role="radiogroup" aria-labelledby="dl">
+              <input type="radio" name="dir" id="d-ooo" value="ООО" checked><label for="d-ooo">ООО</label>
+              <input type="radio" name="dir" id="d-ip" value="ИП"><label for="d-ip">ИП</label>
+            </div>
+          </div>
+          <label class="f">Имя<input type="text" name="name" autocomplete="name" required></label>
+          <label class="f">Телефон<input type="tel" name="phone" autocomplete="tel" placeholder="+7 (000) 000-00-00" required></label>
+          <label class="agree"><input type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
+          <button class="btn" type="submit">Отправить заявку</button>
+        </form>
+        <div class="done" id="done" tabindex="-1">
+          <h3>Заявка принята</h3>
+          <p>Спасибо. Мы свяжемся с вами в рабочее время и уточним детали.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="kontakty">
+  <div class="wrap">
+    <div class="fbig rv">Бухгалтерия и право</div>
+    <div class="contacts rv">
+      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <span>Адрес на карте</span>
+      <a href="#zayavka">Оставить заявку</a>
+    </div>
+    <p class="copy">Прототип главной страницы. Цены и тексты будут уточнены.</p>
+  </div>
+</footer>
+
+<a class="btn fab" id="fab" href="#zayavka">Оставить заявку</a>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* load animation */
+  requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.add('loaded')})});
+
+  /* reveal with stagger */
+  var items = document.querySelectorAll('.rv');
+  var parents = new Map();
+  items.forEach(function(el){
+    var p = el.parentElement;
+    var n = parents.get(p) || 0;
+    el.style.setProperty('--d', n);
+    parents.set(p, n + 1);
+  });
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(el){io.observe(el)});
+  } else {
+    items.forEach(function(el){el.classList.add('in')});
+  }
+
+  /* parallax of hero panel */
+  var panel = document.getElementById('calc');
+  var ticking = false;
+  if (!reduce) {
+    window.addEventListener('scroll', function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        if (window.innerWidth < 981) { panel.style.translate = ''; return; }
+        var y = Math.min(window.scrollY, 700);
+        panel.style.translate = '0 ' + (y * 0.06).toFixed(1) + 'px';
+      });
+    }, {passive:true});
+  }
+
+  /* calculator (условные ставки прототипа) */
+  var rates = { ooo:{base:6000, staff:500, op:20}, ip:{base:3000, staff:500, op:15} };
+  var staff = document.getElementById('staff'), ops = document.getElementById('ops');
+  var sOut = document.getElementById('staffOut'), oOut = document.getElementById('opsOut');
+  var priceEl = document.getElementById('price');
+  var last = '';
+  function calc(){
+    var t = document.querySelector('input[name=type]:checked').value;
+    var r = rates[t];
+    var v = r.base + r.staff * (+staff.value) + r.op * (+ops.value);
+    v = Math.round(v / 100) * 100;
+    sOut.textContent = staff.value;
+    oOut.textContent = ops.value;
+    var txt = 'от ' + v.toLocaleString('ru-RU') + ' ₽';
+    if (txt !== last) {
+      priceEl.textContent = txt;
+      last = txt;
+      priceEl.classList.remove('tick'); void priceEl.offsetWidth; priceEl.classList.add('tick');
+    }
+  }
+  document.querySelectorAll('input[name=type]').forEach(function(i){i.addEventListener('change',calc)});
+  staff.addEventListener('input',calc); ops.addEventListener('input',calc);
+  calc();
+
+  /* link direction pick to the form */
+  document.querySelectorAll('input[name=type]').forEach(function(i){
+    i.addEventListener('change', function(){
+      document.getElementById(i.value === 'ip' ? 'd-ip' : 'd-ooo').checked = true;
+    });
+  });
+
+  /* accordion */
+  document.querySelectorAll('.qa button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!open));
+    });
+  });
+
+  /* form */
+  var form = document.getElementById('form'), box = document.getElementById('box'), done = document.getElementById('done');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.elements.name, phone = form.elements.phone, ok = true;
+    [name, phone].forEach(function(f){
+      if (!f.value.trim()) { ok = false; f.style.outline = '3px solid #14211C'; f.focus(); } else { f.style.outline = ''; }
+    });
+    var chk = form.querySelector('input[type=checkbox]');
+    if (ok && !chk.checked) { ok = false; chk.focus(); }
+    if (!ok) return;
+    box.classList.add('sent');
+    done.focus({preventScroll:true});
+  });
+
+  /* floating button hides near the form */
+  var fab = document.getElementById('fab'), zone = document.getElementById('zayavka');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){
+      fab.classList.toggle('off', es[0].isIntersecting);
+    }, {threshold:.25}).observe(zone);
+  }
+})();
+</script>
+</body>
+</html>

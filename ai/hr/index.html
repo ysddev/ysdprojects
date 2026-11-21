@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Отбор — ИИ-ассистент HR: оценка резюме по требованиям вакансии</title>
+<meta name="description" content="ИИ-ассистент рекрутера: читает отклики, оценивает каждого кандидата по требованиям вакансии, объясняет оценку, готовит вопросы к интервью и письма с приглашением или отказом.">
+<meta property="og:title" content="Отбор — ИИ-ассистент HR: оценка резюме по требованиям вакансии">
+<meta property="og:description" content="ИИ-ассистент рекрутера: читает отклики, оценивает каждого кандидата по требованиям вакансии, объясняет оценку, готовит вопросы к интервью и письма с приглашением или отказом.">
+<meta name="theme-color" content="#ffd91a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23111111%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%23ffd91a%27%3E%D0%9E%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ai)document.documentElement.classList.add('nofx')},3500)</script>
+<style>
+@font-face{font-family:"Sofia Sans Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/sofia-sans-condensed-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/sofia-sans-condensed-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/onest-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--rb:999px;--rc:18px;--rs:26px;--hw:800;--ht:-.01em;--bg:#ffd91a;--ink:#111111;--soft:#3b3515;--mut:#6e6325;--line:rgba(17,17,17,.16);--line2:#111111;--card:#ffffff;--ac:#111111;--aci:#ffd91a;--act:#111111;--fh:"Sofia Sans Condensed",sans-serif;--fb:"Onest",sans-serif;--rw:22px;--wbg:#ffffff;--wsh:0 0 0 2px #111,0 40px 80px -40px rgba(0,0,0,.5);--cbg:#111111;--cink:#ffd91a;--kc:#111111;--rcx:#111111;--tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.4l3 3 6-6.6' fill='none' stroke='%23ffd91a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+:root{--gut:clamp(16px,4vw,48px);--ok:#17a06a;--warn:#d99600;--bad:#d9483b}
+.wrap{width:min(1280px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.04;margin:0;overflow-wrap:break-word;text-wrap:balance}
+h2{font-size:clamp(30px,4.2vw,54px)}
+p{margin:0}
+.kick{font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--kc,var(--ac))}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:56ch;text-wrap:pretty}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec.t0{padding-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb);background:var(--ac);color:var(--aci);font-weight:600;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px -12px var(--ac)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--fh);font-weight:var(--hw);font-size:22px;display:flex;align-items:center;gap:10px;letter-spacing:var(--ht);white-space:nowrap}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ac);color:var(--aci);font-style:normal;font-size:17px;font-family:var(--fb);font-weight:700}
+.nav{display:flex;gap:24px;font-size:15px;color:var(--soft);margin-left:auto}
+.nav a:hover{color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:15px}
+/* первый экран */
+.hero{padding:clamp(36px,5.5vw,84px) 0 clamp(28px,4vw,52px)}
+.hg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:clamp(24px,5vw,80px);align-items:end}
+.hero h1{font-size:clamp(40px,6vw,86px);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hs{display:grid;gap:0}
+.hs div{padding:16px 0;border-top:1px solid var(--line2)}
+.hs div:last-child{border-bottom:1px solid var(--line2)}
+.hs b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(28px,3vw,40px);letter-spacing:-.02em;line-height:1}
+.hs span{font-size:14px;color:var(--mut)}
+.hero-center .hg{grid-template-columns:1fr;justify-items:center;text-align:center}
+.hero-center .lead{margin-inline:auto}
+.hero-center .cta{justify-content:center}
+.hero-center .hs{grid-template-columns:repeat(3,auto);gap:clamp(20px,5vw,72px);margin-top:8px}
+.hero-center .hs div{border:0!important;padding:0}
+/* рабочее окно */
+.wsx{padding-bottom:clamp(56px,8vw,110px)}
+.ws-n{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);margin-bottom:14px}
+.ws-n b{flex:none;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.ws{position:relative;border-radius:var(--rw,24px);background:var(--wbg,var(--card));color:var(--wink,var(--ink));box-shadow:var(--wsh,0 60px 120px -70px rgba(0,0,0,.55),0 0 0 1px var(--line));overflow:hidden;--wl:var(--wline,color-mix(in srgb,currentColor 11%,transparent));--w2:var(--wsoft,color-mix(in srgb,currentColor 5%,transparent))}
+.ws-bar{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--wl);font-size:14px}
+.ws-bar .dots{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:36px;flex:none}
+.ws-bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ws-bar span{margin-left:auto;font-size:12.5px;opacity:.6;white-space:nowrap}
+.panes{display:grid;min-height:0}
+.pane{min-width:0;min-height:0;display:flex;flex-direction:column}
+.pane+.pane{border-left:1px solid var(--wl)}
+.pane-h{display:flex;align-items:center;gap:10px;padding:14px 18px 10px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;opacity:.62}
+.pane-h span{margin-left:auto;letter-spacing:0;text-transform:none;font-weight:500;font-size:12.5px}
+.scroll{overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;line-height:1;padding:6px 9px;border-radius:999px;background:var(--w2);white-space:nowrap}
+.tag.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:color-mix(in srgb,var(--ok) 80%,currentColor)}
+.tag.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 78%,currentColor)}
+.tag.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:color-mix(in srgb,var(--bad) 85%,currentColor)}
+.tag.ac{background:color-mix(in srgb,var(--ac) 15%,transparent);color:var(--act,var(--ac))}
+.btn-s{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 14px;border-radius:var(--rs2,10px);background:var(--ac);color:var(--aci);font-size:14px;font-weight:600;transition:filter .15s,transform .15s}
+.btn-s:hover{filter:brightness(1.06)}
+.btn-s:active{transform:scale(.98)}
+.btn-s.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.btn-s[disabled]{opacity:.5;cursor:default}
+.kv{display:flex;justify-content:space-between;gap:14px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--wl);animation:kin .3s both}
+.kv span{opacity:.62;flex:none}
+.kv b{font-weight:600;text-align:right}
+@keyframes kin{from{opacity:0;transform:translateY(6px)}}
+.meter{height:6px;border-radius:3px;background:var(--w2);overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:3px;background:var(--ac);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* чат */
+.ws-chat .panes{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);height:min(640px,78vh)}
+.chat{flex:1;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;min-height:0}
+.m{max-width:min(82%,520px);padding:10px 14px;border-radius:18px;font-size:15px;line-height:1.42;animation:kin .28s both;white-space:pre-line;overflow-wrap:break-word}
+.m.b{background:var(--cin,var(--w2));align-self:flex-start;border-bottom-left-radius:6px}
+.m.u{background:var(--cout,var(--ac));color:var(--coi,var(--aci));align-self:flex-end;border-bottom-right-radius:6px}
+.m.rich{white-space:normal;width:min(92%,560px);max-width:none;padding:0;background:none}
+.m.note{align-self:center;background:none;font-size:12.5px;opacity:.65;padding:2px 8px;text-align:center;max-width:100%}
+.its{display:grid;gap:8px}
+.it{position:relative;padding:14px 14px 12px;border-radius:16px;background:var(--cin,var(--w2));display:grid;gap:3px}
+.it .tg{font-style:normal;font-size:11.5px;font-weight:600;color:var(--act,var(--ac));letter-spacing:.02em}
+.it b{font-size:15.5px;line-height:1.25}
+.it span{font-size:13.5px;opacity:.68}
+.itf{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.itf strong{font-size:16px;white-space:nowrap}
+.itf button,.bts button{min-height:36px;padding:7px 13px;border-radius:10px;font-size:13.5px;font-weight:600;background:var(--ac);color:var(--aci)}
+.kvc{padding:14px;border-radius:16px;background:var(--cin,var(--w2));font-size:14px}
+.kvc h4{margin:0 0 8px;font-size:15px;font-weight:700}
+.kvc .r{display:flex;justify-content:space-between;gap:14px;padding:4px 0}
+.kvc .r span:first-child{opacity:.62}
+.kvc .r span:last-child{text-align:right;font-weight:500}
+.kvc .sum{margin-top:6px;padding-top:9px;border-top:1px dashed var(--wl);font-weight:700}
+.kvc .sum span:first-child{opacity:1}
+.bts{display:flex;flex-wrap:wrap;gap:6px}
+.bts button.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--wl)}
+.tr{align-self:flex-start;display:flex;flex-wrap:wrap;gap:5px;margin:-2px 0 6px;animation:kin .3s both}
+.tr i{font-style:normal;font-size:11.5px;padding:4px 8px;border-radius:999px;background:var(--w2);opacity:.85;white-space:nowrap}
+.typing{align-self:flex-start;display:flex;align-items:center;gap:9px;padding:9px 13px;border-radius:18px;background:var(--cin,var(--w2));font-size:13.5px}
+.typing span{opacity:.7}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 18px 4px}
+.chips button{padding:8px 13px;border-radius:999px;font-size:13.5px;line-height:1.2;box-shadow:inset 0 0 0 1.5px var(--wl);text-align:left;transition:background .15s}
+.chips button:hover{background:var(--w2)}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;align-items:center}
+.inp input{flex:1;height:46px;border-radius:14px;border:0;padding:0 16px;background:var(--w2);font-size:15px;min-width:0}
+.inp input:focus{outline:0;box-shadow:0 0 0 1.5px var(--ac)}
+.inp button{width:46px;height:46px;border-radius:14px;background:var(--ac);color:var(--aci);display:grid;place-items:center;flex:none}
+.inp button svg{width:19px;height:19px;fill:currentColor}
+.ag{display:flex;align-items:center;gap:11px;padding:13px 18px;border-bottom:1px solid var(--wl)}
+.ag .av{width:38px;height:38px;border-radius:50%;background:var(--ac);color:var(--aci);display:grid;place-items:center;font-weight:700;flex:none}
+.ag b{display:block;font-size:15px;line-height:1.2}
+.ag small{font-size:12.5px;opacity:.6}
+.ag button{margin-left:auto;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--wl)}
+/* панель «что понял» */
+.brain{background:var(--bbg,transparent)}
+.bb{padding:14px 18px 16px;border-bottom:1px solid var(--wl)}
+.bb:last-child{border-bottom:0}
+.bb-h{display:flex;align-items:center;gap:9px;font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.bb-h i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;box-shadow:inset 0 0 0 1.5px var(--wl);flex:none;letter-spacing:0}
+.bb[data-st=wait]{opacity:.5}
+.bb[data-st=run] .bb-h i{box-shadow:none;border:2px solid var(--wl);border-top-color:var(--ac);animation:sp .7s linear infinite;color:transparent}
+.bb[data-st=done] .bb-h i{background:var(--ok);color:#fff;box-shadow:none}
+.bb .em{font-size:13.5px;opacity:.55}
+.bb .kv:last-child{border-bottom:0}
+.src{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:7px 0;font-size:13.5px;animation:kin .3s both}
+.src i{width:30px;height:30px;border-radius:9px;background:var(--w2);display:grid;place-items:center;font-style:normal;font-size:14px}
+.src b{display:block;font-size:14px;line-height:1.25}
+.src span{opacity:.62;line-height:1.3;display:block}
+.act{padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--ok) 13%,transparent);animation:kin .3s both}
+.act.h{background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.act b{display:block;font-size:14.5px}
+.act span{font-size:13px;opacity:.72}
+.cf{display:flex;align-items:center;gap:10px;font-size:12.5px;margin-top:10px}
+.cf .meter{flex:1}
+.cf b{min-width:38px;text-align:right}
+/* как работает */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:clamp(28px,4vw,48px);counter-reset:h}
+.how div{padding:clamp(20px,2.2vw,28px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);counter-increment:h;min-width:0}
+.how div::before{content:counter(h,decimal-leading-zero);display:block;font:600 13px/1 var(--fm,var(--fb));letter-spacing:.1em;color:var(--kc,var(--ac));margin-bottom:26px}
+.how b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15;margin-bottom:8px}
+.how p{color:var(--soft);font-size:15px}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(28px,4vw,48px)}
+.feat{padding:clamp(20px,2.4vw,30px);border-radius:var(--rc);background:var(--card);box-shadow:var(--csh,none);display:flex;flex-direction:column;gap:10px;min-width:0}
+.feat i{width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:22px;margin-bottom:6px}
+.feat b{font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15}
+.feat p{color:var(--soft);font-size:15px}
+/* контроль */
+.adm{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.adm>*{min-width:0}
+.rules{display:grid;gap:18px;margin-top:26px;padding:0;list-style:none}
+.rules li{display:grid;grid-template-columns:28px 1fr;gap:14px}
+.rules li::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--ac) no-repeat center/14px;background-image:var(--tick);margin-top:1px}
+.rules b{display:block;font-size:17px}
+.rules p{color:var(--soft);font-size:15px}
+.panel{border-radius:22px;background:var(--pbg,var(--card));color:var(--pink,var(--ink));box-shadow:0 40px 80px -50px rgba(0,0,0,.45),0 0 0 1px var(--line);overflow:hidden;font-size:14px;--pl:color-mix(in srgb,currentColor 9%,transparent)}
+.panel .ph{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--pl)}
+.panel .ph i{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:40px;flex:none}
+.panel .ph span{margin-left:auto;font-size:12px;opacity:.55}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--pl)}
+.kpi div{padding:14px 18px;min-width:0}
+.kpi div+div{border-left:1px solid var(--pl)}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em;white-space:nowrap}
+.kpi span{font-size:12px;opacity:.55}
+.rows{max-height:340px;overflow:auto}
+.rowx{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 18px;border-top:1px solid var(--pl)}
+.rowx:first-child{border-top:0}
+.rowx .d{width:36px;height:36px;border-radius:10px;background:color-mix(in srgb,currentColor 6%,transparent);display:grid;place-items:center;font-size:16px}
+.rowx b{display:block;font-size:14px}
+.rowx span{font-size:12.5px;opacity:.6}
+.rowx em{font-style:normal;font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--act,var(--ac));white-space:nowrap}
+.rowx em.h{background:color-mix(in srgb,var(--warn) 18%,transparent);color:color-mix(in srgb,var(--warn) 75%,currentColor)}
+.rowx.new{animation:flash 1.6s}
+@keyframes flash{0%{background:color-mix(in srgb,var(--ac) 22%,transparent)}100%{background:transparent}}
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--rc);overflow:hidden;margin-top:clamp(28px,4vw,44px);box-shadow:0 0 0 1px var(--line)}
+.res div{background:var(--bg);padding:clamp(20px,2.4vw,30px);min-width:0}
+.res b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(32px,4vw,52px);letter-spacing:-.03em;line-height:1;color:var(--rcx,var(--ac))}
+.res span{display:block;margin-top:10px;color:var(--soft);font-size:15px}
+.ints{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ints span{padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;font-weight:500;box-shadow:var(--csh,none)}
+.faq details{border-top:1px solid var(--line2)}
+.faq details:last-child{border-bottom:1px solid var(--line2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:clamp(17px,1.6vw,19px);font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--soft);max-width:70ch}
+.cta-b{border-radius:var(--rs);background:var(--cbg,var(--ink));color:var(--cink,var(--bg));padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-b h2{max-width:18ch}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 40px;font-size:14px;color:var(--mut)}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.on,.nofx .reveal{opacity:1;transform:none}
+@media (max-width:1000px){
+ .nav{display:none}.top .btn{margin-left:auto}
+ .hg{grid-template-columns:1fr;align-items:start}
+ .hs{grid-template-columns:repeat(3,1fr);gap:14px}
+ .hs div{border:0!important;padding:0}
+ .hs b{font-size:26px}.hs span{font-size:12.5px;line-height:1.3;display:block;margin-top:4px}
+ .feats{grid-template-columns:1fr 1fr}
+ .adm{grid-template-columns:1fr}
+ .res{grid-template-columns:1fr 1fr}
+ .ws-chat .panes{grid-template-columns:1fr;height:auto}
+ .ws-chat .pane.c{height:min(600px,82vh)}
+ .pane+.pane{border-left:0;border-top:1px solid var(--wl)}
+}
+@media (max-width:640px){
+ .hero h1{font-size:clamp(36px,10.4vw,52px)}
+ .hero .cta .btn{flex:1 1 100%}
+ .hero-center .hs{gap:14px;grid-template-columns:repeat(3,1fr)}
+ .feats{grid-template-columns:1fr}
+ .ws{border-radius:18px}
+ .ws-bar .dots{display:none}
+ .m{max-width:88%}.m.rich{width:100%}
+ .chips{padding-inline:12px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chips button{flex:none;white-space:nowrap}.chat{padding-inline:12px}.inp{padding-inline:10px}
+ .ws-n{align-items:flex-start;font-size:13px}.ws-n b{margin-top:6px}
+ .kpi b{font-size:18px}.kpi div{padding:12px}
+ .rowx{padding-inline:12px;gap:10px}
+ .cta-b .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+
+
+.panes.hr{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);height:min(680px,82vh)}
+.hr-req{padding:4px 18px 18px}
+.cr{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--wl);font-size:14.5px;line-height:1.3}
+.cr input{appearance:none;width:20px;height:20px;border-radius:5px;box-shadow:inset 0 0 0 2px currentColor;cursor:pointer;display:grid;place-items:center;margin:0}
+.cr input:checked{background:var(--ink)}.cr input:checked::after{content:"";width:10px;height:6px;border:2px solid #ffd91a;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.cr.off span{opacity:.45;text-decoration:line-through}
+.cr button{font-size:11.5px;font-weight:700;padding:5px 8px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--wl);white-space:nowrap}
+.cr button.must{background:#ffd91a;box-shadow:inset 0 0 0 1.5px #111}
+.hr-bud{display:grid;gap:8px;padding:14px 0 6px;font-size:14.5px}
+.hr-bud input{width:100%;accent-color:#111}
+.hr-add{display:flex;gap:8px;margin-top:10px}
+.hr-add input{flex:1;min-width:0;height:38px;border-radius:10px;border:0;background:var(--w2);padding:0 12px;font-size:14px}
+.hr-fair{font-size:12.5px;opacity:.6;margin-top:14px;line-height:1.4}
+#hrList{padding:10px 14px 16px;position:relative}
+.cd{border:1.5px solid var(--wl);border-radius:14px;padding:12px 14px;margin-bottom:8px;background:var(--wbg,#fff);cursor:pointer;transition:border-color .2s}
+.cd:hover,.cd.open{border-color:#111}
+.cd-t{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center}
+.cd-n{font:800 22px/1 var(--fh);opacity:.35}
+.cd-t b{display:block;font-size:15.5px;line-height:1.25}
+.cd-t small{font-size:13px;opacity:.62;display:block}
+.cd-s{display:grid;justify-items:end;gap:5px;min-width:96px}
+.cd-s strong{font:800 26px/1 var(--fh)}
+.cd .meter{width:96px;height:5px}.cd .meter i{background:#111}
+.cd-g{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.cd-g i{font-style:normal;font-size:12px;line-height:1;padding:5px 8px;border-radius:999px;background:var(--w2);white-space:nowrap}
+.cd-g i.y{background:color-mix(in srgb,var(--ok) 16%,transparent)}.cd-g i.n{background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.cd-g i.w{background:color-mix(in srgb,var(--warn) 22%,transparent)}
+.cd-d{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--wl);font-size:14px;line-height:1.45;cursor:default}
+.cd.open .cd-d{display:grid;gap:10px}
+.cd-d h5{margin:0 0 4px;font:700 11.5px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.cd-d ul{margin:0;padding-left:18px}
+.cd-b{display:flex;gap:8px;flex-wrap:wrap}
+.cd-m{padding:12px;border-radius:10px;background:var(--w2);white-space:pre-line;font-size:14px}
+@media (max-width:1000px){.panes.hr{grid-template-columns:1fr;height:auto}#hrList{overflow:visible}.hr-req{overflow:visible}}
+@media (max-width:640px){.cd-s{min-width:64px}.cd .meter{width:64px}.cd-t{grid-template-columns:20px 1fr auto;gap:8px}}
+.hero h1{text-transform:uppercase;font-size:clamp(52px,8.6vw,132px);line-height:.88;letter-spacing:-.015em}.hero h1 em{color:#111;background:#fff;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}h2{text-transform:uppercase;font-size:clamp(38px,5.4vw,76px);line-height:.92}.how b,.feat b{font-size:28px;text-transform:uppercase;line-height:1}.hs b,.res b{font-size:clamp(40px,4.6vw,64px)}.feat i{background:#ffd91a}.cta-b .btn{background:#ffd91a;color:#111}.res{background:#111;box-shadow:0 0 0 2px #111}.res div{background:#fff}.panel{box-shadow:0 0 0 2px #111}.logo{font-size:28px;text-transform:uppercase}.logo i{border-radius:50%}.ints span{box-shadow:inset 0 0 0 1.5px #111;background:transparent}.rowx em{background:#ffd91a;color:#111}.top{background:#ffd91a}.kick{font-weight:700}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>О</i>Отбор</a><nav class="nav"><a href="#demo">Ассистент</a><a href="#how">Как работает</a><a href="#feats">Возможности</a><a href="#control">Контроль</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#demo">Попробовать</a></div></header>
+<main>
+<section class="hero hero-split" id="top"><div class="wrap hg">
+ <div class="reveal"><div class="kick">ИИ-ассистент HR · отбор резюме</div><h1>Из сотни откликов — <em>пятеро, с кем стоит говорить</em></h1><p class="lead">Отбор читает каждое резюме, сверяет с требованиями вакансии и показывает рейтинг с объяснением: что совпало, чего не хватает и о чём спросить на интервью. Рекрутер тратит время на людей, а не на чтение.</p>
+ <div class="cta"><a class="btn" href="#demo">Разобрать отклики</a><a class="btn ghost" href="#how">Как это работает</a></div></div>
+ <div class="hs reveal"><div><b>8 сек</b><span>на одно резюме</span></div><div><b>100%</b><span>откликов прочитано, а не первые 30</span></div><div><b>0</b><span>решений без объяснения</span></div></div>
+</div></section>
+<section class="wsx" id="demo"><div class="wrap"><p class="ws-n reveal"><b></b>Отбор работает: снимите требование, сделайте его обязательным, поменяйте бюджет или добавьте своё — рейтинг пересчитается. Нажмите на кандидата</p>
+<div class="ws ws-custom reveal" id="ws"><div class="ws-bar"><i class="dots"></i><b>Отбор · Менеджер по продажам B2B</b><span id="hrSt">8 откликов ждут разбора</span></div>
+<div class="panes hr">
+ <div class="pane"><div class="pane-h">Требования вакансии<span>меняйте — рейтинг пересчитается</span></div>
+  <div class="scroll hr-req"><div id="hrCr"></div>
+   <label class="hr-bud"><span>Бюджет на оклад: <b id="hrBv"></b></span><input type="range" id="hrB" min="90" max="220" step="10" value="150" aria-label="Бюджет на оклад, тысяч рублей"></label>
+   <form class="hr-add" id="hrAdd"><input id="hrNew" placeholder="Своё требование: тендеры, медицина…" aria-label="Своё требование"><button class="btn-s" type="submit">Добавить</button></form>
+   <p class="hr-fair">Пол, возраст, фото и семейное положение в оценке не участвуют: ассистент их не читает.</p></div></div>
+ <div class="pane"><div class="pane-h">Кандидаты<span id="hrCnt"></span></div><div class="scroll" id="hrList"></div></div>
+</div></div>
+</div></section>
+<section class="sec t0" id="how"><div class="wrap"><div class="reveal"><div class="kick">Как работает</div><h2 style="margin:14px 0 16px">Как Отбор читает отклики</h2>
+<p class="lead">Каждое резюме проходит один и тот же путь. Оценку всегда можно раскрыть и увидеть, из чего она сложилась.</p></div><div class="how reveal"><div><b>Разбирает резюме</b><p>Достаёт опыт, сферу, навыки, формат работы и ожидания по окладу из любого формата: файл, ссылка, отклик с сайта.</p></div><div><b>Сверяет с требованиями</b><p>Обязательные требования весят больше желательных. Нет обязательного — кандидат не проходит, и видно почему.</p></div><div><b>Объясняет оценку</b><p>Показывает, что совпало и чего не хватает. Спорные места помечает вопросом к интервью, а не минусом.</p></div><div><b>Готовит следующий шаг</b><p>Пишет приглашение с двумя слотами или вежливый отказ с причиной. Отправляет рекрутер.</p></div></div></div></section>
+<section class="sec t0" id="feats"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что Отбор делает за рекрутера</h2></div>
+<div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>📥</i><b>Читает все отклики</b><p>Сто резюме за пятнадцать минут. Сильный кандидат не теряется на третьей странице списка.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🎯</i><b>Рейтинг по вашим требованиям</b><p>Требования и их вес задаёте вы. Поменяли — рейтинг пересчитался сразу.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🔍</i><b>Оценка с объяснением</b><p>Под каждой цифрой — совпадения и пробелы из текста резюме. Никакого чёрного ящика.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>❓</i><b>Вопросы к интервью</b><p>По каждому пробелу и спорному месту готов вопрос, чтобы проверить это в разговоре.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>✉️</i><b>Письма кандидатам</b><p>Приглашение с конкретными слотами и отказ с человеческой причиной вместо молчания.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>⚖️</i><b>Одинаковые правила</b><p>Все резюме оцениваются по одним критериям. Пол, возраст и фото в оценку не попадают.</p></div></div></div></section>
+<section class="sec t0" id="control"><div class="wrap adm">
+ <div class="reveal"><div class="kick">Контроль</div><h2 style="margin:14px 0 16px">Решает рекрутер, а не алгоритм</h2><p class="lead">Отбор расставляет отклики по порядку и объясняет почему. Кого звать и кому отказать, решает человек.</p><ul class="rules"><li><div><b>Никому не отказывает сам</b><p>Письмо с отказом — это черновик. Отправляет его рекрутер, когда согласен с причиной.</p></div></li><li><div><b>Не оценивает по личным данным</b><p>Пол, возраст, фото, семейное положение и национальность не читаются вовсе.</p></div></li><li><div><b>Не штрафует за спорное</b><p>Частую смену работы и пробелы помечает вопросом к интервью, а не снижает балл.</p></div></li><li><div><b>Показывает основание</b><p>Любую оценку можно раскрыть до строк резюме, на которых она основана.</p></div></li></ul></div>
+ <div class="panel reveal"><div class="ph"><i></i><b>Отбор · журнал найма</b><span>сегодня</span></div><div class="kpi"><div><b id="kpi0" data-base="64">64</b><span>резюме сегодня</span></div><div><b>9</b><span>приглашений</span></div><div><b>3</b><span>вакансии в работе</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">✉️</div><div><b>Приглашение: Елена Р.</b><span>вакансия «Бухгалтер» · оценка 86</span></div><em class="">Письмо</em></div><div class="rowx"><div class="d">🧑‍💼</div><div><b>Разбор откликов: аналитик данных</b><span>23 резюме · пригласить: 4</span></div><em class="">Отобрано</em></div><div class="rowx"><div class="d">🕊</div><div><b>Отказ: Павел Г.</b><span>нет обязательного опыта · письмо с причиной</span></div><em class="">Отказ</em></div></div></div>
+</div></section>
+<section class="sec t0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает команда найма</h2></div>
+<div class="res"><div class="reveal"><b>−76%</b><span>времени на первичный отбор</span></div><div class="reveal"><b>100%</b><span>откликов получают ответ</span></div><div class="reveal"><b>2 дня</b><span>от отклика до интервью вместо недели</span></div><div class="reveal"><b>0</b><span>сильных кандидатов, потерянных в списке</span></div></div><div class="ints reveal"><span>hh.ru</span><span>Хантфлоу</span><span>Talantix</span><span>Potok</span><span>Авито Работа</span><span>Google Календарь</span><span>Telegram</span><span>Почта</span></div></div></section>
+<section class="sec t0" id="faq"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Ассистент сам решает, кого не брать?</summary><p>Нет. Он ранжирует и объясняет, а решение принимает рекрутер. Ни одно письмо кандидату не уходит без человека.</p></details><details><summary>Как избежать предвзятости?</summary><p>Ассистент не читает пол, возраст, фото и другие личные данные и оценивает всех по одним критериям. Спорные моменты он выносит в вопросы к интервью, а не в оценку.</p></details><details><summary>Ассистент не выдумает ответ?</summary><p>Он отвечает только по вашим данным: каталогу, базе знаний, регламентам, расписанию. Если ответа там нет или уверенность низкая, он не угадывает, а передаёт вопрос сотруднику вместе с краткой сводкой диалога.</p></details><details><summary>Сколько занимает внедрение?</summary><p>В первый день согласуем сценарии и границы: что ассистент делает сам, а что отдаёт людям. Рабочая версия на ваших данных готова за 7–10 дней, с интеграциями в учётные системы — за 2–3 недели.</p></details><details><summary>Что нужно от нас?</summary><p>Материалы, по которым отвечают ваши сотрудники: прайс, каталог, инструкции, типовые ответы, и доступ к системам, с которыми ассистент должен работать. Правила и тон согласуем с вами.</p></details><details><summary>Где хранятся данные?</summary><p>На вашем сервере или в облаке в России, по вашему выбору. Диалоги и действия ассистента пишутся в журнал, доступ к нему у тех сотрудников, которым вы его дали.</p></details></div></div></section>
+<section class="sec t0"><div class="wrap"><div class="cta-b reveal"><h2>Разберите отклики за минуту</h2><a class="btn" href="#demo">Открыть отбор</a></div></div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Отбор</span><span>Ассистент разработан YSD DEV</span></footer>
+<script>window.AICFG={"demo": {"type": "custom", "note": "Отбор работает: снимите требование, сделайте его обязательным, поменяйте бюджет или добавьте своё — рейтинг пересчитается. Нажмите на кандидата"}};</script>
+<script>
+(function(){
+'use strict';
+var C=window.AICFG||{},D=C.demo||{},RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SP=/[?&]fast/.test(location.search)?0:(RM?.25:1);
+function $(s,r){return(r||document).querySelector(s)}
+function $$(s,r){return[].slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function wait(ms){return new Promise(function(r){setTimeout(r,ms*SP)})}
+function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function stream(el,text,per){var p=String(text).split(/(\s+)/),i=0;return new Promise(function(res){
+ if(!SP){el.textContent=text;return res()}
+ (function tick(){if(i>=p.length)return res();el.appendChild(document.createTextNode(p[i]+(p[i+1]||'')));i+=2;
+  var sc=el.closest('.chat,.scroll');if(sc&&sc.dataset.follow!=='0')sc.scrollTop=sc.scrollHeight;setTimeout(tick,(per||24)*SP)})()})}
+var rows=$('#rows'),k0=$('#kpi0'),cnt=0;
+function log(a){if(!rows||!a)return;var r=document.createElement('div');r.className='rowx new';
+ r.innerHTML='<div class="d">'+a[0]+'</div><div><b>'+esc(a[1])+'</b><span>'+esc(a[2])+' · только что</span></div><em class="'+(a[4]||'')+'">'+esc(a[3]||'Новая')+'</em>';
+ rows.insertBefore(r,rows.firstChild);cnt++;if(k0)k0.textContent=+k0.dataset.base+cnt}
+var AIK=window.AIK={$:$,$$:$$,esc:esc,wait:wait,fmt:fmt,stream:stream,log:log,cfg:C,parts:{},speed:SP};
+
+if(D.type==='chat'){
+ var chat=$('#chat'),inp=$('#inp'),send=$('#send'),chips=$('#chips'),S=AIK.S=Object.assign({},D.defaults||{}),busy=false,touched=false,byId={};
+ (D.intents||[]).forEach(function(it){byId[it.id]=it;if(it.re)it._re=new RegExp(it.re,'i')});
+ var B={f:$('#bF'),s:$('#bS'),a:$('#bA'),c:$('#bC'),cv:$('#bCv')};
+ function fill(s){return String(s).replace(/\{([^{}]+)\}/g,function(m,k){return S[k]!=null?S[k]:m})}
+ function st(el,v){el.parentNode.dataset.st=v}
+ function conf(v){B.c.style.width=Math.round(v*100)+'%';B.cv.textContent=v?Math.round(v*100)+'%':'—';B.c.style.background=v&&v<.6?'var(--warn)':''}
+ function scroll(){chat.scrollTop=chat.scrollHeight}
+ function bubble(cls){var m=document.createElement('div');m.className='m '+cls;chat.appendChild(m);scroll();return m}
+ function card(p){
+  if(p.t==='items')return'<div class="its">'+p.items.map(function(x){return'<div class="it">'+(x.tag?'<i class="tg">'+esc(fill(x.tag))+'</i>':'')+'<b>'+esc(fill(x.n))+'</b><span>'+esc(fill(x.s))+'</span>'+
+   (x.p||x.b?'<div class="itf"><strong>'+esc(fill(x.p||''))+'</strong>'+(x.b?'<button type="button" data-go="'+x.b[1]+'" data-say="'+esc(fill(x.b[2]||x.b[0]))+'">'+esc(x.b[0])+'</button>':'')+'</div>':'')+'</div>'}).join('')+'</div>';
+  if(p.t==='kv')return'<div class="kvc">'+(p.h?'<h4>'+esc(fill(p.h))+'</h4>':'')+p.rows.map(function(r){return'<div class="r"><span>'+esc(r[0])+'</span><span>'+esc(fill(r[1]))+'</span></div>'}).join('')+
+   (p.sum?'<div class="r sum"><span>'+esc(p.sum[0])+'</span><span>'+esc(fill(p.sum[1]))+'</span></div>':'')+'</div>';
+  if(p.t==='btns')return'<div class="bts">'+p.items.map(function(b,i){return'<button type="button"'+(b[3]?' class="g"':'')+' data-go="'+b[1]+'" data-say="'+esc(fill(b[2]||b[0]))+'">'+esc(fill(b[0]))+'</button>'}).join('')+'</div>';
+  if(p.html)return p.html;
+  return''}
+ function typing(t){var el=document.createElement('div');el.className='typing';el.innerHTML='<i class="spin"></i><span></span>';el.lastChild.textContent=t;chat.appendChild(el);scroll();
+  return{el:el,set:function(x){el.lastChild.textContent=x;scroll()}}}
+ function lock(v){inp.disabled=v;send.disabled=v;inp.placeholder=v?'Ассистент отвечает…':(D.placeholder||'Напишите вопрос своими словами')}
+ function setChips(list){chips.innerHTML='';(list||[]).forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=fill(c[0]);b.dataset.go=c[1]||'';b.dataset.say=fill(c[2]||c[0]);chips.appendChild(b)})}
+ function val(x){return typeof x==='string'&&AIK.parts[x]?AIK.parts[x](S):x}
+ async function run(it,text){busy=true;lock(true);chips.innerHTML='';
+  var over=AIK.hook?AIK.hook(text||'',S,it):null;if(over&&byId[over])it=byId[over];
+  [B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);
+  var th=it.think||[],ty=typing(th[0]||'Разбираю сообщение');
+  st(B.f,'run');await wait(480);
+  var F=val(it.fields)||[];for(var i=0;i<F.length;i++){B.f.insertAdjacentHTML('beforeend','<div class="kv"><span>'+esc(F[i][0])+'</span><b>'+esc(fill(F[i][1]))+'</b></div>');await wait(170)}
+  st(B.f,'done');conf(it.conf||.92);
+  ty.set(th[1]||'Ищу в данных компании');st(B.s,'run');await wait(520);
+  var R=val(it.sources)||[];for(i=0;i<R.length;i++){B.s.insertAdjacentHTML('beforeend','<div class="src"><i>'+R[i][0]+'</i><div><b>'+esc(fill(R[i][1]))+'</b><span>'+esc(fill(R[i][2]))+'</span></div></div>');await wait(230)}
+  if(!R.length)B.s.innerHTML='<p class="em">В данных компании ответа нет</p>';
+  st(B.s,'done');ty.set(th[2]||'Пишу ответ');await wait(430);ty.el.remove();
+  var say=[];(val(it.say)||[]).forEach(function(p){p=p&&p.t==='fn'?AIK.parts[p.f](S):p;say=say.concat(p)});
+  for(i=0;i<say.length;i++){var p=say[i];if(!p)continue;
+   if(typeof p==='string'){await stream(bubble('b'),fill(p))}
+   else if(p.t==='note'){bubble('note').textContent=fill(p.text)}
+   else{bubble('b rich').innerHTML=card(p);scroll()}
+   await wait(260)}
+  st(B.a,'run');await wait(320);var A=val(it.action)||['Ответ отправлен','Клиент получил ответ в чате'];
+  B.a.innerHTML='<div class="act'+(A[2]?' '+A[2]:'')+'"><b>'+esc(fill(A[0]))+'</b><span>'+esc(fill(A[1]))+'</span></div>';st(B.a,'done');
+  var tr=document.createElement('div');tr.className='tr';tr.innerHTML=(R.length?'<i>📚 '+esc(fill(R[0][1]))+(R.length>1?' и ещё '+(R.length-1):'')+'</i>':'')+'<i>'+(A[2]?'👤 ':'✓ ')+esc(fill(A[0]))+'</i>';chat.appendChild(tr);scroll();
+  var L=val(it.log);if(L)log(L.map(function(x){return fill(x)}));
+  setChips(val(it.next)||D.chips);busy=false;lock(false);scroll();setTimeout(scroll,60)}
+ function match(t){var L=D.intents||[];for(var i=0;i<L.length;i++)if(L[i]._re&&L[i]._re.test(t))return L[i];return null}
+ function ask(text,id){if(busy||!text)return;bubble('u').textContent=text;run((id&&byId[id])||match(text)||byId[D.fallback],text)}
+ AIK.ask=ask;
+ function user(text,id){touched=true;ask(text,id)}
+ send.addEventListener('click',function(){var v=inp.value.trim();inp.value='';user(v)});
+ inp.addEventListener('keydown',function(ev){if(ev.key==='Enter'){ev.preventDefault();send.click()}});
+ inp.addEventListener('focus',function(){touched=true});
+ document.addEventListener('click',function(ev){var b=ev.target.closest('[data-go]');if(b&&$('#ws').contains(b)){user(b.dataset.say||b.textContent,b.dataset.go)}});
+ async function hello(){chat.innerHTML='';S=AIK.S=Object.assign({},D.defaults||{});[B.f,B.s,B.a].forEach(function(x){x.innerHTML='';st(x,'wait')});conf(0);lock(true);
+  for(var i=0;i<(D.greet||[]).length;i++){await stream(bubble('b'),D.greet[i]);await wait(220)}
+  setChips(D.chips);lock(false);scroll()}
+ $('#again').addEventListener('click',function(){if(busy)return;touched=true;hello()});
+ AIK.demo=async function(){await hello();await wait(1500);if(!touched&&D.autoplay)ask(D.autoplay[0],D.autoplay[1])};
+}
+var started=false;function start(){if(started)return;started=true;if(AIK.demo)AIK.demo()}
+var io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');if(x.target.id==='ws')start();io.unobserve(x.target)}})},{threshold:.12}):null;
+$$('.reveal,#ws').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+if(!io)setTimeout(start,0);
+setTimeout(start,2600);
+window.__ai=1;
+})();
+</script>
+<script>
+(function(){var K=AIK,$=K.$,esc=K.esc,
+CR=[{k:'b2b',t:'Опыт B2B-продаж от 2 лет',s:'B2B от 2 лет',m:'B2B-продажи',g:'опыт B2B-продаж от двух лет',must:1,on:1,q:'Какие B2B-сделки вели сами от первого контакта до оплаты?'},
+ {k:'crm',t:'Работа в CRM: amoCRM или Битрикс24',s:'CRM',m:'работа в CRM',g:'опыт работы в CRM',on:1,q:'Как вели воронку и какие отчёты смотрели в CRM?'},
+ {k:'cold',t:'Холодные звонки и поиск клиентов',s:'холодные звонки',m:'холодный поиск клиентов',g:'опыт холодного поиска клиентов',on:1,q:'Сколько холодных контактов в день и какая конверсия во встречу?'},
+ {k:'it',t:'Опыт продаж IT или SaaS',s:'IT или SaaS',m:'продажи IT-продуктов',g:'опыт продаж IT-продуктов',on:1,q:'Какие IT-продукты продавали и кому?'},
+ {k:'long',t:'Длинные сделки от 1 млн ₽',s:'сделки от 1 млн ₽',m:'длинные сделки',g:'опыт длинных сделок от миллиона',on:1,q:'Опишите самую длинную сделку: сколько людей согласовывало покупку?'},
+ {k:'eng',t:'Английский от B1',s:'английский B1',m:'английский',g:'рабочий английский',on:0,q:'Готовы провести часть интервью на английском?'},
+ {k:'office',t:'Офис в Москве 3 дня в неделю',s:'офис в Москве',m:'',g:'возможность работать из офиса в Москве',on:1,q:'Подходит ли гибридный график: 3 дня в офисе?'}],
+C=[{n:'Анна К.',r:'Менеджер по работе с ключевыми клиентами, облачная телефония',y:5,sal:160,has:['b2b','crm','it','long','office','eng'],jobs:1,tx:'Продажи облачной АТС среднему бизнесу, сделки 1–4 млн ₽, цикл 2–3 месяца. amoCRM, тендеры по 223-ФЗ, английский B2.'},
+ {n:'Тимур С.',r:'Менеджер по продажам, оптовая торговля стройматериалами',y:4,sal:130,has:['b2b','crm','cold','office'],jobs:2,tx:'Опт стройматериалов, холодные звонки застройщикам, 60 звонков в день. Битрикс24. План выполнял 11 месяцев из 12.'},
+ {n:'Ольга В.',r:'Менеджер по продажам SaaS для ресторанов',y:3,sal:150,has:['b2b','crm','cold','it','office'],jobs:1,tx:'Продажа сервиса учёта для ресторанов: холодный поиск, демонстрации, сделки 200–600 тыс. ₽. amoCRM, вебинары для клиентов.'},
+ {n:'Денис М.',r:'Руководитель группы продаж, интегратор 1С',y:7,sal:210,has:['b2b','crm','it','long','office'],jobs:2,tx:'Внедрение 1С в производственных компаниях, сделки до 12 млн ₽, тендеры, работа с медицинскими холдингами. Битрикс24.'},
+ {n:'Карина Л.',r:'Менеджер по продажам, фитнес-клуб',y:0,sal:90,has:['crm','cold','office'],jobs:3,tx:'Продажа абонементов частным клиентам, входящие и холодные звонки. amoCRM. Опыта работы с компаниями нет.'},
+ {n:'Игорь П.',r:'Менеджер по развитию, логистическая компания',y:2,sal:140,has:['b2b','cold','long'],jobs:1,tx:'Поиск грузовладельцев, договоры на перевозки от 1 млн ₽ в год. Работает удалённо из Казани, переезд не рассматривает. CRM не вели, таблицы.'},
+ {n:'Мария Д.',r:'Аккаунт-менеджер, digital-агентство',y:3,sal:145,has:['b2b','crm','it','eng','office'],jobs:3,tx:'Ведение клиентов агентства, допродажи, английский C1. amoCRM. Холодным поиском не занималась, три места работы за три года.'},
+ {n:'Сергей Н.',r:'Торговый представитель, FMCG',y:1,sal:120,has:['crm','office','cold'],jobs:2,tx:'Маршрутные продажи в розницу, работа с магазинами и небольшим оптом, 1 год с юрлицами. Мобильная CRM.'}],
+bud=150,scored=false,list=$('#hrList'),open=null;
+function stem(w){w=w.toLowerCase();return w.length>5?w.slice(0,-2):w}
+function hasC(c,cr){if(cr.custom)return cr.words.every(function(w){return(c.tx+' '+c.r).toLowerCase().indexOf(w)>=0});if(cr.k==='b2b')return c.y>=2;return c.has.indexOf(cr.k)>=0}
+function calc(c){var tot=0,got=0,miss=[],hit=[],mustFail=0;CR.forEach(function(cr){if(!cr.on)return;var w=cr.must?3:1.5,ok=hasC(c,cr);tot+=w;if(ok){got+=w;hit.push(cr)}else{miss.push(cr);if(cr.must)mustFail=1}});
+ var s=tot?Math.round(got/tot*100):0,over=c.sal>bud?Math.round((c.sal-bud)/bud*100):0;if(over>0)s=Math.max(0,s-Math.min(25,over));if(mustFail)s=Math.min(s,40);
+ c.s=s;c.hit=hit;c.miss=miss;c.over=over;c.mf=mustFail;c.v=mustFail?['Не подходит','bad']:s>=75&&over<=15?['Пригласить','ok']:s>=50?['В резерв','warn']:['Не подходит','bad'];return c}
+function short(x){return x.s||x.t}
+function slot(n){var d=new Date(),k=0;while(k<n){d.setDate(d.getDate()+1);if(d.getDay()%6)k++}return['','в понедельник','во вторник','в среду','в четверг','в пятницу'][d.getDay()]+', '+d.getDate()+' '+['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'][d.getMonth()]}
+function draw(c,i){var el=c.el;if(!el){el=c.el=document.createElement('div');el.className='cd';list.appendChild(el)}
+ var tags=scored?c.hit.map(function(x){return'<i class="y">✓ '+esc(short(x))+'</i>'}).join('')+c.miss.map(function(x){return'<i class="n">✕ '+esc(short(x))+'</i>'}).join('')+(c.over>0?'<i class="w">оклад выше бюджета на '+c.over+'%</i>':'')+(c.jobs>=3?'<i class="w">3 места работы за 3 года</i>':''):'';
+ var qs=!scored?'':c.miss.filter(function(x){return!x.custom}).slice(0,3).map(function(x){return'<li>'+esc(x.q)+'</li>'}).join('')+(c.jobs>=3?'<li>Что было причиной смены работы в последние три года?</li>':'')+(c.over>0?'<li>Из чего складываются ожидания по окладу '+c.sal+' 000 ₽?</li>':'');
+ el.innerHTML='<div class="cd-t"><span class="cd-n">'+(scored?i+1:'·')+'</span><div><b>'+esc(c.n)+'</b><small>'+esc(c.r)+' · '+(c.y?c.y+' '+(c.y===1?'год':c.y<5?'года':'лет')+' в B2B':'без опыта B2B')+' · '+c.sal+' 000 ₽</small></div>'+
+  '<div class="cd-s">'+(scored?'<strong>'+c.s+'</strong><div class="meter"><i style="width:'+c.s+'%"></i></div><span class="tag '+c.v[1]+'">'+c.v[0]+'</span>':'<span class="tag">не разобран</span>')+'</div></div>'+
+  (scored?'<div class="cd-g">'+tags+'</div><div class="cd-d"><div><h5>Из резюме</h5>'+esc(c.tx)+'</div>'+(qs?'<div><h5>Что уточнить на интервью</h5><ul>'+qs+'</ul></div>':'')+
+  '<div class="cd-b"><button type="button" class="btn-s" data-m="inv">Написать приглашение</button><button type="button" class="btn-s g" data-m="no">Вежливый отказ</button></div><div class="cd-m" hidden></div></div>':'');
+ el.classList.toggle('open',open===c)}
+function order(anim){var first={};C.forEach(function(c){if(c.el)first[c.n]=c.el.getBoundingClientRect().top});
+ var L=scored?C.slice().sort(function(a,b){return b.s-a.s||a.sal-b.sal}):C;L.forEach(function(c,i){draw(c,i);list.appendChild(c.el)});
+ if(anim&&K.speed)L.forEach(function(c){var d=first[c.n]-c.el.getBoundingClientRect().top;if(d){c.el.animate([{transform:'translateY('+d+'px)'},{transform:'none'}],{duration:480,easing:'cubic-bezier(.2,.8,.2,1)'})}});
+ if(scored){var inv=C.filter(function(c){return c.v[0]==='Пригласить'}).length;$('#hrCnt').textContent='пригласить: '+inv+' из '+C.length;$('#hrSt').textContent='разобрано '+C.length+' откликов';return inv}}
+function crs(){$('#hrCr').innerHTML=CR.map(function(cr,i){return'<label class="cr'+(cr.on?'':' off')+'"><input type="checkbox" data-i="'+i+'"'+(cr.on?' checked':'')+'><span>'+esc(cr.t)+'</span><button type="button" data-must="'+i+'" class="'+(cr.must?'must':'')+'">'+(cr.must?'обязательно':'желательно')+'</button></label>'}).join('');$('#hrBv').textContent='до '+bud+' 000 ₽'}
+function re(){C.forEach(calc);order(true)}
+$('#ws').addEventListener('click',function(ev){var t=ev.target,m;
+ if(t.dataset.must){ev.preventDefault();var cr=CR[+t.dataset.must];cr.must=cr.must?0:1;crs();if(scored)re();return}
+ if(m=t.dataset.m){var c=open,box=t.closest('.cd-d').querySelector('.cd-m'),nm=c.n.split(' ')[0];box.hidden=false;box.textContent='';
+  var best=c.hit.filter(function(x){return x.m}).slice(0,2).map(function(x){return x.m}).join(' и ');
+  var txt=m==='inv'?nm+', здравствуйте! Это команда найма «Орбиты». Посмотрели ваш отклик на вакансию «Менеджер по продажам B2B» — нам близок ваш опыт'+(best?': '+best:'')+'.\n\nПредлагаю созвониться на 30 минут и познакомиться: '+slot(1)+' в 11:00 или '+slot(2)+' в 16:00. Какое время удобнее?'
+   :nm+', здравствуйте! Спасибо за отклик на вакансию «Менеджер по продажам B2B» и за время, которое вы на него потратили.\n\nСейчас мы ищем кандидата, у которого уже есть '+(c.miss.length?c.miss.slice(0,2).map(function(x){return x.g||('опыт: '+x.t.toLowerCase())}).join(' и '):'более близкий к нашему продукту опыт')+', поэтому не готовы пригласить вас на интервью. Резюме сохраним и напишем, если появится подходящая вакансия. Успехов в поиске!';
+  K.stream(box,txt,16);K.log([m==='inv'?'✉️':'🕊',m==='inv'?'Приглашение: '+c.n:'Отказ: '+c.n,m==='inv'?'оценка '+c.s+' · два слота на выбор':'оценка '+c.s+' · письмо с причиной',m==='inv'?'Письмо':'Отказ']);return}
+ var cd=t.closest('.cd');if(cd&&scored&&!t.closest('.cd-d')){var c2=C.filter(function(x){return x.el===cd})[0];open=open===c2?null:c2;C.forEach(function(x){x.el.classList.toggle('open',open===x)})}});
+$('#ws').addEventListener('change',function(ev){var t=ev.target;if(t.dataset.i){CR[+t.dataset.i].on=t.checked?1:0;crs();if(scored)re()}});
+$('#hrB').addEventListener('input',function(){bud=+this.value;$('#hrBv').textContent='до '+bud+' 000 ₽';if(scored)re()});
+$('#hrAdd').addEventListener('submit',function(ev){ev.preventDefault();var v=$('#hrNew').value.trim();if(v.length<3)return;$('#hrNew').value='';
+ CR.push({t:v,on:1,custom:1,words:v.split(/[\s,]+/).filter(function(w){return w.length>2}).map(stem),q:''});crs();if(scored)re()});
+crs();order(false);
+K.demo=async function(){for(var i=0;i<C.length;i++){var c=C[i];c.el.style.borderColor='#111';$('#hrSt').textContent='читаю резюме: '+c.n;await K.wait(330);c.el.style.borderColor=''}
+ scored=true;C.forEach(calc);var inv=order(true);K.log(['🧑‍💼','Разбор откликов: менеджер B2B','8 резюме · пригласить: '+inv,'Отобрано'])};
+})();
+</script>
+</body>
+</html>

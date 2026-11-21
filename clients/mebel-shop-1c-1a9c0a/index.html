@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мебельный магазин: мебель для дома с оплатой и доставкой онлайн</title>
+<meta name="description" content="Каталог мебели для дома: удобные фильтры, актуальные цены и наличие, оплата на сайте и расчёт доставки при заказе.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Мебельный магазин: мебель для дома онлайн">
+<meta property="og:description" content="Диваны, кресла и мебель для гостиной. Фильтры как на маркетплейсе, оплата и доставка онлайн.">
+<meta property="og:image" content="img/c1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E5A44'/%3E%3Cpath d='M7 14h18v7H7zM9 11h14v4H9zM8 21v3M24 21v3' stroke='%23F2F1ED' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--bg:#F2F1ED;--bg2:#E6E5E0;--ink:#1C1F21;--mut:#474C50;--acc:#1E5A44;--acc2:#174836;--dark:#1C1F21;--light:#F2F1ED;--e:cubic-bezier(0.23,1,0.32,1);--pad:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 'Golos Text',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Manrope',sans-serif;font-weight:800;line-height:1.05;letter-spacing:-.02em;hyphens:manual;overflow-wrap:break-word}
+h2{font-size:clamp(2rem,4.4vw,3.6rem)}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
+a{color:inherit}
+img{display:block;max-width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;border:0;background:var(--acc);color:#fff;font:600 16px 'Golos Text',sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .3s var(--e),transform .2s var(--e)}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--acc2)}}
+.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
+section{padding:clamp(88px,11vw,170px) 0}
+
+/* header */
+.hd{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;gap:32px;padding:14px var(--pad);color:var(--light);background-color:rgba(28,31,33,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.logo{font:800 20px/1.2 'Manrope',sans-serif;text-decoration:none;letter-spacing:-.01em;margin-right:auto;white-space:nowrap;flex:none;color:var(--light)}
+.nav{display:flex;gap:28px;flex-wrap:wrap;min-width:0}
+.nav a{text-decoration:none;font-size:15px;min-height:44px;display:flex;align-items:center;white-space:nowrap;color:var(--light)}
+.cart{display:flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;font-size:15px;white-space:nowrap;flex:none;color:var(--light)}
+.cart b{display:inline-flex;min-width:26px;height:26px;padding:0 6px;border-radius:999px;background:var(--light);color:var(--ink);align-items:center;justify-content:center;font-size:13px;line-height:1;transition:transform .4s var(--e)}
+.cart b.bump{transform:scale(1.25)}
+.hd .btn{flex:none;min-height:46px;padding:0 24px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--light);background-color:#1C1F21;overflow:hidden;padding:0}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:115%;object-fit:cover;will-change:translate}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,20,22,.35) 0%,rgba(18,20,22,.1) 30%,rgba(18,20,22,.78) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding:120px var(--pad) clamp(48px,8vh,96px);max-width:1440px;margin:0 auto}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.75rem);max-width:18ch;color:var(--light)}
+.hero p{font-size:clamp(17px,1.4vw,19px);max-width:46ch;margin:22px 0 32px;color:#ECEBE6}
+.hero-row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
+.hero-row span{font-size:15px;color:#E2E1DC}
+.w{display:inline-block;vertical-align:top}
+.w>span{display:inline-block}
+.js .w>span{opacity:0;transform:translateY(40%);transition:opacity .9s var(--e),transform 1s var(--e)}
+.js .ready .w>span{opacity:1;transform:none}
+.js .hero .fade{opacity:0;transform:translateY(16px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.js .hero.ready .fade{opacity:1;transform:none}
+.js .hero-img img{transform:scale(1.12);opacity:0;transition:transform 1.8s var(--e),opacity 1.2s var(--e)}
+.js .hero.ready .hero-img img{transform:scale(1);opacity:1}
+
+/* reveal */
+.js .rv .st{opacity:0;transform:translateY(28px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.js .rv.in .st{opacity:1;transform:none}
+
+/* picker */
+.pick-hd{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:56px}
+.pick-hd p{color:var(--mut);max-width:44ch}
+.pick{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.flt{background:var(--bg2);border-radius:20px;padding:28px;display:grid;gap:26px;position:sticky;top:24px}
+.flt h3{font-size:18px}
+.lab{font-weight:600;font-size:15px;margin-bottom:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lab output{font-weight:500;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:0;background:var(--bg);color:var(--ink);font:500 15px 'Golos Text',sans-serif;cursor:pointer;transition:background .3s var(--e),color .3s var(--e),transform .2s var(--e)}
+.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--light)}
+input[type=range]{width:100%;accent-color:var(--acc);height:44px}
+.tg{display:flex;align-items:center;gap:12px;min-height:44px;cursor:pointer;font-size:15px;position:relative}
+.tg input{position:absolute;opacity:0}
+.tg i{width:48px;height:28px;border-radius:999px;background:#C9C8C2;position:relative;flex:none;transition:background .3s var(--e)}
+.tg i::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .35s var(--e)}
+.tg input:checked+i{background:var(--acc)}
+.tg input:checked+i::after{transform:translateX(20px)}
+.tg input:focus-visible+i{outline:2px solid var(--ink);outline-offset:2px}
+select{min-height:44px;border:0;border-radius:12px;background:var(--bg);padding:0 14px;font:500 15px 'Golos Text',sans-serif;color:var(--ink);width:100%}
+.res-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.res-top b{font:700 22px 'Manrope',sans-serif}
+.res-top small{color:var(--mut);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:opacity .45s var(--e),transform .45s var(--e)}
+.card.out{opacity:0;transform:translateY(14px)}
+.ph{overflow:hidden;aspect-ratio:4/3}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--e)}
+@media (hover:hover) and (pointer:fine){.ph:hover img,.cat:hover img{transform:scale(1.04)}}
+.cb{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pr b{font:800 22px 'Manrope',sans-serif}
+.pr s{color:var(--mut);font-size:15px}
+.cb .nm{font-weight:500}
+.cb .meta{font-size:14px;color:var(--mut)}
+.stock{font-size:14px;color:var(--acc);font-weight:600}
+.cb .btn{margin-top:auto;min-height:46px;width:100%}
+.cb .btn.ok{background:var(--ink)}
+.empty{grid-column:1/-1;background:var(--bg2);border-radius:18px;padding:40px;text-align:center;color:var(--mut)}
+.note{margin-top:20px;font-size:14px;color:var(--mut)}
+
+/* categories */
+.cats{background:var(--bg2)}
+.cats h2{max-width:16ch;margin-bottom:56px}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-rows:auto auto;gap:22px}
+.cat{border-radius:22px;overflow:hidden;position:relative;background:var(--bg);text-decoration:none;display:flex;flex-direction:column}
+.cat.big{grid-row:span 2}
+.cat.big .ph{aspect-ratio:auto;flex:1;min-height:420px}
+.cat .cb{padding:26px 28px 30px;gap:10px}
+.cat p{color:var(--mut)}
+.cat.side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cat.side .ph{aspect-ratio:auto;min-height:240px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.cat.dk{background:var(--dark);color:var(--light)}
+.cat.dk p{color:#CFCEC8}
+.cat .go{margin-top:auto;font-weight:600;padding-top:14px}
+.more{margin-top:40px;font:700 clamp(1.2rem,2vw,1.6rem) 'Manrope',sans-serif;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.more span{color:var(--mut);font:400 16px 'Golos Text',sans-serif}
+
+/* how */
+.how{padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:88vh}
+.how .ph{aspect-ratio:auto;height:100%;min-height:420px}
+.how-in{padding:clamp(64px,8vw,130px) var(--pad);display:flex;flex-direction:column;justify-content:center;gap:40px}
+.steps{list-style:none;display:grid;gap:30px}
+.steps li{display:grid;gap:6px;max-width:46ch}
+.steps p{color:var(--mut)}
+.facts{display:flex;flex-wrap:wrap;gap:10px}
+.facts span{background:var(--bg2);border-radius:999px;padding:10px 18px;font-size:15px;font-weight:500}
+
+/* form */
+.ord{background:var(--dark);color:var(--light)}
+.ord-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,100px)}
+.ord-in>div>p{color:#CFCEC8;margin-top:22px;max-width:40ch}
+form{display:grid;gap:16px}
+.fl{display:grid;gap:8px;font-size:15px;color:#DAD9D3}
+.fl input,.fl textarea{min-height:54px;width:100%;border:0;border-radius:14px;background:#2B2F32;color:var(--light);padding:14px 18px;font:400 17px 'Golos Text',sans-serif;resize:vertical;transition:background .3s var(--e)}
+.fl input::placeholder,.fl textarea::placeholder{color:#A9A8A2}
+.fl input:focus,.fl textarea:focus{outline:2px solid #7FB89F;background:#33383B}
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#CFCEC8;min-height:44px;cursor:pointer}
+.agree input{width:22px;height:22px;accent-color:#3E8A6B;flex:none;margin-top:2px}
+.ord .btn{background:#2E7A5C;white-space:normal;text-align:center}
+@media (hover:hover) and (pointer:fine){.ord .btn:hover{background:#25694E}}
+.done{display:none;background:#2B2F32;border-radius:22px;padding:40px;gap:14px}
+.done.show{display:grid;animation:pop .7s var(--e)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.done p{color:#CFCEC8}
+
+/* footer */
+.ft{background:var(--dark);color:var(--light);padding:0 0 48px}
+.ft-big{font:800 clamp(2.6rem,9vw,8rem) 'Manrope',sans-serif;letter-spacing:-.04em;line-height:1;overflow-wrap:break-word;background:#24282A;color:var(--light);border-radius:24px;padding:48px clamp(20px,4vw,56px)}
+.ft-row{display:flex;flex-wrap:wrap;gap:20px 48px;margin-top:40px;font-size:15px;color:#DAD9D3}
+.ft-row a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.ft small{display:block;margin-top:28px;color:#A9A8A2;font-size:13px}
+
+/* fab */
+.fab{position:fixed;left:16px;right:16px;bottom:16px;z-index:20;display:none;transform:translateY(140%);transition:transform .5s var(--e)}
+.fab.on{transform:none}
+.fab .btn{width:100%}
+
+@media (max-width:1180px){.hd{gap:24px}.nav{gap:20px}}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+ .nav{display:none}
+ .pick-hd,.pick,.ord-in,.how,.cgrid{grid-template-columns:minmax(0,1fr)}
+ .flt{position:static}
+ .cat.big{grid-row:auto}.cat.big .ph{min-height:300px}
+ .how .ph{min-height:56vh}
+ body{padding-bottom:88px}
+ .fab{display:block}
+ .hd .btn{display:none}
+}
+@media (max-width:560px){
+ .hd{gap:16px}
+ .logo{font-size:17px}
+ .grid,.duo,.cat.side{grid-template-columns:minmax(0,1fr)}
+ .cat.side .ph{min-height:220px}
+ .hero h1{font-size:clamp(2.2rem,10vw,3rem)}
+ .hero-in{padding-top:96px}
+ .flt{padding:22px}
+ .cat .cb{padding:22px 20px 24px}
+ .empty,.done{padding:28px 20px}
+ .ft-big{font-size:clamp(2.2rem,11vw,3rem)}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+ .js .w>span,.js .hero .fade,.js .hero-img img,.js .rv .st{transform:none!important;opacity:1!important}
+}
+</style>
+<style id="ysd-guard">h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;word-break:normal!important;overflow-wrap:break-word!important;text-wrap:balance}h1{font-size:clamp(2.1rem,4.4vw,4.75rem)!important;line-height:1.06!important}h2{font-size:clamp(1.55rem,3vw,3rem)!important}img,video,svg{max-width:100%}html,body{overflow-x:clip;max-width:100%}@media(max-width:560px){h1{font-size:clamp(1.9rem,8.6vw,2.6rem)!important}h2{font-size:clamp(1.45rem,6.4vw,2rem)!important}}</style></head>
+<body>
+
+<header class="hd">
+ <a class="logo" href="#top">Мебельный магазин</a>
+ <nav class="nav" aria-label="Разделы">
+  <a href="#pick">Подбор</a><a href="#cats">Каталог</a><a href="#how">Доставка и оплата</a><a href="#contacts">Контакты</a>
+ </nav>
+ <a class="cart" href="#pick" aria-label="Корзина">Корзина <b id="cnt">0</b></a>
+ <a class="btn" href="#cats">Каталог</a>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+ <div class="hero-img"><img id="heroImg" src="img/c1.jpg" width="1920" height="1280" alt="Мебель из каталога магазина в интерьере гостиной" fetchpriority="high"></div>
+ <div class="hero-in">
+  <h1 id="h1">Мебель для дома с оплатой и доставкой онлайн</h1>
+  <p class="fade" style="transition-delay:.45s">Удобно, как на маркетплейсе: фильтры по размерам и цене, актуальное наличие, оплата на сайте и расчёт доставки при заказе.</p>
+  <div class="hero-row fade" style="transition-delay:.6s">
+   <a class="btn" href="#pick">Подобрать мебель</a>
+   <span>Цены и остатки обновляются из учётной системы</span>
+  </div>
+ </div>
+</section>
+
+<section id="pick">
+ <div class="wrap rv">
+  <div class="pick-hd">
+   <h2 class="st">Подберите диван за минуту</h2>
+   <p class="st">Двигайте фильтры, результат меняется сразу. В рабочей версии так же будет работать весь каталог.</p>
+  </div>
+  <div class="pick">
+   <div class="flt st">
+    <h3>Фильтры</h3>
+    <div>
+     <div class="lab">Тип</div>
+     <div class="chips" id="types">
+      <button class="chip" type="button" aria-pressed="true" data-t="all">Все</button>
+      <button class="chip" type="button" aria-pressed="false" data-t="Прямой">Прямые</button>
+      <button class="chip" type="button" aria-pressed="false" data-t="Угловой">Угловые</button>
+      <button class="chip" type="button" aria-pressed="false" data-t="Кушетка">Кушетки</button>
+     </div>
+    </div>
+    <div>
+     <label class="lab" for="pr">Цена до <output id="prO"></output></label>
+     <input id="pr" type="range" min="25000" max="90000" step="1000" value="90000">
+    </div>
+    <div>
+     <label class="lab" for="wd">Ширина до <output id="wdO"></output></label>
+     <input id="wd" type="range" min="160" max="300" step="10" value="300">
+    </div>
+    <label class="tg"><input type="checkbox" id="stk"><i></i>Только в наличии</label>
+    <div>
+     <label class="lab" for="srt">Сортировка</label>
+     <select id="srt"><option value="pop">По популярности</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option><option value="new">Новинки</option></select>
+    </div>
+   </div>
+   <div class="st">
+    <div class="res-top"><b id="found"></b><small>Нажмите «В корзину», счётчик в шапке обновится</small></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <p class="note">Товары и цены в этом блоке условные. В рабочей версии каталог, фото, цены и остатки подтянутся из 1С.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="cats" id="cats">
+ <div class="wrap rv">
+  <h2 class="st">Всё для дома в одном каталоге</h2>
+  <div class="cgrid">
+   <a class="cat big st" href="#pick">
+    <div class="ph"><img src="img/s3.jpg" width="1200" height="1400" loading="lazy" alt="Гостиная с диваном и журнальным столиком"></div>
+    <div class="cb"><h3>Диваны и мягкая мебель</h3><p>Прямые, угловые, кушетки. Фильтры по механизму, ширине, цвету и материалу обивки.</p><span class="go">Смотреть раздел →</span></div>
+   </a>
+   <a class="cat side st" href="#pick">
+    <div class="ph"><img src="img/s6.jpg" width="800" height="600" loading="lazy" alt="Светлая гостиная с мягкой мебелью"></div>
+    <div class="cb"><h3>Новинки</h3><p>Свежие поступления сразу после обновления каталога.</p><span class="go">Смотреть →</span></div>
+   </a>
+   <div class="duo">
+    <a class="cat st" href="#pick"><div class="cb"><h3>Хиты продаж</h3><p>То, что покупают чаще всего: собираем подборку автоматически по заказам.</p><span class="go">Смотреть →</span></div></a>
+    <a class="cat dk st" href="#pick"><div class="cb"><h3>Скидки</h3><p>Старая и новая цена рядом, как привыкли покупатели маркетплейсов.</p><span class="go">Смотреть →</span></div></a>
+   </div>
+  </div>
+  <p class="more st">И ещё около 2000 товаров в полной версии сайта <span>кресла, кровати, шкафы, комоды, столы, стулья, детская, прихожие</span></p>
+ </div>
+</section>
+
+<section class="how" id="how">
+ <div class="ph"><img src="img/s2.jpg" width="1200" height="1300" loading="lazy" alt="Современная гостиная с диваном"></div>
+ <div class="how-in rv">
+  <h2 class="st">Как покупают на сайте</h2>
+  <ul class="steps">
+   <li class="st"><h3>Выбрали по фильтрам</h3><p>Цена, размеры, цвет, материал и наличие видны сразу в карточке товара.</p></li>
+   <li class="st"><h3>Оформили и оплатили</h3><p>Онлайн-оплата картой на сайте или оплата при получении. Письмо с подтверждением приходит на почту.</p></li>
+   <li class="st"><h3>Получили доставку</h3><p>Доставка по городу и до транспортной компании, стоимость рассчитаем при заказе.</p></li>
+  </ul>
+  <div class="facts st"><span>Гарантия производителя</span><span>Обмен и возврат по закону</span><span>Подъём и сборка по запросу</span></div>
+ </div>
+</section>
+
+<section class="ord" id="order">
+ <div class="wrap ord-in rv">
+  <div>
+   <h2 class="st">Не нашли нужное? Подберём сами</h2>
+   <p class="st">Оставьте телефон и пару слов о том, что ищете. Менеджер ответит, есть ли товар в наличии и сколько будет стоить доставка.</p>
+  </div>
+  <div class="st">
+   <form id="f" novalidate>
+    <label class="fl">Имя<input name="n" autocomplete="name" required></label>
+    <label class="fl">Телефон<input name="p" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
+    <label class="fl">Что ищете<textarea name="q" rows="3" placeholder="Например, угловой диван до 250 см, серый"></textarea></label>
+    <label class="agree"><input type="checkbox" required>Согласен на обработку персональных данных</label>
+    <button class="btn" type="submit">Отправить заявку</button>
+   </form>
+   <div class="done" id="done" role="status">
+    <h3>Заявка принята</h3>
+    <p>Спасибо! Менеджер свяжется с вами в рабочее время и уточнит детали.</p>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="ft" id="contacts">
+ <div class="wrap">
+  <div class="ft-big">Мебельный магазин</div>
+  <div class="ft-row">
+   <a href="tel:+70000000000">+7 (000) 000-00-00</a><span style="min-height:44px;display:inline-flex;align-items:center">Адрес на карте</span>
+   <a href="#how">Доставка и оплата</a><a href="#how">Обмен и возврат</a><a href="#contacts">Политика конфиденциальности</a>
+  </div>
+  <small>Фотографии на странице показаны для примера, в готовом сайте будут ваши.</small>
+ </div>
+</footer>
+
+<div class="fab" id="fab"><a class="btn" href="#pick">Подобрать мебель</a></div>
+
+<script>
+(function(){
+var R=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var hero=document.getElementById('hero'),h1=document.getElementById('h1');
+h1.innerHTML=h1.textContent.trim().split(/\s+/).map(function(w,i){return '<span class="w"><span style="transition-delay:'+(i*70)+'ms">'+w+'</span></span>'}).join(' ');
+requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('ready')})});
+
+var img=document.getElementById('heroImg'),tk=false;
+if(!R)addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){var y=scrollY;if(y<innerHeight*1.2)img.style.translate='0 '+(y*0.22)+'px';tk=false})},{passive:true});
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var s=e.target.querySelectorAll('.st');s.forEach(function(el,i){el.style.transitionDelay=(i*75)+'ms'});e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+var fab=document.getElementById('fab');
+new IntersectionObserver(function(es){fab.classList.toggle('on',!es[0].isIntersecting)}).observe(hero);
+
+var D=[
+ {n:'Диван «Осло», кушетка',t:'Кушетка',w:180,p:32900,o:38900,s:6,i:'s1',c:'серый, велюр',r:9,nw:0},
+ {n:'Диван «Берген» прямой',t:'Прямой',w:220,p:46500,o:0,s:3,i:'s4',c:'графит, рогожка',r:8,nw:1},
+ {n:'Угловой диван «Тромсё»',t:'Угловой',w:280,p:74900,o:82000,s:2,i:'s5',c:'светло-серый, шенилл',r:7,nw:0},
+ {n:'Диван «Нарвик» еврокнижка',t:'Прямой',w:200,p:39900,o:44500,s:0,i:'s6',c:'мокко, велюр',r:6,nw:0},
+ {n:'Угловой диван «Лофотен»',t:'Угловой',w:260,p:61900,o:0,s:5,i:'s3',c:'оливковый, рогожка',r:5,nw:1},
+ {n:'Кушетка «Фьорд»',t:'Кушетка',w:160,p:27500,o:0,s:0,i:'s2',c:'молочный, букле',r:4,nw:1},
+ {n:'Диван «Ставангер» 3-местный',t:'Прямой',w:240,p:55900,o:59900,s:4,i:'s1',c:'тёмно-зелёный, велюр',r:3,nw:0},
+ {n:'Угловой диван «Тронхейм»',t:'Угловой',w:300,p:88900,o:0,s:1,i:'s4',c:'серый, шенилл',r:2,nw:1}
+];
+var st={t:'all'},g=document.getElementById('grid'),f=document.getElementById('found');
+var pr=document.getElementById('pr'),wd=document.getElementById('wd'),stk=document.getElementById('stk'),srt=document.getElementById('srt');
+var rub=function(v){return v.toLocaleString('ru-RU')+' ₽'};
+function word(n){var a=n%10,b=n%100;return(a==1&&b!=11)?'товар':(a>=2&&a<=4&&(b<10||b>=20))?'товара':'товаров'}
+function render(){
+ document.getElementById('prO').textContent=rub(+pr.value);
+ document.getElementById('wdO').textContent=wd.value+' см';
+ var L=D.filter(function(d){return(st.t=='all'||d.t==st.t)&&d.p<=+pr.value&&d.w<=+wd.value&&(!stk.checked||d.s>0)});
+ var s=srt.value;L.sort(function(a,b){return s=='asc'?a.p-b.p:s=='desc'?b.p-a.p:s=='new'?b.nw-a.nw:b.r-a.r});
+ f.textContent='Найдено '+L.length+' '+word(L.length);
+ g.innerHTML=L.length?L.slice(0,6).map(function(d){return '<article class="card out"><div class="ph"></div><div class="cb"><div class="pr"><b>'+rub(d.p)+'</b>'+(d.o?'<s>'+rub(d.o)+'</s>':'')+'</div><span class="nm">'+d.n+'</span><span class="meta">'+d.w+' см · '+d.c+'</span>'+(d.s?'<span class="stock">В наличии: '+d.s+' шт.</span>':'<span class="meta">Под заказ</span>')+'<button class="btn add" type="button">В корзину</button></div></article>'}).join(''):'<div class="empty">Под эти фильтры ничего нет. Попробуйте увеличить цену или ширину.</div>';
+ var c=g.querySelectorAll('.card');c.forEach(function(el,i){setTimeout(function(){el.classList.remove('out')},R?0:i*70+20)});
+}
+document.getElementById('types').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;this.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x==b)});st.t=b.dataset.t;render()});
+[pr,wd].forEach(function(x){x.addEventListener('input',render)});
+[stk,srt].forEach(function(x){x.addEventListener('change',render)});
+var n=0,cnt=document.getElementById('cnt');
+g.addEventListener('click',function(e){var b=e.target.closest('.add');if(!b||b.classList.contains('ok'))return;n++;cnt.textContent=n;b.textContent='В корзине';b.classList.add('ok');cnt.classList.add('bump');setTimeout(function(){cnt.classList.remove('bump')},300)});
+render();
+
+var fm=document.getElementById('f');
+fm.addEventListener('submit',function(e){e.preventDefault();if(!fm.checkValidity()){fm.reportValidity();return}fm.style.display='none';document.getElementById('done').classList.add('show')});
+})();
+</script>
+</body>
+</html>

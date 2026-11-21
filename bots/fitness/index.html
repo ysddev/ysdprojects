@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Пульс — Telegram-бот фитнес-клуба: запись на тренировки, абонемент, пропуск с QR</title>
+<meta name="description" content="Бот показывает расписание и свободные места, записывает на тренировку, присылает пропуск с QR, продлевает и замораживает абонемент без администратора.">
+<meta property="og:title" content="Пульс — Telegram-бот фитнес-клуба: запись на тренировки, абонемент, пропуск с QR">
+<meta property="og:description" content="Бот показывает расписание и свободные места, записывает на тренировку, присылает пропуск с QR, продлевает и замораживает абонемент без администратора.">
+<meta name="theme-color" content="#0b0d0a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23c8f53c%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%2310140a%27%3E%D0%9F%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__bot)document.documentElement.classList.add('nofx')},3500)</script>
+<style>
+@font-face{font-family:"Montserrat";font-style:italic;font-weight:800;font-display:swap;src:url(fonts/montserrat-cyrillic-800-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:italic;font-weight:800;font-display:swap;src:url(fonts/montserrat-latin-800-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat";font-style:italic;font-weight:900;font-display:swap;src:url(fonts/montserrat-cyrillic-900-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:italic;font-weight:900;font-display:swap;src:url(fonts/montserrat-latin-900-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--rb:999px;--rc:20px;--rs:28px;--hw:900;--ht:-.03em;--pbg:#f4f6ee;--pink:#161a20;--tgbg:#0e1621;--tghead:#17212b;--tghi:#ffffff;--tgin:#182533;--tgink:#e9eef4;--tgoink:#ffffff;--tgbtn:rgba(255,255,255,.1);--tgbtnink:#ffffff;--tgfield:#242f3d;--tgout:#3d5a12;--tgpat:linear-gradient(180deg,#0e1621,#0e1621);--bg:#0b0d0a;--ink:#f2f5ea;--soft:#b4baa6;--mut:#858b78;--line:#232820;--line2:#353c30;--card:#141812;--ac:#c8f53c;--aci:#10140a;--fh:"Montserrat",sans-serif;--fb:"Manrope",sans-serif;--glow:rgba(200,245,60,.26)}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+:root{--gut:clamp(16px,4vw,48px)}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.04;margin:0;overflow-wrap:break-word}
+h2{font-size:clamp(30px,4.2vw,54px)}
+p{margin:0}
+.kick{font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:54ch}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb);background:var(--ac);color:var(--aci);font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px -12px var(--ac)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--fh);font-weight:var(--hw);font-size:22px;display:flex;align-items:center;gap:10px;letter-spacing:var(--ht)}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ac);color:var(--aci);font-style:normal;font-size:18px}
+.nav{display:flex;gap:24px;font-size:15px;color:var(--soft);margin-left:auto}
+.nav a:hover{color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:15px}
+.hero{padding:clamp(28px,5vw,64px) 0 clamp(48px,6vw,90px)}
+.hero .g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center}
+.hero .g>*{min-width:0}
+.hero h1{font-size:clamp(42px,6.2vw,88px);margin:18px 0 20px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.stats{display:flex;gap:clamp(18px,4vw,44px);margin-top:36px;flex-wrap:wrap}
+.stats b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;line-height:1}
+.stats span{font-size:13px;color:var(--mut)}
+.note{font-size:13px;color:var(--mut);margin-top:16px;display:flex;gap:8px;align-items:center}
+.note b{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 4px rgba(47,191,113,.18)}
+/* телефон */
+.phone{position:relative;width:min(380px,100%);margin:0 auto;aspect-ratio:9/18.6;border-radius:52px;background:#0d0d0f;padding:12px;box-shadow:0 50px 100px -40px rgba(0,0,0,.45),inset 0 0 0 2px #2a2a2e}
+.phone::before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:96px;height:26px;border-radius:14px;background:#0d0d0f;z-index:5}
+.scr{position:relative;height:100%;border-radius:42px;overflow:hidden;background:var(--tgbg);display:flex;flex-direction:column;font-family:-apple-system,"SF Pro Text","Segoe UI",Roboto,var(--fb),sans-serif}
+.tgh{display:flex;align-items:center;gap:10px;padding:54px 14px 10px;background:var(--tghead);color:var(--tghi);border-bottom:1px solid rgba(0,0,0,.06)}
+.tgh .av{width:38px;height:38px;border-radius:50%;background:var(--ac);color:var(--aci);display:grid;place-items:center;font-weight:700;font-size:16px;flex:none}
+.tgh>div:last-child{min-width:0;padding-right:84px}.tgh b{display:block;font-size:15px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tgh small{font-size:12px;opacity:.6}
+.tgh .back{font-size:22px;opacity:.7;margin-right:2px}
+.chat{flex:1;overflow-y:auto;padding:12px 10px 8px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth;background:var(--tgpat)}
+.chat::-webkit-scrollbar{display:none}
+.m{max-width:84%;padding:8px 11px 7px;border-radius:16px;font-size:14.5px;line-height:1.38;position:relative;animation:min .28s cubic-bezier(.2,.8,.2,1);white-space:pre-line;word-wrap:break-word}
+@keyframes min{from{opacity:0;transform:translateY(8px) scale(.98)}}
+.m.b{background:var(--tgin);color:var(--tgink);align-self:flex-start;border-bottom-left-radius:5px;box-shadow:0 1px 1px rgba(0,0,0,.06)}
+.m.u{background:var(--tgout);color:var(--tgoink);align-self:flex-end;border-bottom-right-radius:5px}
+.m .t{display:block;text-align:right;font-size:11px;opacity:.5;margin-top:2px}
+.m.ph{padding:4px;overflow:hidden}
+.m.ph .pi{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#ccc}
+.m.ph .pi img{width:100%;height:100%;object-fit:cover}
+.m.ph p{padding:6px 7px 2px}
+.m.card{padding:0;overflow:hidden;width:84%}
+.m.card .pi{aspect-ratio:16/10;background:#ccc}
+.m.card .pi img{width:100%;height:100%;object-fit:cover}
+.m.card .cb{padding:9px 11px}
+.m.card .cb b{display:block;font-size:15px}
+.m.card .cb span{font-size:13px;opacity:.7}
+.m.rich{width:84%;white-space:normal}
+.tk{display:grid;gap:6px;font-size:13.5px}
+.tk h4{margin:0 0 4px;font-size:15px;font-weight:700}
+.tk .r{display:flex;justify-content:space-between;gap:12px}
+.tk .r span:first-child{opacity:.6}
+.tk .r span:last-child{text-align:right;font-weight:500}
+.tk .sum{margin-top:4px;padding-top:8px;border-top:1px dashed color-mix(in srgb,currentColor 25%,transparent);font-weight:700}
+.tk .sum span:first-child{opacity:1}
+.tl{list-style:none;margin:0;padding:2px 0;display:grid;gap:11px;font-size:13.5px}
+.tl li{display:grid;grid-template-columns:16px 1fr auto;gap:8px;align-items:center}
+.tl li::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid currentColor;opacity:.3;justify-self:center}
+.tl li.ok::before{background:var(--tgac,var(--ac));border-color:var(--tgac,var(--ac));opacity:1}
+.tl li.now::before{border-color:var(--tgac,var(--ac));opacity:1;box-shadow:0 0 0 4px color-mix(in srgb,var(--tgac,var(--ac)) 28%,transparent)}
+.tl li.now b{color:var(--tgac,var(--ac))}
+.tl small{opacity:.55;white-space:nowrap}
+.qr{display:grid;justify-items:center;gap:8px;padding:4px 0 2px;text-align:center;font-size:13px}
+.qr svg{width:136px;height:136px;background:#fff;border-radius:12px;padding:9px}
+.qr b{font-size:15px}
+.sch{display:grid;gap:6px;font-size:13.5px}
+.sch div{display:grid;grid-template-columns:44px 1fr auto;gap:8px;align-items:baseline}
+.sch div span:first-child{font-weight:700}
+.sch small{opacity:.55;white-space:nowrap}
+.m.inv{padding:0;overflow:hidden;width:84%}
+.m.inv .ih{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.08)}
+.m.inv .ih b{display:block}
+.m.inv .ir{display:flex;justify-content:space-between;padding:4px 12px;font-size:13.5px}
+.m.inv .it{display:flex;justify-content:space-between;padding:8px 12px 10px;font-weight:700}
+.kb{display:grid;gap:5px;margin:2px 0 4px;align-self:stretch;animation:min .3s .1s both}
+.kb .r{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:5px}
+.kb button{min-height:38px;padding:6px 8px;border-radius:10px;background:var(--tgbtn);color:var(--tgbtnink);font-size:13.5px;font-weight:500;line-height:1.2;backdrop-filter:blur(6px);transition:filter .15s,transform .15s}
+.kb button:hover{filter:brightness(.97)}
+.kb button:active{transform:scale(.98)}
+.kb button.pay{background:var(--ac);color:var(--aci);font-weight:600}
+.typing{align-self:flex-start;background:var(--tgin);border-radius:16px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--tgink);opacity:.35;animation:dot 1.1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{40%{opacity:.85;transform:translateY(-2px)}}
+.inp{display:flex;gap:8px;padding:8px 10px 26px;background:var(--tghead);align-items:center}
+.inp input{flex:1;height:38px;border-radius:19px;border:0;padding:0 14px;background:var(--tgfield);color:var(--tgink);font-size:14.5px;min-width:0}
+.inp input:focus{outline:0;box-shadow:0 0 0 1.5px var(--ac)}
+.inp button{width:38px;height:38px;border-radius:50%;background:var(--ac);color:var(--aci);display:grid;place-items:center;flex:none}
+.inp button svg{width:18px;height:18px;fill:currentColor}
+.inp input:disabled{opacity:.6}
+.restart{position:absolute;right:16px;top:60px;z-index:6;font-size:12px;font-weight:600;padding:6px 10px;border-radius:999px;background:color-mix(in srgb,var(--tghi) 9%,transparent);color:var(--tghi);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tghi) 14%,transparent)}
+.stage{position:relative;display:grid;place-items:center;padding:10px 0}
+.stage::before{content:"";position:absolute;inset:6% 4%;border-radius:50%;background:radial-gradient(closest-side,var(--glow,color-mix(in srgb,var(--ac) 34%,transparent)),transparent 72%);filter:blur(30px);z-index:0}
+.stage .phone{z-index:1}
+.chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:var(--chipbg,var(--card));color:var(--ink);box-shadow:0 18px 40px -22px rgba(0,0,0,.5),0 0 0 1px var(--line);font-size:13px;line-height:1.25;max-width:210px;animation:floaty 6s ease-in-out infinite}
+.chip i{font-style:normal;font-size:20px}
+.chip b{display:block;font-size:13.5px}
+.chip span{color:var(--mut)}
+.chip.c1{right:calc(50% + 166px);top:15%;width:max-content}.chip.c2{right:-6%;bottom:18%;animation-delay:-3s}
+@keyframes floaty{50%{transform:translateY(-8px)}}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:clamp(24px,3vw,40px);counter-reset:f}
+.flow div{position:relative;padding:18px 16px 16px;border-radius:var(--rc);background:var(--card);counter-increment:f;font-size:15px;line-height:1.3;min-width:0}
+.flow div::before{content:counter(f,decimal-leading-zero);display:block;font:600 12px/1 var(--fb);letter-spacing:.12em;color:var(--ac);margin-bottom:10px}
+.flow b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:17px;letter-spacing:var(--ht);margin-bottom:4px}
+.flow span{color:var(--soft);font-size:14px}
+/* фичи */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(28px,4vw,48px)}
+.feat{padding:clamp(20px,2.4vw,30px);border-radius:var(--rc);background:var(--card);display:flex;flex-direction:column;gap:12px}
+.feat i{width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:22px}
+.feat b{font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15}
+.feat p{color:var(--soft);font-size:15px}
+/* админка */
+.adm{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,56px);align-items:center}
+.adm>*{min-width:0}
+.panel{border-radius:22px;background:var(--pbg,#fff);color:var(--pink,#1a1c22);box-shadow:0 40px 80px -50px rgba(0,0,0,.45),0 0 0 1px var(--line);overflow:hidden;font-size:14px}
+.panel .ph{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(0,0,0,.07)}
+.panel .ph i{width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840;margin-right:40px}
+.panel .ph b{font-size:14px}
+.panel .ph span{margin-left:auto;font-size:12px;color:#7a7f8a}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.06)}
+.kpi div{background:var(--pbg,#fff);padding:14px 18px}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em}
+.kpi span{font-size:12px;color:#7a7f8a}
+.rows{max-height:330px;overflow:auto}
+.rowx{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 18px;border-top:1px solid rgba(0,0,0,.06)}
+.rowx .d{width:36px;height:36px;border-radius:10px;background:#f1f2f5;display:grid;place-items:center;font-size:16px}
+.rowx b{display:block;font-size:14px}
+.rowx span{font-size:12.5px;color:#7a7f8a}
+.rowx em{font-style:normal;font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:#eef6ff;color:#2b6cff;white-space:nowrap}
+.rowx.new{animation:flash 1.6s}
+@keyframes flash{0%{background:color-mix(in srgb,var(--ac) 22%,transparent)}100%{background:transparent}}
+.steps{counter-reset:s;display:grid;gap:18px;margin-top:26px}
+.steps li{list-style:none;display:grid;grid-template-columns:40px 1fr;gap:14px;counter-increment:s}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:700;color:var(--ac)}
+.steps b{display:block;font-size:17px}
+.steps p{color:var(--soft);font-size:15px}
+.ol{padding:0;margin:0}
+.ints{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ints span{padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;font-weight:500}
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:var(--rc);overflow:hidden;margin-top:clamp(28px,4vw,44px)}
+.res div{background:var(--bg);padding:clamp(20px,2.4vw,30px)}
+.res b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(32px,4vw,52px);letter-spacing:-.03em;line-height:1;color:var(--ac)}
+.res span{display:block;margin-top:10px;color:var(--soft);font-size:15px}
+.faq details{border-top:1px solid var(--line);padding:4px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:18px 0;font-size:clamp(17px,1.6vw,19px);font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--soft);max-width:70ch}
+.cta-b{border-radius:var(--rs);background:var(--ink);color:var(--bg);padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-b h2{max-width:18ch}
+.foot{padding:28px 0 36px;font-size:13px;color:var(--mut);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.nofx .reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:1100px){.chip{display:none}}
+@media (max-width:960px){.hero .g,.adm{grid-template-columns:1fr}.feats{grid-template-columns:1fr 1fr}.res{grid-template-columns:1fr 1fr}.nav{display:none}}
+@media (max-width:560px){.feats{grid-template-columns:1fr}.hero .cta{flex-direction:column}.hero .cta .btn{width:100%;justify-content:center;text-align:center}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stats span{font-size:12px;line-height:1.3;display:block;margin-top:4px}.kpi b{font-size:18px}}
+
+.hero h1,h2,.logo{font-style:italic;text-transform:uppercase}.hero h1{font-size:clamp(40px,5.6vw,82px);line-height:.98}.feat b,.flow b{font-family:var(--fb);font-weight:700}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>⚡</i>Пульс</a><nav class="nav"><a href="#demo">Как работает</a><a href="#feats">Возможности</a><a href="#admin">Админка</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#demo">Открыть бота</a></div></header>
+<main>
+<section class="hero" id="top"><div class="wrap g">
+ <div class="reveal"><div class="kick">Telegram-бот фитнес-клуба</div><h1>Запись на тренировку <em>за три касания</em></h1><p class="lead">Клиент видит расписание и свободные места, записывается, получает пропуск с QR и сам продлевает абонемент. Администратор не отвечает на одно и то же сто раз в день.</p>
+ <div class="cta"><a class="btn" href="#demo">Записаться в боте</a><a class="btn ghost" href="#admin">Что видит администратор</a></div>
+ <div class="stats"><div><b>40</b><span>тренировок в расписании</span></div><div><b>QR</b><span>пропуск прямо в чате</span></div><div><b>24/7</b><span>запись и оплата</span></div></div>
+ <p class="note"><b></b>Бот в телефоне работает: нажимайте кнопки или пишите сами</p></div>
+ <div id="demo" class="stage"><div class="chip c1"><i>🔥</i><div><b>Сайкл, 19:30</b><span>осталось 2 места</span></div></div><div class="chip c2"><i>🎫</i><div><b>Абонемент продлён</b><span>+12 занятий</span></div></div><div class="phone" id="phoneBox"><div class="scr">
+  <div class="tgh"><span class="back">‹</span><div class="av">П</div><div><b>Пульс · фитнес-клуб</b><small>бот</small></div></div>
+  <button class="restart" id="restart" type="button">↻ Заново</button>
+  <div class="chat" id="chat" aria-live="polite"></div>
+  <div class="inp"><input id="inp" placeholder="Выберите кнопку выше" disabled aria-label="Сообщение боту"><button id="send" type="button" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5l.02 6.6L15 12 3.02 13.9z"/></svg></button></div>
+ </div></div></div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Сценарий</div><h2 style="margin-top:14px">Путь клиента в боте</h2></div><div class="flow reveal"><div><b>Направление</b><span>йога, функционал, сайкл, растяжка</span></div><div><b>День и время</b><span>только свободные места</span></div><div><b>Пропуск</b><span>QR-код в чате и напоминание</span></div><div><b>Абонемент</b><span>остаток, продление, заморозка</span></div></div></div></section><section class="sec" id="feats" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что бот снимает с ресепшена</h2></div>
+<div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>📅</i><b>Расписание с местами</b><p>Клиент видит тренера, зал и сколько мест осталось. Записаться на заполненную группу нельзя.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🎟</i><b>Пропуск с QR</b><p>После записи бот присылает код. На ресепшене его сканируют, занятие списывается само.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🎫</i><b>Абонемент в чате</b><p>Сколько занятий осталось и до какого числа. Бот сам напомнит, когда останется два.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>💳</i><b>Продление и оплата</b><p>Счёт приходит в Telegram, оплата картой или по СБП. Занятия добавляются сразу.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>❄️</i><b>Заморозка без заявлений</b><p>Клиент выбирает срок, бот сдвигает дату окончания и отменяет записи на эти дни.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🔔</i><b>Лист ожидания</b><p>Освободилось место в заполненной группе: бот пишет первому в очереди и держит место 15 минут.</p></div></div></div></section>
+<section class="sec" id="admin" style="padding-top:0"><div class="wrap adm">
+ <div class="reveal"><div class="kick">Для команды</div><h2 style="margin:14px 0 16px">Администратор видит зал целиком</h2><p class="lead">Записи, отмены, продления и заморозки приходят в один список. Данные можно вести в админке или передавать в вашу CRM клуба.</p><ol class="steps ol"><li><div><b>Клиент записался в боте</b><p>Место в группе занято, пропуск с QR у клиента в чате.</p></div></li><li><div><b>На входе сканируют код</b><p>Занятие списывается с абонемента, в журнале отметка «Пришёл».</p></div></li><li><div><b>Абонемент заканчивается</b><p>Бот сам предлагает продление, оплата попадает в отчёт.</p></div></li></ol></div>
+ <div class="panel reveal"><div class="ph"><i></i><b>Пульс · записи и абонементы</b><span>онлайн</span></div><div class="kpi"><div><b id="kpi0" data-base="34">34</b><span>записей на сегодня</span></div><div><b id="kpiSum" data-base="27600">27 600 ₽</b><span>продления за неделю</span></div><div><b>2 места</b><span>до полного сайкла в 19:30</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">🧘</div><div><b>Йога · Мария Л.</b><span>сегодня, 9:00 · зал 2</span></div><em>Пришла</em></div><div class="rowx"><div class="d">🚴</div><div><b>Сайкл · Денис В.</b><span>сегодня, 19:30 · зал 1</span></div><em>Записан</em></div><div class="rowx"><div class="d">❄️</div><div><b>Заморозка · Ольга С.</b><span>7 дней, до 24 ноя</span></div><em>Заморожен</em></div></div></div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает клуб</h2></div>
+<div class="res"><div class="reveal"><b>−70%</b><span>вопросов «есть ли места» на ресепшене</span></div><div class="reveal"><b>1 мин</b><span>от расписания до записи</span></div><div class="reveal"><b>24/7</b><span>продление абонемента без администратора</span></div><div class="reveal"><b>0</b><span>бумажных журналов посещений</span></div></div><div class="ints reveal"><span>1С:Фитнес-клуб</span><span>Mobifitness</span><span>YCLIENTS</span><span>Google Таблицы</span><span>ЮKassa</span><span>СБП</span></div></div></section>
+<section class="sec" id="faq" style="padding-top:0"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Бот знает, сколько мест в группе?</summary><p>Да. Лимит задаётся для каждой тренировки, при записи место занимается, при отмене освобождается и уходит в лист ожидания.</p></details><details><summary>Как списывается занятие?</summary><p>Администратор сканирует QR из чата или отмечает клиента в списке. Занятие списывается с абонемента, клиент видит остаток.</p></details><details><summary>Сколько делается такой бот?</summary><p>Сценарий согласуем в первый день. Рабочая версия с записью и уведомлениями готова за 3–5 дней, с оплатой и интеграциями — за 7–10 дней.</p></details><details><summary>Что нужно от нас?</summary><p>Список услуг и цен, график работы и доступ к тому, с чем бот должен обмениваться: таблица, CRM или учётная система. Тексты сообщений напишем сами и согласуем с вами.</p></details><details><summary>Можно менять тексты и цены без программиста?</summary><p>Да. Услуги, цены, расписание и тексты ответов меняются в админке или в таблице, бот подхватывает изменения сразу.</p></details></div></div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-b reveal"><h2>Запишитесь на тренировку прямо сейчас</h2><a class="btn" href="#demo">Открыть бота</a></div></div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Пульс</span><span>Бот разработан YSD DEV</span></footer>
+<script>window.BOTCFG={"brand": "Пульс · фитнес-клуб", "nodes": {"start": {"say": [{"photo": "gym", "t": "Клуб «Пульс»: два зала и 40 тренировок в неделю."}, "Запишу на тренировку, покажу абонемент и пришлю пропуск. Что делаем?"], "kb": [[["🏋️ Записаться на тренировку", "cls"]], [["🎫 Мой абонемент", "pass"], ["❄️ Заморозить", "freeze"]]]}, "cls": {"say": ["Какое направление?"], "kb": [[["🧘 Йога", "day", "", "Йога", "cls"], ["💪 Функционал", "day", "", "Функциональный тренинг", "cls"]], [["🚴 Сайкл", "day", "", "Сайкл", "cls"], ["🤸 Растяжка", "day", "", "Растяжка", "cls"]]]}, "day": {"calc": "var t={'Йога':['Мария','зал 2'],'Функциональный тренинг':['Игорь','зал 1'],'Сайкл':['Денис','зал 1'],'Растяжка':['Алина','зал 2']}[V.cls]||['Мария','зал 2'];return{tr:t[0],hall:t[1],d1:F.day(0),d2:F.day(1),d3:F.day(2)}", "say": ["*{cls}*, тренер {tr}. На какой день?"], "kb": [[["{d1}", "slot", "", "{d1}", "day"], ["{d2}", "slot", "", "{d2}", "day"], ["{d3}", "slot", "", "{d3}", "day"]]]}, "slot": {"say": [{"html": "<div class='sch'><div><span>9:00<\/span><span>{tr} · {hall}<\/span><small>5 мест<\/small><\/div><div><span>13:00<\/span><span>{tr} · {hall}<\/span><small>8 мест<\/small><\/div><div><span>19:30<\/span><span>{tr} · {hall}<\/span><small>2 места<\/small><\/div><\/div>"}, "Выберите время:"], "kb": [[["9:00", "ok", "", "9:00", "time"], ["13:00", "ok", "", "13:00", "time"], ["19:30", "ok", "", "19:30", "time"]], [["← Другой день", "day"]]]}, "ok": {"say": [{"html": "<div class='qr'><svg viewBox='0 0 25 25' shape-rendering='crispEdges' aria-hidden='true'><path fill='#111' d='M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM9 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM21 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM12 1h1v1h-1zM15 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM15 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM15 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM21 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM16 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM15 5h1v1h-1zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM21 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM18 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM8 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM20 9h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM19 11h1v1h-1zM24 11h1v1h-1zM0 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM10 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM16 12h1v1h-1zM17 12h1v1h-1zM19 12h1v1h-1zM23 12h1v1h-1zM1 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM19 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM2 14h1v1h-1zM9 14h1v1h-1zM14 14h1v1h-1zM18 14h1v1h-1zM21 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM0 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM6 15h1v1h-1zM10 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM20 15h1v1h-1zM22 15h1v1h-1zM0 16h1v1h-1zM4 16h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM15 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM23 16h1v1h-1zM24 16h1v1h-1zM8 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM16 17h1v1h-1zM17 17h1v1h-1zM19 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM15 19h1v1h-1zM16 19h1v1h-1zM17 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM23 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM11 20h1v1h-1zM12 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM21 20h1v1h-1zM0 21h1v1h-1zM2 21h1v1h-1zM3 21h1v1h-1zM4 21h1v1h-1zM6 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM10 21h1v1h-1zM12 21h1v1h-1zM16 21h1v1h-1zM22 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM11 23h1v1h-1zM12 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM23 23h1v1h-1zM24 23h1v1h-1zM0 24h1v1h-1zM1 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM10 24h1v1h-1zM12 24h1v1h-1zM14 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1z'/><\/svg><b>{cls} · {day}, {time}<\/b><span>Покажите код на ресепшене<\/span><\/div>"}, "Записал. На абонементе останется 7 занятий из 12. Напомню за 2 часа, отменить можно не позже чем за 3 часа до начала."], "admin": {"i": "🏋️", "t": "{cls} · запись из бота", "s": "{day}, {time} · {hall}", "st": "Записан"}, "kb": [[["🎫 Мой абонемент", "pass"]], [["🔁 Начать заново", "start"]]]}, "pass": {"say": [{"html": "<div class='tk'><h4>Абонемент «12 занятий»<\/h4><div class='r'><span>Осталось<\/span><span>8 из 12<\/span><\/div><div class='r'><span>Действует<\/span><span>ещё 19 дней<\/span><\/div><div class='r'><span>Заморозка<\/span><span>доступно 7 дней<\/span><\/div><\/div>"}, "Продлить сейчас? За продление до окончания срока скидка 900 ₽."], "kb": [[["💳 Продлить за 6 900 ₽", "renew", "pay"]], [["🏋️ Записаться на тренировку", "cls"]]]}, "renew": {"say": [{"inv": {"t": "Абонемент «12 занятий»", "rows": [["12 занятий, 60 дней", "7 800 ₽"], ["Скидка за продление", "−900 ₽"]], "total": "6 900 ₽"}}, "Оплата картой или по СБП прямо в Telegram."], "kb": [[["Оплатить 6 900 ₽", "paid", "pay"]], [["← Назад", "pass"]]]}, "paid": {"say": ["Оплата прошла. Добавил 12 занятий, теперь у вас 20. Чек отправил в этот чат."], "admin": {"i": "💳", "t": "Продление абонемента", "s": "12 занятий · оплата в Telegram", "st": "Оплачено", "sum": 6900}, "kb": [[["🏋️ Записаться на тренировку", "cls"]], [["🔁 Начать заново", "start"]]]}, "freeze": {"say": ["На сколько заморозить абонемент? Доступно 7 дней."], "kb": [[["3 дня", "frozen", "", "3 дня", "fr"], ["5 дней", "frozen", "", "5 дней", "fr"], ["7 дней", "frozen", "", "7 дней", "fr"]]]}, "frozen": {"say": ["Готово, абонемент заморожен на {fr}. Срок действия сдвинул, записи на эти дни отменил."], "admin": {"i": "❄️", "t": "Заморозка абонемента", "s": "{fr} · из бота", "st": "Заморожен"}, "kb": [[["🔁 Начать заново", "start"]]]}}, "img": {"gym": ["1554284126-aa88f22d8b74", 16, 10, "600,1000"]}, "autoplay": {"start": 0, "cls": 2, "day": 0, "slot": 2}, "autofill": {}};</script>
+<script>
+(function(){
+var C=window.BOTCFG,N=C.nodes,chat=document.getElementById('chat'),inp=document.getElementById('inp'),send=document.getElementById('send');
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var V={},waiting=null,busy=false,auto=true;
+var F={money:function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'},
+ day:function(add){var d=new Date();d.setDate(d.getDate()+add);return['вс','пн','вт','ср','чт','пт','сб'][d.getDay()]+', '+d.getDate()+' '+['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'][d.getMonth()]}};
+function tm(){var d=new Date();return d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')}
+function fill(s){return String(s).replace(/\{(\w+)\}/g,function(_,k){return V[k]!=null?V[k]:''})}
+function im(name){var I=C.img[name];if(!I)return'';var ws=I[3].split(',');return'<img src="img/'+name+'-'+ws[0]+'.webp" alt="" loading="lazy">'}
+function scroll(){chat.scrollTop=chat.scrollHeight}
+function add(html,cls){var d=document.createElement('div');d.className='m '+cls;d.innerHTML=html;chat.appendChild(d);scroll();return d}
+function bot(msg){if(typeof msg==='string')msg={t:msg};
+ if(msg.photo)return add('<div class="pi">'+im(msg.photo)+'</div>'+(msg.t?'<p>'+esc(fill(msg.t))+'</p>':'')+'<span class="t">'+tm()+'</span>','b ph');
+ if(msg.card)return add('<div class="pi">'+im(msg.card.img)+'</div><div class="cb"><b>'+esc(fill(msg.card.t))+'</b><span>'+esc(fill(msg.card.s||''))+'</span></div>','b card');
+ if(msg.inv)return add('<div class="ih"><b>'+esc(fill(msg.inv.t))+'</b><span style="font-size:12px;opacity:.6">'+esc(C.brand)+'</span></div>'+msg.inv.rows.map(function(r){return'<div class="ir"><span>'+esc(fill(r[0]))+'</span><span>'+esc(fill(r[1]))+'</span></div>'}).join('')+'<div class="it"><span>Итого</span><span>'+esc(fill(msg.inv.total))+'</span></div>','b inv');
+ if(msg.html)return add(fill(msg.html)+'<span class="t">'+tm()+'</span>','b rich');
+ return add(esc(fill(msg.t)).replace(/\*([^*]+)\*/g,'<b>$1</b>')+'<span class="t">'+tm()+'</span>','b')}
+function user(t){add(esc(t)+'<span class="t">'+tm()+' ✓✓</span>','u')}
+function typing(){var d=document.createElement('div');d.className='typing';d.innerHTML='<i></i><i></i><i></i>';chat.appendChild(d);scroll();return d}
+function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+var first=true;
+async function go(id){var n=N[id];if(!n)return;busy=true;
+ if(n.set)for(var k in n.set)V[k]=n.set[k];
+ if(n.calc)V=Object.assign(V,(new Function('V','F',n.calc))(V,F)||{});
+ for(var i=0;i<(n.say||[]).length;i++){if(first&&id==='start'){bot(n.say[i]);continue}var t=typing();await wait(Math.min(1400,420+String(n.say[i].t||n.say[i]||'').length*9));t.remove();bot(n.say[i]);await wait(160)}
+ if(id==='start'&&first){first=false;await wait(900)}
+ if(n.admin)admin(n.admin);
+ busy=false;
+ if(n.kb)keyboard(n.kb);
+ if(n.ask){waiting=n.ask;inp.disabled=false;inp.placeholder=n.ask.ph||'Сообщение';inp.type=n.ask.type==='tel'?'tel':'text';if(!auto)inp.focus()}
+ if(n.next)setTimeout(function(){go(n.next)},500);
+ if(auto&&n.kb&&C.autoplay&&C.autoplay[id]!=null)setTimeout(function(){var b=chat.querySelector('.kb:last-of-type button[data-i="'+C.autoplay[id]+'"]');if(b&&auto)b.click()},1500);
+ if(auto&&n.ask&&C.autofill&&C.autofill[id])setTimeout(function(){if(!auto||waiting!==n.ask)return;inp.value=C.autofill[id];submit(true)},1700)}
+function keyboard(rows){var k=document.createElement('div');k.className='kb';var idx=0;
+ k.innerHTML=rows.map(function(r){return'<div class="r">'+r.map(function(b){return'<button type="button" class="'+(b[2]==='pay'?'pay':'')+'" data-i="'+(idx++)+'" data-n="'+b[1]+'" data-v="'+esc(fill(b[3]||b[0]))+'">'+esc(fill(b[0]))+'</button>'}).join('')+'</div>'}).join('');
+ chat.appendChild(k);scroll();
+ k.addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b||busy)return;if(ev.isTrusted)auto=false;var kv=rows.flat()[+b.dataset.i];if(kv[4])V[kv[4]]=b.dataset.v;k.remove();user(b.textContent);setTimeout(function(){go(b.dataset.n)},350)})}
+function submit(isAuto){var v=inp.value.trim();if(!waiting||!v)return;var a=waiting;
+ if(a.type==='tel'&&v.replace(/\D/g,'').length<10){inp.value='';bot('Похоже, в номере не хватает цифр. Пример: +7 900 123-45-67');return}
+ if(!isAuto)auto=false;V[a.key]=v;waiting=null;inp.value='';inp.disabled=true;inp.placeholder='Выберите кнопку выше';user(v);setTimeout(function(){go(a.next)},350)}
+send.addEventListener('click',function(){submit(false)});
+inp.addEventListener('keydown',function(e){if(e.key==='Enter')submit(false)});
+document.getElementById('restart').addEventListener('click',function(){chat.innerHTML='';V={};waiting=null;auto=false;inp.disabled=true;go('start')});
+/* админка */
+var rows=document.getElementById('rows'),cnt=0;
+function admin(a){var r=document.createElement('div');r.className='rowx new';r.innerHTML='<div class="d">'+a.i+'</div><div><b>'+esc(fill(a.t))+'</b><span>'+esc(fill(a.s))+' · только что</span></div><em>'+esc(fill(a.st||'Новая'))+'</em>';rows.prepend(r);
+ cnt++;var k=document.getElementById('kpi0');if(k)k.textContent=+k.dataset.base+cnt;var s=document.getElementById('kpiSum'),sm=a.sum||+V[a.sumKey]||0;if(s&&sm){s.dataset.v=(+s.dataset.v||+s.dataset.base)+sm;s.textContent=(+s.dataset.v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₽'}}
+/* запуск, когда телефон виден */
+var started=false,io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');if(x.target.id==='phoneBox'&&!started){started=true;go('start')}io.unobserve(x.target)}})},{threshold:.2}):null;
+document.querySelectorAll('.reveal,#phoneBox').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+if(!io){started=true;go('start')}
+setTimeout(function(){if(!started){started=true;go('start')}},2500);
+window.__bot=1;
+})();
+</script>
+</body>
+</html>
