@@ -108,13 +108,11 @@ section{padding:clamp(96px,14vw,200px) 0 0;scroll-margin-top:24px}
 .bonus h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(24px,2.2vw,32px);letter-spacing:-.02em;color:var(--l5)}
 .bonus p{font-size:18px;max-width:46ch}
 @media (max-width:900px){.bonus{grid-template-columns:1fr;padding:22px}}
-.tiles{grid-column:4/13;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:10px}
+.tiles{grid-column:4/13;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .tile{min-width:0}
-.tile .pic{aspect-ratio:4/5;border-radius:var(--swatch);overflow:hidden}
+.tile .pic{aspect-ratio:3/4;border-radius:var(--swatch);overflow:hidden}
 .tile .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 @media (hover:hover) and (pointer:fine){.tile:hover .pic img{transform:scale(1.04)}}
-.tile.wide{grid-column:span 2}
-.tile.wide .pic{aspect-ratio:8/5;border-radius:0 0 260px 260px}
 .tile h3{font-size:20px;letter-spacing:-.02em;font-weight:600;line-height:1.25;margin-top:16px}
 .tile p{font-size:16px;color:var(--muted);margin-top:6px}
 
@@ -241,6 +239,7 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
   .inside .intro,.tiles{grid-column:1/-1}
   .inside .intro{margin-bottom:22px}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .tile.lead{grid-column:1/-1}
   .tile h3{font-size:17px}.tile p{font-size:15px}
   .scale-sec .head h2,.scale-sec .head p{grid-column:1/-1}
   .result .big,.result .txt,.result .btn{grid-column:1/-1;justify-self:start}
@@ -337,9 +336,9 @@ footer{background:var(--l1);color:#efe7dc;padding:56px var(--pad) 40px}
       <p>Перестать молча соглашаться на «вам и так очень идёт» и начать самой контролировать и понимать все процессы.</p>
     </div>
     <div class="tiles">
-      <div class="tile wide rv"><div class="pic" style="background:var(--l8)"><img src="img/osvet-1600.webp" srcset="img/osvet-900.webp 900w, img/osvet-1600.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" width="800" height="600" loading="lazy" alt="Светлые волосы в салоне после осветления"></div><h3>Осветление без обламывания</h3><p>Мой безопасный способ блонда</p></div>
-      <div class="tile rv"><div class="pic" style="background:var(--l10)"><img src="img/uhod-n.webp" width="640" height="800" loading="lazy" alt="Надежда: длинные светлые волосы после ухода" style="object-position:50% 30%"></div><h3>Уход после</h3><p>Чтобы длина сохранилась</p></div>
-      <div class="tile rv"><div class="pic" style="background:var(--l9)"><img src="img/oshibki-1600.webp" srcset="img/oshibki-900.webp 900w, img/oshibki-1600.webp 1600w" sizes="(max-width:900px) 50vw, 20vw" width="800" height="600" loading="lazy" alt="Светлые и тёмные пряди"></div><h3>Ошибки</h3><p>Что ломает волосы и как этого избежать</p></div>
+      <div class="tile lead rv"><div class="pic" style="background:var(--l8)"><img src="img/osvet-n.webp" width="720" height="960" loading="lazy" alt="Надежда: длинный блонд без обламывания"></div><h3>Осветление без обламывания</h3><p>Мой безопасный способ блонда</p></div>
+      <div class="tile rv"><div class="pic" style="background:var(--l10)"><img src="img/uhod-n.webp" width="600" height="800" loading="lazy" alt="Надежда: длинные светлые волосы после ухода"></div><h3>Уход после</h3><p>Чтобы длина сохранилась</p></div>
+      <div class="tile rv"><div class="pic" style="background:var(--l9)"><img src="img/oshibki-n.webp" width="720" height="960" loading="lazy" alt="Надежда укладывает волосы феном-щёткой"></div><h3>Ошибки</h3><p>Что ломает волосы и как этого избежать</p></div>
       <div class="bonus rv"><h3>И шикарный бонус</h3><p>В подарок урок по уходу: самодиагностика своих волос и подбор уходовой косметики.</p></div>
     </div>
   </div>
