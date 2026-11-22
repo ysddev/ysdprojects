@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(h){h.classList.add('js');try{var q=new URLSearchParams(location.search),k=q.get('k'),z=q.get('z');if(k==='2'||k==='3')h.dataset.k=k;if(z==='b')h.dataset.z='b'}catch(e){}})(document.documentElement)</script>
+<script>(function(h){h.classList.add('js');try{var q=new URLSearchParams(location.search),k=q.get('k'),z=q.get('z');if(k==='2'||k==='3')h.dataset.k=k;if(z==='2'||z==='3'||z==='4')h.dataset.z=z}catch(e){}})(document.documentElement)</script>
 <title>Ателье пространства Кристины Крыжановской — дизайн интерьера</title>
 <meta name="description" content="Дизайн интерьера по индивидуальным меркам: планировка, рендеры, рабочие чертежи и авторский надзор. Проекты в ЖК River Sky, EVER, «Кинетик», «Авиатика» и «Барклая 6».">
 <meta property="og:type" content="website">
@@ -85,8 +85,8 @@ h3{font-size:calc(clamp(18px,1.7vw,24px) * var(--hm))}
 @media (hover:hover) and (pointer:fine){.nav a:hover{text-decoration:underline;text-underline-offset:6px}}
 .logo{display:flex;align-items:center;gap:14px;justify-self:center;text-decoration:none}
 .mk{width:40px;height:40px;flex:0 0 40px}
-.mk.b,html[data-z="b"] .mk.a{display:none}
-html[data-z="b"] .mk.b{display:block}
+.mk{display:none}
+html:not([data-z]) .mk.z1,html[data-z="1"] .mk.z1,html[data-z="2"] .mk.z2,html[data-z="3"] .mk.z3,html[data-z="4"] .mk.z4{display:block}
 .lw{display:flex;flex-direction:column;gap:3px;line-height:1.1}
 .lw b{font-family:var(--hf);font-weight:var(--hw);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 html[data-k="2"] .lw b{font-size:18px;letter-spacing:.06em}
@@ -282,7 +282,7 @@ body{padding-bottom:84px}
 .mas figcaption{font-size:11px;left:6px;bottom:6px;padding:4px 8px}
 .pbl{padding:22px 16px}
 .lb{padding:64px 8px}
-.ksw{bottom:auto;top:74px;left:12px;right:auto;padding:4px 6px}.ksw button{min-width:34px;height:32px}
+.ksw{bottom:auto;top:74px;left:12px;right:auto;padding:4px 6px;flex-wrap:nowrap}.ksw b{margin:0 2px 0 4px}.ksw b+b,.ksw button+b{margin-left:8px}.ksw button{min-width:30px;height:32px;padding:0 6px}
 }
 @media (max-aspect-ratio:4/5){.hvw{background-image:url(img/hero-tall.jpg)}}
 @media (prefers-reduced-motion:reduce){
@@ -301,7 +301,7 @@ body{padding-bottom:84px}
       <a href="#steps">Этапы</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="logo" href="#top" aria-label="Ателье пространства Кристины Крыжановской"><svg class="mk a" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><rect x="8" y="8" width="4" height="32"/><rect x="36" y="8" width="4" height="32"/></g><path d="M12 24 24 8M12 24 24 40M36 24 24 8M36 24 24 40" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><svg class="mk b" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><rect x="6" y="8" width="4" height="32"/><rect x="25" y="8" width="4" height="32"/></g><path d="M10 24 25 8.6M10 24 25 39.4M29 24 43 8M29 24 43 40" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><span class="lw"><b>Ателье пространства</b><small>Кристина Крыжановская</small></span></a>
+    <a class="logo" href="#top" aria-label="Ателье пространства Кристины Крыжановской"><svg class="mk z1" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="hz1"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><rect x="3.5" y="9.5" width="41" height="29" fill="none" stroke="currentColor" stroke-width=".9"/><g clip-path="url(#hz1)"><g fill="currentColor"><rect x="10" y="0" width="4" height="48"/><rect x="34" y="0" width="4" height="48"/></g><path d="M14 24 24 3M14 24 24 45M34 24 24 3M34 24 24 45" stroke="currentColor" stroke-width="1.5" fill="none"/></g></svg><svg class="mk z2" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="hz2"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#hz2)"><g fill="currentColor"><rect x="8" y="0" width="6" height="48"/><rect x="34" y="0" width="6" height="48"/></g><path d="M14 24 31 0M14 24 31 48M34 24 17 0M34 24 17 48" stroke="currentColor" stroke-width="1.1" fill="none"/></g></svg><svg class="mk z3" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="hz3"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#hz3)"><g fill="currentColor"><rect x="8" y="0" width="5" height="48"/><rect x="35" y="0" width="5" height="48"/></g><path d="M13 24 30 0M35 24 18 0" stroke="currentColor" stroke-width="3" fill="none"/><path d="M13 24 30 48M35 24 18 48" stroke="currentColor" stroke-width="1" fill="none"/></g></svg><svg class="mk z4" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="hz4"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#hz4)"><g fill="currentColor"><rect x="8" y="0" width="5" height="48"/><rect x="35" y="0" width="5" height="48"/></g><path d="M13 24 24 4M35 24 24 4" stroke="currentColor" stroke-width="3.4" fill="none"/><path d="M13 24 24 44M35 24 24 44" stroke="currentColor" stroke-width="1" fill="none"/></g></svg><span class="lw"><b>Ателье пространства</b><small>Кристина Крыжановская</small></span></a>
     <a class="btn" href="#form" data-go>Записаться</a>
     <button class="bur" id="bur" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
@@ -679,7 +679,7 @@ body{padding-bottom:84px}
 
 <footer class="ft" id="contacts">
   <div class="wrap">
-    <div class="fbm"><svg class="mk" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><rect x="8" y="8" width="4" height="32"/><rect x="36" y="8" width="4" height="32"/></g><path d="M12 24 24 8M12 24 24 40M36 24 24 8M36 24 24 40" stroke="currentColor" stroke-width="1.6" fill="none"/></svg><div class="big d">Ателье пространства</div></div>
+    <div class="fbm"><svg class="mk z1" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="fz1"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><rect x="3.5" y="9.5" width="41" height="29" fill="none" stroke="currentColor" stroke-width=".9"/><g clip-path="url(#fz1)"><g fill="currentColor"><rect x="10" y="0" width="4" height="48"/><rect x="34" y="0" width="4" height="48"/></g><path d="M14 24 24 3M14 24 24 45M34 24 24 3M34 24 24 45" stroke="currentColor" stroke-width="1.5" fill="none"/></g></svg><svg class="mk z2" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="fz2"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#fz2)"><g fill="currentColor"><rect x="8" y="0" width="6" height="48"/><rect x="34" y="0" width="6" height="48"/></g><path d="M14 24 31 0M14 24 31 48M34 24 17 0M34 24 17 48" stroke="currentColor" stroke-width="1.1" fill="none"/></g></svg><svg class="mk z3" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="fz3"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#fz3)"><g fill="currentColor"><rect x="8" y="0" width="5" height="48"/><rect x="35" y="0" width="5" height="48"/></g><path d="M13 24 30 0M35 24 18 0" stroke="currentColor" stroke-width="3" fill="none"/><path d="M13 24 30 48M35 24 18 48" stroke="currentColor" stroke-width="1" fill="none"/></g></svg><svg class="mk z4" aria-hidden="true" viewBox="0 0 48 48"><defs><clipPath id="fz4"><rect x="6" y="9" width="36" height="30"/></clipPath></defs><g clip-path="url(#fz4)"><g fill="currentColor"><rect x="8" y="0" width="5" height="48"/><rect x="35" y="0" width="5" height="48"/></g><path d="M13 24 24 4M35 24 24 4" stroke="currentColor" stroke-width="3.4" fill="none"/><path d="M13 24 24 44M35 24 24 44" stroke="currentColor" stroke-width="1" fill="none"/></g></svg><div class="big d">Ателье пространства</div></div>
     <p class="fsub">Кристина Крыжановская, дизайн интерьера</p>
     <div class="fc">
       <a href="https://t.me/arbat_interiors" target="_blank" rel="noopener">Telegram @arbat_interiors</a>
@@ -692,7 +692,7 @@ body{padding-bottom:84px}
   </div>
 </footer>
 
-<div class="ksw" id="ksw" role="group" aria-label="Варианты оформления"><b>Шрифт</b><button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button><b>Знак</b><button type="button" data-z="a">А</button><button type="button" data-z="b">Б</button></div>
+<div class="ksw" id="ksw" role="group" aria-label="Варианты оформления"><b>Шрифт</b><button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button><b>Знак</b><button type="button" data-z="1">1</button><button type="button" data-z="2">2</button><button type="button" data-z="3">3</button><button type="button" data-z="4">4</button></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр визуализации">
   <img id="lbi" src="img/avi-01.jpg" alt="">
   <button class="x" type="button" aria-label="Закрыть">×</button>
@@ -763,9 +763,9 @@ lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx
 
 (function(){var p=new URLSearchParams(location.search),w=d.getElementById('ksw'),h=d.documentElement;if(!p.has('k')&&!p.has('z'))return;w.classList.add('on');
 var bs=[].slice.call(w.querySelectorAll('button'));
-function upd(){bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k?b.dataset.k===(h.dataset.k||'1'):b.dataset.z===(h.dataset.z||'a'))});
-  p.set('k',h.dataset.k||'1');p.set('z',h.dataset.z||'a');history.replaceState(null,'','?'+p.toString()+location.hash)}
-bs.forEach(function(b){b.addEventListener('click',function(){if(b.dataset.k){if(b.dataset.k==='1')delete h.dataset.k;else h.dataset.k=b.dataset.k}else{if(b.dataset.z==='a')delete h.dataset.z;else h.dataset.z=b.dataset.z}upd()})});upd()})();
+function upd(){bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k?b.dataset.k===(h.dataset.k||'1'):b.dataset.z===(h.dataset.z||'1'))});
+  p.set('k',h.dataset.k||'1');p.set('z',h.dataset.z||'1');history.replaceState(null,'','?'+p.toString()+location.hash)}
+bs.forEach(function(b){b.addEventListener('click',function(){if(b.dataset.k){if(b.dataset.k==='1')delete h.dataset.k;else h.dataset.k=b.dataset.k}else{if(b.dataset.z==='1')delete h.dataset.z;else h.dataset.z=b.dataset.z}upd()})});upd()})();
 var f=d.getElementById('f'),er=d.getElementById('er');
 f.addEventListener('submit',function(e){e.preventDefault();
   if(!f.n.value.trim()){er.textContent='Как к вам обращаться?';f.n.focus();return}
