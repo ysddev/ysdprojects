@@ -65,8 +65,11 @@ p{margin:0}
 .ok .dot{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
 .ok .dot svg{width:14px;height:14px}
 .les{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(24px,3vw,48px);padding:clamp(24px,4vw,56px) var(--pad);max-width:1440px;margin:0 auto}
-.player{position:relative;border-radius:22px;overflow:hidden;background:#111;aspect-ratio:16/9}
-.player video{width:100%;height:100%;object-fit:cover;display:block}
+.player{position:relative;border-radius:22px;overflow:hidden;background:#111;aspect-ratio:16/9;margin:0 auto;max-height:78vh}
+.player video{width:100%;height:100%;object-fit:contain;display:block;background:#111}
+.player .soon{position:absolute;inset:0;display:grid;place-content:center;gap:10px;text-align:center;padding:24px;color:#f3e6c9;background:radial-gradient(120% 90% at 50% 0%,#3b2619 0%,#1b1512 70%)}
+.player .soon b{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.02em}
+.player .soon span{font-size:var(--step-small);color:#cdbba5}
 .les h1{font-size:clamp(28px,3vw,44px);margin:22px 0 8px}
 .now{color:var(--muted)}
 .ch{list-style:none;padding:0;margin:0;display:grid;gap:6px}
@@ -99,9 +102,9 @@ p{margin:0}
   <p><b>Оплата прошла.</b> Ссылка на эту страницу и чек ушли на <span id="em">вашу почту</span>, урок всегда можно открыть снова.</p></div>
 <main class="les">
   <section>
-    <div class="player rv"><video id="v" src="video/nadezhda.mp4" poster="video/nadezhda.webp" controls playsinline preload="metadata"></video></div>
+    <div class="player rv" id="pl"><video id="v" controls playsinline preload="metadata" hidden></video><div class="soon" id="soon"><b>Видео скоро</b><span>Этот шаг появится здесь, как только видео будет загружено</span></div></div>
     <h1 class="rv" style="--d:1" id="title">Приветствие</h1>
-    <p class="now rv" style="--d:2" id="desc">Знакомство и что тебя ждёт в уроке.</p>
+    <p class="now rv" style="--d:2" id="desc">Шаг 1 из 11</p>
   </section>
   <aside class="side">
     <h2 class="rv">Шаги урока</h2>
@@ -123,19 +126,22 @@ p{margin:0}
   </div>
 </main>
 <script>
-// шаги — по видео, которые Надежда присылает по порядку (16.11): приветствие, инструменты, разделение, приготовление.
-// Остальные шаги — по плану урока, пока видео не пришли
-var steps=[["Приветствие","Знакомство и что тебя ждёт в уроке","var(--l3)"],["Инструменты и продукты","Что подготовить перед окрашиванием","var(--l5)"],
-["Разделение","Как разделить волосы на зоны","var(--l7)"],["Приготовление красящего продукта","Осветлитель по формуле: взвешиваем и взбиваем","var(--l8)"],
-["Нанесение самой себе","Корни и длина, сзади тоже","var(--l9)"],["Тонирование","Как убрать желтизну","var(--l10)"],["Уход после","Чтобы длина сохранилась","#faf4ea"],
-["Ошибки","Что ломает волосы и как этого избежать","#fff"]];
-var ch=document.getElementById('ch');
+// Программа урока — блоки Надежды из чата 22.11, в её порядке и её словами. Видео шага: v (файл в video/), пока нет — «Видео скоро»
+var steps=[{t:"Приветствие",c:"var(--l3)"},{t:"Инструменты и продукты",c:"var(--l5)"},{t:"Разделение",c:"var(--l7)"},
+{t:"Приготовление красящего продукта",c:"var(--l8)"},{t:"Нанесение самой себе",c:"var(--l9)"},{t:"Наши преимущества",c:"var(--l10)"},
+{t:"Тонирование",c:"var(--l9)"},{t:"Если у меня чёлка",c:"var(--l8)"},{t:"Если у меня короткие волосы",c:"var(--l7)"},
+{t:"У меня не получилось",c:"var(--l5)"},{t:"Сушка и рекомендации по уходу",c:"var(--l3)"}];
+var ch=document.getElementById('ch'),v=document.getElementById('v'),pl=document.getElementById('pl'),soon=document.getElementById('soon');
+function fit(){if(!v.videoWidth)return;var r=v.videoWidth/v.videoHeight;pl.style.aspectRatio=v.videoWidth+'/'+v.videoHeight;pl.style.maxWidth='calc(78vh * '+r.toFixed(4)+')'}
+v.addEventListener('loadedmetadata',fit);
+function show(i){var s=steps[i];document.getElementById('title').textContent=s.t;document.getElementById('desc').textContent='Шаг '+(i+1)+' из '+steps.length;
+  v.pause();if(s.v){v.hidden=false;soon.hidden=true;v.src=s.v;if(s.p)v.poster=s.p}else{v.removeAttribute('src');v.load();v.hidden=true;soon.hidden=false;pl.style.aspectRatio='';pl.style.maxWidth=''}}
 steps.forEach(function(s,i){var li=document.createElement('li');li.className='rv';li.style.setProperty('--d',i+1);
-  li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s[2]+(s[2]==='#fff'?';border:1px solid #e3d9cc':'')+'"></span><span>'+(i+1)+'. '+s[0]+'<small>'+s[1]+'</small></span><time>[мин]</time></button>';
-  li.firstChild.addEventListener('click',function(){[].forEach.call(ch.querySelectorAll('button'),function(b){b.removeAttribute('aria-current')});this.setAttribute('aria-current','true');
-    document.getElementById('title').textContent=s[0];document.getElementById('desc').textContent=s[1]+'.';var v=document.getElementById('v');try{v.currentTime=0}catch(_){}
-    if(matchMedia('(max-width:900px)').matches)document.querySelector('.player').scrollIntoView({behavior:'smooth',block:'start'});});
+  li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s.c+'"></span><span>'+(i+1)+'. '+s.t+'</span><time>'+(s.m?s.m+' мин':'')+'</time></button>';
+  li.firstChild.addEventListener('click',function(){[].forEach.call(ch.querySelectorAll('button'),function(b){b.removeAttribute('aria-current')});this.setAttribute('aria-current','true');show(i);
+    if(matchMedia('(max-width:900px)').matches)pl.scrollIntoView({behavior:'smooth',block:'start'});});
   ch.appendChild(li)});
+show(0);
 document.getElementById('tg').addEventListener('click',function(e){e.preventDefault();this.textContent='Здесь откроется бот урока';});
 try{var em=sessionStorage.getItem('kr_email');if(em)document.getElementById('em').textContent=em}catch(_){}
 if(!/paid=1/.test(location.search))document.getElementById('ok').style.display='none';
