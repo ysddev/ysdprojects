@@ -253,6 +253,31 @@ label.f small{font-weight:400;color:var(--ink2);font-size:14px}
 .cookie{position:fixed;left:16px;right:16px;bottom:16px;max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px rgba(35,28,43,.18);padding:14px 16px;display:flex;gap:14px;align-items:center;font-size:15px;z-index:40}
 .cookie p{flex:1}
 .hidden{display:none!important}
+.star{color:var(--red);margin-left:3px;font-weight:700}
+.legend{font-size:14px;color:var(--ink2);margin-top:6px}
+.files{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.files li{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:8px;padding:9px 12px;font-size:15px;background:#fff}
+.files li .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.files li .sz{color:var(--ink2);font-size:14px;white-space:nowrap}
+.files li button{background:none;border:0;color:var(--red-d);cursor:pointer;font-size:14px;padding:4px;text-decoration:underline;text-underline-offset:3px}
+.drop{display:flex;align-items:center;gap:14px;border:1.5px dashed #B9C8DC;border-radius:8px;padding:16px;background:var(--paper);cursor:pointer}
+.drop:hover,.drop.on{border-color:var(--blue);background:var(--blue-l)}
+.drop svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.8;flex:none}
+.drop b{color:var(--blue)}
+.honest{border-bottom:1px solid var(--line)}
+.honest .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;padding-top:72px;padding-bottom:72px;align-items:start}
+.honest h2{max-width:13em}
+.honest .lead{margin-top:16px;color:var(--ink2);font-size:18px;max-width:30em}
+.facts{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.facts li{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line)}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+.facts b{font-size:40px;font-weight:750;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.facts span{font-size:17px}
+.consult{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);color:#D6E1EF;font-size:16px;max-width:40em}
+.consult a{color:#fff;font-weight:600;white-space:nowrap}
+.codebox{display:flex;gap:10px}
+.codebox input{width:56px;height:60px;text-align:center;font-size:26px;font-weight:700;padding:0}
+.kpis.k5{grid-template-columns:repeat(5,1fr)}
 
 @media (max-width:1000px){
   nav.main{display:none}
@@ -273,7 +298,10 @@ label.f small{font-weight:400;color:var(--ink2);font-size:14px}
   .wizard,.side,.pay{grid-template-columns:1fr}
   .wsteps{position:static;display:flex;overflow-x:auto;gap:14px}
   .wsteps li span{display:none}
-  .kpis{grid-template-columns:1fr 1fr}
+  .kpis,.kpis.k5{grid-template-columns:1fr 1fr}
+  .honest .wrap{grid-template-columns:1fr;gap:28px;padding-top:56px;padding-bottom:56px}
+  .facts li{grid-template-columns:96px 1fr;gap:14px}
+  .facts b{font-size:30px}
   footer .wrap{grid-template-columns:1fr}
 }
 @media (max-width:640px){
@@ -370,7 +398,7 @@ const COMPANIES=[
 const SUBJ=["Легковой автомобиль","Такси","Коммерческий транспорт","Техника","Оборудование","Недвижимость"];
 let PRICE=990;
 let REQS=[
-  {id:1042,date:"21.11.2026",inn:"7701234567",type:"Организация",client:"ООО «СтройМонтаж»",contact:"Иванов Пётр",phone:"+7 915 000-11-22",subject:"Техника",item:"Экскаватор-погрузчик",cost:7800000,vat:"с НДС",cond:"Новый",adv:30,term:36,sched:"Убывающие",via:["Телефон","Telegram"],paid:true,to:{1:"read",2:"read",3:"sent",5:"sent"}},
+  {id:1042,date:"21.11.2026",inn:"7701234567",type:"Организация",client:"ООО «СтройМонтаж»",contact:"Иванов Пётр",phone:"+7 915 000-11-22",subject:"Техника",item:"Экскаватор-погрузчик",cost:7800000,vat:"с НДС",cond:"Новый",adv:30,term:36,sched:"Убывающие",via:["Телефон","Telegram"],files:["КП_экскаватор-погрузчик.pdf","Карточка_организации.docx"],paid:true,to:{1:"read",2:"read",3:"sent",5:"sent"}},
   {id:1041,date:"20.11.2026",inn:"502912345678",type:"ИП",client:"ИП Соколова А. В.",contact:"Соколова Анна",phone:"+7 926 000-33-44",subject:"Коммерческий транспорт",item:"Фургон цельнометаллический, 2 шт.",cost:9200000,vat:"с НДС",cond:"Новый",adv:20,term:48,sched:"Равные",via:["WhatsApp"],paid:true,to:{1:"read",2:"sent",4:"read"}},
   {id:1040,date:"19.11.2026",inn:"7812345670",type:"Организация",client:"ООО «Северные перевозки»",contact:"Михайлов Олег",phone:"+7 921 000-55-66",subject:"Коммерческий транспорт",item:"Седельный тягач",cost:14500000,vat:"с НДС",cond:"С пробегом",adv:25,term:60,sched:"Сезонные",via:["Электронная почта","Телефон"],paid:true,to:{1:"sent",3:"read"}},
   {id:1039,date:"19.11.2026",inn:"771234567890",type:"Физическое лицо",client:"Кузнецов Д. С.",contact:"Кузнецов Дмитрий",phone:"+7 903 000-77-88",subject:"Легковой автомобиль",item:"Седан бизнес-класса",cost:4300000,vat:"без НДС",cond:"Конфискат",adv:40,term:24,sched:"Равные",via:["Max"],paid:false,to:{}}
@@ -382,7 +410,10 @@ let USERS=[
   {name:"Сергей Ким",email:"s.kim@lc-leasing.ru",role:"Менеджер",company:1,status:"Активен"},
   {name:"Анна Лебедева",email:"a.lebedeva@lc-leasing.ru",role:"Менеджер",company:1,status:"Ждёт подтверждения"},
   {name:"Игорь Павлов",email:"pavlov@tl-plus.ru",role:"Менеджер",company:2,status:"Активен"},
-  {name:"Пётр Иванов",email:"p.ivanov@stroymontazh.ru",role:"Клиент",company:null,status:"Активен"}
+  {name:"Пётр Иванов",email:"p.ivanov@stroymontazh.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Анна Соколова",email:"sokolova.av@yandex.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Олег Михайлов",email:"o.mikhailov@sevper.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Дмитрий Кузнецов",email:"d.kuznetsov@mail.ru",role:"Клиент",company:null,status:"Активен"}
 ];
 let PAYS=[
   {id:1042,date:"21.11.2026 14:02",who:"ООО «СтройМонтаж»",sum:990,status:"Оплачено"},
@@ -451,6 +482,15 @@ function vHome(){return `
   </div></div>
 </section>
 
+<section class="honest" id="honest"><div class="wrap">
+  <div><h2>Агрегатор предложений, а не посредник</h2><p class="lead">ЕЛП собирает предложения лизинговых компаний в одном окне. Мы не встраиваемся в вашу сделку и ничего не добавляем к условиям лизинга.</p></div>
+  <ul class="facts">
+    <li><b>0%</b><span>брокерских платежей в вашем графике лизинга</span></li>
+    <li><b>0 ₽</b><span>скрытых агентских комиссий — ни с вас, ни в цене предмета лизинга</span></li>
+    <li><b>100%</b><span>прозрачная оплата: площадке вы платите только за подачу заявки — ${rub(PRICE)}, сумма видна до оплаты</span></li>
+  </ul>
+</div></section>
+
 <section class="block" id="subjects"><div class="wrap">
   <div class="sec-head"><h2>Что можно взять в лизинг</h2><p>Выберите предмет — с него начнётся заявка.</p></div>
   <div class="subjects">${SUBJ.map(s=>`<button class="subj" data-subj="${s}"><svg viewBox="0 0 24 24">${IC[s]}</svg><b>${s}</b><small>${subjHint[s]}</small></button>`).join("")}</div>
@@ -497,47 +537,55 @@ function vHome(){return `
   <div class="faq">
     <details><summary>Сколько стоит подать заявку?</summary><p>Подача платная, стоимость видна перед оплатой — сейчас ${rub(PRICE)}. Оплата картой или через СБП, чек приходит на почту. Регистрация и просмотр предложений бесплатны.</p></details>
     <details><summary>Кто увидит мои данные?</summary><p>Только лизинговые компании, которым вы отправили заявку, и администратор площадки. Данные обрабатываются по политике обработки персональных данных ООО «ЕЛП».</p></details>
+    <details><summary>Кто может оплатить подачу заявки?</summary><p>Любой плательщик: сам заявитель, его сотрудник или организация корпоративной картой. Оплата картой или через СБП, чек приходит на почту, указанную при оплате.</p></details>
     <details><summary>Можно ли подать заявку как физическое лицо?</summary><p>Да. Введите ИНН из 12 цифр — площадка определит, что это ИП или физическое лицо.</p></details>
     <details><summary>Как понять, что компания получила заявку?</summary><p>В кабинете у каждой компании свой статус: «Отправлено», а когда менеджер откроет заявку — «Прочитано».</p></details>
     <details><summary>Как подключить лизинговую компанию?</summary><p>Оставьте заявку на регистрацию. После проверки администратор добавит компанию, и менеджеры смогут войти по корпоративной почте.</p></details>
   </div>
 </div></section>
 
-<section class="final"><div class="wrap"><h2>Подайте заявку сейчас</h2><p>Пять минут на заполнение — и заявку получат лизинговые компании, которые вы выберете.</p><a class="btn btn-red" href="#apply" style="background:#fff;color:var(--red)">Подать заявку</a></div></section>`}
+<section class="final"><div class="wrap"><h2>Подайте заявку сейчас</h2><p>Пять минут на заполнение — и заявку получат лизинговые компании, которые вы выберете.</p><a class="btn btn-red" href="#apply" style="background:#fff;color:var(--red)">Подать заявку</a><p class="consult">После регистрации доступна бесплатная консультация специалиста по лизингу — по телефону или в мессенджерах по номеру <a href="tel:+79859259130" style="white-space:nowrap">+7 985 925-91-30</a>.</p></div></section>`}
 
 /* ---- apply wizard ---- */
-let F={step:1,inn:"",innT:"",contact:"",phone:"",email:"",via:[],subject:"",item:"",cost:"",vat:"с НДС",cond:"Новый",adv:20,term:36,sched:"Равные",comment:"",cos:[],all:false,agree1:false,agree2:false};
+let F={step:1,inn:"",innT:"",contact:"",phone:"",email:"",via:[],subject:"",item:"",cost:"",vat:"с НДС",cond:"Новый",adv:20,term:36,sched:"Равные",comment:"",files:[],cos:[],all:false,agree1:false,agree2:false};
+const FILE_EXT=["pdf","doc","docx","xls","xlsx","csv","txt","rtf","odt","ods","jpg","jpeg","png","heic","webp"],FILE_MAX=10*1024*1024,FILE_N=5;
+const fsize=b=>b<1048576?Math.max(1,Math.round(b/1024))+" КБ":(b/1048576).toFixed(1).replace(".",",")+" МБ";
 function vApply(){
   const s=F.step;
   const names=["Заявитель","Предмет лизинга","Компании","Оплата"];
   const side=`<ol class="wsteps">${names.map((n,i)=>`<li class="${i+1===s?"on":i+1<s?"done":""}"><span class="d">${i+1<s?"✓":i+1}</span><span>${n}</span></li>`).join("")}</ol>`;
   let body="";
-  if(s===1){const ic=innCheck(F.inn);body=`<h2 style="font-size:24px">Заявитель</h2><p class="muted" style="margin-top:6px">По ИНН площадка определит, кто подаёт заявку.</p>
+  if(s===1){const ic=innCheck(F.inn);body=`<h2 style="font-size:24px">Заявитель</h2><p class="muted" style="margin-top:6px">По ИНН площадка определит, кто подаёт заявку.</p><p class="legend"><span class="star">*</span> — обязательные поля</p>
    <div class="grid2" style="margin-top:22px">
-    <div class="full"><label class="f" for="inn">ИНН лизингополучателя</label><input class="inp ${F.inn&&!ic.ok&&F.inn.replace(/\D/g,'').length>=10?'bad':''}" id="inn" inputmode="numeric" maxlength="12" placeholder="10 или 12 цифр" value="${esc(F.inn)}"><div class="hint ${ic.ok?'good':(F.inn.replace(/\D/g,'').length>=10?'bad':'')}" id="innHint">${ic.msg||"Организация — 10 цифр, ИП или физическое лицо — 12"}</div></div>
-    <div><label class="f" for="contact">Контактное лицо</label><input class="inp" id="contact" placeholder="Фамилия, имя, отчество" value="${esc(F.contact)}"></div>
-    <div><label class="f" for="phone">Телефон</label><input class="inp" id="phone" inputmode="tel" placeholder="+7" value="${esc(F.phone)}"></div>
+    <div class="full"><label class="f" for="inn">ИНН лизингополучателя<span class="star" aria-hidden="true">*</span></label><input class="inp ${F.inn&&!ic.ok&&F.inn.replace(/\D/g,'').length>=10?'bad':''}" id="inn" inputmode="numeric" maxlength="12" placeholder="10 или 12 цифр" value="${esc(F.inn)}"><div class="hint ${ic.ok?'good':(F.inn.replace(/\D/g,'').length>=10?'bad':'')}" id="innHint">${ic.msg||"Организация — 10 цифр, ИП или физическое лицо — 12"}</div></div>
+    <div><label class="f" for="contact">Контактное лицо<span class="star" aria-hidden="true">*</span></label><input class="inp" id="contact" placeholder="Фамилия, имя, отчество" value="${esc(F.contact)}"></div>
+    <div><label class="f" for="phone">Телефон<span class="star" aria-hidden="true">*</span></label><input class="inp" id="phone" inputmode="tel" placeholder="+7" value="${esc(F.phone)}"></div>
     <div class="full"><label class="f" for="email">Электронная почта <small>— необязательно, сюда придёт чек</small></label><input class="inp" id="email" type="email" value="${esc(F.email)}"></div>
-    <div class="full"><label class="f">Как компаниям с вами связаться</label><div class="chips" id="via">${["Телефон","Электронная почта","Max","WhatsApp","Telegram","ВКонтакте"].map(v=>`<button type="button" class="chip" aria-pressed="${F.via.includes(v)}" data-v="${v}">${v}</button>`).join("")}</div></div>
+    <div class="full"><label class="f">Как компаниям с вами связаться<span class="star" aria-hidden="true">*</span> <small>— можно несколько</small></label><div class="chips" id="via">${["В чате платформы ЕЛП","Телефон","Электронная почта","Max","WhatsApp","Telegram","ВКонтакте"].map(v=>`<button type="button" class="chip" aria-pressed="${F.via.includes(v)}" data-v="${v}">${v}</button>`).join("")}</div></div>
    </div>`}
-  if(s===2){body=`<h2 style="font-size:24px">Предмет лизинга</h2>
+  if(s===2){body=`<h2 style="font-size:24px">Предмет лизинга</h2><p class="legend"><span class="star">*</span> — обязательные поля</p>
    <div class="grid2" style="margin-top:22px">
-    <div class="full"><label class="f">Что берёте в лизинг</label><div class="chips" id="subj">${SUBJ.map(v=>`<button type="button" class="chip" aria-pressed="${F.subject===v}" data-v="${v}">${v}</button>`).join("")}</div></div>
-    <div class="full"><label class="f" for="item">Модель или описание <small>— необязательно</small></label><input class="inp" id="item" placeholder="Например, фургон цельнометаллический, 2 шт." value="${esc(F.item)}"></div>
-    <div><label class="f" for="cost">Стоимость, ₽</label><input class="inp" id="cost" inputmode="numeric" placeholder="0" value="${esc(F.cost)}"></div>
-    <div><label class="f">НДС</label><div class="radios">${["с НДС","без НДС"].map(v=>`<label><input type="radio" name="vat" value="${v}" ${F.vat===v?"checked":""}>${v}</label>`).join("")}</div></div>
-    <div class="full"><label class="f">Состояние</label><div class="radios">${["Новый","С пробегом","Конфискат лизинговой компании"].map(v=>`<label><input type="radio" name="cond" value="${v}" ${F.cond===v?"checked":""}>${v}</label>`).join("")}</div></div>
-    <div><label class="f" for="adv">Первоначальный взнос</label><div class="rangeval" id="advV">${F.adv}%</div><input class="range" type="range" id="adv" min="0" max="50" step="5" value="${F.adv}"><div class="hint" id="advSum">${F.cost?"≈ "+rub(Math.round(+String(F.cost).replace(/\D/g,"")*F.adv/100)):"Не более 50% стоимости"}</div></div>
-    <div><label class="f" for="term">Срок лизинга, месяцев</label><select class="inp" id="term">${[12,18,24,36,48,60,72,84].map(v=>`<option ${+F.term===v?"selected":""}>${v}</option>`).join("")}</select></div>
-    <div class="full"><label class="f">График платежей</label><div class="radios">${["Равные","Убывающие","Сезонные"].map(v=>`<label><input type="radio" name="sched" value="${v}" ${F.sched===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div class="full"><label class="f">Что берёте в лизинг<span class="star" aria-hidden="true">*</span></label><div class="chips" id="subj">${SUBJ.map(v=>`<button type="button" class="chip" aria-pressed="${F.subject===v}" data-v="${v}">${v}</button>`).join("")}</div></div>
+    <div class="full"><label class="f" for="item">Модель или описание<span class="star" aria-hidden="true">*</span></label><input class="inp" id="item" placeholder="Например, фургон цельнометаллический, 2 шт." value="${esc(F.item)}"></div>
+    <div><label class="f" for="cost">Стоимость, ₽<span class="star" aria-hidden="true">*</span></label><input class="inp" id="cost" inputmode="numeric" placeholder="0" value="${esc(F.cost)}"></div>
+    <div><label class="f">НДС<span class="star" aria-hidden="true">*</span></label><div class="radios">${["с НДС","без НДС"].map(v=>`<label><input type="radio" name="vat" value="${v}" ${F.vat===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div class="full"><label class="f">Состояние<span class="star" aria-hidden="true">*</span></label><div class="radios">${["Новый","С пробегом","Конфискат лизинговой компании","Нужна помощь с подбором"].map(v=>`<label><input type="radio" name="cond" value="${v}" ${F.cond===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div><label class="f" for="adv">Первоначальный взнос<span class="star" aria-hidden="true">*</span></label><div class="rangeval" id="advV">${F.adv}%</div><input class="range" type="range" id="adv" min="0" max="50" step="5" value="${F.adv}"><div class="hint" id="advSum">${F.cost?"≈ "+rub(Math.round(+String(F.cost).replace(/\D/g,"")*F.adv/100)):"Не более 50% стоимости"}</div></div>
+    <div><label class="f" for="term">Срок лизинга, месяцев<span class="star" aria-hidden="true">*</span></label><select class="inp" id="term">${[12,18,24,36,48,60,72,84].map(v=>`<option ${+F.term===v?"selected":""}>${v}</option>`).join("")}</select></div>
+    <div class="full"><label class="f">График платежей<span class="star" aria-hidden="true">*</span></label><div class="radios">${["Равные","Убывающие","Сезонные"].map(v=>`<label><input type="radio" name="sched" value="${v}" ${F.sched===v?"checked":""}>${v}</label>`).join("")}</div></div>
     <div class="full"><label class="f" for="comment">Комментарий <small>— необязательно</small></label><textarea class="inp" id="comment" rows="3" placeholder="Сроки поставки, обеспечение, особые условия">${esc(F.comment)}</textarea></div>
+    <div class="full"><label class="f" for="fileIn">Файлы <small>— необязательно: коммерческое предложение, спецификация, фото, реквизиты</small></label>
+      <label class="drop" id="drop" for="fileIn"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><span><b>Выберите файлы</b> или перетащите сюда<br><span class="muted" style="font-size:14px">Word, Excel, PDF, изображения. До ${FILE_N} файлов, каждый до 10 МБ</span></span></label>
+      <input type="file" id="fileIn" multiple accept="${FILE_EXT.map(x=>"."+x).join(",")}" class="hidden">
+      <ul class="files" id="fileList">${F.files.map((f,i)=>`<li><span class="nm">${esc(f.name)}</span><span class="sz">${fsize(f.size)}</span><button type="button" data-rm="${i}">Удалить</button></li>`).join("")}</ul>
+      <div class="hint bad hidden" id="fileErr"></div></div>
    </div>`}
-  if(s===3){const act=COMPANIES.filter(c=>c.active);body=`<h2 style="font-size:24px">Кому отправить заявку</h2><p class="muted" style="margin-top:6px">Отметьте компании или отправьте всем — ${act.length} на площадке.</p>
+  if(s===3){const act=COMPANIES.filter(c=>c.active);body=`<h2 style="font-size:24px">Кому отправить заявку<span class="star" aria-hidden="true">*</span></h2><p class="muted" style="margin-top:6px">Отметьте компании или отправьте всем — ${act.length} на площадке.</p>
    <label class="co" style="margin-top:20px;max-width:360px"><input type="checkbox" id="allCos" ${F.all?"checked":""}><div><b>Всем компаниям</b><div class="m">${act.length} лизинговых компаний</div></div></label>
    <div class="cos" style="margin-top:12px" id="cosList">${act.map(c=>`<label class="co"><input type="checkbox" value="${c.id}" ${F.all||F.cos.includes(c.id)?"checked":""}><div><b>${c.name}</b><div class="m">${c.region}</div></div></label>`).join("")}</div>`}
   if(s===4){const n=F.all?COMPANIES.filter(c=>c.active).length:F.cos.length;body=`<h2 style="font-size:24px">Оплата подачи заявки</h2>
    <div class="pay" style="margin-top:20px"><div>
-    <dl class="dl"><dt>Заявитель</dt><dd>${esc(F.innT||"—")}, ИНН ${esc(F.inn)}</dd><dt>Предмет</dt><dd>${esc(F.subject)}${F.item?", "+esc(F.item):""}</dd><dt>Стоимость</dt><dd>${F.cost?rub(+String(F.cost).replace(/\D/g,"")):"—"} ${F.vat}</dd><dt>Аванс и срок</dt><dd>${F.adv}%, ${F.term} мес., платежи: ${F.sched.toLowerCase()}</dd><dt>Получат заявку</dt><dd>${n} ${n===1?"компания":n<5?"компании":"компаний"}</dd></dl>
+    <dl class="dl"><dt>Заявитель</dt><dd>${esc(F.innT||"—")}, ИНН ${esc(F.inn)}</dd><dt>Предмет</dt><dd>${esc(F.subject)}${F.item?", "+esc(F.item):""}</dd><dt>Стоимость</dt><dd>${F.cost?rub(+String(F.cost).replace(/\D/g,"")):"—"} ${F.vat}</dd><dt>Аванс и срок</dt><dd>${F.adv}%, ${F.term} мес., платежи: ${F.sched.toLowerCase()}</dd>${F.files.length?`<dt>Файлы</dt><dd>${F.files.map(f=>esc(f.name)).join(", ")}</dd>`:""}<dt>Получат заявку</dt><dd>${n} ${n===1?"компания":n<5?"компании":"компаний"}</dd></dl>
     <label class="check"><input type="checkbox" id="ag1" ${F.agree1?"checked":""}><span>Принимаю условия <a href="#doc-offer" target="_blank">публичной оферты</a></span></label>
     <label class="check"><input type="checkbox" id="ag2" ${F.agree2?"checked":""}><span>Даю <a href="#doc-consent" target="_blank">согласие</a> на обработку персональных данных и их передачу выбранным лизинговым компаниям. <a href="#doc-privacy" target="_blank">Политика</a></span></label>
    </div><div class="sum"><div><span>Подача заявки</span><span>${rub(PRICE)}</span></div><div class="tot"><span>К оплате</span><span>${rub(PRICE)}</span></div>
@@ -565,6 +613,19 @@ function bindApply(){
     $("#adv").oninput=e=>{F.adv=+e.target.value;upd()};
     $("#term").onchange=e=>F.term=+e.target.value;
     $("#comment").oninput=e=>F.comment=e.target.value;
+    const fe=$("#fileErr");
+    const showFiles=()=>{$("#fileList").innerHTML=F.files.map((f,i)=>`<li><span class="nm">${esc(f.name)}</span><span class="sz">${fsize(f.size)}</span><button type="button" data-rm="${i}">Удалить</button></li>`).join("");
+      document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{F.files.splice(+b.dataset.rm,1);fe.classList.add("hidden");showFiles()})};
+    const addFiles=list=>{const bad=[];for(const f of list){const ext=(f.name.split(".").pop()||"").toLowerCase();
+        if(F.files.length>=FILE_N){bad.push(`Можно приложить не больше ${FILE_N} файлов`);break}
+        if(!FILE_EXT.includes(ext)){bad.push(`${f.name}: такой формат не принимается`);continue}
+        if(f.size>FILE_MAX){bad.push(`${f.name}: больше 10 МБ`);continue}
+        F.files.push({name:f.name,size:f.size})}
+      fe.textContent=bad.join(". ");fe.classList.toggle("hidden",!bad.length);showFiles()};
+    $("#fileIn").onchange=e=>{addFiles([...e.target.files]);e.target.value=""};
+    const dr=$("#drop");dr.ondragover=e=>{e.preventDefault();dr.classList.add("on")};dr.ondragleave=()=>dr.classList.remove("on");
+    dr.ondrop=e=>{e.preventDefault();dr.classList.remove("on");addFiles([...e.dataTransfer.files])};
+    showFiles();
     document.querySelectorAll("input[name=vat]").forEach(r=>r.onchange=()=>F.vat=r.value);
     document.querySelectorAll("input[name=cond]").forEach(r=>r.onchange=()=>F.cond=r.value);
     document.querySelectorAll("input[name=sched]").forEach(r=>r.onchange=()=>F.sched=r.value);
@@ -578,16 +639,16 @@ function bindApply(){
     $("#ag1").onchange=e=>{F.agree1=e.target.checked;upd()};$("#ag2").onchange=e=>{F.agree2=e.target.checked;upd()};
     $("#payBtn").onclick=()=>{const b=$("#payBtn");b.disabled=true;b.textContent="Переходим к оплате…";setTimeout(()=>{
       const ids=F.all?COMPANIES.filter(c=>c.active).map(c=>c.id):F.cos;const to={};ids.forEach(i=>to[i]="sent");
-      REQS.unshift({id:1043,date:"21.11.2026",inn:F.inn,type:F.innT,client:F.contact||"Новый клиент",contact:F.contact,phone:F.phone,subject:F.subject,item:F.item,cost:+F.cost||0,vat:F.vat,cond:F.cond,adv:F.adv,term:F.term,sched:F.sched,via:F.via,paid:true,to});
+      REQS.unshift({id:1043,date:"21.11.2026",inn:F.inn,type:F.innT,client:F.contact||"Новый клиент",contact:F.contact,phone:F.phone,subject:F.subject,item:F.item,cost:+F.cost||0,vat:F.vat,cond:F.cond,adv:F.adv,term:F.term,sched:F.sched,via:F.via,files:F.files.map(f=>f.name),paid:true,to});
       MY_CLIENT_REQS.unshift(1043);PAYS.unshift({id:1043,date:"21.11.2026 21:00",who:F.contact||"Новый клиент",sum:PRICE,status:"Оплачено"});
       F.step=5;render();},900)};
   }
-  if(s===5){$("#again").onclick=()=>{F={...F,step:1,subject:"",item:"",cost:"",cos:[],all:false,agree1:false,agree2:false};render()};$("#toCab").onclick=()=>{ROLE="client";renderHeader()}}
+  if(s===5){$("#again").onclick=()=>{F={...F,step:1,subject:"",item:"",cost:"",files:[],cos:[],all:false,agree1:false,agree2:false};render()};$("#toCab").onclick=()=>{ROLE="client";renderHeader()}}
   const nx=$("#next"),bk=$("#back");
   if(bk)bk.onclick=()=>{F.step--;render()};
   if(nx)nx.onclick=()=>{
     if(s===1){const ic=innCheck(F.inn);if(!ic.ok)return err("Укажите корректный ИНН");F.innT=ic.type;if(!F.contact.trim())return err("Укажите контактное лицо");if(F.phone.replace(/\D/g,"").length<10)return err("Укажите телефон");if(!F.via.length)return err("Выберите хотя бы один способ связи")}
-    if(s===2){if(!F.subject)return err("Выберите, что берёте в лизинг");if(!F.cost)return err("Укажите стоимость")}
+    if(s===2){if(!F.subject)return err("Выберите, что берёте в лизинг");if(!F.item.trim())return err("Укажите модель или опишите предмет лизинга");if(!F.cost)return err("Укажите стоимость")}
     if(s===3){if(!F.cos.length&&!F.all)return err("Выберите хотя бы одну компанию")}
     F.step++;render();window.scrollTo({top:0});
   };
@@ -616,7 +677,7 @@ function vManager(){
     main=`<div class="side"><div class="panel" style="padding:8px 0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>№</th><th>Дата</th><th>Заявитель</th><th>Предмет</th><th>Стоимость</th><th>Статус</th></tr></thead><tbody>
     ${inc.map(x=>`<tr class="click" data-id="${x.id}"><td class="num">${x.id}</td><td class="num">${x.date}</td><td>${esc(x.client)}</td><td>${esc(x.subject)}</td><td class="num">${rub(x.cost)}</td><td>${x.to[ME_COMPANY]==="sent"?'<span class="pill pill-new">Новая</span>':STAT.read}</td></tr>`).join("")}</tbody></table></div></div>
     <div class="panel">${r?`<h3>Заявка № ${r.id}</h3><p class="muted" style="font-size:14px;margin:4px 0 16px">${r.date}, оплачена</p>
-      <dl class="dl" style="grid-template-columns:130px 1fr"><dt>Заявитель</dt><dd>${esc(r.client)}<br><span class="muted">${r.type}, ИНН ${r.inn}</span></dd><dt>Предмет</dt><dd>${esc(r.subject)}${r.item?", "+esc(r.item):""}</dd><dt>Состояние</dt><dd>${r.cond}</dd><dt>Стоимость</dt><dd>${rub(r.cost)} ${r.vat}</dd><dt>Аванс</dt><dd>${r.adv}% (${rub(Math.round(r.cost*r.adv/100))})</dd><dt>Срок</dt><dd>${r.term} мес., ${r.sched.toLowerCase()}</dd><dt>Контакт</dt><dd>${esc(r.contact)}<br>${esc(r.phone)}</dd><dt>Связь</dt><dd>${r.via.join(", ")}</dd></dl>
+      <dl class="dl" style="grid-template-columns:130px 1fr"><dt>Заявитель</dt><dd>${esc(r.client)}<br><span class="muted">${r.type}, ИНН ${r.inn}</span></dd><dt>Предмет</dt><dd>${esc(r.subject)}${r.item?", "+esc(r.item):""}</dd><dt>Состояние</dt><dd>${r.cond}</dd><dt>Стоимость</dt><dd>${rub(r.cost)} ${r.vat}</dd><dt>Аванс</dt><dd>${r.adv}% (${rub(Math.round(r.cost*r.adv/100))})</dd><dt>Срок</dt><dd>${r.term} мес., ${r.sched.toLowerCase()}</dd><dt>Контакт</dt><dd>${esc(r.contact)}<br>${esc(r.phone)}</dd><dt>Связь</dt><dd>${r.via.join(", ")}</dd>${r.files&&r.files.length?`<dt>Файлы</dt><dd>${r.files.map(n=>`<a href="#manager" onclick="toast('Файл скачается после подключения сервера');return false">${esc(n)}</a>`).join("<br>")}</dd>`:""}</dl>
       <button class="btn btn-blue" style="width:100%;margin-top:20px" disabled title="Второй этап">Отправить предложение</button><p class="hint" style="text-align:center">Ответ с условиями и графиком — второй этап платформы</p>`
       :`<div class="empty">Выберите заявку в списке. Когда вы её откроете, клиент увидит статус «Прочитано».</div>`}</div></div>`;
   } else {
@@ -652,7 +713,7 @@ function vAdmin(){
       <div><label class="f">Роль</label><div class="radios" id="ur"><label><input type="radio" name="ur" value="Менеджер" checked>Менеджер компании</label><label><input type="radio" name="ur" value="Клиент">Клиент</label></div></div>
       <div id="ucW"><label class="f" for="uc">Компания</label><select class="inp" id="uc">${COMPANIES.map(c=>`<option value="${c.id}">${c.name}</option>`).join("")}</select></div>
       <div><label class="f" for="un">Имя</label><input class="inp" id="un"></div>
-      <div><label class="f" for="ue">Почта</label><input class="inp" id="ue" type="email"><div class="hint" id="ueH">Для менеджера — только корпоративная почта компании: @${COMPANIES[0].domain}</div></div>
+      <div><label class="f" for="ue">Почта</label><input class="inp" id="ue" type="email"><div class="hint" id="ueH">Администратор может указать любую почту. Корпоративная компании: @${COMPANIES[0].domain}</div></div>
       <label class="check" style="margin-top:0"><input type="checkbox" checked>Отправить приглашение со ссылкой для входа</label>
       <button class="btn btn-blue" id="addU">Зарегистрировать</button></div></div></div>`;
   }
@@ -665,7 +726,7 @@ function vAdmin(){
   }
   const paidSum=PAYS.filter(p=>p.status==="Оплачено").reduce((s,p)=>s+p.sum,0);
   return `<section class="app"><div class="wrap"><h1>Администрирование</h1><p class="sub">Единая лизинговая площадка</p>
-  <div class="kpis"><div class="kpi"><b>${REQS.length}</b><span>Заявок</span></div><div class="kpi"><b>${COMPANIES.filter(c=>c.active).length}</b><span>Активных компаний</span></div><div class="kpi"><b>${USERS.filter(u=>u.status!=="Активен").length}</b><span>Ждут подтверждения</span></div><div class="kpi"><b>${paidSum.toLocaleString("ru-RU")}</b><span>Оплачено подач, ₽</span></div></div>
+  <div class="kpis k5"><div class="kpi"><b>${REQS.length}</b><span>Заявок</span></div><div class="kpi"><b>${USERS.filter(u=>u.role==="Клиент").length}</b><span>Клиентов зарегистрировано</span></div><div class="kpi"><b>${COMPANIES.filter(c=>c.active).length}</b><span>Активных компаний</span></div><div class="kpi"><b>${USERS.filter(u=>u.status!=="Активен").length}</b><span>Ждут подтверждения</span></div><div class="kpi"><b>${paidSum.toLocaleString("ru-RU")}</b><span>Оплачено подач, ₽</span></div></div>
   <div class="tabs" role="tablist">${[["reqs","Заявки"],["cos","Лизинговые компании"],["users","Пользователи"],["pays","Платежи"],["set","Настройки"]].map(([k,n])=>`<button role="tab" aria-selected="${admTab===k}" data-t="${k}">${n}</button>`).join("")}</div>${main}</div></section>`;
 }
 function bindAdmin(){
@@ -674,22 +735,30 @@ function bindAdmin(){
   if(admTab==="cos"){document.querySelectorAll("[data-co]").forEach(c=>c.onchange=()=>{COMPANIES.find(x=>x.id==c.dataset.co).active=c.checked;render()});
     $("#addCo").onclick=()=>{const n=$("#cn").value.trim(),d=$("#cd").value.trim().replace(/^@/,"");if(!n||!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d))return toast("Укажите название и домен, например company.ru");COMPANIES.push({id:COMPANIES.length+1,name:n,domain:d,region:$("#cr").value||"—",managers:0,active:true});toast("Компания добавлена");render()}}
   if(admTab==="users"){
-    const sync=()=>{const m=$("input[name=ur]:checked").value==="Менеджер";$("#ucW").classList.toggle("hidden",!m);$("#ueH").textContent=m?"Для менеджера — только корпоративная почта компании: @"+coDomain($("#uc").value):"Клиенту придёт приглашение на эту почту"};
+    const sync=()=>{const m=$("input[name=ur]:checked").value==="Менеджер";$("#ucW").classList.toggle("hidden",!m);$("#ueH").className="hint";$("#ueH").textContent=m?"Администратор может указать любую почту. Корпоративная компании: @"+coDomain($("#uc").value):"Клиенту придёт приглашение на эту почту"};
     document.querySelectorAll("input[name=ur]").forEach(r=>r.onchange=sync);$("#uc").onchange=sync;
     document.querySelectorAll("[data-ok]").forEach(b=>b.onclick=()=>{USERS[b.dataset.ok].status="Активен";toast("Пользователь подтверждён");render()});
     $("#addU").onclick=()=>{const m=$("input[name=ur]:checked").value==="Менеджер",n=$("#un").value.trim(),e=$("#ue").value.trim(),c=+$("#uc").value;
       if(!n||!/^\S+@\S+\.\S+$/.test(e))return toast("Укажите имя и почту");
-      if(m&&!e.toLowerCase().endsWith("@"+coDomain(c))){$("#ueH").className="hint bad";$("#ueH").textContent="Почта должна быть на домене @"+coDomain(c);return}
       USERS.push({name:n,email:e,role:m?"Менеджер":"Клиент",company:m?c:null,status:"Активен"});toast("Пользователь зарегистрирован, приглашение отправлено");render()}}
   if(admTab==="pays"){document.querySelectorAll("[data-ref]").forEach(b=>b.onclick=()=>{PAYS[b.dataset.ref].status="Возвращено";toast("Возврат оформлен через ЮKassa");render()})}
   if(admTab==="set"){$("#savePr").onclick=()=>{const v=+$("#pr").value.replace(/\D/g,"");if(!v)return toast("Укажите цену");PRICE=v;toast("Цена подачи сохранена: "+rub(v));render()}}
 }
 
 /* ---- auth ---- */
-function vLogin(){return `<section class="app"><div class="wrap"><div class="auth"><div class="panel"><h1 style="font-size:30px">Вход в кабинет</h1><p class="sub">Для клиентов, менеджеров лизинговых компаний и администратора.</p>
-  <div style="display:grid;gap:14px;margin-top:22px"><div><label class="f" for="le">Почта</label><input class="inp" id="le" type="email" placeholder="name@company.ru"></div><div><label class="f" for="lp">Пароль</label><input class="inp" id="lp" type="password"></div><button class="btn btn-blue" id="lb">Войти</button>
-  <p class="hint" style="text-align:center">Нет кабинета? <a href="#register">Зарегистрируйтесь как клиент</a>. Менеджерам лизинговых компаний — <a href="#register-company">отдельная регистрация</a>.</p></div></div></div></div></section>`}
-function bindLogin(){$("#lb").onclick=()=>{const e=$("#le").value.toLowerCase();const m=COMPANIES.find(c=>e.endsWith("@"+c.domain));ROLE=e.startsWith("admin")?"admin":m?"manager":"client";renderHeader();location.hash={admin:"#admin",manager:"#manager",client:"#client"}[ROLE];toast("Вход выполнен")}}
+let LOGIN={step:1,email:""};
+function vLogin(){const s=LOGIN.step;return `<section class="app"><div class="wrap"><div class="auth"><div class="panel"><h1 style="font-size:30px">Вход в кабинет</h1>
+  ${s===1?`<p class="sub">Без пароля: пришлём код на почту. Для клиентов, менеджеров лизинговых компаний и администратора.</p>
+  <div style="display:grid;gap:14px;margin-top:22px"><div><label class="f" for="le">Электронная почта</label><input class="inp" id="le" type="email" autocomplete="email" placeholder="name@company.ru" value="${esc(LOGIN.email)}"></div><button class="btn btn-blue" id="lb">Получить код</button>
+  <p class="hint" style="text-align:center">Нет кабинета? <a href="#register">Зарегистрируйтесь как клиент</a>. Менеджерам лизинговых компаний — <a href="#register-company">отдельная регистрация</a>.</p></div>`
+  :`<p class="sub">Отправили код на ${esc(LOGIN.email)}. Введите его — код действует 10 минут.</p>
+  <div style="display:grid;gap:14px;margin-top:22px"><div class="codebox" id="code">${[0,1,2,3].map(i=>`<input class="inp" inputmode="numeric" maxlength="1" aria-label="Цифра ${i+1}">`).join("")}</div><button class="btn btn-blue" id="lc">Войти</button>
+  <p class="hint"><button class="link" id="lr">Изменить почту</button></p></div>`}</div></div></div></section>`}
+function codeInputs(){const ins=[...document.querySelectorAll("#code input")];ins.forEach((x,i)=>{x.oninput=()=>{x.value=x.value.replace(/\D/g,"").slice(0,1);if(x.value&&ins[i+1])ins[i+1].focus()};x.onkeydown=e=>{if(e.key==="Backspace"&&!x.value&&ins[i-1])ins[i-1].focus()}});if(ins[0])ins[0].focus();return ()=>ins.map(x=>x.value).join("")}
+function bindLogin(){
+  if(LOGIN.step===1){$("#lb").onclick=()=>{const e=$("#le").value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e))return toast("Укажите электронную почту");LOGIN={step:2,email:e};render();toast("Код отправлен на почту")};return}
+  const get=codeInputs();$("#lr").onclick=()=>{LOGIN.step=1;render()};
+  $("#lc").onclick=()=>{if(get().length<4)return toast("Введите четыре цифры из письма");const e=LOGIN.email;const m=COMPANIES.find(c=>e.endsWith("@"+c.domain))||USERS.find(u=>u.email===e&&u.role==="Менеджер");ROLE=e.startsWith("admin")?"admin":m?"manager":"client";LOGIN={step:1,email:""};renderHeader();location.hash={admin:"#admin",manager:"#manager",client:"#client"}[ROLE];toast("Вход выполнен")}}
 function vRegCo(){return `<section class="app"><div class="wrap"><div class="auth" style="max-width:640px"><div class="panel"><h1 style="font-size:30px">Регистрация менеджера лизинговой компании</h1><p class="sub">Вход только по корпоративной почте компании. После регистрации доступ подтверждает администратор площадки.</p>
   <div class="grid2" style="margin-top:22px"><div class="full"><label class="f" for="rc">Компания</label><select class="inp" id="rc">${COMPANIES.filter(c=>c.active).map(c=>`<option value="${c.id}">${c.name}</option>`).join("")}<option value="0">Моей компании нет в списке</option></select></div>
   <div><label class="f" for="rn">Имя и фамилия</label><input class="inp" id="rn"></div><div><label class="f" for="rp">Телефон</label><input class="inp" id="rp" inputmode="tel"></div>
@@ -698,22 +767,25 @@ function vRegCo(){return `<section class="app"><div class="wrap"><div class="aut
   <div class="full"><button class="btn btn-blue" id="rb">Отправить на подтверждение</button></div></div></div></div></div></section>`}
 function bindRegCo(){const H=$("#reH");const s=()=>{const id=+$("#rc").value;H.className="hint";H.textContent=id?"Почта на домене @"+coDomain(id):"Укажите почту — администратор свяжется и добавит компанию"};$("#rc").onchange=s;
   $("#rb").onclick=()=>{const id=+$("#rc").value,e=$("#re").value.trim().toLowerCase();if(!$("#rn").value.trim())return toast("Укажите имя");if(id&&!e.endsWith("@"+coDomain(id))){H.className="hint bad";H.textContent="Нужна почта на домене @"+coDomain(id)+". Личные адреса не принимаются.";return}if(!$("#rag").checked)return toast("Подтвердите согласие с условиями");
-  USERS.push({name:$("#rn").value.trim(),email:e,role:"Менеджер",company:id||null,status:"Ждёт подтверждения"});$("#view").innerHTML=`<section class="app"><div class="wrap"><div class="panel okbox"><div class="big"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Заявка на доступ отправлена</h1><p class="sub">Администратор проверит данные и подтвердит доступ. Письмо со ссылкой для входа придёт на ${esc(e)}.</p></div></div></section>`}}
+  USERS.push({name:$("#rn").value.trim(),email:e,role:"Менеджер",company:id||null,status:"Ждёт подтверждения"});$("#view").innerHTML=`<section class="app"><div class="wrap"><div class="panel okbox"><div class="big"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Заявка на доступ отправлена</h1><p class="sub">Администратор проверит данные и подтвердит доступ. После подтверждения входите по коду, который придёт на ${esc(e)}.</p></div></div></section>`}}
 function vDoc(k){const d=DOCS[k];if(!d)return `<section class="app"><div class="wrap"><div class="panel"><h1>Документ не найден</h1><p class="sub"><a href="#home">Вернуться на главную</a></p></div></div></section>`;
-  return `<section class="app"><div class="wrap"><article class="panel doc"><h1>${d.title}</h1><p class="sub">${d.lead}</p><span class="pill pill-wait draft">Проект, редакция от 21.11.2026</span>${d.sections.map(([t,ps])=>(t?`<h2>${t}</h2>`:"")+ps.map(p=>`<p>${esc(p)}</p>`).join("")).join("")}</article></div></section>`}
+  return `<section class="app"><div class="wrap"><article class="panel doc"><h1>${d.title}</h1><p class="sub">${d.lead}</p><span class="pill pill-wait draft">Проект, редакция от 23.11.2026</span>${d.sections.map(([t,ps])=>(t?`<h2>${t}</h2>`:"")+ps.map(p=>`<p>${esc(p)}</p>`).join("")).join("")}</article></div></section>`}
 function vReg(){return `<section class="app"><div class="wrap"><div class="auth" style="max-width:640px"><div class="panel"><h1 style="font-size:30px">Регистрация клиента</h1><p class="sub">Кабинет нужен, чтобы видеть свои заявки и статусы по каждой лизинговой компании.</p>
   <div class="grid2" style="margin-top:22px"><div><label class="f" for="gn">Имя и фамилия</label><input class="inp" id="gn" autocomplete="name"></div><div><label class="f" for="gp">Телефон</label><input class="inp" id="gp" inputmode="tel" placeholder="+7" autocomplete="tel"></div>
-  <div class="full"><label class="f" for="ge">Электронная почта</label><input class="inp" id="ge" type="email" autocomplete="email"><div class="hint">На неё придёт ссылка для подтверждения и чеки</div></div>
-  <div class="full"><label class="f" for="gw">Пароль</label><input class="inp" id="gw" type="password" autocomplete="new-password"><div class="hint">Не короче 8 символов</div></div>
+  <div class="full"><label class="f" for="ge">Электронная почта</label><input class="inp" id="ge" type="email" autocomplete="email"><div class="hint">Пароль не нужен: для входа пришлём код на эту почту. Сюда же придут чеки.</div></div>
   <div class="full"><label class="check" style="margin-top:0"><input type="checkbox" id="gag"><span>Даю <a href="#doc-consent">согласие</a> на обработку персональных данных. <a href="#doc-privacy">Политика</a></span></label></div>
   <div class="full"><button class="btn btn-blue" id="gb">Зарегистрироваться</button></div></div></div></div></div></section>`}
-function bindReg(){$("#gb").onclick=()=>{if(!$("#gn").value.trim())return toast("Укажите имя");if(!/^\S+@\S+\.\S+$/.test($("#ge").value.trim()))return toast("Укажите электронную почту");if($("#gw").value.length<8)return toast("Пароль не короче 8 символов");if(!$("#gag").checked)return toast("Отметьте согласие на обработку данных");
-  F.contact=$("#gn").value.trim();F.phone=$("#gp").value;F.email=$("#ge").value.trim();ROLE="client";renderHeader();location.hash="#client";toast("Кабинет создан")}}
+function bindReg(){$("#gb").onclick=()=>{if(!$("#gn").value.trim())return toast("Укажите имя");if(!/^\S+@\S+\.\S+$/.test($("#ge").value.trim()))return toast("Укажите электронную почту");if(!$("#gag").checked)return toast("Отметьте согласие на обработку данных");
+  F.contact=$("#gn").value.trim();F.phone=$("#gp").value;F.email=$("#ge").value.trim();
+  $("#view").innerHTML=`<section class="app"><div class="wrap"><div class="auth"><div class="panel"><h1 style="font-size:30px">Подтвердите почту</h1><p class="sub">Отправили код на ${esc(F.email)}. Введите его, чтобы открыть кабинет.</p><div style="display:grid;gap:14px;margin-top:22px"><div class="codebox" id="code">${[0,1,2,3].map(i=>`<input class="inp" inputmode="numeric" maxlength="1" aria-label="Цифра ${i+1}">`).join("")}</div><button class="btn btn-blue" id="gc">Подтвердить</button></div></div></div></div></section>`;
+  const get=codeInputs();$("#gc").onclick=()=>{if(get().length<4)return toast("Введите четыре цифры из письма");USERS.push({name:F.contact,email:F.email,role:"Клиент",company:null,status:"Активен"});ROLE="client";renderHeader();location.hash="#client";toast("Кабинет создан")}}}
 
 /* ---------- router ---------- */
 function render(){
   const path=(location.hash||"#home").slice(1);
   const v=$("#view");
+  if(path!=="login")LOGIN.step=1;
+  if(["login","register","register-company"].includes(path)&&ROLE!=="guest"){ROLE="guest";renderHeader()}
   const need={client:"client",manager:"manager",admin:"admin"}[path];
   if(need&&ROLE!==need){ROLE=need;renderHeader()}
   if(path==="apply"){v.innerHTML=vApply();bindApply()}
