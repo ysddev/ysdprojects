@@ -129,7 +129,7 @@ p{margin:0}
 <script>
 // Программа урока — блоки Надежды из чата 22.11, в её порядке и её словами; «Результат» (видео 17.11) — отдельный блок, 23.11 поставили после тонирования. Видео шага: v (файл в video/), пока нет — «Видео скоро»
 var steps=[{t:"Приветствие",v:["video/urok/01-privetstvie.mp4"],p:"video/urok/01-privetstvie.jpg",d:"2 мин",c:"var(--l3)"},{t:"Инструменты и продукты",v:["video/urok/02-instrumenty.mp4"],p:"video/urok/02-instrumenty.jpg",d:"2 мин",c:"var(--l5)"},{t:"Разделение",v:["video/urok/03-razdelenie.mp4"],p:"video/urok/03-razdelenie.jpg",d:"4 мин",c:"var(--l7)"},
-{t:"Приготовление красящего продукта",v:["video/urok/04-prigotovlenie.mp4"],p:"video/urok/04-prigotovlenie.jpg",d:"2 мин",c:"var(--l8)"},{t:"Нанесение самой себе",c:"var(--l9)"},{t:"Наши преимущества",v:["video/urok/06-preimushchestva.mp4"],p:"video/urok/06-preimushchestva.jpg",d:"3 мин",c:"var(--l10)"},
+{t:"Приготовление красящего продукта",v:["video/urok/04-prigotovlenie.mp4"],p:"video/urok/04-prigotovlenie.jpg",d:"2 мин",c:"var(--l8)"},{t:"Нанесение самой себе",v:["video/urok/05-nanesenie-0.mp4","video/urok/05-nanesenie-1.mp4","video/urok/05-nanesenie-2.mp4"],p:"video/urok/05-nanesenie.jpg",d:"24 мин",c:"var(--l9)"},{t:"Наши преимущества",v:["video/urok/06-preimushchestva.mp4"],p:"video/urok/06-preimushchestva.jpg",d:"3 мин",c:"var(--l10)"},
 {t:"Тонирование",v:["video/urok/07-tonirovanie.mp4"],p:"video/urok/07-tonirovanie.jpg",d:"2 мин",c:"var(--l9)"},{t:"Результат",v:["video/urok/08-rezultat.mp4"],p:"video/urok/08-rezultat.jpg",d:"1 мин",c:"var(--l10)"},{t:"Если у меня чёлка",v:["video/urok/09-chelka.mp4"],p:"video/urok/09-chelka.jpg",d:"21 сек",c:"var(--l8)"},{t:"Если у меня короткие волосы",v:["video/urok/10-korotkie.mp4"],p:"video/urok/10-korotkie.jpg",d:"26 сек",c:"var(--l7)"},
 {t:"У меня не получилось",v:["video/urok/11-ne-poluchilos.mp4"],p:"video/urok/11-ne-poluchilos.jpg",d:"42 сек",c:"var(--l5)"},{t:"Сушка и рекомендации по уходу",c:"var(--l3)"}];
 var ch=document.getElementById('ch'),v=document.getElementById('v'),pl=document.getElementById('pl'),soon=document.getElementById('soon');
@@ -137,8 +137,9 @@ function fit(){if(!v.videoWidth)return;var r=v.videoWidth/v.videoHeight;pl.style
 v.addEventListener('loadedmetadata',fit);
 // длинное видео может быть в нескольких частях (v — список): следующая часть включается сама
 var cur=0,part=0;
-v.addEventListener('ended',function(){var s=steps[cur];if(s.v&&part<s.v.length-1){part++;v.src=s.v[part];v.play()}});
-function show(i){var s=steps[i];cur=i;part=0;document.getElementById('title').textContent=s.t;document.getElementById('desc').textContent='Шаг '+(i+1)+' из '+steps.length+(s.d?' · '+s.d:'');
+function desc(){var s=steps[cur];document.getElementById('desc').textContent='Шаг '+(cur+1)+' из '+steps.length+(s.d?' · '+s.d:'')+(s.v&&s.v.length>1?' · часть '+(part+1)+' из '+s.v.length:'')}
+v.addEventListener('ended',function(){var s=steps[cur];if(s.v&&part<s.v.length-1){part++;v.removeAttribute('poster');v.src=s.v[part];desc();v.play()}});
+function show(i){var s=steps[i];cur=i;part=0;document.getElementById('title').textContent=s.t;desc();
   v.pause();if(s.v){v.hidden=false;soon.hidden=true;if(s.p)v.poster=s.p;else v.removeAttribute('poster');v.src=s.v[0]}else{v.removeAttribute('src');v.load();v.hidden=true;soon.hidden=false;pl.style.aspectRatio='';pl.style.maxWidth=''}}
 steps.forEach(function(s,i){var li=document.createElement('li');li.className='rv';li.style.setProperty('--d',i+1);
   li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s.c+'"></span><span>'+(i+1)+'. '+s.t+'</span><time>'+(s.d||'')+'</time></button>';
