@@ -7,7 +7,7 @@
 <meta name="description" content="Единая лизинговая площадка: одна заявка на лизинг — и её получают выбранные лизинговые компании. Статусы и предложения в личном кабинете.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ЕЛП — Единая лизинговая площадка">
-<meta property="og:description" content="Одна заявка на лизинг вместо обзвона десятка компаний.">
+<meta property="og:description" content="ЕЛП — агрегатор лизинговых предложений без скрытых комиссий. Одна заявка вместо обзвона десятка компаний.">
 <meta property="og:image" content="img/vans.jpg">
 <link rel="icon" href="img/elp-mark.svg">
 <style>
@@ -69,7 +69,7 @@ nav.main a:hover{color:var(--blue)}
 .hero{position:relative;overflow:hidden;background:var(--paper)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:600px;gap:24px}
 .hero-copy{padding:72px 0;position:relative;z-index:2}
-.hero h1{max-width:11em}
+.hero h1{max-width:13em;font-size:clamp(32px,3.5vw,50px)}
 .hero .lead{margin-top:22px;font-size:20px;color:var(--ink2);max-width:25em}
 .hero .cta{margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .hero .cta .link{font-size:16px}
@@ -476,8 +476,8 @@ function vHome(){return `
       <ul><li><span>Лизинг-Центр</span>${STAT.read}</li><li><span>ТрансЛизинг Плюс</span>${STAT.read}</li><li><span>Северная лизинговая</span>${STAT.sent}</li><li><span>ПромТехЛизинг</span>${STAT.sent}</li></ul></div>
   </div>
   <div class="wrap"><div class="hero-copy">
-    <h1>Одна заявка на&nbsp;лизинг вместо обзвона десятка компаний</h1>
-    <p class="lead">Заполните заявку один раз и отправьте её выбранным лизинговым компаниям или всем сразу. Видно, кто уже прочитал, предложения приходят в личный кабинет.</p>
+    <h1>ЕЛП — агрегатор лизинговых предложений без&nbsp;скрытых комиссий</h1>
+    <p class="lead">Одна заявка вместо обзвона десятка компаний: заполните её один раз и отправьте выбранным лизинговым компаниям или всем сразу. Видно, кто уже прочитал, предложения приходят в личный кабинет.</p>
     <div class="cta"><a class="btn btn-red" href="#apply">Подать заявку</a><a class="link" href="#register-company">Я представляю лизинговую компанию</a></div>
   </div></div>
 </section>
@@ -537,6 +537,7 @@ function vHome(){return `
   <div class="faq">
     <details><summary>Сколько стоит подать заявку?</summary><p>Подача платная, стоимость видна перед оплатой — сейчас ${rub(PRICE)}. Оплата картой или через СБП, чек приходит на почту. Регистрация и просмотр предложений бесплатны.</p></details>
     <details><summary>Кто увидит мои данные?</summary><p>Только лизинговые компании, которым вы отправили заявку, и администратор площадки. Данные обрабатываются по политике обработки персональных данных ООО «ЕЛП».</p></details>
+    <details><summary>Чем ЕЛП отличается от агента или брокера?</summary><p>ЕЛП не получает никаких комиссий за сделки — ни от лизинговых компаний, ни от поставщиков предмета лизинга. Вы платите только за подачу заявки, сумма видна до оплаты.</p></details>
     <details><summary>Кто может оплатить подачу заявки?</summary><p>Любой плательщик: сам заявитель, его сотрудник или организация корпоративной картой. Оплата картой или через СБП, чек приходит на почту, указанную при оплате.</p></details>
     <details><summary>Можно ли подать заявку как физическое лицо?</summary><p>Да. Введите ИНН из 12 цифр — площадка определит, что это ИП или физическое лицо.</p></details>
     <details><summary>Как понять, что компания получила заявку?</summary><p>В кабинете у каждой компании свой статус: «Отправлено», а когда менеджер откроет заявку — «Прочитано».</p></details>
@@ -560,7 +561,7 @@ function vApply(){
     <div class="full"><label class="f" for="inn">ИНН лизингополучателя<span class="star" aria-hidden="true">*</span></label><input class="inp ${F.inn&&!ic.ok&&F.inn.replace(/\D/g,'').length>=10?'bad':''}" id="inn" inputmode="numeric" maxlength="12" placeholder="10 или 12 цифр" value="${esc(F.inn)}"><div class="hint ${ic.ok?'good':(F.inn.replace(/\D/g,'').length>=10?'bad':'')}" id="innHint">${ic.msg||"Организация — 10 цифр, ИП или физическое лицо — 12"}</div></div>
     <div><label class="f" for="contact">Контактное лицо<span class="star" aria-hidden="true">*</span></label><input class="inp" id="contact" placeholder="Фамилия, имя, отчество" value="${esc(F.contact)}"></div>
     <div><label class="f" for="phone">Телефон<span class="star" aria-hidden="true">*</span></label><input class="inp" id="phone" inputmode="tel" placeholder="+7" value="${esc(F.phone)}"></div>
-    <div class="full"><label class="f" for="email">Электронная почта <small>— необязательно, сюда придёт чек</small></label><input class="inp" id="email" type="email" value="${esc(F.email)}"></div>
+    <div class="full"><label class="f" for="email">Электронная почта<span class="star" aria-hidden="true">*</span> <small>— сюда придёт код для входа в кабинет и чек</small></label><input class="inp" id="email" type="email" value="${esc(F.email)}"></div>
     <div class="full"><label class="f">Как компаниям с вами связаться<span class="star" aria-hidden="true">*</span> <small>— можно несколько</small></label><div class="chips" id="via">${["В чате платформы ЕЛП","Телефон","Электронная почта","Max","WhatsApp","Telegram","ВКонтакте"].map(v=>`<button type="button" class="chip" aria-pressed="${F.via.includes(v)}" data-v="${v}">${v}</button>`).join("")}</div></div>
    </div>`}
   if(s===2){body=`<h2 style="font-size:24px">Предмет лизинга</h2><p class="legend"><span class="star">*</span> — обязательные поля</p>
@@ -647,7 +648,7 @@ function bindApply(){
   const nx=$("#next"),bk=$("#back");
   if(bk)bk.onclick=()=>{F.step--;render()};
   if(nx)nx.onclick=()=>{
-    if(s===1){const ic=innCheck(F.inn);if(!ic.ok)return err("Укажите корректный ИНН");F.innT=ic.type;if(!F.contact.trim())return err("Укажите контактное лицо");if(F.phone.replace(/\D/g,"").length<10)return err("Укажите телефон");if(!F.via.length)return err("Выберите хотя бы один способ связи")}
+    if(s===1){const ic=innCheck(F.inn);if(!ic.ok)return err("Укажите корректный ИНН");F.innT=ic.type;if(!F.contact.trim())return err("Укажите контактное лицо");if(F.phone.replace(/\D/g,"").length<10)return err("Укажите телефон");if(!/^\S+@\S+\.\S+$/.test(F.email.trim()))return err("Укажите электронную почту: на неё придёт код для входа и чек");if(!F.via.length)return err("Выберите хотя бы один способ связи")}
     if(s===2){if(!F.subject)return err("Выберите, что берёте в лизинг");if(!F.item.trim())return err("Укажите модель или опишите предмет лизинга");if(!F.cost)return err("Укажите стоимость")}
     if(s===3){if(!F.cos.length&&!F.all)return err("Выберите хотя бы одну компанию")}
     F.step++;render();window.scrollTo({top:0});
