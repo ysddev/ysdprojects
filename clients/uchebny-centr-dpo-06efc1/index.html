@@ -646,13 +646,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     <button class="lb-x payd-x" type="button" id="paydx" aria-label="Закрыть">×</button>
     <h3 id="payd-t">Оплата обучения</h3>
     <p class="payd-prog" id="paydprog"></p>
-    <input type="hidden" name="terminalkey" value="">
-    <input type="hidden" name="frame" value="false">
-    <input type="hidden" name="language" value="ru">
-    <input type="hidden" name="receipt" value="">
-    <input type="hidden" name="order" value="">
-    <input type="hidden" name="description" value="">
-    <div class="fld"><label for="pamount">Сумма, ₽</label><input id="pamount" name="amount" type="text" inputmode="decimal" required></div>
+    <div class="fld"><label for="pamount">Сумма, ₽</label><input id="pamount" type="text" readonly></div>
     <div class="fld"><label for="pname">ФИО слушателя</label><input id="pname" name="name" type="text" autocomplete="name" required></div>
     <div class="two">
       <div class="fld"><label for="pemail">Почта для чека</label><input id="pemail" name="email" type="email" autocomplete="email" required></div>
@@ -728,7 +722,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
   list.addEventListener('click',function(e){
     var s=e.target.closest('[data-see]'); if(s){setDoc(+s.dataset.see);return;}
     var pay=e.target.closest('[data-pay]'), ask=e.target.closest('[data-ask]');
-    if(pay&&TBANK.terminalKey){e.preventDefault(); openPay(+pay.dataset.pay); return;}
+    if(pay&&TBANK.enabled){e.preventDefault(); openPay(+pay.dataset.pay); return;}
     if(pay||ask){var i=(pay||ask).dataset.pay||(ask&&ask.dataset.ask); fprog.value=i; setDoc(+i);
       document.getElementById('fmsg').value = pay ? 'Хочу оплатить онлайн' : '';}
   });
@@ -793,42 +787,37 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     }).catch(viaMail).then(function(){btn.disabled=false});
   });
 
-  /* онлайн-оплата Т-Банка: впишите ключ терминала и цены — кнопки «Оплатить» откроют окно оплаты */
-  var TBANK = {
-    terminalKey: '',            // TerminalKey из личного кабинета Т-Бизнеса (Интернет-эквайринг → Магазины → Терминалы)
-    receipt: false,             // true, если подключены «Чеки Т-Бизнеса» или облачная касса
-    taxation: 'usn_income',     // система налогообложения ООО для чека: osn, usn_income, usn_income_outcome
-    prices: {}                  // цена по номеру программы в списке, например {0: 25000, 1: 18000}
-  };
-  if(/[?&]tbtest=1/.test(location.search)) TBANK.terminalKey='TinkoffBankTest';
+  /* онлайн-оплата Т-Банка: ключ, пароль терминала и цены — в pay.php на хостинге; без него кнопки «Оплатить» ведут к заявке */
+  var TBANK={enabled:false, prices:{}};
+  fetch('pay.php?check=1').then(function(r){return r.ok?r.json():null}).then(function(j){ if(j&&j.enabled){TBANK.enabled=true; TBANK.prices=j.prices||{};} }).catch(function(){});
   var payd=document.getElementById('payd'), pf=document.getElementById('payform'), payIdx=0;
-  function loadTB(cb){ if(window.pay) return cb(); var sc=document.createElement('script'); sc.src='https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js'; sc.onload=cb; sc.onerror=function(){alert0()}; document.head.appendChild(sc); }
-  function alert0(){ payd.close(); location.hash='#order'; document.getElementById('fmsg').value='Хочу оплатить онлайн'; }
   function openPay(i){
     payIdx=i; var p=P[i], pr=TBANK.prices[i];
     document.getElementById('paydprog').textContent=p.t;
-    var am=document.getElementById('pamount'); am.value=pr?String(pr):''; am.readOnly=!!pr;
-    pf.terminalkey.value=TBANK.terminalKey; pf.description.value=('Обучение: '+p.t).slice(0,140);
+    var am=document.getElementById('pamount'); am.value=pr?Number(pr).toLocaleString('ru-RU'):''; am.readOnly=true;
     if(payd.showModal) payd.showModal();
   }
   document.getElementById('paydx').addEventListener('click',function(){payd.close()});
   payd.addEventListener('click',function(e){if(e.target===payd) payd.close()});
   pf.addEventListener('submit',function(e){
     e.preventDefault();
-    var am=document.getElementById('pamount'), nm=document.getElementById('pname'), em=document.getElementById('pemail'), ph=document.getElementById('pphone'), ag=document.getElementById('pagree'), bad=null;
-    var amount=parseFloat(String(am.value).replace(',','.').replace(/\s/g,''));
-    [[am,amount>0],[nm,nm.value.trim().length>2],[em,/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())],[ph,ph.value.replace(/\D/g,'').length>=10]].forEach(function(r){
+    var nm=document.getElementById('pname'), em=document.getElementById('pemail'), ph=document.getElementById('pphone'), ag=document.getElementById('pagree'), bad=null;
+    [[nm,nm.value.trim().length>2],[em,/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())],[ph,ph.value.replace(/\D/g,'').length>=10]].forEach(function(r){
       r[0].closest('.fld').classList.toggle('err',!r[1]); if(!r[1]&&!bad) bad=r[0];});
     document.getElementById('pagW').classList.toggle('err',!ag.checked); if(!ag.checked&&!bad) bad=ag;
     if(bad){bad.focus();return;}
-    pf.order.value='CL-'+Date.now();
-    if(TBANK.receipt){
-      var kop=Math.round(amount*100);
-      pf.receipt.value=JSON.stringify({Email:em.value.trim(),Phone:ph.value.trim(),Taxation:TBANK.taxation,
-        Items:[{Name:('Обучение: '+P[payIdx].t).slice(0,128),Price:kop,Quantity:1,Amount:kop,Tax:'none',PaymentMethod:'full_payment',PaymentObject:'service'}]});
-    } else pf.receipt.value='';
-    loadTB(function(){ window.pay(pf); });
+    var go=document.getElementById('paygo'); go.disabled=true; go.textContent='Создаём платёж…';
+    var fd=new FormData(); fd.append('prog',payIdx); fd.append('title',P[payIdx].t); fd.append('name',nm.value.trim()); fd.append('email',em.value.trim()); fd.append('phone',ph.value.trim()); fd.append('agree','1');
+    fetch('pay.php',{method:'POST',body:fd}).then(function(r){return r.json()}).then(function(j){
+      if(j&&j.ok&&j.url){ location.href=j.url; return; }
+      throw 0;
+    }).catch(function(){
+      go.disabled=false; go.textContent='Перейти к оплате';
+      payd.close(); fprog.value=payIdx; document.getElementById('fmsg').value='Хочу оплатить онлайн, не получилось создать платёж'; location.hash='#order';
+    });
   });
+  if(/[?&]pay=ok/.test(location.search)) showOk('Оплата прошла','Спасибо! Чек придёт на почту. Свяжемся с вами и пришлём доступ к обучению.');
+  else if(/[?&]pay=fail/.test(location.search)) document.getElementById('fmsg').value='Не прошла онлайн-оплата, помогите оплатить';
   window.__payOpen=openPay;
 
   document.getElementById('again').addEventListener('click',function(){
