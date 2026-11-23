@@ -39,6 +39,7 @@
   --swatch:0 0 999px 999px; /* мотив: прядь-образец колориста, скруглённая снизу */
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{margin:0;font-family:var(--f);font-size:var(--step-body);line-height:1.5;letter-spacing:-.005em;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
@@ -127,17 +128,20 @@ p{margin:0}
 </main>
 <script>
 // Программа урока — блоки Надежды из чата 22.11, в её порядке и её словами; «Результат» (видео 17.11) — отдельный блок, 23.11 поставили после тонирования. Видео шага: v (файл в video/), пока нет — «Видео скоро»
-var steps=[{t:"Приветствие",c:"var(--l3)"},{t:"Инструменты и продукты",c:"var(--l5)"},{t:"Разделение",c:"var(--l7)"},
-{t:"Приготовление красящего продукта",c:"var(--l8)"},{t:"Нанесение самой себе",c:"var(--l9)"},{t:"Наши преимущества",c:"var(--l10)"},
-{t:"Тонирование",c:"var(--l9)"},{t:"Результат",c:"var(--l10)"},{t:"Если у меня чёлка",c:"var(--l8)"},{t:"Если у меня короткие волосы",c:"var(--l7)"},
-{t:"У меня не получилось",c:"var(--l5)"},{t:"Сушка и рекомендации по уходу",c:"var(--l3)"}];
+var steps=[{t:"Приветствие",v:["video/urok/01-privetstvie.mp4"],p:"video/urok/01-privetstvie.jpg",d:"2 мин",c:"var(--l3)"},{t:"Инструменты и продукты",v:["video/urok/02-instrumenty.mp4"],p:"video/urok/02-instrumenty.jpg",d:"2 мин",c:"var(--l5)"},{t:"Разделение",v:["video/urok/03-razdelenie.mp4"],p:"video/urok/03-razdelenie.jpg",d:"4 мин",c:"var(--l7)"},
+{t:"Приготовление красящего продукта",v:["video/urok/04-prigotovlenie.mp4"],p:"video/urok/04-prigotovlenie.jpg",d:"2 мин",c:"var(--l8)"},{t:"Нанесение самой себе",c:"var(--l9)"},{t:"Наши преимущества",v:["video/urok/06-preimushchestva.mp4"],p:"video/urok/06-preimushchestva.jpg",d:"3 мин",c:"var(--l10)"},
+{t:"Тонирование",v:["video/urok/07-tonirovanie.mp4"],p:"video/urok/07-tonirovanie.jpg",d:"2 мин",c:"var(--l9)"},{t:"Результат",v:["video/urok/08-rezultat.mp4"],p:"video/urok/08-rezultat.jpg",d:"1 мин",c:"var(--l10)"},{t:"Если у меня чёлка",v:["video/urok/09-chelka.mp4"],p:"video/urok/09-chelka.jpg",d:"21 сек",c:"var(--l8)"},{t:"Если у меня короткие волосы",v:["video/urok/10-korotkie.mp4"],p:"video/urok/10-korotkie.jpg",d:"26 сек",c:"var(--l7)"},
+{t:"У меня не получилось",v:["video/urok/11-ne-poluchilos.mp4"],p:"video/urok/11-ne-poluchilos.jpg",d:"42 сек",c:"var(--l5)"},{t:"Сушка и рекомендации по уходу",c:"var(--l3)"}];
 var ch=document.getElementById('ch'),v=document.getElementById('v'),pl=document.getElementById('pl'),soon=document.getElementById('soon');
 function fit(){if(!v.videoWidth)return;var r=v.videoWidth/v.videoHeight;pl.style.aspectRatio=v.videoWidth+'/'+v.videoHeight;pl.style.maxWidth='calc(78vh * '+r.toFixed(4)+')'}
 v.addEventListener('loadedmetadata',fit);
-function show(i){var s=steps[i];document.getElementById('title').textContent=s.t;document.getElementById('desc').textContent='Шаг '+(i+1)+' из '+steps.length;
-  v.pause();if(s.v){v.hidden=false;soon.hidden=true;v.src=s.v;if(s.p)v.poster=s.p}else{v.removeAttribute('src');v.load();v.hidden=true;soon.hidden=false;pl.style.aspectRatio='';pl.style.maxWidth=''}}
+// длинное видео может быть в нескольких частях (v — список): следующая часть включается сама
+var cur=0,part=0;
+v.addEventListener('ended',function(){var s=steps[cur];if(s.v&&part<s.v.length-1){part++;v.src=s.v[part];v.play()}});
+function show(i){var s=steps[i];cur=i;part=0;document.getElementById('title').textContent=s.t;document.getElementById('desc').textContent='Шаг '+(i+1)+' из '+steps.length+(s.d?' · '+s.d:'');
+  v.pause();if(s.v){v.hidden=false;soon.hidden=true;if(s.p)v.poster=s.p;else v.removeAttribute('poster');v.src=s.v[0]}else{v.removeAttribute('src');v.load();v.hidden=true;soon.hidden=false;pl.style.aspectRatio='';pl.style.maxWidth=''}}
 steps.forEach(function(s,i){var li=document.createElement('li');li.className='rv';li.style.setProperty('--d',i+1);
-  li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s.c+'"></span><span>'+(i+1)+'. '+s.t+'</span><time>'+(s.m?s.m+' мин':'')+'</time></button>';
+  li.innerHTML='<button type="button"'+(i?'':' aria-current="true"')+'><span class="sw" style="background:'+s.c+'"></span><span>'+(i+1)+'. '+s.t+'</span><time>'+(s.d||'')+'</time></button>';
   li.firstChild.addEventListener('click',function(){[].forEach.call(ch.querySelectorAll('button'),function(b){b.removeAttribute('aria-current')});this.setAttribute('aria-current','true');show(i);
     if(matchMedia('(max-width:900px)').matches)pl.scrollIntoView({behavior:'smooth',block:'start'});});
   ch.appendChild(li)});
