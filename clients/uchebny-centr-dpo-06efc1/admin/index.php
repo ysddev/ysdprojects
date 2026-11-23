@@ -121,17 +121,17 @@ function clean_html(string $html): string {
 /* ---------- программы → страницы ---------- */
 function progs_default(): array {
   return [
-    ['t' => 'Бизнес-процессы, организационное проектирование, механизмы и системы управления', 'type' => 'pk', 'dir' => 'mgmt', 'price' => 0, 'doc' => 'https://disk.yandex.ru/i/po5XBzhk7AcFHQ'],
-    ['t' => 'Внутренний аудитор систем менеджмента качества (ISO 9001:2015 / ГОСТ Р ИСО 9001-2015)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'doc' => ''],
-    ['t' => 'Разработка и внедрение систем менеджмента качества', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'doc' => ''],
-    ['t' => 'Внутренний аудит системы менеджмента органов по сертификации продукции в соответствии с ГОСТ Р ИСО 19011-2021 (подготовка внутренних аудиторов)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'doc' => ''],
-    ['t' => 'Подготовка экспертов по сертификации и специалистов по разработке систем менеджмента качества организаций в соответствии с ГОСТ Р ИСО 9001-2015 (ISO 9001:2015)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'doc' => ''],
-    ['t' => 'Технологические машины и оборудование', 'type' => 'pp', 'dir' => 'tech', 'price' => 0, 'doc' => ''],
+    ['t' => 'Бизнес-процессы, организационное проектирование, механизмы и системы управления', 'type' => 'pk', 'dir' => 'mgmt', 'price' => 0, 'h' => 0, 'doc' => 'https://disk.yandex.ru/i/po5XBzhk7AcFHQ'],
+    ['t' => 'Внутренний аудитор систем менеджмента качества (ISO 9001:2015 / ГОСТ Р ИСО 9001-2015)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'h' => 0, 'doc' => ''],
+    ['t' => 'Разработка и внедрение систем менеджмента качества', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'h' => 0, 'doc' => ''],
+    ['t' => 'Внутренний аудит системы менеджмента органов по сертификации продукции в соответствии с ГОСТ Р ИСО 19011-2021 (подготовка внутренних аудиторов)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'h' => 0, 'doc' => ''],
+    ['t' => 'Подготовка экспертов по сертификации и специалистов по разработке систем менеджмента качества организаций в соответствии с ГОСТ Р ИСО 9001-2015 (ISO 9001:2015)', 'type' => 'pk', 'dir' => 'smk', 'price' => 0, 'h' => 0, 'doc' => ''],
+    ['t' => 'Технологические машины и оборудование', 'type' => 'pp', 'dir' => 'tech', 'price' => 0, 'h' => 0, 'doc' => ''],
   ];
 }
 function render_progs(array $progs): void {
   $js = [];
-  foreach ($progs as $p) { $o = ['t' => $p['t'], 'type' => $p['type'], 'dir' => $p['dir']]; if ($p['price'] > 0) $o['price'] = $p['price']; $js[] = $o; }
+  foreach ($progs as $p) { $o = ['t' => $p['t'], 'type' => $p['type'], 'dir' => $p['dir']]; if (($p['h'] ?? 0) > 0) $o['h'] = (int)$p['h']; if ($p['price'] > 0) $o['price'] = $p['price']; $js[] = $o; }
   $json = json_encode($js, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_PRETTY_PRINT);
   $idx = file_get_contents(page_path('index.html'));
   $idx = replace_between($idx, '/*admin:P*/', '/*/admin:P*/', 'var P = ' . $json . ';');
@@ -141,6 +141,7 @@ function render_progs(array $progs): void {
   foreach ($progs as $p) {
     $html .= '<div class="sv-prog"><h4>«' . h($p['t']) . '»</h4><p><span>Вид образования:</span> дополнительное профессиональное образование</p>'
       . '<p><span>Подвид дополнительного образования:</span> ' . ($p['type'] === 'pp' ? 'программа профессиональной переподготовки' : 'программа повышения квалификации') . '</p>'
+      . (($p['h'] ?? 0) > 0 ? '<p><span>Объём:</span> ' . (int)$p['h'] . ' ' . hours_word((int)$p['h']) . '</p>' : '')
       . ($p['price'] > 0 ? '<p><span>Стоимость:</span> ' . number_format((float)$p['price'], 0, ',', ' ') . ' ₽</p>' : '')
       . ($p['doc'] !== '' ? '<p><a href="' . h($p['doc']) . '" target="_blank" rel="noopener">Открыть программу</a></p>' : '') . '</div>';
   }
@@ -148,6 +149,8 @@ function render_progs(array $progs): void {
   $sv = file_get_contents(page_path('sveden.html'));
   put_page('sveden.html', replace_between($sv, '<!--admin:progs-->', '<!--/admin:progs-->', $html));
 }
+
+function hours_word(int $n): string { $n = abs($n) % 100; $k = $n % 10; if ($n > 10 && $n < 20) return 'часов'; if ($k === 1) return 'час'; if ($k > 1 && $k < 5) return 'часа'; return 'часов'; }
 
 /* ---------- контакты ---------- */
 function digits(string $s): string { $d = preg_replace('/\D/', '', $s); if (strlen($d) === 11 && $d[0] === '8') $d = '7' . substr($d, 1); return $d; }
@@ -235,9 +238,10 @@ if ($in && $post) {
         $type = array_key_exists($r['type'] ?? '', TYPES) ? $r['type'] : 'pk';
         $dir = array_key_exists($r['dir'] ?? '', DIRS) ? $r['dir'] : '';
         $price = (int)round((float)str_replace([' ', ','], ['', '.'], (string)($r['price'] ?? '0')));
+        $hrs = (int)preg_replace('/\D/', '', (string)($r['h'] ?? ''));
         $doc = trim((string)($r['doc'] ?? ''));
         if ($doc !== '' && !preg_match('~^(https?://|docs/)~', $doc)) $doc = '';
-        $progs[] = ['t' => mb_substr($t, 0, 300), 'type' => $type, 'dir' => $dir, 'price' => max(0, $price), 'doc' => $doc, 'o' => (int)($r['o'] ?? 0)];
+        $progs[] = ['t' => mb_substr($t, 0, 300), 'type' => $type, 'dir' => $dir, 'price' => max(0, $price), 'h' => min(9999, $hrs), 'doc' => $doc, 'o' => (int)($r['o'] ?? 0)];
       }
       usort($progs, fn($a, $b) => $a['o'] <=> $b['o']);
       foreach ($progs as &$p) unset($p['o']); unset($p);
@@ -315,7 +319,8 @@ input:focus,select:focus,textarea:focus,.ed:focus{outline:none;border-color:var(
 .note{padding:12px 16px;border-radius:12px;margin:0 0 16px}.note.ok{background:#E6F4EC;color:var(--ok)}.note.er{background:#FBE9E7;color:var(--err)}
 .prog{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;border:2px solid var(--line);border-radius:14px;padding:14px;margin:0 0 12px;background:#fff}
 .prog .n{display:flex;flex-direction:column;gap:6px;align-items:center}.prog .n button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:10px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.grid{grid-template-columns:1fr 1fr}}
 .tool{display:flex;gap:6px;flex-wrap:wrap;padding:8px;border:2px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;background:#FAF8FD;position:sticky;top:0;z-index:2}
 .tool button{font:inherit;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer}
@@ -357,7 +362,7 @@ table.fl{width:100%;border-collapse:collapse}table.fl td{padding:10px 8px;border
 <?php if ($tab === 'progs'): ?>
 <form method="post" class="card" id="pf"><input type="hidden" name="csrf" value="<?= h($csrf) ?>"><input type="hidden" name="act" value="progs">
   <h2>Программы и цены</h2>
-  <p class="muted">Меняются сразу в каталоге на главной, в форме заявки, в «Сведениях» → «Образование» и в онлайн-оплате. Если цена пустая или 0, оплата этой программы онлайн недоступна, а на сайте написано «стоимость указана в прайсе центра».</p>
+  <p class="muted">Меняются сразу в каталоге на главной, в форме заявки, в «Сведениях» → «Образование» и в онлайн-оплате. Если объём не указан, на сайте пишется «от 16 ч» для повышения квалификации и «от 250 ч» для переподготовки. Если цена пустая или 0, оплата этой программы онлайн недоступна, а на сайте написано «стоимость указана в прайсе центра».</p>
   <div id="plist">
   <?php foreach ($site['progs'] as $i => $p): ?>
     <div class="prog"><div class="n"><b><?= $i + 1 ?></b><button type="button" class="up" title="Выше">↑</button><button type="button" class="dn" title="Ниже">↓</button></div>
@@ -366,8 +371,9 @@ table.fl{width:100%;border-collapse:collapse}table.fl td{padding:10px 8px;border
         <div class="grid">
           <div><label>Вид</label><select name="p[<?= $i ?>][type]"><?php foreach (TYPES as $k => $v): ?><option value="<?= $k ?>" <?= $p['type'] === $k ? 'selected' : '' ?>><?= h($v) ?></option><?php endforeach; ?></select></div>
           <div><label>Направление</label><select name="p[<?= $i ?>][dir]"><?php foreach (DIRS as $k => $v): ?><option value="<?= $k ?>" <?= $p['dir'] === $k ? 'selected' : '' ?>><?= h($v) ?></option><?php endforeach; ?></select></div>
+          <div><label>Объём, часов</label><input type="text" inputmode="numeric" name="p[<?= $i ?>][h]" value="<?= !empty($p['h']) ? (int)$p['h'] : '' ?>" placeholder="<?= $p['type'] === 'pp' ? 'например 256' : 'например 72' ?>"></div>
           <div><label>Цена, ₽</label><input type="text" inputmode="numeric" name="p[<?= $i ?>][price]" value="<?= $p['price'] ? (int)$p['price'] : '' ?>" placeholder="например 25000"></div>
-          <div><label>Ссылка на программу (PDF)</label><input type="text" name="p[<?= $i ?>][doc]" value="<?= h($p['doc']) ?>" placeholder="docs/files/... или https://"></div>
+          <div><label>Файл программы</label><input type="text" name="p[<?= $i ?>][doc]" value="<?= h($p['doc']) ?>" placeholder="docs/files/... или https://"></div>
         </div>
         <p style="margin:10px 0 0"><button type="button" class="btn r s del">Удалить программу</button></p>
       </div></div>
@@ -380,8 +386,9 @@ table.fl{width:100%;border-collapse:collapse}table.fl td{padding:10px 8px;border
   <label>Название</label><textarea name="p[__][t]" rows="2" maxlength="300" class="tt"></textarea>
   <div class="grid"><div><label>Вид</label><select name="p[__][type]"><?php foreach (TYPES as $k => $v): ?><option value="<?= $k ?>"><?= h($v) ?></option><?php endforeach; ?></select></div>
   <div><label>Направление</label><select name="p[__][dir]"><?php foreach (DIRS as $k => $v): ?><option value="<?= $k ?>"><?= h($v) ?></option><?php endforeach; ?></select></div>
+  <div><label>Объём, часов</label><input type="text" inputmode="numeric" name="p[__][h]" placeholder="например 72"></div>
   <div><label>Цена, ₽</label><input type="text" inputmode="numeric" name="p[__][price]" placeholder="например 25000"></div>
-  <div><label>Ссылка на программу (PDF)</label><input type="text" name="p[__][doc]" placeholder="docs/files/... или https://"></div></div>
+  <div><label>Файл программы</label><input type="text" name="p[__][doc]" placeholder="docs/files/... или https://"></div></div>
   <p style="margin:10px 0 0"><button type="button" class="btn r s del">Удалить программу</button></p></div></div></template>
 <script>
 (function(){var L=document.getElementById('plist'),n=1000;
