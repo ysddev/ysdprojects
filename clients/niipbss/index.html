@@ -20,7 +20,7 @@
 :root{
   --green:#3a8f35; --green-bar:#3d963b; --green-top:#65bc7b; --green-light:#d1e990; --green-light2:#aad75d;
   --blue:#2458a9; --ink:#212934; --text:#4a4e57; --card:#efefef; --line:#e2e2e2; --red:#e4141b;
-  --wrap:1144px;
+  --wrap:1400px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -41,9 +41,13 @@ img{max-width:100%;display:block}
 /* шапка */
 .head .wrap{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:28px;padding-top:20px;padding-bottom:18px}
 .logo img{width:280px;height:auto}
-.title b{display:block;color:var(--ink);font-size:17px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1.3}
-.title span{display:block;color:var(--ink);font-size:15px;line-height:1.35}
-.title small{display:block;margin-top:6px;color:var(--green);font-size:14px;font-weight:500}
+.title{text-align:center}
+.title b{display:block;color:var(--ink);font-size:21px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1.3}
+.title>span{display:block;color:var(--ink);font-size:17px;line-height:1.35}
+.title .tag{display:inline-block;margin-top:10px;text-align:left;color:var(--green);font-size:15px;font-weight:500;line-height:1.45}
+.title .tag span{display:block}
+.title .tag span:nth-child(2){padding-left:4em}
+.title .tag span:nth-child(3){padding-left:8em}
 .contacts{font-size:14px;line-height:1.55;white-space:nowrap}
 .contacts a.ph{display:block;color:var(--ink);font-size:19px;font-weight:500}
 .contacts .ic{color:var(--green);margin-right:6px}
@@ -68,7 +72,7 @@ img{max-width:100%;display:block}
 
 /* слайд */
 .slide .wrap{padding:0}
-.slide img{width:100%;aspect-ratio:1144/406;object-fit:cover;background:#2d5a2b}
+.slide img{width:100%;height:auto;background:#2d5a2b}
 
 /* вступление */
 .intro{padding:40px 0 8px;text-align:center}
@@ -188,8 +192,11 @@ footer .addr a{color:#c9ced6}
 }
 @media (max-width:600px){
   body{font-size:16px}
-  .title b{font-size:15px}
-  .title span{font-size:14px}
+  .title b{font-size:16px}
+  .title>span{font-size:14px}
+  .title .tag{font-size:14px}
+  .title .tag span:nth-child(2){padding-left:2.5em}
+  .title .tag span:nth-child(3){padding-left:5em}
   .phone-m{display:block}
   .intro{padding-top:28px}
   .intro p{font-size:16px}
@@ -220,7 +227,7 @@ footer .addr a{color:#c9ced6}
     <div class="title">
       <b>Научно-исследовательский институт</b>
       <span>проблем безопасности спортивных сооружений</span>
-      <small>Сертификация объектов спорта, полевые испытания, внесение в Реестр</small>
+      <span class="tag"><span>Сертификация объектов спорта,</span><span>полевые испытания,</span><span>внесение в Реестр</span></span>
     </div>
     <div class="contacts">
       <a class="ph" href="tel:+74957657690">+7 (495) 765 76 90</a>
@@ -267,7 +274,7 @@ footer .addr a{color:#c9ced6}
   </div>
 </nav>
 
-<div class="slide"><div class="wrap"><img src="img/slide-stadion.jpg" width="1144" height="406" alt="Сертифицированный футбольный стадион: показатели покрытия по ГОСТ Р 55529-2013 и ГОСТ Р 55664-2013"></div></div>
+<div class="slide"><div class="wrap"><img src="img/slide-stadion.jpg" width="1400" height="496" alt="Сертифицированный футбольный стадион: показатели покрытия по ГОСТ Р 55529-2013 и ГОСТ Р 55664-2013"></div></div>
 
 <div class="intro">
   <div class="wrap">
