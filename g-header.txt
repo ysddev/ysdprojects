@@ -16,9 +16,20 @@
 /* header: white + difference blend = colour inverts against whatever is under it (как у ugulwan) */
 #allrecords{background-color:#fff}
 #rec794533409,#rec794510584{padding-top:105px!important}
-#rec794533409 .t-text::before,#rec794510584 .t-text::before{display:block;text-align:center;font:300 20px/30px "TildaSans",Arial,sans-serif;color:#000;margin-bottom:23px}
+#rec794533409 .t-text::before,#rec794510584 .t-text::before{display:block;text-align:center;font:300 20px/30px "TildaSans",Arial,sans-serif;color:#000;margin-bottom:28px}
 #rec794533409 .t-text::before{content:"Публичная оферта"}
 #rec794510584 .t-text::before{content:"Политика конфиденциальности"}
+/* единые заголовки белых страниц: 20px/30px, строка с 105px, отступ до текста 28px */
+#rec794533409 .t004,#rec794510584 .t004{padding-top:0!important}
+#rec778344925{padding-top:105px!important}
+#rec778344925 .js-block-header-descr{font:300 20px/30px "TildaSans",Arial,sans-serif!important;color:#000!important;margin-bottom:28px!important}
+#rec778359649{padding-top:0!important}
+#rec778359649 .t-cover__wrapper{display:block!important;height:auto!important;padding-top:105px!important;padding-bottom:60px!important}
+#rec778359649 .t-container{position:relative!important;height:auto!important}
+#rec778359649 .t698__mainblock{height:auto!important}
+#rec778359649 .t-cover,#rec778359649 .t-cover__carrier,#rec778359649 .t-cover__filter{height:auto!important;min-height:0!important}
+#rec778359649 .t698__title{margin-bottom:28px!important}
+#rec5630546501 div[style*="105px"]{padding-bottom:28px!important}
 #rec5658317001{padding-top:8px!important;padding-bottom:72px!important}
 #rec5658317001 .t119__preface{font:300 16px/1.6 "TildaSans",Arial,sans-serif!important;color:#000!important;text-align:center!important;max-width:460px!important;margin:0 auto!important;opacity:1!important}
 #rec5658317001 a{color:#000!important;font-weight:400;text-decoration:underline!important;text-underline-offset:4px}
