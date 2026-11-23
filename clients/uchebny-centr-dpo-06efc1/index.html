@@ -288,6 +288,14 @@ form{display:flex;flex-direction:column;gap:16px}
 .agree{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink2);cursor:pointer}
 .agree input{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);flex-shrink:0}
 .agree.err{color:#B3261E}
+.payd{border:0;border-radius:24px;padding:0;margin:auto;inset:0;position:fixed;width:min(560px,94vw);max-height:92vh;background:var(--paper);color:var(--ink)}
+.payd::backdrop{background:rgba(20,14,30,.72)}
+.payd form{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,4vw,36px);position:relative}
+.payd h3{font-size:26px;padding-right:48px}
+.payd-prog{margin:-6px 0 4px;color:var(--ink2)}
+.payd-x{position:absolute!important;top:16px;right:16px;background:var(--bg2)!important;border:0!important}
+.payd .fld input{border:2px solid var(--acc)}
+.payd .fld.err input{border-color:#B3261E}
 .agree a,.fnote a{color:var(--acc)}
 .fnote{font-size:14px;color:var(--ink2);margin:0}
 .ok{display:none;background:var(--paper);border-radius:20px;padding:clamp(28px,4vw,48px)}
@@ -606,6 +614,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
         </div>
         <div class="fld"><label for="fmsg">Комментарий</label><textarea id="fmsg" name="msg" placeholder="Например, сколько сотрудников и к какому сроку нужен документ"></textarea></div>
         <label class="agree" id="agW"><input type="checkbox" id="fagree" required><span>Даю <a href="soglasie.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и подтверждаю, что ознакомлен(а) с <a href="politika.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <button class="btn" type="submit" style="align-self:flex-start">Отправить заявку</button>
         <p class="fnote">Обучение проводится по <a href="oferta.html" target="_blank" rel="noopener">договору-оферте</a>. Договор считается заключённым после оплаты счёта или онлайн-оплаты.</p>
       </form>
@@ -629,8 +638,31 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     <div class="st" style="--i:3"><h4>Обучение</h4><a href="#programs">Каталог программ</a><br><a href="sveden.html">Сведения об организации</a></div>
     <div class="st" style="--i:4"><h4>Документы</h4><a href="#docs">Лицензия</a><br><a href="oferta.html">Договор-оферта</a><br><a href="oferta.html#oplata">Оплата и возврат</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на обработку персональных данных</a></div>
   </div>
-  <div class="fcopy"><span>ООО «КОНСАЛТЛАБ», Учебный центр ДПО</span><span>ИНН 5032384038, ОГРН 1245000107692</span><span>Лицензия № Л035-01255-50/03123432 от 04.09.2025</span></div>
+  <div class="fcopy"><span>ООО «КОНСАЛТЛАБ», Учебный центр ДПО</span><span>ИНН 5032384038, ОГРН 1245000107692</span><span>Лицензия № Л035-01255-50/03123432 от 04.09.2025</span><a href="politika.html" style="color:inherit">Политика конфиденциальности</a><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Сайт разработан YSD DEV STUDIO</a></div>
 </footer>
+
+<dialog class="payd" id="payd" aria-labelledby="payd-t">
+  <form name="payform-tbank" id="payform" novalidate>
+    <button class="lb-x payd-x" type="button" id="paydx" aria-label="Закрыть">×</button>
+    <h3 id="payd-t">Оплата обучения</h3>
+    <p class="payd-prog" id="paydprog"></p>
+    <input type="hidden" name="terminalkey" value="">
+    <input type="hidden" name="frame" value="false">
+    <input type="hidden" name="language" value="ru">
+    <input type="hidden" name="receipt" value="">
+    <input type="hidden" name="order" value="">
+    <input type="hidden" name="description" value="">
+    <div class="fld"><label for="pamount">Сумма, ₽</label><input id="pamount" name="amount" type="text" inputmode="decimal" required></div>
+    <div class="fld"><label for="pname">ФИО слушателя</label><input id="pname" name="name" type="text" autocomplete="name" required></div>
+    <div class="two">
+      <div class="fld"><label for="pemail">Почта для чека</label><input id="pemail" name="email" type="email" autocomplete="email" required></div>
+      <div class="fld"><label for="pphone">Телефон</label><input id="pphone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required></div>
+    </div>
+    <label class="agree" id="pagW"><input type="checkbox" id="pagree" required><span>Принимаю условия <a href="oferta.html" target="_blank" rel="noopener">договора-оферты</a> и даю <a href="soglasie.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a></span></label>
+    <button class="btn" type="submit" id="paygo">Перейти к оплате</button>
+    <p class="fnote">Оплата проходит на защищённой странице Т-Банка: картой, через СБП или T-Pay. Чек придёт на почту.</p>
+  </form>
+</dialog>
 
 <dialog class="lb" id="lb" aria-label="Просмотр документа"><button class="lb-x" type="button" id="lbx" aria-label="Закрыть">×</button><img id="lbimg" src="" alt=""><div class="lb-cap" id="lbcap"></div></dialog>
 
@@ -696,6 +728,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
   list.addEventListener('click',function(e){
     var s=e.target.closest('[data-see]'); if(s){setDoc(+s.dataset.see);return;}
     var pay=e.target.closest('[data-pay]'), ask=e.target.closest('[data-ask]');
+    if(pay&&TBANK.terminalKey){e.preventDefault(); openPay(+pay.dataset.pay); return;}
     if(pay||ask){var i=(pay||ask).dataset.pay||(ask&&ask.dataset.ask); fprog.value=i; setDoc(+i);
       document.getElementById('fmsg').value = pay ? 'Хочу оплатить онлайн' : '';}
   });
@@ -729,6 +762,17 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
 
   /* form */
   var form=document.getElementById('form'), ok=document.getElementById('ok');
+  /* отправка заявки: на хостинге — send.php (письмо на почту центра); на демо без сервера — готовое письмо в почте */
+  var MAIL_TO='center.consultlab@mail.ru';
+  function lead(){
+    var w=document.querySelector('input[name="who"]:checked');
+    return {who:w&&w.value==='org'?'Сотрудники организации':'Я сам(а)', prog:fprog.options[fprog.selectedIndex].text,
+      name:document.getElementById('fname').value.trim(), phone:document.getElementById('fphone').value.trim(), msg:document.getElementById('fmsg').value.trim()};
+  }
+  function showOk(title, text){
+    ok.querySelector('h3').textContent=title; ok.querySelector('.lead').textContent=text;
+    form.style.display='none'; ok.classList.add('on'); ok.querySelector('h3').setAttribute('tabindex','-1'); ok.querySelector('h3').focus();
+  }
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var n=document.getElementById('fname'), ph=document.getElementById('fphone'), ag=document.getElementById('fagree'), bad=null;
@@ -737,8 +781,56 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     });
     document.getElementById('agW').classList.toggle('err',!ag.checked); if(!ag.checked&&!bad) bad=ag;
     if(bad){bad.focus();return;}
-    form.style.display='none'; ok.classList.add('on'); ok.querySelector('h3').setAttribute('tabindex','-1'); ok.querySelector('h3').focus();
+    var L=lead(), btn=form.querySelector('button[type="submit"]'); btn.disabled=true;
+    var fd=new FormData(); Object.keys(L).forEach(function(k){fd.append(k,L[k])}); fd.append('agree','1'); fd.append('hp',(form.querySelector('[name="website"]')||{}).value||'');
+    function viaMail(){
+      var body='Заявка с сайта\nКто учится: '+L.who+'\nПрограмма: '+L.prog+'\nИмя: '+L.name+'\nТелефон: '+L.phone+(L.msg?'\nКомментарий: '+L.msg:'');
+      location.href='mailto:'+MAIL_TO+'?subject='+encodeURIComponent('Заявка на обучение: '+L.name)+'&body='+encodeURIComponent(body);
+      showOk('Осталось отправить письмо','Открылась почта с готовой заявкой, нажмите «Отправить». Если почта не открылась, позвоните или напишите: 8 991 855-85-05, '+MAIL_TO+'.');
+    }
+    fetch('send.php',{method:'POST',body:fd}).then(function(r){return r.ok?r.json():null}).then(function(j){
+      if(j&&j.ok) showOk('Заявка принята','Спасибо! Свяжемся с вами, чтобы подтвердить программу и прислать ссылку на оплату или счёт.'); else viaMail();
+    }).catch(viaMail).then(function(){btn.disabled=false});
   });
+
+  /* онлайн-оплата Т-Банка: впишите ключ терминала и цены — кнопки «Оплатить» откроют окно оплаты */
+  var TBANK = {
+    terminalKey: '',            // TerminalKey из личного кабинета Т-Бизнеса (Интернет-эквайринг → Магазины → Терминалы)
+    receipt: false,             // true, если подключены «Чеки Т-Бизнеса» или облачная касса
+    taxation: 'usn_income',     // система налогообложения ООО для чека: osn, usn_income, usn_income_outcome
+    prices: {}                  // цена по номеру программы в списке, например {0: 25000, 1: 18000}
+  };
+  if(/[?&]tbtest=1/.test(location.search)) TBANK.terminalKey='TinkoffBankTest';
+  var payd=document.getElementById('payd'), pf=document.getElementById('payform'), payIdx=0;
+  function loadTB(cb){ if(window.pay) return cb(); var sc=document.createElement('script'); sc.src='https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js'; sc.onload=cb; sc.onerror=function(){alert0()}; document.head.appendChild(sc); }
+  function alert0(){ payd.close(); location.hash='#order'; document.getElementById('fmsg').value='Хочу оплатить онлайн'; }
+  function openPay(i){
+    payIdx=i; var p=P[i], pr=TBANK.prices[i];
+    document.getElementById('paydprog').textContent=p.t;
+    var am=document.getElementById('pamount'); am.value=pr?String(pr):''; am.readOnly=!!pr;
+    pf.terminalkey.value=TBANK.terminalKey; pf.description.value=('Обучение: '+p.t).slice(0,140);
+    if(payd.showModal) payd.showModal();
+  }
+  document.getElementById('paydx').addEventListener('click',function(){payd.close()});
+  payd.addEventListener('click',function(e){if(e.target===payd) payd.close()});
+  pf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var am=document.getElementById('pamount'), nm=document.getElementById('pname'), em=document.getElementById('pemail'), ph=document.getElementById('pphone'), ag=document.getElementById('pagree'), bad=null;
+    var amount=parseFloat(String(am.value).replace(',','.').replace(/\s/g,''));
+    [[am,amount>0],[nm,nm.value.trim().length>2],[em,/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())],[ph,ph.value.replace(/\D/g,'').length>=10]].forEach(function(r){
+      r[0].closest('.fld').classList.toggle('err',!r[1]); if(!r[1]&&!bad) bad=r[0];});
+    document.getElementById('pagW').classList.toggle('err',!ag.checked); if(!ag.checked&&!bad) bad=ag;
+    if(bad){bad.focus();return;}
+    pf.order.value='CL-'+Date.now();
+    if(TBANK.receipt){
+      var kop=Math.round(amount*100);
+      pf.receipt.value=JSON.stringify({Email:em.value.trim(),Phone:ph.value.trim(),Taxation:TBANK.taxation,
+        Items:[{Name:('Обучение: '+P[payIdx].t).slice(0,128),Price:kop,Quantity:1,Amount:kop,Tax:'none',PaymentMethod:'full_payment',PaymentObject:'service'}]});
+    } else pf.receipt.value='';
+    loadTB(function(){ window.pay(pf); });
+  });
+  window.__payOpen=openPay;
+
   document.getElementById('again').addEventListener('click',function(){
     form.reset(); form.style.display=''; ok.classList.remove('on');
   });

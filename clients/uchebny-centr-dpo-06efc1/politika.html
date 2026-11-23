@@ -288,6 +288,14 @@ form{display:flex;flex-direction:column;gap:16px}
 .agree{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink2);cursor:pointer}
 .agree input{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);flex-shrink:0}
 .agree.err{color:#B3261E}
+.payd{border:0;border-radius:24px;padding:0;width:min(560px,94vw);max-height:92vh;background:var(--paper);color:var(--ink)}
+.payd::backdrop{background:rgba(20,14,30,.72)}
+.payd form{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,4vw,36px);position:relative}
+.payd h3{font-size:26px;padding-right:48px}
+.payd-prog{margin:-6px 0 4px;color:var(--ink2)}
+.payd-x{position:absolute!important;top:16px;right:16px;background:var(--bg2)!important}
+.payd .fld input{border:2px solid var(--acc)}
+.payd .fld.err input{border-color:#B3261E}
 .agree a,.fnote a{color:var(--acc)}
 .fnote{font-size:14px;color:var(--ink2);margin:0}
 .ok{display:none;background:var(--paper);border-radius:20px;padding:clamp(28px,4vw,48px)}
@@ -391,7 +399,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     <div class="st" style="--i:3"><h4>Обучение</h4><a href="./#programs">Каталог программ</a><br><a href="sveden.html">Сведения об организации</a></div>
     <div class="st" style="--i:4"><h4>Документы</h4><a href="./#docs">Лицензия</a><br><a href="oferta.html">Договор-оферта</a><br><a href="oferta.html#oplata">Оплата и возврат</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на обработку персональных данных</a></div>
   </div>
-  <div class="fcopy"><span>ООО «КОНСАЛТЛАБ», Учебный центр ДПО</span><span>ИНН 5032384038, ОГРН 1245000107692</span><span>Лицензия № Л035-01255-50/03123432 от 04.09.2025</span></div>
+  <div class="fcopy"><span>ООО «КОНСАЛТЛАБ», Учебный центр ДПО</span><span>ИНН 5032384038, ОГРН 1245000107692</span><span>Лицензия № Л035-01255-50/03123432 от 04.09.2025</span><a href="politika.html" style="color:inherit">Политика конфиденциальности</a><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Сайт разработан YSD DEV STUDIO</a></div>
 </footer>
 <script>(function(){var lv=document.getElementById('lv');if(lv)lv.addEventListener('click',function(){var on=lv.getAttribute('aria-pressed')!=='true';lv.setAttribute('aria-pressed',on);document.documentElement.classList.toggle('lv',on);var s=lv.querySelector('span');if(s)s.textContent=on?'Обычная версия':'Версия для слабовидящих';});})();</script>
 </body>
