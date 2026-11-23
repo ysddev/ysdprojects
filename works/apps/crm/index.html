@@ -674,7 +674,7 @@ body.dragging .board{scroll-snap-type:none!important}
       <button class="nav-i" id="about-b" type="button" title="О продукте"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 7.3v3.5"/><path d="M8 5.2v.1"/></svg><span class="lbl">О продукте</span></button>
       <button class="nav-i" id="theme-b" type="button" aria-label="Тёмная тема" title="Тема"><svg class="i" viewBox="0 0 16 16" aria-hidden="true" id="theme-i"></svg><span class="lbl">Тема</span></button>
       <button class="nav-i collapse-btn" id="collapse-b" type="button" aria-label="Свернуть меню" title="Свернуть меню"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.5" width="12" height="11" rx="2"/><path d="M6 2.5v11"/></svg><span class="lbl">Свернуть меню</span></button>
-      <p class="side-credit">Разработка YSD DEV</p>
+      <p class="side-credit"><a href="https://ysddev.com" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></p>
     </div>
   </aside>
 
@@ -1866,7 +1866,7 @@ function about() {
       <li>${ico('chart')}<span>Дашборд отвечает, успеет ли отдел к плану на 30 ноября, и чего не хватает.</span></li>
     </ul>
     <div class="keys"><span class="k"><span class="kbd">/</span></span><span>Поиск по сделкам и клиентам</span><span class="k"><span class="kbd">N</span></span><span>Новая сделка</span><span class="k"><span class="kbd">T</span></span><span>Новая задача</span><span class="k"><span class="kbd">1</span>–<span class="kbd">4</span></span><span>Сделки, дашборд, задачи, клиенты</span><span class="k"><span class="kbd">Shift</span><span class="kbd">${ico('arrow', 's14').replace('class="i s14"', 'class="i s14" style="width:12px;height:12px"')}</span></span><span>Карточка в фокусе — на следующий этап</span><span class="k"><span class="kbd">?</span></span><span>Это окно</span></div>
-    <div class="credit"><span>Разработка <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span><button class="btn ghost" id="reset">${ico('reset')}Вернуть исходные данные</button></div>
+    <div class="credit"><span><a href="https://ysddev.com" target="_blank" rel="noopener">Разработан с душой студией YSD DEV</a></span><button class="btn ghost" id="reset">${ico('reset')}Вернуть исходные данные</button></div>
   </div>
   <div class="m-foot"><button class="btn primary" data-close>Начать работу</button></div>`, {
     onClose() { store.set(KEY + '-seen', '1'); $$('[data-intro]').forEach((el) => { el.hidden = true; }); },

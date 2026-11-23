@@ -189,7 +189,7 @@ img,svg{display:block;max-width:100%}
   <div><b>2023</b><p>Ушла в самостоятельную практику, первый журнал — «Архив мод».</p></div>
   <div><b>2026</b><p>Арт-директор пяти брендов, преподаю типографику по субботам.</p></div>
  </section>
- <footer class="foot full"><span>© 2026 Вера Ланская</span><span>Сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span></footer>
+ <footer class="foot full"><span>© 2026 Вера Ланская</span><span><a href="https://ysddev.com" target="_blank" rel="noopener">Разработан с душой студией YSD DEV</a></span></footer>
 </div>
 <div class="ov" id="ov" aria-hidden="true"><div class="bg" id="ovbg"></div><article class="pane" role="dialog" aria-modal="true" aria-labelledby="pt">
  <button class="x" type="button" id="cls">закрыть ×</button><div class="no" id="pno"></div><h2 id="pt"></h2><div class="k" id="pk"></div>

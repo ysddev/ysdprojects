@@ -296,7 +296,7 @@ A.toast=function(t){var el=document.createElement('div');el.className='tst';el.t
 /* меню */
 function nav(){var h='<div class="org"><i>'+esc(C.logo)+'</i><div><b>'+esc(C.brand)+'</b><small>'+esc(C.org)+'</small></div></div>';
  C.views.forEach(function(v){h+='<button class="nv" data-v="'+v.id+'" type="button">'+ic(v.icon)+'<span>'+esc(v.label)+'</span><em class="z" data-b="'+v.id+'"></em></button>'});
- h+='<div class="sp"></div><button class="nv ab2" type="button" data-about>'+ic('info')+'<span>О продукте</span></button><div class="me"><i>'+esc(C.user[0].split(' ').map(function(w){return w[0]}).join('').slice(0,2))+'</i><div><b>'+esc(C.user[0])+'</b><small>'+esc(C.user[1])+'</small></div></div><div class="dev">Разработка YSD DEV</div>';
+ h+='<div class="sp"></div><button class="nv ab2" type="button" data-about>'+ic('info')+'<span>О продукте</span></button><div class="me"><i>'+esc(C.user[0].split(' ').map(function(w){return w[0]}).join('').slice(0,2))+'</i><div><b>'+esc(C.user[0])+'</b><small>'+esc(C.user[1])+'</small></div></div><div class="dev"><a href="https://ysddev.com" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>';
  $('#side').innerHTML=h;badges()}
 function badges(){C.views.forEach(function(v){var el=document.querySelector('[data-b="'+v.id+'"]');if(!el)return;var n=v.badge?ev(v.badge):(v.type==='log'?LOG.filter(function(x){return x.n}).length:0);el.textContent=n||'';el.classList.toggle('z',!n)})}
 A.badges=badges;
@@ -417,7 +417,7 @@ document.addEventListener('dragend',function(e){drag=null;document.querySelector
 document.addEventListener('dragover',function(e){var c=e.target.closest&&e.target.closest('.col');if(c&&drag){e.preventDefault();document.querySelectorAll('.col.ov').forEach(function(x){if(x!==c)x.classList.remove('ov')});c.classList.add('ov')}});
 document.addEventListener('drop',function(e){var c=e.target.closest&&e.target.closest('.col');if(!c||!drag)return;e.preventDefault();var r=A.find(cur.entity,drag);var to=c.dataset.c;if(!r||r[cur.field]===to)return;
  var mv=(cur.moves||{})[to]||{};if(mv.form){openRow={e:cur.entity,id:r.id};formOpen(mv.form,r);return}var a=Object.assign({},mv);a.set=Object.assign({},mv.set||{});a.set[cur.field]=to;if(!a.log)a.log=tpl(cur.moveLog||'{'+cur.field+'}',r).replace(/\{.*?\}/,'')+' → '+((C.pills[cur.pill||cur.field]||{})[to]||[to])[0];a.close=1;apply(r,a)});
-function aboutOpen(){var ab=C.about;FM=null;$('#mf').innerHTML='<div class="mh"><h2>'+esc(ab.h)+'</h2><button class="xb" type="button" data-x>'+ic('x')+'</button></div><div class="mbd ab">'+ab.p.map(function(p){return'<p>'+esc(p)+'</p>'}).join('')+'<ul>'+ab.f.map(function(x){return'<li>'+esc(x)+'</li>'}).join('')+'</ul><p class="dv">Разработка YSD DEV</p></div><div class="mf"><button class="bt" type="button" data-x>Понятно</button></div>';
+function aboutOpen(){var ab=C.about;FM=null;$('#mf').innerHTML='<div class="mh"><h2>'+esc(ab.h)+'</h2><button class="xb" type="button" data-x>'+ic('x')+'</button></div><div class="mbd ab">'+ab.p.map(function(p){return'<p>'+esc(p)+'</p>'}).join('')+'<ul>'+ab.f.map(function(x){return'<li>'+esc(x)+'</li>'}).join('')+'</ul><p class="dv"><a href="https://ysddev.com" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></p></div><div class="mf"><button class="bt" type="button" data-x>Понятно</button></div>';
  $('#md').classList.add('on');$('#scrim').classList.add('on')}
 A.about=aboutOpen;
 addEventListener('resize',function(){if(cur&&cur.type==='grid')render()});

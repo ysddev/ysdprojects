@@ -306,7 +306,7 @@ def build(c: dict) -> str:
 {lead_sec}
 </main>
 <footer class="foot"><div class="wrap in"><span>© 2026 {e(c['legal'])}</span><span><a href="#" data-mail="{e(mail)}">{e(mail)}</a></span>
-<span>Сайт разработан <a href="https://ysddev.com" target="_blank" rel="noopener">YSD DEV</a></span></div></footer>
+<span><a href="https://ysddev.com" target="_blank" rel="noopener">Разработан с душой студией YSD DEV</a></span></div></footer>
 <script>window.SITE={jdump(c.get('data', {}))};</script>
 <script>{JS}</script>
 {('<script>' + c['js'] + '</script>') if c.get('js') else ''}
