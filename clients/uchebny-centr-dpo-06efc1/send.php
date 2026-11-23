@@ -3,7 +3,8 @@
 // Работает на хостинге с PHP (на хостинге клиента в РФ). На статичном демо не используется.
 header('Content-Type: application/json; charset=utf-8');
 
-$TO   = 'center.consultlab@mail.ru';
+$site_data = is_file(__DIR__ . '/data/site.php') ? (include __DIR__ . '/data/site.php') : [];
+$TO   = $site_data['contacts']['email'] ?? 'center.consultlab@mail.ru'; // меняется в админке → «Контакты»
 $FROM = 'noreply@' . preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'localhost');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo '{"ok":false}'; exit; }

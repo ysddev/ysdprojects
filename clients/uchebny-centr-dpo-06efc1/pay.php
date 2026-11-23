@@ -1,18 +1,19 @@
 <?php
 // Онлайн-оплата обучения через интернет-эквайринг Т-Банка (метод /v2/Init, платёжная форма банка).
-// Заполните 4 строки ниже данными из личного кабинета Т-Бизнеса: Интернет-эквайринг → Магазины → Терминалы.
-// Файл лежит на хостинге сайта; пароль терминала в браузер не попадает.
+// Ключ и пароль терминала, налогообложение и цены программ задаются в админке (/admin → «Онлайн-оплата», «Программы и цены»).
+// Данные терминала — в личном кабинете Т-Бизнеса: Интернет-эквайринг → Магазины → Терминалы. Пароль в браузер не попадает.
 header('Content-Type: application/json; charset=utf-8');
 
-$TERMINAL_KEY = '';            // TerminalKey (рабочий терминал, не DEMO)
-$PASSWORD     = '';            // пароль терминала
-$RECEIPT      = true;          // чеки 54-ФЗ: true, если подключены «Чеки Т-Бизнеса» или облачная касса
-$TAXATION     = 'usn_income';  // система налогообложения ООО: osn, usn_income, usn_income_outcome
-// Цены по программам — номер программы в каталоге на главной (0 — первая) => цена в рублях.
-$PRICES = [
-  // 0 => 25000,
-];
-$API = 'https://securepay.tinkoff.ru/v2/Init';
+$cfg  = is_file(__DIR__ . '/data/pay.php') ? (include __DIR__ . '/data/pay.php') : [];
+$site_data = is_file(__DIR__ . '/data/site.php') ? (include __DIR__ . '/data/site.php') : [];
+$TERMINAL_KEY = (string)($cfg['terminalKey'] ?? '');
+$PASSWORD     = (string)($cfg['password'] ?? '');
+$RECEIPT      = (bool)($cfg['receipt'] ?? true);
+$TAXATION     = (string)($cfg['taxation'] ?? 'usn_income');
+// номер программы в каталоге на главной (0 — первая) => цена в рублях
+$PRICES = [];
+foreach (($site_data['progs'] ?? []) as $i => $p) if (($p['price'] ?? 0) > 0) $PRICES[$i] = (int)$p['price'];
+$API = getenv('TBANK_API') ?: 'https://securepay.tinkoff.ru/v2/Init';
 
 $enabled = $TERMINAL_KEY !== '' && $PASSWORD !== '' && count($PRICES) > 0;
 

@@ -669,14 +669,14 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var D = {pk:{doc:'Удостоверение о повышении квалификации',hrs:'в объёме от 16 часов',kind:'Повышение квалификации',form:'Дистанционно'},
            pp:{doc:'Диплом о профессиональной переподготовке',hrs:'в объёме от 250 часов',kind:'Профессиональная переподготовка',form:'Дистанционно'}};
-  var P = [
+  /*admin:P*/var P = [
     {t:'Бизнес-процессы, организационное проектирование, механизмы и системы управления',type:'pk',dir:'mgmt'},
     {t:'Внутренний аудитор систем менеджмента качества (ISO 9001:2015 / ГОСТ Р ИСО 9001-2015)',type:'pk',dir:'smk'},
     {t:'Разработка и внедрение систем менеджмента качества',type:'pk',dir:'smk'},
     {t:'Внутренний аудит системы менеджмента органов по сертификации продукции в соответствии с ГОСТ Р ИСО 19011-2021 (подготовка внутренних аудиторов)',type:'pk',dir:'smk'},
     {t:'Подготовка экспертов по сертификации и специалистов по разработке систем менеджмента качества организаций в соответствии с ГОСТ Р ИСО 9001-2015 (ISO 9001:2015)',type:'pk',dir:'smk'},
     {t:'Технологические машины и оборудование',type:'pp',dir:'tech'}
-  ];
+  ];/*/admin:P*/
   var list = document.getElementById('list'), sel = 0, filter = 'all';
   var fprog = document.getElementById('fprog');
 
@@ -690,7 +690,7 @@ html.lv .hero::after{background:rgba(0,0,0,.82)}
     el.className='prog'+(i===sel?' sel':''); el.dataset.i=i;
     el.innerHTML='<div class="prog-top"><div><div class="kind">'+d.kind+'</div><h3>'+p.t+'</h3></div></div>'+
       '<div class="tags"><span>Объём <b>'+(p.type==='pk'?'от 16 ч':'от 250 ч')+'</b></span><span>Форма <b>'+d.form+'</b></span><span>Срок <b>по графику группы</b></span><span>Документ <b>'+(p.type==='pk'?'удостоверение':'диплом')+'</b></span></div>'+
-      '<div class="price">Стоимость указана в прайсе центра, оплата онлайн или по счёту</div>'+
+      '<div class="price">'+(p.price?'Стоимость: <b>'+Number(p.price).toLocaleString('ru-RU')+' ₽</b>. Оплата онлайн или по счёту':'Стоимость указана в прайсе центра, оплата онлайн или по счёту')+'</div>'+
       '<div class="prog-act"><a class="btn btn-sm" href="#order" data-pay="'+i+'">Оплатить</a><a class="btn btn-sm btn-ghost" href="#order" data-ask="'+i+'">Задать вопрос</a><button class="see" type="button" data-see="'+i+'" aria-pressed="'+(i===sel)+'">Посмотреть документ</button></div>';
     return el;
   }
