@@ -24,7 +24,7 @@
 #rec778344925{padding-top:105px!important}
 #rec778344925 .js-block-header-descr{font:300 20px/30px "TildaSans",Arial,sans-serif!important;color:#000!important;margin-bottom:28px!important}
 #rec778359649{padding-top:0!important}
-#rec778359649 .t-cover__wrapper{display:block!important;height:auto!important;padding-top:105px!important;padding-bottom:60px!important}
+#rec778359649 .t-cover__wrapper{display:block!important;height:auto!important;width:100%!important;max-width:100%!important;padding-top:105px!important;padding-bottom:60px!important}
 #rec778359649 .t-container{position:relative!important;height:auto!important}
 #rec778359649 .t698__mainblock{height:auto!important}
 #rec778359649 .t-cover,#rec778359649 .t-cover__carrier,#rec778359649 .t-cover__filter{height:auto!important;min-height:0!important}
