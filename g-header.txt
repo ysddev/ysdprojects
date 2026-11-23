@@ -20,7 +20,7 @@
 #rec794533409 .t-text::before{content:"Публичная оферта"}
 #rec794510584 .t-text::before{content:"Политика конфиденциальности"}
 /* единые заголовки белых страниц: 20px/30px, строка с 105px, отступ до текста 28px */
-#rec794533409 .t004,#rec794510584 .t004{padding-top:0!important}
+#rec794533409 .t004,#rec794510584 .t004,#rec778368288 .t004{padding-top:0!important}
 #rec778344925{padding-top:105px!important}
 #rec778344925 .js-block-header-descr{font:300 20px/30px "TildaSans",Arial,sans-serif!important;color:#000!important;margin-bottom:28px!important}
 #rec778359649{padding-top:0!important}
