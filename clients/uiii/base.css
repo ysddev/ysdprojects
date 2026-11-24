@@ -12,6 +12,7 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3,p{margin:0}
+section[id]{scroll-margin-top:84px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
 .lt{font-weight:200}.bk{font-weight:900}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

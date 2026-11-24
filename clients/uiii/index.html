@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#422C21">
 <link rel="icon" href="logo/UIII-logo-blue-on-espresso.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/commissioner-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="base.css?v=1">
+<link rel="stylesheet" href="base.css?v=2">
 <style>
 body{background:var(--espresso)}
 /* шапка */
@@ -121,6 +121,8 @@ html.ready .hero h1 span+span{animation-delay:.12s}
 .cont .form{max-width:520px}
 .cont .agree a{color:inherit}
 
+.contacts{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:14px}.contacts a{display:inline-flex;align-items:center;gap:12px;font-size:18px;font-weight:500;text-decoration:none}.contacts a:hover span{text-decoration:underline;text-underline-offset:4px}
+.ftr-c{display:flex;flex-wrap:wrap;gap:8px 24px}
 /* подвал */
 .ftr{color:rgba(182,221,246,.7);border-top:1px solid rgba(182,221,246,.18);padding:40px 0 48px;font-size:14px}
 .ftr-in{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
@@ -284,7 +286,7 @@ html.ready .hero h1 span+span{animation-delay:.12s}
     <div class="wrap cont-in">
       <div>
         <h2 class="h2"><span class="lt">Не объясняй.</span><span class="bk">Напиши нам.</span></h2>
-        <p>Поможем с размером, расскажем про материалы или обсудим мерч для вашей команды.</p>
+        <p>Поможем с размером, расскажем про материалы или обсудим мерч для вашей команды.</p><ul class="contacts"><li><a href="tel:+79939639843"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+7&nbsp;993&nbsp;963-98-43</span></a></li><li><a href="mailto:uiiimail@mail.ru"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg><span>uiiimail@mail.ru</span></a></li><li><a href="https://www.instagram.com/uiii.sport" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg><span>uiii.sport</span></a></li></ul>
       </div>
       <form class="form" data-lead novalidate>
         <div class="field"><label for="n1">Имя</label><input id="n1" name="name" required autocomplete="name" placeholder="Как к вам обращаться"></div>
@@ -301,7 +303,7 @@ html.ready .hero h1 span+span{animation-delay:.12s}
 <footer class="ftr">
   <div class="wrap ftr-in">
     <span class="mark" aria-hidden="true"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></span>
-    <span>© UIII, 2026</span>
+    <span>© UIII, 2026</span><span class="ftr-c"><a href="tel:+79939639843">+7&nbsp;993&nbsp;963-98-43</a><a href="mailto:uiiimail@mail.ru">uiiimail@mail.ru</a></span>
     <div class="ftr-links">
       <a href="#">Политика конфиденциальности</a>
       <a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a>
@@ -325,6 +327,6 @@ html.ready .hero h1 span+span{animation-delay:.12s}
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
