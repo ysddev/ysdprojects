@@ -2,7 +2,7 @@
 
 Портфолио YSD DEV на GitHub Pages — открывается из России (в отличие от Cloudflare).
 
-- `/<работа>/` — 52 работы портфолио. Копируются автоматически с Cloudflare (`tools/mirror.py`, Actions → mirror → Run workflow).
+- `/<работа>/` — 100 работ портфолио (главная — `tools/build_home.py` из вёрстки ysddev.com). Копируются автоматически с Cloudflare (`tools/mirror.py`, Actions → mirror → Run workflow).
 - `/clients/<клиент>/` — временные сайты клиентов, см. `clients/README.md`.
 - `/d/<проект>/` — демо, которые бот собирает клиентам: страница (`tools/404.html`) подгружает их с сервера бота
   `app.ysddev.com/p/<проект>/`, адрес у клиента — ysdprojects.space.
