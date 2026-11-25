@@ -318,7 +318,7 @@ def build(c: dict) -> str:
 <section class="sec" id="faq" style="padding-top:0"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq">{faq}</div></div></section>
 <section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-b reveal"><h2>{c['ctaTitle']}</h2><a class="btn" href="#demo">{e(c.get('ctaBtn', 'Попробовать бота'))}</a></div></div></section>
 </main>
-<footer class="wrap foot"><span>© 2026 {e(c['brand'])}</span><span>Бот разработан YSD DEV</span></footer>
+<footer class="wrap foot"><span>© 2026 {e(c['brand'])}</span><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
 <script>window.BOTCFG={jdump(cfg)};</script>
 <script>{JS}</script>
 </body>
