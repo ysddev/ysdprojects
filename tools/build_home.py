@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 HOME = ROOT / "home"
 KINDS = [("site", "Сайты"), ("shop", "Магазины"), ("design", "Дизайн"), ("bot", "Боты"), ("deck", "Презентации"),
-         ("service", "Веб-сервисы"), ("ai", "ИИ")]
+         ("service", "Сервисы и приложения"), ("ai", "ИИ")]
 ONE = {"site": "Сайт", "shop": "Интернет-магазин", "design": "Дизайн", "bot": "Бот", "deck": "Презентация",
        "service": "Веб-сервис", "ai": "ИИ-ассистент"}
 METRIKA = "112490537"
@@ -48,7 +48,8 @@ def works_from_bot(bot_dir: Path) -> list[dict]:
         kind = A.work_kind(url, desc)
         m = re.match(r"^(.*?)\s*\((.*)\)\s*$", desc.strip())
         t, s = (m.group(1), m.group(2)) if m else (desc.strip(), "")
-        out.append({"c": kind, "t": cap(t), "s": cap(s), "f": slug.replace("/", "-"), "u": f"https://ysdprojects.space/{slug}/"})
+        one = "Мобильное приложение" if "мобильное приложение" in desc.lower() else ONE.get(kind, "")
+        out.append({"c": kind, "t": cap(t), "s": cap(s), "f": slug.replace("/", "-"), "u": f"https://ysdprojects.space/{slug}/", "o": one})
     order = {k: i for i, (k, _) in enumerate(KINDS)}
     return sorted(out, key=lambda w: order.get(w["c"], 99))  # sorted устойчив: внутри типа — порядок витрины
 
@@ -57,11 +58,11 @@ def card(w: dict, i: int) -> str:
     e = html.escape
     lazy = "" if i < 6 else ' loading="lazy"'
     return (f'<a class="w" href="{e(w["u"])}" target="_blank" rel="noopener" data-c="{w["c"]}" '
-            f'data-q="{e((w["t"] + " " + w["s"] + " " + ONE.get(w["c"], "")).lower().replace("ё", "е"))}">'
+            f'data-q="{e((w["t"] + " " + w["s"] + " " + w.get("o", "")).lower().replace("ё", "е"))}">'
             f'<span class="ph"><img src="img/{w["f"]}-400.webp" srcset="img/{w["f"]}-400.webp 400w, img/{w["f"]}-800.webp 800w" '
             f'sizes="(max-width:640px) 100vw, (max-width:1100px) 50vw, 33vw" width="800" height="450" alt=""{lazy} decoding="async" '
             f'onerror="this.parentNode.classList.add(\'no\');this.remove()"></span>'
-            f'<span class="tx"><small>{e(ONE.get(w["c"], ""))}</small><b>{e(w["t"])}</b>{"<span>" + e(w["s"]) + "</span>" if w["s"] else ""}</span></a>')
+            f'<span class="tx"><small>{e(w.get("o", ONE.get(w["c"], "")))}</small><b>{e(w["t"])}</b>{"<span>" + e(w["s"]) + "</span>" if w["s"] else ""}</span></a>')
 
 
 CSS = r"""

@@ -249,6 +249,7 @@ p{margin:0}
 .hero.h-tilt .stage{perspective:1700px}
 .hero.h-tilt .stage::before{inset:4% -2%;background:var(--disk,color-mix(in srgb,var(--ac) 20%,var(--bg)));filter:none;border-radius:50%}
 .hero.h-tilt .phone{transform:rotateY(-15deg) rotateX(5deg) rotateZ(1.5deg);box-shadow:36px 60px 110px -40px rgba(0,0,0,.5),inset 0 0 0 2px #2a2a2e}
+.hero.h-tilt .chip.c1{right:auto;left:-12%;top:6%}
 .hero.h-tilt .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px}
 .hero.h-tilt .stats div{background:var(--card);border-radius:var(--rc);padding:16px 18px;box-shadow:0 0 0 1px var(--line)}
 .hero.h-tilt .stats div:first-child{grid-column:1/-1;background:var(--ac);color:var(--aci);box-shadow:none}

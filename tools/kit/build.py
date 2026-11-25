@@ -3,9 +3,9 @@
 import importlib
 import sys
 
-from . import ai, app, bot, case, deck, free, shop, site
+from . import ai, app, bot, case, deck, free, mapp, shop, site
 
-KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck, "assist": ai, "apps": app, "design": case, "sites": site, "free": free}
+KITS = {"shops": shop, "bots": bot, "clients": shop, "slides": deck, "assist": ai, "apps": app, "design": case, "sites": site, "free": free, "mapps": mapp}
 
 for name in sys.argv[1:]:
     part, _, mod_name = name.rpartition(".")
