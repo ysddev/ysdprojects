@@ -18,21 +18,21 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .wrap{width:min(1280px,100% - 2*var(--gut));margin-inline:auto}
 h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.02;margin:0;text-wrap:balance}
 p{margin:0}
-.kick{font:600 12px/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--kc,var(--ac))}
+.kick{font:600 15px/1.2 var(--fb);letter-spacing:0;color:var(--kc,var(--ac))}
 .bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar .in{display:flex;align-items:center;gap:22px;height:62px}
 .bar .bn{font:var(--hw) 19px/1 var(--fh);letter-spacing:var(--ht);white-space:nowrap;text-decoration:none}
 .bar nav{display:flex;gap:20px;margin-left:auto;font-size:14.5px;color:var(--mut);overflow-x:auto;scrollbar-width:none}
 .bar nav::-webkit-scrollbar{display:none}
 .bar nav a{text-decoration:none;white-space:nowrap}.bar nav a:hover,.bar nav a.on{color:var(--ink)}
-.bar .dev{font-size:12.5px;color:var(--mut);white-space:nowrap;text-decoration:none}
+.bar .dev{font-size:14px;color:var(--mut);white-space:nowrap;text-decoration:none}
 .hero{padding:clamp(40px,7vw,104px) 0 clamp(36px,5vw,72px)}
 .hero .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
 .hero h1{font-size:clamp(44px,6.4vw,96px);margin:18px 0 22px}
 .hero h1 em{font-style:var(--emst,normal);color:var(--ac)}
 .lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:52ch;text-wrap:pretty}
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
-.facts span{display:block;font-size:12.5px;color:var(--mut);letter-spacing:.04em}
+.facts span{display:block;font-size:14px;color:var(--mut);letter-spacing:.04em}
 .facts b{display:block;font-weight:500;font-size:15px;line-height:1.35}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:var(--rb,999px);background:var(--ac);color:var(--aci);font-weight:600;text-decoration:none;transition:transform .2s}
@@ -49,25 +49,25 @@ p{margin:0}
 .t3 div{padding-top:20px;border-top:2px solid var(--ink)}
 .t3 b{display:block;font:var(--hw) clamp(22px,2vw,28px)/1.15 var(--fh);letter-spacing:var(--ht);margin-bottom:10px}
 .t3 p{color:var(--soft);font-size:16px}
-.t3 i{font-style:normal;font:500 13px var(--fm,var(--fb));color:var(--ac);display:block;margin-bottom:14px}
-.cap{font-size:13.5px;color:var(--mut);margin-top:12px}
+.t3 i{font-style:normal;font:500 14px var(--fm,var(--fb));color:var(--ac);display:block;margin-bottom:14px}
+.cap{font-size:14px;color:var(--mut);margin-top:12px}
 .pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .sw{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 0 0 1px var(--line);text-align:left;transition:transform .2s}
 .sw:hover{transform:translateY(-3px)}
 .sw i{display:block;height:150px}
 .sw div{padding:14px 16px 16px;display:grid;gap:2px}
-.sw b{font-size:16px}.sw span{font:500 13px var(--fm,var(--fb));color:var(--mut)}.sw small{font-size:12.5px;color:var(--mut)}
+.sw b{font-size:16px}.sw span{font:500 14px var(--fm,var(--fb));color:var(--mut)}.sw small{font-size:14px;color:var(--mut)}
 .sw.cp span::after{content:" — скопировано";color:var(--ac)}
 .tp{display:grid;gap:0}
 .tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
 .tr:last-child{border-bottom:1px solid var(--line)}
-.tr b{display:block;font-size:15px}.tr small{display:block;color:var(--mut);font-size:13.5px}
+.tr b{display:block;font-size:15px}.tr small{display:block;color:var(--mut);font-size:14px}
 .tr .sm{font-size:clamp(28px,4vw,56px);line-height:1.08;overflow-wrap:anywhere}
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.6vw,20px)}
 .gal figure{margin:0;grid-column:span var(--s,6);min-width:0}
 .gal figure>div{border-radius:var(--ra,18px);overflow:hidden;background:var(--tbg,var(--card));aspect-ratio:var(--ar,4/3);display:grid;place-items:center;position:relative}
 .gal figure>div>svg{width:100%;height:100%}
-.gal figcaption{font-size:13.5px;color:var(--mut);margin-top:10px}
+.gal figcaption{font-size:14px;color:var(--mut);margin-top:10px}
 .gal figcaption b{color:var(--ink);font-weight:600}
 .res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .res div{background:var(--bg);padding:clamp(20px,2.4vw,32px)}
@@ -189,7 +189,7 @@ def build(c: dict) -> str:
 {''.join(render(s) for s in c['sections'])}
 <section class="sec"><div class="wrap"><div class="cta rv"><h2>{c.get('ctaTitle', 'Нужен такой же дизайн?')}</h2><a class="btn" href="https://ysddev.com" rel="noopener">Обсудить проект</a></div></div></section>
 </main>
-<footer class="wrap foot"><span>© 2026 {e(c['brand'])}</span><span>Дизайн YSD DEV</span></footer>
+<footer class="wrap foot"><span>© 2026 {e(c['brand'])}</span><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
 <script>window.CASECFG={jdump(c.get('data', {}))};</script>
 <script>{JS}</script>
 {('<script>' + c['js'] + '</script>') if c.get('js') else ''}
