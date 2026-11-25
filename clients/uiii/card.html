@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UIII — карточка изделия с подписями</title>
+<meta name="description" content="Карточка изделия UIII: на фото по очереди появляются особенности изделия и места нанесения логотипа.">
+<meta property="og:title" content="UIII — карточка изделия">
+<meta property="og:image" content="https://ysdprojects.space/clients/uiii/img/og.jpg?v=2">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="logo/UIII-logo-blue-on-espresso.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/commissioner-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="base.css?v=2">
+<style>
+:focus-visible{outline-color:var(--espresso)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);max-width:var(--wrap);margin:0 auto}
+.top .mark{height:44px;color:var(--espresso)}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+.item{max-width:var(--wrap);margin:0 auto;padding:12px var(--pad) 80px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
+
+/* галерея */
+.gal{position:relative}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:6px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start}
+.nav{display:flex;align-items:center;gap:14px;margin-top:16px}
+.nav button.arr{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--espresso);background:transparent;display:grid;place-items:center}
+.nav button.arr:hover{background:var(--espresso);color:var(--blue)}
+.dots{display:flex;gap:8px;margin-left:auto}
+.dots button{width:28px;height:4px;border-radius:2px;border:0;background:rgba(66,44,33,.2);padding:0}
+.dots button[aria-current]{background:var(--espresso)}
+
+/* фото с подписями — компонент .spec */
+.spec{position:relative;aspect-ratio:4/5;overflow:hidden;background:#222;container-type:inline-size}
+.spec>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.spec>svg.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.spec .ln{fill:none;stroke:currentColor;stroke-width:1.2;transition:stroke-dashoffset .9s cubic-bezier(.5,0,.2,1)}
+.spec .zone{fill:none;stroke:currentColor;stroke-width:1.2;stroke-dasharray:5 5;opacity:0;transition:opacity .6s}
+.spec .pt{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 30%,transparent);transform:scale(0);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.spec .lb{position:absolute;display:grid;justify-items:start;gap:6px;max-width:42%;font-size:clamp(9px,2.1cqi,12.5px);font-weight:600;letter-spacing:.16em;line-height:1.35;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.1,1)}
+.spec .lb.r{text-align:right;justify-items:end}
+.spec .lb .ico{width:clamp(14px,3.4cqi,20px);height:clamp(14px,3.4cqi,20px);stroke-width:1.5}
+.spec .lb.logo{font-weight:800}
+.spec.light{color:#fff}.spec.light .lb{text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.spec.dark{color:var(--espresso)}
+.spec.on .ln{stroke-dashoffset:0!important}
+.spec.on .pt{transform:scale(1)}
+.spec.on .lb{opacity:1;transform:none}
+.spec.on .zone{opacity:.9}
+@media (prefers-reduced-motion:reduce){.spec .ln,.spec .pt,.spec .lb,.spec .zone{transition:none}}
+
+/* описание */
+.info{position:sticky;top:24px;display:grid;gap:20px}
+.info .line{font-size:14px;font-weight:500;color:var(--ink-soft)}
+.info h1{font-size:clamp(36px,4.4vw,60px);line-height:1;letter-spacing:-.03em}
+.info h1 span{display:block}
+.info p{color:var(--ink-soft);font-size:17px}
+.facts{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--espresso)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(66,44,33,.15);font-size:16px}
+.facts b{font-weight:600}
+.demo-note{padding:14px 16px;border-radius:6px;background:var(--blue);color:var(--espresso);font-size:14px}
+@media (max-width:900px){
+  .item{grid-template-columns:1fr}
+  .info{position:static}
+}
+</style>
+</head>
+<body class="on-light">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="uiii" viewBox="296 439 407 781.5"><path fill="currentColor" d="M703 439H440C356.48 439 296 507.46 296 602C296 696.54 356.48 765 440 765H703V676H446C405.98 676 377 644.71 377 601.5C377 558.29 405.98 527 446 527H703Z"/><rect fill="currentColor" x="315" y="821" width="388" height="90.5"/><rect fill="currentColor" x="315" y="975.5" width="388" height="90.5"/><rect fill="currentColor" x="315" y="1130" width="388" height="90.5"/></symbol></svg>
+<header class="top">
+  <a class="mark" href="intro.html" aria-label="UIII — на главную"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></a>
+  <a class="back" href="v2.html#catalog">Каталог</a>
+</header>
+
+<main class="item">
+  <section class="gal" aria-label="Фото изделия">
+    <div class="track" id="track">
+      <div class="slide"><div class="spec light" data-spots='[
+        {"x":55,"y":40,"lx":62,"ly":18,"side":"r","icon":"zip","t":"Водонепроницаемая молния"},
+        {"x":30,"y":24,"lx":6,"ly":10,"side":"l","icon":"layers","t":"Трёхслойная мембрана"},
+        {"x":24,"y":76,"lx":44,"ly":86,"side":"r","icon":"shield","t":"Проклеенные швы"}]'>
+        <img src="img/zip.webp" alt="Молния мембранной куртки крупным планом" width="928" height="1152"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[
+        {"x":63,"y":42,"lx":56,"ly":12,"side":"r","icon":"drop","t":"Влагоотталкивающая пропитка"},
+        {"x":28,"y":62,"lx":6,"ly":84,"side":"l","icon":"wind","t":"Дышащая ткань"}]'>
+        <img src="img/drops.webp" alt="Капли воды на ткани куртки" width="1086" height="1448" loading="lazy"></div></div>
+      <div class="slide"><div class="spec dark" data-spots='[
+        {"x":62,"y":45,"lx":56,"ly":14,"side":"r","icon":"seam","t":"Плоские швы — не натирают"},
+        {"zone":[14,62,40,16],"x":34,"y":70,"lx":6,"ly":90,"side":"l","icon":"logo","t":"Ваш логотип","logo":1}]'>
+        <img src="img/blue-fabric.webp" alt="Шов на ткани термолонгслива" width="1086" height="1448" loading="lazy"></div></div>
+    </div>
+    <div class="nav">
+      <button class="arr" type="button" data-go="-1" aria-label="Предыдущее фото"><svg class="ico" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="arr" type="button" data-go="1" aria-label="Следующее фото"><svg class="ico" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <aside class="info">
+    <p class="line">UIII alpine · для команд и экспедиций</p>
+    <h1><span class="lt">Мембранная</span><span class="bk">куртка</span></h1>
+    <p>Для склона, высоты и ветра на палубе. Нанесём логотип команды, имя или флаг — места показаны на фото.</p>
+    <ul class="facts">
+      <li><span>Тираж</span><b>от 1 шт.</b></li>
+      <li><span>Образец</span><b>до запуска партии</b></li>
+      <li><span>Нанесение</span><b>вышивка, принт, шеврон</b></li>
+    </ul>
+    <a class="btn btn-esp" href="v2.html#contacts">Обсудить заказ</a>
+    <p class="demo-note">Это демо механики: фото из брендбука, подписи — пример. На сайте будут ваши фото без надписей и ваши подписи шрифтом бренда.</p>
+  </aside>
+</main>
+
+<footer style="max-width:var(--wrap);margin:0 auto;padding:0 var(--pad) 32px;font-size:12px;color:var(--ink-soft)"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Разработан с душой студией YSD DEV</a></footer>
+
+<script>
+(function(){
+  // иконки Lucide (ISC)
+  var IC={
+    zip:'<path d="M12 2v20"/><path d="M8 5h3"/><path d="M13 8h3"/><path d="M8 11h3"/><path d="M13 14h3"/><rect x="9" y="16" width="6" height="6" rx="1"/>',
+    layers:'<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+    drop:'<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+    wind:'<path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/>',
+    seam:'<path d="M3 12h18" stroke-dasharray="3 3"/><path d="M3 7h18"/><path d="M3 17h18"/>',
+    logo:'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/>'
+  };
+  var NS='http://www.w3.org/2000/svg';
+  function draw(sp){
+    var spots=sp._spots,W=sp.clientWidth,H=sp.clientHeight,svg=sp._svg;
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';
+    spots.forEach(function(s,k){
+      var d=k*0.35,X=function(v){return v*W/100},Y=function(v){return v*H/100};
+      if(s.zone){var r=document.createElementNS(NS,'rect');r.setAttribute('x',X(s.zone[0]));r.setAttribute('y',Y(s.zone[1]));r.setAttribute('width',X(s.zone[2]));r.setAttribute('height',Y(s.zone[3]));r.setAttribute('class','zone');r.style.transitionDelay=d+'s';svg.appendChild(r)}
+      var shelfEnd=s.side==='r'?Math.min(96,s.lx+30):Math.max(4,s.lx),shelfStart=s.side==='r'?s.lx:Math.min(96,s.lx+30);
+      var p=document.createElementNS(NS,'path');
+      p.setAttribute('d','M'+X(s.x)+' '+Y(s.y)+' L'+X(shelfStart)+' '+Y(s.ly+4)+' L'+X(shelfEnd)+' '+Y(s.ly+4));
+      p.setAttribute('class','ln');svg.appendChild(p);
+      var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.style.transitionDelay=(d+.2)+'s';
+      var lb=sp._lbs[k];
+      lb.style.left=lb.style.right='';
+      if(s.side==='r'){lb.style.right=(100-shelfEnd)+'%'}else{lb.style.left=shelfEnd+'%'}
+      lb.style.bottom=(100-(s.ly+3))+'%';
+    });
+  }
+  document.querySelectorAll('.spec').forEach(function(sp){
+    var spots=JSON.parse(sp.getAttribute('data-spots'));sp._spots=spots;sp._lbs=[];
+    var svg=document.createElementNS(NS,'svg');svg.setAttribute('class','lines');svg.setAttribute('aria-hidden','true');sp._svg=svg;sp.appendChild(svg);
+    spots.forEach(function(s,k){
+      var d=k*0.35;
+      var pt=document.createElement('i');pt.className='pt';pt.style.left=s.x+'%';pt.style.top=s.y+'%';pt.style.transitionDelay=d+'s';sp.appendChild(pt);
+      var lb=document.createElement('span');lb.className='lb'+(s.side==='r'?' r':'')+(s.logo?' logo':'');lb.style.transitionDelay=(d+.75)+'s';
+      lb.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(IC[s.icon]||'')+'</svg><span>'+s.t+'</span>';
+      sp.appendChild(lb);sp._lbs.push(lb);
+    });
+    draw(sp);
+    new ResizeObserver(function(){draw(sp)}).observe(sp);
+  });
+  // карусель
+  var track=document.getElementById('track'),slides=[].slice.call(track.children),dots=document.getElementById('dots'),cur=0,timer;
+  slides.forEach(function(_,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Фото '+(i+1));b.onclick=function(){go(i)};dots.appendChild(b)});
+  function go(i){i=(i+slides.length)%slides.length;track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft,behavior:'smooth'})}
+  document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){go(cur+(+b.dataset.go))}});
+  function activate(i){
+    cur=i;[].forEach.call(dots.children,function(b,k){if(k===i)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')});
+    clearTimeout(timer);slides.forEach(function(s,k){if(k!==i)s.firstElementChild.classList.remove('on')});
+    var sp=slides[i].firstElementChild;
+    // сначала чистое фото, через 1,2 с — подписи
+    timer=setTimeout(function(){sp.classList.add('on')},matchMedia('(prefers-reduced-motion: reduce)').matches?0:1200);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>.6)activate(slides.indexOf(e.target))})},{root:track,threshold:[.6]});
+  slides.forEach(function(s){io.observe(s)});
+  document.documentElement.classList.add('ready');
+})();
+</script>
+</body>
+</html>
