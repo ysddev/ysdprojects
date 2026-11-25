@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вода — сантехника со склада: смесители, унитазы, ванны, душевые системы с наличием по городам</title>
+<meta name="description" content="Интернет-магазин сантехники «Вода»: 1 500 позиций, фильтры по бренду, покрытию и цене, наличие на складах Москвы, Петербурга и Екатеринбурга из 1С, цены для монтажников и дизайнеров.">
+<meta name="theme-color" content="#0B3142">
+<link rel="preload" href="fonts/ubuntu-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ubuntu-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Ubuntu';font-weight:400;font-display:swap;src:url(fonts/ubuntu-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Ubuntu';font-weight:400;font-display:swap;src:url(fonts/ubuntu-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Ubuntu';font-weight:500;font-display:swap;src:url(fonts/ubuntu-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Ubuntu';font-weight:500;font-display:swap;src:url(fonts/ubuntu-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Ubuntu';font-weight:700;font-display:swap;src:url(fonts/ubuntu-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Ubuntu';font-weight:700;font-display:swap;src:url(fonts/ubuntu-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Rub';font-weight:400;font-display:swap;src:url(fonts/pt-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Rub';font-weight:700;font-display:swap;src:url(fonts/pt-sans-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#F2F5F6;--w:#FFFFFF;--ink:#0B3142;--text:#304A55;--mute:#5E7480;--cy:#0FA3B1;--cyd:#0A7E89;--cyl:#E1F4F6;--line:#D8E1E4;--warn:#B06A00;--t:'Ubuntu','Rub',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.55 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{color:var(--ink);margin:0;font-weight:700;letter-spacing:-.015em}
+p{margin:0}
+a{color:var(--cyd)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cy);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1320px;margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:0;border-radius:8px;background:var(--cy);color:#fff;font:500 16px/1.2 var(--t);cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:var(--cyd)}
+.btn.dk{background:var(--ink)}
+.btn.dk:hover{background:#06222F}
+.btn.sm{min-height:40px;padding:0 14px;font-size:15px}
+.btn.ln{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ln:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+/* шапка */
+.strip{background:var(--ink);color:#B9CED6;font-size:14px}
+.strip .wrap{display:flex;align-items:center;gap:22px;min-height:40px;flex-wrap:wrap}
+.strip select{background:transparent;border:0;color:#fff;font-weight:500;font-size:14px;cursor:pointer;padding:0 4px}
+.strip select option{color:var(--ink)}
+.sync{display:inline-flex;align-items:center;gap:8px}
+.sync i{width:8px;height:8px;border-radius:50%;background:#4ADE9B;box-shadow:0 0 0 3px rgba(74,222,155,.2)}
+.strip .pb{margin-left:auto;border:0;background:none;color:#fff;font-weight:500;cursor:pointer;font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.strip .pb.on{background:#4ADE9B;color:var(--ink);text-decoration:none;border-radius:12px;padding:2px 10px}
+.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;height:70px}
+.logo{display:flex;align-items:center;gap:8px;font:700 26px/1 var(--t);color:var(--ink);text-decoration:none;letter-spacing:-.03em}
+.logo svg{width:22px;height:28px}
+.search{flex:1;position:relative;max-width:620px}
+.search input{width:100%;height:46px;border:1.5px solid var(--line);border-radius:8px;padding:0 14px 0 42px;font-size:16px;color:var(--ink);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%235E7480' stroke-width='2'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3Cpath d='M12.5 12.5L17 17'/%3E%3C/svg%3E") no-repeat 14px 50%}
+.search input:focus{border-color:var(--cy);background-color:#fff;outline:none}
+.sug{position:absolute;left:0;right:0;top:52px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 40px rgba(11,49,66,.14);overflow:hidden;z-index:40}
+.sug button{display:flex;justify-content:space-between;gap:12px;width:100%;padding:10px 14px;border:0;background:none;text-align:left;cursor:pointer;font-size:15px;color:var(--ink)}
+.sug button:hover,.sug button:focus{background:var(--cyl)}
+.sug button span{color:var(--mute);white-space:nowrap}
+.sug .all{border-top:1px solid var(--line);color:var(--cyd);font-weight:500}
+.hb{display:flex;gap:8px;margin-left:auto}
+.ib{position:relative;min-height:46px;padding:0 14px;border-radius:8px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-weight:500;font-size:15px;color:var(--ink)}
+.ib b{position:absolute;top:-7px;right:-7px;min-width:20px;height:20px;border-radius:10px;background:var(--cy);color:#fff;font-size:14px;line-height:20px;padding:0 5px}
+.ib.cart{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* первый экран */
+.hero{background:#fff;border-bottom:1px solid var(--line)}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding:36px 0}
+.hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06}
+.lead{font-size:18px;margin-top:14px;max-width:32em}
+.hero img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+.cats{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;padding:0 0 28px}
+.cats button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);cursor:pointer;font-size:14px;font-weight:500;color:var(--ink);line-height:1.2;text-align:center}
+.cats button svg{width:50px;height:50px}
+.cats button span{font-weight:400;color:var(--mute);font-size:14px}
+.cats button[aria-pressed=true]{border-color:var(--cy);background:var(--cyl)}
+
+/* каталог */
+.cat{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;padding-top:28px;padding-bottom:80px;align-items:start}
+.side{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 16px 16px;position:sticky;top:86px;max-height:calc(100vh - 100px);overflow:auto}
+.fg{border-bottom:1px solid var(--line);padding:12px 0}
+.fg:last-of-type{border-bottom:0}
+.fg h3{font-size:15px;margin-bottom:8px}
+.ck{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:15px;cursor:pointer;color:var(--ink)}
+.ck input{width:18px;height:18px;margin:0;accent-color:var(--cy);flex:none}
+.ck span{margin-left:auto;color:var(--mute);font-size:14px}
+.ck.dis{color:#A6B4BA}
+.sw{display:flex;flex-wrap:wrap;gap:8px}
+.sw button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);cursor:pointer;position:relative;padding:0}
+.sw button[aria-pressed=true]{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--cy)}
+.sw button:disabled{opacity:.25;cursor:not-allowed}
+.pr2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pr2 input{width:100%;height:40px;border:1.5px solid var(--line);border-radius:8px;padding:0 10px;font-size:15px;color:var(--ink)}
+.tg{display:flex;align-items:center;gap:10px;font-size:15px;cursor:pointer;color:var(--ink)}
+.tg input{width:18px;height:18px;margin:0;accent-color:var(--cy)}
+.reset{border:0;background:none;color:var(--cyd);cursor:pointer;text-decoration:underline;padding:0;font-size:15px;margin-top:10px}
+.tb{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tb h2{font-size:24px}
+.tb .n{color:var(--mute)}
+.tb select{margin-left:auto;height:42px;border:1.5px solid var(--line);border-radius:8px;padding:0 10px;background:#fff;font-size:15px;color:var(--ink)}
+.fbtn{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chips button{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 10px;border-radius:16px;border:0;background:var(--cyl);color:var(--cyd);cursor:pointer;font-size:14px;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;position:relative}
+.card .ic{background:var(--bg);border-radius:10px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.card .ic svg{width:62%;height:auto}
+.card .cmp{position:absolute;top:18px;right:18px;display:flex;align-items:center;gap:6px;font-size:14px;color:var(--mute);background:rgba(255,255,255,.9);padding:2px 8px;border-radius:12px;cursor:pointer}
+.card .cmp input{width:16px;height:16px;margin:0;accent-color:var(--cy)}
+.card .art{font-size:14px;color:var(--mute)}
+.card h3{font-size:15px;font-weight:500;line-height:1.35;letter-spacing:0}
+.card .pr{margin-top:auto;font-size:20px;font-weight:700;color:var(--ink)}
+.card .pr s{font-size:14px;font-weight:400;color:var(--mute);margin-left:6px}
+.card .stk{font-size:14px;color:#11855B}
+.card .stk.no{color:var(--warn)}
+.card .stk small{display:block;color:var(--mute);font-size:14px}
+.more{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px;color:var(--mute);font-size:15px}
+.empty{grid-column:1/-1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
+
+.partner{position:relative;color:#fff;background:var(--ink);overflow:hidden}
+.partner .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding-top:60px;padding-bottom:60px}
+.partner img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+.partner h2{color:#fff;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.partner ul{margin:16px 0 22px;padding-left:20px;color:#CFE0E6;font-size:17px}
+.partner li{margin:6px 0}
+.faq{max-width:860px;padding:64px 0}
+.faq h2{font-size:clamp(28px,3vw,40px);margin-bottom:18px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:8px}
+.faq summary{list-style:none;cursor:pointer;padding:16px 50px 16px 18px;position:relative;font-weight:500;font-size:17px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:10px;font-size:26px;color:var(--cy)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 18px;max-width:46em}
+
+/* сравнение */
+.cbar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:35;background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px 10px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 16px 40px rgba(11,49,66,.3);max-width:calc(100vw - 24px)}
+.cbar button.l{border:0;background:none;color:#B9CED6;cursor:pointer;text-decoration:underline;font-size:15px}
+dialog{border:0;border-radius:14px;padding:0;width:min(1000px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;color:var(--text)}
+dialog::backdrop{background:rgba(11,49,66,.55)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}
+.dh h2{font-size:22px}
+.x{width:42px;height:42px;border:0;border-radius:8px;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer;flex:none}
+.dbd{padding:18px 20px 22px}
+.ctab{overflow-x:auto}
+.ctab table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+.ctab th,.ctab td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.ctab th{color:var(--mute);font-weight:400;width:150px}
+.ctab td b{color:var(--ink)}
+.ctab tr.df td{background:#FFF6E5}
+.ctab svg{width:80px;height:80px}
+
+/* корзина */
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(11,49,66,.5)}
+.dp{width:min(460px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.db{flex:1;overflow:auto;padding:14px 20px}
+.li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px}
+.li .ic{width:56px;height:56px;background:var(--bg);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.li .ic svg{width:40px;height:40px}
+.li b{display:block;color:var(--ink);font-weight:500;font-size:15px;line-height:1.3}
+.li .m{font-size:14px;color:var(--mute)}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:8px;height:36px}
+.qty button{width:32px;height:100%;border:0;background:none;cursor:pointer;font-size:18px;color:var(--ink)}
+.qty span{min-width:26px;text-align:center;font-weight:500;color:var(--ink)}
+.df{padding:16px 20px;background:#fff;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:700;color:var(--ink);font-size:19px}
+.dl{display:grid;gap:6px}
+.dl label,.agree{display:flex;gap:10px;align-items:flex-start;font-size:15px;cursor:pointer}
+.dl input,.agree input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--cy);flex:none}
+.dl small{display:block;color:var(--mute);font-size:14px}
+.f{display:grid;gap:5px}
+.f label{font-size:14px;font-weight:500;color:var(--ink)}
+.f input{height:46px;border:1.5px solid var(--line);border-radius:8px;padding:0 12px;font-size:16px;color:var(--ink);background:var(--bg)}
+.f input:focus{border-color:var(--cy);background:#fff;outline:none}
+.lnk{border:0;background:none;padding:0;color:var(--cyd);text-decoration:underline;cursor:pointer;font-size:inherit}
+.err{color:#B3261E;font-size:15px}
+.ok{background:var(--cyl);border-radius:10px;padding:16px;color:var(--cyd)}
+.ok b{display:block;color:var(--ink);font-size:18px;margin-bottom:4px}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;border-radius:8px;padding:10px 16px;font-size:15px;max-width:calc(100vw - 32px)}
+
+.foot{background:var(--ink);color:#A9C0C9;padding:44px 0 32px;font-size:14px}
+.foot a{color:#fff}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px}
+.legal button{border:0;background:none;padding:0;color:#A9C0C9;text-decoration:underline;cursor:pointer;font-size:14px}
+
+@media (max-width:1180px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cats{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+@media (max-width:920px){
+  .hg,.partner .wrap{grid-template-columns:1fr}
+  .cat{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:min(340px,92vw);max-height:none;border-radius:0;z-index:55;transform:translateX(-105%);transition:transform .2s;padding-top:60px}
+  .side.open{transform:none;box-shadow:0 0 0 100vmax rgba(11,49,66,.5)}
+  .side .sx{position:absolute;top:10px;right:10px}
+  .fbtn{display:inline-flex}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .strip .wrap{gap:4px 14px;padding-top:4px;padding-bottom:4px}
+  .bar{flex-wrap:wrap;height:auto;padding:10px 0;gap:10px}
+  .search{order:3;flex-basis:100%}
+  .hg{padding:22px 0}
+  .hero img{display:none}
+  .lead{font-size:16px}
+  .cats{display:flex;overflow-x:auto;padding-bottom:20px}
+  .cats button{flex:none;width:96px}
+  .tb select{margin-left:0;flex:1}
+  .grid{gap:8px}
+  .card{padding:8px}
+  .card .cmp{top:12px;right:12px}
+  .card .pr{font-size:18px}
+  .cbar{left:12px;right:12px;transform:none;bottom:10px;gap:8px;padding:8px 8px 8px 12px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="strip"><div class="wrap">
+  <label>Ваш город: <select id="city" aria-label="Город"><option value="0">Москва</option><option value="1">Санкт-Петербург</option><option value="2">Екатеринбург</option></select></label>
+  <span class="sync"><i aria-hidden="true"></i><span id="sync"></span></span>
+  <button class="pb" type="button" id="pBtn">Цены для монтажников и дизайнеров</button>
+</div></div>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#"><svg viewBox="0 0 22 28" aria-hidden="true"><path d="M11 1C7 8 2 13 2 18a9 9 0 0 0 18 0c0-5-5-10-9-17z" fill="#0FA3B1"/><path d="M6 18a5 5 0 0 0 5 5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Вода</a>
+    <div class="search"><input type="search" id="q" placeholder="Смеситель чёрный, ванна 170, артикул" aria-label="Поиск по каталогу" autocomplete="off" aria-controls="sug"><div class="sug" id="sug" hidden></div></div>
+    <div class="hb"><button class="ib" type="button" id="cmpBtn">Сравнение<b class="num" id="cmc" hidden>0</b></button><button class="ib cart" type="button" id="cartBtn">Корзина<b class="num" id="cc" hidden>0</b></button></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hg">
+      <div>
+        <h1>Сантехника со&nbsp;складов в&nbsp;Москве, Петербурге и&nbsp;Екатеринбурге</h1>
+        <p class="lead"><span id="total" class="num"></span> позиций. Цены и&nbsp;остатки приходят из&nbsp;1С каждые 15 минут, поэтому «в&nbsp;наличии» здесь значит «лежит на&nbsp;складе».</p>
+      </div>
+      <img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w" sizes="(max-width:920px) 92vw, 620px" width="1400" height="933" alt="Белая накладная раковина и настенный смеситель на деревянной столешнице" fetchpriority="high">
+    </div>
+    <div class="cats" id="cats" role="group" aria-label="Разделы"></div>
+  </div>
+</section>
+
+<div class="wrap cat" id="catalog">
+  <aside class="side" id="side" aria-label="Фильтры">
+    <button class="x sx fbtn" type="button" id="sideX" aria-label="Закрыть фильтры">×</button>
+    <div class="fg"><h3>Цена, ₽</h3><div class="pr2"><input id="pMin" inputmode="numeric" placeholder="от" aria-label="Цена от"><input id="pMax" inputmode="numeric" placeholder="до" aria-label="Цена до"></div></div>
+    <div class="fg"><label class="tg"><input type="checkbox" id="inStock">Есть на складе в&nbsp;моём городе</label></div>
+    <div class="fg" id="fType"></div>
+    <div class="fg" id="fBrand"></div>
+    <div class="fg" id="fFin"></div>
+    <div class="fg" id="fCountry"></div>
+    <button class="reset" type="button" id="reset">Сбросить все фильтры</button>
+    <button class="btn fbtn" type="button" id="fShow" style="position:sticky;bottom:0;width:100%;margin-top:14px"></button>
+  </aside>
+  <section aria-labelledby="catH">
+    <div class="tb"><h2 id="catH">Каталог</h2><span class="n num" id="found"></span><button class="btn ln sm fbtn" type="button" id="fOpen">Фильтры</button><select id="sort" aria-label="Сортировка"><option value="pop">Сначала популярные</option><option value="cheap">Сначала дешевле</option><option value="exp">Сначала дороже</option><option value="stock">Больше на складе</option></select></div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <div class="more" id="more"></div>
+  </section>
+</div>
+
+<section class="partner">
+  <div class="wrap">
+    <img src="img/black-1400.webp" srcset="img/black-800.webp 800w, img/black-1400.webp 1400w" sizes="(max-width:920px) 92vw, 620px" width="1400" height="933" alt="Белая раковина с чёрными настенными смесителями" loading="lazy" decoding="async">
+    <div>
+      <h2>Монтажникам, дизайнерам и&nbsp;строителям</h2>
+      <ul><li>Партнёрские цены на&nbsp;12% ниже розницы на&nbsp;весь каталог</li><li>Личный кабинет: история заказов, счета и&nbsp;акты сверки</li><li>Бронь под объект до&nbsp;14 дней</li><li>Выгрузка каталога в&nbsp;Excel и&nbsp;YML для ваших смет</li></ul>
+      <button class="btn" type="button" id="pBtn2">Получить партнёрские цены</button>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="faq">
+    <h2>Вопросы</h2>
+    <details><summary>Насколько точны остатки?</summary><p>Остатки и цены приходят из 1С каждые 15 минут. Если товар закончился за это время, менеджер позвонит до оплаты и предложит замену.</p></details>
+    <details><summary>Можно ли заказать товар со склада в другом городе?</summary><p>Да. Перевезём между складами за 2–4 дня бесплатно, если заказ от 10 000 ₽.</p></details>
+    <details><summary>Как вернуть сантехнику?</summary><p>В течение 14 дней, если товар не устанавливали и сохранилась упаковка. Брак меняем по гарантии производителя.</p></details>
+    <details><summary>Работаете с юридическими лицами?</summary><p>Да, выставляем счёт с НДС. Для постоянных партнёров — отсрочка и закреплённый менеджер.</p></details>
+  </section>
+</div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row"><div><a class="logo" href="#" style="color:#fff;font-size:22px">Вода</a><p style="margin-top:10px">Сантехника со склада. Москва, Санкт-Петербург, Екатеринбург</p></div><p><a href="tel:+78000000000">8 800 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p></div>
+    <div class="legal"><span>ООО «Вода»</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<div class="cbar" id="cbar" hidden><span id="cbT"></span><button class="btn sm" type="button" id="cbGo">Сравнить</button><button class="l" type="button" id="cbClr">Очистить</button></div>
+<dialog id="cmp" aria-labelledby="cmpT"><div class="dh"><h2 id="cmpT">Сравнение</h2><button class="x" type="button" data-close aria-label="Закрыть">×</button></div><div class="dbd"><label class="tg" style="margin-bottom:12px"><input type="checkbox" id="onlyDiff">Только различия</label><div class="ctab" id="cmpIn"></div></div></dialog>
+<dialog id="partner" aria-labelledby="ptT" style="width:min(480px,calc(100vw - 24px))"><div class="dh"><h2 id="ptT">Цены для партнёров</h2><button class="x" type="button" data-close aria-label="Закрыть">×</button></div><div class="dbd" style="display:grid;gap:12px" id="pIn"></div></dialog>
+<dialog id="policy" aria-labelledby="poT" style="width:min(480px,calc(100vw - 24px))"><div class="dh"><h2 id="poT">Политика конфиденциальности</h2><button class="x" type="button" data-close aria-label="Закрыть">×</button></div><div class="dbd"><p>Имя, телефон, ИНН и адрес нужны, чтобы оформить заказ, выставить счёт и доставить товар. Мы не передаём их третьим лицам, кроме службы доставки.</p><p style="margin-top:10px">Удалить данные можно по запросу на hello@ysdprojects.space (152-ФЗ).</p></div></dialog>
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Корзина</h2><button class="x" type="button" id="dX" aria-label="Закрыть корзину">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function fmt(n){return n.toLocaleString('ru-RU').replace(/\s/g,' ')}
+function pl(n,a,b,c){var m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c}
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2200)}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+document.querySelectorAll('dialog [data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
+document.querySelectorAll('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
+var now=new Date(),syncT=new Date(now.getTime()-((now.getMinutes()%15)*60000));
+$('sync').textContent='Цены и остатки из 1С обновлены в '+String(syncT.getHours()).padStart(2,'0')+':'+String(syncT.getMinutes()).padStart(2,'0');
+
+/* данные каталога */
+var BR=[['Аквалина','Россия',1],['Ривьера','Италия',1.65],['Норден','Германия',1.45],['Гидра','Россия',.85],['Бельвиль','Чехия',1.2],['Оникс','Китай',.72]];
+var FIN={chrome:['хром','#D3DBDF','#6F7F87',1],black:['чёрный матовый','#2B2F33','#111417',1.15],bronze:['бронза','#B0814F','#6E4C2A',1.2],gold:['золото матовое','#D4B26A','#8A6B2A',1.25],white:['белый','#FFFFFF','#8FA0A7',1],steel:['сталь','#BCC7CC','#5E6E76',1]};
+var MOD=['Line','Arc','Quadro','Flow','Nova','Edge'];
+var CAT=[
+ ['mix','Смесители','faucet',[['Смеситель для раковины',3900],['Смеситель для кухни',5200],['Смеситель для ванны',6800],['Смеситель для душа',4600]],['chrome','black','bronze','gold'],[''],3],
+ ['show','Душевые системы','shower',[['Душевая система с тропическим душем',14900],['Душевая система скрытого монтажа',21900],['Душевая стойка',9900]],['chrome','black','bronze','gold'],[''],3],
+ ['wc','Унитазы','toilet',[['Унитаз напольный',9800],['Унитаз подвесной',14500],['Унитаз с инсталляцией',26900]],['white','black'],[''],4],
+ ['sink','Раковины','sink',[['Раковина накладная',6900],['Раковина встраиваемая',5400],['Раковина подвесная',7900],['Раковина с тумбой',18900]],['white','black'],['50 см','60 см','80 см'],1],
+ ['bath','Ванны','bath',[['Ванна акриловая',18900],['Ванна стальная',14900],['Ванна чугунная',39900]],['white'],['150 × 70','160 × 70','170 × 75','180 × 80'],2],
+ ['towel','Полотенце\u00ADсушители','towel',[['Полотенцесушитель водяной',6900],['Полотенцесушитель электрический',11900]],['chrome','black','white','bronze'],['50 × 60','50 × 80','60 × 100'],1],
+ ['heat','Водо\u00ADнагреватели','heater',[['Водонагреватель накопительный',13900],['Водонагреватель плоский',17900]],['white'],['30 л','50 л','80 л','100 л'],3],
+ ['pipe','Трубы и фитинги','pipe',[['Труба PPR, 4 м',390],['Муфта PPR',45],['Уголок PPR 90°',55],['Тройник PPR',75],['Кран шаровой',690]],['steel'],['20 мм','25 мм','32 мм'],1],
+ ['acc','Аксессуары','acc',[['Держатель для туалетной бумаги',1290],['Крючок двойной',690],['Мыльница настенная',990],['Полка стеклянная',2490],['Ёршик настенный',1790]],['chrome','black','bronze','gold'],[''],2]
+];
+var I=[];
+CAT.forEach(function(c){BR.forEach(function(b,bi){c[3].forEach(function(t,ti){c[4].forEach(function(f){c[5].forEach(function(sz,si){for(var m=0;m<c[6];m++){
+  var price=t[1]*b[2]*FIN[f][3]*(1+.16*si)*(1+.08*m),id=I.length;
+  price=price<200?Math.round(price/5)*5:Math.round(price/100)*100-10;
+  var model=c[0]==='pipe'?'':MOD[(m+bi+ti)%MOD.length];
+  var name=t[0]+' '+b[0]+(model?' '+model:'')+(sz?', '+sz:'')+(c[4].length>1?', '+FIN[f][0]:'');
+  var h=hash(name),st=[h%31,(h>>5)%19,(h>>10)%13].map(function(x,ci){return x<(ci?6:4)?0:x});
+  I.push({id:id,c:c[0],t:t[0],b:bi,co:b[1],m:model,f:f,sz:sz,p:price,n:name,st:st,pop:(h>>15)%1000,art:'ВД-'+String(10000+id*7%89999).padStart(5,'0'),low:name.toLowerCase().replace(/ё/g,'е')});
+}})})})})});
+$('total').textContent=fmt(I.length);
+
+/* рисунки */
+function ico(it){var f=FIN[it.f],fill=f[1],st=f[2],cer=it.f==='black'?'#2B2F33':'#FFFFFF',cs=it.f==='black'?'#111417':'#8FA0A7',k=CAT.filter(function(c){return c[0]===it.c})[0][2],g='';
+  if(k==='faucet'&&/кухни/.test(it.t||''))g='<rect x="22" y="62" width="30" height="7" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M32 62V24q0-14 14-14t14 14v8h-6v-8q0-8-8-8t-8 8v38z" fill="'+fill+'" stroke="'+st+'" stroke-width="2" stroke-linejoin="round"/><rect x="40" y="44" width="16" height="5" rx="2.5" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M57 36v8" stroke="#0FA3B1" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4"/>';
+  else if(k==='faucet'&&/ванны/.test(it.t||''))g='<rect x="8" y="30" width="10" height="14" rx="2" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><rect x="62" y="30" width="10" height="14" rx="2" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><rect x="16" y="32" width="48" height="10" rx="5" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M36 42v10h14" fill="none" stroke="'+st+'" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 42v10h14" fill="none" stroke="'+fill+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="26" r="5" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M50 56v10" stroke="#0FA3B1" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4"/>';
+  else if(k==='faucet'&&/душа/.test(it.t||''))g='<rect x="18" y="22" width="44" height="36" rx="8" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><circle cx="40" cy="40" r="10" fill="none" stroke="'+st+'" stroke-width="3"/><path d="M40 40l7-7" stroke="'+st+'" stroke-width="4" stroke-linecap="round"/><path d="M40 58v10" stroke="'+st+'" stroke-width="6" stroke-linecap="round"/>';
+  else if(k==='faucet')g='<rect x="22" y="58" width="36" height="8" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M34 58V30q0-14 14-14h12v8H48q-6 0-6 6v28z" fill="'+fill+'" stroke="'+st+'" stroke-width="2" stroke-linejoin="round"/><rect x="28" y="22" width="18" height="6" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M57 28v8" stroke="#0FA3B1" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4"/>';
+  else if(k==='shower')g='<path d="M30 74V14h20" fill="none" stroke="'+st+'" stroke-width="7" stroke-linecap="round"/><path d="M30 74V14h20" fill="none" stroke="'+fill+'" stroke-width="4" stroke-linecap="round"/><rect x="38" y="16" width="32" height="6" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M44 28v6M52 28v8M60 28v6" stroke="#0FA3B1" stroke-width="2.4" stroke-linecap="round"/><rect x="24" y="44" width="12" height="10" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/>';
+  else if(k==='toilet')g='<path d="M22 20h22v22H22z" fill="'+cer+'" stroke="'+cs+'" stroke-width="2"/><path d="M18 42h44q0 16-16 18v12H30V60q-12-4-12-18z" fill="'+cer+'" stroke="'+cs+'" stroke-width="2" stroke-linejoin="round"/><path d="M26 42q14 6 32 0" fill="none" stroke="'+cs+'" stroke-width="1.6"/>';
+  else if(k==='sink')g='<path d="M12 36h56q-2 22-28 22T12 36z" fill="'+cer+'" stroke="'+cs+'" stroke-width="2" stroke-linejoin="round"/><ellipse cx="40" cy="36" rx="28" ry="5" fill="'+cer+'" stroke="'+cs+'" stroke-width="2"/><path d="M40 14v14" stroke="#6F7F87" stroke-width="4" stroke-linecap="round"/><path d="M40 14h8" stroke="#6F7F87" stroke-width="4" stroke-linecap="round"/>';
+  else if(k==='bath')g='<path d="M8 34h64v8q0 18-20 18H28Q8 60 8 42z" fill="'+cer+'" stroke="'+cs+'" stroke-width="2" stroke-linejoin="round"/><path d="M22 60l-2 8M58 60l2 8" stroke="'+cs+'" stroke-width="3" stroke-linecap="round"/><path d="M16 34V20q0-6 6-6h4" fill="none" stroke="#6F7F87" stroke-width="3" stroke-linecap="round"/><path d="M14 40h52" stroke="#0FA3B1" stroke-width="2" opacity=".6"/>';
+  else if(k==='towel'){g='<path d="M24 10v62M56 10v62" stroke="'+st+'" stroke-width="7" stroke-linecap="round"/><path d="M24 10v62M56 10v62" stroke="'+fill+'" stroke-width="4" stroke-linecap="round"/>';for(var y=18;y<70;y+=10)g+='<path d="M24 '+y+'h32" stroke="'+st+'" stroke-width="5" stroke-linecap="round"/><path d="M24 '+y+'h32" stroke="'+fill+'" stroke-width="2.4" stroke-linecap="round"/>'}
+  else if(k==='heater')g='<rect x="22" y="8" width="36" height="62" rx="16" fill="#FFFFFF" stroke="#8FA0A7" stroke-width="2"/><circle cx="40" cy="30" r="7" fill="none" stroke="#0FA3B1" stroke-width="2.4"/><path d="M40 30l4-3" stroke="#0FA3B1" stroke-width="2"/><path d="M32 70v6M48 70v6" stroke="#6F7F87" stroke-width="3" stroke-linecap="round"/>';
+  else if(k==='pipe')g='<rect x="6" y="32" width="40" height="14" rx="2" fill="#EEF2F3" stroke="#8FA0A7" stroke-width="2"/><path d="M46 28h12v22H46z" fill="#BCC7CC" stroke="#5E6E76" stroke-width="2"/><path d="M58 32h16v14H58z" fill="#EEF2F3" stroke="#8FA0A7" stroke-width="2"/><path d="M52 28V14h-4" fill="none" stroke="#B3261E" stroke-width="4" stroke-linecap="round"/>';
+  else g='<rect x="18" y="20" width="10" height="24" rx="3" fill="'+fill+'" stroke="'+st+'" stroke-width="2"/><path d="M28 32h28" stroke="'+st+'" stroke-width="6" stroke-linecap="round"/><path d="M28 32h28" stroke="'+fill+'" stroke-width="3" stroke-linecap="round"/><rect x="34" y="38" width="20" height="30" rx="8" fill="#FFFFFF" stroke="#8FA0A7" stroke-width="2"/>';
+  return '<svg viewBox="0 0 80 80" aria-hidden="true">'+g+'</svg>'}
+function catIco(c){return ico({c:c[0],f:c[4][0]})}
+
+/* фильтры */
+var F={c:'',t:{},b:{},f:{},co:{},min:0,max:0,stock:false,q:''},city=0,sort='pop',page=1,partner=false,cmp=[],cart={};
+var CN=['Москве','Петербурге','Екатеринбурге'];
+function ok(it,skip){
+  if(F.c&&it.c!==F.c)return false;
+  if(skip!=='t'&&Object.keys(F.t).length&&!F.t[it.t])return false;
+  if(skip!=='b'&&Object.keys(F.b).length&&!F.b[it.b])return false;
+  if(skip!=='f'&&Object.keys(F.f).length&&!F.f[it.f])return false;
+  if(skip!=='co'&&Object.keys(F.co).length&&!F.co[it.co])return false;
+  var p=price(it);if(F.min&&p<F.min)return false;if(F.max&&p>F.max)return false;
+  if(F.stock&&!it.st[city])return false;
+  if(F.q){var ws=F.q.split(/\s+/);for(var i=0;i<ws.length;i++){if(it.low.indexOf(ws[i])<0&&it.art.toLowerCase().indexOf(ws[i])<0)return false}}
+  return true}
+function price(it){return partner?Math.round(it.p*.88/10)*10:it.p}
+function facet(el,title,key,vals,label,swatch){
+  var counts={};I.forEach(function(it){if(ok(it,key)){var v=key==='t'?it.t:key==='b'?it.b:key==='f'?it.f:it.co;counts[v]=(counts[v]||0)+1}});
+  var list=vals.filter(function(v){return counts[v]||F[key][v]});
+  if(!list.length||(key==='t'&&!F.c)){el.innerHTML='';el.hidden=true;return}el.hidden=false;
+  if(swatch){el.innerHTML='<h3>'+title+'</h3><div class="sw">'+list.map(function(v){return '<button type="button" data-k="'+key+'" data-v="'+v+'" aria-pressed="'+!!F[key][v]+'" title="'+FIN[v][0]+' ('+(counts[v]||0)+')" aria-label="'+FIN[v][0]+', '+(counts[v]||0)+'" style="background:'+FIN[v][1]+';border-color:'+FIN[v][2]+'"'+(counts[v]||F[key][v]?'':' disabled')+'></button>'}).join('')+'</div>';}
+  else el.innerHTML='<h3>'+title+'</h3>'+list.map(function(v){var n=counts[v]||0;return '<label class="ck'+(n?'':' dis')+'"><input type="checkbox" data-k="'+key+'" data-v="'+v+'"'+(F[key][v]?' checked':'')+'>'+esc(label(v))+'<span class="num">'+fmt(n)+'</span></label>'}).join('');
+  el.querySelectorAll('[data-k]').forEach(function(x){x.addEventListener(swatch?'click':'change',function(){var v=x.dataset.v;if(F[key][v])delete F[key][v];else F[key][v]=1;page=1;draw()})});
+}
+function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
+function draw(){
+  var cc=CAT.filter(function(c){return c[0]===F.c})[0];
+  facet($('fType'),'Тип','t',cc?cc[3].map(function(t){return t[0]}):[],function(v){return v});
+  facet($('fBrand'),'Бренд','b',BR.map(function(_,i){return i}),function(v){return BR[v][0]});
+  facet($('fFin'),'Цвет и покрытие','f',Object.keys(FIN),null,true);
+  facet($('fCountry'),'Страна','co',uniq(BR.map(function(b){return b[1]})),function(v){return v});
+  var a=I.filter(function(it){return ok(it)});
+  a.sort(sort==='cheap'?function(x,y){return x.p-y.p}:sort==='exp'?function(x,y){return y.p-x.p}:sort==='stock'?function(x,y){return y.st[city]-x.st[city]}:function(x,y){return (y.st[city]>0)-(x.st[city]>0)||y.pop-x.pop});
+  $('catH').textContent=cc?cc[1]:'Каталог';$('fShow').textContent='Показать '+fmt(a.length)+' '+pl(a.length,'товар','товара','товаров');$('found').textContent=fmt(a.length)+' '+pl(a.length,'товар','товара','товаров');
+  var chips=[];if(F.q)chips.push(['q','','«'+F.q+'»']);['t','b','f','co'].forEach(function(k){Object.keys(F[k]).forEach(function(v){chips.push([k,v,k==='b'?BR[v][0]:k==='f'?FIN[v][0]:v])})});
+  if(F.min||F.max)chips.push(['p','',(F.min?'от '+fmt(F.min):'')+(F.max?' до '+fmt(F.max):'')+' ₽']);if(F.stock)chips.push(['s','','в наличии в '+CN[city]]);
+  $('chips').innerHTML=chips.map(function(c){return '<button type="button" data-k="'+c[0]+'" data-v="'+c[1]+'" aria-label="Убрать фильтр '+esc(c[2])+'">'+esc(c[2])+' ×</button>'}).join('');
+  if(chips.length>1)$('chips').insertAdjacentHTML('beforeend','<button type="button" data-k="all" style="background:none;color:var(--ink);text-decoration:underline">Сбросить всё</button>');
+  $('chips').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(k==='all'){$('reset').click();return}if(k==='q'){F.q='';$('q').value=''}else if(k==='p'){F.min=F.max=0;$('pMin').value=$('pMax').value=''}else if(k==='s'){F.stock=false;$('inStock').checked=false}else delete F[k][b.dataset.v];page=1;draw()})});
+  var show=a.slice(0,page*24);
+  $('grid').innerHTML=show.length?show.map(card).join(''):'<div class="empty">Под эти фильтры ничего не нашлось. Уберите один из фильтров выше или напишите нам: найдём под заказ.</div>';
+  $('grid').querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){add(+b.dataset.add)})});
+  $('grid').querySelectorAll('[data-cmp]').forEach(function(c){c.addEventListener('change',function(){toggleCmp(+c.dataset.cmp,c)})});
+  $('more').innerHTML=a.length?'<span class="num">Показано '+fmt(show.length)+' из '+fmt(a.length)+'</span>'+(show.length<a.length?'<button class="btn dk" type="button" id="mGo">Показать ещё '+Math.min(24,a.length-show.length)+'</button>':''):'';
+  var m=$('mGo');if(m)m.addEventListener('click',function(){page++;draw()});
+  $('cats').querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.c===F.c)});
+}
+function card(it){var p=price(it),s=it.st[city],other=it.st.map(function(n,i){return i!==city&&n?CN[i].replace('Москве','Москва').replace('Петербурге','Петербург').replace('Екатеринбурге','Екатеринбург')+' '+n:''}).filter(Boolean).join(', ');
+  return '<article class="card"><div class="ic">'+ico(it)+'</div><label class="cmp"><input type="checkbox" data-cmp="'+it.id+'"'+(cmp.indexOf(it.id)>=0?' checked':'')+'>Сравнить</label><span class="art">'+it.art+'</span><h3>'+esc(it.n)+'</h3><p class="pr num">'+rub(p)+(partner?'<s>'+rub(it.p)+'</s>':'')+'</p><p class="stk'+(s?'':' no')+'">'+(s?'В '+CN[city]+': '+s+' шт':'Под заказ, 2–4 дня')+(other?'<small>'+other+'</small>':'')+'</p><button class="btn sm" type="button" data-add="'+it.id+'">В корзину</button></article>'}
+
+/* разделы, поиск, сортировка */
+$('cats').innerHTML=CAT.map(function(c){var n=I.filter(function(it){return it.c===c[0]}).length;return '<button type="button" data-c="'+c[0]+'" aria-pressed="false">'+catIco(c)+c[1]+'<span class="num">'+fmt(n)+'</span></button>'}).join('');
+$('cats').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){F.c=F.c===b.dataset.c?'':b.dataset.c;F.t={};page=1;draw();$('catalog').scrollIntoView({block:'start'})})});
+var sugT;
+$('q').addEventListener('input',function(){var v=this.value.trim().toLowerCase().replace(/ё/g,'е');clearTimeout(sugT);sugT=setTimeout(function(){sug(v)},80)});
+$('q').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();applyQ(this.value)}else if(e.key==='Escape'){$('sug').hidden=true}else if(e.key==='ArrowDown'){var f=$('sug').querySelector('button');if(f){e.preventDefault();f.focus()}}});
+document.addEventListener('click',function(e){if(!e.target.closest('.search'))$('sug').hidden=true});
+function sug(v){if(v.length<2){$('sug').hidden=true;return}var ws=v.split(/\s+/),m=I.filter(function(it){return ws.every(function(w){return it.low.indexOf(w)>=0||it.art.toLowerCase().indexOf(w)>=0})});
+  if(!m.length){$('sug').innerHTML='<button type="button" disabled>Ничего не нашли. Проверьте написание или артикул</button>';$('sug').hidden=false;return}
+  $('sug').innerHTML=m.slice(0,6).map(function(it){return '<button type="button" data-id="'+it.id+'">'+esc(it.n)+'<span class="num">'+rub(price(it))+'</span></button>'}).join('')+'<button type="button" class="all" data-all>Все результаты: '+fmt(m.length)+'</button>';$('sug').hidden=false;
+  $('sug').querySelectorAll('button').forEach(function(b,i,arr){b.addEventListener('keydown',function(e){if(e.key==='ArrowDown'&&arr[i+1]){e.preventDefault();arr[i+1].focus()}if(e.key==='ArrowUp'){e.preventDefault();(arr[i-1]||$('q')).focus()}});
+    b.addEventListener('click',function(){if(b.dataset.all!==undefined)applyQ($('q').value);else{var it=I[+b.dataset.id];applyQ(it.art)}})});}
+function applyQ(v){F.q=v.trim().toLowerCase().replace(/ё/g,'е');F.c='';page=1;$('sug').hidden=true;draw();$('catalog').scrollIntoView({block:'start'})}
+$('sort').addEventListener('change',function(){sort=this.value;draw()});
+$('city').addEventListener('change',function(){city=+this.value;draw();toast('Наличие показываем по складу в '+CN[city])});
+$('inStock').addEventListener('change',function(){F.stock=this.checked;page=1;draw()});
+function pr(){F.min=parseInt($('pMin').value.replace(/\D/g,''),10)||0;F.max=parseInt($('pMax').value.replace(/\D/g,''),10)||0;page=1;draw()}
+$('pMin').addEventListener('change',pr);$('pMax').addEventListener('change',pr);
+$('reset').addEventListener('click',function(){F={c:'',t:{},b:{},f:{},co:{},min:0,max:0,stock:false,q:''};$('q').value=$('pMin').value=$('pMax').value='';$('inStock').checked=false;page=1;draw()});
+$('fOpen').addEventListener('click',function(){$('side').classList.add('open');$('sideX').focus()});$('sideX').addEventListener('click',function(){$('side').classList.remove('open');$('fOpen').focus()});$('fShow').addEventListener('click',function(){$('side').classList.remove('open');$('catalog').scrollIntoView({block:'start'})});
+
+/* сравнение */
+function toggleCmp(id,el){var i=cmp.indexOf(id);if(i>=0)cmp.splice(i,1);else{if(cmp.length>=4){el.checked=false;toast('Сравнить можно до 4 товаров');return}if(cmp.length&&I[cmp[0]].c!==I[id].c){el.checked=false;toast('Сравниваем товары из одного раздела');return}cmp.push(id)}cbar()}
+function cbar(){$('cmc').hidden=!cmp.length;$('cmc').textContent=cmp.length;$('cbar').hidden=!cmp.length;$('cbT').textContent='В сравнении '+cmp.length+' из 4'}
+$('cbClr').addEventListener('click',function(){cmp=[];cbar();draw()});
+$('cbGo').addEventListener('click',openCmp);$('cmpBtn').addEventListener('click',openCmp);$('onlyDiff').addEventListener('change',renderCmp);
+function openCmp(){if(!cmp.length){toast('Отметьте «Сравнить» на карточках');return}renderCmp();$('cmp').showModal()}
+function renderCmp(){var its=cmp.map(function(i){return I[i]}),rows=[['','',function(it){return ico(it)}],['Название','',function(it){return '<b>'+esc(it.n)+'</b>'}],['Цена','p',function(it){return rub(price(it))}],['Бренд','b',function(it){return BR[it.b][0]}],['Страна','co',function(it){return it.co}],['Тип','t',function(it){return it.t}],['Покрытие','f',function(it){return FIN[it.f][0]}],['Размер','sz',function(it){return it.sz||'—'}],['Наличие в '+CN[city],'st',function(it){return it.st[city]?it.st[city]+' шт':'под заказ'}],['','',function(it){return '<button class="btn sm" type="button" data-add="'+it.id+'">В корзину</button>'}]];
+  var od=$('onlyDiff').checked;
+  $('cmpIn').innerHTML='<table><tbody>'+rows.map(function(r){var vals=its.map(r[2]),diff=r[1]&&vals.some(function(v){return v!==vals[0]});if(od&&r[1]&&!diff)return '';return '<tr'+(diff?' class="df"':'')+'><th>'+r[0]+'</th>'+vals.map(function(v){return '<td>'+v+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+  $('cmpIn').querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){add(+b.dataset.add)})});}
+
+/* партнёры */
+function openP(){
+  if(partner){partner=false;$('pBtn').classList.remove('on');$('pBtn').textContent='Цены для монтажников и дизайнеров';draw();toast('Показываем розничные цены');return}
+  $('pIn').innerHTML='<p>Партнёрские цены ниже розницы на 12%. Оставьте ИНН: проверим компанию и откроем кабинет.</p><div class="f"><label for="pI">ИНН компании или ИП</label><input id="pI" inputmode="numeric" maxlength="12"></div><div class="f"><label for="pP">Телефон</label><input id="pP" type="tel" inputmode="tel" autocomplete="tel"></div><label class="agree"><input type="checkbox" id="pC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" data-pol2>политике</button></span></label><button class="btn" type="button" id="pGo">Отправить заявку</button><p class="err" id="pE" role="alert"></p>';
+  $('pIn').querySelector('[data-pol2]').addEventListener('click',function(){$('policy').showModal()});
+  $('pGo').addEventListener('click',function(){var e=$('pE'),inn=$('pI').value.replace(/\D/g,'');e.textContent='';
+    if(inn.length!==10&&inn.length!==12){e.textContent='ИНН — 10 цифр для компании или 12 для ИП.';$('pI').focus();return}
+    if($('pP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон.';$('pP').focus();return}
+    if(!$('pC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    partner=true;$('pBtn').classList.add('on');$('pBtn').textContent='Партнёрские цены, −12%';draw();
+    $('pIn').innerHTML='<div class="ok"><b>Заявка отправлена</b>Менеджер проверит ИНН и пришлёт доступ в кабинет в течение часа. Чтобы вы увидели разницу, мы уже показываем партнёрские цены.</div>';
+  });
+  $('partner').showModal();
+}
+$('pBtn').addEventListener('click',openP);$('pBtn2').addEventListener('click',function(){if(partner){toast('Партнёрские цены уже включены');return}openP()});
+
+/* корзина */
+function add(id){cart[id]=(cart[id]||0)+1;cnt();toast('Добавлено: '+I[id].n)}
+function cnt(){var n=0;for(var k in cart)n+=cart[k];$('cc').hidden=!n;$('cc').textContent=n}
+function openD(){$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;$('cartBtn').focus()}
+$('cartBtn').addEventListener('click',openD);$('dX').addEventListener('click',closeD);
+$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!$('drawer').hidden)closeD();$('side').classList.remove('open')}});
+var dlv='pick';
+function render(){
+  var ks=Object.keys(cart);
+  if(!ks.length){$('dB').innerHTML='<p>Корзина пуста. Начните с раздела выше или найдите товар по артикулу в поиске.</p>';$('dF').innerHTML='';return}
+  var s=0,short=[];
+  $('dB').innerHTML=ks.map(function(k){var it=I[k],q=cart[k],p=price(it);s+=p*q;if(it.st[city]<q)short.push(it);return '<div class="li"><div class="ic">'+ico(it)+'</div><div><b>'+esc(it.n)+'</b><span class="m">'+it.art+', '+(it.st[city]>=q?'есть в '+CN[city]:'под заказ, 2–4 дня')+'</span></div><div style="display:grid;gap:6px;justify-items:end"><span class="num" style="font-weight:700;color:var(--ink)">'+rub(p*q)+'</span><span class="qty"><button type="button" data-k="'+k+'" data-d="-1" aria-label="Меньше">−</button><span class="num">'+q+'</span><button type="button" data-k="'+k+'" data-d="1" aria-label="Больше">+</button></span></div></div>'}).join('');
+  var ship=dlv==='del'?(s>=15000?0:690):0;
+  $('dF').innerHTML='<div class="tot num"><span>Итого'+(partner?', цены партнёра':'')+'</span><span>'+rub(s+ship)+'</span></div>'+(short.length?'<p style="font-size:14px;color:var(--warn)">'+short.length+' '+pl(short.length,'позицию','позиции','позиций')+' привезём с другого склада за 2–4 дня</p>':'')+
+   '<div class="dl" role="radiogroup" aria-label="Получение"><label><input type="radio" name="dl" value="pick"'+(dlv==='pick'?' checked':'')+'><span>Самовывоз со склада в '+CN[city]+'<small>бесплатно, через 2 часа после подтверждения</small></span></label><label><input type="radio" name="dl" value="del"'+(dlv==='del'?' checked':'')+'><span>Доставка до двери<small>бесплатно от 15 000 ₽, иначе 690 ₽</small></span></label></div>'+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oP">Телефон</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div>'+(dlv==='del'?'<div class="f"><label for="oA">Адрес</label><input id="oA" autocomplete="street-address"></div>':'')+
+   '<label class="agree"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Оформить заказ</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-d]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k,q=cart[k]+(+b.dataset.d);if(q>0)cart[k]=Math.min(99,q);else delete cart[k];cnt();render()})});
+  $('dF').querySelectorAll('input[name=dl]').forEach(function(r){r.addEventListener('change',function(){dlv=r.value;render()})});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя.';$('oN').focus();return}
+    if($('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон: позвоним подтвердить заказ.';$('oP').focus();return}
+    if(dlv==='del'&&!$('oA').value.trim()){e.textContent='Укажите адрес доставки.';$('oA').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var no='В-'+(52000+Math.floor(Math.random()*900));cart={};cnt();
+    $('dB').innerHTML='<div class="ok"><b>Заказ '+no+' оформлен</b>Он уже в 1С: склад начал сборку. Позвоним в течение 15 минут, чтобы подтвердить '+(dlv==='del'?'время доставки':'время самовывоза')+'.</div>';$('dF').innerHTML='';
+  });
+}
+
+draw();
+})();
+</script>
+</body>
+</html>
