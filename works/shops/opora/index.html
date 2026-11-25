@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Опора — ортопедические подушки и матрасы с подбором по позе сна и 100 ночами на пробу</title>
+<meta name="description" content="Подберём высоту подушки по ширине плеч и жёсткость матраса по весу и позе сна. 100 ночей на пробу, бесплатная доставка, оплата частями.">
+<meta name="theme-color" content="#19203A">
+<link rel="preload" href="fonts/spectral-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/arsenal-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Spectral';font-weight:500;font-display:swap;src:url(fonts/spectral-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Spectral';font-weight:500;font-display:swap;src:url(fonts/spectral-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Spectral';font-weight:500;font-display:swap;src:url(fonts/spectral-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Arsenal';font-weight:400;font-display:swap;src:url(fonts/arsenal-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Arsenal';font-weight:400;font-display:swap;src:url(fonts/arsenal-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Arsenal';font-weight:400;font-display:swap;src:url(fonts/arsenal-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Arsenal';font-weight:700;font-display:swap;src:url(fonts/arsenal-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Arsenal';font-weight:700;font-display:swap;src:url(fonts/arsenal-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Arsenal';font-weight:700;font-display:swap;src:url(fonts/arsenal-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#F6F7F9;--w:#FFFFFF;--ink:#19203A;--text:#3A4158;--mute:#636A80;--am:#E8962E;--amd:#C87A16;--aml:#FCEBD3;--sky:#E4E9F4;--ok:#2E8B57;--line:#DDE1EA;--d:'Spectral',Georgia,serif;--t:'Arsenal',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 18px/1.6 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--d);font-weight:500;color:var(--ink);margin:0;letter-spacing:-.01em}
+h3{font-size:22px;line-height:1.2}
+p{margin:0}
+a{color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--am);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1220px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border:0;border-radius:26px;background:var(--ink);color:#fff;font:700 17px/1.2 var(--t);cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:#2A3358}
+.btn.am{background:var(--am);color:var(--ink)}
+.btn.am:hover{background:#F2A542}
+.btn.ln{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ln:hover{background:#fff}
+.btn.sm{min-height:44px;padding:0 18px;font-size:16px}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:30;background:rgba(246,247,249,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:30px;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font:500 28px/1 var(--d);color:var(--ink);text-decoration:none}
+.logo svg{width:34px;height:20px}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:17px}
+.nav a:hover{color:var(--amd)}
+.cartb{min-height:44px;padding:0 18px;border-radius:22px;border:0;background:var(--ink);color:#fff;font-weight:700;font-size:16px;cursor:pointer}
+.cartb span{display:inline-block;min-width:22px;height:22px;line-height:22px;border-radius:11px;background:var(--am);color:var(--ink);margin-left:6px;font-size:14px}
+
+/* первый экран */
+.hero{padding:48px 0 72px}
+.hg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5.2vw,72px);line-height:1.02}
+.lead{font-size:20px;margin-top:22px;max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;font-size:16px;color:var(--mute)}
+.facts b{color:var(--ink)}
+.hf{margin:0;position:relative}
+.hf img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 24px 24px}
+.hf figcaption{position:absolute;left:-28px;bottom:36px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 18px 40px rgba(25,32,58,.16);max-width:250px;font-size:16px;line-height:1.4}
+.hf figcaption b{display:block;font:500 30px/1.1 var(--d);color:var(--ink)}
+
+/* подбор */
+.sec{padding:96px 0}
+.sh{margin-bottom:30px}
+.sh h2{font-size:clamp(34px,3.8vw,54px);line-height:1.06}
+.sh p{margin-top:12px;max-width:38em}
+.quiz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.qs{display:grid;gap:16px}
+.q{background:#fff;border-radius:20px;padding:22px 24px}
+.q h3{font-family:var(--t);font-weight:700;font-size:18px;margin-bottom:12px;letter-spacing:0}
+.q h3 span{color:var(--amd);margin-right:6px}
+.poses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.poses button{border:2px solid var(--line);background:#fff;border-radius:14px;padding:10px 6px 8px;cursor:pointer;font-size:15px;color:var(--ink);display:grid;gap:4px;justify-items:center}
+.poses button svg{width:64px;height:36px}
+.poses button[aria-pressed=true]{border-color:var(--ink);background:var(--sky)}
+.rng{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.rng b{font:500 28px/1 var(--d);color:var(--ink)}
+.rng small{font-size:15px;color:var(--mute)}
+input[type=range]{width:100%;accent-color:var(--ink);height:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:42px;padding:0 14px;border-radius:21px;border:2px solid var(--line);background:#fff;cursor:pointer;font-size:16px;color:var(--ink)}
+.chips button[aria-pressed=true]{border-color:var(--am);background:var(--aml)}
+.res{position:sticky;top:92px;background:var(--ink);color:#D5DAEA;border-radius:24px;padding:26px}
+.res h3{color:#fff;font-size:26px}
+.neck{background:#232B4A;border-radius:16px;margin:16px 0 12px;padding:10px}
+.neck svg{width:100%;height:auto;display:block}
+.st{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:16px;flex-wrap:wrap}
+.st b{color:#fff}
+.st .tag{padding:4px 12px;border-radius:14px;font-weight:700;font-size:15px}
+.tag.ok{background:#CBEBD8;color:#14532D}
+.tag.no{background:var(--aml);color:#7A4A00}
+.try{margin:10px 0 18px}
+.try label{display:block;font-size:15px;color:#AEB6D0;margin-bottom:2px}
+.try input{accent-color:var(--am)}
+.pick{display:grid;gap:10px}
+.pk{background:#fff;color:var(--text);border-radius:16px;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.pk b{color:var(--ink);font-size:18px}
+.pk span{font-size:15px;color:var(--mute)}
+.pk .p{font-weight:700;color:var(--ink);white-space:nowrap}
+.why{margin:14px 0 0;padding-left:20px;font-size:16px}
+.why li{margin:4px 0}
+.res .btn{width:100%;margin-top:16px}
+
+/* каталог */
+.tabs{display:inline-flex;background:#fff;border-radius:26px;padding:4px;margin-bottom:24px}
+.tabs button{min-height:44px;padding:0 22px;border-radius:22px;border:0;background:none;cursor:pointer;font-weight:700;font-size:16px;color:var(--mute)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:#fff;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.card .vis{background:var(--sky);border-radius:16px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.card .vis svg{width:78%;height:auto}
+.card .ds{font-size:16px}
+.card .fm{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--mute)}
+.card .fm i{display:flex;gap:3px}
+.card .fm i b{width:16px;height:6px;border-radius:3px;background:var(--line)}
+.card .fm i b.on{background:var(--ink)}
+.card select{height:44px;border:2px solid var(--line);border-radius:22px;padding:0 14px;background:#fff;font-size:16px;color:var(--ink)}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:8px}
+.card .pr{font:500 26px/1.1 var(--d);color:var(--ink)}
+
+/* 100 ночей */
+.trial{position:relative;border-radius:28px;overflow:hidden;background:var(--am)}
+.trial img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.trial .tb{position:absolute;right:28px;top:50%;transform:translateY(-50%);background:#fff;border-radius:22px;padding:28px;max-width:420px}
+.trial h2{font-size:clamp(30px,3vw,44px);line-height:1.06}
+.trial ol{margin:14px 0 0;padding-left:22px;font-size:17px}
+.trial li{margin:6px 0}
+.dlv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.dlv img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:24px}
+.dlv ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+.dlv li{padding-left:30px;position:relative}
+.dlv li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:var(--am)}
+.dlv li b{color:var(--ink)}
+.faq{max-width:860px}
+.faq details{background:#fff;border-radius:18px;margin-bottom:10px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 24px;position:relative;font:500 21px/1.3 var(--d);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:24px;top:28px;width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+.faq details[open] summary::after{transform:rotate(-135deg);top:32px}
+.faq details p{padding:0 24px 22px;max-width:46em}
+
+/* корзина */
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(25,32,58,.5)}
+.dp{width:min(440px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:#fff}
+.dh h2{font-size:28px}
+.x{width:44px;height:44px;border:0;border-radius:22px;background:var(--bg);color:var(--ink);font-size:24px;cursor:pointer}
+.db{flex:1;overflow:auto;padding:14px 20px}
+.li{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:10px}
+.li b{display:block;color:var(--ink)}
+.li .m{font-size:15px;color:var(--mute)}
+.li .r{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.lnk{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer;font-size:15px}
+.df{padding:16px 20px;background:#fff;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:700;color:var(--ink);font-size:20px}
+.f{display:grid;gap:5px}
+.f label{font-size:15px;font-weight:700;color:var(--ink)}
+.f input{height:48px;border:2px solid var(--line);border-radius:14px;padding:0 14px;font-size:16px;color:var(--ink);background:var(--bg)}
+.f input:focus{border-color:var(--ink);background:#fff;outline:none}
+.pay{display:grid;gap:6px}
+.pay label,.agree{display:flex;gap:10px;align-items:flex-start;font-size:16px;cursor:pointer}
+.pay input,.agree input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--ink)}
+.agree{font-size:15px;line-height:1.45}
+.err{color:#B3261E;font-size:15px}
+.ok{background:#E6F4EC;border-radius:16px;padding:16px;color:#14532D}
+.ok b{display:block;font-size:20px;margin-bottom:4px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;border-radius:22px;padding:12px 20px;font-size:16px;max-width:calc(100vw - 32px)}
+dialog{border:0;border-radius:20px;padding:26px;width:min(480px,calc(100vw - 24px));color:var(--text)}
+dialog::backdrop{background:rgba(25,32,58,.5)}
+dialog p{margin:10px 0;font-size:16px}
+
+.foot{border-top:1px solid var(--line);padding:46px 0 34px;font-size:15px;color:var(--mute)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.legal button{border:0;background:none;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:15px}
+
+@media (max-width:1080px){
+  .nav{display:none}
+  .cartb{margin-left:auto}
+  .hg,.quiz,.dlv{grid-template-columns:1fr}
+  .hf{max-width:440px;margin:0 auto}
+  .res{position:static}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trial .tb{position:static;transform:none;max-width:none;border-radius:0}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px}
+  .hero{padding:26px 0 56px}
+  .lead{font-size:18px}
+  .hf figcaption{left:12px;bottom:12px}
+  .sec{padding:64px 0}
+  .q{padding:18px 16px}
+  .poses{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .res{padding:20px 16px;border-radius:20px}
+  .grid{grid-template-columns:1fr}
+  .trial{border-radius:20px}
+  .trial .tb{padding:20px 16px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#"><svg viewBox="0 0 34 20" aria-hidden="true"><path d="M2 14q7-12 15-4t15-4" fill="none" stroke="#19203A" stroke-width="2.6" stroke-linecap="round"/><path d="M2 18h30" stroke="#E8962E" stroke-width="2.6" stroke-linecap="round"/></svg>Опора</a>
+    <nav class="nav" aria-label="Разделы"><a href="#quiz">Подбор</a><a href="#catalog">Подушки и матрасы</a><a href="#trial">100 ночей</a><a href="#faq">Вопросы</a></nav>
+    <button class="cartb" type="button" id="cartBtn">Корзина<span class="num" id="cc">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hg">
+    <div>
+      <h1>Подушка по&nbsp;ширине ваших плеч, а&nbsp;не&nbsp;на&nbsp;глаз</h1>
+      <p class="lead">Ответьте на&nbsp;четыре вопроса: подберём высоту подушки и&nbsp;жёсткость матраса под позу сна и&nbsp;вес. Спите 100 ночей, и&nbsp;если не&nbsp;подойдёт, вернём деньги.</p>
+      <div class="cta"><a class="btn am" href="#quiz">Подобрать за&nbsp;минуту</a><a class="btn ln" href="#catalog">Каталог</a></div>
+      <p class="facts"><span><b>100 ночей</b> на&nbsp;пробу</span><span><b>Доставка</b> бесплатно по&nbsp;России</span><span><b>Чехлы</b> стираются при 40&nbsp;°C</span></p>
+    </div>
+    <figure class="hf"><img src="img/hero-1000.webp" srcset="img/hero-600.webp 600w, img/hero-1000.webp 1000w, img/hero-1400.webp 1400w" sizes="(max-width:1080px) 440px, 480px" width="1000" height="1250" alt="Женщина спит на боку на белой подушке под синим одеялом" fetchpriority="high"><figcaption><b>12&nbsp;см</b>столько нужно при сне на&nbsp;боку и&nbsp;ширине плеч 44&nbsp;см</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" id="quiz" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sh"><h2>Подбор за&nbsp;четыре вопроса</h2><p>Результат меняется сразу. На&nbsp;схеме видно, ляжет&nbsp;ли шея ровно на&nbsp;рекомендованной подушке.</p></div>
+    <div class="quiz">
+      <div class="qs">
+        <div class="q"><h3><span>1</span>Как вы&nbsp;обычно засыпаете?</h3><div class="poses" id="poses" role="group" aria-label="Поза сна"></div></div>
+        <div class="q"><h3><span>2</span>Ширина плеч</h3><div class="rng"><b class="num" id="shV"></b><small>от края до края плеча</small></div><input type="range" id="sh" min="36" max="54" value="44" aria-label="Ширина плеч, см"></div>
+        <div class="q"><h3><span>3</span>Ваш вес</h3><div class="rng"><b class="num" id="wV"></b><small>для жёсткости матраса</small></div><input type="range" id="wt" min="40" max="140" value="72" aria-label="Вес, кг"></div>
+        <div class="q"><h3><span>4</span>Что беспокоит?</h3><div class="chips" id="iss" role="group" aria-label="Что беспокоит"></div></div>
+      </div>
+      <aside class="res" aria-live="polite">
+        <h3>Вам подойдёт</h3>
+        <div class="neck"><svg viewBox="0 0 320 150" id="neckSvg" role="img" aria-label="Положение шеи на подушке"></svg></div>
+        <div class="st"><span id="nTxt"></span><span class="tag" id="nTag"></span></div>
+        <div class="try"><label for="hTry">Сравните с&nbsp;другой высотой подушки</label><input type="range" id="hTry" min="6" max="17" value="12"></div>
+        <div class="pick" id="pick"></div>
+        <ul class="why" id="why"></ul>
+        <button class="btn am" type="button" id="both">Взять комплект со&nbsp;скидкой 10%</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="catalog" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Подушки и&nbsp;матрасы</h2></div>
+    <div class="tabs" role="tablist" aria-label="Раздел"><button type="button" role="tab" aria-selected="true" data-t="p">Подушки</button><button type="button" role="tab" aria-selected="false" data-t="m">Матрасы</button></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec" id="trial" style="padding-top:0">
+  <div class="wrap">
+    <div class="trial">
+      <img src="img/pillow-1400.webp" srcset="img/pillow-800.webp 800w, img/pillow-1400.webp 1400w, img/pillow-2000.webp 2000w" sizes="(max-width:1220px) 100vw, 1156px" width="1400" height="788" alt="Белая подушка на жёлтом фоне" loading="lazy" decoding="async">
+      <div class="tb">
+        <h2>100 ночей, чтобы понять, ваше&nbsp;ли это</h2>
+        <ol><li>Спите на&nbsp;подушке или матрасе хотя&nbsp;бы 30 ночей: столько нужно, чтобы привыкнуть.</li><li>Не&nbsp;подошло&nbsp;— напишите нам, курьер заберёт бесплатно.</li><li>Деньги вернём за&nbsp;3 дня или обменяем на&nbsp;другую модель.</li></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap dlv">
+    <img src="img/side-1400.webp" srcset="img/side-800.webp 800w, img/side-1400.webp 1400w" sizes="(max-width:1080px) 92vw, 560px" width="1400" height="933" alt="Женщина спит на боку на мягких подушках в светлой спальне" loading="lazy" decoding="async">
+    <div>
+      <h2 style="font-size:clamp(32px,3.4vw,48px);line-height:1.08">Как привезём</h2>
+      <ul>
+        <li><b>Подушку</b>&nbsp;— курьером за&nbsp;1–2 дня или в&nbsp;пункт выдачи.</li>
+        <li><b>Матрас</b>&nbsp;— свёрнутым в&nbsp;рулон: пролезет в&nbsp;любой лифт, расправится за&nbsp;сутки.</li>
+        <li><b>Старый матрас</b> вынесем и&nbsp;утилизируем за&nbsp;990&nbsp;₽.</li>
+        <li><b>Оплата</b> при получении или четырьмя платежами без переплаты.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Вопросы</h2></div>
+    <div class="faq">
+      <details><summary>Сколько привыкать к&nbsp;ортопедической подушке?</summary><p>Обычно от&nbsp;одной до&nbsp;двух недель. Первые ночи шее может быть непривычно: мышцы перестают держать голову и&nbsp;расслабляются.</p></details>
+      <details><summary>У&nbsp;меня болит шея. Подушка поможет?</summary><p>Подушка не&nbsp;лечит, а&nbsp;держит шею ровно, пока вы&nbsp;спите. Если боль сильная или не&nbsp;проходит, сначала покажитесь врачу, а&nbsp;подушку подберите по&nbsp;его рекомендации.</p></details>
+      <details><summary>Мы&nbsp;спим вдвоём и&nbsp;весим по-разному. Какой матрас брать?</summary><p>Матрасы с&nbsp;независимыми пружинами не&nbsp;передают движения. На&nbsp;кровать от&nbsp;160&nbsp;см можем сшить матрас с&nbsp;разной жёсткостью половин, срок&nbsp;— 7 дней.</p></details>
+      <details><summary>Как ухаживать?</summary><p>Чехлы снимаются и&nbsp;стираются при 40&nbsp;°C. Саму подушку из&nbsp;пены не&nbsp;стирают: проветривайте её&nbsp;раз в&nbsp;месяц.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row"><div><a class="logo" href="#" style="font-size:24px">Опора</a><p style="margin-top:10px">Ортопедические подушки и&nbsp;матрасы</p></div><p><a href="tel:+78000000000">8 800 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p></div>
+    <div class="legal"><span>ИП Белова О.С.</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Корзина</h2><button class="x" type="button" id="dX" aria-label="Закрыть корзину">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;адрес нужны, чтобы доставить заказ и&nbsp;забрать его по&nbsp;программе 100 ночей. Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам, кроме курьерской службы.</p><p>Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn sm">Понятно</button></form></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2400)}
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+
+/* товары */
+var PI=[
+ {id:'volna',n:'Волна',d:'Анатомическая с двумя валиками разной высоты',h:[10,12,14],p:4900,shape:'wave',f:'memory foam'},
+ {id:'bok',n:'Бок',d:'Для сна на боку: высокий валик и вырез под плечо',h:[12,13,14,15],p:5900,shape:'side',f:'латекс'},
+ {id:'tonk',n:'Тонкая',d:'Для сна на животе: низкая и мягкая к краю',h:[7,8],p:3900,shape:'flat',f:'memory foam'},
+ {id:'holod',n:'Холод',d:'Гелевый слой отводит тепло, если вам жарко',h:[10,12,14],p:6900,shape:'gel',f:'гель и memory foam'},
+ {id:'kons',n:'Конструктор',d:'Три съёмных слоя: высота от 9 до 15 см',h:[9,11,13,15],p:7400,shape:'layers',f:'латекс, 3 слоя'}
+];
+var MA=[
+ {id:'bal',n:'Баланс',d:'Независимые пружины 500 на м², 22 см',fm:3,p:34900,lay:['#E4E9F4','#19203A','#E4E9F4','#C9D1E6']},
+ {id:'kar',n:'Каркас',d:'Кокосовая плита и пружины, 20 см',fm:5,p:39900,lay:['#C8A36A','#19203A','#C8A36A']},
+ {id:'obl',n:'Облако',d:'5 см memory foam поверх пружин, 24 см',fm:2,p:42900,lay:['#F3D9B5','#F3D9B5','#E4E9F4','#19203A','#C9D1E6']}
+];
+var MS=[['90 × 200',.6],['140 × 200',.88],['160 × 200',1],['180 × 200',1.12]];
+function mprice(m,s){return Math.round(m.p*MS[s][1]/1000)*1000-100}
+function byId(a,id){for(var i=0;i<a.length;i++)if(a[i].id===id)return a[i]}
+
+function pillowSvg(sh){
+  var path={wave:'M10 70 L10 46 Q30 20 60 34 Q100 52 140 34 Q170 22 190 40 L190 70 Z',side:'M10 70 L10 30 Q30 18 56 30 L82 52 Q100 58 118 52 L190 52 L190 70 Z',flat:'M10 70 L10 52 Q100 40 190 52 L190 70 Z',gel:'M10 70 L10 46 Q30 20 60 34 Q100 52 140 34 Q170 22 190 40 L190 70 Z',layers:'M10 70 L10 34 Q100 26 190 34 L190 70 Z'}[sh];
+  var extra=sh==='gel'?'<path d="M14 44 Q30 24 60 37 Q100 55 140 37 Q170 26 186 42" fill="none" stroke="#5B8DEF" stroke-width="6" stroke-linecap="round" opacity=".8"/>':sh==='layers'?'<path d="M10 46 H190 M10 58 H190" stroke="#19203A" stroke-width="2" stroke-dasharray="6 5"/>':'';
+  return '<svg viewBox="0 0 200 80" aria-hidden="true"><path d="'+path+'" fill="#fff" stroke="#19203A" stroke-width="2.4" stroke-linejoin="round"/>'+extra+'<path d="M4 72 H196" stroke="#E8962E" stroke-width="3" stroke-linecap="round"/></svg>';
+}
+function mattSvg(lay,id){var y=14,h=Math.floor(52/lay.length),g='';lay.forEach(function(c,i){g+='<rect x="10" y="'+(y+i*h)+'" width="180" height="'+h+'" fill="'+c+'"'+(c==='#19203A'?' opacity=".9"':'')+'/>';if(c==='#19203A'){for(var x=18;x<190;x+=14)g+='<path d="M'+x+' '+(y+i*h+2)+' q4 '+(h/4)+' 0 '+(h/2)+' t0 '+(h/2-4)+'" fill="none" stroke="#E4E9F4" stroke-width="1.6"/>'}});
+  return '<svg viewBox="0 0 200 80" aria-hidden="true"><rect x="10" y="14" width="180" height="'+(h*lay.length)+'" rx="8" fill="none" stroke="#19203A" stroke-width="2.4"/>'+'<defs><clipPath id="mc-'+id+'"><rect x="10" y="14" width="180" height="'+(h*lay.length)+'" rx="8"/></clipPath></defs><g clip-path="url(#mc-'+id+')">'+g+'</g><rect x="10" y="14" width="180" height="'+(h*lay.length)+'" rx="8" fill="none" stroke="#19203A" stroke-width="2.4"/></svg>'}
+
+/* подбор */
+var POSE=[['side','На боку','M6 26 q10 -16 24 -10 q8 4 14 12 q6 8 14 6'],['back','На спине','M4 24 H60'],['belly','На животе','M4 22 q20 6 56 2'],['mix','По-разному','M6 26 q10 -16 24 -10 M34 24 H60']];
+var pose='side',iss={};
+$('poses').innerHTML=POSE.map(function(p){var head=p[0]==='side'?'<circle cx="8" cy="20" r="5"/>':p[0]==='back'?'<circle cx="8" cy="18" r="5"/>':p[0]==='belly'?'<circle cx="8" cy="17" r="5"/>':'<circle cx="8" cy="20" r="5"/><path d="M40 10 l6 -4 l0 8 z" fill="#E8962E" stroke="none"/>';return '<button type="button" data-p="'+p[0]+'" aria-pressed="'+(p[0]===pose)+'"><svg viewBox="0 0 64 36" aria-hidden="true"><g fill="none" stroke="#19203A" stroke-width="3" stroke-linecap="round">'+head+'<path d="'+p[2]+'"/></g><path d="M2 32 H62" stroke="#E8962E" stroke-width="2.4"/></svg>'+p[1]+'</button>'}).join('');
+$('poses').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){pose=b.dataset.p;$('poses').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});tried=false;rec()})});
+var IS=[['neck','Затекает шея'],['back','Болит поясница'],['hot','Жарко спать'],['two','Спим вдвоём']];
+$('iss').innerHTML=IS.map(function(x){return '<button type="button" data-i="'+x[0]+'" aria-pressed="false">'+x[1]+'</button>'}).join('');
+$('iss').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){iss[b.dataset.i]=!iss[b.dataset.i];b.setAttribute('aria-pressed',!!iss[b.dataset.i]);rec()})});
+$('sh').addEventListener('input',function(){tried=false;rec()});$('wt').addEventListener('input',rec);
+var tried=false;$('hTry').addEventListener('input',function(){tried=true;neck()});
+var cur={};
+function ideal(){var s=+$('sh').value;return pose==='side'||pose==='mix'?Math.max(9,Math.min(15,Math.round((s-20)/2))):pose==='back'?(s>48?11:10):(+$('wt').value>95?8:7)}
+function rec(){
+  var s=+$('sh').value,w=+$('wt').value,h=ideal(),pi,mi,why=[];
+  $('shV').textContent=s+' см';$('wV').textContent=w+' кг';
+  if(pose==='mix'){pi='kons';why.push('Меняете позу за ночь: снимите или добавьте слой, чтобы получить '+h+' см на боку и меньше на спине.')}
+  else if(iss.hot){pi='holod';why.push('Гелевый слой не даёт подушке нагреваться.')}
+  else if(pose==='side'){pi=h>=12?'bok':'volna';why.push('На боку голова лежит выше матраса на половину ширины плеч: при '+s+' см нужно '+h+' см.')}
+  else if(pose==='back'){pi='volna';why.push('На спине шее нужен невысокий валик '+h+' см, чтобы голова не запрокидывалась.')}
+  else{pi='tonk';why.push('На животе высокая подушка разворачивает шею: нужна низкая, '+h+' см.')}
+  if(iss.neck&&pi!=='tonk')why.push('Валик под шеей поддерживает её, а не только голову: утром шея не затекает.');
+  mi=w<60?'obl':w>95?'kar':'bal';
+  if(iss.back&&mi==='obl'){mi='bal';why.push('Боль в пояснице: берём средне-жёсткий матрас вместо мягкого.')}
+  why.push(mi==='kar'?'При весе '+w+' кг мягкий матрас продавится, нужен жёсткий.':mi==='obl'?'При весе '+w+' кг жёсткий матрас будет давить на плечи и бёдра.':'При весе '+w+' кг подойдёт средняя жёсткость.');
+  if(iss.two)why.push('Независимые пружины: движения партнёра не почувствуете.');
+  var P=byId(PI,pi),M=byId(MA,mi),ph=P.h.reduce(function(a,b){return Math.abs(b-h)<Math.abs(a-h)?b:a});
+  cur={p:pi,h:ph,m:mi,s:2};
+  $('pick').innerHTML='<div class="pk"><b>Подушка «'+P.n+'», '+ph+' см</b><span class="p num">'+rub(P.p)+'</span><span>'+esc(P.d)+'</span><button class="lnk" type="button" data-addp>В корзину</button></div><div class="pk"><b>Матрас «'+M.n+'», 160 × 200</b><span class="p num">'+rub(mprice(M,2))+'</span><span>Жёсткость '+M.fm+' из 5</span><button class="lnk" type="button" data-addm>В корзину</button></div>';
+  $('pick').querySelector('[data-addp]').addEventListener('click',function(){addP(cur.p,cur.h)});
+  $('pick').querySelector('[data-addm]').addEventListener('click',function(){addM(cur.m,cur.s)});
+  $('why').innerHTML=why.map(function(x){return '<li>'+esc(x)+'</li>'}).join('');
+  $('both').textContent='Взять комплект за '+rub(Math.round((P.p+mprice(M,2))*.9));
+  if(!tried)$('hTry').value=ph;neck();
+}
+function neck(){
+  var k=2.2,base=124,s=+$('sh').value,h=+$('hTry').value,id=ideal(),side=pose==='side'||pose==='mix';
+  var g='<rect x="6" y="'+base+'" width="308" height="20" rx="6" fill="#3A4570"/>';
+  var ph=h*k,px0=34,px1=150,hr=10*k,hx=92,sx=226,sy,hy=base-ph-hr,top;
+  if(side){sy=base-(s/2)*k;top=base-s*k}else{sy=base-(id*k+hr);top=sy-20}
+  var dev=(sy-hy)/k,ang=Math.round(Math.atan(dev/25)*180/Math.PI),ok=Math.abs(ang)<=3;
+  g+='<path d="M'+px0+' '+base+' L'+px0+' '+(base-ph+8)+' Q'+px0+' '+(base-ph)+' '+(px0+10)+' '+(base-ph)+' L'+(px1-10)+' '+(base-ph)+' Q'+px1+' '+(base-ph)+' '+px1+' '+(base-ph+8)+' L'+px1+' '+base+' Z" fill="#F6F7F9"/>';
+  g+='<path d="M'+sx+' '+sy+' H'+(hx-26)+'" stroke="#AEB6D0" stroke-width="2" stroke-dasharray="6 6"/>';
+  g+='<path d="M'+sx+' '+sy+' L'+hx+' '+hy+'" stroke="'+(ok?'#7BD3A0':'#E8962E')+'" stroke-width="7" stroke-linecap="round"/>';
+  g+='<rect x="'+(sx-34)+'" y="'+top+'" width="100" height="'+(base-top)+'" rx="26" fill="#5F6B96"/>';
+  g+='<circle cx="'+sx+'" cy="'+sy+'" r="5" fill="'+(ok?'#7BD3A0':'#E8962E')+'"/>';
+  g+='<circle cx="'+hx+'" cy="'+hy+'" r="'+hr+'" fill="#C9D1E6"/>';
+  g+='<text x="'+(px0+8)+'" y="'+(base-Math.max(ph/2-6,4))+'" font-size="15" font-family="Arsenal,sans-serif" fill="#19203A">'+h+' см</text>';
+  $('neckSvg').innerHTML=g;
+  $('nTxt').innerHTML='Подушка <b>'+h+' см</b>'+(side?', плечи '+s+' см':'');
+  var t=$('nTag');t.className='tag '+(ok?'ok':'no');t.textContent=ok?'Шея ровно':ang>0?'Голова задрана на '+Math.abs(ang)+'°':'Голова свисает на '+Math.abs(ang)+'°';
+}
+$('both').addEventListener('click',function(){addP(cur.p,cur.h,true);addM(cur.m,cur.s,true);kitOn=true;cnt();toast('Комплект в корзине, скидка 10% применена')});
+
+/* каталог */
+var tab='p';
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});draw()})});
+function bars(v){var o='';for(var i=1;i<=5;i++)o+='<b'+(i<=v?' class="on"':'')+'></b>';return '<i>'+o+'</i>'}
+function draw(){
+  var g=$('grid');
+  if(tab==='p'){g.innerHTML=PI.map(function(p){return '<article class="card"><div class="vis">'+pillowSvg(p.shape)+'</div><h3>'+p.n+'</h3><p class="ds">'+esc(p.d)+'. '+p.f+'.</p><label class="fm" for="h-'+p.id+'">Высота</label><select id="h-'+p.id+'">'+p.h.map(function(h){return '<option value="'+h+'">'+h+' см</option>'}).join('')+'</select><div class="row"><span class="pr num">'+rub(p.p)+'</span><button class="btn sm" type="button" data-p="'+p.id+'">В корзину</button></div></article>'}).join('');
+    g.querySelectorAll('[data-p]').forEach(function(b){b.addEventListener('click',function(){addP(b.dataset.p,+$('h-'+b.dataset.p).value)})});}
+  else{g.innerHTML=MA.map(function(m){return '<article class="card"><div class="vis">'+mattSvg(m.lay,m.id)+'</div><h3>'+m.n+'</h3><p class="ds">'+esc(m.d)+'.</p><p class="fm">Жёсткость '+bars(m.fm)+'</p><select id="s-'+m.id+'" aria-label="Размер">'+MS.map(function(s,i){return '<option value="'+i+'"'+(i===2?' selected':'')+'>'+s[0]+'</option>'}).join('')+'</select><div class="row"><span class="pr num" id="pr-'+m.id+'">'+rub(mprice(m,2))+'</span><button class="btn sm" type="button" data-m="'+m.id+'">В корзину</button></div></article>'}).join('');
+    g.querySelectorAll('select').forEach(function(sel){sel.addEventListener('change',function(){var m=byId(MA,sel.id.slice(2));$('pr-'+m.id).textContent=rub(mprice(m,+sel.value))})});
+    g.querySelectorAll('[data-m]').forEach(function(b){b.addEventListener('click',function(){addM(b.dataset.m,+$('s-'+b.dataset.m).value)})});}
+}
+
+/* корзина */
+var cart=[],kitOn=false;
+function addP(id,h,q){cart.push({t:'p',id:id,h:h});cnt();if(!q)toast('Подушка «'+byId(PI,id).n+'», '+h+' см, в корзине')}
+function addM(id,s,q){cart.push({t:'m',id:id,s:s});cnt();if(!q)toast('Матрас «'+byId(MA,id).n+'» в корзине')}
+function price(x){return x.t==='p'?byId(PI,x.id).p:mprice(byId(MA,x.id),x.s)}
+function cnt(){$('cc').textContent=cart.length}
+function openD(){$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;$('cartBtn').focus()}
+$('cartBtn').addEventListener('click',openD);$('dX').addEventListener('click',closeD);
+$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('drawer').hidden)closeD()});
+function render(){
+  if(!cart.length){$('dB').innerHTML='<p>Корзина пуста. Пройдите подбор: за минуту подскажем высоту подушки и жёсткость матраса.</p>';$('dF').innerHTML='';return}
+  var s=0,hasP=cart.some(function(x){return x.t==='p'}),hasM=cart.some(function(x){return x.t==='m'});if(!(hasP&&hasM))kitOn=false;
+  $('dB').innerHTML=cart.map(function(x,i){var pr=price(x);s+=pr;var o=x.t==='p'?byId(PI,x.id):byId(MA,x.id);return '<div class="li"><b>'+(x.t==='p'?'Подушка «':'Матрас «')+o.n+'»</b><span class="m">'+(x.t==='p'?'высота '+x.h+' см':MS[x.s][0])+'</span><div class="r"><span class="num" style="font-weight:700;color:var(--ink)">'+rub(pr)+'</span><button class="lnk" type="button" data-rm="'+i+'">Убрать</button></div></div>'}).join('');
+  var fp=cart.filter(function(x){return x.t==='p'})[0],fm=cart.filter(function(x){return x.t==='m'})[0],disc=kitOn&&fp&&fm?Math.round((price(fp)+price(fm))*.1):0,tot=s-disc;
+  $('dF').innerHTML=(disc?'<div style="display:flex;justify-content:space-between;color:var(--ok);font-weight:700"><span>Комплект, −10%</span><span class="num">−'+rub(disc)+'</span></div>':(hasP&&hasM?'':'<p style="font-size:15px;color:var(--mute)">Подушка и матрас вместе дешевле на 10%.</p>'))+
+   '<div class="tot num"><span>Итого</span><span>'+rub(tot)+'</span></div>'+
+   '<div class="pay" role="radiogroup" aria-label="Оплата"><label><input type="radio" name="pay" value="0" checked>При получении</label><label><input type="radio" name="pay" value="1">Четыре платежа по '+rub(Math.ceil(tot/4))+'</label></div>'+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oP">Телефон</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div><div class="f"><label for="oA">Адрес доставки</label><input id="oA" autocomplete="street-address"></div>'+
+   '<label class="agree"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Оформить заказ</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-rm]').forEach(function(b){b.addEventListener('click',function(){cart.splice(+b.dataset.rm,1);cnt();render()})});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя.';$('oN').focus();return}
+    if($('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон: курьер позвонит перед доставкой.';$('oP').focus();return}
+    if(!$('oA').value.trim()){e.textContent='Укажите адрес доставки.';$('oA').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var m=hasM;cart=[];kitOn=false;cnt();
+    $('dB').innerHTML='<div class="ok"><b>Заказ оформлен</b>Позвоним сегодня, чтобы выбрать время доставки'+(m?'. Матрас приедет в рулоне: дайте ему сутки расправиться':'')+'. 100 ночей на пробу начинаются со дня доставки.</div>';$('dF').innerHTML='';
+  });
+}
+
+rec();draw();
+})();
+</script>
+</body>
+</html>
