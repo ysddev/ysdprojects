@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Метраж — агентство недвижимости в Екатеринбурге: оценка, продажа и покупка квартир</title>
+<meta name="description" content="Агентство недвижимости «Метраж», Екатеринбург. Оценка квартиры по сделкам района, продажа и покупка с юридической проверкой, квартиры в продаже, комиссия после регистрации.">
+<meta name="theme-color" content="#18242B">
+<link rel="preload" href="fonts/piazzolla-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/overpass-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Piazzolla';font-weight:500;font-display:swap;src:url(fonts/piazzolla-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Piazzolla';font-weight:500;font-display:swap;src:url(fonts/piazzolla-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Piazzolla';font-weight:500;font-display:swap;src:url(fonts/piazzolla-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--paper:#EEF1F0;--card:#FFFFFF;--ink:#18242B;--text:#33424A;--mute:#5A6970;--rule:#CBD3D4;--line:#2E5E8C;--mark:#F0B429;--night:#18242B;--nt:#E4EAEA;--ns:#A3B3BA;--d:'Piazzolla',Georgia,serif;--t:'Overpass',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:400 17px/1.6 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--line)}
+h1,h2,h3,h4{font-family:var(--d);font-weight:500;color:var(--ink);margin:0;letter-spacing:-.01em}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--line);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:3px 26px 0;background:var(--mark);color:var(--ink);font:600 16px/1.2 var(--t);border:0;border-radius:4px;cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:#E2A515}
+.btn.line{background:transparent;border:1.5px solid var(--ink);min-height:46px;padding:3px 18px 0;font-size:15px}
+.btn.line:hover{background:var(--ink);color:#fff}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:20;background:rgba(238,241,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:32px;height:68px}
+.logo{position:relative;font:500 26px/1 var(--d);color:var(--ink);text-decoration:none;padding-top:10px}
+.logo::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;border-left:1.5px solid var(--line);border-right:1.5px solid var(--line);background:linear-gradient(var(--line),var(--line)) 0 50%/100% 1.5px no-repeat}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{color:var(--ink);text-decoration:none;font-size:15px;padding:6px 0}
+.nav a:hover{color:var(--line)}
+.tel{color:var(--ink);font-weight:600;text-decoration:none;font-size:16px;white-space:nowrap}
+
+/* первый экран */
+.hero{padding:56px 0 88px}
+.hg{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(38px,4.5vw,62px);line-height:1.04;letter-spacing:-.02em;max-width:12em}
+.lead{font-size:19px;line-height:1.6;margin-top:24px;max-width:33em}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:34px}
+.lnk{color:var(--ink);font-weight:600;text-underline-offset:5px;text-decoration-thickness:1.5px}
+.since{margin-top:34px;font-size:15px;color:var(--mute);max-width:30em}
+.hp{position:relative;margin:34px 0 0 34px}
+.hp .ph{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:4/5;background:#D8DFDE}
+.hp .ph img{width:100%;height:100%;object-fit:cover}
+.dim{position:absolute;color:var(--line)}
+.dim::before{content:"";position:absolute;background:currentColor}
+.dim span{position:absolute;left:50%;top:50%;background:var(--paper);color:var(--line);font:600 14px/1 var(--t);padding:3px 8px 0;white-space:nowrap}
+.dh{left:0;right:0;top:-30px;height:15px;border-left:1.5px solid;border-right:1.5px solid}
+.dh::before{left:0;right:0;top:7px;height:1.5px;transform-origin:left}
+.dh span{transform:translate(-50%,-50%)}
+.dv{top:0;bottom:0;left:-30px;width:15px;border-top:1.5px solid;border-bottom:1.5px solid}
+.dv::before{top:0;bottom:0;left:7px;width:1.5px;transform-origin:top}
+.dv span{transform:translate(-50%,-50%) rotate(-90deg)}
+.tag{position:absolute;left:16px;bottom:16px;right:16px;max-width:330px;background:var(--card);border-radius:4px;padding:14px 16px 12px;box-shadow:0 8px 24px rgba(24,36,43,.18)}
+.tag b{display:block;font:500 19px/1.3 var(--d);color:var(--ink)}
+.tag span{font-size:15px;color:var(--mute)}
+@media (prefers-reduced-motion:no-preference){
+  .dh::before{animation:dx .9s .25s cubic-bezier(.2,.7,.2,1) both}
+  .dv::before{animation:dy .9s .45s cubic-bezier(.2,.7,.2,1) both}
+  .dim span{animation:fi .4s 1s both}
+  @keyframes dx{from{transform:scaleX(0)}}
+  @keyframes dy{from{transform:scaleY(0)}}
+  @keyframes fi{from{opacity:0}}
+}
+
+/* секции */
+.sec{padding:96px 0}
+.sh{max-width:46em;margin-bottom:40px}
+.sh h2,.dl h2,.cg h2,.lf h2{font-size:clamp(30px,3.5vw,46px);line-height:1.08}
+.sh p{margin-top:16px;font-size:18px}
+.white{background:var(--card)}
+
+/* оценка */
+.est{background:var(--card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.eg{display:grid;grid-template-columns:.92fr 1.08fr;gap:28px;align-items:start}
+.ein{display:grid;gap:24px;margin:0}
+.f{display:grid;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.f label,.f legend{font-size:15px;font-weight:600;color:var(--ink);padding:0}
+.f legend{margin-bottom:8px}
+.f input:not([type=range]):not([type=checkbox]),.f select,.sel select{height:50px;border:1px solid var(--rule);border-radius:4px;background:#fff;padding:2px 14px 0;font-size:17px;color:var(--ink);width:100%}
+.f input:focus,.f select:focus{border-color:var(--line);outline:none;box-shadow:0 0 0 3px rgba(46,94,140,.2)}
+.two{grid-template-columns:1fr 1fr;gap:14px}
+.two>div{display:grid;gap:8px}
+.ar{display:grid;grid-template-columns:1fr 96px;gap:14px;align-items:center}
+input[type=range]{width:100%;accent-color:var(--ink);height:28px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:3px 16px 0;border:1px solid var(--rule);background:#fff;border-radius:4px;font-size:16px;color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.eout{background:var(--night);color:var(--nt);border-radius:6px;padding:34px 36px 30px}
+.el{font-size:15px;color:var(--ns)}
+.big{font:500 clamp(36px,4.4vw,56px)/1.05 var(--d);color:#fff;margin-top:6px;letter-spacing:-.015em}
+.sub{font-size:15px;color:var(--ns);margin-top:8px}
+.strip{position:relative;height:66px;margin:46px 0 8px;border-bottom:1px solid rgba(228,234,234,.35)}
+.band{position:absolute;top:0;bottom:0;background:rgba(240,180,41,.2);border-left:1.5px solid var(--mark);border-right:1.5px solid var(--mark)}
+.dot{position:absolute;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#8FA6B1}
+.dot.lo{background:#D5DEE2}
+.ask{position:absolute;top:-8px;bottom:-8px;width:0;border-left:2px solid var(--mark);transition:left .15s}
+.ask span{position:absolute;bottom:100%;left:0;transform:translateX(-50%);white-space:nowrap;font-size:14px;font-weight:600;color:var(--mark);margin-bottom:4px}
+.ask.l span{transform:none}.ask.r span{transform:translateX(-100%)}
+.sax{display:flex;justify-content:space-between;font-size:14px;color:var(--ns)}
+.legend{font-size:14px;color:var(--ns);margin-top:10px}
+.askf{margin-top:28px;display:grid;gap:8px}
+.askf label{font-size:15px;font-weight:600;color:#fff}
+.askf input{accent-color:var(--mark)}
+.askf output{font-size:16px;color:var(--nt)}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.kp div{border-top:1px solid rgba(228,234,234,.22);padding-top:12px}
+.kp span{display:block;font-size:14px;color:var(--ns);line-height:1.4}
+.kp b{display:block;font:500 28px/1.2 var(--d);color:#fff;margin-top:6px}
+.adv{margin-top:18px;font-size:16px;line-height:1.55;min-height:3.1em}
+.eout .btn{margin-top:22px;width:100%}
+.note{font-size:14px;color:var(--ns);margin-top:14px;line-height:1.5}
+
+/* каталог */
+.flt{display:flex;flex-wrap:wrap;align-items:end;gap:14px 24px;margin-bottom:14px}
+.sel{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--ink);min-width:200px}
+.cnt{font-size:15px;color:var(--mute);margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:var(--card);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #DDE3E3}
+.cph{aspect-ratio:4/3;background:#D8DFDE;overflow:hidden}
+.cph img{width:100%;height:100%;object-fit:cover}
+.cb{padding:20px 22px 22px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pr{font:500 26px/1.2 var(--d);color:var(--ink)}
+.ps{font-size:14px;color:var(--mute)}
+.cb h3{font:600 17px/1.4 var(--t);color:var(--ink);margin-top:10px}
+.ad{font-size:15px;color:var(--mute)}
+.cb .btn{margin-top:auto;align-self:flex-start}
+.cb .ad{margin-bottom:18px}
+.empty{grid-column:1/-1;background:var(--card);border:1px dashed var(--rule);border-radius:6px;padding:32px;display:grid;gap:16px;justify-items:start}
+
+/* сделка */
+.dg{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.dl p{margin-top:16px;font-size:18px}
+.dl figure{margin:32px 0 0;border-radius:2px;overflow:hidden;aspect-ratio:4/5;max-width:380px;background:#D8DFDE}
+.dl figure img{width:100%;height:100%;object-fit:cover}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr auto;gap:4px 18px;padding:22px 0;border-top:1px solid var(--rule)}
+.steps li:last-child{border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(s);font:500 26px/1 var(--d);color:var(--line);padding-top:2px}
+.steps h3{font-size:22px;line-height:1.25}
+.steps p{font-size:16px;margin-top:6px;max-width:34em}
+.steps .t{font-size:15px;font-weight:600;color:var(--ink);white-space:nowrap;padding-top:4px}
+
+/* проверка */
+.chk{background:var(--card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.cg{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.cg>div p{margin-top:16px;font-size:18px}
+.cl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
+.cl li{padding:18px 0 18px 34px;border-top:1px solid var(--rule);position:relative}
+.cl li::before{content:"";position:absolute;left:2px;top:22px;width:15px;height:8px;border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(-45deg)}
+.cl b{display:block;font-weight:600;color:var(--ink)}
+.cl span{font-size:15px;line-height:1.5;display:block;margin-top:4px}
+
+/* агенты */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.ag figure{margin:0;aspect-ratio:4/5;border-radius:2px;overflow:hidden;background:#D8DFDE}
+.ag figure img{width:100%;height:100%;object-fit:cover}
+.ag h3{font-size:22px;margin-top:18px}
+.ag .rl{font-size:15px;color:var(--line);font-weight:600;margin-top:4px}
+.ag p{font-size:15px;margin-top:8px;line-height:1.5}
+.ag a{display:inline-block;margin-top:12px;font-weight:600;color:var(--ink);text-underline-offset:4px}
+
+/* цены */
+.cost{background:var(--card);border-top:1px solid var(--rule)}
+.tab{border-top:2px solid var(--ink)}
+.tr{display:grid;grid-template-columns:1fr auto;gap:8px 40px;padding:24px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.tr h3{font-size:23px}
+.tr p{font-size:16px;margin-top:6px;max-width:40em;grid-column:1}
+.tr b{grid-column:2;grid-row:1/span 2;font:500 24px/1.25 var(--d);color:var(--ink);text-align:right;white-space:nowrap}
+.cost .fine{margin-top:22px;font-size:15px;color:var(--mute);max-width:46em}
+
+/* заявка */
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border-radius:6px;overflow:hidden;border:1px solid #DDE3E3}
+.city{margin:0;position:relative;min-height:100%;background:#D8DFDE}
+.city img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.city figcaption{position:absolute;left:20px;bottom:20px;right:20px;color:#fff;font-size:15px;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.lf{padding:48px;display:grid;gap:20px;margin:0}
+.lf>p{font-size:17px;margin-top:-6px}
+.opt{font-weight:400;color:var(--mute)}
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;cursor:pointer}
+.agree input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--ink)}
+.pl{background:none;border:0;padding:0;color:var(--line);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:inherit}
+.err{color:#B3261E;font-size:15px;min-height:1px}
+.done{background:#EAF3EE;border-radius:4px;padding:18px 20px;color:#1F4D36;font-size:16px}
+.done b{display:block;font-size:18px;color:#173A29}
+
+/* подвал */
+.foot{padding:56px 0 40px;font-size:15px;color:var(--mute)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;border-top:1px solid var(--rule);padding-top:32px}
+.foot .logo{font-size:24px}
+.foot p{margin-top:10px}
+.foot a{color:var(--ink)}
+.legal{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-size:14px}
+.legal button{background:none;border:0;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:14px}
+
+/* окна */
+dialog{border:0;border-radius:6px;padding:0;max-width:min(920px,calc(100vw - 24px));width:100%;color:var(--text);background:var(--card)}
+dialog::backdrop{background:rgba(24,36,43,.55)}
+#policy{max-width:520px;padding:30px}
+#policy h3{font-size:24px;margin-bottom:12px}
+#policy p{font-size:16px;margin-bottom:12px}
+.dlg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.dph{background:#D8DFDE;position:relative;min-height:260px}
+.dph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dtx{padding:30px 30px 28px;display:grid;gap:14px;align-content:start}
+.dtx h3{font-size:26px;line-height:1.15;padding-right:36px}
+.dtx dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:15px}
+.dtx dt{color:var(--mute)}
+.dtx dd{margin:0;color:var(--ink)}
+.dtx h4{font:600 17px/1.3 var(--t);margin-top:6px}
+.x{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.92);font-size:26px;line-height:1;cursor:pointer;color:var(--ink)}
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slots .chip{min-height:42px;padding:3px 12px 0;font-size:15px}
+.chip:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+
+@media (max-width:1040px){
+  .nav{display:none}
+  .tel{margin-left:auto}
+  .cards{grid-template-columns:1fr 1fr}
+  .team{grid-template-columns:1fr 1fr}
+  .eg,.dg,.cg{grid-template-columns:1fr;gap:40px}
+  .dl figure{display:none}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .bar{height:60px}
+  .logo{font-size:23px}
+  .tel{font-size:15px}
+  .hero{padding:24px 0 64px}
+  .hg{grid-template-columns:1fr;gap:28px}
+  .lead{font-size:17px}
+  .hp{margin:30px 0 0 30px}
+  .sec{padding:64px 0}
+  .sh p,.dl p,.cg>div p{font-size:17px}
+  .eout{padding:26px 20px 22px;margin:0 -4px}
+  .kp b{font-size:22px}
+  .cards{grid-template-columns:1fr}
+  .cl{grid-template-columns:1fr}
+  .team{gap:28px 16px}
+  .ag h3{font-size:19px;margin-top:12px}
+  .ag p{font-size:14px}
+  .ag .rl{font-size:14px}
+  .tr{grid-template-columns:1fr}
+  .tr b{grid-column:1;grid-row:auto;text-align:left;font-size:21px;white-space:normal}
+  .lg{grid-template-columns:1fr}
+  .city{min-height:260px}
+  .lf{padding:28px 20px}
+  .dlg{grid-template-columns:1fr}
+  .dph{min-height:0;aspect-ratio:4/3}
+  .dtx{padding:22px 18px 24px}
+  .steps li{grid-template-columns:36px 1fr}
+  .steps .t{grid-column:2;padding-top:2px}
+  .sel{min-width:0;flex:1 1 140px}
+}
+@media (max-width:340px){
+  .team{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#">Метраж</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#price">Оценка</a><a href="#flats">Квартиры</a><a href="#deal">Как продаём</a><a href="#team">Агенты</a><a href="#cost">Стоимость</a>
+    </nav>
+    <a class="tel" href="tel:+73430000000">+7&nbsp;(343)&nbsp;000-00-00</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hg">
+    <div class="ht">
+      <h1>Квартира продаётся быстро, когда цена названа точно</h1>
+      <p class="lead">Агентство недвижимости «Метраж» в&nbsp;Екатеринбурге. Оцениваем по&nbsp;закрытым сделкам вашего района, а&nbsp;не&nbsp;по&nbsp;объявлениям, готовим квартиру к&nbsp;показам и&nbsp;ведём сделку до&nbsp;передачи ключей.</p>
+      <div class="cta"><a class="btn" href="#price">Узнать цену квартиры</a><a class="lnk" href="#flats">Квартиры в&nbsp;продаже</a></div>
+      <p class="since">Вторичное жильё и&nbsp;новостройки в&nbsp;Екатеринбурге и&nbsp;Верхней Пышме. Работаем с&nbsp;2011 года.</p>
+    </div>
+    <figure class="hp">
+      <div class="dim dh" aria-hidden="true"><span>5,80 м</span></div>
+      <div class="dim dv" aria-hidden="true"><span>2,70 м</span></div>
+      <div class="ph">
+        <img src="img/hero-1000.webp" srcset="img/hero-600.webp 600w, img/hero-1000.webp 1000w, img/hero-1400.webp 1400w" sizes="(max-width:760px) 90vw, 44vw" width="1000" height="1250" alt="Гостиная с зелёным диваном и панорамными окнами на город" fetchpriority="high">
+        <figcaption class="tag"><b>2-комн., 56&nbsp;м², ВИЗ</b><span>Продали за&nbsp;23 дня по&nbsp;цене нашей оценки</span></figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="sec est" id="price">
+  <div class="wrap">
+    <div class="sh"><h2>Сколько стоит ваша квартира</h2><p>Укажите район и&nbsp;параметры&nbsp;— справа появится коридор цены по&nbsp;сделкам за&nbsp;последние три месяца. Подвиньте цену в&nbsp;объявлении и&nbsp;посмотрите, как меняется срок продажи.</p></div>
+    <div class="eg">
+      <form class="ein" id="est" onsubmit="return false">
+        <div class="f"><label for="dist">Район</label><select id="dist"></select></div>
+        <fieldset class="f"><legend>Комнат</legend><div class="chips" id="rooms"></div></fieldset>
+        <div class="f"><label for="area">Общая площадь, м²</label><div class="ar"><input type="range" id="areaR" min="18" max="160" step="1" value="56" aria-label="Площадь, ползунок"><input type="number" id="area" min="12" max="400" value="56" inputmode="decimal"></div></div>
+        <div class="f two"><div><label for="fl">Этаж</label><input id="fl" type="number" min="1" max="70" value="7" inputmode="numeric"></div><div><label for="fls">Этажей в&nbsp;доме</label><input id="fls" type="number" min="1" max="70" value="16" inputmode="numeric"></div></div>
+        <fieldset class="f"><legend>Дом</legend><div class="chips" id="house"></div></fieldset>
+        <fieldset class="f"><legend>Состояние</legend><div class="chips" id="cond"></div></fieldset>
+      </form>
+      <div class="eout">
+        <p class="el">Цена по&nbsp;сделкам района</p>
+        <p class="big" id="rng" aria-live="polite">—</p>
+        <p class="sub" id="ppm"></p>
+        <div class="strip" id="strip" aria-hidden="true"><div class="band" id="band"></div><div class="ask" id="askM"><span>Ваша цена</span></div></div>
+        <div class="sax" aria-hidden="true"><span id="sMin"></span><span id="sMax"></span></div>
+        <p class="legend">Точки&nbsp;— проданные похожие квартиры, полоса&nbsp;— коридор рынка</p>
+        <div class="askf"><label for="ask">Цена в&nbsp;объявлении</label><input type="range" id="ask" min="-10" max="20" step="1" value="0"><output id="askO" for="ask"></output></div>
+        <div class="kp" aria-live="polite"><div><span>Срок продажи</span><b id="days">—</b></div><div><span>Похожих квартир дешевле вашей</span><b id="cheap">—</b></div></div>
+        <p class="adv" id="adv"></p>
+        <a class="btn" href="#form" id="toForm">Оценить точно с&nbsp;выездом агента</a>
+        <p class="note">Ориентир по&nbsp;закрытым сделкам нашей базы. Точную цену агент назовёт после осмотра: вид из&nbsp;окон, планировка и&nbsp;документы двигают её на&nbsp;5–10%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="flats">
+  <div class="wrap">
+    <div class="sh"><h2>Квартиры в&nbsp;продаже</h2><p>Каждую проверил юрист до&nbsp;публикации: собственники, обременения, прописанные. На&nbsp;просмотр можно записаться прямо здесь.</p></div>
+    <div class="flt">
+      <div class="chips" id="fRooms" role="group" aria-label="Комнат"></div>
+      <label class="sel"><span>Район</span><select id="fDist"></select></label>
+      <label class="sel"><span>Порядок</span><select id="fSort"><option value="new">Новые</option><option value="cheap">Дешевле</option><option value="m2">Дешевле за&nbsp;м²</option></select></label>
+    </div>
+    <p class="cnt" id="fCnt" aria-live="polite"></p>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section class="sec white" id="deal">
+  <div class="wrap dg">
+    <div class="dl">
+      <h2>Как проходит продажа</h2>
+      <p>От&nbsp;первого звонка до&nbsp;денег на&nbsp;вашем счёте обычно 5–8 недель. У&nbsp;каждого этапа понятный срок и&nbsp;список того, что нужно от&nbsp;вас.</p>
+      <figure><img src="img/keys-600.webp" srcset="img/keys-600.webp 600w, img/keys-1000.webp 1000w" sizes="30vw" width="600" height="750" alt="Ключи от квартиры в руке на фоне светлой прихожей" loading="lazy" decoding="async"></figure>
+    </div>
+    <ol class="steps">
+      <li><div><h3>Оценка и&nbsp;договор</h3><p>Агент смотрит квартиру и&nbsp;документы, показывает сделки района и&nbsp;называет цену. В&nbsp;договоре фиксированная комиссия и&nbsp;срок.</p></div><span class="t">1 день</span></li>
+      <li><div><h3>Подготовка к&nbsp;показам</h3><p>Фотограф, обмерный план и&nbsp;описание. Сразу заказываем выписку ЕГРН и&nbsp;справки, чтобы покупатель не&nbsp;ждал.</p></div><span class="t">3–5 дней</span></li>
+      <li><div><h3>Показы и&nbsp;переговоры</h3><p>Показы проводим сами, торг ведём с&nbsp;цифрами сделок на&nbsp;руках. Вы&nbsp;приходите на&nbsp;итоговую встречу с&nbsp;покупателем.</p></div><span class="t">2–5 недель</span></li>
+      <li><div><h3>Аванс и&nbsp;проверка покупателя</h3><p>Проверяем одобрение ипотеки и&nbsp;источник денег. В&nbsp;соглашении об&nbsp;авансе прописано, когда и&nbsp;кому он&nbsp;возвращается.</p></div><span class="t">1–2 дня</span></li>
+      <li><div><h3>Банк и&nbsp;документы</h3><p>Если покупатель с&nbsp;ипотекой, банк оценивает квартиру и&nbsp;проверяет документы. Мы&nbsp;собираем всё по&nbsp;списку банка.</p></div><span class="t">5–10 дней</span></li>
+      <li><div><h3>Сделка и&nbsp;регистрация</h3><p>Подписание в&nbsp;банке или у&nbsp;нотариуса, электронная регистрация в&nbsp;Росреестре без очередей в&nbsp;МФЦ.</p></div><span class="t">3–7 рабочих дней</span></li>
+      <li><div><h3>Расчёт и&nbsp;ключи</h3><p>Деньги приходят через аккредитив или сервис безопасных расчётов сразу после регистрации. Подписываем акт и&nbsp;передаём ключи.</p></div><span class="t">1–3 дня</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="check">
+  <div class="wrap cg">
+    <div><h2>Покупателю: проверяем квартиру до&nbsp;аванса</h2><p>Аванс вы&nbsp;вносите, только когда юрист проверил квартиру и&nbsp;продавца. Если находим риск, говорим сразу и&nbsp;подбираем другую квартиру без доплаты.</p></div>
+    <ul class="cl">
+      <li><b>Собственники и&nbsp;история</b><span>Выписка ЕГРН, переходы права за&nbsp;15 лет, доверенности и&nbsp;наследство.</span></li>
+      <li><b>Прописанные</b><span>Включая временно выбывших: служба в&nbsp;армии, интернаты, места заключения.</span></li>
+      <li><b>Материнский капитал</b><span>Выделены&nbsp;ли доли детям и&nbsp;есть&nbsp;ли разрешение опеки на&nbsp;продажу.</span></li>
+      <li><b>Согласие супруга</b><span>Если квартиру покупали в&nbsp;браке, нужно нотариальное согласие.</span></li>
+      <li><b>Банкротство и&nbsp;суды</b><span>Продавец не&nbsp;в&nbsp;процедуре банкротства, споров о&nbsp;квартире нет.</span></li>
+      <li><b>Долги и&nbsp;обременения</b><span>Коммунальные платежи, капремонт, залог у&nbsp;банка.</span></li>
+      <li><b>Перепланировка</b><span>Сверяем квартиру с&nbsp;техпланом: незаконная перепланировка мешает ипотеке.</span></li>
+      <li><b>Дееспособность продавца</b><span>Справки из&nbsp;диспансеров, при сомнениях&nbsp;— сделка у&nbsp;нотариуса.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec white" id="team">
+  <div class="wrap">
+    <div class="sh"><h2>Агенты, которые знают свои районы</h2><p>За&nbsp;каждым агентом закреплены два-три района: он&nbsp;знает дома, цены последних сделок и&nbsp;что спрашивают покупатели.</p></div>
+    <div class="team">
+      <article class="ag"><figure><img src="img/a1-600.webp" srcset="img/a1-600.webp 600w, img/a1-1000.webp 1000w" sizes="(max-width:760px) 45vw, 22vw" width="600" height="750" alt="Агент Ольга Мельникова" loading="lazy" decoding="async"></figure><h3>Ольга Мельникова</h3><p class="rl">Академический, Юго-Западный</p><p>12&nbsp;лет в&nbsp;недвижимости. Сделки с&nbsp;ипотекой и&nbsp;материнским капиталом.</p><a href="tel:+73430000001">Позвонить Ольге</a></article>
+      <article class="ag"><figure><img src="img/a2-600.webp" srcset="img/a2-600.webp 600w, img/a2-1000.webp 1000w" sizes="(max-width:760px) 45vw, 22vw" width="600" height="750" alt="Агент Анна Широкова" loading="lazy" decoding="async"></figure><h3>Анна Широкова</h3><p class="rl">Центр, ВИЗ</p><p>8&nbsp;лет. Старый фонд, сталинки и&nbsp;альтернативные сделки.</p><a href="tel:+73430000002">Позвонить Анне</a></article>
+      <article class="ag"><figure><img src="img/a3-600.webp" srcset="img/a3-600.webp 600w, img/a3-1000.webp 1000w" sizes="(max-width:760px) 45vw, 22vw" width="600" height="750" alt="Агент Дмитрий Воронов" loading="lazy" decoding="async"></figure><h3>Дмитрий Воронов</h3><p class="rl">Ботаника, Пионерский, новостройки</p><p>9&nbsp;лет. Переуступки и&nbsp;покупка в&nbsp;строящихся домах.</p><a href="tel:+73430000003">Позвонить Дмитрию</a></article>
+      <article class="ag"><figure><img src="img/a4-600.webp" srcset="img/a4-600.webp 600w, img/a4-1000.webp 1000w" sizes="(max-width:760px) 45vw, 22vw" width="600" height="750" alt="Юрист Татьяна Гусева" loading="lazy" decoding="async"></figure><h3>Татьяна Гусева</h3><p class="rl">Юрист агентства</p><p>15&nbsp;лет. Проверяет каждую квартиру до&nbsp;аванса и&nbsp;готовит договоры.</p><a href="tel:+73430000004">Позвонить Татьяне</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec cost" id="cost">
+  <div class="wrap">
+    <div class="sh"><h2>Сколько стоят наши услуги</h2><p>Комиссию за&nbsp;продажу вы&nbsp;платите после регистрации и&nbsp;расчёта с&nbsp;покупателем. Предоплаты нет.</p></div>
+    <div class="tab">
+      <div class="tr"><h3>Продажа квартиры</h3><p>Оценка, фото и&nbsp;план, реклама, показы, переговоры, проверка покупателя, сделка и&nbsp;расчёт</p><b>2% от&nbsp;цены, от&nbsp;120&nbsp;000&nbsp;₽</b></div>
+      <div class="tr"><h3>Подбор и&nbsp;покупка</h3><p>Поиск, показы, торг, юридическая проверка, ипотека в&nbsp;одном из&nbsp;12&nbsp;банков-партнёров, сделка</p><b>95&nbsp;000&nbsp;₽</b></div>
+      <div class="tr"><h3>Продать и&nbsp;купить одновременно</h3><p>Альтернативная сделка: продаём вашу квартиру и&nbsp;покупаем новую в&nbsp;один день</p><b>2,5% от&nbsp;цены продажи</b></div>
+      <div class="tr"><h3>Проверка квартиры</h3><p>Квартиру нашли сами: юрист проверит документы и&nbsp;продавца за&nbsp;два рабочих дня</p><b>25&nbsp;000&nbsp;₽</b></div>
+      <div class="tr"><h3>Сопровождение сделки</h3><p>Покупатель уже есть: готовим аванс, договор, банк и&nbsp;регистрацию</p><b>45&nbsp;000&nbsp;₽</b></div>
+    </div>
+    <p class="fine">Оценка с&nbsp;выездом бесплатная и&nbsp;ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p>
+  </div>
+</section>
+
+<section class="sec" id="form">
+  <div class="wrap">
+    <div class="lg">
+      <figure class="city"><img src="img/city-1000.webp" srcset="img/city-600.webp 600w, img/city-1000.webp 1000w" sizes="(max-width:760px) 100vw, 50vw" width="1000" height="1250" alt="Высотки Екатеринбург-Сити над набережной Исети" loading="lazy" decoding="async"><figcaption>Работаем по&nbsp;всему Екатеринбургу и&nbsp;в&nbsp;Верхней Пышме</figcaption></figure>
+      <form class="lf" id="lf" novalidate>
+        <h2>Оценим квартиру с&nbsp;выездом</h2>
+        <p>Бесплатно и&nbsp;без обязательств. Агент приедет в&nbsp;удобное время, посмотрит квартиру и&nbsp;документы и&nbsp;назовёт цену, за&nbsp;которую её&nbsp;купят.</p>
+        <div class="f"><label for="lN">Имя</label><input id="lN" type="text" autocomplete="given-name"></div>
+        <div class="f"><label for="lT">Телефон</label><input id="lT" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7"></div>
+        <div class="f"><label for="lW">Что нужно</label><select id="lW"><option>Продать квартиру</option><option>Купить квартиру</option><option>Продать и купить одновременно</option><option>Проверить квартиру перед покупкой</option></select></div>
+        <div class="f"><label for="lA">Адрес или район <span class="opt">— если хотите</span></label><input id="lA" type="text" autocomplete="street-address"></div>
+        <label class="agree"><input type="checkbox" id="lC"><span>Согласен на&nbsp;обработку персональных данных по&nbsp;<button type="button" class="pl" data-open="policy">политике конфиденциальности</button></span></label>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p class="err" id="lE" role="alert"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div><a class="logo" href="#">Метраж</a><p>Агентство недвижимости<br>Екатеринбург, ул.&nbsp;Радищева, 28, офис 410</p></div>
+      <p><a href="tel:+73430000000">+7&nbsp;(343)&nbsp;000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a><br>Пн–Сб 9:00–21:00, показы и&nbsp;в&nbsp;воскресенье</p>
+    </div>
+    <div class="legal">
+      <span>ООО «Метраж»</span>
+      <button type="button" data-open="policy">Политика конфиденциальности</button>
+      <a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a>
+    </div>
+  </div>
+</footer>
+
+<dialog id="flat" aria-labelledby="flT">
+  <div class="dlg">
+    <div class="dph"><img id="flImg" src="" alt="" width="1000" height="750"></div>
+    <div class="dtx" id="flBody"></div>
+  </div>
+  <button class="x" type="button" id="flX" aria-label="Закрыть">×</button>
+</dialog>
+
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT">Политика конфиденциальности</h3><p>Имя и&nbsp;телефон нужны, чтобы агент перезвонил по&nbsp;вашей заявке или подтвердил просмотр. Данные получает только агентство «Метраж».</p><p>Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам. Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn">Понятно</button></form></dialog>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sp(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')}
+function rub(n){return sp(n)+' ₽'}
+function mln(n){return (Math.round(n/1e5)/10).toFixed(1).replace('.',',')}
+function pl(n,a,b,c){n=Math.abs(n)%100;var m=n%10;return n>10&&n<20?c:m===1?a:m>1&&m<5?b:c}
+document.querySelectorAll('[data-open=policy]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+
+/* ---------- оценка ---------- */
+var D=[['Центр',182000],['ВИЗ',152000],['Академический',148000],['Юго-Западный',146000],['Втузгородок',143000],['Ботаника',140000],['Пионерский',136000],['Уралмаш',121000],['Эльмаш',117000],['Химмаш',99000]];
+var R=[['Студия',1.08],['1',1.04],['2',1],['3',.96],['4+',.93]];
+var H=[['Панель',.93],['Кирпич',1],['Монолит',1.05]];
+var C=[['Нужен ремонт',.88],['Жилое',1],['Свежий ремонт',1.08]];
+var st={d:1,r:2,h:2,c:1,area:56,fl:7,fls:16,ask:0};
+$('dist').innerHTML=D.map(function(d,i){return '<option value="'+i+'"'+(i===st.d?' selected':'')+'>'+d[0]+'</option>'}).join('');
+function chips(el,arr,key){
+  el.innerHTML=arr.map(function(x,i){return '<button type="button" class="chip" aria-pressed="'+(st[key]===i)+'" data-i="'+i+'">'+x[0]+'</button>'}).join('');
+  el.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){st[key]=+b.dataset.i;el.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});calc()})});
+}
+chips($('rooms'),R,'r');chips($('house'),H,'h');chips($('cond'),C,'c');
+function rnd(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var mid=0,deals=[],lo=0,hi=0;
+function calc(){
+  var a=st.area,fl=st.fl,fls=st.fls;
+  if(!(a>=12&&a<=400)){$('rng').textContent='Проверьте площадь';$('ppm').textContent='';return}
+  var fk=fl===1?.92:(fl>=fls&&fls>5?.97:1);
+  mid=D[st.d][1]*a*R[st.r][1]*H[st.h][1]*C[st.c][1]*fk;
+  lo=mid*.97;hi=mid*1.03;
+  $('rng').textContent=mln(lo)+'–'+mln(hi)+' млн ₽';
+  $('ppm').textContent='≈ '+rub(Math.round(mid/a/100)*100)+' за м², 24 похожие сделки за 3 месяца';
+  var g=rnd(st.d*1000+st.r*100+Math.round(a/4)+st.h*7+st.c*3);deals=[];
+  for(var i=0;i<24;i++){var u=Math.max(1e-6,g()),v=g(),n=Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);n=Math.max(-2.4,Math.min(2.4,n));deals.push(mid*(1+.06*n))}
+  deals.sort(function(x,y){return x-y});
+  var mn=mid*.8,mx=mid*1.28,sx=function(v){return (v-mn)/(mx-mn)*100};
+  var rows=[],html='';
+  deals.forEach(function(v){var x=sx(v),r=0;while(rows[r]!==undefined&&x-rows[r]<2.4)r++;rows[r]=x;html+='<i class="dot" data-v="'+v+'" style="left:'+x.toFixed(2)+'%;bottom:'+(6+r*13)+'px"></i>'});
+  var s=$('strip');s.querySelectorAll('.dot').forEach(function(d){d.remove()});s.insertAdjacentHTML('afterbegin',html);
+  var b=$('band');b.style.left=sx(lo)+'%';b.style.width=(sx(hi)-sx(lo))+'%';
+  $('sMin').textContent=mln(mn)+' млн';$('sMax').textContent=mln(mx)+' млн';
+  window._sx=sx;ask();
+}
+function ask(){
+  if(!mid)return;
+  var p=st.ask,v=mid*(1+p/100),x=_sx(v),m=$('askM');
+  m.style.left=x+'%';m.className='ask'+(x<14?' l':x>86?' r':'');
+  $('askO').textContent=rub(Math.round(v/1e4)*1e4)+(p===0?', по рынку':', '+(p>0?'+':'−')+Math.abs(p)+'% к рынку');
+  var cheap=0;$('strip').querySelectorAll('.dot').forEach(function(d){var c=+d.dataset.v<v;d.className='dot'+(c?'':' lo');if(c)cheap++});
+  $('cheap').textContent=cheap+' из 24';
+  var dd=30*Math.exp(9.4*p/100),a=Math.max(10,Math.round(dd*.8/5)*5),b=Math.max(15,Math.round(dd*1.25/5)*5);
+  $('days').textContent=dd>125?'больше 4 мес.':'≈ '+a+'–'+b+' '+pl(b,'день','дня','дней');
+  var t;
+  if(p<=-5)t='Продадим быстро, но&nbsp;вы&nbsp;отдаёте около '+rub(Math.round((mid-v)/1e4)*1e4)+'. Так ставят цену, когда деньги нужны срочно или под альтернативную сделку.';
+  else if(p<=3)t='Цена в&nbsp;коридоре рынка. Звонки пойдут с&nbsp;первой недели, торг обычно укладывается в&nbsp;1–2%.';
+  else if(p<=10)t='Выше рынка: покупатели будут сравнивать с&nbsp;'+cheap+' '+pl(cheap,'квартирой','квартирами','квартирами')+' дешевле. Без свежего ремонта или вида из&nbsp;окон продажа затянется.';
+  else t='С&nbsp;такой ценой квартира простоит. Через 2–3 месяца цену всё равно снижают, а&nbsp;к&nbsp;«залежавшемуся» объявлению покупатели приходят с&nbsp;сильным торгом.';
+  $('adv').innerHTML=t;
+}
+$('dist').addEventListener('change',function(){st.d=+this.value;calc()});
+$('areaR').addEventListener('input',function(){st.area=+this.value;$('area').value=this.value;calc()});
+$('area').addEventListener('input',function(){var v=parseFloat(String(this.value).replace(',','.'));st.area=v;if(v>=18&&v<=160)$('areaR').value=Math.round(v);calc()});
+$('fl').addEventListener('input',function(){st.fl=+this.value||1;calc()});
+$('fls').addEventListener('input',function(){st.fls=+this.value||1;calc()});
+$('ask').addEventListener('input',function(){st.ask=+this.value;ask()});
+$('toForm').addEventListener('click',function(){
+  $('lW').value='Продать квартиру';
+  $('lA').value=D[st.d][0]+', '+(st.r===0?'студия':R[st.r][0]+'-комн.')+', '+String(st.area).replace('.',',')+' м²';
+  setTimeout(function(){$('lN').focus({preventScroll:true})},500);
+});
+calc();
+
+/* ---------- квартиры ---------- */
+var AG=['Ольга Мельникова','Анна Широкова','Дмитрий Воронов','Ольга Мельникова'];
+var F=[
+ {img:'f1',r:2,a:56.4,k:9.8,fl:7,fls:16,d:'ВИЗ',ad:'ул. Крауля, 44',p:7900000,y:2012,h:'Монолит',b:'Раздельный',ag:1,n:'Светлая, окна на&nbsp;две стороны, кухня отдельно от&nbsp;гостиной. Застеклённая лоджия 6&nbsp;м², рядом Зелёная роща.'},
+ {img:'f2',r:1,a:38.2,k:10.5,fl:12,fls:25,d:'Академический',ad:'ул. Вильгельма де Геннина, 31',p:5450000,y:2018,h:'Монолит',b:'Совмещённый',ag:0,n:'Ремонт 2023 года, встроенная кухня и&nbsp;шкаф остаются. Детский сад и&nbsp;школа во&nbsp;дворе.'},
+ {img:'f3',r:3,a:78.6,k:12,fl:4,fls:9,d:'Центр',ad:'ул. Малышева, 77',p:13900000,y:1998,h:'Кирпич',b:'Два санузла',ag:1,n:'Потолки 3&nbsp;м, три изолированные комнаты. До&nbsp;Плотинки 10 минут пешком, окна во&nbsp;двор.'},
+ {img:'f4',r:0,a:27.3,k:0,fl:15,fls:22,d:'Ботаника',ad:'ул. Белинского, 220',p:4150000,y:2019,h:'Монолит',b:'Совмещённый',ag:2,n:'Студия с&nbsp;нишей под спальню и&nbsp;видом на&nbsp;парк. Подходит под ипотеку и&nbsp;под сдачу в&nbsp;аренду.'},
+ {img:'f5',r:2,a:61,k:11.2,fl:3,fls:10,d:'Юго-Западный',ad:'ул. Шаумяна, 86',p:8350000,y:2008,h:'Кирпич',b:'Раздельный',ag:0,n:'Тёплый кирпичный дом, тихий двор с&nbsp;парковкой. Одна собственница, более 10 лет владения.'},
+ {img:'f6',r:3,a:84.5,k:13.4,fl:9,fls:17,d:'Пионерский',ad:'ул. Учителей, 18',p:10200000,y:2015,h:'Монолит',b:'Два санузла',ag:2,n:'Кухня-гостиная 24&nbsp;м² и&nbsp;две спальни, гардеробная. Свежий ремонт, остаётся техника.'}
+];
+F.forEach(function(f,i){f.i=i});
+var fs={r:-1,d:'',s:'new'};
+var RF=[['Все',-1],['Студии',0],['1-комн.',1],['2-комн.',2],['3 и больше',3]];
+$('fRooms').innerHTML=RF.map(function(x,i){return '<button type="button" class="chip" aria-pressed="'+(i===0)+'" data-r="'+x[1]+'">'+x[0]+'</button>'}).join('');
+$('fRooms').querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){fs.r=+b.dataset.r;$('fRooms').querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});list()})});
+var ds=[];F.forEach(function(f){if(ds.indexOf(f.d)<0)ds.push(f.d)});
+$('fDist').innerHTML='<option value="">Все районы</option>'+ds.map(function(d){return '<option>'+d+'</option>'}).join('');
+$('fDist').addEventListener('change',function(){fs.d=this.value;list()});
+$('fSort').addEventListener('change',function(){fs.s=this.value;list()});
+function rt(f){return f.r===0?'Студия':f.r+'-комн. квартира'}
+function list(){
+  var a=F.filter(function(f){return (fs.r<0||(fs.r===3?f.r>=3:f.r===fs.r))&&(!fs.d||f.d===fs.d)});
+  if(fs.s==='cheap')a.sort(function(x,y){return x.p-y.p});
+  else if(fs.s==='m2')a.sort(function(x,y){return x.p/x.a-y.p/y.a});
+  else a.sort(function(x,y){return x.i-y.i});
+  $('fCnt').textContent=a.length?a.length+' '+pl(a.length,'квартира','квартиры','квартир')+' из '+F.length:'';
+  $('cards').innerHTML=a.length?a.map(function(f){return '<article class="card"><div class="cph"><img src="img/'+f.img+'-600.webp" srcset="img/'+f.img+'-600.webp 600w, img/'+f.img+'-1000.webp 1000w" sizes="(max-width:760px) 92vw, (max-width:1040px) 46vw, 31vw" width="600" height="450" alt="'+esc(rt(f))+', '+esc(f.d)+'" loading="lazy" decoding="async"></div><div class="cb"><p class="pr">'+rub(f.p)+'</p><p class="ps">'+rub(Math.round(f.p/f.a/100)*100)+' за м²</p><h3>'+rt(f)+', '+String(f.a).replace('.',',')+' м², '+f.fl+'/'+f.fls+' этаж</h3><p class="ad">'+esc(f.d)+', '+esc(f.ad)+'</p><button type="button" class="btn line" data-f="'+f.i+'">Подробнее и просмотр</button></div></article>'}).join('')
+    :'<div class="empty"><p>Таких квартир сейчас нет на&nbsp;сайте. Оставьте заявку&nbsp;— подберём из&nbsp;новых объявлений и&nbsp;квартир, которые продаются без рекламы.</p><a class="btn" href="#form" id="emptyGo">Оставить заявку на&nbsp;подбор</a></div>';
+  $('cards').querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){openFlat(F[+b.dataset.f])})});
+  var eg=$('emptyGo');if(eg)eg.addEventListener('click',function(){$('lW').value='Купить квартиру'});
+}
+list();
+
+/* ---------- просмотр ---------- */
+var DN=['вс','пн','вт','ср','чт','пт','сб'],MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+var TM=['11:00','13:00','16:00','18:30'];
+var vs={};
+function openFlat(f){
+  vs={f:f,day:-1,tm:''};
+  $('flImg').src='img/'+f.img+'-1000.webp';$('flImg').alt=rt(f)+', '+f.d;
+  var today=new Date();today.setHours(0,0,0,0);var days=[];for(var i=1;i<=6;i++){var d=new Date(today);d.setDate(d.getDate()+i);days.push(d)}
+  vs.days=days;
+  $('flBody').innerHTML='<h3 id="flT">'+rt(f)+', '+String(f.a).replace('.',',')+' м²</h3><p class="pr">'+rub(f.p)+'</p>'+
+   '<dl><dt>Адрес</dt><dd>'+esc(f.d)+', '+esc(f.ad)+'</dd><dt>Этаж</dt><dd>'+f.fl+' из '+f.fls+'</dd>'+(f.k?'<dt>Кухня</dt><dd>'+String(f.k).replace('.',',')+' м²</dd>':'')+'<dt>Дом</dt><dd>'+f.h+', '+f.y+' год</dd><dt>Санузел</dt><dd>'+f.b+'</dd><dt>Агент</dt><dd>'+AG[f.ag]+'</dd></dl>'+
+   '<p>'+f.n+'</p><h4>Записаться на просмотр</h4>'+
+   '<div class="slots" role="group" aria-label="День">'+days.map(function(d,i){return '<button type="button" class="chip" aria-pressed="false" data-day="'+i+'">'+(i===0?'завтра':DN[d.getDay()]+', '+d.getDate())+'</button>'}).join('')+'</div>'+
+   '<div class="slots" id="vTimes" role="group" aria-label="Время"></div>'+
+   '<div class="f"><label for="vN">Имя</label><input id="vN" type="text" autocomplete="given-name"></div>'+
+   '<div class="f"><label for="vP">Телефон</label><input id="vP" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7"></div>'+
+   '<label class="agree"><input type="checkbox" id="vC"><span>Согласен на&nbsp;обработку персональных данных по&nbsp;<button type="button" class="pl" id="vPol">политике конфиденциальности</button></span></label>'+
+   '<button type="button" class="btn" id="vGo">Записаться на просмотр</button><p class="err" id="vE" role="alert"></p>';
+  var body=$('flBody');
+  body.querySelectorAll('[data-day]').forEach(function(b){b.addEventListener('click',function(){vs.day=+b.dataset.day;vs.tm='';$('vE').textContent='';body.querySelectorAll('[data-day]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});times()})});
+  $('vPol').addEventListener('click',function(){$('policy').showModal()});
+  $('vGo').addEventListener('click',book);
+  times();
+  $('flat').showModal();
+}
+function times(){
+  var el=$('vTimes');
+  if(vs.day<0){el.innerHTML='<p style="font-size:15px;color:#5A6970">Выберите день&nbsp;— покажем свободное время.</p>';return}
+  el.innerHTML=TM.map(function(t,j){var busy=(vs.f.i*3+vs.day*5+j*7)%4===0;return '<button type="button" class="chip" '+(busy?'disabled aria-label="'+t+', занято"':'')+' aria-pressed="'+(vs.tm===t)+'" data-tm="'+t+'">'+t+'</button>'}).join('');
+  el.querySelectorAll('[data-tm]').forEach(function(b){b.addEventListener('click',function(){vs.tm=b.dataset.tm;$('vE').textContent='';el.querySelectorAll('[data-tm]').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+}
+function book(){
+  var e=$('vE'),n=$('vN').value.trim(),p=$('vP').value.replace(/\D/g,'');
+  if(vs.day<0||!vs.tm){e.textContent='Выберите день и время просмотра.';return}
+  if(!n){e.textContent='Напишите, как к вам обращаться.';$('vN').focus();return}
+  if(p.length<10){e.textContent='Проверьте телефон: нужно 10 цифр после +7.';$('vP').focus();return}
+  if(!$('vC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+  var d=vs.days[vs.day];
+  $('flBody').innerHTML='<h3 id="flT">'+rt(vs.f)+', '+String(vs.f.a).replace('.',',')+' м²</h3><div class="done"><b>Вы записаны на просмотр</b>'+DN[d.getDay()]+', '+d.getDate()+' '+MN[d.getMonth()]+', в '+vs.tm+'. Адрес: '+esc(vs.f.d)+', '+esc(vs.f.ad)+'. '+AG[vs.f.ag]+' позвонит в течение 15 минут, чтобы подтвердить.</div><button type="button" class="btn line" id="vDone">Закрыть</button>';
+  $('vDone').addEventListener('click',function(){$('flat').close()});
+}
+$('flX').addEventListener('click',function(){$('flat').close()});
+$('flat').addEventListener('click',function(ev){if(ev.target===this)this.close()});
+
+/* ---------- заявка ---------- */
+$('lf').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var e=$('lE'),n=$('lN').value.trim(),p=$('lT').value.replace(/\D/g,'');
+  if(!n){e.textContent='Напишите, как к вам обращаться.';$('lN').focus();return}
+  if(p.length<10){e.textContent='Проверьте телефон: нужно 10 цифр после +7.';$('lT').focus();return}
+  if(!$('lC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+  e.textContent='';
+  var w=$('lW').value;
+  this.innerHTML='<h2>Заявка отправлена</h2><div class="done"><b>'+esc(n)+', спасибо</b>Агент позвонит в течение 15 минут в рабочее время, с 9:00 до 21:00. '+(w==='Продать квартиру'?'Договоримся о выезде: возьмите под рукой выписку ЕГРН или договор, по которому получали квартиру.':w==='Купить квартиру'?'Расскажете, какую квартиру ищете, и пришлём подборку в тот же день.':'Расскажете о задаче, и агент назовёт сроки и стоимость.')+'</div>';
+});
+})();
+</script>
+</body>
+</html>
