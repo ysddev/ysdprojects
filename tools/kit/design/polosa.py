@@ -107,6 +107,7 @@ def cfg() -> dict:
           '<div class="lg" id="lg"><span><i></i>рез</span><span><i class="f"></i>сгиб</span><span><i class="b"></i>вылет под обрез 3 мм</span></div></div></div>')
     return {
         "slug": "design/polosa", "brand": "Полоса", "favLetter": "П",
+        "layout": 'stack', "header": 'float', "secHead": 'stack', "resStyle": 'grid', "ctaStyle": 'line',  # layout
         "title": "Полоса — упаковка шоколада · YSD DEV",
         "desc": "Дизайн упаковки шоколада: четыре вкуса в одной системе, развёртка с линиями реза и сгиба для типографии, "
                 "оборот с составом и штрихкодом, шоубокс, подарочный набор и стикер.",

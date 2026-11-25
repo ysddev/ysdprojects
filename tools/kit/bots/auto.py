@@ -11,6 +11,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/auto", "images": IMG, "brand": "Мотор", "botName": "Мотор · автосервис", "avatar": "М", "logoIcon": "🔧",
+        "layout": 'poster', "header": 'bar', "frame": 'edge', "featsStyle": 'rail', "resStyle": 'band', "vars": {'band': '#ff6a1a', 'bandink': '#111315', 'bandem': '#ffffff'},  # layout
         "title": "Мотор — Telegram-бот автосервиса: запись, статус ремонта, согласование работ",
         "desc": "Бот считает стоимость, записывает на удобное время, показывает, что сейчас делают с машиной, и согласует "
                 "дополнительные работы одним нажатием.",

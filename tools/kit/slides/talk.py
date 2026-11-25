@@ -7,6 +7,7 @@ IMG = {"hall": ("1769798643655-e0f10f62c3fd", 16, 9, "1000,1600")}
 def cfg() -> dict:
     return {
         "slug": "slides/talk", "brand": "Сборка 2026", "logoIcon": "✦", "images": IMG,
+        "cover": 'center', "skin": 'side',  # layout
         "title": "Продажи без скидок — выступление на конференции «Сборка»",
         "desc": "Слайды доклада на конференции: почему скидка не продаёт, три приёма вместо неё, цифры эксперимента на 1 200 сделках и чек-лист на понедельник.",
         "theme": theme("#000000", "#f5f2e8", "#ffd91a", "#111111", '"Sofia Sans Condensed",Impact,sans-serif', '"Inter Tight",sans-serif',

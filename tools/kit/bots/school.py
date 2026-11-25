@@ -7,6 +7,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/school", "images": {}, "brand": "Конспект", "botName": "Конспект · школа", "avatar": "К", "logoIcon": "✏️",
+        "layout": 'sticky', "header": 'plain', "frame": 'silver', "featsStyle": 'icons', "resStyle": 'grid',  # layout
         "title": "Конспект — Telegram-бот онлайн-школы: уроки, домашние задания, прогресс ученика",
         "desc": "Бот напоминает об уроках, принимает домашние задания, передаёт их куратору, показывает прогресс и "
                 "принимает оплату за следующий месяц.",

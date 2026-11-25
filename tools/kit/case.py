@@ -84,6 +84,68 @@ p{margin:0}
 .seg button.on{background:var(--ink);color:var(--bg)}
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
 .js .rv.on{opacity:1;transform:none}
+/* ===== шапка ===== */
+.bar.b-float{background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;top:10px;padding-top:10px}
+.bar.b-float .in{height:56px;padding:0 20px;border-radius:999px;background:color-mix(in srgb,var(--card,#fff) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 12px 36px -24px rgba(0,0,0,.4),0 0 0 1px var(--line)}
+.bar.b-center .in{display:grid;grid-template-columns:1fr auto 1fr}.bar.b-center nav{margin-left:0;justify-self:start;grid-row:1;grid-column:1}
+.bar.b-center .bn{grid-column:2;grid-row:1;font-size:22px}.bar.b-center .dev{grid-column:3;justify-self:end}
+.bar.b-ink{background:var(--ink);color:var(--bg);border:0}.bar.b-ink nav{color:color-mix(in srgb,var(--bg) 65%,transparent)}.bar.b-ink nav a:hover,.bar.b-ink nav a.on{color:var(--bg)}.bar.b-ink .dev{color:color-mix(in srgb,var(--bg) 65%,transparent)}
+/* ===== герой: варианты ===== */
+.hero.h-side .g{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.hero.h-side .art{order:-1}
+.hero.h-side .facts{grid-template-columns:1fr;gap:0;padding-top:0;border-top:0}
+.hero.h-side .facts div{display:grid;grid-template-columns:9ch 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.hero.h-cover{padding-top:clamp(16px,2.4vw,32px)}
+.h-cover .art{display:grid;place-items:center;border-radius:var(--ra,20px)}
+.h-cover .art>*{width:100%}.h-cover .art>svg{width:100%;height:auto;max-height:min(74vh,700px)}
+.h-cover .cv{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,72px);align-items:end;margin-top:clamp(28px,4vw,56px)}
+.h-cover .cv>*{min-width:0}
+.hero.h-cover h1{margin-bottom:0}
+.h-cover .facts,.h-stack .facts{grid-template-columns:repeat(4,minmax(0,1fr))}
+.hero.h-stack{text-align:center}
+.h-stack .st{max-width:1000px;margin:0 auto}.h-stack .lead{margin-inline:auto}.h-stack .acts{justify-content:center}
+.hero.h-stack h1{font-size:clamp(46px,7.4vw,120px)}
+.h-stack .art{margin:clamp(32px,5vw,64px) auto 0;max-width:1080px;display:grid;place-items:center}
+.h-stack .art>svg{width:auto;max-width:100%;height:min(62vh,600px)}
+.h-stack .facts{text-align:left;max-width:1080px;margin-inline:auto;gap:0;padding-top:0;border-top:0}
+.h-stack .facts div{padding:18px 20px;border-left:1px solid var(--line)}.h-stack .facts div:first-child{border-left:0;padding-left:0}
+.hero.h-frame{padding-top:clamp(16px,2.4vw,32px)}
+.h-frame .fp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;border-radius:var(--rs,28px);background:var(--fpbg,var(--ac));color:var(--fpink,var(--aci));padding:clamp(24px,5vw,72px)}
+.h-frame .fp>*{min-width:0}
+.h-frame .kick{color:inherit;opacity:.8}.h-frame h1 em{color:var(--fpem,inherit)}
+.h-frame .lead{color:color-mix(in srgb,var(--fpink,var(--aci)) 82%,transparent)}
+.h-frame .btn{background:var(--fpink,var(--aci));color:var(--fpbg,var(--ac))}
+.h-frame .btn.g{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--fpink,var(--aci)) 50%,transparent)}
+.h-frame .facts{border-top-color:color-mix(in srgb,var(--fpink,var(--aci)) 25%,transparent)}
+.h-frame .facts span{color:color-mix(in srgb,var(--fpink,var(--aci)) 70%,transparent)}
+.h-frame .art{box-shadow:0 40px 80px -40px rgba(0,0,0,.45)}
+.h-index .ix{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.h-index .ix>div{padding:14px 18px 16px 0}
+.h-index .ix span{display:block;font-size:14px;color:var(--mut)}.h-index .ix b{display:block;font-weight:500;font-size:15px;line-height:1.35}
+.h-index .ix .kick{align-self:center}
+.h-index .ig{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(24px,4vw,72px);align-items:start;margin-top:clamp(28px,4vw,56px)}
+.h-index .ig>*{min-width:0}
+.hero.h-index h1{font-size:clamp(46px,7vw,112px);margin:0 0 26px}
+/* ===== заголовки разделов ===== */
+.sh-stack .sh{grid-template-columns:1fr;gap:16px}.sh-stack .sh .lead{justify-self:start}
+.sh-center .sh{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px}.sh-center .sh .lead{justify-self:center}
+/* ===== результат и призыв ===== */
+.res.r-band{background:var(--ac);box-shadow:none;gap:0}.res.r-band div{background:transparent;color:var(--aci)}
+.res.r-band div+div{box-shadow:inset 1px 0 0 color-mix(in srgb,var(--aci) 22%,transparent)}.res.r-band b{color:var(--aci)}.res.r-band span{color:color-mix(in srgb,var(--aci) 80%,transparent)}
+.res.r-line{background:none;box-shadow:none;border-radius:0;border-top:2px solid var(--ink);gap:0}.res.r-line div{background:none;padding:24px 24px 0 0}.res.r-line b{color:var(--ink);font-size:clamp(40px,5vw,72px)}
+.cta.c-line{background:none;color:var(--ink);border-radius:0;border-top:2px solid var(--ink);padding:clamp(28px,4vw,48px) 0 0}
+.cta.c-line h2{font-size:clamp(36px,5.6vw,84px);max-width:14ch}
+.cta.c-ac{background:var(--ac);color:var(--aci)}.cta.c-ac .btn{background:var(--aci);color:var(--ac)}
+@media (max-width:980px){
+ .hero.h-side .g,.h-cover .cv,.h-frame .fp,.h-index .ig{grid-template-columns:1fr}
+ .hero.h-side .art{order:0}
+ .h-cover .facts,.h-stack .facts{grid-template-columns:1fr 1fr}
+ .h-stack .facts div{border-left:0;padding:12px 0}
+ .h-stack .art>svg{height:auto;width:100%}
+ .h-index .wrap{display:flex;flex-direction:column}.h-index .ix{order:2;margin-top:28px;grid-template-columns:1fr 1fr}.h-index .ix .kick{display:none}.h-index .ig{margin-top:0}
+ .bar.b-center .in{display:flex}.bar.b-center .dev{margin-left:auto}
+ .res.r-band div+div{box-shadow:none}
+}
 @media (max-width:980px){
  .bar nav{display:none}.bar .dev{margin-left:auto}
  .hero .g,.sh{grid-template-columns:1fr}.sh .lead{justify-self:start}
@@ -138,7 +200,7 @@ def render(s: dict) -> str:
     elif t == "html":
         body = f'<div class="rv">{s["html"]}</div>'
     elif t == "result":
-        body = ('<div class="res rv">' + "".join(f"<div><b>{e(a)}</b><span>{e(b)}</span></div>" for a, b in s["stats"]) + "</div>"
+        body = ('<div class="res' + s.get("_rcls", "") + ' rv">' + "".join(f"<div><b>{e(a)}</b><span>{e(b)}</span></div>" for a, b in s["stats"]) + "</div>"
                 + (f'<p class="quote rv">«{e(s["quote"][0])}»<small>{e(s["quote"][1])}</small></p>' if s.get("quote") else ""))
     else:
         raise ValueError(t)
@@ -155,6 +217,34 @@ def build(c: dict) -> str:
     H = c["hero"]
     nav = "".join(f'<a href="#{s["id"]}">{e(s["nav"])}</a>' for s in c["sections"] if s.get("nav"))
     facts = "".join(f"<div><span>{e(a)}</span><b>{e(b)}</b></div>" for a, b in c["facts"])
+    L = c.get("layout", "split")
+    kick = f'<div class="kick">{e(H["kicker"])}</div>'
+    h1 = f"<h1>{H['h1']}</h1>"
+    lead = f'<p class="lead">{H["lead"]}</p>'
+    acts = (f'<div class="acts"><a class="btn" href="#{H.get("go", c["sections"][0]["id"])}">{e(H.get("cta", "Смотреть работу"))}</a>'
+            '<a class="btn g" href="https://ysddev.com" rel="noopener">Обсудить проект</a></div>')
+    art = f'<div class="art rv">{H["art"]}</div>'
+    if L == "cover":
+        hero = (f'<section class="hero h-cover" id="top"><div class="wrap">{art}<div class="cv rv"><div>{kick}{h1}</div><div>{lead}{acts}</div></div>'
+                f'<div class="facts rv">{facts}</div></div></section>')
+    elif L == "stack":
+        hero = (f'<section class="hero h-stack" id="top"><div class="wrap"><div class="st rv">{kick}{h1}{lead}{acts}</div>{art}'
+                f'<div class="facts rv">{facts}</div></div></section>')
+    elif L == "frame":
+        hero = (f'<section class="hero h-frame" id="top"><div class="wrap"><div class="fp"><div class="rv">{kick}{h1}{lead}{acts}'
+                f'<div class="facts">{facts}</div></div>{art}</div></div></section>')
+    elif L == "index":
+        hero = (f'<section class="hero h-index" id="top"><div class="wrap"><div class="ix rv">{kick}{facts}</div>'
+                f'<div class="ig"><div class="rv">{h1}{lead}{acts}</div>{art}</div></div></section>')
+    else:
+        hero = (f'<section class="hero h-{L}" id="top"><div class="wrap g"><div class="rv">{kick}{h1}{lead}{acts}'
+                f'<div class="facts">{facts}</div></div>{art}</div></section>')
+    bcls = {"bar": "bar", "float": "bar b-float", "center": "bar b-center", "ink": "bar b-ink"}[c.get("header", "bar")]
+    ccls = {"block": "cta", "line": "cta c-line", "ac": "cta c-ac"}[c.get("ctaStyle", "block")]
+    shc = {"split": "", "stack": "sh-stack", "center": "sh-center"}[c.get("secHead", "split")]
+    for s_ in c["sections"]:
+        if s_["type"] == "result":
+            s_["_rcls"] = {"grid": "", "band": " r-band", "line": " r-line"}[c.get("resStyle", "grid")]
     page = f"""<!doctype html>
 <html lang="ru">
 <head>
@@ -175,19 +265,13 @@ def build(c: dict) -> str:
 {c.get('css', '')}
 </style>
 </head>
-<body>
-<header class="bar"><div class="wrap in"><a class="bn" href="#top">{e(c['brand'])}</a><nav aria-label="Разделы кейса">{nav}</nav>
+<body class="{shc}">
+<header class="{bcls}"><div class="wrap in"><a class="bn" href="#top">{e(c['brand'])}</a><nav aria-label="Разделы кейса">{nav}</nav>
 <a class="dev" href="https://ysddev.com" rel="noopener">YSD DEV</a></div></header>
 <main>
-<section class="hero" id="top"><div class="wrap g">
- <div class="rv"><div class="kick">{e(H['kicker'])}</div><h1>{H['h1']}</h1><p class="lead">{H['lead']}</p>
- <div class="acts"><a class="btn" href="#{H.get('go', c['sections'][0]['id'])}">{e(H.get('cta', 'Смотреть работу'))}</a>
- <a class="btn g" href="https://ysddev.com" rel="noopener">Обсудить проект</a></div>
- <div class="facts">{facts}</div></div>
- <div class="art rv">{H['art']}</div>
-</div></section>
+{hero}
 {''.join(render(s) for s in c['sections'])}
-<section class="sec"><div class="wrap"><div class="cta rv"><h2>{c.get('ctaTitle', 'Нужен такой же дизайн?')}</h2><a class="btn" href="https://ysddev.com" rel="noopener">Обсудить проект</a></div></div></section>
+<section class="sec"><div class="wrap"><div class="{ccls} rv"><h2>{c.get('ctaTitle', 'Нужен такой же дизайн?')}</h2><a class="btn" href="https://ysddev.com" rel="noopener">Обсудить проект</a></div></div></section>
 </main>
 <footer class="wrap foot"><span>© 2026 {e(c['brand'])}</span><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
 <script>window.CASECFG={jdump(c.get('data', {}))};</script>

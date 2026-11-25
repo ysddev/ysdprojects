@@ -128,6 +128,7 @@ seg('ctC',function(b){c.style.setProperty('--cb',b.dataset.b);c.style.setPropert
 def cfg() -> dict:
     return {
         "slug": "design/blik", "brand": "Блик", "favLetter": "Б",
+        "layout": 'frame', "header": 'bar', "secHead": 'stack', "resStyle": 'line', "ctaStyle": 'block',  # layout
         "title": "Блик — фирменный стиль студии маникюра · YSD DEV",
         "desc": "Фирменный стиль студии маникюра: знак-ноготь с бликом, палитра лаков, шрифты, визитка, вывеска, сторис, прайс, "
                 "карта постоянной гостьи и конструктор подарочного сертификата.",

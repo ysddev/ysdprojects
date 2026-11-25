@@ -121,6 +121,7 @@ def cfg() -> dict:
                 '</g><g class="w"><text x="104" y="74" font-family="Unbounded" font-weight="700" font-size="44" fill="#13202b">АЗИМУТ</text></g></svg></div>')
     return {
         "slug": "design/azimut", "brand": "Азимут", "favLetter": "А",
+        "layout": 'stack', "header": 'center', "secHead": 'split', "resStyle": 'line', "ctaStyle": 'ac',  # layout
         "title": "Азимут — логотип и знак геодезической компании · YSD DEV",
         "desc": "Логотип и знак для геодезической компании: идея, построение на сетке по шагам, версии, цвета, шрифт и носители — "
                 "визитка, каска, автомобиль, межевой знак, отчёт.",

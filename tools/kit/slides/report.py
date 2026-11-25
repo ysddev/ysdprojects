@@ -5,6 +5,7 @@ from ._t import theme
 def cfg() -> dict:
     return {
         "slug": "slides/report", "brand": "Домус", "logoIcon": "Д",
+        "cover": 'center', "skin": 'rule',  # layout
         "title": "Домус — отчёт для руководства за III квартал",
         "desc": "Квартальный отчёт розничной сети для совета директоров: выручка против плана, каналы продаж, структура расходов, отклонения и сценарий на IV квартал.",
         "theme": theme("#070b14", "#dfe6f5", "#3d8bff", "#ffffff", '"Inter Tight",sans-serif', '"Inter Tight",sans-serif',

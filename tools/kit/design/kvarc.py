@@ -126,6 +126,7 @@ def cfg() -> dict:
                                     + '<text x="240" y="210" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" fill="#6a6585">читается и в 16 px</text>', bg="#fff"))]) + '</div>')
     return {
         "slug": "design/kvarc", "brand": "Кварц", "favLetter": "К",
+        "layout": 'split', "header": 'float', "secHead": 'split', "resStyle": 'grid', "ctaStyle": 'ac',  # layout
         "title": "Кварц — брендбук ИТ-компании · YSD DEV",
         "desc": "Брендбук ИТ-компании: логотип и охранное поле, цвета с кодами, шкала типографики, тон голоса с примерами и шаблоны "
                 "носителей — визитка, бланк, подпись в почте, слайд, бейдж.",

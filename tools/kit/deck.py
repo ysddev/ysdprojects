@@ -48,6 +48,36 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
 .t-cover.pic .kick{color:#fff;opacity:.86}
+/* обложка: варианты компоновки */
+.cv-half .bgimg,.cv-frame .bgimg{left:50%}
+.cv-half .bgimg::after,.cv-frame .bgimg::after{display:none}
+.cv-half .in,.cv-frame .in{right:50%;justify-content:center;padding-right:calc(var(--u)*4);padding-top:calc(var(--u)*9.5)}
+.sl.cv-half h1,.sl.cv-frame h1{font-size:calc(var(--u)*4.3)}.cv-half .lead,.cv-frame .lead{font-size:calc(var(--u)*1.6)}.cv-half .meta,.cv-frame .meta{margin-top:calc(var(--u)*2.6)}
+.cv-half .badge,.cv-frame .badge{right:calc(var(--u)*4)}
+.cv-frame .bgimg{inset:calc(var(--u)*3.4) calc(var(--u)*3.4) calc(var(--u)*3.4) 50%;border-radius:calc(var(--r)*1.3 + 6px);overflow:hidden}
+.cv-center .in{align-items:center;justify-content:center;text-align:center}
+.cv-center h1{max-width:15em}.cv-center .lead{margin-inline:auto}.cv-center .meta{justify-content:center}
+.cv-center .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.46))}
+.cv-top .in{justify-content:flex-start;padding-top:calc(var(--u)*10)}
+.cv-top h1{font-size:calc(var(--u)*6.2);max-width:16em}
+.cv-top .bgimg{top:58%}
+.cv-top .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.cv-top .meta{position:absolute;left:calc(var(--u)*6);bottom:calc(var(--u)*3.2);z-index:2;margin:0;color:rgba(255,255,255,.82)}
+.cv-top .meta b{color:#fff}
+.cv-type .in{justify-content:flex-start;padding-top:calc(var(--u)*10.5)}
+.cv-type h1{font-size:calc(var(--u)*8.2);line-height:.94;max-width:11.5em}
+.cv-type .meta{margin-top:auto;position:relative;z-index:2}
+.cv-type .mark{position:absolute;right:calc(var(--u)*3);bottom:calc(var(--u)*-2.4);font:var(--hw) calc(var(--u)*22)/.8 var(--fh);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:calc(var(--u)*.16) var(--sac,var(--ac));opacity:.5;white-space:nowrap;pointer-events:none}
+.v-accent.cv-type .mark{-webkit-text-stroke-color:var(--a-ink);opacity:.28}
+/* оформление всех слайдов: рамка, линейка с названием, полоса сбоку */
+.sk-frame .sl::after{content:"";position:absolute;inset:calc(var(--u)*1.7);border:1px solid var(--sline);border-radius:calc(var(--r)*.5);pointer-events:none;z-index:4}
+.sk-frame .t-cover.pic::after,.sk-frame .t-split::after{border-color:rgba(255,255,255,.35)}
+.sk-rule .sl:not(.t-cover):not(.t-split) .in{padding-top:calc(var(--u)*8.6)}
+.sk-rule .sl:not(.t-cover):not(.t-split)::before{content:attr(data-t);position:absolute;left:calc(var(--u)*6);right:calc(var(--u)*6);top:calc(var(--u)*3.3);padding-bottom:calc(var(--u)*1.1);border-bottom:1px solid var(--sline);font:600 calc(var(--u)*1.1)/1 var(--fb);color:var(--smut);z-index:3}
+.sk-side .sl:not(.t-cover)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--u)*1.2);background:var(--sac,var(--ac));z-index:3}
+.sk-side .sl:not(.t-cover):not(.t-split) .in{padding-left:calc(var(--u)*8)}
+.sk-side .sl .brandm{left:calc(var(--u)*8)}
+.sk-side .t-split .tx{padding-left:calc(var(--u)*8)}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -235,6 +265,18 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .kick{font-size:11.5px;margin-bottom:14px}.num,.brandm{font-size:11px;bottom:14px}.brandm{left:20px}.num{right:20px}
 .t-cover .logo{left:20px;top:22px;font-size:20px}.t-cover .badge{right:20px;top:22px;font-size:10.5px}.t-cover .meta{font-size:13px;gap:20px}.t-cover .meta b{font-size:15px}
 .legend{font-size:13px}.grow{margin-top:26px}
+.cv-half .bgimg,.cv-frame .bgimg,.cv-top .bgimg{position:relative;inset:auto;height:44svh}
+.cv-frame .bgimg{margin:16px 16px 0;border-radius:18px}
+.cv-half .in,.cv-frame .in,.cv-top .in,.cv-type .in{right:auto;padding-right:20px;min-height:0!important;padding-top:calc(var(--u)*7)}
+.cv-half .badge,.cv-frame .badge,.cv-top .badge{display:none}
+.cv-half .logo,.cv-frame .logo,.cv-top .logo{position:static;margin-bottom:22px}
+.cv-half h1,.cv-frame h1,.cv-top h1{font-size:calc(var(--u)*4.4)}
+.cv-top .meta{position:static;color:var(--smut);margin-top:22px}.cv-top .meta b{color:var(--sink)}
+.cv-top .bgimg{order:2}
+.cv-type .in{min-height:76svh!important}.cv-type h1{font-size:calc(var(--u)*5.2)}.cv-type .mark{font-size:calc(var(--u)*13);right:12px}
+.sk-rule .sl::before,.sk-side .sl::before{display:none}.sk-rule .sl .in{padding-top:calc(var(--u)*5)!important}.sk-side .sl .in,.sk-side .t-split .tx{padding-left:20px!important}.sk-side .sl .brandm{left:20px}
+.sk-frame .sl::after{inset:8px}
+
 .barx .ttl,.barx #fs{display:none}.barx{justify-content:space-between}.hint{display:none}
 }
 """
@@ -347,8 +389,11 @@ def _slide(s: dict, i: int, n: int, c: dict) -> str:
     body = ""
     cls = ""
     if t == "cover":
-        bg = f'<div class="bgimg">{img(s["img"], I, "100vw", eager=True)}</div>' if s.get("img") else ""
-        cls = " pic" if s.get("img") else ""
+        cv = c.get("cover", "bottom")
+        bg = f'<div class="bgimg">{img(s["img"], I, "(max-width:760px) 100vw, " + ("50vw" if cv in ("half", "frame") else "100vw"), eager=True)}</div>' if s.get("img") else ""
+        cls = (" pic" if s.get("img") and cv in ("bottom", "center") else "") + f" cv-{cv}"
+        if cv == "type" and s.get("mark"):
+            bg += f'<div class="mark" aria-hidden="true">{e(s["mark"])}</div>'
         meta = "".join(f"<div><b>{e(a)}</b>{e(b)}</div>" for a, b in s.get("meta", []))
         badge = f'<div class="badge" data-a>{e(s["badge"])}</div>' if s.get("badge") else ""
         body = (f'{bg}<div class="in"><div class="logo" data-a><i>{c.get("logoIcon", c["brand"][0])}</i>{e(c["brand"])}</div>{badge}'
@@ -464,7 +509,7 @@ def build(c: dict) -> str:
 {c.get('css', '')}
 </style>
 </head>
-<body>
+<body class="sk-{c.get('skin', 'none')}">
 <main class="deck" id="deck" aria-roledescription="презентация" aria-label="{e(c['title'])}">
 {slides}
 </main>

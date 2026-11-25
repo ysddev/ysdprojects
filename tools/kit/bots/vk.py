@@ -9,6 +9,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/vk", "images": IMG, "brand": "Зерно", "botName": "Кофейня «Зерно»", "avatar": "З", "logoIcon": "☕",
+        "layout": 'mirror', "header": 'float', "frame": 'flat', "featsStyle": 'cards', "resStyle": 'grid',  # layout
         "title": "Зерно — бот ВКонтакте для кофейни: предзаказ кофе к времени, бонусы, розыгрыши для подписчиков",
         "desc": "Бот в сообщениях сообщества ВК принимает предзаказ к нужному времени, начисляет бонусы и проводит розыгрыши среди подписчиков.",
         "theme": theme(False, bg="#f2f4f7", ink="#14181f", soft="#4c5563", mut="#808a99", line="#dfe3ea", line2="#c5ccd8",

@@ -9,6 +9,7 @@ QR = qr_svg("sborka-ticket-0417")
 def cfg() -> dict:
     return {
         "slug": "bots/event", "images": IMG, "brand": "Сборка", "botName": "Сборка · конференция", "avatar": "С", "logoIcon": "✦",
+        "layout": 'center', "header": 'bar', "frame": 'black', "featsStyle": 'bento', "resStyle": 'band',  # layout
         "title": "Сборка — Telegram-бот конференции: билеты с QR, программа, напоминания о докладах",
         "desc": "Бот продаёт билеты и присылает их с QR-кодом, показывает программу, собирает личное расписание участника "
                 "и напоминает о докладах.",

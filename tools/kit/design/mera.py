@@ -95,6 +95,7 @@ seg('tgS',function(b){size(b.dataset.z)});seg('tgC',function(b){v.style.setPrope
 def cfg() -> dict:
     return {
         "slug": "design/mera", "brand": "Мера", "favLetter": "М",
+        "layout": 'side', "header": 'center', "secHead": 'stack', "resStyle": 'line', "ctaStyle": 'block',  # layout
         "title": "Мера — фирменный стиль магазина женской одежды · YSD DEV",
         "desc": "Фирменный стиль магазина женской одежды: логотип с сантиметровой лентой, палитра коллекций, шрифты, бирка-конструктор, "
                 "пакет, коробка, вывеска, пост, карта клиента и наклейка.",

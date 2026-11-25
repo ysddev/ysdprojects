@@ -5,6 +5,7 @@ from ._t import theme
 def cfg() -> dict:
     return {
         "slug": "slides/franchise", "brand": "Корка", "logoIcon": "К",
+        "cover": 'center', "skin": 'none',  # layout
         "title": "Корка — презентация франшизы пекарен",
         "desc": "Презентация франшизы сети пекарен: три формата точки, структура вложений, выручка по месяцам после открытия, поддержка партнёра и калькулятор окупаемости.",
         "theme": theme("#2a120d", "#fdeedd", "#d8342a", "#ffffff", '"Rubik",sans-serif', '"Rubik",sans-serif',

@@ -106,6 +106,7 @@ var s=document.getElementById('edS');s.addEventListener('click',function(e){var 
 def cfg() -> dict:
     return {
         "slug": "design/pena", "brand": "Пена", "favLetter": "П",
+        "layout": 'frame', "header": 'ink', "secHead": 'center', "resStyle": 'grid', "ctaStyle": 'ac',  # layout
         "title": "Пена — шаблоны постов и сторис для клининга · YSD DEV",
         "desc": "Шаблоны постов и сторис для продвижения услуг клининговой компании: лента из девяти постов, обложки актуального, "
                 "редактор шаблона прямо в браузере, три сторис и правила цвета.",

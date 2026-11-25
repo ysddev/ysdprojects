@@ -19,6 +19,7 @@
 @font-face{font-family:"Rubik";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/rubik-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+20BD}
 @font-face{font-family:"Rubik";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/rubik-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Rubik";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/rubik-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/rubik-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+20BD}
 :root{--bar:56px;--page:#2a120d;--pink:#fdeedd;--ac:#d8342a;--aci:#ffffff;--fh:"Rubik",sans-serif;--fb:"Rubik",sans-serif;--hw:800;--ht:-.035em;--r:calc(var(--u)*2);--l-bg:#fff6ea;--l-ink:#2c1810;--l-mut:#735c50;--l-line:rgba(0,0,0,.14);--l-card:#f6e6d2;--d-bg:#2c1810;--d-ink:#fff6ea;--d-mut:#c9ad9a;--d-line:rgba(255,255,255,.2);--d-card:#40251a;--a-bg:#d8342a;--a-ink:#fff6ea;--a-mut:rgba(255,246,234,.86);--a-line:rgba(255,255,255,.2);--a-card:rgba(255,246,234,.16);--s-bg:#f6e6d2;--s-ink:#2c1810;--s-mut:#735c50;--s-line:rgba(0,0,0,.14);--s-card:#fff6ea;--ac2:#f2a93b;--ac3:#8c6a55;--ac4:#d9c2ad}
 
 *{box-sizing:border-box}html,body{height:100%}
@@ -60,6 +61,36 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
 .t-cover.pic .kick{color:#fff;opacity:.86}
+/* обложка: варианты компоновки */
+.cv-half .bgimg,.cv-frame .bgimg{left:50%}
+.cv-half .bgimg::after,.cv-frame .bgimg::after{display:none}
+.cv-half .in,.cv-frame .in{right:50%;justify-content:center;padding-right:calc(var(--u)*4)}
+.cv-half h1,.cv-frame h1{font-size:calc(var(--u)*5.2)}
+.cv-half .badge,.cv-frame .badge{right:calc(50% + var(--u)*4)}
+.cv-frame .bgimg{inset:calc(var(--u)*3.4) calc(var(--u)*3.4) calc(var(--u)*3.4) 50%;border-radius:calc(var(--r)*1.3 + 6px);overflow:hidden}
+.cv-center .in{align-items:center;justify-content:center;text-align:center}
+.cv-center h1{max-width:15em}.cv-center .lead{margin-inline:auto}.cv-center .meta{justify-content:center}
+.cv-center .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.46))}
+.cv-top .in{justify-content:flex-start;padding-top:calc(var(--u)*10)}
+.cv-top h1{font-size:calc(var(--u)*6.2);max-width:16em}
+.cv-top .bgimg{top:58%}
+.cv-top .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.cv-top .meta{position:absolute;left:calc(var(--u)*6);bottom:calc(var(--u)*3.2);z-index:2;margin:0;color:rgba(255,255,255,.82)}
+.cv-top .meta b{color:#fff}
+.cv-type .in{justify-content:flex-start;padding-top:calc(var(--u)*10.5)}
+.cv-type h1{font-size:calc(var(--u)*8.2);line-height:.94;max-width:11.5em}
+.cv-type .meta{margin-top:auto;position:relative;z-index:2}
+.cv-type .mark{position:absolute;right:calc(var(--u)*3);bottom:calc(var(--u)*-2.4);font:var(--hw) calc(var(--u)*22)/.8 var(--fh);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:calc(var(--u)*.16) var(--sac,var(--ac));opacity:.5;white-space:nowrap;pointer-events:none}
+.v-accent.cv-type .mark{-webkit-text-stroke-color:var(--a-ink);opacity:.28}
+/* оформление всех слайдов: рамка, линейка с названием, полоса сбоку */
+.sk-frame .sl::after{content:"";position:absolute;inset:calc(var(--u)*1.7);border:1px solid var(--sline);border-radius:calc(var(--r)*.5);pointer-events:none;z-index:4}
+.sk-frame .t-cover.pic::after,.sk-frame .t-split::after{border-color:rgba(255,255,255,.35)}
+.sk-rule .sl:not(.t-cover):not(.t-split) .in{padding-top:calc(var(--u)*8.6)}
+.sk-rule .sl:not(.t-cover):not(.t-split)::before{content:attr(data-t);position:absolute;left:calc(var(--u)*6);right:calc(var(--u)*6);top:calc(var(--u)*3.3);padding-bottom:calc(var(--u)*1.1);border-bottom:1px solid var(--sline);font:600 calc(var(--u)*1.1)/1 var(--fb);color:var(--smut);z-index:3}
+.sk-side .sl:not(.t-cover)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--u)*1.2);background:var(--sac,var(--ac));z-index:3}
+.sk-side .sl:not(.t-cover):not(.t-split) .in{padding-left:calc(var(--u)*8)}
+.sk-side .sl .brandm{left:calc(var(--u)*8)}
+.sk-side .t-split .tx{padding-left:calc(var(--u)*8)}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -247,15 +278,27 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .kick{font-size:11.5px;margin-bottom:14px}.num,.brandm{font-size:11px;bottom:14px}.brandm{left:20px}.num{right:20px}
 .t-cover .logo{left:20px;top:22px;font-size:20px}.t-cover .badge{right:20px;top:22px;font-size:10.5px}.t-cover .meta{font-size:13px;gap:20px}.t-cover .meta b{font-size:15px}
 .legend{font-size:13px}.grow{margin-top:26px}
+.cv-half .bgimg,.cv-frame .bgimg,.cv-top .bgimg{position:relative;inset:auto;height:44svh}
+.cv-frame .bgimg{margin:16px 16px 0;border-radius:18px}
+.cv-half .in,.cv-frame .in,.cv-top .in,.cv-type .in{right:auto;padding-right:20px;min-height:0!important;padding-top:calc(var(--u)*7)}
+.cv-half .badge,.cv-frame .badge,.cv-top .badge{display:none}
+.cv-half .logo,.cv-frame .logo,.cv-top .logo{position:static;margin-bottom:22px}
+.cv-half h1,.cv-frame h1,.cv-top h1{font-size:calc(var(--u)*4.4)}
+.cv-top .meta{position:static;color:var(--smut);margin-top:22px}.cv-top .meta b{color:var(--sink)}
+.cv-top .bgimg{order:2}
+.cv-type .in{min-height:76svh!important}.cv-type h1{font-size:calc(var(--u)*5.2)}.cv-type .mark{font-size:calc(var(--u)*13);right:12px}
+.sk-rule .sl::before,.sk-side .sl::before{display:none}.sk-rule .sl .in{padding-top:calc(var(--u)*5)!important}.sk-side .sl .in,.sk-side .t-split .tx{padding-left:20px!important}.sk-side .sl .brandm{left:20px}
+.sk-frame .sl::after{inset:8px}
+
 .barx .ttl,.barx #fs{display:none}.barx{justify-content:space-between}.hint{display:none}
 }
 
 .v-dark{--sac:#f2a93b}.barx .brand{color:#f2a93b}
 </style>
 </head>
-<body>
+<body class="sk-none">
 <main class="deck" id="deck" aria-roledescription="презентация" aria-label="Корка — презентация франшизы пекарен">
-<section class="sl t-cover v-accent" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="in"><div class="logo" data-a><i>К</i>Корка</div><div class="badge" data-a>Предложение партнёру</div><div class=kick data-a>Франшиза пекарен</div><h1 data-a style="--i:1">Пекарня у дома, <em>которая окупается за 14 месяцев</em></h1><p class=lead data-a style=--i:2>58 пекарен «Корка» в 19 городах. Открываем вместе с партнёром: от поиска помещения до первой выпечки.</p><div class="meta" data-a style="--i:3"><div><b>от 2,9 млн ₽</b>вложения</div><div><b>60 дней</b>до открытия</div><div><b>с 2017 года</b>сеть работает</div></div></div></section>
+<section class="sl t-cover v-accent cv-center" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="in"><div class="logo" data-a><i>К</i>Корка</div><div class="badge" data-a>Предложение партнёру</div><div class=kick data-a>Франшиза пекарен</div><h1 data-a style="--i:1">Пекарня у дома, <em>которая окупается за 14 месяцев</em></h1><p class=lead data-a style=--i:2>58 пекарен «Корка» в 19 городах. Открываем вместе с партнёром: от поиска помещения до первой выпечки.</p><div class="meta" data-a style="--i:3"><div><b>от 2,9 млн ₽</b>вложения</div><div><b>60 дней</b>до открытия</div><div><b>с 2017 года</b>сеть работает</div></div></div></section>
 <section class="sl t-stats v-light" data-t="Цифры сети" aria-roledescription="слайд" aria-label="2 из 10: Цифры сети"><div class="in"><div class="kick" data-a style="--i:0">Коротко о сети</div><h2 data-a style="--i:1">Цифры, <em>которые можно проверить</em></h2><div class="grow"><div class="stats" style="--c:3"><div class="stat" data-a style="--i:2"><b><span data-to="58" data-d="0">58</span></b><strong>пекарен</strong><span>из них 41 открыта партнёрами</span></div><div class="stat" data-a style="--i:3"><b><span data-to="1.45" data-d="2">1,45</span> млн ₽</b><strong>средняя выручка точки</strong><span>в месяц на втором году работы</span></div><div class="stat" data-a style="--i:4"><b><span data-to="14" data-d="0">14</span> месяцев</b><strong>средняя окупаемость</strong><span>по точкам, открытым в 2023–2024</span></div></div></div></div><div class="brandm">Корка</div><div class="num">02 / 10</div></section>
 <section class="sl t-cards v-soft" data-t="Что получает партнёр" aria-roledescription="слайд" aria-label="3 из 10: Что получает партнёр"><div class="in"><div class="kick" data-a style="--i:0">Что входит во франшизу</div><h2 data-a style="--i:1">Не вывеска, <em>а готовое производство</em></h2><div class="grow"><div class="cards" style="--c:4"><div class="card" data-a style="--i:2"><i>01</i><b>Помещение</b><span>Проверяем трафик и аренду, согласуем локацию до подписания договора.</span></div><div class="card" data-a style="--i:3"><i>02</i><b>Проект и оборудование</b><span>Планировка, печи и витрины по ценам сети, монтаж под ключ.</span></div><div class="card" data-a style="--i:4"><i>03</i><b>Рецептуры и обучение</b><span>42 позиции меню, две недели практики на действующей пекарне.</span></div><div class="card" data-a style="--i:5"><i>04</i><b>Маркетинг и учёт</b><span>Открытие, приложение сети, касса и товарный учёт с первого дня.</span></div></div></div></div><div class="brandm">Корка</div><div class="num">03 / 10</div></section>
 <section class="sl t-table v-light" data-t="Форматы" aria-roledescription="слайд" aria-label="4 из 10: Форматы"><div class="in"><div class="kick" data-a style="--i:0">Три формата</div><h2 data-a style="--i:1">Выберите формат <em>под помещение и бюджет</em></h2><div class="grow"><table class="tbl" data-a style="--i:3"><thead><tr><th class=""></th><th class="">Островок</th><th class="hl">Пекарня у дома</th><th class="">Пекарня-кафе</th></tr></thead><tbody><tr><td class="" data-l="">Площадь</td><td class="" data-l="Островок">8–12 м²</td><td class="hl" data-l="Пекарня у дома">40–60 м²</td><td class="" data-l="Пекарня-кафе">90–130 м²</td></tr><tr><td class="" data-l="">Вложения</td><td class="" data-l="Островок">2,9 млн ₽</td><td class="hl" data-l="Пекарня у дома">5,4 млн ₽</td><td class="" data-l="Пекарня-кафе">9,8 млн ₽</td></tr><tr><td class="" data-l="">Выручка в месяц</td><td class="" data-l="Островок">0,7 млн ₽</td><td class="hl" data-l="Пекарня у дома">1,45 млн ₽</td><td class="" data-l="Пекарня-кафе">2,6 млн ₽</td></tr><tr><td class="" data-l="">Команда</td><td class="" data-l="Островок">3 человека</td><td class="hl" data-l="Пекарня у дома">7 человек</td><td class="" data-l="Пекарня-кафе">12 человек</td></tr><tr><td class="" data-l="">Окупаемость</td><td class="" data-l="Островок">12 месяцев</td><td class="hl" data-l="Пекарня у дома">14 месяцев</td><td class="" data-l="Пекарня-кафе">18 месяцев</td></tr></tbody></table></div></div><div class="brandm">Корка</div><div class="num">04 / 10</div></section>

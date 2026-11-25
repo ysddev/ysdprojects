@@ -14,8 +14,10 @@
 <style>
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/commissioner-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/commissioner-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Commissioner";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/commissioner-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+20BD}
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/commissioner-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/commissioner-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Commissioner";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/commissioner-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+20BD}
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/commissioner-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Commissioner";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/commissioner-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{--rb:10px;--rc:12px;--rs:16px;--hw:700;--ht:-.025em;--pbg:#ffffff;--pink:#161a20;--tgbg:#ebedf0;--tghead:#ffffff;--tghi:#10161c;--tgin:#ffffff;--tgink:#10161c;--tgoink:#10161c;--tgbtn:rgba(255,255,255,.82);--tgbtnink:#10161c;--tgfield:#f0f2f5;--tgout:#cce4ff;--tgpat:linear-gradient(180deg,#dfe7ec,#dfe7ec);--bg:#f2f4f7;--ink:#14181f;--soft:#4c5563;--mut:#808a99;--line:#dfe3ea;--line2:#c5ccd8;--card:#ffffff;--ac:#0077ff;--aci:#ffffff;--fh:"Commissioner",sans-serif;--fb:"Commissioner",sans-serif;--glow:rgba(0,119,255,.2);--tgac:#0077ff}
@@ -198,35 +200,162 @@ p{margin:0}
 @media (max-width:960px){.hero .g,.adm{grid-template-columns:1fr}.feats{grid-template-columns:1fr 1fr}.res{grid-template-columns:1fr 1fr}.nav{display:none}}
 @media (max-width:560px){.feats{grid-template-columns:1fr}.hero .cta{flex-direction:column}.hero .cta .btn{width:100%;justify-content:center;text-align:center}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stats span{font-size:12px;line-height:1.3;display:block;margin-top:4px}.kpi b{font-size:18px}}
 
+/* ===== шапка: варианты ===== */
+.top.tc .bar{display:grid;grid-template-columns:1fr auto 1fr}
+.top.tc .nav{margin-left:0;justify-self:start}.top.tc .bar>.btn{justify-self:end}
+.top.tf{background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;top:12px;padding-top:12px}
+.top.tf .bar{height:58px;padding:0 8px 0 18px;border-radius:999px;background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 40px -24px rgba(0,0,0,.45),0 0 0 1px var(--line)}
+.top.tf .bar>.btn{border-radius:999px}
+.top.tp{position:relative;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.top.tp .nav{display:none}.top.tp .bar{height:84px}
+.tlink{margin-left:auto;font-weight:600;font-size:15px;border-bottom:2px solid var(--ac);padding-bottom:2px}
+/* ===== телефон: варианты рамки ===== */
+.fr-silver .phone{background:linear-gradient(150deg,#f7f7f9,#c9cbd1 60%,#e9eaee);box-shadow:0 50px 100px -40px rgba(0,0,0,.35),inset 0 0 0 1px #aeb0b6,inset 0 0 0 4px #e4e5e9}
+.fr-flat .phone{background:transparent;padding:0;border-radius:34px;box-shadow:0 40px 90px -40px rgba(0,0,0,.4),0 0 0 1px var(--line2)}
+.fr-flat .phone::before{display:none}.fr-flat .scr{border-radius:34px}.fr-flat .tgh{padding-top:16px}.fr-flat .restart{top:20px}
+.fr-edge .phone{background:var(--ac);box-shadow:0 50px 100px -40px rgba(0,0,0,.5),inset 0 0 0 2px color-mix(in srgb,#000 18%,var(--ac))}
+.fr-edge .phone::before{background:#0d0d0f}
+/* ===== герой: варианты ===== */
+.hero.h-mirror .g{grid-template-columns:.95fr 1.05fr}
+.hero.h-mirror .stage{order:-1}
+.hero.h-mirror .stats{flex-direction:column;gap:0;border-top:1px solid var(--line2);max-width:440px}
+.hero.h-mirror .stats div{display:grid;grid-template-columns:6.5ch 1fr;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line2)}
+.hero.h-mirror .stats span{font-size:15px;color:var(--soft)}
+.hero.h-mirror .chip.c1{right:auto;left:calc(50% + 150px);top:12%}.hero.h-mirror .chip.c2{right:auto;left:-4%;bottom:14%}
+.hero.h-center{text-align:center}
+.h-center .hc-t{max-width:980px;margin:0 auto}.h-center .lead{margin-inline:auto}.h-center .cta{justify-content:center}
+.h-center .tri{display:grid;grid-template-columns:1fr minmax(300px,370px) 1fr;gap:clamp(20px,3.4vw,56px);align-items:center;margin-top:clamp(36px,5vw,72px);text-align:left}
+.h-center .tri>*{min-width:0}
+.tri-l{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:t}
+.tri-l li{counter-increment:t;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line2)}
+.tri-l li:last-child{border-bottom:1px solid var(--line2)}
+.tri-l li::before{content:counter(t);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ac);color:var(--aci);font-weight:700;font-size:15px}
+.tri-l b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:18px;letter-spacing:var(--ht);line-height:1.2}
+.tri-l span{font-size:14px;color:var(--soft)}
+.tri-r{display:grid;gap:12px}
+.tri-r .tc{padding:18px 20px;border-radius:var(--rc);background:var(--card);box-shadow:0 0 0 1px var(--line)}
+.tri-r .tc b{display:block;font-family:var(--fh);font-weight:var(--hw);font-size:clamp(28px,3vw,40px);letter-spacing:-.02em;line-height:1;color:var(--ac)}
+.tri-r .tc span{font-size:14px;color:var(--soft)}
+.tri-r .tc.ch{display:flex;gap:12px;align-items:center;background:var(--ink);color:var(--bg);box-shadow:none}
+.tri-r .tc.ch i{font-style:normal;font-size:22px}.tri-r .tc.ch b{font-size:15px;color:inherit;font-family:var(--fb);letter-spacing:0;line-height:1.3}
+.tri-r .tc.ch span{color:color-mix(in srgb,var(--bg) 70%,transparent);font-size:13px}
+.h-center .note{justify-content:center}
+.hero.h-poster{padding:0 0 clamp(48px,6vw,90px)}
+.h-poster .band{background:var(--band,var(--ink));color:var(--bandink,var(--bg));padding:clamp(40px,6vw,84px) 0 clamp(150px,16vw,250px)}
+.hero.h-poster h1{font-size:clamp(44px,7.2vw,116px);line-height:.92;margin:22px 0 0;max-width:16ch}.hero.h-poster h1 em{color:var(--bandem,var(--bandink,var(--bg)))}
+.h-poster .band .kick{color:var(--bandink,var(--bg));opacity:.8}
+.h-poster .pg{display:grid;grid-template-columns:1fr minmax(300px,390px);gap:clamp(24px,5vw,80px);align-items:start}
+.h-poster .pg>*{min-width:0}
+.h-poster .pg>.reveal{padding-top:clamp(28px,3vw,44px)}
+.h-poster .stage{margin-top:calc(-1 * clamp(130px,14vw,230px))}
+.h-poster .stage::before{display:none}
+.hero.h-duo .dt{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,64px);align-items:end}
+.hero.h-duo .dt>*{min-width:0}
+.hero.h-duo h1{margin-bottom:0}
+.h-duo .dt .cta{margin-top:22px}
+.dstage{margin-top:clamp(28px,4vw,52px);border-radius:var(--rs);background:var(--dsbg,var(--card));padding:clamp(18px,3.6vw,52px);display:grid;grid-template-columns:minmax(280px,350px) 1fr;gap:clamp(20px,4vw,60px);align-items:center;box-shadow:0 0 0 1px var(--line)}
+.dstage>*{min-width:0}
+.dstage .stage::before{display:none}
+.dside{display:grid;gap:22px}
+.dside .stats{margin-top:0}
+.dside .cap{font-size:14px;color:var(--soft);display:flex;gap:10px;align-items:center}
+.dside .cap::before{content:"";width:26px;height:2px;background:var(--ac)}
+.adm.solo{grid-template-columns:1fr}
+.adm.solo .steps{grid-template-columns:repeat(3,1fr);gap:24px}
+.adm.solo .steps li{grid-template-columns:1fr;gap:12px}
+.hero.h-tilt .stage{perspective:1700px}
+.hero.h-tilt .stage::before{inset:4% -2%;background:var(--disk,color-mix(in srgb,var(--ac) 20%,var(--bg)));filter:none;border-radius:50%}
+.hero.h-tilt .phone{transform:rotateY(-15deg) rotateX(5deg) rotateZ(1.5deg);box-shadow:36px 60px 110px -40px rgba(0,0,0,.5),inset 0 0 0 2px #2a2a2e}
+.hero.h-tilt .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px}
+.hero.h-tilt .stats div{background:var(--card);border-radius:var(--rc);padding:16px 18px;box-shadow:0 0 0 1px var(--line)}
+.hero.h-tilt .stats div:first-child{grid-column:1/-1;background:var(--ac);color:var(--aci);box-shadow:none}
+.hero.h-tilt .stats div:first-child span{color:inherit;opacity:.8}
+.hero.h-photo{position:relative;color:#fff;padding:clamp(36px,6vw,90px) 0;overflow:hidden;background:#111}
+.hero.h-photo .hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.h-photo::before{content:"";position:absolute;inset:0;z-index:1;background:var(--veil,linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,.15) 100%))}
+.hero.h-photo .wrap{position:relative;z-index:2}
+.hero.h-photo .kick{color:#fff;opacity:.9}.hero.h-photo .lead{color:rgba(255,255,255,.84)}
+.hero.h-photo .stats span,.hero.h-photo .note{color:rgba(255,255,255,.72)}
+.hero.h-photo .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.hero.h-photo .stage::before{display:none}
+.hero.h-look .lk{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);grid-template-areas:"t ph" "g ph";gap:clamp(22px,3vw,40px) clamp(24px,4vw,64px);align-items:end}
+.h-look .lk>*{min-width:0}
+.h-look .lk-t{grid-area:t;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,3vw,48px);align-items:end}
+.h-look .lk-t h1{margin-bottom:0}.h-look .lk-t .cta{margin-top:22px}
+.h-look .lk-g{grid-area:g;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px;align-items:start}
+.h-look .lk-g figure{margin:0;border-radius:var(--rc);overflow:hidden;aspect-ratio:3/4;background:var(--card)}
+.h-look .lk-g figure:nth-child(2){margin-top:44px}.h-look .lk-g figure:nth-child(3){margin-top:16px}
+.h-look .lk-g img{width:100%;height:100%;object-fit:cover}
+.h-look .lk-g figcaption{display:none}
+.h-look .stage{grid-area:ph}.h-look .stage::before{display:none}
+.sk{display:grid;grid-template-columns:minmax(300px,360px) 1fr;grid-template-areas:"ph hd" "ph bd";column-gap:clamp(36px,6vw,96px)}
+.sk>*{min-width:0}
+.sk-hd{grid-area:hd;padding:clamp(28px,5vw,72px) 0 clamp(24px,3vw,40px)}
+.sk-hd h1{font-size:clamp(40px,5.4vw,80px);margin:18px 0 20px}.sk-hd h1 em{font-style:normal;color:var(--ac)}
+.sk-hd .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.sk-ph{grid-area:ph;position:sticky;top:84px;align-self:start;padding:clamp(24px,3vw,40px) 0 40px}
+.sk-ph .phone{width:min(340px,100%)}
+.sk-ph .stage::before{inset:10% -10%}
+.sk-bd{grid-area:bd}
+.sk-bd .sec{padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.sk-bd .feats{grid-template-columns:1fr 1fr}.sk-bd .adm{grid-template-columns:1fr}.sk-bd .res{grid-template-columns:1fr 1fr}
+.sk-bd .flow{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+/* ===== возможности: варианты ===== */
+.feats.f-list{grid-template-columns:1fr;gap:0;counter-reset:fl}
+.feats.f-list .feat{display:grid;grid-template-columns:72px minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:baseline;background:none;border-radius:0;padding:24px 0;border-top:1px solid var(--line2);counter-increment:fl}
+.feats.f-list .feat:last-child{border-bottom:1px solid var(--line2)}
+.feats.f-list .feat i{display:none}
+.feats.f-list .feat::before{content:counter(fl,decimal-leading-zero);font-family:var(--fh);font-weight:var(--hw);font-size:22px;color:var(--ac)}
+.feats.f-list .feat b{font-size:clamp(20px,2vw,26px)}
+.feats.f-rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:12px;scrollbar-width:thin}
+.feats.f-rail .feat{flex:0 0 min(310px,82%);scroll-snap-align:start;min-height:250px;justify-content:space-between}
+.feats.f-rail .feat:first-child{background:var(--ac);color:var(--aci)}.feats.f-rail .feat:first-child p{color:inherit;opacity:.85}
+.feats.f-rail .feat:first-child i{background:color-mix(in srgb,var(--aci) 18%,transparent)}
+.feats.f-bento{grid-template-columns:repeat(3,1fr);grid-auto-flow:dense}
+.feats.f-bento .feat:nth-child(1),.feats.f-bento .feat:nth-child(4),.feats.f-bento .feat:nth-child(6){grid-column:span 2}
+.feats.f-bento .feat:nth-child(1){background:var(--ink);color:var(--bg)}.feats.f-bento .feat:nth-child(1) p{color:inherit;opacity:.75}
+.feats.f-bento .feat:nth-child(1) i{background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.feats.f-bento .feat:nth-child(4){background:var(--ac);color:var(--aci)}.feats.f-bento .feat:nth-child(4) p{color:inherit;opacity:.85}
+.feats.f-bento .feat:nth-child(4) i{background:color-mix(in srgb,var(--aci) 18%,transparent)}
+.feats.f-icons{grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px) clamp(28px,5vw,72px)}
+.feats.f-icons .feat{background:none;padding:0;display:grid;grid-template-columns:56px 1fr;gap:6px 18px;border-radius:0}
+.feats.f-icons .feat i{grid-row:span 2;width:56px;height:56px;border-radius:50%;background:var(--ac);color:var(--aci);font-size:24px}
+/* ===== результат: варианты ===== */
+.res.r-band{background:var(--ac);gap:0;border-radius:var(--rs)}
+.res.r-band div{background:transparent;color:var(--aci)}.res.r-band div+div{box-shadow:inset 1px 0 0 color-mix(in srgb,var(--aci) 22%,transparent)}
+.res.r-band b{color:var(--aci)}.res.r-band span{color:color-mix(in srgb,var(--aci) 82%,transparent)}
+.res.r-line{background:none;gap:0;border-radius:0;border-top:2px solid var(--ink)}
+.res.r-line div{background:none;padding:26px 26px 0 0}.res.r-line b{color:var(--ink);font-size:clamp(40px,5vw,72px)}
+@media (max-width:960px){
+ .hero.h-look .lk{grid-template-columns:1fr;grid-template-areas:"t" "g" "ph"}.h-look .lk-t{grid-template-columns:1fr}
+ .h-center .tri,.h-poster .pg,.hero.h-duo .dt,.dstage{grid-template-columns:1fr}
+ .h-center .tri .stage{order:-1}
+ .hero.h-mirror .g{grid-template-columns:1fr}.hero.h-mirror .stage{order:0}
+ .h-poster .band{padding-bottom:clamp(40px,8vw,80px)}.h-poster .stage{margin-top:28px}
+ .adm.solo .steps{grid-template-columns:1fr}
+ .sk{grid-template-columns:1fr;grid-template-areas:"hd" "ph" "bd"}.sk-ph{position:static;padding-top:0}
+ .feats.f-bento{grid-template-columns:1fr 1fr}.feats.f-bento .feat:nth-child(n){grid-column:auto}.feats.f-bento .feat:nth-child(1){grid-column:1/-1}
+ .feats.f-list .feat{grid-template-columns:52px 1fr}.feats.f-list .feat p{grid-column:2}
+ .top.tc .bar{display:flex}.top.tc .logo{margin-right:auto}
+ .hero.h-tilt .phone{transform:rotateY(-7deg) rotateX(3deg)}
+ .res.r-band div+div{box-shadow:none}
+}
+@media (max-width:560px){
+ .feats.f-icons,.sk-bd .feats,.feats.f-bento{grid-template-columns:1fr}
+ .sk-bd .res{grid-template-columns:1fr 1fr}
+ .hero.h-mirror .stats{display:flex}
+ .hero.h-tilt .stats{display:grid;grid-template-columns:1fr 1fr}
+ .top.tf .bar{padding:0 6px 0 14px}
+ .hero.h-poster h1{font-size:clamp(40px,12vw,64px)}
+}
+
 .kick{text-transform:none;letter-spacing:0;font-size:15px;font-weight:600}.stats{display:none}.hero h1 em{font-style:normal;color:inherit}.note{font-size:14px}.chip b{font-size:15px}.chip span{font-size:14px}.stats span,.rowx span,.kpi span{font-size:14px}.hero h1{font-size:clamp(40px,5.4vw,76px);line-height:1.02}.phone{border-radius:44px}.scr{border-radius:34px}.tgh{border-bottom:1px solid #dce1e6}.tgh small::after{content:'сообщество ВКонтакте'}.tgh small{font-size:0}.tgh small::after{font-size:12px}
 </style>
 </head>
-<body>
-<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>☕</i>Зерно</a><nav class="nav"><a href="#demo">Как работает</a><a href="#feats">Возможности</a><a href="#admin">Админка</a><a href="#faq">Вопросы</a></nav>
-<a class="btn" href="#demo">Открыть бота</a></div></header>
+<body class="fr-flat">
+<header class="top tf"><div class="wrap bar"><a class="logo" href="#top"><i>☕</i>Зерно</a><nav class="nav"><a href="#demo">Как работает</a><a href="#feats">Возможности</a><a href="#admin">Админка</a><a href="#faq">Вопросы</a></nav><a class="btn" href="#demo">Открыть бота</a></div></header>
 <main>
-<section class="hero" id="top"><div class="wrap g">
- <div class="reveal"><div class="kick">Бот сообщества ВКонтакте</div><h1>Кофе готов к приходу, бонусы в сообщениях ВК</h1><p class="lead">Гость пишет сообществу кофейни, выбирает напиток и время, и бариста видит заказ заранее. Бонусы копятся сами, розыгрыши для подписчиков бот проводит без ручного подсчёта комментариев.</p>
- <div class="cta"><a class="btn" href="#demo">Заказать в боте</a><a class="btn ghost" href="#admin">Что видит бариста</a></div>
- <div class="stats"></div>
- <p class="note"><b></b>Бот в телефоне работает: нажимайте кнопки или пишите сами</p></div>
- <div id="demo" class="stage"><div class="chip c1"><i>☕</i><div><b>Заказ № 27 к 9:40</b><span>флэт уайт на овсяном</span></div></div><div class="chip c2"><i>🎁</i><div><b>+29 бонусов</b><span>до бесплатного кофе 3 чашки</span></div></div><div class="phone" id="phoneBox"><div class="scr">
-  <div class="tgh"><span class="back">‹</span><div class="av">З</div><div><b>Кофейня «Зерно»</b><small>бот</small></div></div>
-  <button class="restart" id="restart" type="button">↻ Заново</button>
-  <div class="chat" id="chat" aria-live="polite"></div>
-  <div class="inp"><input id="inp" placeholder="Выберите кнопку выше" disabled aria-label="Сообщение боту"><button id="send" type="button" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5l.02 6.6L15 12 3.02 13.9z"/></svg></button></div>
- </div></div></div>
-</div></section>
-<section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Сценарий</div><h2 style="margin-top:14px">Путь гостя</h2></div><div class="flow reveal"><div><b>Напиток</b><span>меню с фото и ценами</span></div><div><b>Молоко и сироп</b><span>в два нажатия</span></div><div><b>Время</b><span>через 10, 20 или 30 минут</span></div><div><b>Оплата</b><span>картой или бонусами</span></div><div><b>Выдача</b><span>по номеру заказа без очереди</span></div></div></div></section><section class="sec" id="feats" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что бот делает для кофейни</h2></div>
-<div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>⏱</i><b>Предзаказ к времени</b><p>Гость выбирает, через сколько придёт. Бариста видит заказ на планшете и готовит к сроку.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🎁</i><b>Бонусная карта</b><p>7% бонусами с каждого заказа и каждая десятая чашка бесплатно, без пластиковых карт.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🎉</i><b>Розыгрыши</b><p>Бот собирает участников, проверяет подписку и выбирает победителя честно, со ссылкой на запись.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>📣</i><b>Рассылки сообщества</b><p>Новинки и акции только тем, кто разрешил сообщения, в рамках правил ВК.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🗺</i><b>Несколько точек</b><p>Гость выбирает кофейню, заказ уходит на нужный планшет.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>⭐</i><b>Отзыв после визита</b><p>Через час бот просит оценку и передаёт плохие отзывы управляющему.</p></div></div></div></section>
-<section class="sec" id="admin" style="padding-top:0"><div class="wrap adm">
- <div class="reveal"><div class="kick">Для команды</div><h2 style="margin:14px 0 16px">Бариста видит очередь заранее</h2><p class="lead">Предзаказы приходят на планшет с временем готовности, бонусы и розыгрыши считаются в админке.</p><ol class="steps ol"><li><div><b>Гость оформил предзаказ</b><p>Заказ появляется на планшете со временем готовности.</p></div></li><li><div><b>Бариста нажал «Готово»</b><p>Гость получает сообщение в ВК.</p></div></li><li><div><b>Бонусы начислены</b><p>Баланс виден в сообщениях сообщества.</p></div></li></ol></div>
- <div class="panel reveal"><div class="ph"><i></i><b>Зерно · предзаказы</b><span>онлайн</span></div><div class="kpi"><div><b id="kpi0" data-base="63">63</b><span>предзаказа сегодня</span></div><div><b id="kpiSum" data-base="19870">19 870 ₽</b><span>выручка предзаказов</span></div><div><b>418</b><span>участников розыгрыша</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">☕</div><div><b>Капучино 0,3, обычное молоко</b><span>к 9:20, оплачен картой</span></div><em>Готовится</em></div><div class="rowx"><div class="d">🥐</div><div><b>Флэт уайт и круассан</b><span>к 9:35, оплачен бонусами</span></div><em>Новый</em></div><div class="rowx"><div class="d">🎉</div><div><b>Розыгрыш абонемента</b><span>418 участников, итоги в пятницу</span></div><em>Идёт</em></div></div></div>
-</div></section>
-<section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает кофейня</h2></div>
-<div class="res"><div class="reveal"><b>−5 мин</b><span>очереди утром</span></div><div class="reveal"><b>+18%</b><span>повторных визитов с бонусами</span></div><div class="reveal"><b>0</b><span>пластиковых карт</span></div><div class="reveal"><b>2 клика</b><span>чтобы заказать снова</span></div></div><div class="ints reveal"><span>ВКонтакте</span><span>iiko</span><span>r_keeper</span><span>Эвотор</span><span>ЮKassa</span><span>Google Таблицы</span></div></div></section>
-<section class="sec" id="faq" style="padding-top:0"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Почему ВКонтакте, а не Telegram?</summary><p>Если подписчики кофейни живут в сообществе ВК, бот работает там же, в сообщениях. Тот же сценарий можно запустить и в Telegram.</p></details><details><summary>Нужен ли отдельный кассовый аппарат?</summary><p>Нет. Заказы и оплаты передаются в вашу кассовую систему, чек выбивается как обычно.</p></details><details><summary>Сколько делается такой бот?</summary><p>Сценарий согласуем в первый день. Рабочая версия с записью и уведомлениями готова за 3–5 дней, с оплатой и интеграциями — за 7–10 дней.</p></details><details><summary>Что нужно от нас?</summary><p>Список услуг и цен, график работы и доступ к тому, с чем бот должен обмениваться: таблица, CRM или учётная система. Тексты сообщений напишем сами и согласуем с вами.</p></details><details><summary>Можно менять тексты и цены без программиста?</summary><p>Да. Услуги, цены, расписание и тексты ответов меняются в админке или в таблице, бот подхватывает изменения сразу.</p></details></div></div></section>
-<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-b reveal"><h2>Закажите кофе к своему приходу</h2><a class="btn" href="#demo">Открыть бота</a></div></div></section>
+<section class="hero h-mirror" id="top"><div class="wrap g"><div class="reveal"><div class="kick">Бот сообщества ВКонтакте</div><h1>Кофе готов к приходу, бонусы в сообщениях ВК</h1><p class="lead">Гость пишет сообществу кофейни, выбирает напиток и время, и бариста видит заказ заранее. Бонусы копятся сами, розыгрыши для подписчиков бот проводит без ручного подсчёта комментариев.</p><div class="cta"><a class="btn" href="#demo">Заказать в боте</a><a class="btn ghost" href="#admin">Что видит бариста</a></div><div class="stats"></div><p class="note"><b></b>Бот в телефоне работает: нажимайте кнопки или пишите сами</p></div><div id="demo" class="stage"><div class="chip c1"><i>☕</i><div><b>Заказ № 27 к 9:40</b><span>флэт уайт на овсяном</span></div></div><div class="chip c2"><i>🎁</i><div><b>+29 бонусов</b><span>до бесплатного кофе 3 чашки</span></div></div><div class="phone" id="phoneBox"><div class="scr"><div class="tgh"><span class="back">‹</span><div class="av">З</div><div><b>Кофейня «Зерно»</b><small>бот</small></div></div><button class="restart" id="restart" type="button">↻ Заново</button><div class="chat" id="chat" aria-live="polite"></div><div class="inp"><input id="inp" placeholder="Выберите кнопку выше" disabled aria-label="Сообщение боту"><button id="send" type="button" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5l.02 6.6L15 12 3.02 13.9z"/></svg></button></div></div></div></div></div></section><section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Сценарий</div><h2 style="margin-top:14px">Путь гостя</h2></div><div class="flow reveal"><div><b>Напиток</b><span>меню с фото и ценами</span></div><div><b>Молоко и сироп</b><span>в два нажатия</span></div><div><b>Время</b><span>через 10, 20 или 30 минут</span></div><div><b>Оплата</b><span>картой или бонусами</span></div><div><b>Выдача</b><span>по номеру заказа без очереди</span></div></div></div></section><section class="sec" id="feats" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что бот делает для кофейни</h2></div><div class="feats"><div class="feat reveal" style="transition-delay:0ms"><i>⏱</i><b>Предзаказ к времени</b><p>Гость выбирает, через сколько придёт. Бариста видит заказ на планшете и готовит к сроку.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🎁</i><b>Бонусная карта</b><p>7% бонусами с каждого заказа и каждая десятая чашка бесплатно, без пластиковых карт.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>🎉</i><b>Розыгрыши</b><p>Бот собирает участников, проверяет подписку и выбирает победителя честно, со ссылкой на запись.</p></div><div class="feat reveal" style="transition-delay:0ms"><i>📣</i><b>Рассылки сообщества</b><p>Новинки и акции только тем, кто разрешил сообщения, в рамках правил ВК.</p></div><div class="feat reveal" style="transition-delay:70ms"><i>🗺</i><b>Несколько точек</b><p>Гость выбирает кофейню, заказ уходит на нужный планшет.</p></div><div class="feat reveal" style="transition-delay:140ms"><i>⭐</i><b>Отзыв после визита</b><p>Через час бот просит оценку и передаёт плохие отзывы управляющему.</p></div></div></div></section><section class="sec" id="admin" style="padding-top:0"><div class="wrap adm"><div class="reveal"><div class="kick">Для команды</div><h2 style="margin:14px 0 16px">Бариста видит очередь заранее</h2><p class="lead">Предзаказы приходят на планшет с временем готовности, бонусы и розыгрыши считаются в админке.</p><ol class="steps ol"><li><div><b>Гость оформил предзаказ</b><p>Заказ появляется на планшете со временем готовности.</p></div></li><li><div><b>Бариста нажал «Готово»</b><p>Гость получает сообщение в ВК.</p></div></li><li><div><b>Бонусы начислены</b><p>Баланс виден в сообщениях сообщества.</p></div></li></ol></div><div class="panel reveal"><div class="ph"><i></i><b>Зерно · предзаказы</b><span>онлайн</span></div><div class="kpi"><div><b id="kpi0" data-base="63">63</b><span>предзаказа сегодня</span></div><div><b id="kpiSum" data-base="19870">19 870 ₽</b><span>выручка предзаказов</span></div><div><b>418</b><span>участников розыгрыша</span></div></div><div class="rows" id="rows"><div class="rowx"><div class="d">☕</div><div><b>Капучино 0,3, обычное молоко</b><span>к 9:20, оплачен картой</span></div><em>Готовится</em></div><div class="rowx"><div class="d">🥐</div><div><b>Флэт уайт и круассан</b><span>к 9:35, оплачен бонусами</span></div><em>Новый</em></div><div class="rowx"><div class="d">🎉</div><div><b>Розыгрыш абонемента</b><span>418 участников, итоги в пятницу</span></div><em>Идёт</em></div></div></div></div></section><section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что получает кофейня</h2></div><div class="res"><div class="reveal"><b>−5 мин</b><span>очереди утром</span></div><div class="reveal"><b>+18%</b><span>повторных визитов с бонусами</span></div><div class="reveal"><b>0</b><span>пластиковых карт</span></div><div class="reveal"><b>2 клика</b><span>чтобы заказать снова</span></div></div><div class="ints reveal"><span>ВКонтакте</span><span>iiko</span><span>r_keeper</span><span>Эвотор</span><span>ЮKassa</span><span>Google Таблицы</span></div></div></section><section class="sec" id="faq" style="padding-top:0"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Почему ВКонтакте, а не Telegram?</summary><p>Если подписчики кофейни живут в сообществе ВК, бот работает там же, в сообщениях. Тот же сценарий можно запустить и в Telegram.</p></details><details><summary>Нужен ли отдельный кассовый аппарат?</summary><p>Нет. Заказы и оплаты передаются в вашу кассовую систему, чек выбивается как обычно.</p></details><details><summary>Сколько делается такой бот?</summary><p>Сценарий согласуем в первый день. Рабочая версия с записью и уведомлениями готова за 3–5 дней, с оплатой и интеграциями — за 7–10 дней.</p></details><details><summary>Что нужно от нас?</summary><p>Список услуг и цен, график работы и доступ к тому, с чем бот должен обмениваться: таблица, CRM или учётная система. Тексты сообщений напишем сами и согласуем с вами.</p></details><details><summary>Можно менять тексты и цены без программиста?</summary><p>Да. Услуги, цены, расписание и тексты ответов меняются в админке или в таблице, бот подхватывает изменения сразу.</p></details></div></div></section><section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-b reveal"><h2>Закажите кофе к своему приходу</h2><a class="btn" href="#demo">Открыть бота</a></div></div></section>
 </main>
 <footer class="wrap foot"><span>© 2026 Зерно</span><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
 <script>window.BOTCFG={"brand": "Кофейня «Зерно»", "nodes": {"start": {"say": ["Привет! Это «Зерно» на Садовой. Здесь можно заказать кофе к своему приходу, копить бонусы и участвовать в розыгрышах для подписчиков."], "kb": [[["☕ Заказать к времени", "menu"]], [["🎁 Мои бонусы", "bonus"], ["🎉 Розыгрыш", "raffle"]]]}, "menu": {"say": [{"photo": "latte", "t": "Флэт уайт на овсяном: хит этой недели."}, "Что приготовить?"], "kb": [[["Капучино 0,3, 250 ₽", "milk", "", "Капучино", "drink"], ["Флэт уайт, 290 ₽", "milk", "", "Флэт уайт", "drink"]], [["Раф ванильный, 320 ₽", "milk", "", "Раф ванильный", "drink"], ["Американо, 190 ₽", "milk", "", "Американо", "drink"]]]}, "milk": {"say": ["Молоко?"], "kb": [[["Обычное", "when", "", "обычное молоко", "milk"], ["Овсяное, +60 ₽", "when", "", "овсяное молоко", "milk"]], [["Без молока", "when", "", "без молока", "milk"]]]}, "when": {"calc": "var d=new Date();function t(m){var x=new Date(d.getTime()+m*60000);return x.getHours()+':'+String(x.getMinutes()).padStart(2,'0')}return{t10:t(10),t20:t(20),t30:t(30)}", "say": ["Когда будете у нас?"], "kb": [[["Через 10 минут, к {t10}", "pay", "", "{t10}", "at"]], [["Через 20 минут, к {t20}", "pay", "", "{t20}", "at"]], [["Через 30 минут, к {t30}", "pay", "", "{t30}", "at"]]]}, "pay": {"calc": "var p={'Капучино':250,'Флэт уайт':290,'Раф ванильный':320,'Американо':190}[V.drink]||250;if(V.milk==='овсяное молоко')p+=60;return{price:F.money(p),sum:p,bon:Math.round(p*.07)}", "say": [{"inv": {"t": "Заказ № 27", "rows": [["{drink}", "{milk}"], ["Готово к", "{at}"], ["Бонусы за заказ", "+{bon}"]], "total": "{price}"}}], "kb": [[["💳 Оплатить {price}", "done", "pay"]], [["🎁 Оплатить бонусами", "done"]]]}, "done": {"say": [{"html": "<div class='tk'><h4>Заказ № 27 принят<\/h4><div class='r'><span>Напиток<\/span><span>{drink}, {milk}<\/span><\/div><div class='r'><span>Будет готов<\/span><span>к {at}<\/span><\/div><div class='r sum'><span>Сумма<\/span><span>{price}<\/span><\/div><\/div>"}, "Подойдите к стойке выдачи и назовите номер 27. Очередь проходить не нужно."], "admin": {"i": "☕", "t": "{drink}, {milk}", "s": "к {at}, оплачен", "st": "Новый", "sumKey": "sum"}, "kb": [[["🎁 Мои бонусы", "bonus"]], [["🔁 Начать заново", "start"]]]}, "bonus": {"say": [{"html": "<div class='tk'><h4>Ваша карта гостя<\/h4><div class='r'><span>Бонусы<\/span><span>340<\/span><\/div><div class='r'><span>Уровень<\/span><span>постоянный гость, 7%<\/span><\/div><div class='r'><span>До бесплатного кофе<\/span><span>3 чашки<\/span><\/div><\/div>"}], "kb": [[["☕ Заказать к времени", "menu"]], [["🔁 Начать заново", "start"]]]}, "raffle": {"say": [{"photo": "capp", "t": "Разыгрываем год кофе: по чашке каждый день."}, "Условия: быть подписанным на сообщество и нажать «Участвовать». Итоги в пятницу в 19:00 в прямом эфире."], "kb": [[["🎉 Участвовать", "raffle2"]]]}, "raffle2": {"say": ["Проверил подписку: всё в порядке. Ваш номер участника 418. Удачи!"], "admin": {"i": "🎉", "t": "Новый участник розыгрыша", "s": "номер 418, подписка проверена", "st": "Участник"}, "kb": [[["🔁 Начать заново", "start"]]]}}, "img": {"latte": ["1768675142660-949249bcd484", 16, 10, "600,1000"], "capp": ["1763647872237-c76e660cf38b", 16, 10, "600,1000"]}, "autoplay": {"start": 0, "menu": 1, "milk": 1, "when": 0}, "autofill": {}};</script>

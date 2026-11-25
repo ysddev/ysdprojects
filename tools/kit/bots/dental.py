@@ -7,6 +7,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/dental", "images": {}, "brand": "Мята", "botName": "Мята · стоматология", "avatar": "М", "logoIcon": "🦷",
+        "layout": 'split', "header": 'float', "frame": 'silver', "featsStyle": 'cards', "resStyle": 'band',  # layout
         "title": "Мята — Telegram-бот стоматологии: запись к врачу, напоминания, подтверждение визита",
         "desc": "Бот записывает на приём к нужному врачу, находит окно при острой боли, напоминает о визите и принимает "
                 "подтверждение или перенос одной кнопкой.",

@@ -121,6 +121,7 @@ var s=document.getElementById('lbS');s.addEventListener('click',function(e){var 
 def cfg() -> dict:
     return {
         "slug": "design/poroda", "brand": "Порода", "favLetter": "П",
+        "layout": 'cover', "header": 'ink', "secHead": 'split', "resStyle": 'band', "ctaStyle": 'line',  # layout
         "title": "Порода — фирменный стиль поставщика запчастей для горной техники · YSD DEV",
         "desc": "Фирменный стиль поставщика запчастей для горной техники: знак-грань, сигнальная палитра, этикетка-конструктор для склада, "
                 "каталог, ящик, грузовик, каска и жилет, визитка, выставочный баннер.",

@@ -9,6 +9,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/flowers", "images": IMG, "brand": "Флёр", "botName": "Флёр · цветы с доставкой", "avatar": "Ф", "logoIcon": "💐",
+        "layout": 'sticky', "header": 'center', "frame": 'flat', "featsStyle": 'bento', "resStyle": 'line',  # layout
         "title": "Флёр — Telegram-бот цветочного магазина: букет по поводу и бюджету, открытка, доставка ко времени",
         "desc": "Бот подбирает букет по поводу и бюджету, принимает текст открытки и адрес, оформляет доставку ко времени и присылает "
                 "фото готового букета перед отправкой.",

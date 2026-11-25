@@ -61,6 +61,36 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
 .t-cover.pic .kick{color:#fff;opacity:.86}
+/* обложка: варианты компоновки */
+.cv-half .bgimg,.cv-frame .bgimg{left:50%}
+.cv-half .bgimg::after,.cv-frame .bgimg::after{display:none}
+.cv-half .in,.cv-frame .in{right:50%;justify-content:center;padding-right:calc(var(--u)*4)}
+.cv-half h1,.cv-frame h1{font-size:calc(var(--u)*5.2)}
+.cv-half .badge,.cv-frame .badge{right:calc(50% + var(--u)*4)}
+.cv-frame .bgimg{inset:calc(var(--u)*3.4) calc(var(--u)*3.4) calc(var(--u)*3.4) 50%;border-radius:calc(var(--r)*1.3 + 6px);overflow:hidden}
+.cv-center .in{align-items:center;justify-content:center;text-align:center}
+.cv-center h1{max-width:15em}.cv-center .lead{margin-inline:auto}.cv-center .meta{justify-content:center}
+.cv-center .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.46))}
+.cv-top .in{justify-content:flex-start;padding-top:calc(var(--u)*10)}
+.cv-top h1{font-size:calc(var(--u)*6.2);max-width:16em}
+.cv-top .bgimg{top:58%}
+.cv-top .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.cv-top .meta{position:absolute;left:calc(var(--u)*6);bottom:calc(var(--u)*3.2);z-index:2;margin:0;color:rgba(255,255,255,.82)}
+.cv-top .meta b{color:#fff}
+.cv-type .in{justify-content:flex-start;padding-top:calc(var(--u)*10.5)}
+.cv-type h1{font-size:calc(var(--u)*8.2);line-height:.94;max-width:11.5em}
+.cv-type .meta{margin-top:auto;position:relative;z-index:2}
+.cv-type .mark{position:absolute;right:calc(var(--u)*3);bottom:calc(var(--u)*-2.4);font:var(--hw) calc(var(--u)*22)/.8 var(--fh);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:calc(var(--u)*.16) var(--sac,var(--ac));opacity:.5;white-space:nowrap;pointer-events:none}
+.v-accent.cv-type .mark{-webkit-text-stroke-color:var(--a-ink);opacity:.28}
+/* оформление всех слайдов: рамка, линейка с названием, полоса сбоку */
+.sk-frame .sl::after{content:"";position:absolute;inset:calc(var(--u)*1.7);border:1px solid var(--sline);border-radius:calc(var(--r)*.5);pointer-events:none;z-index:4}
+.sk-frame .t-cover.pic::after,.sk-frame .t-split::after{border-color:rgba(255,255,255,.35)}
+.sk-rule .sl:not(.t-cover):not(.t-split) .in{padding-top:calc(var(--u)*8.6)}
+.sk-rule .sl:not(.t-cover):not(.t-split)::before{content:attr(data-t);position:absolute;left:calc(var(--u)*6);right:calc(var(--u)*6);top:calc(var(--u)*3.3);padding-bottom:calc(var(--u)*1.1);border-bottom:1px solid var(--sline);font:600 calc(var(--u)*1.1)/1 var(--fb);color:var(--smut);z-index:3}
+.sk-side .sl:not(.t-cover)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--u)*1.2);background:var(--sac,var(--ac));z-index:3}
+.sk-side .sl:not(.t-cover):not(.t-split) .in{padding-left:calc(var(--u)*8)}
+.sk-side .sl .brandm{left:calc(var(--u)*8)}
+.sk-side .t-split .tx{padding-left:calc(var(--u)*8)}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -248,15 +278,27 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .kick{font-size:11.5px;margin-bottom:14px}.num,.brandm{font-size:11px;bottom:14px}.brandm{left:20px}.num{right:20px}
 .t-cover .logo{left:20px;top:22px;font-size:20px}.t-cover .badge{right:20px;top:22px;font-size:10.5px}.t-cover .meta{font-size:13px;gap:20px}.t-cover .meta b{font-size:15px}
 .legend{font-size:13px}.grow{margin-top:26px}
+.cv-half .bgimg,.cv-frame .bgimg,.cv-top .bgimg{position:relative;inset:auto;height:44svh}
+.cv-frame .bgimg{margin:16px 16px 0;border-radius:18px}
+.cv-half .in,.cv-frame .in,.cv-top .in,.cv-type .in{right:auto;padding-right:20px;min-height:0!important;padding-top:calc(var(--u)*7)}
+.cv-half .badge,.cv-frame .badge,.cv-top .badge{display:none}
+.cv-half .logo,.cv-frame .logo,.cv-top .logo{position:static;margin-bottom:22px}
+.cv-half h1,.cv-frame h1,.cv-top h1{font-size:calc(var(--u)*4.4)}
+.cv-top .meta{position:static;color:var(--smut);margin-top:22px}.cv-top .meta b{color:var(--sink)}
+.cv-top .bgimg{order:2}
+.cv-type .in{min-height:76svh!important}.cv-type h1{font-size:calc(var(--u)*5.2)}.cv-type .mark{font-size:calc(var(--u)*13);right:12px}
+.sk-rule .sl::before,.sk-side .sl::before{display:none}.sk-rule .sl .in{padding-top:calc(var(--u)*5)!important}.sk-side .sl .in,.sk-side .t-split .tx{padding-left:20px!important}.sk-side .sl .brandm{left:20px}
+.sk-frame .sl::after{inset:8px}
+
 .barx .ttl,.barx #fs{display:none}.barx{justify-content:space-between}.hint{display:none}
 }
 
 .kick{text-transform:none;letter-spacing:0;font-size:calc(var(--u)*1.35);font-weight:600}.t-cover .badge,.step small,.cts small,.plan small,.tbl th{text-transform:none;letter-spacing:0}.step small,.cts small,.plan small{font-size:calc(var(--u)*1.25)}.tbl th{font-size:calc(var(--u)*1.2)}@media screen and (max-width:760px),screen and (orientation:portrait) and (max-width:1100px){.kick{font-size:14px}.step small,.cts small,.plan small,.tbl th{font-size:14px}.t-cover .badge{font-size:14px}.t-cover .meta{font-size:14px}.t-cover .meta b{font-size:16px}.num,.brandm{font-size:14px}.donut figcaption span{font-size:14px}.cout p{font-size:14px}.bar b,.bar em,.legend{font-size:14px}.bars{gap:4px}}.v-dark{--sac:#8aa2ff}.barx .brand{color:#8aa2ff}.card i{font-size:calc(var(--u)*2.3);white-space:nowrap}.hbar{grid-template-columns:calc(var(--u)*30) 1fr auto}@media screen and (max-width:760px),screen and (orientation:portrait) and (max-width:1100px){.card i{font-size:19px}.hbar{grid-template-columns:1fr auto}}
 </style>
 </head>
-<body>
+<body class="sk-side">
 <main class="deck" id="deck" aria-roledescription="презентация" aria-label="Крахмал — прачечная для гостиниц и ресторанов">
-<section class="sl t-cover v-light pic" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="bgimg"><img src="img/cover-1600.webp" srcset="img/cover-1000.webp 1000w, img/cover-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="900" decoding="async"></div><div class="in"><div class="logo" data-a><i>К</i>Крахмал</div><div class="badge" data-a>Москва и область</div><div class=kick data-a>Прачечная для гостиниц и ресторанов</div><h1 data-a style="--i:1">Чистое бельё к&nbsp;7&nbsp;утра — без своей прачечной в подвале</h1><p class=lead data-a style=--i:2>Забираем бельё каждый вечер и возвращаем к утренней смене: выстиранное, выглаженное, упакованное по номерам.</p><div class="meta" data-a style="--i:3"><div><b>24 часа</b>от забора до возврата</div><div><b>1,8 т</b>белья в сутки</div><div><b>63 клиента</b>гостиницы и рестораны</div></div></div></section>
+<section class="sl t-cover v-light pic cv-bottom" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="bgimg"><img src="img/cover-1600.webp" srcset="img/cover-1000.webp 1000w, img/cover-1600.webp 1600w" sizes="(max-width:760px) 100vw, 100vw" alt="" width="1600" height="900" decoding="async"></div><div class="in"><div class="logo" data-a><i>К</i>Крахмал</div><div class="badge" data-a>Москва и область</div><div class=kick data-a>Прачечная для гостиниц и ресторанов</div><h1 data-a style="--i:1">Чистое бельё к&nbsp;7&nbsp;утра — без своей прачечной в подвале</h1><p class=lead data-a style=--i:2>Забираем бельё каждый вечер и возвращаем к утренней смене: выстиранное, выглаженное, упакованное по номерам.</p><div class="meta" data-a style="--i:3"><div><b>24 часа</b>от забора до возврата</div><div><b>1,8 т</b>белья в сутки</div><div><b>63 клиента</b>гостиницы и рестораны</div></div></div></section>
 <section class="sl t-cards v-light" data-t="Что стираем" aria-roledescription="слайд" aria-label="2 из 10: Что стираем"><div class="in"><div class="kick" data-a style="--i:0">Что стираем</div><h2 data-a style="--i:1">Четыре вида текстиля — четыре разные технологии</h2><div class="grow"><div class="cards" style="--c:4"><div class="card" data-a style="--i:2"><i>от 95 ₽/кг</i><b>Постельное бельё</b><span>Простыни, пододеяльники, наволочки: стирка, сушка, каток.</span></div><div class="card" data-a style="--i:3"><i>от 110 ₽/кг</i><b>Полотенца и халаты</b><span>Мягкость без резкого запаха кондиционера.</span></div><div class="card" data-a style="--i:4"><i>от 140 ₽/кг</i><b>Скатерти и салфетки</b><span>Выводим вино, жир и воск от свечей.</span></div><div class="card" data-a style="--i:5"><i>от 290 ₽/шт.</i><b>Униформа</b><span>Кители, фартуки и брюки поваров, глажка на манекене.</span></div></div></div></div><div class="brandm">Крахмал</div><div class="num">02 / 10</div></section>
 <section class="sl t-steps v-dark" data-t="Ночной цикл" aria-roledescription="слайд" aria-label="3 из 10: Ночной цикл"><div class="in"><div class="kick" data-a style="--i:0">Ночной цикл</div><h2 data-a style="--i:1">Пока гости спят, бельё проходит пять этапов</h2><div class="grow"><div class="steps" style="--c:5"><div class="step" data-a style="--i:2"><small>21:00</small><b>Забор</b><span>Водитель взвешивает мешки при администраторе.</span></div><div class="step" data-a style="--i:3"><small>23:00</small><b>Сортировка</b><span>По цвету, ткани и степени загрязнения.</span></div><div class="step" data-a style="--i:4"><small>00:00–04:00</small><b>Стирка</b><span>Промышленные машины, своя программа для каждой ткани.</span></div><div class="step" data-a style="--i:5"><small>04:00–06:00</small><b>Глажка и упаковка</b><span>Каток для постельного, упаковка по номерам.</span></div><div class="step" data-a style="--i:6"><small>07:00</small><b>Доставка</b><span>Чистое бельё на складе к утренней смене.</span></div></div></div></div><div class="brandm">Крахмал</div><div class="num">03 / 10</div></section>
 <section class="sl t-split v-soft" data-t="Логистика" aria-roledescription="слайд" aria-label="4 из 10: Логистика"><div class="in"><div class="split "><div class="tx"><div class="kick" data-a style="--i:0">Логистика и учёт</div><h2 data-a style="--i:1">Каждый килограмм — в накладной</h2><ul class="chk"><li data-a style="--i:3">Свои машины и окно доставки 2 часа по вашему графику</li><li data-a style="--i:4">Партию взвешиваем при вас, накладная сразу в личном кабинете</li><li data-a style="--i:5">Испорченную вещь заменяем по цене закупки, без споров</li><li data-a style="--i:6">Пятна, которые не вышли, возвращаем отдельно с пометкой</li></ul></div><div class="ph"><img src="img/cart-1100.webp" srcset="img/cart-700.webp 700w, img/cart-1100.webp 1100w" sizes="(max-width:760px) 100vw, 50vw" alt="" width="400" height="500" loading="lazy" decoding="async"></div></div></div><div class="num">04 / 10</div></section>

@@ -8,6 +8,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/realty", "images": IMG, "brand": "Квартал", "botName": "Квартал · квартиры", "avatar": "К", "logoIcon": "◆",
+        "layout": 'mirror', "header": 'center', "frame": 'flat', "featsStyle": 'list', "resStyle": 'line',  # layout
         "title": "Квартал — Telegram-бот агентства недвижимости: подбор квартиры, ипотека, запись на просмотр",
         "desc": "Бот задаёт три вопроса, показывает подходящие квартиры с фото и ценой, считает платёж по ипотеке и "
                 "записывает на просмотр.",

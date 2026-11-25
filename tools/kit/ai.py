@@ -50,6 +50,15 @@ p{margin:0}
 .hero-center .cta{justify-content:center}
 .hero-center .hs{grid-template-columns:repeat(3,auto);gap:clamp(20px,5vw,72px);margin-top:8px}
 .hero-center .hs div{border:0!important;padding:0}
+.hero-band{background:var(--band,var(--ac));color:var(--bandink,var(--aci));padding-bottom:clamp(130px,15vw,220px)}
+.hero-band .kick{color:inherit;opacity:.75}.hero-band h1 em{color:inherit;font-style:italic}
+.hero-band .lead{color:color-mix(in srgb,var(--bandink,var(--aci)) 80%,transparent)}
+.hero-band .btn{background:var(--bandink,var(--aci));color:var(--band,var(--ac))}
+.hero-band .btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--bandink,var(--aci)) 45%,transparent)}
+.hero-band .hs div{border-color:color-mix(in srgb,var(--bandink,var(--aci)) 25%,transparent)}
+.hero-band .hs span{color:color-mix(in srgb,var(--bandink,var(--aci)) 70%,transparent)}
+.hero-band+.wsx{margin-top:calc(-1 * clamp(110px,12.5vw,190px))}
+.hero-band+.wsx .ws-n{color:var(--bandink,var(--aci));opacity:.8}
 /* рабочее окно */
 .wsx{padding-bottom:clamp(56px,8vw,110px)}
 .ws-n{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);margin-bottom:14px}
@@ -352,7 +361,7 @@ def chat_html(D: dict) -> str:
 def build(c: dict) -> str:
     d = out(c["slug"])
     write_images(d, c.get("images", {}))
-    th = dict(c["theme"])
+    th = {**c["theme"], **c.get("vars", {})}
     th.setdefault("tick", TICK.format(c=th["aci"].replace("#", "%23")))
     font_css = fonts(d, c["fonts"])
     css_vars = ";".join(f"--{k}:{v}" for k, v in th.items())

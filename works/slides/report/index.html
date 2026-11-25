@@ -60,6 +60,36 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
 .t-cover.pic .kick{color:#fff;opacity:.86}
+/* обложка: варианты компоновки */
+.cv-half .bgimg,.cv-frame .bgimg{left:50%}
+.cv-half .bgimg::after,.cv-frame .bgimg::after{display:none}
+.cv-half .in,.cv-frame .in{right:50%;justify-content:center;padding-right:calc(var(--u)*4)}
+.cv-half h1,.cv-frame h1{font-size:calc(var(--u)*5.2)}
+.cv-half .badge,.cv-frame .badge{right:calc(50% + var(--u)*4)}
+.cv-frame .bgimg{inset:calc(var(--u)*3.4) calc(var(--u)*3.4) calc(var(--u)*3.4) 50%;border-radius:calc(var(--r)*1.3 + 6px);overflow:hidden}
+.cv-center .in{align-items:center;justify-content:center;text-align:center}
+.cv-center h1{max-width:15em}.cv-center .lead{margin-inline:auto}.cv-center .meta{justify-content:center}
+.cv-center .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.46))}
+.cv-top .in{justify-content:flex-start;padding-top:calc(var(--u)*10)}
+.cv-top h1{font-size:calc(var(--u)*6.2);max-width:16em}
+.cv-top .bgimg{top:58%}
+.cv-top .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.cv-top .meta{position:absolute;left:calc(var(--u)*6);bottom:calc(var(--u)*3.2);z-index:2;margin:0;color:rgba(255,255,255,.82)}
+.cv-top .meta b{color:#fff}
+.cv-type .in{justify-content:flex-start;padding-top:calc(var(--u)*10.5)}
+.cv-type h1{font-size:calc(var(--u)*8.2);line-height:.94;max-width:11.5em}
+.cv-type .meta{margin-top:auto;position:relative;z-index:2}
+.cv-type .mark{position:absolute;right:calc(var(--u)*3);bottom:calc(var(--u)*-2.4);font:var(--hw) calc(var(--u)*22)/.8 var(--fh);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:calc(var(--u)*.16) var(--sac,var(--ac));opacity:.5;white-space:nowrap;pointer-events:none}
+.v-accent.cv-type .mark{-webkit-text-stroke-color:var(--a-ink);opacity:.28}
+/* оформление всех слайдов: рамка, линейка с названием, полоса сбоку */
+.sk-frame .sl::after{content:"";position:absolute;inset:calc(var(--u)*1.7);border:1px solid var(--sline);border-radius:calc(var(--r)*.5);pointer-events:none;z-index:4}
+.sk-frame .t-cover.pic::after,.sk-frame .t-split::after{border-color:rgba(255,255,255,.35)}
+.sk-rule .sl:not(.t-cover):not(.t-split) .in{padding-top:calc(var(--u)*8.6)}
+.sk-rule .sl:not(.t-cover):not(.t-split)::before{content:attr(data-t);position:absolute;left:calc(var(--u)*6);right:calc(var(--u)*6);top:calc(var(--u)*3.3);padding-bottom:calc(var(--u)*1.1);border-bottom:1px solid var(--sline);font:600 calc(var(--u)*1.1)/1 var(--fb);color:var(--smut);z-index:3}
+.sk-side .sl:not(.t-cover)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--u)*1.2);background:var(--sac,var(--ac));z-index:3}
+.sk-side .sl:not(.t-cover):not(.t-split) .in{padding-left:calc(var(--u)*8)}
+.sk-side .sl .brandm{left:calc(var(--u)*8)}
+.sk-side .t-split .tx{padding-left:calc(var(--u)*8)}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -247,15 +277,27 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .kick{font-size:11.5px;margin-bottom:14px}.num,.brandm{font-size:11px;bottom:14px}.brandm{left:20px}.num{right:20px}
 .t-cover .logo{left:20px;top:22px;font-size:20px}.t-cover .badge{right:20px;top:22px;font-size:10.5px}.t-cover .meta{font-size:13px;gap:20px}.t-cover .meta b{font-size:15px}
 .legend{font-size:13px}.grow{margin-top:26px}
+.cv-half .bgimg,.cv-frame .bgimg,.cv-top .bgimg{position:relative;inset:auto;height:44svh}
+.cv-frame .bgimg{margin:16px 16px 0;border-radius:18px}
+.cv-half .in,.cv-frame .in,.cv-top .in,.cv-type .in{right:auto;padding-right:20px;min-height:0!important;padding-top:calc(var(--u)*7)}
+.cv-half .badge,.cv-frame .badge,.cv-top .badge{display:none}
+.cv-half .logo,.cv-frame .logo,.cv-top .logo{position:static;margin-bottom:22px}
+.cv-half h1,.cv-frame h1,.cv-top h1{font-size:calc(var(--u)*4.4)}
+.cv-top .meta{position:static;color:var(--smut);margin-top:22px}.cv-top .meta b{color:var(--sink)}
+.cv-top .bgimg{order:2}
+.cv-type .in{min-height:76svh!important}.cv-type h1{font-size:calc(var(--u)*5.2)}.cv-type .mark{font-size:calc(var(--u)*13);right:12px}
+.sk-rule .sl::before,.sk-side .sl::before{display:none}.sk-rule .sl .in{padding-top:calc(var(--u)*5)!important}.sk-side .sl .in,.sk-side .t-split .tx{padding-left:20px!important}.sk-side .sl .brandm{left:20px}
+.sk-frame .sl::after{inset:8px}
+
 .barx .ttl,.barx #fs{display:none}.barx{justify-content:space-between}.hint{display:none}
 }
 
 
 </style>
 </head>
-<body>
+<body class="sk-rule">
 <main class="deck" id="deck" aria-roledescription="презентация" aria-label="Домус — отчёт для руководства за III квартал">
-<section class="sl t-cover v-dark" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="in"><div class="logo" data-a><i>Д</i>Домус</div><div class="badge" data-a>Конфиденциально</div><div class=kick data-a>Совет директоров · 21 октября</div><h1 data-a style="--i:1">Итоги III квартала: <em>план по выручке выполнен на 104%</em></h1><p class=lead data-a style=--i:2>Сеть магазинов товаров для дома «Домус»: 38 магазинов и интернет-магазин.</p><div class="meta" data-a style="--i:3"><div><b>Июль–сентябрь</b>отчётный период</div><div><b>12 слайдов</b>15 минут</div><div><b>Финансовый директор</b>докладчик</div></div></div></section>
+<section class="sl t-cover v-dark cv-center" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="in"><div class="logo" data-a><i>Д</i>Домус</div><div class="badge" data-a>Конфиденциально</div><div class=kick data-a>Совет директоров · 21 октября</div><h1 data-a style="--i:1">Итоги III квартала: <em>план по выручке выполнен на 104%</em></h1><p class=lead data-a style=--i:2>Сеть магазинов товаров для дома «Домус»: 38 магазинов и интернет-магазин.</p><div class="meta" data-a style="--i:3"><div><b>Июль–сентябрь</b>отчётный период</div><div><b>12 слайдов</b>15 минут</div><div><b>Финансовый директор</b>докладчик</div></div></div></section>
 <section class="sl t-stats v-dark" data-t="Главное" aria-roledescription="слайд" aria-label="2 из 10: Главное"><div class="in"><div class="kick" data-a style="--i:0">Квартал в четырёх цифрах</div><h2 data-a style="--i:1">Выручка растёт, <em>маржа под давлением</em></h2><div class="grow"><div class="stats" style="--c:4"><div class="stat" data-a style="--i:2"><b><span data-to="1284" data-d="0">1 284</span> млн ₽</b><strong>выручка</strong><span>+11% к прошлому году, 104% плана</span></div><div class="stat" data-a style="--i:3"><b><span data-to="31.4" data-d="1">31,4</span> %</b><strong>валовая маржа</strong><span>−1,2 п. п.: рост закупочных цен</span></div><div class="stat" data-a style="--i:4"><b><span data-to="6.8" data-d="1">6,8</span> %</b><strong>рост LFL</strong><span>сопоставимые магазины, план был 5%</span></div><div class="stat" data-a style="--i:5"><b><span data-to="72" data-d="0">72</span></b><strong>NPS</strong><span>+4 пункта за квартал</span></div></div></div></div><div class="brandm">Домус</div><div class="num">02 / 10</div></section>
 <section class="sl t-line v-soft" data-t="Выручка" aria-roledescription="слайд" aria-label="3 из 10: Выручка"><div class="in"><div class="chart" style="align-items:center"><div class="txt"><div class="kick" data-a style="--i:0">Динамика</div><h2 data-a style="--i:1">С августа идём <em>выше плана</em></h2><p class="lead" data-a style="--i:2">Выручка по месяцам, млн ₽. Сентябрь закрыли с лучшим результатом за три года.</p></div><div class="lchart" data-a style="--i:3"><svg viewBox="0 0 760 360" role="img" aria-label="Выручка факт и план по месяцам"><line x1="8" x2="752" y1="16.0" y2="16.0" stroke="currentColor" opacity=".12"/><line x1="8" x2="752" y1="119.3" y2="119.3" stroke="currentColor" opacity=".12"/><line x1="8" x2="752" y1="222.7" y2="222.7" stroke="currentColor" opacity=".12"/><line x1="8" x2="752" y1="326.0" y2="326.0" stroke="currentColor" opacity=".12"/><text x="8.0" y="352" text-anchor="start">апр</text><text x="156.8" y="352" text-anchor="middle">май</text><text x="305.6" y="352" text-anchor="middle">июн</text><text x="454.4" y="352" text-anchor="middle">июл</text><text x="603.2" y="352" text-anchor="middle">авг</text><text x="752.0" y="352" text-anchor="end">сен</text><path class="ar" d="M8.0 240.4 L156.8 219.5 L305.6 198.7 L454.4 170.8 L603.2 110.5 L752.0 50.2 L752.0 326 L8.0 326 Z" fill="#3d8bff"/><path class="ln" pathLength="1" d="M8.0 240.4 L156.8 219.5 L305.6 198.7 L454.4 170.8 L603.2 110.5 L752.0 50.2" stroke="#3d8bff"/><g class="dot"><circle cx="752.0" cy="50.2" r="6" fill="#3d8bff"/><text x="740.0" y="38.2" text-anchor="end" style="font-weight:700;fill:currentColor;font-size:19px">454</text></g><path class="ln" pathLength="1" d="M8.0 221.9 L156.8 210.3 L305.6 194.0 L454.4 163.9 L603.2 147.6 L752.0 133.7" stroke="#35d0a5"/><g class="dot"><circle cx="752.0" cy="133.7" r="6" fill="#35d0a5"/><text x="740.0" y="121.7" text-anchor="end" style="font-weight:700;fill:currentColor;font-size:19px"></text></g></svg><div class="legend"><span><i style="background:#3d8bff"></i>Факт</span><span><i style="background:#35d0a5"></i>План</span></div></div></div></div><div class="brandm">Домус</div><div class="num">03 / 10</div></section>
 <section class="sl t-bars v-dark" data-t="Каналы" aria-roledescription="слайд" aria-label="4 из 10: Каналы"><div class="in"><div class="kick" data-a style="--i:0">Каналы продаж</div><h2 data-a style="--i:1">Интернет-магазин дал <em>треть прироста</em></h2><div class="grow"><div class="hbars" data-a style="--i:3"><div class="hbar" style="--h:100.0;--i:0"><span>Магазины в ТЦ</span><s></s><b>612 млн ₽</b></div><div class="hbar" style="--h:52.0;--i:1"><span>Магазины у дома</span><s></s><b>318 млн ₽</b></div><div class="hbar hl" style="--h:40.4;--i:2"><span>Интернет-магазин</span><s></s><b>247 млн ₽</b></div><div class="hbar" style="--h:12.1;--i:3"><span>Маркетплейсы</span><s></s><b>74 млн ₽</b></div><div class="hbar" style="--h:5.4;--i:4"><span>Корпоративные продажи</span><s></s><b>33 млн ₽</b></div></div></div></div><div class="brandm">Домус</div><div class="num">04 / 10</div></section>

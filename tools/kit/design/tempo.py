@@ -138,6 +138,7 @@ def cfg() -> dict:
             '<span style="background:#f3f4f6;border-radius:999px">чип · 999</span><span style="background:#f3f4f6;border-radius:6px">столбик · 6</span></div></div></div>')
     return {
         "slug": "design/tempo", "brand": "Темп", "favLetter": "Т",
+        "layout": 'index', "header": 'ink', "secHead": 'stack', "resStyle": 'band', "ctaStyle": 'block',  # layout
         "title": "Темп — дизайн мобильного приложения для бега · YSD DEV",
         "desc": "Дизайн мобильного приложения для бега: кликабельный прототип, шесть экранов, светлая и тёмная тема, компоненты и пульсовые зоны.",
         "theme": {"bg": "#f4f4f1", "ink": "#16181d", "soft": "#4f5562", "mut": "#828896", "line": "#e2e3e0", "line2": "#c9cbc6",

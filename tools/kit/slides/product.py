@@ -5,6 +5,7 @@ from ._t import theme
 def cfg() -> dict:
     return {
         "slug": "slides/product", "brand": "Маршрут", "logoIcon": "М",
+        "cover": 'bottom', "skin": 'frame',  # layout
         "title": "Маршрут — презентация сервиса для выездных бригад",
         "desc": "Презентация продукта: сервис планирует выезды мастеров, строит маршруты и показывает клиенту время приезда. Возможности, результаты пилота, тарифы и расчёт экономии.",
         "theme": theme("#120c24", "#ece7fb", "#6a3df0", "#ffffff", '"Manrope",sans-serif', '"Manrope",sans-serif',

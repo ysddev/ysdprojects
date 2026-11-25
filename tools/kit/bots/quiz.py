@@ -9,6 +9,7 @@ R = [[["🔁 Начать заново", "start"]]]
 def cfg() -> dict:
     return {
         "slug": "bots/quiz", "images": IMG, "brand": "Ровно", "botName": "Ровно · ремонт квартир", "avatar": "Р", "logoIcon": "📐",
+        "layout": 'poster', "header": 'plain', "frame": 'silver', "featsStyle": 'list', "resStyle": 'band', "vars": {'band': '#1e4fd8', 'bandink': '#ffffff', 'bandem': '#ffd23f'},  # layout
         "title": "Ровно — квиз-бот для ремонта квартир: расчёт сметы за 5 вопросов и запись на замер",
         "desc": "Бот задаёт пять вопросов о квартире, считает вилку сметы и сроков, присылает смету в PDF и записывает на бесплатный замер. "
                 "Заявка уходит в CRM с ответами клиента.",

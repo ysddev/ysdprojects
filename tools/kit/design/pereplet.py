@@ -95,6 +95,7 @@ def cfg() -> dict:
                 + '</div></div>')
     return {
         "slug": "design/pereplet", "brand": "Переплёт", "favLetter": "П",
+        "layout": 'split', "header": 'ink', "secHead": 'stack', "resStyle": 'line', "ctaStyle": 'block',  # layout
         "title": "Переплёт — баннеры и соцсети книжного магазина · YSD DEV",
         "desc": "Баннеры и посты для книжного магазина: одна кампания в шести форматах — сторис, пост, квадрат, обложка сообщества, "
                 "баннер и растяжка — и шаблон, в котором меняется текст.",

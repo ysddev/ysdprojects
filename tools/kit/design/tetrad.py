@@ -112,6 +112,7 @@ var r=document.getElementById('role');r.addEventListener('click',function(e){var
 def cfg() -> dict:
     return {
         "slug": "design/tetrad", "brand": "Тетрадь", "favLetter": "Т",
+        "layout": 'side', "header": 'float', "secHead": 'split', "resStyle": 'band', "ctaStyle": 'ac',  # layout
         "title": "Тетрадь — дизайн приложения онлайн-школы · YSD DEV",
         "desc": "Дизайн мобильного приложения онлайн-школы: расписание, урок с материалами, домашка с пометками учителя красной ручкой, "
                 "успехи по предметам и экран родителя с абонементом; кликабельный прототип.",

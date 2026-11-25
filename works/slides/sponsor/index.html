@@ -67,6 +67,36 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
 .t-cover.pic .kick{color:#fff;opacity:.86}
+/* обложка: варианты компоновки */
+.cv-half .bgimg,.cv-frame .bgimg{left:50%}
+.cv-half .bgimg::after,.cv-frame .bgimg::after{display:none}
+.cv-half .in,.cv-frame .in{right:50%;justify-content:center;padding-right:calc(var(--u)*4)}
+.cv-half h1,.cv-frame h1{font-size:calc(var(--u)*5.2)}
+.cv-half .badge,.cv-frame .badge{right:calc(50% + var(--u)*4)}
+.cv-frame .bgimg{inset:calc(var(--u)*3.4) calc(var(--u)*3.4) calc(var(--u)*3.4) 50%;border-radius:calc(var(--r)*1.3 + 6px);overflow:hidden}
+.cv-center .in{align-items:center;justify-content:center;text-align:center}
+.cv-center h1{max-width:15em}.cv-center .lead{margin-inline:auto}.cv-center .meta{justify-content:center}
+.cv-center .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,.46))}
+.cv-top .in{justify-content:flex-start;padding-top:calc(var(--u)*10)}
+.cv-top h1{font-size:calc(var(--u)*6.2);max-width:16em}
+.cv-top .bgimg{top:58%}
+.cv-top .bgimg::after{background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.cv-top .meta{position:absolute;left:calc(var(--u)*6);bottom:calc(var(--u)*3.2);z-index:2;margin:0;color:rgba(255,255,255,.82)}
+.cv-top .meta b{color:#fff}
+.cv-type .in{justify-content:flex-start;padding-top:calc(var(--u)*10.5)}
+.cv-type h1{font-size:calc(var(--u)*8.2);line-height:.94;max-width:11.5em}
+.cv-type .meta{margin-top:auto;position:relative;z-index:2}
+.cv-type .mark{position:absolute;right:calc(var(--u)*3);bottom:calc(var(--u)*-2.4);font:var(--hw) calc(var(--u)*22)/.8 var(--fh);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:calc(var(--u)*.16) var(--sac,var(--ac));opacity:.5;white-space:nowrap;pointer-events:none}
+.v-accent.cv-type .mark{-webkit-text-stroke-color:var(--a-ink);opacity:.28}
+/* оформление всех слайдов: рамка, линейка с названием, полоса сбоку */
+.sk-frame .sl::after{content:"";position:absolute;inset:calc(var(--u)*1.7);border:1px solid var(--sline);border-radius:calc(var(--r)*.5);pointer-events:none;z-index:4}
+.sk-frame .t-cover.pic::after,.sk-frame .t-split::after{border-color:rgba(255,255,255,.35)}
+.sk-rule .sl:not(.t-cover):not(.t-split) .in{padding-top:calc(var(--u)*8.6)}
+.sk-rule .sl:not(.t-cover):not(.t-split)::before{content:attr(data-t);position:absolute;left:calc(var(--u)*6);right:calc(var(--u)*6);top:calc(var(--u)*3.3);padding-bottom:calc(var(--u)*1.1);border-bottom:1px solid var(--sline);font:600 calc(var(--u)*1.1)/1 var(--fb);color:var(--smut);z-index:3}
+.sk-side .sl:not(.t-cover)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--u)*1.2);background:var(--sac,var(--ac));z-index:3}
+.sk-side .sl:not(.t-cover):not(.t-split) .in{padding-left:calc(var(--u)*8)}
+.sk-side .sl .brandm{left:calc(var(--u)*8)}
+.sk-side .t-split .tx{padding-left:calc(var(--u)*8)}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -254,15 +284,27 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .kick{font-size:11.5px;margin-bottom:14px}.num,.brandm{font-size:11px;bottom:14px}.brandm{left:20px}.num{right:20px}
 .t-cover .logo{left:20px;top:22px;font-size:20px}.t-cover .badge{right:20px;top:22px;font-size:10.5px}.t-cover .meta{font-size:13px;gap:20px}.t-cover .meta b{font-size:15px}
 .legend{font-size:13px}.grow{margin-top:26px}
+.cv-half .bgimg,.cv-frame .bgimg,.cv-top .bgimg{position:relative;inset:auto;height:44svh}
+.cv-frame .bgimg{margin:16px 16px 0;border-radius:18px}
+.cv-half .in,.cv-frame .in,.cv-top .in,.cv-type .in{right:auto;padding-right:20px;min-height:0!important;padding-top:calc(var(--u)*7)}
+.cv-half .badge,.cv-frame .badge,.cv-top .badge{display:none}
+.cv-half .logo,.cv-frame .logo,.cv-top .logo{position:static;margin-bottom:22px}
+.cv-half h1,.cv-frame h1,.cv-top h1{font-size:calc(var(--u)*4.4)}
+.cv-top .meta{position:static;color:var(--smut);margin-top:22px}.cv-top .meta b{color:var(--sink)}
+.cv-top .bgimg{order:2}
+.cv-type .in{min-height:76svh!important}.cv-type h1{font-size:calc(var(--u)*5.2)}.cv-type .mark{font-size:calc(var(--u)*13);right:12px}
+.sk-rule .sl::before,.sk-side .sl::before{display:none}.sk-rule .sl .in{padding-top:calc(var(--u)*5)!important}.sk-side .sl .in,.sk-side .t-split .tx{padding-left:20px!important}.sk-side .sl .brandm{left:20px}
+.sk-frame .sl::after{inset:8px}
+
 .barx .ttl,.barx #fs{display:none}.barx{justify-content:space-between}.hint{display:none}
 }
 
 .kick{text-transform:none;letter-spacing:0;font-size:calc(var(--u)*1.35);font-weight:600}.t-cover .badge,.step small,.cts small,.plan small,.tbl th{text-transform:none;letter-spacing:0}.step small,.cts small,.plan small{font-size:calc(var(--u)*1.25)}.tbl th{font-size:calc(var(--u)*1.2)}@media screen and (max-width:760px),screen and (orientation:portrait) and (max-width:1100px){.kick{font-size:14px}.step small,.cts small,.plan small,.tbl th{font-size:14px}.t-cover .badge{font-size:14px}.t-cover .meta{font-size:14px}.t-cover .meta b{font-size:16px}.num,.brandm{font-size:14px}.donut figcaption span{font-size:14px}.cout p{font-size:14px}.bar b,.bar em,.legend{font-size:14px}.bars{gap:4px}}h2{font-size:calc(var(--u)*3.5);line-height:1.1}.t-cover h1{font-size:calc(var(--u)*5.6);line-height:1.02}.t-end h2{font-size:calc(var(--u)*4.6)}.t-quote blockquote{font-size:calc(var(--u)*3.2)}.v-light,.v-soft{--sac:#c44f00}.stat b{font-size:calc(var(--u)*4.8)}.plan b{font-size:calc(var(--u)*2.8)}.card i{font-size:calc(var(--u)*2.8);white-space:nowrap}.cout b{font-size:calc(var(--u)*2.2)}.cout .big b{font-size:calc(var(--u)*3.6)}@media screen and (max-width:760px),screen and (orientation:portrait) and (max-width:1100px){h2{font-size:28px}.t-cover h1{font-size:34px}.t-end h2{font-size:30px}.card i{font-size:22px}.plan b{font-size:26px}.stat b{font-size:32px!important}.cout b{font-size:20px}.cout .big b{font-size:30px}}
 </style>
 </head>
-<body>
+<body class="sk-frame">
 <main class="deck" id="deck" aria-roledescription="презентация" aria-label="Солнцеворот — спонсорское предложение фестиваля">
-<section class="sl t-cover v-light pic" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="bgimg"><img src="img/cover-1600.webp" srcset="img/cover-1000.webp 1000w, img/cover-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="900" decoding="async"></div><div class="in"><div class="logo" data-a><i>С</i>Солнцеворот</div><div class="badge" data-a>4–6 июля 2027</div><div class=kick data-a>Спонсорское предложение на 2027 год</div><h1 data-a style="--i:1">Три дня у воды и 38 000 гостей</h1><p class=lead data-a style=--i:2>«Солнцеворот» — музыка, еда и лекции на берегу Волги под Тверью. Ищем партнёров, которым нужна аудитория 25–40 лет.</p><div class="meta" data-a style="--i:3"><div><b>38 000</b>гостей в 2026</div><div><b>6-й год</b>подряд</div><div><b>2,4 млн</b>охват в соцсетях</div></div></div></section>
+<section class="sl t-cover v-light cv-top" data-t="Обложка" aria-roledescription="слайд" aria-label="1 из 10: Обложка"><div class="bgimg"><img src="img/cover-1600.webp" srcset="img/cover-1000.webp 1000w, img/cover-1600.webp 1600w" sizes="(max-width:760px) 100vw, 100vw" alt="" width="1600" height="900" decoding="async"></div><div class="in"><div class="logo" data-a><i>С</i>Солнцеворот</div><div class="badge" data-a>4–6 июля 2027</div><div class=kick data-a>Спонсорское предложение на 2027 год</div><h1 data-a style="--i:1">Три дня у воды и 38 000 гостей</h1><p class=lead data-a style=--i:2>«Солнцеворот» — музыка, еда и лекции на берегу Волги под Тверью. Ищем партнёров, которым нужна аудитория 25–40 лет.</p><div class="meta" data-a style="--i:3"><div><b>38 000</b>гостей в 2026</div><div><b>6-й год</b>подряд</div><div><b>2,4 млн</b>охват в соцсетях</div></div></div></section>
 <section class="sl t-stats v-light" data-t="Фестиваль в цифрах" aria-roledescription="слайд" aria-label="2 из 10: Фестиваль в цифрах"><div class="in"><div class="kick" data-a style="--i:0">Фестиваль в цифрах</div><h2 data-a style="--i:1">Гости остаются на весь день</h2><div class="grow"><div class="stats" style="--c:3"><div class="stat" data-a style="--i:2"><b><span data-to="38000" data-d="0">38 000</span></b><strong>гостей за три дня</strong><span>билеты 2026 года проданы за 5 недель</span></div><div class="stat" data-a style="--i:3"><b><span data-to="41" data-d="0">41</span></b><strong>артист на трёх сценах</strong><span>и ещё 60 лекций и мастер-классов</span></div><div class="stat" data-a style="--i:4"><b><span data-to="4.7" data-d="1">4,7</span> часа</b><strong>гость проводит на площадке</strong><span>в среднем за день — время на знакомство с брендом</span></div></div></div></div><div class="brandm">Солнцеворот</div><div class="num">02 / 10</div></section>
 <section class="sl t-bars v-soft" data-t="Рост" aria-roledescription="слайд" aria-label="3 из 10: Рост"><div class="in"><div class="chart"><div class="txt"><div class="kick" data-a style="--i:0">Посещаемость по годам</div><h2 data-a style="--i:1">Гостей больше каждый год</h2><p class="lead" data-a style="--i:2">Посетители за три дня фестиваля, тысяч человек. 2027 — план по предпродаже.</p></div><div data-a style="--i:3;padding-bottom:calc(var(--u)*2.4)"><div class="bars"><div class="bar" style="--h:17.2;--i:0"><b>9</b><s></s><em>2021</em></div><div class="bar" style="--h:26.8;--i:1"><b>14</b><s></s><em>2022</em></div><div class="bar" style="--h:40.1;--i:2"><b>21</b><s></s><em>2023</em></div><div class="bar" style="--h:52.6;--i:3"><b>27,5</b><s></s><em>2024</em></div><div class="bar" style="--h:61.2;--i:4"><b>32</b><s></s><em>2025</em></div><div class="bar hl" style="--h:72.6;--i:5"><b>38</b><s></s><em>2026</em></div><div class="bar" style="--h:86.0;--i:6"><b>45</b><s></s><em>2027</em></div></div></div></div></div><div class="brandm">Солнцеворот</div><div class="num">03 / 10</div></section>
 <section class="sl t-donut v-dark" data-t="Аудитория" aria-roledescription="слайд" aria-label="4 из 10: Аудитория"><div class="in"><div class="kick" data-a style="--i:0">Кто приезжает</div><h2 data-a style="--i:1">Ядро аудитории — 25–34 года</h2><div class="grow"><div class="donut"><figure data-a style="--i:2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" stroke="currentColor" opacity=".1" style="stroke-width:13;fill:none"/><circle class="sg" cx="50" cy="50" r="42" pathLength="100" stroke="#ff8a1f" stroke-dasharray="40.2 59.8" stroke-dashoffset="-0.0" style="--i:0;--da:40.2 59.8"/><circle class="sg" cx="50" cy="50" r="42" pathLength="100" stroke="#e8457c" stroke-dasharray="28.2 71.8" stroke-dashoffset="-41.0" style="--i:1;--da:28.2 71.8"/><circle class="sg" cx="50" cy="50" r="42" pathLength="100" stroke="#7b5cff" stroke-dasharray="17.2 82.8" stroke-dashoffset="-70.0" style="--i:2;--da:17.2 82.8"/><circle class="sg" cx="50" cy="50" r="42" pathLength="100" stroke="#ffd166" stroke-dasharray="11.2 88.8" stroke-dashoffset="-88.0" style="--i:3;--da:11.2 88.8"/></svg><figcaption><b>31 год</b><span>средний возраст</span></figcaption></figure><ul class="dl"><li data-a style="--i:2"><i style="background:#ff8a1f"></i><div><b>25–34 года</b><span>приезжают парами и компаниями</span></div><em>41%</em></li><li data-a style="--i:3"><i style="background:#e8457c"></i><div><b>35–44 года</b><span>каждый второй — с детьми</span></div><em>29%</em></li><li data-a style="--i:4"><i style="background:#7b5cff"></i><div><b>18–24 года</b><span>студенты и первые годы работы</span></div><em>18%</em></li><li data-a style="--i:5"><i style="background:#ffd166"></i><div><b>45 лет и старше</b><span>чаще на лекциях и в гастрозоне</span></div><em>12%</em></li></ul></div></div></div><div class="brandm">Солнцеворот</div><div class="num">04 / 10</div></section>
