@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Шлейф — парфюмерия с подбором аромата по нотам и набором пробников</title>
+<meta name="description" content="Интернет-магазин парфюмерии «Шлейф»: подбор аромата по любимым нотам, пирамида нот каждого аромата, набор из пяти пробников за 990 ₽ с возвратом стоимости при покупке флакона.">
+<meta name="theme-color" content="#231A2A">
+<link rel="preload" href="fonts/cormorant-infant-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant Infant';font-weight:500;font-display:swap;src:url(fonts/cormorant-infant-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Cormorant Infant';font-weight:500;font-display:swap;src:url(fonts/cormorant-infant-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Infant';font-weight:500;font-display:swap;src:url(fonts/cormorant-infant-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Cormorant Infant';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-infant-cyrillic-500-italic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Cormorant Infant';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-infant-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#F3F2F5;--w:#FFFFFF;--ink:#231A2A;--text:#463D4E;--mute:#6F6579;--rose:#EBCAD3;--rosed:#9C4A63;--smoke:#2E2436;--line:#E0DCE4;--d:'Cormorant Infant',Georgia,serif;--t:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--d);font-weight:500;color:var(--ink);margin:0}
+p{margin:0}
+a{color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rosed);outline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:0;border-radius:0;background:var(--ink);color:#fff;font:500 16px/1.2 var(--t);letter-spacing:.02em;cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:#3A2C44}
+.btn.lt{background:#fff;color:var(--ink)}
+.btn.lt:hover{background:var(--rose)}
+.btn.ln{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn.sm{min-height:42px;padding:0 16px;font-size:15px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:30;background:rgba(243,242,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:32px;height:68px}
+.logo{font:500 30px/1 var(--d);color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.logo i{font-style:italic}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:16px}
+.nav a:hover{color:var(--rosed)}
+.cartb{min-height:42px;padding:0 16px;border:1px solid var(--ink);background:transparent;cursor:pointer;font-size:15px;color:var(--ink)}
+
+/* первый экран */
+.hero{position:relative;background:var(--smoke);color:#E6DEEA;overflow:hidden}
+.hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,26,42,.92) 0,rgba(35,26,42,.55) 46%,rgba(35,26,42,0) 75%)}
+.hero .wrap{position:relative;z-index:1;min-height:600px;display:flex;flex-direction:column;justify-content:center;padding-top:60px;padding-bottom:60px}
+.hero h1{color:#fff;font-size:clamp(44px,5.6vw,84px);line-height:1;max-width:11em}
+.lead{font-size:19px;margin-top:20px;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* подбор */
+.sec{padding:96px 0}
+.sh{margin-bottom:32px}
+.sh h2{font-size:clamp(38px,4.2vw,60px);line-height:1.02}
+.sh p{margin-top:12px;max-width:38em}
+.finder{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;align-items:start}
+.fq{display:grid;gap:26px}
+.fq h3{font:500 15px/1.3 var(--t);color:var(--mute);letter-spacing:.02em;margin-bottom:10px}
+.fam{display:flex;flex-wrap:wrap;gap:8px}
+.fam button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px;color:var(--ink)}
+.fam button i{width:12px;height:12px;border-radius:50%}
+.fam button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);background:#fff;flex-wrap:wrap}
+.seg button{min-height:44px;padding:0 16px;border:0;background:none;cursor:pointer;font-size:16px;color:var(--mute)}
+.seg button[aria-pressed=true]{background:var(--rose);color:var(--ink)}
+.res{display:grid;gap:10px}
+.rc{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;background:#fff;padding:14px 16px;border:1px solid var(--line)}
+.rc .bt{width:64px;height:76px}
+.rc h3{font-size:24px;line-height:1.1;font-style:italic}
+.rc .hs{font-size:14px;color:var(--mute)}
+.rc .nt{font-size:15px;margin-top:2px}
+.mt{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:14px;color:var(--mute)}
+.mt span.b{flex:1;max-width:140px;height:4px;background:var(--line);position:relative}
+.mt span.b i{position:absolute;inset:0 auto 0 0;background:var(--rosed)}
+.rc .ac{display:grid;gap:6px;justify-items:end}
+.lnk{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:15px}
+.lnk.on{color:var(--rosed);text-decoration:none}
+.empty{background:#fff;border:1px dashed var(--line);padding:24px}
+
+/* каталог */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:#fff;display:flex;flex-direction:column}
+.card .vis{background:var(--bg);margin:10px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;cursor:pointer;border:0;padding:0}
+.card .vis svg{width:56%;height:auto}
+.card .cb{padding:4px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:26px;line-height:1.05;font-style:italic}
+.card .hs{font-size:14px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:14px;color:var(--mute)}
+.chips span{display:inline-flex;align-items:center;gap:5px}
+.chips i{width:8px;height:8px;border-radius:50%}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px}
+.card .pr{font:500 26px/1 var(--d);color:var(--ink)}
+.card select{height:40px;border:1px solid var(--line);background:#fff;padding:0 8px;font-size:15px;color:var(--ink)}
+.card .acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+
+/* пирамида */
+.pyr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.pyr img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.tl{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:16px 0;border-top:1px solid var(--line)}
+.tl li:last-child{border-bottom:1px solid var(--line)}
+.tl b{font:500 26px/1.1 var(--d);color:var(--ink)}
+.tl span{display:block;font-size:14px;color:var(--mute)}
+
+/* пробники */
+.smp{background:var(--smoke);color:#E6DEEA}
+.smp .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:center}
+.smp img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.smp h2{color:#fff;font-size:clamp(36px,4vw,56px);line-height:1.02}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:26px 0 18px}
+.slot{aspect-ratio:1/2.2;border:1px dashed rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:8px 4px;text-align:center;font-size:14px;line-height:1.2;color:#BFB3C6;position:relative}
+.slot.f{border-style:solid;border-color:rgba(255,255,255,.6);color:#fff}
+.slot svg{width:40%;height:auto;margin-bottom:8px}
+.slot button{position:absolute;top:4px;right:4px;width:28px;height:28px;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;font-size:16px}
+.smp .note{font-size:15px;color:#BFB3C6;margin-top:10px}
+
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font:500 26px/1.2 var(--d);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:16px;font:400 30px var(--d);color:var(--rosed)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 20px;max-width:46em}
+
+/* окна */
+dialog{border:0;border-radius:0;padding:0;width:min(860px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;color:var(--text);background:var(--bg)}
+dialog::backdrop{background:rgba(35,26,42,.6)}
+.x{position:sticky;top:12px;float:right;margin:12px 12px -56px 0;width:44px;height:44px;border:0;background:#fff;color:var(--ink);font-size:24px;cursor:pointer;z-index:2}
+.pv{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.pv .vis{background:#fff;display:flex;align-items:center;justify-content:center;padding:30px}
+.pv .vis svg{width:60%;height:auto}
+.pvb{padding:30px;display:grid;gap:12px;align-content:start}
+.pvb h2{font-size:40px;line-height:1;font-style:italic;padding-right:40px}
+.pm{display:grid;gap:4px;margin:6px 0}
+.pm div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;padding:10px 14px}
+.pm div:nth-child(1){background:#FBF8FA;margin:0 18%}
+.pm div:nth-child(2){background:#F1E5EA;margin:0 9%}
+.pm div:nth-child(3){background:var(--rose)}
+.pm b{font-size:14px;font-weight:500;color:var(--mute)}
+.pm span{color:var(--ink)}
+.vols{display:flex;gap:6px}
+.vols button{flex:1;min-height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px;color:var(--ink);line-height:1.2}
+.vols button small{display:block;color:var(--mute);font-size:14px}
+.vols button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(35,26,42,.55)}
+.dp{width:min(440px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:#fff}
+.dh h2{font-size:32px}
+.dh .x{position:static;float:none;margin:0;background:var(--bg)}
+.db{flex:1;overflow:auto;padding:14px 20px}
+.li{background:#fff;padding:14px 16px;margin-bottom:8px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}
+.li b{color:var(--ink);font-weight:500}
+.li .m{font-size:14px;color:var(--mute)}
+.df{padding:16px 20px;background:#fff;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-size:19px;font-weight:500;color:var(--ink)}
+.f{display:grid;gap:5px}
+.f label{font-size:14px;font-weight:500;color:var(--ink)}
+.f input{height:48px;border:1px solid var(--line);padding:0 12px;font-size:16px;color:var(--ink);background:var(--bg)}
+.f input:focus{border-color:var(--ink);background:#fff;outline:none}
+.agree,.gift{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;cursor:pointer}
+.agree input,.gift input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--ink)}
+.err{color:#B3261E;font-size:15px}
+.ok{background:var(--rose);padding:16px;color:var(--ink)}
+.ok b{display:block;font:500 26px/1.1 var(--d);margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;padding:12px 18px;font-size:15px;max-width:calc(100vw - 32px)}
+#policy{width:min(480px,calc(100vw - 24px));padding:26px;background:#fff}
+#policy p{margin:10px 0;font-size:15px}
+
+.foot{border-top:1px solid var(--line);padding:46px 0 34px;font-size:15px;color:var(--mute)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.legal button{border:0;background:none;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:15px}
+
+@media (max-width:1080px){
+  .nav{display:none}
+  .cartb{margin-left:auto}
+  .finder,.pyr,.smp .wrap{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .smp img{max-width:420px;aspect-ratio:4/3}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .hero::after{background:linear-gradient(180deg,rgba(35,26,42,.25) 0,rgba(35,26,42,.88) 55%)}
+  .hero .wrap{min-height:640px;justify-content:flex-end;padding-bottom:40px}
+  .lead{font-size:17px}
+  .sec{padding:64px 0}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card .cb{padding:4px 12px 12px}
+  .card h3{font-size:22px}
+  .card .acts{grid-template-columns:1fr}
+  .rc{grid-template-columns:48px minmax(0,1fr);gap:12px}
+  .rc .bt{width:48px;height:58px}
+  .rc .ac{grid-column:1/-1;grid-template-columns:auto auto;justify-content:start;gap:16px}
+  .pv{grid-template-columns:1fr}
+  .pv .vis{padding:20px}
+  .pv .vis svg{width:34%}
+  .pvb{padding:20px 16px}
+  .pm div{grid-template-columns:80px minmax(0,1fr);padding:8px 10px}
+  .pm div:nth-child(1){margin:0 8%}
+  .pm div:nth-child(2){margin:0 4%}
+  .slots{gap:6px}
+  .tl li{grid-template-columns:90px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#">Шлейф</a>
+    <nav class="nav" aria-label="Разделы"><a href="#finder">Подбор</a><a href="#catalog">Ароматы</a><a href="#samples">Пробники</a><a href="#faq">Вопросы</a></nav>
+    <button class="cartb" type="button" id="cartBtn">Корзина, <span class="num" id="cc">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <picture><source media="(max-width:760px)" srcset="img/herom-600.webp 600w, img/herom-900.webp 900w" sizes="100vw"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="100vw" width="1400" height="875" alt="Флаконы духов с чистыми этикетками в полосах света и тени" fetchpriority="high"></picture>
+  <div class="wrap">
+    <h1>Найдите свой аромат по&nbsp;нотам, а&nbsp;не&nbsp;по&nbsp;рекламе</h1>
+    <p class="lead">Отметьте, что вам нравится: цитрусы, древесина, ваниль. Подберём пять ароматов и&nbsp;пришлём пробники по&nbsp;2&nbsp;мл. Их&nbsp;стоимость вернём, когда купите флакон.</p>
+    <div class="cta"><a class="btn lt" href="#finder">Подобрать аромат</a><a class="btn ln" href="#samples" style="color:#fff">Набор пробников за&nbsp;990&nbsp;₽</a></div>
+  </div>
+</section>
+
+<section class="sec" id="finder">
+  <div class="wrap">
+    <div class="sh"><h2>Подбор по&nbsp;нотам</h2><p>Выберите одну-три семьи нот и&nbsp;случай. Список справа пересчитывается сразу и&nbsp;показывает, насколько аромат совпадает с&nbsp;вашим выбором.</p></div>
+    <div class="finder">
+      <div class="fq">
+        <div><h3>Какие ноты вам нравятся</h3><div class="fam" id="fam" role="group" aria-label="Семьи нот"></div></div>
+        <div><h3>Для какого случая</h3><div class="seg" id="occ" role="group" aria-label="Случай"></div></div>
+        <div><h3>Время года</h3><div class="seg" id="sea" role="group" aria-label="Время года"></div></div>
+        <div><h3>Насколько заметным должен быть шлейф</h3><div class="seg" id="pow" role="group" aria-label="Стойкость"></div></div>
+      </div>
+      <div class="res" id="res" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="catalog" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Ароматы</h2><p>Нажмите на&nbsp;флакон, чтобы посмотреть пирамиду нот. Цена за&nbsp;50&nbsp;мл, есть 30 и&nbsp;100&nbsp;мл.</p></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec smp" id="samples">
+  <div class="wrap">
+    <img src="img/stone-1000.webp" srcset="img/stone-600.webp 600w, img/stone-1000.webp 1000w" sizes="(max-width:1080px) 420px, 460px" width="1000" height="1250" alt="Флакон духов с чистой этикеткой на светлых камнях" loading="lazy" decoding="async">
+    <div>
+      <h2>Пять пробников за&nbsp;990&nbsp;₽</h2>
+      <p style="margin-top:14px;max-width:32em">Носите каждый аромат хотя&nbsp;бы день: на&nbsp;коже он&nbsp;звучит иначе, чем на&nbsp;бумажке. В&nbsp;набор попадают ароматы, которые вы&nbsp;отметили в&nbsp;подборе или каталоге.</p>
+      <div class="slots" id="slots"></div>
+      <button class="btn lt" type="button" id="sGo"></button>
+      <p class="note">990&nbsp;₽ вернём промокодом на&nbsp;любой флакон в&nbsp;течение 30 дней.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:0">
+  <div class="wrap pyr">
+    <img src="img/notes-1400.webp" srcset="img/notes-800.webp 800w, img/notes-1400.webp 1400w" sizes="(max-width:1080px) 92vw, 560px" width="1400" height="933" alt="Сушёный апельсин, бадьян и корица на тёмном фоне" loading="lazy" decoding="async">
+    <div>
+      <h2 style="font-size:clamp(36px,4vw,54px);line-height:1.02">Как аромат раскрывается на&nbsp;коже</h2>
+      <ol class="tl">
+        <li><b>Верх</b><p>Первые 15 минут. Лёгкие ноты: цитрусы, специи, свежая зелень.<span>то, что слышно в&nbsp;магазине</span></p></li>
+        <li><b>Сердце</b><p>Следующие 2–4 часа. Цветы, чай, фрукты: характер аромата.<span>то, что слышат рядом с&nbsp;вами</span></p></li>
+        <li><b>База</b><p>До&nbsp;12 часов. Древесина, смолы, ваниль, мускус.<span>то, что остаётся на&nbsp;шарфе</span></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sh"><h2>Вопросы</h2></div>
+    <div class="faq">
+      <details><summary>Это оригинальная парфюмерия?</summary><p>Да, работаем напрямую с&nbsp;парфюмерными домами и&nbsp;их&nbsp;официальными дистрибьюторами. На&nbsp;каждый флакон есть документы, пришлём по&nbsp;запросу.</p></details>
+      <details><summary>Как работает возврат 990&nbsp;₽ за&nbsp;пробники?</summary><p>Вместе с&nbsp;набором придёт промокод на&nbsp;990&nbsp;₽. Он&nbsp;действует 30 дней на&nbsp;любой флакон от&nbsp;30&nbsp;мл.</p></details>
+      <details><summary>Можно вернуть флакон?</summary><p>Парфюмерия по&nbsp;закону не&nbsp;возвращается, если вскрыта упаковка. Поэтому мы&nbsp;и&nbsp;советуем начинать с&nbsp;пробников.</p></details>
+      <details><summary>Есть подарочная упаковка?</summary><p>Да, за&nbsp;300&nbsp;₽: коробка, лента и&nbsp;открытка с&nbsp;вашим текстом. Отметьте её&nbsp;при оформлении.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row"><div><a class="logo" href="#" style="font-size:26px">Шлейф</a><p style="margin-top:10px">Парфюмерия с&nbsp;подбором по&nbsp;нотам</p></div><p><a href="tel:+78000000000">8 800 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p></div>
+    <div class="legal"><span>ИП Лаврова Е.А.</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<dialog id="pv" aria-labelledby="pvT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div id="pvIn"></div></dialog>
+<dialog id="policy" aria-labelledby="poT"><h3 id="poT" style="font-size:28px">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;адрес нужны, чтобы доставить заказ. Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам, кроме курьерской службы.</p><p>Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn sm">Понятно</button></form></dialog>
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Корзина</h2><button class="x" type="button" id="dX" aria-label="Закрыть корзину">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2400)}
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+document.querySelectorAll('dialog [data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
+$('pv').addEventListener('click',function(e){if(e.target===this)this.close()});
+
+var FAM={cit:['Цитрусовые','#E9B93A'],flo:['Цветочные','#E39AB0'],woo:['Древесные','#8C6A4F'],spi:['Пряные и восточные','#B5562F'],fre:['Свежие и морские','#6FAFC4'],gou:['Сладкие','#C79A6B'],gre:['Зелёные','#82AD70']};
+/* аромат: название, дом, семьи, случаи, сезон, сила 1–3, цена 50 мл, пирамида, описание, форма флакона */
+var P=[
+ {n:'Белый чай',h:'Атлас',f:['fre','gre'],o:['day','office'],s:'warm',p:1,c:6900,t:'бергамот, лимон',m:'белый чай, жасмин',b:'белый мускус',d:'Как чашка чая у открытого окна: чисто, спокойно, близко к коже.',sh:0},
+ {n:'Кедр и дым',h:'Ноктюрн',f:['woo','spi'],o:['eve'],s:'cold',p:3,c:11900,t:'чёрный перец, кардамон',m:'кедр, ветивер',b:'дым, кожа',d:'Камин в деревянном доме. Звучит громко и долго, хватает двух нажатий.',sh:1},
+ {n:'Инжирный сад',h:'Атлас',f:['gre','gou'],o:['day'],s:'warm',p:2,c:8900,t:'листья инжира',m:'инжир, кокосовое молоко',b:'кедр',d:'Зелёный, сливочный, солнечный. Летний аромат, который не надоедает.',sh:2},
+ {n:'Ночная роза',h:'Ноктюрн',f:['flo','spi'],o:['eve'],s:'cold',p:3,c:12900,t:'личи, розовый перец',m:'роза, пион',b:'уд, пачули',d:'Тёмная бархатная роза для вечера и холодной погоды.',sh:3},
+ {n:'Морская соль',h:'Бриз',f:['fre','cit'],o:['day'],s:'warm',p:1,c:7400,t:'морская соль, грейпфрут',m:'шалфей',b:'амбретта, плавник',d:'Ветер с моря и солёная кожа. Лёгкий и прозрачный.',sh:0},
+ {n:'Ваниль и табак',h:'Ноктюрн',f:['gou','spi'],o:['eve'],s:'cold',p:3,c:11400,t:'ром',m:'табачный лист, бобы тонка',b:'ваниль, ладан',d:'Тёплый, сладкий, с дымной горчинкой. Остаётся на шарфе до утра.',sh:1},
+ {n:'Нероли',h:'Бриз',f:['cit','flo'],o:['day','office'],s:'warm',p:1,c:7900,t:'нероли, мандарин',m:'флёрдоранж',b:'белый мускус',d:'Цветы апельсинового дерева: свежо, светло, уместно в офисе.',sh:2},
+ {n:'Сандал',h:'Атлас',f:['woo','gou'],o:['office','day'],s:'cold',p:2,c:9900,t:'кардамон',m:'сандал, ирис',b:'кашемировое дерево, мускус',d:'Мягкое сливочное дерево. Аромат, который хочется назвать уютным.',sh:3},
+ {n:'Пион и груша',h:'Бриз',f:['flo','cit'],o:['day'],s:'warm',p:1,c:7200,t:'груша, бергамот',m:'пион, фрезия',b:'мускус',d:'Сочный и цветочный, без приторности. Весна в чистом виде.',sh:0},
+ {n:'Кожа и ирис',h:'Ноктюрн',f:['woo','flo'],o:['eve','office'],s:'cold',p:2,c:12400,t:'шафран',m:'ирис, кожа',b:'замша, ветивер',d:'Пудровый ирис и мягкая перчаточная кожа. Строго и дорого.',sh:1},
+ {n:'Лайм и базилик',h:'Бриз',f:['cit','gre'],o:['day','office'],s:'warm',p:1,c:6900,t:'лайм, базилик',m:'мята',b:'ветивер',d:'Как лимонад со льдом: бодрит утром и в жару.',sh:2},
+ {n:'Амбра',h:'Атлас',f:['spi','gou'],o:['eve'],s:'cold',p:3,c:10900,t:'розовый перец',m:'лабданум, бензоин',b:'амбра, ваниль',d:'Тёплая смола и ваниль. Аромат-объятие для зимних вечеров.',sh:3}
+];
+var VOL=[[30,.68],[50,1],[100,1.6]];
+function vp(p,v){return Math.round(p.c*VOL[v][1]/100)*100-10}
+function bottle(p,id){var c=FAM[p.f[0]][1],c2=FAM[p.f[1]]?FAM[p.f[1]][1]:c,sh=p.sh,g='';
+  var body=[['M18 34h44v58a6 6 0 0 1-6 6H24a6 6 0 0 1-6-6z',26,58],['M14 40a26 26 0 0 1 52 0v44a14 14 0 0 1-14 14H28a14 14 0 0 1-14-14z',32,58],['M24 30h32v62a6 6 0 0 1-6 6H30a6 6 0 0 1-6-6z',26,56],['M12 38h56l-4 54a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z',30,60]][sh];
+  g+='<defs><linearGradient id="lq'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c+'" stop-opacity=".55"/><stop offset="1" stop-color="'+c2+'" stop-opacity=".85"/></linearGradient><clipPath id="cl'+id+'"><path d="'+body[0]+'"/></clipPath></defs>';
+  g+='<path d="'+body[0]+'" fill="#fff" stroke="#231A2A" stroke-width="1.6"/>';
+  g+='<rect x="0" y="'+(body[1]+8)+'" width="80" height="80" fill="url(#lq'+id+')" clip-path="url(#cl'+id+')"/>';
+  g+='<rect x="28" y="'+(body[2])+'" width="24" height="16" fill="#fff" opacity=".9"/><path d="M32 '+(body[2]+6)+'h16M34 '+(body[2]+11)+'h12" stroke="#231A2A" stroke-width="1"/>';
+  g+=sh===1?'<rect x="30" y="4" width="20" height="16" rx="3" fill="#231A2A"/><rect x="36" y="20" width="8" height="6" fill="#BFA36A"/>':sh===3?'<rect x="26" y="10" width="28" height="20" fill="#BFA36A" stroke="#231A2A" stroke-width="1.2"/><rect x="34" y="30" width="12" height="8" fill="#231A2A"/>':'<rect x="30" y="8" width="20" height="20" rx="'+(sh===2?10:2)+'" fill="#231A2A"/><rect x="36" y="28" width="8" height="'+(sh===2?2:6)+'" fill="#BFA36A"/>';
+  return '<svg viewBox="0 0 80 100" role="img" aria-label="Флакон аромата '+esc(p.n)+'">'+g+'</svg>'}
+function chips(p){return '<span class="chips">'+p.f.map(function(k){return '<span><i style="background:'+FAM[k][1]+'"></i>'+FAM[k][0]+'</span>'}).join('')+'</span>'}
+
+/* подбор */
+var sel={cit:1,woo:1},occ='day',sea='warm',pw=2,set=[];
+$('fam').innerHTML=Object.keys(FAM).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+!!sel[k]+'"><i style="background:'+FAM[k][1]+'"></i>'+FAM[k][0]+'</button>'}).join('');
+$('fam').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(sel[k])delete sel[k];else sel[k]=1;b.setAttribute('aria-pressed',!!sel[k]);find()})});
+function seg(id,opts,get,setv){$(id).innerHTML=opts.map(function(o){return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(o[0]==get())+'">'+o[1]+'</button>'}).join('');$(id).querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setv(b.dataset.v);$(id).querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});find()})})}
+seg('occ',[['day','Каждый день'],['office','Офис'],['eve','Вечер']],function(){return occ},function(v){occ=v});
+seg('sea',[['warm','Тепло'],['cold','Холодно']],function(){return sea},function(v){sea=v});
+seg('pow',[['1','Близко к коже'],['2','Заметный'],['3','Шлейфовый']],function(){return pw},function(v){pw=+v});
+function score(p){var ks=Object.keys(sel),fm=ks.length?ks.filter(function(k){return p.f.indexOf(k)>=0}).length/Math.min(ks.length,2):.5;fm=Math.min(1,fm);
+  return Math.round(60*fm+15*(p.o.indexOf(occ)>=0?1:0)+10*(p.s===sea?1:0)+15*(1-Math.abs(p.p-pw)/2))}
+function find(){
+  var r=P.map(function(p,i){return{i:i,s:score(p)}}).sort(function(a,b){return b.s-a.s}).slice(0,5);
+  if(!Object.keys(sel).length){$('res').innerHTML='<div class="empty">Выберите хотя бы одну семью нот слева. Не знаете, что нравится? Начните с «Цитрусовых» и «Древесных»: с ними сложно промахнуться.</div>';return}
+  $('res').innerHTML=r.map(function(x){var p=P[x.i],ins=set.indexOf(x.i)>=0;return '<div class="rc"><div class="bt">'+bottle(p,'r'+x.i)+'</div><div><h3>'+p.n+'</h3><span class="hs">'+p.h+'</span><p class="nt">'+esc(p.t)+', '+esc(p.m)+', '+esc(p.b)+'</p><div class="mt"><span class="b"><i style="width:'+x.s+'%"></i></span>совпадение '+x.s+'%</div></div><div class="ac"><button class="lnk'+(ins?' on':'')+'" type="button" data-smp="'+x.i+'">'+(ins?'В наборе':'В пробники')+'</button><button class="lnk" type="button" data-pv="'+x.i+'">Подробнее</button></div></div>'}).join('');
+  bind($('res'));
+}
+function bind(root){root.querySelectorAll('[data-smp]').forEach(function(b){b.addEventListener('click',function(){toggleS(+b.dataset.smp)})});root.querySelectorAll('[data-pv]').forEach(function(b){b.addEventListener('click',function(){pv(+b.dataset.pv)})})}
+
+/* каталог */
+var vol={};
+function draw(){
+  $('grid').innerHTML=P.map(function(p,i){var v=vol[i]===undefined?1:vol[i],ins=set.indexOf(i)>=0;return '<article class="card"><button class="vis" type="button" data-pv="'+i+'" aria-label="Пирамида нот: '+esc(p.n)+'">'+bottle(p,'c'+i)+'</button><div class="cb"><span class="hs">'+p.h+'</span><h3>'+p.n+'</h3>'+chips(p)+'<div class="row"><span class="pr num">'+rub(vp(p,v))+'</span><select data-v="'+i+'" aria-label="Объём">'+VOL.map(function(x,k){return '<option value="'+k+'"'+(k===v?' selected':'')+'>'+x[0]+' мл</option>'}).join('')+'</select></div><div class="acts"><button class="btn sm ln" type="button" data-smp="'+i+'">'+(ins?'В наборе':'Пробник')+'</button><button class="btn sm" type="button" data-add="'+i+'">В корзину</button></div></div></article>'}).join('');
+  bind($('grid'));
+  $('grid').querySelectorAll('select').forEach(function(s){s.addEventListener('change',function(){vol[s.dataset.v]=+s.value;draw()})});
+  $('grid').querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.add;addB(i,vol[i]===undefined?1:vol[i])})});
+}
+function pv(i){var p=P[i],v=vol[i]===undefined?1:vol[i];
+  $('pvIn').innerHTML='<div class="pv"><div class="vis">'+bottle(p,'p'+i)+'</div><div class="pvb"><span class="hs" style="color:var(--mute)">'+p.h+'</span><h2 id="pvT">'+p.n+'</h2>'+chips(p)+'<p>'+esc(p.d)+'</p><div class="pm"><div><b>Верх</b><span>'+esc(p.t)+'</span></div><div><b>Сердце</b><span>'+esc(p.m)+'</span></div><div><b>База</b><span>'+esc(p.b)+'</span></div></div><div class="vols" id="pvV" role="group" aria-label="Объём">'+VOL.map(function(x,k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===v)+'">'+x[0]+' мл<small class="num">'+rub(vp(p,k))+'</small></button>'}).join('')+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn ln" type="button" id="pvS">'+(set.indexOf(i)>=0?'В наборе пробников':'Добавить в пробники')+'</button><button class="btn" type="button" id="pvB">В корзину</button></div></div></div>';
+  $('pvV').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){vol[i]=+b.dataset.k;$('pvV').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+  $('pvS').addEventListener('click',function(){toggleS(i);$('pvS').textContent=set.indexOf(i)>=0?'В наборе пробников':'Добавить в пробники'});
+  $('pvB').addEventListener('click',function(){addB(i,vol[i]===undefined?1:vol[i]);$('pv').close()});
+  $('pv').showModal();$('pv').scrollTop=0;
+}
+
+/* пробники */
+function toggleS(i){var k=set.indexOf(i);if(k>=0)set.splice(k,1);else{if(set.length>=5){toast('В наборе уже 5 пробников. Уберите один, чтобы добавить другой');return}set.push(i);toast('«'+P[i].n+'» в наборе пробников: '+set.length+' из 5')}slots();find();draw()}
+function slots(){var h='';for(var k=0;k<5;k++){var i=set[k];h+=i===undefined?'<div class="slot">пусто</div>':'<div class="slot f">'+bottle(P[i],'s'+k)+P[i].n+'<button type="button" data-rm="'+k+'" aria-label="Убрать '+esc(P[i].n)+'">×</button></div>'}
+  $('slots').innerHTML=h;$('slots').querySelectorAll('[data-rm]').forEach(function(b){b.addEventListener('click',function(){set.splice(+b.dataset.rm,1);slots();find();draw()})});
+  $('sGo').disabled=set.length<3;$('sGo').textContent=set.length<3?'Добавьте ещё '+(3-set.length)+' '+(3-set.length===1?'аромат':'аромата'):'Набор в корзину, 990 ₽'}
+$('sGo').addEventListener('click',function(){cart.push({t:'s',ids:set.slice()});set=[];slots();find();draw();cnt();toast('Набор пробников в корзине')});
+
+/* корзина */
+var cart=[],gift=false;
+function addB(i,v){cart.push({t:'b',i:i,v:v});cnt();toast('«'+P[i].n+'», '+VOL[v][0]+' мл, в корзине')}
+function price(x){return x.t==='s'?990:vp(P[x.i],x.v)}
+function cnt(){$('cc').textContent=cart.length}
+function openD(){$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;$('cartBtn').focus()}
+$('cartBtn').addEventListener('click',openD);$('dX').addEventListener('click',closeD);
+$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('drawer').hidden)closeD()});
+function render(){
+  if(!cart.length){$('dB').innerHTML='<p>Корзина пуста. Если не знаете, с чего начать, соберите набор пробников: пять ароматов за 990 ₽.</p>';$('dF').innerHTML='';return}
+  var s=0;$('dB').innerHTML=cart.map(function(x,k){var pr=price(x);s+=pr;return '<div class="li"><b>'+(x.t==='s'?'Набор пробников, '+x.ids.length+' × 2 мл':esc(P[x.i].n)+', '+VOL[x.v][0]+' мл')+'</b><span class="num">'+rub(pr)+'</span><span class="m">'+(x.t==='s'?x.ids.map(function(i){return P[i].n}).join(', '):P[x.i].h)+'</span><button class="lnk" type="button" data-rm="'+k+'" style="justify-self:end">Убрать</button></div>'}).join('');
+  var g=gift?300:0,dl=s>=5000?0:350;
+  $('dF').innerHTML='<label class="gift"><input type="checkbox" id="oG"'+(gift?' checked':'')+'>Подарочная упаковка и открытка, 300 ₽</label><div class="tot num"><span>Итого</span><span>'+rub(s+g+dl)+'</span></div><p style="font-size:14px;color:var(--mute);margin-top:-6px">Доставка '+(dl?rub(dl)+', бесплатно от 5 000 ₽':'бесплатно')+'</p>'+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oP">Телефон</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div><div class="f"><label for="oA">Адрес или пункт выдачи</label><input id="oA" autocomplete="street-address"></div>'+
+   '<label class="agree"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Оформить заказ</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-rm]').forEach(function(b){b.addEventListener('click',function(){cart.splice(+b.dataset.rm,1);cnt();render()})});
+  $('oG').addEventListener('change',function(){gift=this.checked;render()});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя.';$('oN').focus();return}
+    if($('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон: курьер позвонит перед доставкой.';$('oP').focus();return}
+    if(!$('oA').value.trim()){e.textContent='Укажите адрес или пункт выдачи.';$('oA').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var hasS=cart.some(function(x){return x.t==='s'});cart=[];gift=false;cnt();
+    $('dB').innerHTML='<div class="ok"><b>Заказ оформлен</b>Отправим завтра, трек пришлём в СМС.'+(hasS?' Промокод на 990 ₽ лежит в коробке с пробниками.':'')+'</div>';$('dF').innerHTML='';
+  });
+}
+
+find();draw();slots();
+})();
+</script>
+</body>
+</html>
