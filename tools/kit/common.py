@@ -49,6 +49,18 @@ def fonts(out_dir: str, specs: list[tuple[str, str, list[int], str]]) -> str:
                     shutil.copyfile(src, dst)
                 css.append(f'@font-face{{font-family:"{fam}";font-style:{style};font-weight:{w};font-display:swap;'
                            f'src:url(fonts/{name}) format("woff2");unicode-range:{rng}}}')
+            # ₽ (U+20BD) у fontsource лежит в latin-ext: берём только его, иначе знак рубля рисуется системным шрифтом
+            name = f"{pref}-latin-ext-{w}-{style}.woff2"
+            src = _FONT_INDEX.get(name)
+            if not src:
+                cand = os.path.join(os.environ.get("KIT_FONTS", ""), pref, "files", name)
+                src = cand if os.path.isfile(cand) else None
+            if src:
+                dst = os.path.join(out_dir, "fonts", name)
+                if os.path.abspath(src) != os.path.abspath(dst):
+                    shutil.copyfile(src, dst)
+                css.append(f'@font-face{{font-family:"{fam}";font-style:{style};font-weight:{w};font-display:swap;'
+                           f'src:url(fonts/{name}) format("woff2");unicode-range:U+20BD}}')
     return "\n".join(css)
 
 

@@ -1,6 +1,6 @@
 """Презентация по конфигу: слайды 16:9 на весь экран (стрелки, клик, свайп, полный экран, оглавление), на телефоне —
 лента слайдов. Цифры считаются при показе, графики дорисовываются, слайд-калькулятор считает по формулам из конфига.
-Типы слайдов: cover, text, cards, stats, bars, line, donut, table, steps, split, quote, price, calc, end."""
+Типы слайдов: cover, text, cards, stats, bars, line, donut, table, steps, split, quote, price, calc, quiz, end."""
 from __future__ import annotations
 
 import math
@@ -47,6 +47,7 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .bgimg{position:absolute;inset:0}.bgimg img{width:100%;height:100%;object-fit:cover}
 .bgimg::after{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,rgba(0,0,0,.2)))}
 .t-cover.pic{--sink:#fff;--smut:rgba(255,255,255,.78);--sline:rgba(255,255,255,.4);color:#fff}
+.t-cover.pic .kick{color:#fff;opacity:.86}
 /* текст + тезисы */
 .two{display:grid;grid-template-columns:1.05fr .95fr;gap:calc(var(--u)*5);align-items:center}
 .pts{display:grid;gap:calc(var(--u)*1.2)}
@@ -160,6 +161,18 @@ h2 em,h1 em{font-style:var(--emst,normal);color:var(--sac,var(--ac))}
 .cout span{color:var(--smut)}.cout b{font:var(--hw) calc(var(--u)*2.6)/1 var(--fh);white-space:nowrap}
 .cout .big b{font-size:calc(var(--u)*4.6);color:var(--sac,var(--ac))}
 .cout p{font-size:calc(var(--u)*1.15);color:var(--smut)}
+/* вопросы: клик по ответу — верный подсвечивается, под вопросом пояснение */
+.quiz{display:grid;grid-template-columns:repeat(var(--c,3),1fr);gap:calc(var(--u)*1.4);align-items:start}
+.qz{background:var(--scard);border-radius:var(--r);padding:calc(var(--u)*2)}
+.qz>b{display:block;font-size:calc(var(--u)*1.6);font-weight:600;line-height:1.25;margin-bottom:calc(var(--u)*1.2)}
+.qz button{display:block;width:100%;text-align:left;padding:.62em .9em;margin-top:.45em;border-radius:calc(var(--r)*.6);border:1px solid var(--sline);font-size:calc(var(--u)*1.35);transition:background .2s,border-color .2s}
+.qz button:not(:disabled):hover{border-color:var(--sink)}
+.qz button.ok{background:var(--sac,var(--ac));border-color:var(--sac,var(--ac));color:var(--sbg)}
+.qz button.no{text-decoration:line-through;opacity:.55}
+.qz button:disabled{cursor:default}
+.qz .why{margin-top:calc(var(--u)*1.1);font-size:calc(var(--u)*1.25);color:var(--smut)}
+.credit{margin-top:calc(var(--u)*4);font-size:calc(var(--u)*1.15);color:var(--smut)}
+.credit a{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 /* финал */
 .t-end .in{justify-content:center}
 .t-end h2{font-size:calc(var(--u)*6);max-width:14em}
@@ -200,13 +213,17 @@ h2{font-size:calc(var(--u)*3.3)}.t-cover h1{font-size:calc(var(--u)*4.6)}.t-end 
 .lead,.t-cover .lead{font-size:17px}
 .two,.chart,.donut,.calc,.split{grid-template-columns:1fr;gap:28px}
 .cards,.stats,.plans,.steps{grid-template-columns:1fr 1fr}
+.quiz{grid-template-columns:1fr}.qz>b{font-size:18px}.qz button{font-size:16px}.qz .why{font-size:15px}.credit{font-size:14px}
 .cards[style*="--c:3"],.plans,.steps{grid-template-columns:1fr}
 .card{min-height:0;padding:18px}.card b{font-size:18px;margin-top:10px}.card span{font-size:15px}.card i{font-size:22px}
 .stat b{font-size:calc(var(--u)*3.6)!important}.stat strong{font-size:16px}.stat>span{font-size:14px}
 .pts b{font-size:18px}.pts i{font-size:18px}
 .bars{height:220px;gap:6px}.bar b{font-size:12px}.bar em{font-size:11px}
 .hbar{grid-template-columns:1fr auto;gap:6px 12px}.hbar span{grid-column:1/-1;font-size:15px}.hbar s{height:18px}.hbar b{font-size:15px}
-.tbl{font-size:14px}.tbl th{font-size:10.5px;padding:0 8px 10px}.tbl td{padding:10px 8px}
+.tbl,.tbl tbody,.tbl tr{display:block;width:100%}.tbl{font-size:15px}.tbl thead{display:none}
+.tbl tr{padding:12px 0;border-top:1px solid var(--sline)}.tbl td{display:grid;grid-template-columns:44% 1fr;gap:10px;border:0;padding:4px 0}
+.tbl td::before{content:attr(data-l);color:var(--smut)}.tbl td:first-child{display:block;padding:0 0 6px;font-size:16px}.tbl td:first-child::before{content:none}
+.tbl td.hl{background:none;color:var(--sac,var(--ac));font-weight:600}
 .step{padding-top:26px}.step::before{right:0;top:6px}.step::after{width:13px;height:13px}.step b{font-size:18px}.step span{font-size:15px}.step small{font-size:11px}
 .steps{gap:22px}
 .split .tx{padding:calc(var(--u)*5) 20px}.split .ph{aspect-ratio:4/3}.split.r .ph{order:0}.split.r .tx{padding:calc(var(--u)*5) 20px}
@@ -248,7 +265,7 @@ D.addEventListener('keydown',function(e){if(e.target.matches&&e.target.matches('
  else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();show(cur-1)}
  else if(k==='Home')show(0);else if(k==='End')show(n-1);else if(k==='f'||k==='F'||k==='а'||k==='А'){if(fs)fs.click()}
  else if(k==='g'||k==='G'||k==='п'||k==='П')tocOpen(!toc.classList.contains('open'))});
-D.getElementById('deck').addEventListener('click',function(e){if(feed.matches||e.target.closest('input,button,a,label,.cin,.cout'))return;var r=this.getBoundingClientRect();show(cur+((e.clientX-r.left)/r.width<.25?-1:1))});
+D.getElementById('deck').addEventListener('click',function(e){if(feed.matches||e.target.closest('input,button,a,label,.cin,.cout,.qz'))return;var r=this.getBoundingClientRect();show(cur+((e.clientX-r.left)/r.width<.25?-1:1))});
 var tx=null;D.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 D.addEventListener('touchend',function(e){if(feed.matches||tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1))},{passive:true});
 /* лента на телефоне: показ при появлении, счётчик по прокрутке */
@@ -261,6 +278,9 @@ S.forEach(function(s){if(io)io.observe(s);else s.classList.add('seen')});
  function run(){var v={};cfg.inputs.forEach(function(i){var el=c.querySelector('[data-in="'+i.id+'"]');v[i.id]=+el.value;c.querySelector('[data-iv="'+i.id+'"]').textContent=F[i.fmt||'num'](v[i.id])+(i.unit?NB+i.unit:'')});
   cfg.outputs.forEach(function(o,k){var r;try{r=(new Function('v','return '+o.expr))(v)}catch(err){r=0}c.querySelector('[data-out="'+k+'"]').textContent=isFinite(r)?F[o.fmt||'num'](r)+(o.unit?NB+o.unit:''):'—'})}
  c.addEventListener('input',run);run()});
+D.addEventListener('click',function(e){var b=e.target.closest('.qz button');if(!b)return;var q=b.closest('.qz');if(q.classList.contains('done'))return;
+ q.classList.add('done');var ok=+q.dataset.ok;[].forEach.call(q.querySelectorAll('button'),function(x,k){x.disabled=true;if(k===ok)x.classList.add('ok')});
+ if(+b.dataset.k!==ok)b.classList.add('no');var w=q.querySelector('.why');if(w)w.hidden=false});
 var h=parseInt(location.hash.slice(1),10);show(h>=1&&h<=n?h-1:0,true);
 var hint=D.getElementById('hint');if(hint)setTimeout(function(){hint.classList.add('off')},4200);
 window.__deck={show:show,n:n};
@@ -371,7 +391,8 @@ def _slide(s: dict, i: int, n: int, c: dict) -> str:
     elif t == "table":
         hl = s.get("hl", -1)
         th = "".join(f'<th class="{"hl" if k == hl else ""}">{e(x)}</th>' for k, x in enumerate(s["cols"]))
-        trs = "".join("<tr>" + "".join(f'<td class="{"hl" if k == hl else ""}">{e(x)}</td>' for k, x in enumerate(r)) + "</tr>" for r in s["rows"])
+        trs = "".join("<tr>" + "".join(f'<td class="{"hl" if k == hl else ""}" data-l="{e(s["cols"][k]) if k < len(s["cols"]) else ""}">{e(x)}</td>'
+                                       for k, x in enumerate(r)) + "</tr>" for r in s["rows"])
         body = f'<div class="in">{_head(s)}<div class="grow"><table class="tbl" data-a style="--i:3"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div></div>'
     elif t == "steps":
         items = "".join(f'<div class="step" data-a style="--i:{k + 2}"><small>{e(a)}</small><b>{e(b)}</b><span>{e(x)}</span></div>' for k, (a, b, x) in enumerate(s["items"]))
@@ -397,9 +418,17 @@ def _slide(s: dict, i: int, n: int, c: dict) -> str:
         note = f'<p>{e(s["note"])}</p>' if s.get("note") else ""
         body = (f"<div class=\"in\">{_head(s)}<div class=\"grow\"><div class=\"calc\" data-cfg='{jdump(cfg)}'><div class=\"cin\" data-a style=\"--i:2\">{ins}</div>"
                 f'<div class="cout" data-a style="--i:3">{outs}{note}</div></div></div></div>')
+    elif t == "quiz":
+        qs = "".join(f'<div class="qz" data-ok="{ok}" data-a style="--i:{k + 2}"><b>{e(q)}</b>'
+                     + "".join(f'<button type="button" data-k="{j}">{e(o)}</button>' for j, o in enumerate(opts))
+                     + (f'<p class="why" hidden>{e(why)}</p>' if why else "") + "</div>"
+                     for k, (q, opts, ok, why) in enumerate(s["items"]))
+        body = f'<div class="in">{_head(s)}<div class="grow"><div class="quiz" style="--c:{s.get("cols", len(s["items"]))}">{qs}</div></div></div>'
     elif t == "end":
         cts = "".join(f"<div><small>{e(a)}</small><b>{e(b)}</b></div>" for a, b in s.get("contacts", []))
-        body = f'<div class="in">{_head(s)}<div class="cts" data-a style="--i:3">{cts}</div></div>'
+        credit = ('<p class="credit" data-a style="--i:4"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">'
+                  'Разработан с душой студией YSD DEV</a></p>')
+        body = f'<div class="in">{_head(s)}<div class="cts" data-a style="--i:3">{cts}</div>{credit}</div>'
     foot = "" if t in ("cover", "split") else f'<div class="brandm">{e(c["brand"])}</div>'
     num = "" if t == "cover" else f'<div class="num">{i + 1:02d} / {n:02d}</div>'
     return (f'<section class="sl t-{t} v-{s.get("v", "light")}{cls}" data-t="{e(s["title"])}" aria-roledescription="слайд" '
