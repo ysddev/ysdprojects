@@ -968,6 +968,7 @@ $$('[data-r]').forEach(function(el){
 
   function tapeFrac(){var v=getComputedStyle(hero).getPropertyValue('--tape-x');return (parseFloat(v)||50)/100}
   function buildTape(){
+    if(tapeCv){tapeCv.width=tapeCv.height=0}  /* iOS не сразу отдаёт память старого холста — освобождаем сами */
     tapeCv=document.createElement('canvas');tapeCv.width=Math.ceil((tw+6)*dpr);tapeCv.height=Math.ceil(H*dpr);
     var c=tapeCv.getContext('2d');c.scale(dpr,dpr);
     var s2=7;var r2=function(){s2=(s2*16807)%2147483647;return s2/2147483647};
@@ -979,17 +980,30 @@ $$('[data-r]').forEach(function(el){
       if(r2()<.5){c.fillStyle='rgba(40,60,30,'+(.05+r2()*.08)+')';c.fillRect(l,y,rw-(l-3),1)}
     }
   }
+  /* 25.11 владелец (видео с iPhone): лампа и лента пропали посреди жеста, вернулись только после «Обновить».
+     Панель браузера прячется/появляется → resize → холст пересоздавался и очищался, а перерисовка ждала кадр, который
+     iOS во время жеста может не прислать: флаг raf оставался занят, и холст так и оставался пустым. Теперь холст меняем
+     только при реальной смене размера, сразу же перерисовываем, а потерянный кадр перезапускаем. */
+  var lastSize='';
   function size(){
-    var r=hero.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(window.devicePixelRatio||1,2);
-    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+    var r=hero.getBoundingClientRect();if(r.width<2||r.height<2)return;
+    var nW=r.width,nH=r.height,nd=Math.min(window.devicePixelRatio||1,2),key=Math.round(nW)+'x'+Math.round(nH)+'@'+nd;
+    W=nW;H=nH;dpr=nd;
+    if(key!==lastSize){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
     tapeX=Math.round(W*tapeFrac());tw=W<600?12:16;R0=Math.max(220,Math.min(W,H)*.46);
     tapeTop=72;tapeBot=H;
     if(W<=900){var copy=$('.hero-copy'),met=$('.meter');tapeTop=copy?copy.getBoundingClientRect().bottom-r.top+12:0;tapeBot=met?met.getBoundingClientRect().top-r.top-14:H}
     var hv=$('.halves'),hud=$('.hud');if(hv){hv.style.setProperty('--halves-top',(W<=900?tapeTop+6:(hud?hud.getBoundingClientRect().top-r.top-40:H*.7))+'px')}
     nSW=Math.max(2500,Math.min(SW.length,Math.round(tapeX*H/52)));
-    buildTape();
+    if(key!==lastSize||!tapeCv)buildTape();
+    lastSize=key;
     if(!lastMove||lastMove<0){L.x=L.tx=W*.32;L.y=L.ty=H*.55}
+    paint();
     kick();
+  }
+  function paint(){  /* кадр сразу, без ожидания: холст не остаётся пустым ни на миг */
+    if(!isFinite(L.x)||!isFinite(L.y)){L.x=L.tx=W*.32;L.y=L.ty=H*.55}
+    try{draw()}catch(e){}
   }
   function idle(time){
     var s=time/1000;
@@ -1075,16 +1089,20 @@ $$('[data-r]').forEach(function(el){
     cx.globalCompositeOperation='source-over';
   }
   function frame(time){
-    raf=0;t=time;
+    raf=0;rafAt=0;t=time;
     var auto=!RM&&(time-lastMove>2600);
     if(auto)idle(time);
     var k=RM?1:auto?.06:.22;
     L.x+=(L.tx-L.x)*k;L.y+=(L.ty-L.y)*k;
     setSide(L.x);
-    draw();
-    if(running&&visible&&(auto||Math.abs(L.tx-L.x)+Math.abs(L.ty-L.y)>.3))raf=requestAnimationFrame(frame);
+    paint();
+    if(running&&visible&&(auto||Math.abs(L.tx-L.x)+Math.abs(L.ty-L.y)>.3)){raf=requestAnimationFrame(frame);rafAt=performance.now()}
   }
-  function kick(){if(!raf&&visible)raf=requestAnimationFrame(frame)}
+  var rafAt=0;
+  function kick(){
+    if(raf&&performance.now()-rafAt>400){cancelAnimationFrame(raf);raf=0}  /* кадр потерялся (iOS во время жеста) — просим новый */
+    if(!raf&&visible){raf=requestAnimationFrame(frame);rafAt=performance.now()}
+  }
   function point(e){
     var r=hero.getBoundingClientRect();L.tx=e.clientX-r.left;L.ty=e.clientY-r.top;lastMove=performance.now();kick();
   }
@@ -1101,7 +1119,10 @@ $$('[data-r]').forEach(function(el){
     else if(e.key==='ArrowRight'){L.tx=Math.min(W,L.x+st);lastMove=performance.now();kick()}
   });
   new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)kick()}).observe(hero);
-  document.addEventListener('visibilitychange',function(){visible=!document.hidden;if(visible)kick()});
+  document.addEventListener('visibilitychange',function(){visible=!document.hidden;if(visible){paint();kick()}});
+  window.addEventListener('pageshow',function(){lastSize='';size()});  /* вернулись на страницу (кнопка «назад», вкладка) */
+  hero.addEventListener('pointerup',function(){paint();kick()});
+  hero.addEventListener('pointercancel',function(){lastMove=performance.now()-2000;paint();kick()});
   var rz=0;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(size,120)});
   if(window.ResizeObserver)new ResizeObserver(function(){clearTimeout(rz);rz=setTimeout(size,120)}).observe(hero);
   running=true;size();
