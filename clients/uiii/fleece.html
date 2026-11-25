@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Двусторонняя флисовая куртка — UIII</title>
+<meta name="description" content="Двусторонняя флисовая кофта-куртка UIII для команд и экспедиций: тиражи от 30 изделий, нанесение логотипа, флага и имени.">
+<meta property="og:title" content="Двусторонняя флисовая куртка — UIII">
+<meta property="og:image" content="https://ysdprojects.space/clients/uiii/img/fleece/01-front.webp">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="logo/UIII-logo-blue-on-espresso.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/commissioner-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="base.css?v=2">
+<style>
+:focus-visible{outline-color:var(--espresso)}
+.top{display:flex;align-items:center;gap:24px;padding:22px var(--pad);max-width:var(--wrap);margin:0 auto}
+.top .mark{height:44px;color:var(--espresso)}
+.crumbs{margin-left:auto;font-size:15px;color:var(--ink-soft)}
+.crumbs a{text-decoration:none;color:var(--espresso);font-weight:500}
+.wrap2{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+h1.name{font-size:clamp(40px,6vw,88px);line-height:.95;letter-spacing:-.035em;margin:clamp(8px,2vw,24px) 0 clamp(24px,3vw,40px)}
+h1.name span{display:block}
+
+/* карусель */
+.gal{position:relative}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--pad);scroll-padding:0 var(--pad);max-width:calc(var(--wrap));margin:0 auto}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 clamp(280px,34vw,460px);scroll-snap-align:start}
+.slide.wide{flex-basis:clamp(320px,50vw,680px)}
+.nav{display:flex;align-items:center;gap:12px;margin-top:16px}
+.nav button.arr{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--espresso);background:transparent;display:grid;place-items:center;transition:background .2s,color .2s}
+.nav button.arr:hover{background:var(--espresso);color:var(--blue)}
+.count{margin-left:auto;font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+/* фото с подписями */
+.spec{position:relative;overflow:hidden;background:#d9d9d9;border-radius:6px;container-type:inline-size}
+.spec>img{display:block;width:100%;height:auto}
+.spec>svg.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.spec .ln{fill:none;stroke:currentColor;stroke-width:1.2;transition:stroke-dashoffset .9s cubic-bezier(.5,0,.2,1)}
+.spec .zone{fill:none;stroke:currentColor;stroke-width:1.2;stroke-dasharray:5 5;opacity:0;transition:opacity .6s}
+.spec .pt{position:absolute;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 28%,transparent);transform:scale(0);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.spec .lb{position:absolute;display:grid;gap:5px;justify-items:start;font-size:clamp(8.5px,2.5cqi,12px);font-weight:600;letter-spacing:.14em;line-height:1.35;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.1,1)}
+.spec .lb.r{text-align:right;justify-items:end}
+.spec .lb small{display:block;font-size:.92em;font-weight:400;letter-spacing:.02em;text-transform:none;opacity:.85}
+.spec .lb .ico{width:clamp(13px,3.6cqi,19px);height:clamp(13px,3.6cqi,19px);stroke-width:1.5}
+/* текстовый блок на фото */
+.spec .tx{position:absolute;display:grid;gap:8px;opacity:0;transform:translateY(10px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.1,1)}
+.spec .tx:before{content:"";display:block;height:1.2px;width:0;background:currentColor;transition:width .9s cubic-bezier(.5,0,.2,1) .15s}
+.spec .tx b{font-size:clamp(12px,3.6cqi,17px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.25}
+.spec .tx span{font-size:clamp(11px,3.1cqi,15px);line-height:1.45;font-weight:400}
+.spec .tx.title b{font-size:clamp(18px,7.4cqi,34px);font-weight:200;letter-spacing:-.02em;text-transform:none;line-height:1}
+.spec .tx.title b i{font-style:normal;font-weight:900;display:block}
+.spec .tx.panel{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);padding:14px 16px;border-radius:6px}
+.light .tx.panel{background:rgba(30,20,15,.42);text-shadow:none}
+.spec.on .ln{stroke-dashoffset:0!important}
+.spec.on .pt{transform:scale(1)}
+.spec.on .lb,.spec.on .tx{opacity:1;transform:none}
+.spec.on .tx:before{width:42px}
+.spec.on .zone{opacity:.95}
+.light{color:#fff}.light .lb,.light .tx{text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.dark{color:var(--espresso)}
+@media (prefers-reduced-motion:reduce){.spec *{transition:none!important}}
+
+/* стоимость — мелко, как просила клиентка */
+.price{display:grid;grid-template-columns:auto 1fr auto;gap:12px 32px;align-items:center;margin-top:28px;padding:18px 0;border-top:1px solid rgba(66,44,33,.18);border-bottom:1px solid rgba(66,44,33,.18)}
+.price h2{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.tiers{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 28px;font-size:13px;color:var(--ink-soft)}
+.tiers b{color:var(--espresso);font-weight:700}
+.price p{grid-column:1/-1;font-size:12px;color:var(--ink-soft);margin-top:-4px}
+.price .btn{min-height:44px;padding:0 22px;font-size:14px}
+
+/* вкладки */
+.tabs{display:flex;gap:6px;margin-top:40px;overflow-x:auto;scrollbar-width:none;border-bottom:1.5px solid var(--espresso)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:0;background:transparent;padding:14px 18px;font-size:15px;font-weight:600;color:var(--ink-soft);border-radius:6px 6px 0 0;transition:background .2s,color .2s}
+.tabs button[aria-selected=true]{background:var(--espresso);color:var(--blue)}
+.tabs button:hover:not([aria-selected=true]){color:var(--espresso);background:rgba(66,44,33,.06)}
+.panel-box{padding:36px 0 80px}
+.panel-box[hidden]{display:none}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 64px}
+.panel-box h3{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+.panel-box p{color:var(--ink-soft);margin:0 0 14px;max-width:62ch}
+.panel-box ul,.panel-box ol{margin:0 0 14px;padding-left:20px;color:var(--ink-soft)}
+.panel-box li{margin:0 0 6px}
+.temps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 14px}
+.temps div{border:1px solid rgba(66,44,33,.18);border-radius:6px;padding:14px 16px}
+.temps small{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:6px}
+.temps b{display:block;font-size:15px;font-weight:600}
+.note{font-size:13px;color:var(--ink-soft)}
+.steps{list-style:none;padding:0!important;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:16px 0;border-top:1px solid rgba(66,44,33,.15);margin:0}
+.steps li:before{content:counter(s);grid-row:span 2;font-size:28px;font-weight:200;line-height:1;color:var(--espresso)}
+.steps b{color:var(--espresso)}
+.sample{margin-top:8px;font-size:16px;color:var(--espresso)}
+.sample b{font-weight:800}
+/* размерная сетка */
+.size{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px 48px;align-items:center}
+.size-head{grid-column:1/-1;border-bottom:1.5px solid var(--espresso);padding-bottom:14px}
+.size-head b{display:block;font-size:clamp(24px,3vw,36px);font-weight:300;letter-spacing:-.02em}
+.size-head span{color:var(--ink-soft)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:12px 8px;color:var(--ink-soft);border-bottom:1px solid rgba(66,44,33,.25);vertical-align:bottom}
+td{text-align:center;padding:14px 8px;border-bottom:1px solid rgba(66,44,33,.12)}
+td:first-child{font-weight:700}
+tbody tr:hover{background:rgba(182,221,246,.35)}
+.jacket{position:relative;max-width:360px;justify-self:center;width:100%}
+.jacket img{display:block;width:100%;height:auto}
+.jacket span{position:absolute;left:-4%;transform:translate(-100%,-50%);font-size:13px;color:var(--ink-soft);white-space:nowrap}
+@media (max-width:860px){
+  .cols,.size{grid-template-columns:1fr}
+  .price{grid-template-columns:1fr}
+  .jacket{max-width:280px;margin-left:96px}
+}
+@media (max-width:560px){
+  .slide,.slide.wide{flex-basis:86vw}
+  .tabs button{padding:12px 14px;font-size:14px}
+  .temps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="on-light">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="uiii" viewBox="296 439 407 781.5"><path fill="currentColor" d="M703 439H440C356.48 439 296 507.46 296 602C296 696.54 356.48 765 440 765H703V676H446C405.98 676 377 644.71 377 601.5C377 558.29 405.98 527 446 527H703Z"/><rect fill="currentColor" x="315" y="821" width="388" height="90.5"/><rect fill="currentColor" x="315" y="975.5" width="388" height="90.5"/><rect fill="currentColor" x="315" y="1130" width="388" height="90.5"/></symbol></svg>
+<header class="top">
+  <a class="mark" href="intro.html" aria-label="UIII — на главную"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></a>
+  <nav class="crumbs" aria-label="Навигация"><a href="v2.html#catalog">Каталог</a> / Одежда</nav>
+</header>
+
+<main>
+  <div class="wrap2"><h1 class="name"><span class="lt">Двусторонняя</span><span class="bk">флисовая куртка</span></h1></div>
+
+  <section class="gal" aria-label="Фото изделия">
+    <div class="track" id="track">
+      <div class="slide"><div class="spec light" data-spots='[{"type":"title","x":5,"y":85,"w":80,"t":"Двусторонняя","t2":"флисовая куртка"}]'><img src="img/fleece/01-front.webp" alt="Двусторонняя флисовая куртка UIII, вид спереди" width="1100" height="1648"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[{"type":"text","panel":1,"x":4,"y":68,"w":46,"t":"Две стороны. Две функции.","d":"Адаптация к погоде и интенсивности нагрузки."}]'><img src="img/fleece/02-two.webp" alt="Двое в куртках UIII, ворс внутри и снаружи" width="1100" height="1648" loading="lazy"></div></div>
+      <div class="slide wide"><div class="spec dark" data-spots='[{"type":"text","panel":1,"x":4,"y":70,"w":56,"t":"Адаптируем под вашу задачу","d":"Изменим цвет, конструкцию, детали и фурнитуру изделия под ваш бренд и требования."}]'><img src="img/fleece/03-colors.webp" alt="Цветовые решения куртки" width="1100" height="1203" loading="lazy"></div></div>
+      <div class="slide"><div class="spec dark" data-spots='[
+        {"zone":[32,22,10,9],"zc":"#fff","x":37,"y":26,"lx":3,"ly":10,"w":30,"side":"l","icon":"logo","t":"Место для вашего логотипа"},
+        {"zone":[60,22,8,7],"zc":"#fff","x":64,"y":25.5,"lx":68,"ly":15,"w":28,"side":"r","icon":"flag","t":"Место для флага"},
+        {"zone":[27,28,7,7],"zc":"#fff","x":30.5,"y":31.5,"lx":2,"ly":46,"w":16,"side":"l","icon":"logos","t":"Место для лого спонсоров"}]'><img src="img/fleece/04-brand.webp" alt="Куртка на модели: места для логотипа, флага и логотипов спонсоров" width="1024" height="1536" loading="lazy"></div></div>
+      <div class="slide"><div class="spec dark" data-spots='[{"zone":[34,34,28,11],"zc":"#fff","x":48,"y":39.5,"lx":66,"ly":14,"w":30,"side":"r","icon":"text","t":"Место для названия команды, экспедиции, слогана или имени"}]'><img src="img/fleece/05-back.webp" alt="Куртка сзади: место для названия команды" width="1024" height="1536" loading="lazy"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[{"type":"text","x":7,"y":62,"w":38,"t":"Аккумуляция тепла","d":"Длинноворсовый материал надолго сохраняет тепло тела."}]'><img src="img/fleece/06-black.webp" alt="Чёрная куртка ворсом наружу" width="1029" height="1528" loading="lazy"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[
+        {"x":20,"y":40,"lx":5,"ly":64,"w":42,"below":1,"side":"l","icon":"hood","t":"Регулируемый капюшон","d":"Совместим со шлемом и каской."},
+        {"x":76,"y":53,"lx":58,"ly":77,"w":38,"below":1,"side":"r","icon":"zip","t":"Реверсивная фурнитура","d":"Функциональность с обеих сторон изделия."}]'><img src="img/fleece/07-hood.webp" alt="Капюшон и фурнитура крупным планом" width="1100" height="1394" loading="lazy"></div></div>
+      <div class="slide"><div class="spec dark" data-spots='[{"zone":[38,26,24,9],"zc":"#fff","x":50,"y":30.5,"lx":66,"ly":14,"w":30,"side":"r","icon":"needle","t":"Место для именной вышивки"}]'><img src="img/fleece/08-black-back.webp" alt="Чёрная куртка сзади: место для именной вышивки" width="1024" height="1536" loading="lazy"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[{"type":"text","x":50,"y":8,"w":46,"t":"Функциональные карманы","d":"Быстрый доступ к необходимому и молнии для надёжности"}]'><img src="img/fleece/09-pocket.webp" alt="Карман на молнии крупным планом" width="876" height="1314" loading="lazy"></div></div>
+      <div class="slide"><div class="spec light" data-spots='[{"type":"text","x":6,"y":8,"w":52,"t":"Свобода движения","d":"Эластичный, дышащий материал, технологические свойства которого проверены в высокогорных экспедициях"}]'><img src="img/fleece/10-fabric.webp" alt="Флис и мех «барашек» крупным планом" width="1024" height="1536" loading="lazy"></div></div>
+    </div>
+    <div class="wrap2 nav">
+      <button class="arr" type="button" data-go="-1" aria-label="Предыдущие фото"><svg class="ico" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="arr" type="button" data-go="1" aria-label="Следующие фото"><svg class="ico" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      <span class="count" id="count">1 / 10</span>
+    </div>
+  </section>
+
+  <div class="wrap2">
+    <section class="price" aria-label="Стоимость производства">
+      <h2>Стоимость производства</h2>
+      <ul class="tiers">
+        <li>от 30 изделий — <b>13 900 ₽/шт.</b></li>
+        <li>от 50 изделий — <b>12 900 ₽/шт.</b></li>
+        <li>от 100 изделий — <b>10 900 ₽/шт.</b></li>
+        <li>от 500 изделий — <b>9 900 ₽/шт.</b></li>
+      </ul>
+      <a class="btn btn-esp" href="v2.html#contacts">Рассчитать заказ</a>
+      <p>Стоимость одного изделия зависит от объёма партии. Для расчёта стоимости другого тиража свяжитесь с нами напрямую.</p>
+    </section>
+
+    <div class="tabs" role="tablist" aria-label="Об изделии">
+      <button role="tab" id="t1" aria-controls="p1" aria-selected="true">Описание изделия</button>
+      <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Технологичность</button>
+      <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Размерная линейка</button>
+      <button role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Ваша идея</button>
+      <button role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Порядок работы</button>
+    </div>
+
+    <section class="panel-box" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div class="cols">
+        <div>
+          <p>Двусторонняя флисовая кофта-куртка для спорта, путешествий и активного отдыха. Две фактуры материала позволяют регулировать теплообмен в зависимости от погоды и интенсивности нагрузки.</p>
+          <p>При носке ворсовой стороной к телу изделие аккумулирует тепло внутри и становится альтернативой куртке для прохладной погоды.</p>
+          <p>При носке изделия ворсовой стороной наружу кофта становится более функциональной для активного спорта: она быстро отводит влагу от тела спортсмена и мгновенно высыхает.</p>
+          <p>Изделие можно использовать самостоятельно или как утепляющий слой под мембранную куртку.</p>
+          <h3>Температурный режим</h3>
+          <div class="temps">
+            <div><small>Самостоятельный слой</small><b>Ворс внутри: +10 °C</b><b>Ворс снаружи: +15 °C</b></div>
+            <div><small>Под мембранной курткой</small><b>Ворс внутри: 0 °C</b><b>Ворс снаружи: +5 °C</b></div>
+          </div>
+          <p class="note">Указанные температуры носят ориентировочный характер, поскольку комфорт зависит от активности, влажности, ветра и индивидуальной чувствительности к холоду.</p>
+        </div>
+        <div>
+          <h3>Материалы и состав</h3>
+          <ul>
+            <li>Флис — высокая плотность материала, 300 г/м².</li>
+            <li>Искусственный мех «Барашек» — длинноворсовый материал.</li>
+            <li>Состав обеих сторон — 100% полиэстер.</li>
+          </ul>
+          <h3>Технологические характеристики ткани</h3>
+          <ul>
+            <li>Регулируемый теплообмен.</li>
+            <li>Быстрый отвод влаги.</li>
+            <li>Быстрое высыхание.</li>
+            <li>Воздухопроницаемость.</li>
+            <li>Сохранение тепла даже во влажном состоянии.</li>
+            <li>Эластичность материала.</li>
+            <li>Устойчивость к износу и деформации.</li>
+          </ul>
+          <h3>Уход за изделием</h3>
+          <p>Машинная стирка в режиме для синтетических тканей. Первую стирку проводить отдельно от других вещей, даже схожих по цвету. Перед стиркой закрыть молнии. Не использовать кондиционер и отбеливатель. Не гладить, не подвергать химчистке и машинной сушке.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-box" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <ul>
+        <li>Двусторонняя конструкция.</li>
+        <li>Функциональные карманы на молнии: боковые и нагрудный.</li>
+        <li>Регулируемый капюшон, совместимый с горнолыжным шлемом и альпинистской каской.</li>
+        <li>Эластичная утяжка для регулировки объёма капюшона.</li>
+        <li>Центральная молния, работающая с обеих сторон изделия.</li>
+        <li>Высокий воротник для защиты шеи от холода.</li>
+        <li>Защита подбородка — мягкая вставка в верхней части молнии.</li>
+        <li>Удлинённые рукава для дополнительной защиты кистей.</li>
+      </ul>
+    </section>
+
+    <section class="panel-box" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+      <div class="size">
+        <div class="size-head"><b>Размерная сетка</b><span>Изделие унисекс</span></div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Размер для заказа</th><th>Российский размер</th><th>Рост, см</th><th>Объем груди, см</th><th>Объем талии, см</th><th>Объем бедер, см</th></tr></thead>
+            <tbody>
+              <tr><td>1 SIZE</td><td>44</td><td>158-168</td><td>88</td><td>60-68</td><td>90-97</td></tr>
+              <tr><td>2 SIZE</td><td>46</td><td>168-178</td><td>92</td><td>64-72</td><td>94-101</td></tr>
+              <tr><td>3 SIZE</td><td>48</td><td>178-188</td><td>96</td><td>68-74</td><td>98-105</td></tr>
+              <tr><td>4 SIZE</td><td>50-52</td><td>188-202</td><td>102</td><td>72-80</td><td>102-111</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="jacket"><img src="img/fleece/size-jacket.webp" alt="Схема замеров: обхват груди, талии и бедер" width="430" height="468" loading="lazy">
+          <span style="top:40%">Обхват груди</span><span style="top:57.7%">Обхват талии</span><span style="top:80.6%">Обхват бедер</span></div>
+      </div>
+    </section>
+
+    <section class="panel-box" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+      <h3>Адаптируем изделие под ваши задачи</h3>
+      <ul>
+        <li>Подберём цвета в соответствии с вашим брендбуком или логотипом.</li>
+        <li>Внесём изменения в конструкцию изделия.</li>
+        <li>Добавим функциональные элементы и дополнительную фурнитуру, в том числе брендированную.</li>
+      </ul>
+      <p>Изменения базовой модели рассчитываются отдельно и не входят в указанную стоимость изделия.</p>
+      <p>Свяжитесь с нами, чтобы обсудить детали и возможности производства.</p>
+      <a class="btn btn-esp" href="v2.html#contacts">Обсудить идею</a>
+    </section>
+
+    <section class="panel-box" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+      <ol class="steps">
+        <li><b>Знакомство</b><span>Свяжитесь с нами и расскажите о вашей задаче. Направьте нам брендбук, логотип и фирменные цвета.</span></li>
+        <li><b>Согласование дизайна</b><span>Подберём цветовые решения в соответствии с вашим фирменным стилем. Если у вас есть пожелания по изменению конструкции изделия или фурнитуры, обсудим их на этом этапе.</span></li>
+        <li><b>Расчёт стоимости</b><span>При внесении изменений в базовую модель рассчитаем итоговую стоимость. Если конструкция изделия остаётся без изменений, действует указанная в карточке стоимость.</span></li>
+        <li><b>Пробный образец</b><span>Перед запуском партии обязательно изготавливаем пробный образец, чтобы вы могли оценить качество, посадку и функциональность изделия, протестировать его и при необходимости внести корректировки.</span></li>
+        <li><b>Запуск производства</b><span>Приступаем к производству партии только после согласования пробного образца.</span></li>
+      </ol>
+      <p class="sample">Стоимость изготовления пробного образца — <b>20 000 ₽</b>.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap2" style="padding-bottom:32px;font-size:12px;color:var(--ink-soft)"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Разработан с душой студией YSD DEV</a></footer>
+
+<script>
+(function(){
+  // иконки Lucide (ISC)
+  var IC={
+    logo:'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/>',
+    flag:'<path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/>',
+    logos:'<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+    text:'<path d="M12 4v16"/><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"/><path d="M9 20h6"/>',
+    hood:'<path d="M12 22a7 7 0 0 0 7-7V9A7 7 0 0 0 5 9v6a7 7 0 0 0 7 7z"/><path d="M9 15a3 3 0 0 0 6 0V11a3 3 0 0 0-6 0z"/>',
+    zip:'<path d="M12 2v20"/><path d="M8 5h3"/><path d="M13 8h3"/><path d="M8 11h3"/><path d="M13 14h3"/><rect x="9" y="16" width="6" height="6" rx="1"/>',
+    needle:'<path d="M5 19 19 5"/><path d="M16 5a3 3 0 1 1 3 3"/><path d="M3 21c2-1 4-3 4-3"/>'
+  };
+  var NS='http://www.w3.org/2000/svg';
+  function draw(sp){
+    var W=sp.clientWidth,H=sp.clientHeight,svg=sp._svg;
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';
+    sp._spots.forEach(function(s,k){
+      if(s.type)return;
+      var d=k*0.35,X=function(v){return v*W/100},Y=function(v){return v*H/100},col=s.c||'';
+      if(s.zone){var r=document.createElementNS(NS,'rect');r.setAttribute('x',X(s.zone[0]));r.setAttribute('y',Y(s.zone[1]));r.setAttribute('width',X(s.zone[2]));r.setAttribute('height',Y(s.zone[3]));r.setAttribute('rx',3);r.setAttribute('class','zone');r.style.transitionDelay=d+'s';if(s.zc||col)r.style.color=s.zc||col;svg.appendChild(r)}
+      var w=s.w||30,end=s.side==='r'?Math.min(97,s.lx+w):Math.max(3,s.lx),start=s.side==='r'?s.lx:Math.min(97,s.lx+w);
+      var p=document.createElementNS(NS,'path');
+      p.setAttribute('d','M'+X(s.x)+' '+Y(s.y)+' L'+X(start)+' '+Y(s.ly+3)+' L'+X(end)+' '+Y(s.ly+3));
+      p.setAttribute('class','ln');svg.appendChild(p);
+      var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.style.transitionDelay=(d+.2)+'s';if(col)p.style.color=col;
+      var lb=sp._els[k];lb.style.left=lb.style.right='';lb.style.maxWidth=w+'%';
+      if(s.side==='r')lb.style.right=(100-end)+'%';else lb.style.left=end+'%';
+      lb.style.top=lb.style.bottom='';
+      if(s.below)lb.style.top=(s.ly+4.2)+'%';else lb.style.bottom=(100-(s.ly+2.2))+'%';
+    });
+  }
+  document.querySelectorAll('.spec').forEach(function(sp){
+    var spots=JSON.parse(sp.getAttribute('data-spots'));sp._spots=spots;sp._els=[];
+    var svg=document.createElementNS(NS,'svg');svg.setAttribute('class','lines');svg.setAttribute('aria-hidden','true');sp._svg=svg;sp.appendChild(svg);
+    spots.forEach(function(s,k){
+      var d=k*0.35;
+      if(s.type){ // текстовый блок или название
+        var tx=document.createElement('div');tx.className='tx'+(s.type==='title'?' title':'')+(s.panel?' panel':'');
+        tx.style.left=s.x+'%';tx.style.top=s.y+'%';tx.style.width=s.w+'%';tx.style.transitionDelay=(d+.1)+'s';
+        tx.innerHTML=s.type==='title'?'<b>'+s.t+'<i>'+s.t2+'</i></b>':'<b>'+s.t+'</b>'+(s.d?'<span>'+s.d+'</span>':'');
+        sp.appendChild(tx);sp._els.push(tx);return;
+      }
+      var pt=document.createElement('i');pt.className='pt';pt.style.left=s.x+'%';pt.style.top=s.y+'%';pt.style.transitionDelay=d+'s';if(s.c)pt.style.color=s.c;sp.appendChild(pt);
+      var lb=document.createElement('span');lb.className='lb'+(s.side==='r'?' r':'');lb.style.transitionDelay=(d+.75)+'s';
+      lb.innerHTML='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(IC[s.icon]||'')+'</svg><span>'+s.t+(s.d?'<small>'+s.d+'</small>':'')+'</span>';
+      sp.appendChild(lb);sp._els.push(lb);
+    });
+    var img=sp.querySelector('img');
+    var go=function(){draw(sp)};if(img.complete)go();else img.addEventListener('load',go);
+    new ResizeObserver(go).observe(sp);
+  });
+  // подписи появляются, когда фото на экране: сначала чистое фото, через 1,2 с — подписи
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    var sp=e.target;clearTimeout(sp._t);
+    if(e.isIntersecting&&e.intersectionRatio>.7)sp._t=setTimeout(function(){sp.classList.add('on')},reduce?0:1200);
+    else if(!e.isIntersecting)sp.classList.remove('on');
+  })},{threshold:[0,.7]});
+  document.querySelectorAll('.spec').forEach(function(sp){io.observe(sp)});
+  // карусель
+  var track=document.getElementById('track'),slides=[].slice.call(track.children),cnt=document.getElementById('count');
+  function idx(){var x=track.scrollLeft,b=0,best=1e9;slides.forEach(function(s,i){var dd=Math.abs(s.offsetLeft-track.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft)-x);if(dd<best){best=dd;b=i}});return b}
+  track.addEventListener('scroll',function(){cnt.textContent=(idx()+1)+' / '+slides.length},{passive:true});
+  document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){var i=Math.max(0,Math.min(slides.length-1,idx()+(+b.dataset.go)));track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft),behavior:'smooth'})}});
+  // вкладки
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:null;if(n===null)return;n=(n+tabs.length)%tabs.length;sel(tabs[n]);tabs[n].focus()})});
+  document.documentElement.classList.add('ready');
+})();
+</script>
+</body>
+</html>
