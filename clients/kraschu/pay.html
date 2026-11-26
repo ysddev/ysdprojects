@@ -122,7 +122,11 @@ input{font:inherit;font-size:18px;padding:14px 16px;border:1px solid #d9d0c4;bor
 [].forEach.call(document.querySelectorAll('.rv'),function(el){requestAnimationFrame(function(){el.classList.add('on')})});
 var ways=document.querySelectorAll('.ways button');
 [].forEach.call(ways,function(b){b.addEventListener('click',function(){[].forEach.call(ways,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+// PAY_API — адрес функции оплаты (_pay/README.md). Пусто — страница работает как макет без списания денег
+var PAY_API='';
 var consult=/[?&]item=consult/.test(location.search);
+if(PAY_API){var fn=document.querySelector('#f .fine');if(fn)fn.textContent='Оплата пройдёт на защищённой странице ЮKassa, чек придёт на почту.';}
+if(PAY_API&&/done=1/.test(location.search))document.querySelector('.pay .r').classList.add('sent');
 if(consult){document.title='Оплата консультации · Крашу сама';
   document.querySelector('.pay h1').textContent='Личная консультация';
   document.querySelector('.lead2').textContent='Посмотрю именно ваши волосы и скажу, как прийти к блонду без потери длины.';
@@ -138,6 +142,9 @@ document.getElementById('f').addEventListener('submit',function(e){e.preventDefa
   if(!this.querySelector('[name=agree]').checked){err.textContent='Отметьте согласие с офертой, чтобы перейти к оплате';return}
   err.textContent='';var go=document.getElementById('go');go.disabled=true;go.classList.add('busy');
   try{sessionStorage.setItem('kr_email',em)}catch(_){}
+  if(PAY_API){fetch(PAY_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,item:consult?'consult':'lesson'})}).then(function(r){return r.json()}).then(function(j){
+      if(!j.url)throw new Error(j.error||'Оплата недоступна');try{localStorage.setItem('kr_pid',j.id)}catch(_){}location.href=j.url})
+      .catch(function(x){err.textContent=(x.message||'Не получилось открыть оплату')+'. Попробуйте ещё раз';go.disabled=false;go.classList.remove('busy')});return}
   setTimeout(function(){if(consult){document.querySelector('.pay .r').classList.add('sent');go.disabled=false;go.classList.remove('busy')}else location.href='lesson.html?paid=1'},1400);
 });
 </script>
