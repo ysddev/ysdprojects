@@ -69,6 +69,14 @@ h1.name span{display:block}
 .price p{grid-column:1/-1;font-size:12px;color:var(--ink-soft);margin-top:-4px}
 .price .btn{min-height:44px;padding:0 22px;font-size:14px}
 
+.order{padding:56px var(--pad) 72px;border-top:1.5px solid var(--espresso)}
+.order h2{font-size:clamp(32px,4.4vw,60px);line-height:1;letter-spacing:-.03em}
+.order h2 span{display:block}
+.order p{margin:16px 0 24px;color:var(--ink-soft)}
+.order .links{display:flex;flex-wrap:wrap;gap:12px}
+.btn.ghost-esp{background:transparent;color:var(--espresso);border:1.5px solid var(--espresso)}
+.btn.ghost-esp:hover{background:var(--espresso);color:var(--blue)}
+section[id]{scroll-margin-top:24px}
 /* вкладки */
 .tabs{display:flex;gap:6px;margin-top:40px;overflow-x:auto;scrollbar-width:none;border-bottom:1.5px solid var(--espresso)}
 .tabs::-webkit-scrollbar{display:none}
@@ -104,13 +112,13 @@ th{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
 td{text-align:center;padding:14px 8px;border-bottom:1px solid rgba(66,44,33,.12)}
 td:first-child{font-weight:700}
 tbody tr:hover{background:rgba(182,221,246,.35)}
-.jacket{position:relative;max-width:360px;justify-self:center;width:100%}
+.jacket{position:relative;max-width:340px;justify-self:center;width:100%;margin-left:110px}
 .jacket img{display:block;width:100%;height:auto}
-.jacket span{position:absolute;left:-4%;transform:translate(-100%,-50%);font-size:13px;color:var(--ink-soft);white-space:nowrap}
+.jacket span{position:absolute;left:0;transform:translate(calc(-100% - 10px),-50%);font-size:13px;color:var(--ink-soft);white-space:nowrap}
 @media (max-width:860px){
   .cols,.size{grid-template-columns:1fr}
   .price{grid-template-columns:1fr}
-  .jacket{max-width:280px;margin-left:96px}
+  .jacket{max-width:260px;margin-left:100px}
 }
 @media (max-width:560px){
   .slide,.slide.wide{flex-basis:86vw}
@@ -123,7 +131,7 @@ tbody tr:hover{background:rgba(182,221,246,.35)}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="uiii" viewBox="296 439 407 781.5"><path fill="currentColor" d="M703 439H440C356.48 439 296 507.46 296 602C296 696.54 356.48 765 440 765H703V676H446C405.98 676 377 644.71 377 601.5C377 558.29 405.98 527 446 527H703Z"/><rect fill="currentColor" x="315" y="821" width="388" height="90.5"/><rect fill="currentColor" x="315" y="975.5" width="388" height="90.5"/><rect fill="currentColor" x="315" y="1130" width="388" height="90.5"/></symbol></svg>
 <header class="top">
   <a class="mark" href="intro.html" aria-label="UIII — на главную"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></a>
-  <nav class="crumbs" aria-label="Навигация"><a href="v2.html#catalog">Каталог</a> / Одежда</nav>
+  <nav class="crumbs" aria-label="Навигация"><a href="intro.html">Спортивный мерч</a> / Каталог / Одежда</nav>
 </header>
 
 <main>
@@ -163,7 +171,7 @@ tbody tr:hover{background:rgba(182,221,246,.35)}
         <li>от 100 изделий — <b>10 900 ₽/шт.</b></li>
         <li>от 500 изделий — <b>9 900 ₽/шт.</b></li>
       </ul>
-      <a class="btn btn-esp" href="v2.html#contacts">Рассчитать заказ</a>
+      <a class="btn btn-esp" href="#order">Рассчитать заказ</a>
       <p>Стоимость одного изделия зависит от объёма партии. Для расчёта стоимости другого тиража свяжитесь с нами напрямую.</p>
     </section>
 
@@ -239,7 +247,7 @@ tbody tr:hover{background:rgba(182,221,246,.35)}
             </tbody>
           </table>
         </div>
-        <div class="jacket"><img src="img/fleece/size-jacket.webp" alt="Схема замеров: обхват груди, талии и бедер" width="430" height="468" loading="lazy">
+        <div class="jacket"><img src="img/fleece/size-jacket.webp?v=2" alt="Схема замеров: обхват груди, талии и бедер" width="400" height="468" loading="lazy">
           <span style="top:40%">Обхват груди</span><span style="top:57.7%">Обхват талии</span><span style="top:80.6%">Обхват бедер</span></div>
       </div>
     </section>
@@ -253,7 +261,7 @@ tbody tr:hover{background:rgba(182,221,246,.35)}
       </ul>
       <p>Изменения базовой модели рассчитываются отдельно и не входят в указанную стоимость изделия.</p>
       <p>Свяжитесь с нами, чтобы обсудить детали и возможности производства.</p>
-      <a class="btn btn-esp" href="v2.html#contacts">Обсудить идею</a>
+      <a class="btn btn-esp" href="#order">Обсудить идею</a>
     </section>
 
     <section class="panel-box" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
@@ -267,6 +275,15 @@ tbody tr:hover{background:rgba(182,221,246,.35)}
       <p class="sample">Стоимость изготовления пробного образца — <b>20 000 ₽</b>.</p>
     </section>
   </div>
+  <section class="wrap2 order" id="order" aria-label="Рассчитать заказ">
+    <h2><span class="lt">Рассчитаем</span><span class="bk">ваш заказ</span></h2>
+    <p>Напишите тираж, размеры и что нанести — посчитаем стоимость и сроки.</p>
+    <div class="links">
+      <a class="btn btn-esp" href="tel:+79939639843"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>Позвонить</a>
+      <a class="btn ghost-esp" href="mailto:uiiimail@mail.ru"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>Написать на почту</a>
+      <a class="btn ghost-esp" href="https://www.instagram.com/uiii.sport" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Instagram</a>
+    </div>
+  </section>
 </main>
 
 <footer class="wrap2" style="padding-bottom:32px;font-size:12px;color:var(--ink-soft)"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Разработан с душой студией YSD DEV</a></footer>
