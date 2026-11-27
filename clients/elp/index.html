@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЕЛП — Единая лизинговая площадка</title>
+<meta name="description" content="Единая лизинговая площадка: одна заявка на лизинг — и её получают выбранные лизинговые компании. Статусы и предложения в личном кабинете.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ЕЛП — Единая лизинговая площадка">
+<meta property="og:description" content="ЕЛП — агрегатор лизинговых предложений без скрытых комиссий. Одна заявка вместо обзвона десятка компаний.">
+<meta property="og:image" content="img/vans.jpg">
+<link rel="icon" href="img/elp-mark.svg">
+<style>
+@font-face{font-family:"Onest";src:url(fonts/onest-cyrillic-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";src:url(fonts/onest-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --paper:#F4F6F9; --white:#fff; --ink:#231C2B; --ink2:#5B5566; --line:#DCE1E9;
+  --blue:#264F82; --blue-l:#E7EEF7; --red:#CB1F48; --red-d:#A9163A; --plum:#3D2E46;
+  --ok:#1E7A4F; --ok-l:#E3F3EA; --warn:#9A6200; --warn-l:#FBF0DC;
+  --r:10px; --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Onest",system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #7FA3D6;outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,5.2vw,60px);font-weight:750}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:720}
+h3{font-size:20px;font-weight:650;letter-spacing:-.01em}
+p{margin:0}
+.muted{color:var(--ink2)}
+
+/* demo bar */
+.demo{background:var(--plum);color:#E9E3EE;font-size:14px}
+.demo .wrap{display:flex;gap:14px;align-items:center;min-height:44px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.demo b{color:#fff;font-weight:600}
+.seg{display:inline-flex;flex-wrap:wrap;max-width:100%;background:rgba(255,255,255,.08);border-radius:8px;padding:3px;gap:2px}
+.seg button{background:none;border:0;color:#E9E3EE;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:14px}
+.seg button[aria-pressed=true]{background:#fff;color:var(--plum);font-weight:600}
+
+/* header */
+header.top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--blue)}
+.brand img{height:38px;width:auto}
+.brand span{font-weight:650;font-size:15px;line-height:1.15;max-width:130px;color:var(--blue)}
+nav.main{display:flex;gap:22px;margin-left:8px}
+nav.main a{color:var(--ink);text-decoration:none;font-size:15px}
+nav.main a:hover{color:var(--blue)}
+.hdr-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.who{font-size:14px;color:var(--ink2);text-align:right;line-height:1.25;white-space:nowrap}
+.who b{color:var(--ink);font-weight:600;display:block}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:12px 20px;font-weight:600;font-size:16px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d)}
+.btn-line{background:#fff;color:var(--blue);border-color:#B9C8DC}
+.btn-line:hover{border-color:var(--blue)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-sm{padding:7px 12px;font-size:14px;border-radius:7px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:inherit}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:var(--paper)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:600px;gap:24px}
+.hero-copy{padding:72px 0;position:relative;z-index:2}
+.hero h1{max-width:13em;font-size:clamp(32px,3.5vw,50px)}
+.hero .lead{margin-top:22px;font-size:20px;color:var(--ink2);max-width:25em}
+.hero .cta{margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.hero .cta .link{font-size:16px}
+.hero-art{position:absolute;right:0;top:0;bottom:0;width:50%;z-index:1}
+.hero-photo{position:absolute;inset:0;background:url(img/vans.jpg) 40% 60%/cover no-repeat;clip-path:polygon(30% 0,100% 0,100% 100%,6% 100%)}
+.hero-tri-r{position:absolute;left:6%;bottom:0;width:28%;height:40%;background:var(--red);clip-path:polygon(0 100%,100% 100%,0 0);opacity:.96}
+.hero-tri-b{position:absolute;right:0;top:0;width:34%;height:46%;background:var(--blue);clip-path:polygon(0 0,100% 0,100% 100%);opacity:.94}
+.hero-note{position:absolute;right:28px;bottom:28px;background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 18px 40px rgba(35,28,43,.18);width:290px;font-size:14px;z-index:3}
+.hero-note .t{font-weight:650;font-size:15px;margin-bottom:8px}
+.hero-note ul{list-style:none;margin:0;padding:0}
+.hero-note li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--line)}
+.hero-note li:first-child{border-top:0}
+
+.pill{display:inline-block;flex:none;font-size:14px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill-sent{background:var(--blue-l);color:var(--blue)}
+.pill-read{background:var(--ok-l);color:var(--ok)}
+.pill-new{background:#FBE6EC;color:var(--red-d)}
+.pill-wait{background:var(--warn-l);color:var(--warn)}
+.pill-grey{background:#EEF0F4;color:var(--ink2)}
+
+section.block{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head p{margin-top:14px;color:var(--ink2);font-size:18px}
+
+/* subjects */
+.subjects{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.subj{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 18px 22px;background:#fff;text-align:left;cursor:pointer;transition:background .15s}
+.subj:hover{background:var(--paper)}
+.subj svg{width:40px;height:40px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.subj b{display:block;margin-top:16px;font-weight:600;font-size:16px;line-height:1.3}
+.subj small{display:block;color:var(--ink2);font-size:14px;margin-top:4px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{position:relative;padding:0 28px 0 0}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px;position:relative;z-index:1}
+.step:not(:last-child)::after{content:"";position:absolute;top:22px;left:44px;right:0;height:2px;background:linear-gradient(90deg,var(--blue) 0 50%,transparent 50%) 0 0/12px 2px repeat-x;opacity:.5}
+.step h3{margin-top:22px}
+.step p{margin-top:8px;color:var(--ink2);font-size:16px}
+.step .soon{margin-top:10px}
+
+/* audiences */
+.aud{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;background:var(--paper)}
+.aud + .aud{margin-top:28px}
+.aud.rev{grid-template-columns:1fr 1.1fr}
+.aud.rev .aud-photo{order:2}
+.aud-photo{min-height:380px;background-size:cover;background-position:center}
+.aud-copy{padding:52px 56px}
+.aud-copy ul{margin:22px 0 0;padding:0;list-style:none}
+.aud-copy li{padding:11px 0 11px 30px;position:relative;border-top:1px solid var(--line)}
+.aud-copy li::before{content:"";position:absolute;left:2px;top:19px;width:12px;height:12px;background:var(--red);clip-path:polygon(0 0,100% 50%,0 100%)}
+.aud-copy .btn{margin-top:26px}
+
+/* dealers band */
+.band{background:var(--plum);color:#fff}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:72px;padding-bottom:72px;align-items:center}
+.band p{color:#DCD3E3;margin-top:14px;font-size:18px}
+.band ul{margin:0;padding:0;list-style:none}
+.band li{padding:14px 0;border-top:1px solid rgba(255,255,255,.18)}
+
+/* faq */
+.faq{max-width:820px}
+.faq details{border-top:1px solid var(--line);padding:4px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:600;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:26px;width:10px;height:10px;border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(225deg);top:30px}
+.faq details p{padding:0 0 20px;color:var(--ink2);max-width:62ch}
+
+/* final cta */
+.final{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.final .wrap{padding-top:80px;padding-bottom:80px;position:relative;z-index:1}
+.final p{color:#D6E1EF;margin-top:14px;font-size:18px;max-width:34em}
+.final .btn{margin-top:30px}
+.final::after{content:"";position:absolute;right:-60px;top:-40px;width:420px;height:420px;background:var(--red);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);opacity:.9}
+
+footer{background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-top:48px;padding-bottom:40px}
+footer a{color:var(--ink2)}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:6px 0}
+footer .dev{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* APP (forms, cabinets) */
+.app{background:var(--paper);min-height:calc(100vh - 116px);padding:40px 0 80px}
+.app h1{font-size:clamp(28px,3.2vw,38px)}
+.app .sub{color:var(--ink2);margin-top:8px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 20px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+label.f small{font-weight:400;color:var(--ink2);font-size:14px}
+.inp{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:11px 13px;background:#fff;font-size:16px}
+.inp:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px #D6E2F2}
+.inp.bad{border-color:var(--red)}
+.hint{font-size:14px;margin-top:6px;color:var(--ink2)}
+.hint.bad{color:var(--red-d)}
+.hint.good{color:var(--ok)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:15px}
+.chip[aria-pressed=true]{border-color:var(--blue);background:var(--blue-l);color:var(--blue);font-weight:600}
+.radios{display:flex;gap:8px;flex-wrap:wrap}
+.radios label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:15px}
+.radios input{accent-color:var(--blue)}
+.radios label:has(input:checked){border-color:var(--blue);background:var(--blue-l)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);margin-top:10px}
+.check input{margin-top:3px;accent-color:var(--blue);width:16px;height:16px;flex:none}
+
+.wizard{display:grid;grid-template-columns:260px 1fr;gap:28px;margin-top:28px;align-items:start}
+.wsteps{list-style:none;margin:0;padding:0;position:sticky;top:96px}
+.wsteps li{display:flex;gap:12px;align-items:center;padding:12px 0;color:var(--ink2);font-size:15px}
+.wsteps li .d{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:14px;font-weight:600;background:#fff}
+.wsteps li.on{color:var(--ink);font-weight:600}
+.wsteps li.on .d{background:var(--blue);border-color:var(--blue);color:#fff}
+.wsteps li.done .d{background:var(--ok-l);border-color:var(--ok-l);color:var(--ok)}
+.wfoot{display:flex;justify-content:space-between;align-items:center;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.range{width:100%;accent-color:var(--red)}
+.rangeval{font-weight:700;font-size:22px;color:var(--blue)}
+
+.cos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.co{display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff}
+.co input{accent-color:var(--blue);width:18px;height:18px}
+.co:has(input:checked){border-color:var(--blue);background:var(--blue-l)}
+.co .m{font-size:14px;color:var(--ink2)}
+
+.pay{display:grid;grid-template-columns:1fr 300px;gap:24px}
+.sum{background:var(--paper);border-radius:8px;padding:20px}
+.sum div{display:flex;justify-content:space-between;padding:6px 0;font-size:15px}
+.sum .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-weight:700;font-size:20px}
+
+.okbox{text-align:left;max-width:640px}
+.okbox .big{width:56px;height:56px;border-radius:50%;background:var(--ok-l);display:grid;place-items:center;margin-bottom:18px}
+.okbox .big svg{width:28px;height:28px;stroke:var(--ok);stroke-width:2.5;fill:none}
+
+/* tables */
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.toolbar .inp{width:auto;padding:8px 12px;font-size:15px}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th{text-align:left;font-weight:600;color:var(--ink2);font-size:14px;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr.click{cursor:pointer}
+.tbl tr.click:hover td{background:#FAFBFC}
+.tbl .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:26px 0 22px;overflow-x:auto}
+.tabs button{background:none;border:0;padding:12px 16px;cursor:pointer;font-size:15px;color:var(--ink2);border-bottom:2.5px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.kpi b{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:14px;color:var(--ink2)}
+.req{border:1px solid var(--line);border-radius:var(--r);background:#fff;margin-bottom:16px}
+.req-h{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.req-h h3{font-size:18px}
+.req-b{padding:6px 22px 18px}
+.req-b .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.req-b .row:last-child{border-bottom:0}
+.dl{display:grid;grid-template-columns:200px 1fr;gap:8px 16px;font-size:15px}
+.dl dt{color:var(--ink2)}
+.dl dd{margin:0}
+.side{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+.side>*,.wizard>*,.pay>*{min-width:0}
+.tbl-wrap{overflow-x:auto}
+.empty{padding:28px;text-align:left;color:var(--ink2);background:var(--paper);border-radius:8px}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:8px;font-size:15px;opacity:0;transition:.25s;z-index:50;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.auth{max-width:520px;margin:0 auto}
+.doc{max-width:860px}
+.doc h2{font-size:21px;margin-top:34px}
+.doc p{margin-top:10px;max-width:72ch}
+.doc .draft{display:inline-block;margin-top:14px}
+.burger{display:none;background:none;border:1.5px solid var(--line);border-radius:8px;width:42px;height:42px;cursor:pointer;padding:0;place-items:center}
+.burger svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round}
+.mnav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(35,28,43,.12);padding:8px 24px 18px}
+.mnav.on{display:block}
+.mnav a{display:block;padding:13px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:17px}
+.mnav a:last-child{border-bottom:0}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px rgba(35,28,43,.18);padding:14px 16px;display:flex;gap:14px;align-items:center;font-size:15px;z-index:40}
+.cookie p{flex:1}
+.hidden{display:none!important}
+.star{color:var(--red);margin-left:3px;font-weight:700}
+.legend{font-size:14px;color:var(--ink2);margin-top:6px}
+.files{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.files li{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:8px;padding:9px 12px;font-size:15px;background:#fff}
+.files li .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.files li .sz{color:var(--ink2);font-size:14px;white-space:nowrap}
+.files li button{background:none;border:0;color:var(--red-d);cursor:pointer;font-size:14px;padding:4px;text-decoration:underline;text-underline-offset:3px}
+.drop{display:flex;align-items:center;gap:14px;border:1.5px dashed #B9C8DC;border-radius:8px;padding:16px;background:var(--paper);cursor:pointer}
+.drop:hover,.drop.on{border-color:var(--blue);background:var(--blue-l)}
+.drop svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.8;flex:none}
+.drop b{color:var(--blue)}
+.honest{border-bottom:1px solid var(--line)}
+.honest .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;padding-top:72px;padding-bottom:72px;align-items:start}
+.honest h2{max-width:13em}
+.honest .lead{margin-top:16px;color:var(--ink2);font-size:18px;max-width:30em}
+.facts{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.facts li{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line)}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+.facts b{font-size:40px;font-weight:750;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.facts span{font-size:17px}
+.consult{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);color:#D6E1EF;font-size:16px;max-width:40em}
+.consult a{color:#fff;font-weight:600;white-space:nowrap}
+.codebox{display:flex;gap:10px}
+.codebox input{width:56px;height:60px;text-align:center;font-size:26px;font-weight:700;padding:0}
+.kpis.k5{grid-template-columns:repeat(5,1fr)}
+
+@media (max-width:1000px){
+  nav.main{display:none}
+  .burger{display:grid}
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:44px 0 32px}
+  .hero-art{position:relative;width:auto;height:300px}
+  .hero-photo{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+  .hero-note{right:16px;bottom:16px;width:250px}
+  .subjects{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr 1fr;gap:36px 0}
+  .step:nth-child(2)::after{display:none}
+  .aud,.aud.rev{grid-template-columns:1fr}
+  .aud.rev .aud-photo{order:0}
+  .aud-photo{min-height:240px}
+  .aud-copy{padding:32px 24px}
+  .band .wrap{grid-template-columns:1fr;gap:24px}
+  .wizard,.side,.pay{grid-template-columns:1fr}
+  .wsteps{position:static;display:flex;overflow-x:auto;gap:14px}
+  .wsteps li span{display:none}
+  .kpis,.kpis.k5{grid-template-columns:1fr 1fr}
+  .honest .wrap{grid-template-columns:1fr;gap:28px;padding-top:56px;padding-bottom:56px}
+  .facts li{grid-template-columns:96px 1fr;gap:14px}
+  .facts b{font-size:30px}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .demo .wrap>span{font-size:14px}
+  .hero-note{display:none}
+  .hero-art{height:230px}
+  .seg button{padding:5px 9px;font-size:14px}
+  section.block{padding:64px 0}
+  .hdr-actions .btn-line{display:none}
+  .brand span{display:none}
+  .hero .lead{font-size:18px}
+  .subjects{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .step::after{display:none}
+  .grid2,.grid3,.cos{grid-template-columns:1fr}
+  .panel{padding:20px}
+  .dl{grid-template-columns:1fr}
+  .final::after{width:200px;height:200px;right:-110px;top:-110px}
+  .who{display:none}
+  .cookie{left:10px;right:10px;bottom:10px;padding:10px 12px;gap:10px;font-size:14px;line-height:1.35}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="demo" role="region" aria-label="Переключатель роли для просмотра первой версии">
+  <div class="wrap">
+    <span><b>Первая версия для согласования.</b> Посмотреть платформу как:</span>
+    <div class="seg" id="roleSeg">
+      <button data-role="guest" aria-pressed="true">Посетитель</button>
+      <button data-role="client" aria-pressed="false">Клиент</button>
+      <button data-role="manager" aria-pressed="false">Менеджер компании</button>
+      <button data-role="admin" aria-pressed="false">Администратор</button>
+    </div>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="ЕЛП, на главную"><img src="img/elp-mark.svg" alt="ЕЛП"><span>Единая лизинговая площадка</span></a>
+    <nav class="main" id="mainNav">
+      <a href="#how">Как это работает</a>
+      <a href="#clients">Лизингополучателям</a>
+      <a href="#companies">Лизинговым компаниям</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="hdr-actions" id="hdrActions"></div>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Меню"></nav>
+</header>
+
+<main id="view"></main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#home"><img src="img/ELP_logo.svg" alt="ЕЛП — Единая лизинговая площадка" style="height:44px"></a>
+      <p style="margin-top:14px;max-width:34em">Оператор площадки — ООО «ЕЛП»<br>ИНН 5047222128, ОГРН 1195081008517<br>125466, Москва, Куркино, Новокуркинское шоссе, 35к1</p>
+      <p style="margin-top:10px"><a href="tel:+79859259130">+7 985 925-91-30</a><br><a href="mailto:elponline@yandex.ru">elponline@yandex.ru</a></p>
+    </div>
+    <ul>
+      <li><a href="#apply">Подать заявку</a></li>
+      <li><a href="#login">Вход в кабинет</a></li>
+      <li><a href="#register">Регистрация клиента</a></li>
+      <li><a href="#register-company">Регистрация лизинговой компании</a></li>
+    </ul>
+    <ul>
+      <li><a href="#doc-offer">Публичная оферта</a></li>
+      <li><a href="#doc-companies">Условия для лизинговых компаний</a></li>
+      <li><a href="#doc-privacy">Политика обработки персональных данных</a></li>
+      <li><a href="#doc-consent">Согласие на обработку персональных данных</a></li>
+    </ul>
+    <div class="dev"><span>© 2026 Единая лизинговая площадка</span><span>Разработка: <a href="https://ysdprojects.space" target="_blank" rel="noopener">YSD DEV</a></span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cookie hidden" id="cookie" role="region" aria-label="Файлы cookie"><p>Сайт использует файлы cookie для входа в кабинет и сохранения заявки. <a href="#doc-privacy">Подробнее</a></p><button class="btn btn-blue btn-sm" id="cookieOk">Понятно</button></div>
+
+<script src="docs.js"></script>
+<script>
+/* ---------- demo data ---------- */
+const COMPANIES=[
+  {id:1,name:"Лизинг-Центр",domain:"lc-leasing.ru",region:"Москва",managers:3,active:true},
+  {id:2,name:"ТрансЛизинг Плюс",domain:"tl-plus.ru",region:"Москва",managers:2,active:true},
+  {id:3,name:"Северная лизинговая компания",domain:"sevleasing.ru",region:"Санкт-Петербург",managers:4,active:true},
+  {id:4,name:"АвтоФинанс Лизинг",domain:"afleasing.ru",region:"Казань",managers:1,active:true},
+  {id:5,name:"ПромТехЛизинг",domain:"ptl.ru",region:"Екатеринбург",managers:2,active:true},
+  {id:6,name:"Лизинг Регион",domain:"leasreg.ru",region:"Краснодар",managers:1,active:false}
+];
+const SUBJ=["Легковой автомобиль","Такси","Коммерческий транспорт","Техника","Оборудование","Недвижимость"];
+let PRICE=990;
+let REQS=[
+  {id:1042,date:"21.11.2026",inn:"7701234567",type:"Организация",client:"ООО «СтройМонтаж»",contact:"Иванов Пётр",phone:"+7 915 000-11-22",subject:"Техника",item:"Экскаватор-погрузчик",cost:7800000,vat:"с НДС",cond:"Новый",adv:30,term:36,sched:"Убывающие",via:["Телефон","Telegram"],files:["КП_экскаватор-погрузчик.pdf","Карточка_организации.docx"],paid:true,to:{1:"read",2:"read",3:"sent",5:"sent"}},
+  {id:1041,date:"20.11.2026",inn:"502912345678",type:"ИП",client:"ИП Соколова А. В.",contact:"Соколова Анна",phone:"+7 926 000-33-44",subject:"Коммерческий транспорт",item:"Фургон цельнометаллический, 2 шт.",cost:9200000,vat:"с НДС",cond:"Новый",adv:20,term:48,sched:"Равные",via:["WhatsApp"],paid:true,to:{1:"read",2:"sent",4:"read"}},
+  {id:1040,date:"19.11.2026",inn:"7812345670",type:"Организация",client:"ООО «Северные перевозки»",contact:"Михайлов Олег",phone:"+7 921 000-55-66",subject:"Коммерческий транспорт",item:"Седельный тягач",cost:14500000,vat:"с НДС",cond:"С пробегом",adv:25,term:60,sched:"Сезонные",via:["Электронная почта","Телефон"],paid:true,to:{1:"sent",3:"read"}},
+  {id:1039,date:"19.11.2026",inn:"771234567890",type:"Физическое лицо",client:"Кузнецов Д. С.",contact:"Кузнецов Дмитрий",phone:"+7 903 000-77-88",subject:"Легковой автомобиль",item:"Седан бизнес-класса",cost:4300000,vat:"без НДС",cond:"Конфискат",adv:40,term:24,sched:"Равные",via:["Max"],paid:false,to:{}}
+];
+const MY_CLIENT_REQS=[1042]; // demo: client sees own
+const ME_COMPANY=1; // demo: manager of Лизинг-Центр
+let USERS=[
+  {name:"Ольга Белова",email:"o.belova@lc-leasing.ru",role:"Менеджер",company:1,status:"Активен"},
+  {name:"Сергей Ким",email:"s.kim@lc-leasing.ru",role:"Менеджер",company:1,status:"Активен"},
+  {name:"Анна Лебедева",email:"a.lebedeva@lc-leasing.ru",role:"Менеджер",company:1,status:"Ждёт подтверждения"},
+  {name:"Игорь Павлов",email:"pavlov@tl-plus.ru",role:"Менеджер",company:2,status:"Активен"},
+  {name:"Пётр Иванов",email:"p.ivanov@stroymontazh.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Анна Соколова",email:"sokolova.av@yandex.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Олег Михайлов",email:"o.mikhailov@sevper.ru",role:"Клиент",company:null,status:"Активен"},
+  {name:"Дмитрий Кузнецов",email:"d.kuznetsov@mail.ru",role:"Клиент",company:null,status:"Активен"}
+];
+let PAYS=[
+  {id:1042,date:"21.11.2026 14:02",who:"ООО «СтройМонтаж»",sum:990,status:"Оплачено"},
+  {id:1041,date:"20.11.2026 10:47",who:"ИП Соколова А. В.",sum:990,status:"Оплачено"},
+  {id:1040,date:"19.11.2026 17:15",who:"ООО «Северные перевозки»",sum:990,status:"Оплачено"},
+  {id:1038,date:"18.11.2026 12:30",who:"ООО «Ромашка»",sum:990,status:"Возвращено"}
+];
+let ROLE="guest";
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const rub=n=>n.toLocaleString("ru-RU")+" ₽";
+const coName=id=>(COMPANIES.find(c=>c.id==id)||{}).name;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),2600)}
+const STAT={sent:'<span class="pill pill-sent">Отправлено</span>',read:'<span class="pill pill-read">Прочитано</span>'};
+function innCheck(v){
+  v=v.replace(/\D/g,"");
+  const d=v.split("").map(Number);
+  const k=(w,n)=>(w.reduce((s,x,i)=>s+x*d[i],0)%11)%10;
+  if(v.length===10){const ok=k([2,4,10,3,5,9,4,6,8],9)===d[9];return {ok,type:"Организация",msg:ok?"ИНН организации":"Проверьте ИНН: контрольная цифра не совпадает"}}
+  if(v.length===12){const ok=k([7,2,4,10,3,5,9,4,6,8],10)===d[10]&&k([3,7,2,4,10,3,5,9,4,6,8],11)===d[11];return {ok,type:"ИП или физическое лицо",msg:ok?"ИНН индивидуального предпринимателя или физического лица":"Проверьте ИНН: контрольная цифра не совпадает"}}
+  return {ok:false,type:"",msg:v.length?"ИНН организации — 10 цифр, ИП или физического лица — 12 цифр":""};
+}
+
+/* ---------- header by role ---------- */
+function renderHeader(){
+  const a=$("#hdrActions");
+  const names={client:["Пётр Иванов","ООО «СтройМонтаж»"],manager:["Ольга Белова","Лизинг-Центр"],admin:["Администратор","ЕЛП"]};
+  if(ROLE==="guest"){a.innerHTML='<a class="btn btn-line btn-sm" href="#login">Войти</a><a class="btn btn-red btn-sm" href="#apply">Подать заявку</a>'}
+  else{const n=names[ROLE];const home={client:"#client",manager:"#manager",admin:"#admin"}[ROLE];
+    a.innerHTML=`<div class="who"><b>${n[0]}</b>${n[1]}</div><a class="btn btn-line btn-sm" href="${home}">Кабинет</a>`+(ROLE==="client"?'<a class="btn btn-red btn-sm" href="#apply">Новая заявка</a>':'')}
+  document.querySelectorAll("#roleSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.role===ROLE));
+  const cab={client:"#client",manager:"#manager",admin:"#admin"}[ROLE];
+  $("#mnav").innerHTML='<a href="#how">Как это работает</a><a href="#clients">Лизингополучателям</a><a href="#companies">Лизинговым компаниям</a><a href="#faq">Вопросы</a>'+(cab?`<a href="${cab}">Личный кабинет</a>`:'<a href="#login">Войти</a><a href="#register-company">Регистрация лизинговой компании</a>')+'<a href="#apply">Подать заявку</a>';
+}
+$("#burger").onclick=()=>{const m=$("#mnav");const on=m.classList.toggle("on");$("#burger").setAttribute("aria-expanded",on)};
+$("#mnav").onclick=e=>{if(e.target.tagName==="A"){$("#mnav").classList.remove("on");$("#burger").setAttribute("aria-expanded","false")}};
+try{if(!localStorage.getItem("elp_cookie"))$("#cookie").classList.remove("hidden")}catch(e){$("#cookie").classList.remove("hidden")}
+$("#cookieOk").onclick=()=>{$("#cookie").classList.add("hidden");try{localStorage.setItem("elp_cookie","1")}catch(e){}};
+document.querySelectorAll("#roleSeg button").forEach(b=>b.onclick=()=>{ROLE=b.dataset.role;renderHeader();location.hash={guest:"#home",client:"#client",manager:"#manager",admin:"#admin"}[ROLE];});
+
+/* ---------- icons ---------- */
+const IC={
+ "Легковой автомобиль":'<path d="M5 17h14M3 17v-4l2-5h14l2 5v4"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M5.5 12h13"/>',
+ "Такси":'<path d="M3 17v-4l2-5h14l2 5v4H3z"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M9 8V5.5h6V8"/>',
+ "Коммерческий транспорт":'<path d="M2 16V6h12v10M14 9h4l4 4v3h-8"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+ "Техника":'<path d="M3 18h12M4 18v-4h7v4M11 14V9l5-4 5 6-3 1"/><path d="M18 12l1 4h-3"/><circle cx="5.5" cy="19" r="1"/><circle cx="9.5" cy="19" r="1"/>',
+ "Оборудование":'<rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7 7V4h10v3M7 12h4M7 15h7"/><circle cx="17" cy="12.5" r="1.6"/>',
+ "Недвижимость":'<path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6M9 10h1M14 10h1"/>'
+};
+const subjHint={"Легковой автомобиль":"для бизнеса и физлиц","Такси":"автомобили для перевозок","Коммерческий транспорт":"фургоны, грузовики, тягачи","Техника":"спецтехника и строительная","Оборудование":"производственное, офисное","Недвижимость":"коммерческие помещения"};
+
+/* ---------- views ---------- */
+function vHome(){return `
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <div class="hero-photo"></div><div class="hero-tri-b"></div><div class="hero-tri-r"></div>
+    <div class="hero-note"><div class="t">Заявка № 1042: экскаватор-погрузчик</div>
+      <ul><li><span>Лизинг-Центр</span>${STAT.read}</li><li><span>ТрансЛизинг Плюс</span>${STAT.read}</li><li><span>Северная лизинговая</span>${STAT.sent}</li><li><span>ПромТехЛизинг</span>${STAT.sent}</li></ul></div>
+  </div>
+  <div class="wrap"><div class="hero-copy">
+    <h1>ЕЛП — агрегатор лизинговых предложений без&nbsp;скрытых комиссий</h1>
+    <p class="lead">Одна заявка вместо обзвона десятка компаний: заполните её один раз и отправьте выбранным лизинговым компаниям или всем сразу. Видно, кто уже прочитал, предложения приходят в личный кабинет.</p>
+    <div class="cta"><a class="btn btn-red" href="#apply">Подать заявку</a><a class="link" href="#register-company">Я представляю лизинговую компанию</a></div>
+  </div></div>
+</section>
+
+<section class="honest" id="honest"><div class="wrap">
+  <div><h2>Агрегатор предложений, а не посредник</h2><p class="lead">ЕЛП собирает предложения лизинговых компаний в одном окне. Мы не встраиваемся в вашу сделку и ничего не добавляем к условиям лизинга.</p></div>
+  <ul class="facts">
+    <li><b>0%</b><span>брокерских платежей в вашем графике лизинга</span></li>
+    <li><b>0 ₽</b><span>скрытых агентских комиссий — ни с вас, ни в цене предмета лизинга</span></li>
+    <li><b>100%</b><span>прозрачная оплата: площадке вы платите только за подачу заявки — ${rub(PRICE)}, сумма видна до оплаты</span></li>
+  </ul>
+</div></section>
+
+<section class="block" id="subjects"><div class="wrap">
+  <div class="sec-head"><h2>Что можно взять в лизинг</h2><p>Выберите предмет — с него начнётся заявка.</p></div>
+  <div class="subjects">${SUBJ.map(s=>`<button class="subj" data-subj="${s}"><svg viewBox="0 0 24 24">${IC[s]}</svg><b>${s}</b><small>${subjHint[s]}</small></button>`).join("")}</div>
+</div></section>
+
+<section class="block" id="how" style="background:var(--paper)"><div class="wrap">
+  <div class="sec-head"><h2>Как это работает</h2><p>От заявки до сравнения условий — в одном окне.</p></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Заполните заявку</h3><p>ИНН, предмет лизинга, стоимость, аванс до 50%, срок и вид платежей. Около пяти минут.</p></div>
+    <div class="step"><div class="n">2</div><h3>Выберите компании</h3><p>Отметьте нужные лизинговые компании или отправьте заявку всем. И укажите, как с вами связаться.</p></div>
+    <div class="step"><div class="n">3</div><h3>Оплатите подачу</h3><p>Картой или через СБП. Чек придёт на почту, заявка сразу уйдёт компаниям.</p></div>
+    <div class="step"><div class="n">4</div><h3>Сравните предложения</h3><p>Ставка, ежемесячный платёж и график от каждой компании — рядом, в личном кабинете.</p></div>
+  </div>
+</div></section>
+
+<section class="block" id="clients"><div class="wrap">
+  <div class="aud">
+    <div class="aud-photo" style="background-image:url(img/excavator.jpg)" role="img" aria-label="Экскаватор и самосвал на стройке"></div>
+    <div class="aud-copy"><h2>Лизингополучателям</h2>
+      <ul><li>Запросите предложения у всех лизинговых компаний площадки одной заявкой.</li>
+      <li>Задайте требования сразу: ставка, платёж, аванс, срок, обеспечение.</li>
+      <li>Следите, кто прочитал заявку, без звонков и переписки.</li>
+      <li>Выберите одного или нескольких победителей.</li></ul>
+      <a class="btn btn-red" href="#apply">Подать заявку</a></div>
+  </div>
+  <div class="aud rev" id="companies">
+    <div class="aud-photo" style="background-image:url(img/deal.jpg)" role="img" aria-label="Подписание договора"></div>
+    <div class="aud-copy"><h2>Лизинговым компаниям</h2>
+      <ul><li>Получайте готовые заявки с ИНН, суммой, авансом и сроком — сразу на почту и в кабинет.</li>
+      <li>Подключите нескольких менеджеров: у каждого свой вход по корпоративной почте.</li>
+      <li>Только оплаченные заявки — клиент заинтересован в сделке.</li>
+      <li>Меньше затрат на поиск клиентов и холодные звонки.</li></ul>
+      <a class="btn btn-line" href="#register-company">Подключить компанию</a></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div><h2>Дилерам и дистрибьюторам</h2><p>Покупателю нужен лизинг? Отправьте его заявку на площадку и не согласовывайте сделку с каждой компанией отдельно.</p></div>
+  <ul><li>Быстрее продаёте автомобили, грузовики и спецтехнику.</li><li>Один канал вместо переписки с множеством лизинговых компаний.</li><li>Клиент сам выбирает лучшие условия.</li></ul>
+</div></section>
+
+<section class="block" id="faq"><div class="wrap">
+  <div class="sec-head"><h2>Частые вопросы</h2></div>
+  <div class="faq">
+    <details><summary>Сколько стоит подать заявку?</summary><p>Подача платная, стоимость видна перед оплатой — сейчас ${rub(PRICE)}. Оплата картой или через СБП, чек приходит на почту. Регистрация и просмотр предложений бесплатны.</p></details>
+    <details><summary>Кто увидит мои данные?</summary><p>Только лизинговые компании, которым вы отправили заявку, и администратор площадки. Данные обрабатываются по политике обработки персональных данных ООО «ЕЛП».</p></details>
+    <details><summary>Чем ЕЛП отличается от агента или брокера?</summary><p>ЕЛП не получает никаких комиссий за сделки — ни от лизинговых компаний, ни от поставщиков предмета лизинга. Вы платите только за подачу заявки, сумма видна до оплаты.</p></details>
+    <details><summary>Кто может оплатить подачу заявки?</summary><p>Любой плательщик: сам заявитель, его сотрудник или организация корпоративной картой. Оплата картой или через СБП, чек приходит на почту, указанную при оплате.</p></details>
+    <details><summary>Можно ли подать заявку как физическое лицо?</summary><p>Да. Введите ИНН из 12 цифр — площадка определит, что это ИП или физическое лицо.</p></details>
+    <details><summary>Как понять, что компания получила заявку?</summary><p>В кабинете у каждой компании свой статус: «Отправлено», а когда менеджер откроет заявку — «Прочитано».</p></details>
+    <details><summary>Как подключить лизинговую компанию?</summary><p>Оставьте заявку на регистрацию. После проверки администратор добавит компанию, и менеджеры смогут войти по корпоративной почте.</p></details>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap"><h2>Подайте заявку сейчас</h2><p>Пять минут на заполнение — и заявку получат лизинговые компании, которые вы выберете.</p><a class="btn btn-red" href="#apply" style="background:#fff;color:var(--red)">Подать заявку</a><p class="consult">После регистрации доступна бесплатная консультация специалиста по лизингу — по телефону или в мессенджерах по номеру <a href="tel:+79859259130" style="white-space:nowrap">+7 985 925-91-30</a>.</p></div></section>`}
+
+/* ---- apply wizard ---- */
+let F={step:1,inn:"",innT:"",contact:"",phone:"",email:"",via:[],subject:"",item:"",cost:"",vat:"с НДС",cond:"Новый",adv:20,term:36,sched:"Равные",comment:"",files:[],cos:[],all:false,agree1:false,agree2:false};
+const FILE_EXT=["pdf","doc","docx","xls","xlsx","csv","txt","rtf","odt","ods","jpg","jpeg","png","heic","webp"],FILE_MAX=10*1024*1024,FILE_N=5;
+const fsize=b=>b<1048576?Math.max(1,Math.round(b/1024))+" КБ":(b/1048576).toFixed(1).replace(".",",")+" МБ";
+function vApply(){
+  const s=F.step;
+  const names=["Заявитель","Предмет лизинга","Компании","Оплата"];
+  const side=`<ol class="wsteps">${names.map((n,i)=>`<li class="${i+1===s?"on":i+1<s?"done":""}"><span class="d">${i+1<s?"✓":i+1}</span><span>${n}</span></li>`).join("")}</ol>`;
+  let body="";
+  if(s===1){const ic=innCheck(F.inn);body=`<h2 style="font-size:24px">Заявитель</h2><p class="muted" style="margin-top:6px">По ИНН площадка определит, кто подаёт заявку.</p><p class="legend"><span class="star">*</span> — обязательные поля</p>
+   <div class="grid2" style="margin-top:22px">
+    <div class="full"><label class="f" for="inn">ИНН лизингополучателя<span class="star" aria-hidden="true">*</span></label><input class="inp ${F.inn&&!ic.ok&&F.inn.replace(/\D/g,'').length>=10?'bad':''}" id="inn" inputmode="numeric" maxlength="12" placeholder="10 или 12 цифр" value="${esc(F.inn)}"><div class="hint ${ic.ok?'good':(F.inn.replace(/\D/g,'').length>=10?'bad':'')}" id="innHint">${ic.msg||"Организация — 10 цифр, ИП или физическое лицо — 12"}</div></div>
+    <div><label class="f" for="contact">Контактное лицо<span class="star" aria-hidden="true">*</span></label><input class="inp" id="contact" placeholder="Фамилия, имя, отчество" value="${esc(F.contact)}"></div>
+    <div><label class="f" for="phone">Телефон<span class="star" aria-hidden="true">*</span></label><input class="inp" id="phone" inputmode="tel" placeholder="+7" value="${esc(F.phone)}"></div>
+    <div class="full"><label class="f" for="email">Электронная почта<span class="star" aria-hidden="true">*</span> <small>— сюда придёт код для входа в кабинет и чек</small></label><input class="inp" id="email" type="email" value="${esc(F.email)}"></div>
+    <div class="full"><label class="f">Как компаниям с вами связаться<span class="star" aria-hidden="true">*</span> <small>— можно несколько</small></label><div class="chips" id="via">${["В чате платформы ЕЛП","Телефон","Электронная почта","Max","WhatsApp","Telegram","ВКонтакте"].map(v=>`<button type="button" class="chip" aria-pressed="${F.via.includes(v)}" data-v="${v}">${v}</button>`).join("")}</div></div>
+   </div>`}
+  if(s===2){body=`<h2 style="font-size:24px">Предмет лизинга</h2><p class="legend"><span class="star">*</span> — обязательные поля</p>
+   <div class="grid2" style="margin-top:22px">
+    <div class="full"><label class="f">Что берёте в лизинг<span class="star" aria-hidden="true">*</span></label><div class="chips" id="subj">${SUBJ.map(v=>`<button type="button" class="chip" aria-pressed="${F.subject===v}" data-v="${v}">${v}</button>`).join("")}</div></div>
+    <div class="full"><label class="f" for="item">Модель или описание<span class="star" aria-hidden="true">*</span></label><input class="inp" id="item" placeholder="Например, фургон цельнометаллический, 2 шт." value="${esc(F.item)}"></div>
+    <div><label class="f" for="cost">Стоимость, ₽<span class="star" aria-hidden="true">*</span></label><input class="inp" id="cost" inputmode="numeric" placeholder="0" value="${esc(F.cost)}"></div>
+    <div><label class="f">НДС<span class="star" aria-hidden="true">*</span></label><div class="radios">${["с НДС","без НДС"].map(v=>`<label><input type="radio" name="vat" value="${v}" ${F.vat===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div class="full"><label class="f">Состояние<span class="star" aria-hidden="true">*</span></label><div class="radios">${["Новый","С пробегом","Конфискат лизинговой компании","Нужна помощь с подбором"].map(v=>`<label><input type="radio" name="cond" value="${v}" ${F.cond===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div><label class="f" for="adv">Первоначальный взнос<span class="star" aria-hidden="true">*</span></label><div class="rangeval" id="advV">${F.adv}%</div><input class="range" type="range" id="adv" min="0" max="50" step="5" value="${F.adv}"><div class="hint" id="advSum">${F.cost?"≈ "+rub(Math.round(+String(F.cost).replace(/\D/g,"")*F.adv/100)):"Не более 50% стоимости"}</div></div>
+    <div><label class="f" for="term">Срок лизинга, месяцев<span class="star" aria-hidden="true">*</span></label><select class="inp" id="term">${[12,18,24,36,48,60,72,84].map(v=>`<option ${+F.term===v?"selected":""}>${v}</option>`).join("")}</select></div>
+    <div class="full"><label class="f">График платежей<span class="star" aria-hidden="true">*</span></label><div class="radios">${["Равные","Убывающие","Сезонные"].map(v=>`<label><input type="radio" name="sched" value="${v}" ${F.sched===v?"checked":""}>${v}</label>`).join("")}</div></div>
+    <div class="full"><label class="f" for="comment">Комментарий <small>— необязательно</small></label><textarea class="inp" id="comment" rows="3" placeholder="Сроки поставки, обеспечение, особые условия">${esc(F.comment)}</textarea></div>
+    <div class="full"><label class="f" for="fileIn">Файлы <small>— необязательно: коммерческое предложение, спецификация, фото, реквизиты</small></label>
+      <label class="drop" id="drop" for="fileIn"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><span><b>Выберите файлы</b> или перетащите сюда<br><span class="muted" style="font-size:14px">Word, Excel, PDF, изображения. До ${FILE_N} файлов, каждый до 10 МБ</span></span></label>
+      <input type="file" id="fileIn" multiple accept="${FILE_EXT.map(x=>"."+x).join(",")}" class="hidden">
+      <ul class="files" id="fileList">${F.files.map((f,i)=>`<li><span class="nm">${esc(f.name)}</span><span class="sz">${fsize(f.size)}</span><button type="button" data-rm="${i}">Удалить</button></li>`).join("")}</ul>
+      <div class="hint bad hidden" id="fileErr"></div></div>
+   </div>`}
+  if(s===3){const act=COMPANIES.filter(c=>c.active);body=`<h2 style="font-size:24px">Кому отправить заявку<span class="star" aria-hidden="true">*</span></h2><p class="muted" style="margin-top:6px">Отметьте компании или отправьте всем — ${act.length} на площадке.</p>
+   <label class="co" style="margin-top:20px;max-width:360px"><input type="checkbox" id="allCos" ${F.all?"checked":""}><div><b>Всем компаниям</b><div class="m">${act.length} лизинговых компаний</div></div></label>
+   <div class="cos" style="margin-top:12px" id="cosList">${act.map(c=>`<label class="co"><input type="checkbox" value="${c.id}" ${F.all||F.cos.includes(c.id)?"checked":""}><div><b>${c.name}</b><div class="m">${c.region}</div></div></label>`).join("")}</div>`}
+  if(s===4){const n=F.all?COMPANIES.filter(c=>c.active).length:F.cos.length;body=`<h2 style="font-size:24px">Оплата подачи заявки</h2>
+   <div class="pay" style="margin-top:20px"><div>
+    <dl class="dl"><dt>Заявитель</dt><dd>${esc(F.innT||"—")}, ИНН ${esc(F.inn)}</dd><dt>Предмет</dt><dd>${esc(F.subject)}${F.item?", "+esc(F.item):""}</dd><dt>Стоимость</dt><dd>${F.cost?rub(+String(F.cost).replace(/\D/g,"")):"—"} ${F.vat}</dd><dt>Аванс и срок</dt><dd>${F.adv}%, ${F.term} мес., платежи: ${F.sched.toLowerCase()}</dd>${F.files.length?`<dt>Файлы</dt><dd>${F.files.map(f=>esc(f.name)).join(", ")}</dd>`:""}<dt>Получат заявку</dt><dd>${n} ${n===1?"компания":n<5?"компании":"компаний"}</dd></dl>
+    <label class="check"><input type="checkbox" id="ag1" ${F.agree1?"checked":""}><span>Принимаю условия <a href="#doc-offer" target="_blank">публичной оферты</a></span></label>
+    <label class="check"><input type="checkbox" id="ag2" ${F.agree2?"checked":""}><span>Даю <a href="#doc-consent" target="_blank">согласие</a> на обработку персональных данных и их передачу выбранным лизинговым компаниям. <a href="#doc-privacy" target="_blank">Политика</a></span></label>
+   </div><div class="sum"><div><span>Подача заявки</span><span>${rub(PRICE)}</span></div><div class="tot"><span>К оплате</span><span>${rub(PRICE)}</span></div>
+    <button class="btn btn-red" id="payBtn" style="width:100%;margin-top:16px" ${F.agree1&&F.agree2?"":"disabled"}>Оплатить ${rub(PRICE)}</button>
+    <p class="hint" style="text-align:center">Картой или через СБП, сервис ЮKassa. Чек придёт на почту.</p></div></div>`}
+  if(s===5){return `<section class="app"><div class="wrap"><div class="panel okbox"><div class="big"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Заявка № 1043 отправлена</h1><p class="sub">Оплата прошла, чек отправлен на почту. Компании получили заявку на почту и в кабинет. Когда менеджер её откроет, статус сменится на «Прочитано».</p><div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap"><a class="btn btn-blue" href="#client" id="toCab">Перейти в кабинет</a><button class="btn btn-line" id="again">Подать ещё одну</button></div></div></div></section>`}
+  return `<section class="app"><div class="wrap"><h1>Заявка на лизинг</h1><p class="sub">Заполнение займёт около пяти минут. Данные сохраняются, можно вернуться к прошлому шагу.</p>
+   <div class="wizard">${side}<div class="panel">${body}
+   <div class="wfoot">${s>1?'<button class="btn btn-line" id="back">Назад</button>':'<span></span>'}${s<4?'<button class="btn btn-blue" id="next">Дальше</button>':''}</div>
+   <p class="hint bad hidden" id="err" style="text-align:right"></p></div></div></div></section>`;
+}
+function bindApply(){
+  const s=F.step;
+  const err=t=>{const e=$("#err");e.textContent=t;e.classList.remove("hidden")};
+  if(s===1){
+    $("#inn").oninput=e=>{e.target.value=e.target.value.replace(/\D/g,"");F.inn=e.target.value;const ic=innCheck(F.inn);const h=$("#innHint");h.textContent=ic.msg||"Организация — 10 цифр, ИП или физическое лицо — 12";h.className="hint "+(ic.ok?"good":(F.inn.length>=10?"bad":""));e.target.classList.toggle("bad",F.inn.length>=10&&!ic.ok)};
+    ["contact","phone","email"].forEach(k=>$("#"+k).oninput=e=>F[k]=e.target.value);
+    document.querySelectorAll("#via .chip").forEach(b=>b.onclick=()=>{const v=b.dataset.v;F.via=F.via.includes(v)?F.via.filter(x=>x!==v):[...F.via,v];b.setAttribute("aria-pressed",F.via.includes(v))});
+  }
+  if(s===2){
+    document.querySelectorAll("#subj .chip").forEach(b=>b.onclick=()=>{F.subject=b.dataset.v;document.querySelectorAll("#subj .chip").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+    $("#item").oninput=e=>F.item=e.target.value;
+    $("#cost").oninput=e=>{const n=e.target.value.replace(/\D/g,"");e.target.value=n?(+n).toLocaleString("ru-RU"):"";F.cost=n;upd()};
+    const upd=()=>{$("#advV").textContent=F.adv+"%";$("#advSum").textContent=F.cost?"≈ "+rub(Math.round(+F.cost*F.adv/100)):"Не более 50% стоимости"};
+    $("#adv").oninput=e=>{F.adv=+e.target.value;upd()};
+    $("#term").onchange=e=>F.term=+e.target.value;
+    $("#comment").oninput=e=>F.comment=e.target.value;
+    const fe=$("#fileErr");
+    const showFiles=()=>{$("#fileList").innerHTML=F.files.map((f,i)=>`<li><span class="nm">${esc(f.name)}</span><span class="sz">${fsize(f.size)}</span><button type="button" data-rm="${i}">Удалить</button></li>`).join("");
+      document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{F.files.splice(+b.dataset.rm,1);fe.classList.add("hidden");showFiles()})};
+    const addFiles=list=>{const bad=[];for(const f of list){const ext=(f.name.split(".").pop()||"").toLowerCase();
+        if(F.files.length>=FILE_N){bad.push(`Можно приложить не больше ${FILE_N} файлов`);break}
+        if(!FILE_EXT.includes(ext)){bad.push(`${f.name}: такой формат не принимается`);continue}
+        if(f.size>FILE_MAX){bad.push(`${f.name}: больше 10 МБ`);continue}
+        F.files.push({name:f.name,size:f.size})}
+      fe.textContent=bad.join(". ");fe.classList.toggle("hidden",!bad.length);showFiles()};
+    $("#fileIn").onchange=e=>{addFiles([...e.target.files]);e.target.value=""};
+    const dr=$("#drop");dr.ondragover=e=>{e.preventDefault();dr.classList.add("on")};dr.ondragleave=()=>dr.classList.remove("on");
+    dr.ondrop=e=>{e.preventDefault();dr.classList.remove("on");addFiles([...e.dataTransfer.files])};
+    showFiles();
+    document.querySelectorAll("input[name=vat]").forEach(r=>r.onchange=()=>F.vat=r.value);
+    document.querySelectorAll("input[name=cond]").forEach(r=>r.onchange=()=>F.cond=r.value);
+    document.querySelectorAll("input[name=sched]").forEach(r=>r.onchange=()=>F.sched=r.value);
+  }
+  if(s===3){
+    $("#allCos").onchange=e=>{F.all=e.target.checked;document.querySelectorAll("#cosList input").forEach(i=>i.checked=F.all);F.cos=F.all?COMPANIES.filter(c=>c.active).map(c=>c.id):[]};
+    document.querySelectorAll("#cosList input").forEach(i=>i.onchange=()=>{F.cos=[...document.querySelectorAll("#cosList input:checked")].map(x=>+x.value);F.all=F.cos.length===COMPANIES.filter(c=>c.active).length;$("#allCos").checked=F.all});
+  }
+  if(s===4){
+    const upd=()=>{$("#payBtn").disabled=!(F.agree1&&F.agree2)};
+    $("#ag1").onchange=e=>{F.agree1=e.target.checked;upd()};$("#ag2").onchange=e=>{F.agree2=e.target.checked;upd()};
+    $("#payBtn").onclick=()=>{const b=$("#payBtn");b.disabled=true;b.textContent="Переходим к оплате…";setTimeout(()=>{
+      const ids=F.all?COMPANIES.filter(c=>c.active).map(c=>c.id):F.cos;const to={};ids.forEach(i=>to[i]="sent");
+      REQS.unshift({id:1043,date:"21.11.2026",inn:F.inn,type:F.innT,client:F.contact||"Новый клиент",contact:F.contact,phone:F.phone,subject:F.subject,item:F.item,cost:+F.cost||0,vat:F.vat,cond:F.cond,adv:F.adv,term:F.term,sched:F.sched,via:F.via,files:F.files.map(f=>f.name),paid:true,to});
+      MY_CLIENT_REQS.unshift(1043);PAYS.unshift({id:1043,date:"21.11.2026 21:00",who:F.contact||"Новый клиент",sum:PRICE,status:"Оплачено"});
+      F.step=5;render();},900)};
+  }
+  if(s===5){$("#again").onclick=()=>{F={...F,step:1,subject:"",item:"",cost:"",files:[],cos:[],all:false,agree1:false,agree2:false};render()};$("#toCab").onclick=()=>{ROLE="client";renderHeader()}}
+  const nx=$("#next"),bk=$("#back");
+  if(bk)bk.onclick=()=>{F.step--;render()};
+  if(nx)nx.onclick=()=>{
+    if(s===1){const ic=innCheck(F.inn);if(!ic.ok)return err("Укажите корректный ИНН");F.innT=ic.type;if(!F.contact.trim())return err("Укажите контактное лицо");if(F.phone.replace(/\D/g,"").length<10)return err("Укажите телефон");if(!/^\S+@\S+\.\S+$/.test(F.email.trim()))return err("Укажите электронную почту: на неё придёт код для входа и чек");if(!F.via.length)return err("Выберите хотя бы один способ связи")}
+    if(s===2){if(!F.subject)return err("Выберите, что берёте в лизинг");if(!F.item.trim())return err("Укажите модель или опишите предмет лизинга");if(!F.cost)return err("Укажите стоимость")}
+    if(s===3){if(!F.cos.length&&!F.all)return err("Выберите хотя бы одну компанию")}
+    F.step++;render();window.scrollTo({top:0});
+  };
+}
+
+/* ---- client cabinet ---- */
+function vClient(){
+  const mine=REQS.filter(r=>MY_CLIENT_REQS.includes(r.id));
+  return `<section class="app"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div><h1>Мои заявки</h1><p class="sub">Пётр Иванов, ООО «СтройМонтаж»</p></div><a class="btn btn-red" href="#apply">Новая заявка</a></div>
+  <div style="margin-top:26px">${mine.map(r=>{const ids=Object.keys(r.to);const read=ids.filter(i=>r.to[i]==="read").length;return `<article class="req"><div class="req-h"><div><h3>Заявка № ${r.id}: ${esc(r.subject)}${r.item?", "+esc(r.item):""}</h3><p class="muted" style="font-size:14px;margin-top:4px">${r.date}, ${rub(r.cost)} ${r.vat}, аванс ${r.adv}%, ${r.term} мес.</p></div><div><span class="pill ${read?"pill-read":"pill-grey"}">Прочитали ${read} из ${ids.length}</span></div></div>
+    <div class="req-b">${ids.map(i=>`<div class="row"><span>${coName(i)}</span>${STAT[r.to[i]]}</div>`).join("")}</div>
+    <div class="req-b" style="padding-top:0"><div class="empty" style="padding:16px 18px;font-size:15px">Предложения компаний с условиями и графиком платежей появятся здесь — это второй этап платформы.</div></div></article>`}).join("")||'<div class="empty">Заявок пока нет. <a href="#apply">Подайте первую</a> — это около пяти минут.</div>'}</div>
+  </div></section>`;
+}
+
+/* ---- manager cabinet ---- */
+let mgrOpen=null,mgrTab="in";
+function vManager(){
+  const inc=REQS.filter(r=>r.to[ME_COMPANY]);
+  const nNew=inc.filter(r=>r.to[ME_COMPANY]==="sent").length;
+  const team=USERS.filter(u=>u.company===ME_COMPANY);
+  let main="";
+  if(mgrTab==="in"){
+    const r=mgrOpen&&REQS.find(x=>x.id===mgrOpen);
+    main=`<div class="side"><div class="panel" style="padding:8px 0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>№</th><th>Дата</th><th>Заявитель</th><th>Предмет</th><th>Стоимость</th><th>Статус</th></tr></thead><tbody>
+    ${inc.map(x=>`<tr class="click" data-id="${x.id}"><td class="num">${x.id}</td><td class="num">${x.date}</td><td>${esc(x.client)}</td><td>${esc(x.subject)}</td><td class="num">${rub(x.cost)}</td><td>${x.to[ME_COMPANY]==="sent"?'<span class="pill pill-new">Новая</span>':STAT.read}</td></tr>`).join("")}</tbody></table></div></div>
+    <div class="panel">${r?`<h3>Заявка № ${r.id}</h3><p class="muted" style="font-size:14px;margin:4px 0 16px">${r.date}, оплачена</p>
+      <dl class="dl" style="grid-template-columns:130px 1fr"><dt>Заявитель</dt><dd>${esc(r.client)}<br><span class="muted">${r.type}, ИНН ${r.inn}</span></dd><dt>Предмет</dt><dd>${esc(r.subject)}${r.item?", "+esc(r.item):""}</dd><dt>Состояние</dt><dd>${r.cond}</dd><dt>Стоимость</dt><dd>${rub(r.cost)} ${r.vat}</dd><dt>Аванс</dt><dd>${r.adv}% (${rub(Math.round(r.cost*r.adv/100))})</dd><dt>Срок</dt><dd>${r.term} мес., ${r.sched.toLowerCase()}</dd><dt>Контакт</dt><dd>${esc(r.contact)}<br>${esc(r.phone)}</dd><dt>Связь</dt><dd>${r.via.join(", ")}</dd>${r.files&&r.files.length?`<dt>Файлы</dt><dd>${r.files.map(n=>`<a href="#manager" onclick="toast('Файл скачается после подключения сервера');return false">${esc(n)}</a>`).join("<br>")}</dd>`:""}</dl>
+      <button class="btn btn-blue" style="width:100%;margin-top:20px" disabled title="Второй этап">Отправить предложение</button><p class="hint" style="text-align:center">Ответ с условиями и графиком — второй этап платформы</p>`
+      :`<div class="empty">Выберите заявку в списке. Когда вы её откроете, клиент увидит статус «Прочитано».</div>`}</div></div>`;
+  } else {
+    main=`<div class="panel"><div class="toolbar" style="justify-content:space-between"><p class="muted" style="font-size:15px">Менеджеры входят по почте с доменом <b>@${coDomain(ME_COMPANY)}</b></p></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Сотрудник</th><th>Почта</th><th>Статус</th></tr></thead><tbody>${team.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.status==="Активен"?'<span class="pill pill-read">Активен</span>':'<span class="pill pill-wait">Ждёт подтверждения</span>'}</td></tr>`).join("")}</tbody></table></div></div>`;
+  }
+  return `<section class="app"><div class="wrap"><h1>Входящие заявки</h1><p class="sub">Лизинг-Центр. Ольга Белова, менеджер</p>
+  <div class="kpis"><div class="kpi"><b>${inc.length}</b><span>Всего заявок</span></div><div class="kpi"><b>${nNew}</b><span>Новых, не открыты</span></div><div class="kpi"><b>${team.length}</b><span>Менеджеров в компании</span></div><div class="kpi"><b>${rub(inc.reduce((s,x)=>s+x.cost,0)).replace(" ₽","")}</b><span>Сумма заявок, ₽</span></div></div>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="${mgrTab==="in"}" data-t="in">Заявки</button><button role="tab" aria-selected="${mgrTab==="team"}" data-t="team">Сотрудники компании</button></div>${main}</div></section>`;
+}
+const coDomain=id=>(COMPANIES.find(c=>c.id==id)||{}).domain;
+function bindManager(){
+  document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{mgrTab=b.dataset.t;render()});
+  document.querySelectorAll("tr.click").forEach(tr=>tr.onclick=()=>{mgrOpen=+tr.dataset.id;const r=REQS.find(x=>x.id===mgrOpen);if(r.to[ME_COMPANY]==="sent"){r.to[ME_COMPANY]="read";toast("Заявка открыта, клиент видит статус «Прочитано»")}render()});
+}
+
+/* ---- admin ---- */
+let admTab="reqs",admF={q:"",subj:"",paid:""};
+function vAdmin(){
+  let main="";
+  if(admTab==="reqs"){
+    const list=REQS.filter(r=>(!admF.subj||r.subject===admF.subj)&&(!admF.paid||(admF.paid==="y")===r.paid)&&(!admF.q||(r.client+r.inn+r.id).toLowerCase().includes(admF.q.toLowerCase())));
+    main=`<div class="panel"><div class="toolbar"><input class="inp" id="fq" placeholder="Поиск: клиент, ИНН, номер" value="${esc(admF.q)}" style="min-width:240px"><select class="inp" id="fs"><option value="">Все предметы</option>${SUBJ.map(s=>`<option ${admF.subj===s?"selected":""}>${s}</option>`).join("")}</select><select class="inp" id="fp"><option value="">Любая оплата</option><option value="y" ${admF.paid==="y"?"selected":""}>Оплачена</option><option value="n" ${admF.paid==="n"?"selected":""}>Не оплачена</option></select></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>№</th><th>Дата</th><th>Заявитель</th><th>ИНН</th><th>Предмет</th><th>Стоимость</th><th>Компаний</th><th>Прочитали</th><th>Оплата</th></tr></thead><tbody>
+    ${list.map(r=>{const ids=Object.keys(r.to);return `<tr><td class="num">${r.id}</td><td class="num">${r.date}</td><td>${esc(r.client)}<br><span class="muted" style="font-size:14px">${r.type}</span></td><td class="num">${r.inn}</td><td>${r.subject}</td><td class="num">${rub(r.cost)}</td><td class="num">${ids.length}</td><td class="num">${ids.filter(i=>r.to[i]==="read").length}</td><td>${r.paid?'<span class="pill pill-read">Оплачена</span>':'<span class="pill pill-wait">Не оплачена</span>'}</td></tr>`}).join("")||'<tr><td colspan="9" class="muted">Ничего не найдено. Измените фильтры.</td></tr>'}</tbody></table></div></div>`;
+  }
+  if(admTab==="cos"){
+    main=`<div class="side"><div class="panel" style="padding:8px 0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Компания</th><th>Домен почты</th><th>Регион</th><th>Менеджеров</th><th>На площадке</th></tr></thead><tbody>${COMPANIES.map(c=>`<tr><td><b>${c.name}</b></td><td>@${c.domain}</td><td>${c.region}</td><td class="num">${USERS.filter(u=>u.company===c.id).length||c.managers}</td><td><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" data-co="${c.id}" ${c.active?"checked":""} style="accent-color:var(--blue)">${c.active?"Активна":"Скрыта"}</label></td></tr>`).join("")}</tbody></table></div></div>
+    <div class="panel"><h3>Добавить компанию</h3><div style="display:grid;gap:14px;margin-top:16px"><div><label class="f" for="cn">Название</label><input class="inp" id="cn"></div><div><label class="f" for="cd">Корпоративный домен почты</label><input class="inp" id="cd" placeholder="company.ru"><div class="hint">Менеджеры смогут зарегистрироваться только с почтой на этом домене</div></div><div><label class="f" for="cr">Регион</label><input class="inp" id="cr"></div><button class="btn btn-blue" id="addCo">Добавить компанию</button></div></div></div>`;
+  }
+  if(admTab==="users"){
+    main=`<div class="side"><div class="panel" style="padding:8px 0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Пользователь</th><th>Роль</th><th>Компания</th><th>Статус</th><th></th></tr></thead><tbody>${USERS.map((u,i)=>`<tr><td>${u.name}<br><span class="muted" style="font-size:14px">${u.email}</span></td><td>${u.role}</td><td>${u.company?coName(u.company):"—"}</td><td>${u.status==="Активен"?'<span class="pill pill-read">Активен</span>':'<span class="pill pill-wait">Ждёт подтверждения</span>'}</td><td>${u.status!=="Активен"?`<button class="btn btn-line btn-sm" data-ok="${i}">Подтвердить</button>`:""}</td></tr>`).join("")}</tbody></table></div></div>
+    <div class="panel"><h3>Зарегистрировать пользователя</h3><div style="display:grid;gap:14px;margin-top:16px">
+      <div><label class="f">Роль</label><div class="radios" id="ur"><label><input type="radio" name="ur" value="Менеджер" checked>Менеджер компании</label><label><input type="radio" name="ur" value="Клиент">Клиент</label></div></div>
+      <div id="ucW"><label class="f" for="uc">Компания</label><select class="inp" id="uc">${COMPANIES.map(c=>`<option value="${c.id}">${c.name}</option>`).join("")}</select></div>
+      <div><label class="f" for="un">Имя</label><input class="inp" id="un"></div>
+      <div><label class="f" for="ue">Почта</label><input class="inp" id="ue" type="email"><div class="hint" id="ueH">Администратор может указать любую почту. Корпоративная компании: @${COMPANIES[0].domain}</div></div>
+      <label class="check" style="margin-top:0"><input type="checkbox" checked>Отправить приглашение со ссылкой для входа</label>
+      <button class="btn btn-blue" id="addU">Зарегистрировать</button></div></div></div>`;
+  }
+  if(admTab==="pays"){
+    main=`<div class="panel" style="padding:8px 0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Заявка</th><th>Дата</th><th>Плательщик</th><th>Сумма</th><th>Статус</th><th></th></tr></thead><tbody>${PAYS.map((p,i)=>`<tr><td class="num">№ ${p.id}</td><td class="num">${p.date}</td><td>${esc(p.who)}</td><td class="num">${rub(p.sum)}</td><td>${p.status==="Оплачено"?'<span class="pill pill-read">Оплачено</span>':'<span class="pill pill-grey">Возвращено</span>'}</td><td>${p.status==="Оплачено"?`<button class="btn btn-line btn-sm" data-ref="${i}">Вернуть</button>`:""}</td></tr>`).join("")}</tbody></table></div></div>`;
+  }
+  if(admTab==="set"){
+    main=`<div class="panel" style="max-width:560px"><h3>Стоимость подачи заявки</h3><p class="muted" style="font-size:15px;margin-top:6px">Новая цена действует для заявок, оплаченных после сохранения.</p><div style="display:flex;gap:10px;margin-top:16px;align-items:end"><div style="flex:1"><label class="f" for="pr">Цена, ₽</label><input class="inp" id="pr" inputmode="numeric" value="${PRICE}"></div><button class="btn btn-blue" id="savePr">Сохранить цену</button></div>
+    <h3 style="margin-top:32px">Хранение данных</h3><p class="muted" style="font-size:15px;margin-top:6px">Заявки старше срока обезличиваются автоматически, как указано в политике обработки персональных данных.</p><div style="margin-top:14px"><label class="f" for="ret">Срок хранения заявок</label><select class="inp" id="ret"><option>1 год</option><option selected>3 года</option><option>5 лет</option></select></div></div>`;
+  }
+  const paidSum=PAYS.filter(p=>p.status==="Оплачено").reduce((s,p)=>s+p.sum,0);
+  return `<section class="app"><div class="wrap"><h1>Администрирование</h1><p class="sub">Единая лизинговая площадка</p>
+  <div class="kpis k5"><div class="kpi"><b>${REQS.length}</b><span>Заявок</span></div><div class="kpi"><b>${USERS.filter(u=>u.role==="Клиент").length}</b><span>Клиентов зарегистрировано</span></div><div class="kpi"><b>${COMPANIES.filter(c=>c.active).length}</b><span>Активных компаний</span></div><div class="kpi"><b>${USERS.filter(u=>u.status!=="Активен").length}</b><span>Ждут подтверждения</span></div><div class="kpi"><b>${paidSum.toLocaleString("ru-RU")}</b><span>Оплачено подач, ₽</span></div></div>
+  <div class="tabs" role="tablist">${[["reqs","Заявки"],["cos","Лизинговые компании"],["users","Пользователи"],["pays","Платежи"],["set","Настройки"]].map(([k,n])=>`<button role="tab" aria-selected="${admTab===k}" data-t="${k}">${n}</button>`).join("")}</div>${main}</div></section>`;
+}
+function bindAdmin(){
+  document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{admTab=b.dataset.t;render()});
+  if(admTab==="reqs"){$("#fq").oninput=e=>{admF.q=e.target.value;const p=e.target.selectionStart;render();const i=$("#fq");i.focus();i.setSelectionRange(p,p)};$("#fs").onchange=e=>{admF.subj=e.target.value;render()};$("#fp").onchange=e=>{admF.paid=e.target.value;render()}}
+  if(admTab==="cos"){document.querySelectorAll("[data-co]").forEach(c=>c.onchange=()=>{COMPANIES.find(x=>x.id==c.dataset.co).active=c.checked;render()});
+    $("#addCo").onclick=()=>{const n=$("#cn").value.trim(),d=$("#cd").value.trim().replace(/^@/,"");if(!n||!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d))return toast("Укажите название и домен, например company.ru");COMPANIES.push({id:COMPANIES.length+1,name:n,domain:d,region:$("#cr").value||"—",managers:0,active:true});toast("Компания добавлена");render()}}
+  if(admTab==="users"){
+    const sync=()=>{const m=$("input[name=ur]:checked").value==="Менеджер";$("#ucW").classList.toggle("hidden",!m);$("#ueH").className="hint";$("#ueH").textContent=m?"Администратор может указать любую почту. Корпоративная компании: @"+coDomain($("#uc").value):"Клиенту придёт приглашение на эту почту"};
+    document.querySelectorAll("input[name=ur]").forEach(r=>r.onchange=sync);$("#uc").onchange=sync;
+    document.querySelectorAll("[data-ok]").forEach(b=>b.onclick=()=>{USERS[b.dataset.ok].status="Активен";toast("Пользователь подтверждён");render()});
+    $("#addU").onclick=()=>{const m=$("input[name=ur]:checked").value==="Менеджер",n=$("#un").value.trim(),e=$("#ue").value.trim(),c=+$("#uc").value;
+      if(!n||!/^\S+@\S+\.\S+$/.test(e))return toast("Укажите имя и почту");
+      USERS.push({name:n,email:e,role:m?"Менеджер":"Клиент",company:m?c:null,status:"Активен"});toast("Пользователь зарегистрирован, приглашение отправлено");render()}}
+  if(admTab==="pays"){document.querySelectorAll("[data-ref]").forEach(b=>b.onclick=()=>{PAYS[b.dataset.ref].status="Возвращено";toast("Возврат оформлен через ЮKassa");render()})}
+  if(admTab==="set"){$("#savePr").onclick=()=>{const v=+$("#pr").value.replace(/\D/g,"");if(!v)return toast("Укажите цену");PRICE=v;toast("Цена подачи сохранена: "+rub(v));render()}}
+}
+
+/* ---- auth ---- */
+let LOGIN={step:1,email:""};
+function vLogin(){const s=LOGIN.step;return `<section class="app"><div class="wrap"><div class="auth"><div class="panel"><h1 style="font-size:30px">Вход в кабинет</h1>
+  ${s===1?`<p class="sub">Без пароля: пришлём код на почту. Для клиентов, менеджеров лизинговых компаний и администратора.</p>
+  <div style="display:grid;gap:14px;margin-top:22px"><div><label class="f" for="le">Электронная почта</label><input class="inp" id="le" type="email" autocomplete="email" placeholder="name@company.ru" value="${esc(LOGIN.email)}"></div><button class="btn btn-blue" id="lb">Получить код</button>
+  <p class="hint" style="text-align:center">Нет кабинета? <a href="#register">Зарегистрируйтесь как клиент</a>. Менеджерам лизинговых компаний — <a href="#register-company">отдельная регистрация</a>.</p></div>`
+  :`<p class="sub">Отправили код на ${esc(LOGIN.email)}. Введите его — код действует 10 минут.</p>
+  <div style="display:grid;gap:14px;margin-top:22px"><div class="codebox" id="code">${[0,1,2,3].map(i=>`<input class="inp" inputmode="numeric" maxlength="1" aria-label="Цифра ${i+1}">`).join("")}</div><button class="btn btn-blue" id="lc">Войти</button>
+  <p class="hint"><button class="link" id="lr">Изменить почту</button></p></div>`}</div></div></div></section>`}
+function codeInputs(){const ins=[...document.querySelectorAll("#code input")];ins.forEach((x,i)=>{x.oninput=()=>{x.value=x.value.replace(/\D/g,"").slice(0,1);if(x.value&&ins[i+1])ins[i+1].focus()};x.onkeydown=e=>{if(e.key==="Backspace"&&!x.value&&ins[i-1])ins[i-1].focus()}});if(ins[0])ins[0].focus();return ()=>ins.map(x=>x.value).join("")}
+function bindLogin(){
+  if(LOGIN.step===1){$("#lb").onclick=()=>{const e=$("#le").value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e))return toast("Укажите электронную почту");LOGIN={step:2,email:e};render();toast("Код отправлен на почту")};return}
+  const get=codeInputs();$("#lr").onclick=()=>{LOGIN.step=1;render()};
+  $("#lc").onclick=()=>{if(get().length<4)return toast("Введите четыре цифры из письма");const e=LOGIN.email;const m=COMPANIES.find(c=>e.endsWith("@"+c.domain))||USERS.find(u=>u.email===e&&u.role==="Менеджер");ROLE=e.startsWith("admin")?"admin":m?"manager":"client";LOGIN={step:1,email:""};renderHeader();location.hash={admin:"#admin",manager:"#manager",client:"#client"}[ROLE];toast("Вход выполнен")}}
+function vRegCo(){return `<section class="app"><div class="wrap"><div class="auth" style="max-width:640px"><div class="panel"><h1 style="font-size:30px">Регистрация менеджера лизинговой компании</h1><p class="sub">Вход только по корпоративной почте компании. После регистрации доступ подтверждает администратор площадки.</p>
+  <div class="grid2" style="margin-top:22px"><div class="full"><label class="f" for="rc">Компания</label><select class="inp" id="rc">${COMPANIES.filter(c=>c.active).map(c=>`<option value="${c.id}">${c.name}</option>`).join("")}<option value="0">Моей компании нет в списке</option></select></div>
+  <div><label class="f" for="rn">Имя и фамилия</label><input class="inp" id="rn"></div><div><label class="f" for="rp">Телефон</label><input class="inp" id="rp" inputmode="tel"></div>
+  <div class="full"><label class="f" for="re">Корпоративная почта</label><input class="inp" id="re" type="email"><div class="hint" id="reH">Почта на домене @${COMPANIES[0].domain}</div></div>
+  <div class="full"><label class="check" style="margin-top:0"><input type="checkbox" id="rag"><span>Принимаю <a href="#doc-companies">условия для лизинговых компаний</a> и даю <a href="#doc-consent">согласие</a> на обработку персональных данных</span></label></div>
+  <div class="full"><button class="btn btn-blue" id="rb">Отправить на подтверждение</button></div></div></div></div></div></section>`}
+function bindRegCo(){const H=$("#reH");const s=()=>{const id=+$("#rc").value;H.className="hint";H.textContent=id?"Почта на домене @"+coDomain(id):"Укажите почту — администратор свяжется и добавит компанию"};$("#rc").onchange=s;
+  $("#rb").onclick=()=>{const id=+$("#rc").value,e=$("#re").value.trim().toLowerCase();if(!$("#rn").value.trim())return toast("Укажите имя");if(id&&!e.endsWith("@"+coDomain(id))){H.className="hint bad";H.textContent="Нужна почта на домене @"+coDomain(id)+". Личные адреса не принимаются.";return}if(!$("#rag").checked)return toast("Подтвердите согласие с условиями");
+  USERS.push({name:$("#rn").value.trim(),email:e,role:"Менеджер",company:id||null,status:"Ждёт подтверждения"});$("#view").innerHTML=`<section class="app"><div class="wrap"><div class="panel okbox"><div class="big"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h1>Заявка на доступ отправлена</h1><p class="sub">Администратор проверит данные и подтвердит доступ. После подтверждения входите по коду, который придёт на ${esc(e)}.</p></div></div></section>`}}
+function vDoc(k){const d=DOCS[k];if(!d)return `<section class="app"><div class="wrap"><div class="panel"><h1>Документ не найден</h1><p class="sub"><a href="#home">Вернуться на главную</a></p></div></div></section>`;
+  return `<section class="app"><div class="wrap"><article class="panel doc"><h1>${d.title}</h1><p class="sub">${d.lead}</p><span class="pill pill-wait draft">Проект, редакция от 23.11.2026</span>${d.sections.map(([t,ps])=>(t?`<h2>${t}</h2>`:"")+ps.map(p=>`<p>${esc(p)}</p>`).join("")).join("")}</article></div></section>`}
+function vReg(){return `<section class="app"><div class="wrap"><div class="auth" style="max-width:640px"><div class="panel"><h1 style="font-size:30px">Регистрация клиента</h1><p class="sub">Кабинет нужен, чтобы видеть свои заявки и статусы по каждой лизинговой компании.</p>
+  <div class="grid2" style="margin-top:22px"><div><label class="f" for="gn">Имя и фамилия</label><input class="inp" id="gn" autocomplete="name"></div><div><label class="f" for="gp">Телефон</label><input class="inp" id="gp" inputmode="tel" placeholder="+7" autocomplete="tel"></div>
+  <div class="full"><label class="f" for="ge">Электронная почта</label><input class="inp" id="ge" type="email" autocomplete="email"><div class="hint">Пароль не нужен: для входа пришлём код на эту почту. Сюда же придут чеки.</div></div>
+  <div class="full"><label class="check" style="margin-top:0"><input type="checkbox" id="gag"><span>Даю <a href="#doc-consent">согласие</a> на обработку персональных данных. <a href="#doc-privacy">Политика</a></span></label></div>
+  <div class="full"><button class="btn btn-blue" id="gb">Зарегистрироваться</button></div></div></div></div></div></section>`}
+function bindReg(){$("#gb").onclick=()=>{if(!$("#gn").value.trim())return toast("Укажите имя");if(!/^\S+@\S+\.\S+$/.test($("#ge").value.trim()))return toast("Укажите электронную почту");if(!$("#gag").checked)return toast("Отметьте согласие на обработку данных");
+  F.contact=$("#gn").value.trim();F.phone=$("#gp").value;F.email=$("#ge").value.trim();
+  $("#view").innerHTML=`<section class="app"><div class="wrap"><div class="auth"><div class="panel"><h1 style="font-size:30px">Подтвердите почту</h1><p class="sub">Отправили код на ${esc(F.email)}. Введите его, чтобы открыть кабинет.</p><div style="display:grid;gap:14px;margin-top:22px"><div class="codebox" id="code">${[0,1,2,3].map(i=>`<input class="inp" inputmode="numeric" maxlength="1" aria-label="Цифра ${i+1}">`).join("")}</div><button class="btn btn-blue" id="gc">Подтвердить</button></div></div></div></div></section>`;
+  const get=codeInputs();$("#gc").onclick=()=>{if(get().length<4)return toast("Введите четыре цифры из письма");USERS.push({name:F.contact,email:F.email,role:"Клиент",company:null,status:"Активен"});ROLE="client";renderHeader();location.hash="#client";toast("Кабинет создан")}}}
+
+/* ---------- router ---------- */
+function render(){
+  const path=(location.hash||"#home").slice(1);
+  const v=$("#view");
+  if(path!=="login")LOGIN.step=1;
+  if(["login","register","register-company"].includes(path)&&ROLE!=="guest"){ROLE="guest";renderHeader()}
+  const need={client:"client",manager:"manager",admin:"admin"}[path];
+  if(need&&ROLE!==need){ROLE=need;renderHeader()}
+  if(path==="apply"){v.innerHTML=vApply();bindApply()}
+  else if(path==="client"){v.innerHTML=vClient()}
+  else if(path==="manager"){v.innerHTML=vManager();bindManager()}
+  else if(path==="admin"){v.innerHTML=vAdmin();bindAdmin()}
+  else if(path==="login"){v.innerHTML=vLogin();bindLogin()}
+  else if(path==="register-company"){v.innerHTML=vRegCo();bindRegCo()}
+  else if(path==="register"){v.innerHTML=vReg();bindReg()}
+  else if(path.startsWith("doc-")){v.innerHTML=vDoc(path.slice(4))}
+  else{
+    if(!document.getElementById("subjects")){v.innerHTML=vHome();document.querySelectorAll(".subj").forEach(b=>b.onclick=()=>{F.subject=b.dataset.subj;F.step=1;location.hash="#apply"})}
+    const t=path!=="home"&&document.getElementById(path);if(t)setTimeout(()=>t.scrollIntoView(),0);
+  }
+  const home=!["apply","client","manager","admin","login","register","register-company"].includes(path)&&!path.startsWith("doc-");
+  document.getElementById("mainNav").style.visibility=home?"visible":"hidden";
+}
+const VIEWS=["apply","client","manager","admin","login","register","register-company"];
+window.addEventListener("hashchange",()=>{const p=location.hash.slice(1);if(VIEWS.includes(p)||p.startsWith("doc-")||p==="home")window.scrollTo({top:0});render()});
+renderHeader();render();
+</script>
+</body>
+</html>

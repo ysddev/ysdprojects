@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1950">
+<title>Татьяна Морозова — сайт целиком</title>
+<meta name="robots" content="noindex">
+<style>
+
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url(../fonts/cormorant-garamond-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url(../fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url(../fonts/cormorant-garamond-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url(../fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url(../fonts/cormorant-garamond-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url(../fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url(../fonts/cormorant-garamond-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url(../fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:400;src:url(../fonts/manrope-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:400;src:url(../fonts/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:500;src:url(../fonts/manrope-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:500;src:url(../fonts/manrope-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+@font-face{font-family:"Manrope";font-weight:600;src:url(../fonts/manrope-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-weight:600;src:url(../fonts/manrope-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2116}
+
+
+:root{
+  --graphite:#1A1A1A; --gold:#D4AF37; --ivory:#F8F4E9; --night:#121211; --night-2:#191918;
+  --line:rgba(212,175,55,.32); --line-soft:rgba(248,244,233,.12);
+  --ivory-70:rgba(248,244,233,.72); --ivory-50:rgba(248,244,233,.52);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E4E2DD;font-family:var(--sans);width:1950px;padding:80px 60px 120px;display:flex;gap:60px;align-items:flex-start;-webkit-font-smoothing:antialiased}
+.frame-label{font:500 13px/16px var(--sans);color:#7A7872;margin:0 0 12px}
+.page{background:var(--night);color:var(--ivory);position:relative;overflow:hidden}
+.photo{background-color:#2A2926;background-size:cover;background-position:center}
+.abs{position:absolute;inset:0}
+
+.eyebrow{display:flex;align-items:center;gap:16px;font:600 12px/16px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ivory)}
+.eyebrow::before{content:"";width:48px;height:1px;background:var(--gold)}
+.brand{display:flex;flex-direction:column;gap:7px}
+.logo{font:600 20px/24px var(--serif);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;color:var(--ivory)}
+.brand-sub{font:600 10px/12px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-70)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 32px;font:500 15px/20px var(--sans);letter-spacing:.02em;white-space:nowrap;background:var(--ivory);color:var(--graphite)}
+.btn-out{background:transparent;color:var(--ivory);border:1px solid rgba(248,244,233,.5)}
+.link{display:inline-flex;align-items:center;gap:10px;font:500 15px/20px var(--sans);padding-bottom:6px;border-bottom:1px solid var(--gold);white-space:nowrap;color:var(--ivory)}
+.roman{font:500 28px/1 var(--serif);color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+h1 em,h2 em{font-style:normal;color:var(--gold)}
+.lead{font:400 18px/30px var(--sans);color:var(--ivory-70)}
+
+/* ===== desktop ===== */
+.d{width:1440px}
+.wrap{padding:0 120px;position:relative}
+.d-nav{height:110px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line-soft)}
+.d-nav .menu{display:flex;gap:32px;font:500 14px/20px var(--sans);color:var(--ivory-70)}
+.d-nav .right{justify-self:end;display:flex;gap:32px;align-items:center;font:500 14px/20px var(--sans)}
+.d-nav .brand{align-items:center}
+
+.hero{position:relative;height:900px}
+.hero .ph{position:absolute;left:560px;right:0;top:0;bottom:0}
+.hero .sh1{position:absolute;inset:0;background:linear-gradient(90deg,#121211 0%,#121211 39%,rgba(18,18,17,.55) 56%,rgba(18,18,17,.08) 78%,rgba(18,18,17,.25) 100%)}
+.hero .sh2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,17,.35) 0%,rgba(18,18,17,0) 22%,rgba(18,18,17,0) 66%,#121211 90%)}
+.hero .frame-line{position:absolute;inset:28px 28px 0;border:1px solid var(--line);border-bottom:0}
+.hero-body{position:relative;display:flex;flex-direction:column;gap:28px;padding-top:96px;width:720px}
+.hero h1{font-size:84px;line-height:84px;max-width:680px}
+.hero .lead{max-width:560px}
+.cta{display:flex;align-items:center;gap:40px;margin-top:10px}
+.aud{position:absolute;left:120px;right:120px;bottom:40px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.aud-item{display:flex;gap:24px;padding:30px 48px 0 0}
+.aud-item+.aud-item{padding-left:48px;border-left:1px solid var(--line)}
+.aud-item>div{flex:1}
+.aud-item b{display:flex;justify-content:space-between;align-items:baseline;font:500 26px/30px var(--serif);margin-bottom:8px}
+.aud-item b small{font:500 13px/16px var(--sans);border-bottom:1px solid var(--gold);padding-bottom:3px}
+.aud-item p{font:400 14px/22px var(--sans);color:var(--ivory-50)}
+
+.sec{padding-top:140px}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;padding-bottom:56px}
+.sec-head h2{font-size:60px;line-height:64px}
+.sec-head p{font:400 17px/28px var(--sans);color:var(--ivory-70);max-width:480px;justify-self:end}
+
+.approach{display:grid;grid-template-columns:560px 1fr;gap:80px;align-items:stretch}
+.approach .ph{height:640px;position:relative}
+.approach .ph .off{position:absolute;left:24px;top:-24px;right:-24px;bottom:24px;border:1px solid var(--gold)}
+.approach .ph .img{position:absolute;inset:0}
+.principles{display:flex;flex-direction:column}
+.pr{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:36px 0;border-top:1px solid var(--line-soft)}
+.pr:first-child{border-top:0;padding-top:0}
+.pr h3{font-size:32px;line-height:38px;margin-bottom:10px}
+.pr p{font:400 16px/26px var(--sans);color:var(--ivory-70)}
+.quote{margin-top:16px;padding:36px 0 0;border-top:1px solid var(--line);font:500 40px/46px var(--serif);color:var(--ivory)}
+.quote em{font-style:normal;color:var(--gold)}
+
+.list{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:56px 300px 1fr 280px 110px;gap:28px;padding:34px 0;border-bottom:1px solid var(--line-soft);align-items:start}
+.row h3{font-size:28px;line-height:32px}
+.row .tag{display:block;margin-top:8px;font:600 11px/14px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-50)}
+.row .col b{display:block;font:600 11px/14px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.row .col p{font:400 15px/24px var(--sans);color:var(--ivory-70)}
+.row .go{justify-self:end;font:500 14px/20px var(--sans);border-bottom:1px solid var(--gold);padding-bottom:4px;white-space:nowrap;margin-top:6px}
+
+.band{height:360px;margin-top:140px;position:relative}
+.band .sh{position:absolute;inset:0;background:linear-gradient(180deg,#121211 0%,rgba(18,18,17,.2) 30%,rgba(18,18,17,.2) 70%,#121211 100%)}
+.band .q{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:500 52px/58px var(--serif)}
+.band .q em{font-style:normal;color:var(--gold)}
+
+.about{display:grid;grid-template-columns:480px 1fr;gap:100px;align-items:center}
+.portrait{height:600px;position:relative}
+.portrait .off{position:absolute;left:24px;top:-24px;right:-24px;bottom:24px;border:1px solid var(--gold)}
+.portrait .img{position:absolute;inset:0;background:linear-gradient(180deg,#222220,#1B1B1A);display:flex;align-items:flex-end;justify-content:center;padding-bottom:36px}
+.portrait .img span{font:600 11px/14px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ivory-50)}
+.about h2{font-size:60px;line-height:64px;margin:24px 0 8px}
+.about .role{font:600 12px/16px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:32px}
+.about p{font:400 18px/30px var(--sans);color:var(--ivory-70);max-width:560px}
+.about p+p{margin-top:18px}
+
+.contact{position:relative;margin-top:140px;height:720px}
+.contact .ph{position:absolute;inset:0}
+.contact .sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,18,17,.78) 0%,rgba(18,18,17,.88) 50%,#121211 62%),linear-gradient(180deg,#121211 0%,rgba(18,18,17,0) 20%)}
+.contact .inner{position:relative;display:grid;grid-template-columns:1fr 520px;gap:80px;padding:120px 120px 0}
+.contact h2{font-size:64px;line-height:66px;margin:24px 0 24px}
+.contact .phone{display:block;font:500 34px/40px var(--serif);margin-top:36px}
+.contact .phone small{display:block;font:600 11px/14px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-50);margin-bottom:10px}
+.form{display:flex;flex-direction:column;gap:18px;background:rgba(18,18,17,.82);border:1px solid var(--line);padding:40px}
+.form h3{font-size:30px;line-height:34px;margin-bottom:6px}
+.field{height:56px;border:1px solid rgba(248,244,233,.22);display:flex;align-items:center;padding:0 18px;font:400 15px/20px var(--sans);color:var(--ivory-50)}
+.field.area{height:100px;align-items:flex-start;padding-top:18px}
+.check{display:flex;gap:12px;align-items:flex-start;font:400 13px/20px var(--sans);color:var(--ivory-50)}
+.check i{flex:none;width:18px;height:18px;border:1px solid var(--gold);margin-top:1px;position:relative}
+.check i::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--gold);border-width:0 1px 1px 0;transform:rotate(45deg)}
+.check u{text-decoration:none;border-bottom:1px solid var(--line)}
+.form .btn{width:100%;margin-top:6px}
+
+.foot{border-top:1px solid var(--line-soft);margin-top:0;padding:48px 120px 56px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font:400 13px/20px var(--sans);color:var(--ivory-50)}
+.foot .brand{align-items:center}
+.foot .r{justify-self:end;text-align:right}
+
+/* ===== mobile ===== */
+.m{width:390px}
+.m .wrap{padding:0 20px}
+.m-nav{height:72px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line-soft)}
+.m .logo{font-size:15px;letter-spacing:.2em}
+.burger{width:28px;display:flex;flex-direction:column;gap:7px}
+.burger i{display:block;height:1px;background:var(--ivory)}
+.m-hero{position:relative;height:844px}
+.m-hero .ph{position:absolute;left:0;right:0;top:0;height:380px}
+.m-hero .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,17,.45) 0%,rgba(18,18,17,.1) 22%,rgba(18,18,17,.6) 36%,#121211 46%)}
+.m-hero .body{position:relative;display:flex;flex-direction:column;gap:22px;padding:300px 20px 0}
+.m h1{font-size:46px;line-height:46px}
+.m .lead{font-size:16px;line-height:26px}
+.m .btn{width:100%}
+.m .sec{padding-top:96px}
+.m h2{font-size:38px;line-height:42px;margin:18px 0 16px}
+.m .intro{font:400 16px/26px var(--sans);color:var(--ivory-70)}
+.m .ph-box{height:240px;margin:36px 14px 14px 0;position:relative}
+.m .ph-box .off{position:absolute;left:14px;top:-14px;right:-14px;bottom:14px;border:1px solid var(--gold)}
+.m .ph-box .img{position:absolute;inset:0}
+.m .pr{grid-template-columns:44px 1fr;gap:12px;padding:26px 0}
+.m .pr h3{font-size:26px;line-height:30px}
+.m .pr p{font-size:15px;line-height:24px}
+.m .list{margin-top:32px}
+.m-row{padding:26px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:44px 1fr;gap:12px}
+.m-row h3{font-size:24px;line-height:28px}
+.m-row .tag{display:block;margin-top:6px;font:600 10px/13px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-50)}
+.m-row p{font:400 15px/24px var(--sans);color:var(--ivory-70);margin-top:12px}
+.m-row p b{font-weight:600;color:var(--ivory)}
+.m-row .go{display:inline-block;margin-top:14px;font:500 14px/20px var(--sans);border-bottom:1px solid var(--gold);padding-bottom:4px}
+.m .more{display:block;text-align:center;margin-top:26px;font:500 14px/20px var(--sans);color:var(--ivory-70)}
+.m .portrait{height:420px;margin:0 14px 0 0}
+.m .portrait .off{left:14px;top:-14px;right:-14px;bottom:14px}
+.m .about p{font-size:16px;line-height:26px}
+.m .form{padding:24px 20px;margin-top:32px}
+.m .phone{display:block;font:500 28px/34px var(--serif);margin-top:28px}
+.m .phone small{display:block;font:600 10px/13px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-50);margin-bottom:8px}
+.m-foot{margin-top:72px;border-top:1px solid var(--line-soft);padding:36px 20px 44px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;font:400 13px/20px var(--sans);color:var(--ivory-50)}
+.m-foot .brand{align-items:center}
+</style>
+</head>
+<body>
+
+<div>
+<div class="frame-label">Сайт целиком · компьютер · 1440</div>
+<div class="page d" id="d">
+
+  <!-- 1. Первый экран -->
+  <div class="hero">
+    <div class="ph photo" style="background-image:url(../img/tm-blade-dark.webp)"></div>
+    <div class="sh1"></div><div class="sh2"></div>
+    <div class="frame-line"></div>
+    <div class="wrap">
+      <div class="d-nav">
+        <nav class="menu"><span>Частным клиентам</span><span>Компаниям</span><span>Подход</span><span>Обо мне</span></nav>
+        <div class="brand"><div class="logo">Татьяна Морозова</div><div class="brand-sub">ИНТУИТ</div></div>
+        <div class="right"><span>+7 981 911-31-10</span><span class="link">Записаться</span></div>
+      </div>
+      <div class="hero-body">
+        <div class="eyebrow">Антикризисное управление и личный аудит</div>
+        <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
+        <p class="lead">Без утешений и «волшебных таблеток». Вскрываю паттерны, которые стоят вам денег, времени и нервов, и перевожу их в протокол действий.</p>
+        <div class="cta"><span class="btn">Записаться на сессию</span><span class="link">Форматы работы <span>→</span></span></div>
+      </div>
+    </div>
+    <div class="aud">
+      <div class="aud-item"><span class="roman">I</span><div><b>Частным клиентам <small>7 форматов →</small></b><p>Экстренная сессия, аудит «Слепые зоны», подготовка к сложным переговорам</p></div></div>
+      <div class="aud-item"><span class="roman">II</span><div><b>Компаниям <small>7 форматов →</small></b><p>Аудит HR-процессов, медиация конфликтов, выход собственника из операционки</p></div></div>
+    </div>
+  </div>
+
+  <!-- 2. Подход -->
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div><div class="eyebrow">Подход</div><h2 style="margin-top:24px">Работаю с&nbsp;причинами, а&nbsp;не&nbsp;с&nbsp;<em>симптомами</em></h2></div>
+      <p>Не занимаюсь психотерапией и не даю советов. Настраиваю систему: решения, окружение, процессы.</p>
+    </div>
+    <div class="approach">
+      <div class="ph"><div class="off"></div><div class="img photo" style="background-image:url(../img/tm-frost-dark.webp);background-position:40% center"></div></div>
+      <div class="principles">
+        <div class="pr"><span class="roman">I</span><div><h3>Без утешений</h3><p>Никаких «волшебных таблеток» и сочувствия. Только поиск решения и первый шаг, который нужно сделать сейчас.</p></div></div>
+        <div class="pr"><span class="roman">II</span><div><h3>Холодный анализ</h3><p>Вскрываю паттерны мышления и поведения, нахожу невидимые «налоги», которые вы платите нерешительностью и суетой.</p></div></div>
+        <div class="pr"><span class="roman">III</span><div><h3>Протокол вместо мотивации</h3><p>Хаос в голове и в компании — в чёткий алгоритм действий, который можно внедрять немедленно.</p></div></div>
+        <div class="quote">Каждую идею — через жёсткий фильтр <em>реальности</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Частным клиентам -->
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div><div class="eyebrow">Частным клиентам</div><h2 style="margin-top:24px">Личный аудит и&nbsp;антикризисное управление</h2></div>
+      <p>Когда стресс, ступор или потолок мешают принять решение. Возвращаем контроль над ситуацией.</p>
+    </div>
+    <div class="list">
+      <div class="row"><span class="roman">I</span><div><h3>Экспресс-дефибрилляция</h3><span class="tag">Экстренная сессия · 60 минут</span></div><div class="col"><b>Для чего</b><p>Острый стресс, паника, ступор перед важным решением, срыв сделки, внезапная проблема.</p></div><div class="col"><b>Результат</b><p>Контроль над ситуацией, ясная голова и первый шаг прямо сейчас.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">II</span><div><h3>Аудит «Слепые зоны»</h3><span class="tag">Стратегическая сессия</span></div><div class="col"><b>Для чего</b><p>Финансовый или карьерный потолок. Ситуация повторяется по кругу: отношения, деньги, работа.</p></div><div class="col"><b>Результат</b><p>Карта реальных ограничений и пошаговый протокол их устранения.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">III</span><div><h3>Перевод «жалоб» в&nbsp;«задачи»</h3><span class="tag">Сопровождение</span></div><div class="col"><b>Для чего</b><p>Много думаете, обсуждаете проблему с друзьями, но ничего не меняется.</p></div><div class="col"><b>Результат</b><p>На каждую жалобу — KPI и план. Привычка действовать вместо переживаний.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">IV</span><div><h3>Подготовка к сложным переговорам</h3><span class="tag">Сценарии и скрипт</span></div><div class="col"><b>Для чего</b><p>Развод, раздел имущества, увольнение, разговор о зарплате, конфликт с родственниками.</p></div><div class="col"><b>Результат</b><p>Холодная голова, понятная цель и скрипт, где каждое слово работает на вас.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">V</span><div><h3>Протокол «Выход из тупика»</h3><span class="tag">Коучинг изменений</span></div><div class="col"><b>Для чего</b><p>Хочется всё бросить и сменить сферу, но страшно. Или нет сил начать.</p></div><div class="col"><b>Результат</b><p>Движение началось: первый реальный результат за 2–4 недели.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">VI</span><div><h3>«Личный советник»</h3><span class="tag">Абонемент</span></div><div class="col"><b>Для кого</b><p>Предприниматели и топ-менеджеры в период высокой нагрузки. Переписка и звонки, регулярные сверки курса.</p></div><div class="col"><b>Результат</b><p>Вы не совершаете дорогих ошибок.</p></div><span class="go">Записаться</span></div>
+      <div class="row"><span class="roman">VII</span><div><h3>Разбор «Матрицы окружения»</h3><span class="tag">Аудит круга общения</span></div><div class="col"><b>Для чего</b><p>Токсичные родственники, «энергетические вампиры», партнёр, который тянет на дно.</p></div><div class="col"><b>Результат</b><p>Протокол дистанцирования или перестройки отношений без чувства вины.</p></div><span class="go">Записаться</span></div>
+    </div>
+  </div>
+
+  <div class="band"><div class="abs photo" style="background-image:url(../img/tm-grid-dark.webp);background-position:center 60%"></div><div class="sh"></div><div class="q">Хаос — в&nbsp;<em>алгоритм</em>. Эмоции — в&nbsp;процессы.</div></div>
+
+  <!-- 4. Компаниям -->
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div><div class="eyebrow">Компаниям</div><h2 style="margin-top:24px">Антикризисное управление и&nbsp;<span style="white-space:nowrap">HR-консалтинг</span></h2></div>
+      <p>Перевожу эмоции и конфликты в чёткие бизнес-процессы. Собственник выходит из операционки, система работает без микроменеджмента.</p>
+    </div>
+    <div class="list">
+      <div class="row"><span class="roman">I</span><div><h3>Экспресс-аудит ситуации</h3><span class="tag">Разовая консультация · 1–2 часа</span></div><div class="col"><b>Для чего</b><p>Решение нужно «ещё вчера»: конфликт в команде, срыв переговоров, внезапный кризис.</p></div><div class="col"><b>Результат</b><p>План выхода из кризиса, который можно внедрять немедленно.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">II</span><div><h3>Системный аудит <span style="white-space:nowrap">HR-процессов</span></h3><span class="tag">Диагностика</span></div><div class="col"><b>Для чего</b><p>Высокая текучка, хаос в задачах, собственник — «узкое горлышко».</p></div><div class="col"><b>Результат</b><p>Карта проблемных зон и отчёт с конкретными точками роста.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">III</span><div><h3>Медиация конфликтов</h3><span class="tag">Сопровождение</span></div><div class="col"><b>Для чего</b><p>Сплетни, интриги, война отделов, саботаж.</p></div><div class="col"><b>Результат</b><p>Конфликт погашен, установлены новые правила взаимодействия.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">IV</span><div><h3>Настройка системы управления</h3><span class="tag">Выход из операционки</span></div><div class="col"><b>Для чего</b><p>Собственник работает 24/7, всё держится на нём, нет времени на стратегию.</p></div><div class="col"><b>Результат</b><p>Делегирование, KPI и дашборды — бизнес работает автономно.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">V</span><div><h3>Реинжиниринг найма</h3><span class="tag">Профиль, воронка, чек-листы</span></div><div class="col"><b>Для чего</b><p>Нанимаете не тех, вакансии висят, новички не приживаются.</p></div><div class="col"><b>Результат</b><p>Быстрое закрытие вакансий подходящими кандидатами.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">VI</span><div><h3>Пакетное сопровождение</h3><span class="tag">Абонемент</span></div><div class="col"><b>Для кого</b><p>Компании в стадии трансформации или постоянного стресса. Еженедельный контроль метрик.</p></div><div class="col"><b>Результат</b><p>Стабильная система без вашего микроменеджмента.</p></div><span class="go">Обсудить</span></div>
+      <div class="row"><span class="roman">VII</span><div><h3>Тренинг «Жёсткие переговоры и&nbsp;управление»</h3><span class="tag">Для руководителей</span></div><div class="col"><b>О чём</b><p>Как ставить задачи, чтобы их выполняли. Как отказывать и гасить конфликты подчинённых.</p></div><div class="col"><b>Результат</b><p>Самостоятельные руководители, меньше нагрузки на собственника.</p></div><span class="go">Обсудить</span></div>
+    </div>
+  </div>
+
+  <!-- 5. Обо мне -->
+  <div class="wrap sec" style="padding-top:160px">
+    <div class="about">
+      <div class="portrait"><div class="off"></div><div class="img photo" style="background-image:url(../img/tm-portrait.webp);background-position:center top"></div></div>
+      <div>
+        <div class="eyebrow">Обо мне</div>
+        <h2>Татьяна Морозова</h2>
+        <div class="role">Антикризисный менеджер · ИНТУИТ</div>
+        <p>В работе — жёсткая, ультимативная и требовательная. Плакательной жилетки в моём арсенале нет: я здесь не для того, чтобы сочувствовать, а чтобы ситуация изменилась.</p>
+        <p>Работаю с частными клиентами и с собственниками бизнеса. Нахожу, где теряются деньги, время и энергия, и даю протокол, который можно внедрять сразу.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Запись -->
+  <div class="contact">
+    <div class="ph photo" style="background-image:url(../img/tm-ice-dark.webp);background-position:30% center"></div>
+    <div class="sh"></div>
+    <div class="inner">
+      <div>
+        <div class="eyebrow">Запись</div>
+        <h2>Нужна холодная голова <em>сейчас</em>?</h2>
+        <p class="lead" style="max-width:520px">Оставьте заявку — свяжусь, уточню ситуацию и предложу формат. Экстренная сессия — в ближайшее окно.</p>
+        <span class="phone"><small>Телефон</small>+7 981 911-31-10</span>
+      </div>
+      <div class="form">
+        <h3>Заявка на сессию</h3>
+        <div class="field">Имя</div>
+        <div class="field">Телефон</div>
+        <div class="field area">Коротко о ситуации</div>
+        <div class="check"><i></i><span>Согласна(-ен) на обработку персональных данных и с <u>политикой конфиденциальности</u></span></div>
+        <span class="btn">Отправить заявку</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>© 2026 Татьяна Морозова</span>
+    <div class="brand"><div class="logo" style="font-size:18px">Татьяна Морозова</div><div class="brand-sub">ИНТУИТ</div></div>
+    <span class="r">+7 981 911-31-10<br>Политика конфиденциальности</span>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="frame-label">Сайт целиком · телефон · 390</div>
+<div class="page m" id="m">
+  <div class="m-hero">
+    <div class="ph photo" style="background-image:url(../img/tm-blade-dark.webp);background-position:72% center"></div>
+    <div class="sh"></div>
+    <div class="wrap"><div class="m-nav"><div class="brand"><div class="logo">Т. Морозова</div><div class="brand-sub">ИНТУИТ</div></div><div class="burger"><i></i><i></i></div></div></div>
+    <div class="body">
+      <div class="eyebrow">Антикризисное управление</div>
+      <h1>Перевожу хаос в&nbsp;чёткий <em>алгоритм</em></h1>
+      <p class="lead">Вскрываю паттерны, которые стоят вам денег, времени и нервов. Перевожу их в протокол действий.</p>
+      <span class="btn">Записаться на сессию</span>
+      <span class="link" style="align-self:flex-start">Форматы работы <span>→</span></span>
+    </div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="eyebrow">Подход</div>
+    <h2>Работаю с&nbsp;причинами, а&nbsp;не&nbsp;с&nbsp;<em>симптомами</em></h2>
+    <p class="intro">Не занимаюсь психотерапией и не даю советов. Настраиваю систему.</p>
+    <div class="ph-box"><div class="off"></div><div class="img photo" style="background-image:url(../img/tm-frost-dark.webp);background-position:35% center"></div></div>
+    <div class="principles" style="margin-top:28px">
+      <div class="pr"><span class="roman">I</span><div><h3>Без утешений</h3><p>Только поиск решения и первый шаг, который нужно сделать сейчас.</p></div></div>
+      <div class="pr"><span class="roman">II</span><div><h3>Холодный анализ</h3><p>Нахожу невидимые «налоги», которые вы платите нерешительностью и суетой.</p></div></div>
+      <div class="pr"><span class="roman">III</span><div><h3>Протокол вместо мотивации</h3><p>Чёткий алгоритм действий, который можно внедрять немедленно.</p></div></div>
+    </div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="eyebrow">Частным клиентам</div>
+    <h2>Личный аудит и&nbsp;антикризисное управление</h2>
+    <div class="list">
+      <div class="m-row"><span class="roman">I</span><div><h3>Экспресс-дефибрилляция</h3><span class="tag">Экстренная сессия · 60 минут</span><p>Острый стресс, ступор перед решением, срыв сделки. <b>Результат:</b> контроль над ситуацией и первый шаг прямо сейчас.</p><span class="go">Записаться</span></div></div>
+      <div class="m-row"><span class="roman">II</span><div><h3>Аудит «Слепые зоны»</h3><span class="tag">Стратегическая сессия</span><p>Потолок и ситуации по кругу. <b>Результат:</b> карта ограничений и протокол их устранения.</p><span class="go">Записаться</span></div></div>
+      <div class="m-row"><span class="roman">III</span><div><h3>Перевод «жалоб» в&nbsp;«задачи»</h3><span class="tag">Сопровождение</span><p>Много думаете, но ничего не меняется. <b>Результат:</b> KPI и план на каждую жалобу.</p><span class="go">Записаться</span></div></div>
+    </div>
+    <span class="more">Ещё 4 формата ↓</span>
+  </div>
+
+  <div class="wrap sec">
+    <div class="eyebrow">Компаниям</div>
+    <h2>Антикризисное управление и&nbsp;<span style="white-space:nowrap">HR-консалтинг</span></h2>
+    <div class="list">
+      <div class="m-row"><span class="roman">I</span><div><h3>Экспресс-аудит ситуации</h3><span class="tag">Разовая консультация · 1–2 часа</span><p>Конфликт, срыв переговоров, кризис. <b>Результат:</b> план выхода, который внедряется немедленно.</p><span class="go">Обсудить</span></div></div>
+      <div class="m-row"><span class="roman">II</span><div><h3>Системный аудит <span style="white-space:nowrap">HR-процессов</span></h3><span class="tag">Диагностика</span><p>Текучка, хаос, собственник — «узкое горлышко». <b>Результат:</b> карта проблемных зон.</p><span class="go">Обсудить</span></div></div>
+      <div class="m-row"><span class="roman">III</span><div><h3>Медиация конфликтов</h3><span class="tag">Сопровождение</span><p>Интриги, война отделов, саботаж. <b>Результат:</b> конфликт погашен, новые правила.</p><span class="go">Обсудить</span></div></div>
+    </div>
+    <span class="more">Ещё 4 формата ↓</span>
+  </div>
+
+  <div class="wrap sec about" style="display:block">
+    <div class="portrait"><div class="off"></div><div class="img photo" style="background-image:url(../img/tm-portrait.webp);background-position:center top"></div></div>
+    <div class="eyebrow" style="margin-top:40px">Обо мне</div>
+    <h2>Татьяна Морозова</h2>
+    <div class="role">Антикризисный менеджер · ИНТУИТ</div>
+    <p>Жёсткая, ультимативная и требовательная. Я здесь не для того, чтобы сочувствовать, а чтобы ситуация изменилась.</p>
+  </div>
+
+  <div class="wrap sec">
+    <div class="eyebrow">Запись</div>
+    <h2>Нужна холодная голова <em>сейчас</em>?</h2>
+    <p class="intro">Оставьте заявку — свяжусь и предложу формат.</p>
+    <div class="form">
+      <div class="field">Имя</div>
+      <div class="field">Телефон</div>
+      <div class="field area">Коротко о ситуации</div>
+      <div class="check"><i></i><span>Согласна(-ен) с <u>политикой конфиденциальности</u></span></div>
+      <span class="btn">Отправить заявку</span>
+    </div>
+    <span class="phone"><small>Телефон</small>+7 981 911-31-10</span>
+  </div>
+
+  <div class="m-foot">
+    <div class="brand"><div class="logo">Татьяна Морозова</div><div class="brand-sub">ИНТУИТ</div></div>
+    <span>+7 981 911-31-10</span>
+    <span>Политика конфиденциальности · © 2026</span>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

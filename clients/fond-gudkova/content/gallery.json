@@ -1,0 +1,188 @@
+{
+  "groups": [
+    {
+      "title": "Открытие памятника",
+      "text": "Торжественная церемония открытия памятника дважды Герою России генерал-майору Михаилу Гудкову прошла на территории мемориального комплекса «Пантеон защитников Отечества»",
+      "items": [
+        {
+          "image": "assets/gallery/pamyatnik-01.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-02.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-03.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-04.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-05.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-06.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-07.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-08.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-09.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-10.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/pamyatnik-11.jpg",
+          "caption": "",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "title": "Знамя бригады на «Прямой линии»",
+      "text": "19 декабря 2024 года Президент Российской Федерации Владимир Путин на «Прямой линии» попросил развернуть знамя 155-й отдельной гвардейской бригады морской пехоты",
+      "items": [
+        {
+          "image": "assets/gallery/pryamaya-liniya-2024-poster.jpg",
+          "caption": "",
+          "video": "assets/gallery/pryamaya-liniya-2024.mp4"
+        },
+        {
+          "image": "assets/gallery/pryamaya-liniya-2024.jpg",
+          "caption": "",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "title": "Вручение «Золотой Звезды»",
+      "text": "По поручению Верховного главнокомандующего Вооружёнными силами Российской Федерации Владимира Владимировича Путина 25 октября 2023 года министр обороны РФ Сергей Шойгу вручил медаль «Золотая Звезда» Героя России командиру отдельной 155-й бригады морской пехоты Тихоокеанского флота полковнику Михаилу Гудкову",
+      "items": [
+        {
+          "image": "assets/gallery/vruchenie-2023-1.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/vruchenie-2023-2.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/vruchenie-2023-3.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/vruchenie-2023-4.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/vruchenie-2023-5.jpg",
+          "caption": "",
+          "video": ""
+        },
+        {
+          "image": "assets/gallery/vruchenie-2023-6.jpg",
+          "caption": "",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "title": "Память в Мариуполе",
+      "text": "Памятная доска и бюст Михаила Гудкова в филиале Нахимовского военно-морского училища в Мариуполе.",
+      "items": [
+        {
+          "image": "assets/bio/doska.jpg",
+          "caption": "Открытие памятной доски в филиале Нахимовского военно-морского училища в Мариуполе",
+          "video": ""
+        },
+        {
+          "image": "assets/bio/byust.jpg",
+          "caption": "Открытие бюста Михаила Гудкова в филиале Нахимовского военно-морского училища в Мариуполе",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "title": "Из семейного архива",
+      "text": "Детство, учёба, служба и награды.",
+      "items": [
+        {
+          "image": "assets/bio/portrait-camo.jpg",
+          "caption": "Михаил Евгеньевич Гудков",
+          "video": ""
+        },
+        {
+          "image": "assets/bio/archive-01.jpg",
+          "caption": "Михаил Гудков в детстве. Из личного архива"
+        },
+        {
+          "image": "assets/bio/archive-02.jpg",
+          "caption": "Михаил Гудков в детстве. Из личного архива"
+        },
+        {
+          "image": "assets/bio/archive-03.jpg",
+          "caption": "На службе. Из личного архива"
+        },
+        {
+          "image": "assets/bio/archive-04.jpg",
+          "caption": "На службе. Из личного архива"
+        },
+        {
+          "image": "assets/bio/archive-05.jpg",
+          "caption": "На службе. Из личного архива"
+        },
+        {
+          "image": "assets/bio/archive-06.jpg",
+          "caption": "На службе. Из личного архива"
+        },
+        {
+          "image": "assets/bio/ded.jpg",
+          "caption": "Дедушка Михаила Гудкова. Из личного архива",
+          "video": ""
+        },
+        {
+          "image": "assets/bio/prisyaga.jpg",
+          "caption": "Присяга в Новосибирском высшем военном командном училище. Из личного архива",
+          "video": ""
+        },
+        {
+          "image": "assets/bio/vdv.jpg",
+          "caption": "Служба в 83-й отдельной воздушно-десантной бригаде. Из личного архива",
+          "video": ""
+        },
+        {
+          "image": "assets/bio/nagrady.jpg",
+          "caption": "Награды Михаила Гудкова. Из личного архива",
+          "video": ""
+        }
+      ]
+    }
+  ]
+}

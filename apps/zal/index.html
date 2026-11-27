@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сила — мобильное приложение фитнес-клуба: вход по QR, загрузка зала, запись на групповые, заморозка абонемента</title>
+<meta name="description" content="Мобильное приложение для iOS и Android для сети фитнес-клубов: вход по QR без карты, сколько людей в зале прямо сейчас, запись на групповые тренировки и лист ожидания, заморозка и продление абонемента.">
+<meta property="og:title" content="Сила — мобильное приложение фитнес-клуба: вход по QR, загрузка зала, запись на групповые, заморозка абонемента">
+<meta property="og:description" content="Мобильное приложение для iOS и Android для сети фитнес-клубов: вход по QR без карты, сколько людей в зале прямо сейчас, запись на групповые тренировки и лист ожидания, заморозка и продление абонемента.">
+<meta name="theme-color" content="#f3f4f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%230f1012%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2744%27%20font-family%3D%27Arial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2734%27%20text-anchor%3D%27middle%27%20fill%3D%27%23c6f432%27%3E%D0%A1%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__app)document.documentElement.classList.add('nofx')},3500)</script>
+<style>
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+20BD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+20BD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+20BD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+20BD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+20BD}
+:root{--bg:#f3f4f1;--ink:#0f1012;--soft:#45474c;--mut:#7c7e84;--line:#dfe1dc;--line2:#c8cbc4;--card:#ffffff;--ac:#0f1012;--aci:#c6f432;--fh:"Manrope",sans-serif;--fb:"Manrope",sans-serif;--hw:800;--ht:-.04em;--rb:999px;--rc:22px;--rs:30px;--stagebg:#0f1012;--blob:30px;--cbg:#c6f432;--cink:#0f1012}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+:root{--gut:clamp(16px,4vw,56px)}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--fh);font-weight:var(--hw);letter-spacing:var(--ht);line-height:1.03;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,58px)}
+p{margin:0}
+.kick{font:600 15px/1.2 var(--fb);color:var(--ac)}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:54ch;text-wrap:pretty}
+.sec{padding:clamp(64px,9vw,124px) 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:var(--rb);background:var(--ac);color:var(--aci);font-weight:600;transition:transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:24px;height:66px}
+.logo{font-family:var(--fh);font-weight:var(--hw);font-size:22px;display:flex;align-items:center;gap:10px;letter-spacing:var(--ht)}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ac);color:var(--aci);font-style:normal;font-size:17px}
+.nav{display:flex;gap:24px;font-size:15px;color:var(--soft);margin-left:auto}
+.nav a:hover{color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:15px}
+.hero{padding:clamp(28px,5vw,72px) 0 clamp(48px,6vw,96px)}
+.hero h1{font-size:clamp(42px,6vw,88px);margin:18px 0 20px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.plat{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.plat span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:var(--card);box-shadow:0 0 0 1px var(--line);font-size:14px;font-weight:600}
+.note{font-size:14px;color:var(--mut);margin-top:18px;display:flex;gap:8px;align-items:center}
+.note b{width:8px;height:8px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 4px rgba(47,191,113,.18)}
+/* компоновка первого экрана */
+.L-split .hg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,64px);align-items:center}
+.L-wide .hg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.L-wide .hg>.ph-stage{order:-1}
+.ph-stage{position:relative;display:flex;justify-content:center;align-items:center;min-width:0;padding:10px 0}
+.ph-stage::before{content:"";position:absolute;inset:4% 2%;border-radius:var(--blob,40px);background:var(--stagebg,color-mix(in srgb,var(--ac) 14%,var(--bg)));z-index:0}
+.ph-stage>*{position:relative;z-index:1}
+.ph-back{position:absolute!important;width:min(270px,62%);opacity:.95;transform:translateX(52%) rotate(5deg) scale(.86);filter:saturate(.9)}
+.ph-stage .tag{position:absolute;z-index:3;padding:12px 16px;border-radius:16px;background:var(--card);box-shadow:0 18px 40px -22px rgba(0,0,0,.45),0 0 0 1px var(--line);font-size:14px;line-height:1.3;max-width:220px}
+.ph-stage .tag b{display:block;font-size:15px}
+.ph-stage .tag span{color:var(--mut)}
+.tag.t1{left:0;top:16%}.tag.t2{right:0;bottom:14%}
+/* телефон */
+.phone{width:min(340px,100%);aspect-ratio:9/19;border-radius:50px;background:#0c0c0e;padding:11px;box-shadow:0 50px 100px -40px rgba(0,0,0,.5),inset 0 0 0 2px #2a2a2e;position:relative}
+.phone::before{content:"";position:absolute;top:21px;left:50%;transform:translateX(-50%);width:92px;height:25px;border-radius:14px;background:#0c0c0e;z-index:9}
+.app{position:relative;height:100%;border-radius:40px;overflow:hidden;background:var(--abg);color:var(--aink);display:flex;flex-direction:column;font:400 14.5px/1.4 var(--fa,var(--fb))}
+.sb{display:flex;justify-content:space-between;align-items:center;padding:16px 26px 6px;font-size:13px;font-weight:600;flex:none}
+.sb i{font-style:normal;letter-spacing:2px;font-size:11px}
+.scr-wrap{position:relative;flex:1;min-height:0}
+.scr{position:absolute;inset:0;overflow-y:auto;padding:6px 16px 16px;opacity:0;visibility:hidden;transform:translateX(16px);transition:opacity .28s,transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s .3s;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+.scr.on{opacity:1;visibility:visible;transform:none;transition:opacity .28s,transform .32s cubic-bezier(.2,.8,.2,1)}
+.tabs{display:flex;justify-content:space-around;padding:8px 8px 22px;border-top:1px solid var(--aline);background:var(--abar,var(--abg));flex:none}
+.tabs button{display:grid;justify-items:center;gap:2px;font-size:11px;font-weight:600;color:var(--amut);min-width:58px;position:relative}
+.tabs button b{font-size:19px;line-height:1.1;font-weight:400}
+.tabs button.on{color:var(--aac)}
+.tabs em{position:absolute;top:-4px;right:10px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--aac);color:var(--aaci);font:700 10.5px/17px var(--fb);font-style:normal}
+.ah{font:var(--ahw,700) 24px/1.15 var(--fah,var(--fh));letter-spacing:-.01em;margin:6px 0 12px}
+.amut{color:var(--amut)}
+.abtn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;border-radius:var(--arb,14px);background:var(--aac);color:var(--aaci);font-weight:700;font-size:15px;margin-top:12px;transition:transform .15s,filter .15s}
+.abtn:active{transform:scale(.98)}
+.abtn.ghost{background:var(--acard);color:var(--aink)}
+.acard{background:var(--acard);border-radius:var(--arc,16px);padding:12px 14px}
+/* ряд экранов */
+.shots{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:clamp(28px,4vw,48px)}
+.shot{display:grid;gap:12px;justify-items:center;text-align:center}
+.shot .mini{width:100%;max-width:240px;aspect-ratio:9/19;border-radius:32px;background:#0c0c0e;padding:7px;box-shadow:0 30px 60px -36px rgba(0,0,0,.45)}
+.shot .mini>div{height:100%;border-radius:26px;overflow:hidden;background:var(--abg);color:var(--aink);font:400 9.5px/1.35 var(--fa,var(--fb));padding:22px 10px 10px;position:relative}
+.shot b{font-size:16px}.shot span{font-size:14px;color:var(--soft);max-width:28ch}
+/* возможности */
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vw,48px)}
+.feat{padding:clamp(20px,2.4vw,30px);border-radius:var(--rc);background:var(--card);display:flex;flex-direction:column;gap:10px}
+.feat i{font-style:normal;font-size:26px}
+.feat b{font-family:var(--fh);font-weight:var(--hw);font-size:21px;letter-spacing:var(--ht);line-height:1.15}
+.feat p{color:var(--soft);font-size:15px}
+.feats.f-list{grid-template-columns:1fr 1fr;gap:0 48px}
+.feats.f-list .feat{background:none;border-radius:0;padding:22px 0;border-top:1px solid var(--line2);display:grid;grid-template-columns:44px 1fr;gap:4px 14px}
+.feats.f-list .feat i{grid-row:span 2}
+/* стек и этапы */
+.two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);align-items:start}
+.stack{display:grid;gap:0}
+.stack div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:16px;padding:16px 0;border-top:1px solid var(--line2)}
+.stack div:last-child{border-bottom:1px solid var(--line2)}
+.stack span{color:var(--mut);font-size:15px}.stack b{font-weight:600;font-size:16px}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:58px 1fr auto;gap:16px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line2)}
+.steps li::before{content:counter(s);font:var(--hw) 24px/1 var(--fh);color:var(--ac)}
+.steps b{display:block;font-size:18px}.steps p{color:var(--soft);font-size:15px}.steps small{color:var(--mut);font-size:14px;white-space:nowrap}
+.res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-radius:var(--rc);overflow:hidden;margin-top:clamp(28px,4vw,44px)}
+.res div{background:var(--bg);padding:clamp(20px,2.4vw,30px)}
+.res b{display:block;font:var(--hw) clamp(32px,4vw,52px)/1 var(--fh);letter-spacing:-.02em;color:var(--ac)}
+.res span{display:block;margin-top:10px;color:var(--soft);font-size:15px}
+.faq details{border-top:1px solid var(--line);padding:4px 0}.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:18px 0;font-size:clamp(17px,1.6vw,19px);font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--mut);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--soft);max-width:70ch}
+.cta-b{border-radius:var(--rs);background:var(--cbg,var(--ink));color:var(--cink,var(--bg));padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-b h2{max-width:18ch}
+.foot{padding:28px 0 36px;font-size:14px;color:var(--mut);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.nofx .reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:1100px){.ph-stage .tag{display:none}.ph-back{display:none}}
+@media (max-width:960px){.L-split .hg,.L-wide .hg,.two{grid-template-columns:1fr}.L-wide .hg>.ph-stage{order:0}.nav{display:none}
+ .feats{grid-template-columns:1fr 1fr}.feats.f-list{grid-template-columns:1fr}.res{grid-template-columns:1fr 1fr}.shots{grid-template-columns:1fr 1fr;row-gap:32px}}
+@media (max-width:560px){.feats{grid-template-columns:1fr}.hero .cta{flex-direction:column}.hero .cta .btn{width:100%}
+ .steps li{grid-template-columns:40px 1fr}.steps small{grid-column:2}.stack div{grid-template-columns:1fr;gap:2px}}
+
+
+.app{--abg:#0f1012;--aink:#f2f2f0;--amut:#8d8f95;--aline:#24262b;--acard:#17191d;--aac:#c6f432;--aaci:#0f1012;--fa:"Manrope",sans-serif;--fah:"Manrope",sans-serif;--ahw:800;--arb:14px;--arc:18px}
+.app .ah{font-size:26px}.app .sm{font-size:12.5px;margin-top:8px}
+.qr{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--aac);color:var(--aaci)}
+.qr b{display:block;font-size:16px}.qr span{font-size:12.5px;opacity:.8}
+.qic{width:44px;height:44px;border-radius:10px;background:conic-gradient(var(--aaci) 25%,transparent 0 50%,var(--aaci) 0 75%,transparent 0) 0 0/11px 11px;box-shadow:inset 0 0 0 3px var(--aaci)}
+.load{margin-top:10px}.lh{display:flex;justify-content:space-between;font-size:14px}.lh span{color:var(--aac);font-weight:700}
+.bars{display:flex;align-items:flex-end;gap:4px;height:70px;margin-top:10px}.bars i{flex:1;border-radius:4px 4px 0 0;background:#2b2e34}.bars i.now{background:var(--aac)}
+.lx{display:flex;justify-content:space-between;font-size:11px;color:var(--amut);margin-top:4px}
+.nx{margin:10px 0}.nx span{display:block;font-size:12px;color:var(--amut)}.nx b{font-size:15px}.nx.on{box-shadow:0 0 0 1px var(--aac)}
+.chips{display:flex;gap:6px;margin:10px 0;overflow-x:auto;scrollbar-width:none}.chips button{padding:8px 12px;border-radius:999px;background:var(--acard);color:var(--aink);font-size:13px;font-weight:600;white-space:nowrap}
+.chips button.on{background:var(--aink);color:var(--abg)}
+.cl{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--aline)}
+.cl .tm{font-weight:800;font-size:15px}.cl b{display:block;font-size:14.5px}.cl span{font-size:12px;color:var(--amut)}
+.bk{padding:8px 11px;border-radius:10px;background:var(--aac);color:var(--aaci);font-weight:700;font-size:12.5px;white-space:nowrap}
+.bk.full{background:var(--acard);color:var(--amut)}.bk.done{background:var(--aink);color:var(--abg)}
+.card2{border-radius:20px;padding:18px;background:linear-gradient(135deg,#c6f432,#7bd33a);color:#0f1012;display:grid;gap:4px;justify-items:start}
+.card2 small{font-weight:700;opacity:.75}.card2 b{font-size:20px}.card2 span{font-size:12px;opacity:.8}
+.qrbig{width:132px;height:132px;margin:10px 0;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 10px #fff;
+ background-image:conic-gradient(#0f1012 25%,transparent 0 50%,#0f1012 0 75%,transparent 0);background-size:16px 16px}
+.lst{display:grid;margin-top:10px;padding:4px 14px}.lst div{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid var(--aline);font-size:14px}.lst div:first-child{border-top:0}.lst span{color:var(--amut)}
+.app .abtn{margin-top:10px}
+.ok2{display:grid;justify-items:center;text-align:center;gap:6px;padding-top:40px;animation:up .3s}.ok2 b{font-size:20px}.ok2 span{color:var(--amut);font-size:14px}
+.tick{width:64px;height:64px;border-radius:50%;background:var(--aac);color:var(--aaci);display:grid;place-items:center;font-size:30px;font-weight:800}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.shot .mini>div{--abg:#0f1012;--aink:#f2f2f0;--amut:#8d8f95;--aline:#24262b;--acard:#17191d;--aac:#c6f432;--aaci:#0f1012;--fa:"Manrope",sans-serif;--fah:"Manrope",sans-serif}
+.mz{zoom:.68;pointer-events:none}
+
+.hero h1{font-size:clamp(42px,5.8vw,88px);line-height:.96}.ph-stage{padding:28px 0}.ph-stage::before{inset:0;background:radial-gradient(60% 60% at 70% 30%,rgba(198,244,50,.22),transparent 70%),#0f1012}.tag{border-radius:16px}
+</style>
+</head>
+<body class="L-wide">
+<header class="top"><div class="wrap bar"><a class="logo" href="#top"><i>◆</i>Сила</a><nav class="nav"><a href="#demo">Прототип</a><a href="#screens">Экраны</a><a href="#feats">Возможности</a><a href="#how">Как делаем</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#demo">Открыть прототип</a></div></header>
+<main>
+<section class="hero" id="top"><div class="wrap hg">
+ <div class="reveal"><div class="kick">Мобильное приложение для фитнес-клубов</div><h1>Клуб в телефоне: вход, запись и абонемент</h1><p class="lead">Гость проходит турникет по QR, видит, сколько людей в зале прямо сейчас, и записывается на йогу в два касания. Заморозка и продление — без звонка администратору. Клуб видит загрузку и продлевает абонементы вовремя.</p>
+ <div class="cta"><a class="btn" href="#demo">Открыть прототип</a><a class="btn ghost" href="#how">Как делаем приложения</a></div>
+ <div class="plat"><span>iOS</span><span>Android</span><span>Связь с 1С:Фитнес клуб</span></div>
+ <p class="note"><b></b>Прототип работает: запишитесь на тренировку, откройте QR, заморозьте абонемент</p></div>
+ <div class="ph-stage" id="demo"><div class="tag t1"><b>23 человека в зале</b><span>свободнее после 21:00</span></div><div class="tag t2"><b>Йога в 18:30</b><span>осталось 4 места</span></div><div class="phone"><div class="app" id="app"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><div class="scr-wrap"><section class="scr on" data-s="home" data-tab="h"><div class="ah">Привет, Марина</div><button type="button" class="qr acard" data-go="pass"><span class="qic"></span><div><b>Вход в клуб</b><span>Покажите QR на турникете</span></div></button><div class="acard load"><div class="lh"><b>Сейчас в клубе</b><span id="lnow">23 человека</span></div><div class="bars"><i style="height:18%"></i><i style="height:26%"></i><i style="height:40%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:38%" class=now></i><i style="height:30%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:92%"></i><i style="height:70%"></i><i style="height:44%"></i></div><div class="lx"><span>7:00</span><span>сейчас</span><span>22:00</span></div><p class="amut sm">Свободнее всего после 21:00</p></div><div class="acard nx" id="nx"><span>Ближайшая запись</span><b>Нет записей на сегодня</b></div><button type="button" class="abtn" data-go="sched">Записаться на тренировку</button></section><section class="scr" data-s="sched" data-tab="s"><div class="ah">Расписание</div><div class="chips" id="days"><button type="button" class="on">Сегодня</button><button type="button">Завтра</button><button type="button">Пт</button><button type="button">Сб</button></div><div class="cl" data-id="yoga"><div class="tm">18:30</div><div><b>Йога</b><span>Анна · зал 2</span></div><button type="button" class="bk" data-book="yoga">4 места</button></div><div class="cl" data-id="hiit"><div class="tm">19:00</div><div><b>Функциональная</b><span>Тимур · зал 1</span></div><button type="button" class="bk" data-book="hiit">1 место</button></div><div class="cl" data-id="pil"><div class="tm">20:00</div><div><b>Пилатес</b><span>Ольга · зал 2</span></div><button type="button" class="bk" data-book="pil">7 мест</button></div><div class="cl" data-id="box"><div class="tm">20:15</div><div><b>Бокс</b><span>Ринат · ринг</span></div><button type="button" class="bk full" data-book="box" disabled>Лист ожидания</button></div></section><section class="scr" data-s="pass" data-tab="a"><div class="ah">Абонемент</div><div class="card2"><small>Сила · Безлимит</small><b>до 14 марта 2027</b><div class="qrbig"></div><span>Марина Ковалёва · № 004817</span></div><div class="acard lst"><div>Осталось дней<span>109</span></div><div>Заморозка<span id="frz">14 дней доступно</span></div><div>Гостевые визиты<span>2</span></div></div><button type="button" class="abtn ghost" id="freeze">❄ Заморозить на 7 дней</button><button type="button" class="abtn" id="renew">Продлить на год — 32 900 ₽</button></section><section class="scr" data-s="prof" data-tab="p"><div class="ah">Профиль</div><div class="acard"><b>Марина Ковалёва</b><div class="amut">клуб «Сила» на Баумана · с 2024 года</div></div><div class="acard lst"><div>Тренировок в ноябре<span>14</span></div><div>Персональный тренер<span>Тимур</span></div><div>Уведомления<span>включены</span></div></div></section><section class="scr" data-s="done" data-tab="s"><div class="ok2"><div class="tick">✓</div><b id="dt">Вы записаны</b><span id="ds"></span><p class="amut sm">Напомним за 2 часа. Отменить можно до 3 часов до начала — без штрафа.</p><button type="button" class="abtn" data-go="home">На главную</button></div></section></div><nav class="tabs"><button type="button" data-tab="h" data-first="home" class=on><b>◆</b>Главная</button><button type="button" data-tab="s" data-first="sched"><b>☰</b>Расписание</button><button type="button" data-tab="a" data-first="pass"><b>▣</b>Абонемент</button><button type="button" data-tab="p" data-first="prof"><b>○</b>Профиль</button></nav></div></div></div>
+</div></section>
+<section class="sec" id="screens" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Экраны</div><h2 style="margin-top:14px">Всё, ради чего раньше звонили на ресепшен</h2></div>
+<div class="shots" style="--n:3"><div class="shot reveal" style="transition-delay:0ms"><div class="mini" aria-hidden="true"><div><div class="mz"><div class="ah">Привет, Марина</div><button type="button" class="qr acard" data-go="pass"><span class="qic"></span><div><b>Вход в клуб</b><span>Покажите QR на турникете</span></div></button><div class="acard load"><div class="lh"><b>Сейчас в клубе</b><span>23 человека</span></div><div class="bars"><i style="height:18%"></i><i style="height:26%"></i><i style="height:40%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:38%" class=now></i><i style="height:30%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:92%"></i><i style="height:70%"></i><i style="height:44%"></i></div><div class="lx"><span>7:00</span><span>сейчас</span><span>22:00</span></div><p class="amut sm">Свободнее всего после 21:00</p></div><div class="acard nx"><span>Ближайшая запись</span><b>Нет записей на сегодня</b></div><button type="button" class="abtn" data-go="sched">Записаться на тренировку</button></div></div></div><b>Главная</b><span>QR для входа и загрузка зала по часам</span></div><div class="shot reveal" style="transition-delay:70ms"><div class="mini" aria-hidden="true"><div><div class="mz"><div class="ah">Расписание</div><div class="chips"><button type="button" class="on">Сегодня</button><button type="button">Завтра</button><button type="button">Пт</button><button type="button">Сб</button></div><div class="cl" data-id="yoga"><div class="tm">18:30</div><div><b>Йога</b><span>Анна · зал 2</span></div><button type="button" class="bk" data-book="yoga">4 места</button></div><div class="cl" data-id="hiit"><div class="tm">19:00</div><div><b>Функциональная</b><span>Тимур · зал 1</span></div><button type="button" class="bk" data-book="hiit">1 место</button></div><div class="cl" data-id="pil"><div class="tm">20:00</div><div><b>Пилатес</b><span>Ольга · зал 2</span></div><button type="button" class="bk" data-book="pil">7 мест</button></div><div class="cl" data-id="box"><div class="tm">20:15</div><div><b>Бокс</b><span>Ринат · ринг</span></div><button type="button" class="bk full" data-book="box" disabled>Лист ожидания</button></div></div></div></div><b>Расписание</b><span>свободные места и лист ожидания</span></div><div class="shot reveal" style="transition-delay:140ms"><div class="mini" aria-hidden="true"><div><div class="mz"><div class="ah">Абонемент</div><div class="card2"><small>Сила · Безлимит</small><b>до 14 марта 2027</b><div class="qrbig"></div><span>Марина Ковалёва · № 004817</span></div><div class="acard lst"><div>Осталось дней<span>109</span></div><div>Заморозка<span>14 дней доступно</span></div><div>Гостевые визиты<span>2</span></div></div><button type="button" class="abtn ghost">❄ Заморозить на 7 дней</button><button type="button" class="abtn">Продлить на год — 32 900 ₽</button></div></div></div><b>Абонемент</b><span>QR, остаток дней, заморозка и продление</span></div></div></div></section>
+<section class="sec" id="feats" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Возможности</div><h2 style="margin-top:14px">Что получает клуб и гости</h2></div>
+<div class="feats"><div class="feat reveal"><i>▣</i><b>Вход по QR</b><p>Турникет читает код с телефона — пластиковые карты и очередь на ресепшене не нужны.</p></div><div class="feat reveal"><i>▮</i><b>Загрузка зала</b><p>Сколько людей сейчас и график по часам: гости сами выбирают время, когда свободнее.</p></div><div class="feat reveal"><i>☰</i><b>Запись на групповые</b><p>Места в зале, лист ожидания, напоминание за 2 часа и отмена без звонка.</p></div><div class="feat reveal"><i>❄</i><b>Заморозка и продление</b><p>Гость замораживает и продлевает абонемент сам, оплата картой или СБП.</p></div><div class="feat reveal"><i>◎</i><b>Персональные тренировки</b><p>Свободные окна тренера и пакеты занятий с остатком.</p></div><div class="feat reveal"><i>🔔</i><b>Пуши по делу</b><p>Абонемент заканчивается — напоминание со скидкой на продление, а не спам всем.</p></div></div></div></section>
+<section class="sec" id="how" style="padding-top:0"><div class="wrap two">
+ <div class="reveal"><div class="kick">Платформы и стек</div><h2 style="margin:14px 0 24px">Работает с вашей системой клуба</h2><div class="stack"><div><span>Платформы</span><b>iOS 15+ и Android 9+</b></div><div><span>Технология</span><b>React Native: один код на обе платформы</b></div><div><span>Учёт</span><b>1С:Фитнес клуб, Mobifitness API, YCLIENTS — абонементы, расписание, оплаты</b></div><div><span>Турникеты</span><b>QR и NFC через вашу СКУД</b></div><div><span>Оплата</span><b>ЮKassa, СБП, рекуррентные платежи</b></div><div><span>Публикация</span><b>App Store, Google Play и RuStore</b></div></div></div>
+ <div class="reveal"><div class="kick">Как делаем</div><h2 style="margin:14px 0 0">Как запускаем</h2><ol class="steps"><li><div><b>Прототип</b><p>кликабельный, как этот: проверяем на гостях клуба</p></div><small>1 неделя</small></li><li><div><b>Дизайн и интеграции</b><p>экраны, обмен с 1С или CRM клуба, турникеты</p></div><small>3 недели</small></li><li><div><b>Разработка</b><p>приложение, админка, пуши и оплата</p></div><small>6–8 недель</small></li><li><div><b>Запуск</b><p>сторы, QR-наклейки на ресепшене, обучение администраторов</p></div><small>2 недели</small></li></ol></div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="reveal"><div class="kick">Результат</div><h2 style="margin-top:14px">Что меняется в клубе</h2></div>
+<div class="res"><div class="reveal"><b>+22%</b><span>продлений вовремя</span></div><div class="reveal"><b>−40%</b><span>звонков на ресепшен</span></div><div class="reveal"><b>0</b><span>пластиковых карт</span></div><div class="reveal"><b>2 касания</b><span>до записи на тренировку</span></div></div></div></section>
+<section class="sec" id="faq" style="padding-top:0"><div class="wrap" style="max-width:900px"><div class="reveal"><div class="kick">Вопросы</div><h2 style="margin:14px 0 24px">Частые вопросы</h2></div><div class="faq"><details><summary>Сколько стоит приложение для клуба?</summary><p>Зависит от интеграций с вашей системой и турникетами. Прототип и дизайн — первым этапом, разработку считаем после согласования экранов.</p></details><details><summary>Наши турникеты прочитают QR?</summary><p>Большинство современных СКУД умеют. Если нет — ставим недорогой считыватель рядом с турникетом.</p></details><details><summary>Можно ли для сети из нескольких клубов?</summary><p>Да: гость выбирает клуб, загрузка и расписание показываются по каждому.</p></details><details><summary>А если гость без приложения?</summary><p>Вход и запись остаются как раньше — приложение добавляет удобство, а не отнимает привычное.</p></details></div></div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-b reveal"><h2>Сделаем приложение для вашего клуба</h2><a class="btn" href="#demo">Открыть прототип</a></div></div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Сила</span><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
+<script>window.APPCFG={};</script>
+<script>
+(function(){
+var A=document.getElementById('app'),S=[].slice.call(A.querySelectorAll('.scr')),T=[].slice.call(A.querySelectorAll('.tabs button'));
+var U={auto:true,hist:[]};
+U.go=function(n,noHist){S.forEach(function(s){s.classList.toggle('on',s.dataset.s===n)});T.forEach(function(t){t.classList.toggle('on',(t.dataset.tab||'')===(A.querySelector('.scr[data-s="'+n+'"]')||{}).dataset.tab)});
+ var s=A.querySelector('.scr[data-s="'+n+'"]');if(s)s.scrollTop=0;U.cur=n;if(U.on&&U.on[n])U.on[n](s)};
+U.money=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' ₽'};
+U.$=function(q){return A.querySelector(q)};U.$$=function(q){return[].slice.call(A.querySelectorAll(q))};
+A.addEventListener('click',function(ev){var b=ev.target.closest('[data-go]');if(ev.isTrusted)U.auto=false;if(b){ev.preventDefault();U.go(b.dataset.go)}},true);
+T.forEach(function(t){t.addEventListener('click',function(){U.go(t.dataset.first)})});
+window.APP=U;
+var started=false,io='IntersectionObserver'in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');if(x.target.id==='app'&&!started){started=true;U.start&&U.start()}io.unobserve(x.target)}})},{threshold:.2}):null;
+document.querySelectorAll('.reveal,#app').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+setTimeout(function(){if(!started){started=true;U.start&&U.start()}},2500);
+window.__app=1;
+})();
+</script>
+<script>
+(function(){var U=window.APP,CL={"yoga":["Йога","18:30","Анна","зал 2"],"hiit":["Функциональная","19:00","Тимур","зал 1"],"pil":["Пилатес","20:00","Ольга","зал 2"],"box":["Бокс","20:15","Ринат","ринг"]},booked=null,frozen=false;
+U.$$('[data-book]').forEach(function(b){b.addEventListener('click',function(){var c=CL[b.dataset.book];booked=c;
+ U.$$('[data-book]').forEach(function(x){if(!x.disabled){x.classList.remove('done')}});b.classList.add('done');b.textContent='Вы записаны';
+ U.$('#dt').textContent=c[0]+' в '+c[1];U.$('#ds').textContent='Сегодня · тренер '+c[2]+' · '+c[3];U.go('done')})});
+U.$('#days').addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;U.$$('#days button').forEach(function(x){x.classList.toggle('on',x===b)})});
+U.$('#freeze').addEventListener('click',function(){frozen=!frozen;U.$('#frz').textContent=frozen?'с завтра на 7 дней ✓':'14 дней доступно';
+ U.$('#freeze').textContent=frozen?'Отменить заморозку':'❄ Заморозить на 7 дней'});
+U.$('#renew').addEventListener('click',function(){U.$('#renew').textContent='Оплачено ✓ до 14 марта 2028'});
+U.on={home:function(){var n=U.$('#nx');if(booked){n.classList.add('on');n.innerHTML='<span>Ближайшая запись</span><b>'+booked[0]+' · сегодня в '+booked[1]+'</b>'}}};
+function seq(steps){var i=0;(function nx(){if(!U.auto||i>=steps.length)return;var s=steps[i++];setTimeout(function(){if(!U.auto)return;s();nx()},s.t||1500)})()}
+function auto(f,t){f.t=t;return f}
+U.start=function(){seq([auto(function(){U.go('sched')},1500),auto(function(){U.$('[data-book="yoga"]').click()},1500),
+ auto(function(){U.go('home')},2400),auto(function(){U.go('pass')},2000),auto(function(){U.$('#freeze').click()},1500)])};
+})();
+</script>
+</body>
+</html>

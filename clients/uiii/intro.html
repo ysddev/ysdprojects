@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UIII — добро пожаловать</title>
+<meta name="description" content="UIII — коллекции спортивной одежды и спортивный мерч под заказ.">
+<meta property="og:title" content="UIII — добро пожаловать">
+<meta property="og:description" content="Коллекции бренда и спортивный мерч под заказ.">
+<meta property="og:image" content="https://ysdprojects.space/clients/uiii/img/og.jpg?v=2">
+<meta name="theme-color" content="#e9eef5">
+<link rel="icon" href="logo/UIII-logo-blue-on-espresso.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/commissioner-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="base.css?v=2">
+<style>
+html,body{height:100%;background:#dfe5ee}
+body{overflow:hidden}
+.intro{position:fixed;inset:0;overflow:hidden;background:#dfe5ee center/cover no-repeat}
+.intro video,.intro .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.intro .still{opacity:0;transition:opacity .4s}
+.intro.done .still{opacity:1}
+svg.split{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.zone{fill:rgba(66,44,33,0);transition:fill .5s var(--ease);cursor:pointer;pointer-events:none}
+.intro.done .zone{pointer-events:auto}
+.intro.done.hov-a .zone-b,.intro.done.hov-b .zone-a{fill:rgba(66,44,33,.42)}
+.trail{fill:none;stroke:var(--blue);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 6px rgba(182,221,246,.9));opacity:0}
+.intro.drawing .trail{opacity:1;transition:stroke-dashoffset 1.3s cubic-bezier(.4,.1,.2,1)}
+/* направления */
+.dir{position:absolute;z-index:3;display:grid;gap:10px;max-width:min(440px,80vw);color:var(--espresso);text-decoration:none;opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease),color .4s;pointer-events:none}
+.intro.done .dir{opacity:1;transform:none;pointer-events:auto}
+.intro.done .dir-b{transition-delay:.15s}
+.dir small{font-size:15px;font-weight:500;opacity:.75}
+.dir b{font-size:clamp(36px,4.6vw,68px);line-height:.98;letter-spacing:-.03em;font-weight:200}
+.dir b span{display:block;font-weight:900}
+.dir i{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--espresso);color:var(--blue);margin-top:8px;transition:transform .4s var(--ease),background .3s}
+.dir:hover i,.dir:focus-visible i{transform:rotate(45deg);background:#000}
+.intro.hov-a .dir-b,.intro.hov-b .dir-a{color:#fff}
+.intro.hov-a .dir-b i,.intro.hov-b .dir-a i{background:#fff;color:var(--espresso)}
+.dir-a{left:clamp(20px,5vw,80px);top:clamp(96px,16vh,170px)}
+.dir-b{right:clamp(20px,5vw,80px);bottom:clamp(40px,10vh,110px);text-align:right;justify-items:end}
+/* верх */
+.top{position:absolute;z-index:4;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,5vw,80px)}
+.top .mark{height:46px;color:var(--espresso)}
+.skip{border:0;background:rgba(255,255,255,.75);backdrop-filter:blur(6px);color:var(--espresso);font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;transition:opacity .3s}
+.intro.done .skip{opacity:0;pointer-events:none}
+.credit-line{position:absolute;z-index:4;left:clamp(20px,5vw,80px);bottom:14px;font-size:12px;color:rgba(66,44,33,.55);opacity:0;transition:opacity .6s .4s}
+.credit-line a{text-decoration:none}
+.intro.done .credit-line{opacity:1}
+@media (max-aspect-ratio:1/1){
+  .dir b{font-size:clamp(34px,10vw,52px)}
+  .dir small{font-size:14px}
+  .dir i{width:48px;height:48px}
+  .dir-a{top:96px}
+  .dir-b{bottom:64px}
+  .top .mark{height:40px}
+}
+</style>
+</head>
+<body class="on-light">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="uiii" viewBox="296 439 407 781.5"><path fill="currentColor" d="M703 439H440C356.48 439 296 507.46 296 602C296 696.54 356.48 765 440 765H703V676H446C405.98 676 377 644.71 377 601.5C377 558.29 405.98 527 446 527H703Z"/><rect fill="currentColor" x="315" y="821" width="388" height="90.5"/><rect fill="currentColor" x="315" y="975.5" width="388" height="90.5"/><rect fill="currentColor" x="315" y="1130" width="388" height="90.5"/></symbol></svg>
+
+<main class="intro" id="intro">
+  <video id="v" muted playsinline preload="auto" aria-hidden="true"></video>
+  <img class="still" id="still" alt="">
+  <svg class="split" id="split" aria-hidden="true">
+    <path class="zone zone-a" id="za"/>
+    <path class="zone zone-b" id="zb"/>
+    <path class="trail" id="trail"/>
+  </svg>
+
+  <div class="top">
+    <a class="mark" href="intro.html" aria-label="UIII — на главную"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></a>
+    <button class="skip" type="button" id="skip">Пропустить</button>
+  </div>
+
+  <a class="dir dir-a" href="drop.html" id="da">
+    <small>Первый дроп 20 декабря</small>
+    <b>Коллекции <span>бренда</span></b>
+    <i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></i>
+  </a>
+  <a class="dir dir-b" href="./#merch" id="db">
+    <small>Разработка и производство под заказ</small>
+    <b>Спортивный <span>мерч</span></b>
+    <i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></i>
+  </a>
+
+  <p class="credit-line"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></p>
+</main>
+
+<script>
+(function(){
+  // линия следа в координатах кадра (посчитана по траектории лыжника на видео)
+  var V={
+    desk:{w:1920,h:1080,src:'video/intro-1920.mp4?v=1',poster:'video/poster-1920.jpg',end:'video/end-1920.jpg',
+      line:[[1101.5,-0.6],[1098.8,22.1],[1092.5,52],[1089.1,79.7],[1088.4,104.7],[1087.6,129],[1088,158],[1089.4,188.3],[1086.5,218.6],[1079.3,248.4],[1069,276.5],[1054.2,301.6],[1035.6,324.7],[1015,345.1],[992.8,362.1],[968.9,378],[944.2,391.7],[917.3,404.9],[889.1,416],[859.1,424.6],[829.8,428.2],[786,432.8],[309.3,1081.4]]},
+    mob:{w:608,h:1080,src:'video/intro-720x1280.mp4?v=2',poster:'video/poster-720x1280.jpg',end:'video/end-720x1280.jpg',
+      line:[[631.9,4.4],[623.5,52],[620.1,79.7],[619.4,104.7],[618.6,129],[619,158],[620.4,188.3],[617.5,218.6],[610.3,248.4],[600,276.5],[585.2,301.6],[566.6,324.7],[546,345.1],[523.8,362.1],[499.9,378],[475.2,391.7],[448.3,404.9],[420.1,416],[390.1,424.6],[360.8,428.2],[317,432.8],[-2.8,867.9]]}
+  };
+  var root=document.getElementById('intro'),v=document.getElementById('v'),still=document.getElementById('still'),
+      svg=document.getElementById('split'),za=document.getElementById('za'),zb=document.getElementById('zb'),tr=document.getElementById('trail');
+  var cfg=null,shown=false;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen=false; try{seen=sessionStorage.getItem('uiii-intro')==='1'}catch(e){}
+
+  function smooth(p){ // сглаживание Чайкина, чтобы у лыжника не было излома
+    for(var k=0;k<3;k++){var q=[p[0]];for(var i=0;i<p.length-1;i++){var a=p[i],b=p[i+1];q.push([a[0]*.75+b[0]*.25,a[1]*.75+b[1]*.25],[a[0]*.25+b[0]*.75,a[1]*.25+b[1]*.75])}q.push(p[p.length-1]);p=q}
+    return p;
+  }
+  function ext(a,b,k){var dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy);return [b[0]+dx/l*k,b[1]+dy/l*k]}
+  function build(){
+    cfg=(innerWidth/innerHeight<1)?V.mob:V.desk;
+    svg.setAttribute('viewBox','0 0 '+cfg.w+' '+cfg.h);
+    svg.setAttribute('preserveAspectRatio','xMidYMid slice');
+    var L=smooth(cfg.line.slice());
+    var s=ext(L[1],L[0],4000),e=ext(L[L.length-2],L[L.length-1],4000);
+    var d=L.map(function(p,i){return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' ');
+    tr.setAttribute('d',d);
+    // нормаль общего направления: зона A — слева-сверху от следа
+    var dx=e[0]-s[0],dy=e[1]-s[1],l=Math.hypot(dx,dy),nx=dy/l*6000,ny=-dx/l*6000;
+    var core='M'+s[0]+' '+s[1]+' '+d.replace(/^M/,'L')+' L'+e[0]+' '+e[1];
+    za.setAttribute('d',core+' L'+(e[0]-nx)+' '+(e[1]-ny)+' L'+(s[0]-nx)+' '+(s[1]-ny)+'Z');
+    zb.setAttribute('d',core+' L'+(e[0]+nx)+' '+(e[1]+ny)+' L'+(s[0]+nx)+' '+(s[1]+ny)+'Z');
+    var len=tr.getTotalLength();tr.style.strokeDasharray=len;tr.style.strokeDashoffset=shown?0:len;
+    still.src=cfg.end;root.style.backgroundImage='url('+cfg.poster+')';
+  }
+  // какая зона слева: проверяем по точке в левом верхнем углу
+  function fixSides(){
+    var pt=svg.createSVGPoint();pt.x=10;pt.y=10;
+    if(!za.isPointInFill(pt)){var t=za.getAttribute('d');za.setAttribute('d',zb.getAttribute('d'));zb.setAttribute('d',t)}
+  }
+  function finish(){
+    if(shown)return;shown=true;
+    root.classList.add('drawing');
+    requestAnimationFrame(function(){tr.style.strokeDashoffset=0});
+    setTimeout(function(){root.classList.add('done')},reduce?0:700);
+    try{sessionStorage.setItem('uiii-intro','1')}catch(e){}
+  }
+  build();fixSides();
+  if(seen||reduce){shown=true;tr.style.strokeDashoffset=0;root.classList.add('drawing','done');v.remove()}
+  else{
+    v.src=cfg.src;v.poster=cfg.poster;
+    var p=v.play();if(p&&p.catch)p.catch(function(){finish()});
+    v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration-1.25)finish()});
+    v.addEventListener('ended',finish);
+    v.addEventListener('error',finish);
+    setTimeout(function(){if(!shown&&v.currentTime<0.1)finish()},4000); // видео не стартовало — сразу показываем выбор
+  }
+  document.getElementById('skip').addEventListener('click',function(){try{v.pause()}catch(e){}finish()});
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var was=cfg;build();fixSides();if(was!==cfg&&!shown){v.src=cfg.src;v.play()}},150)});
+  // наведение: подсветка выбранной половины
+  function hov(c){root.classList.remove('hov-a','hov-b');if(c)root.classList.add(c)}
+  [['za','hov-a','drop.html'],['zb','hov-b','./#merch'],['da','hov-a'],['db','hov-b']].forEach(function(x){
+    var el=document.getElementById(x[0]);
+    el.addEventListener('mouseenter',function(){hov(x[1])});el.addEventListener('mouseleave',function(){hov()});
+    if(x[2])el.addEventListener('click',function(){location.href=x[2]});
+  });
+})();
+</script>
+</body>
+</html>

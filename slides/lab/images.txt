@@ -1,0 +1,4 @@
+# имя unsplash-id ширина высота ширины — workflow mirror скачает в img/<имя>-<w>.webp
+cover 1758685848543-5c8ba81bc822 16 9 1000,1600
+room 1788010234756-799c8cff02ec 4 5 700,1100
+tubes 1606206591513-adbfbdd7a177 4 5 700,1100

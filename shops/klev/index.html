@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клёв — рыболовный магазин: подбор снастей под рыбу, способ ловли и водоём</title>
+<meta name="description" content="Рыболовный интернет-магазин «Клёв»: соберём комплект снастей под рыбу, способ ловли, водоём и месяц. Спиннинги, фидеры, катушки, приманки, зимняя рыбалка. Календарь клёва.">
+<meta name="theme-color" content="#1B2B33">
+<link rel="preload" href="fonts/roboto-slab-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alegreya-sans-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Roboto Slab';font-weight:700;font-display:swap;src:url(fonts/roboto-slab-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Roboto Slab';font-weight:700;font-display:swap;src:url(fonts/roboto-slab-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-weight:400;font-display:swap;src:url(fonts/alegreya-sans-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Alegreya Sans';font-weight:400;font-display:swap;src:url(fonts/alegreya-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-weight:400;font-display:swap;src:url(fonts/alegreya-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Alegreya Sans';font-weight:700;font-display:swap;src:url(fonts/alegreya-sans-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Alegreya Sans';font-weight:700;font-display:swap;src:url(fonts/alegreya-sans-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-weight:700;font-display:swap;src:url(fonts/alegreya-sans-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#EEF1F0;--w:#FFFFFF;--ink:#1B2B33;--text:#384850;--mute:#5F6F77;--fl:#FF5A1F;--fld:#D9440E;--fll:#FFE7DC;--lake:#2C4A5A;--line:#D6DDDC;--d:'Roboto Slab',Georgia,serif;--t:'Alegreya Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 19px/1.5 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--d);font-weight:700;color:var(--ink);margin:0;letter-spacing:-.01em}
+h3{font-size:19px;line-height:1.25}
+p{margin:0}
+a{color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--fl);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border:0;border-radius:26px;background:var(--fl);color:#fff;font:700 18px/1.2 var(--t);cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:var(--fld)}
+.btn.dk{background:var(--ink)}
+.btn.dk:hover{background:#0F1C22}
+.btn.out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}
+.btn.sm{min-height:42px;padding:0 16px;font-size:17px}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:30;background:var(--w);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:30px;height:68px}
+.logo{display:flex;align-items:center;gap:8px;font:700 26px/1 var(--d);color:var(--ink);text-decoration:none}
+.logo svg{width:16px;height:34px}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:18px}
+.nav a:hover{color:var(--fld)}
+.cartb{min-height:42px;padding:0 16px;border-radius:21px;border:2px solid var(--ink);background:#fff;cursor:pointer;font-weight:700;font-size:17px;color:var(--ink)}
+
+/* первый экран */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--lake)}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(27,43,51,.85) 0,rgba(27,43,51,.25) 55%,rgba(27,43,51,.1) 100%)}
+.hero .wrap{position:relative;z-index:1;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:56px}
+.hero h1{color:#fff;font-size:clamp(40px,5.2vw,72px);line-height:1.04;max-width:13em}
+.lead{font-size:21px;margin-top:16px;max-width:32em;color:#E1EAEE}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* подбор */
+.sec{padding:88px 0}
+.sh{margin-bottom:28px}
+.sh h2{font-size:clamp(32px,3.6vw,48px);line-height:1.08}
+.sh p{margin-top:10px;max-width:38em}
+.pick{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
+.q{display:grid;gap:22px}
+.q h3{font:700 17px/1.3 var(--t);color:var(--mute);margin-bottom:8px;letter-spacing:.01em}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{min-height:46px;padding:0 18px;border-radius:23px;border:2px solid var(--line);background:#fff;cursor:pointer;font-size:18px;color:var(--ink)}
+.opts button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.opts button:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.q select{height:46px;border-radius:23px;border:2px solid var(--line);background:#fff;padding:0 16px;font-size:18px;color:var(--ink)}
+.kit{background:#fff;border-radius:18px;overflow:hidden}
+.kh{background:var(--lake);color:#DCE7EC;padding:20px 22px}
+.kh h3{color:#fff;font-size:24px}
+.tip{display:flex;gap:12px;align-items:flex-start;background:var(--fll);color:#7A2E0E;padding:14px 22px;font-size:17px}
+.tip svg{flex:none;width:14px;height:30px;margin-top:2px}
+.kr{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 22px;border-top:1px solid var(--line)}
+.kr .ic{width:56px;height:56px;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center}
+.kr .ic svg{width:42px;height:42px}
+.kr b{display:block;color:var(--ink)}
+.kr span.s{font-size:16px;color:var(--mute)}
+.kr .p{font-weight:700;color:var(--ink);white-space:nowrap}
+.kf{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 22px;border-top:2px solid var(--ink)}
+.kf .t{font:700 26px/1.1 var(--d);color:var(--ink)}
+.kf .t small{display:block;font:400 16px var(--t);color:var(--mute)}
+.warn{padding:10px 22px;font-size:16px;color:var(--mute);background:#F6F8F7}
+
+/* каталог */
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.cats button{min-height:44px;padding:0 16px;border-radius:22px;border:2px solid var(--line);background:#fff;cursor:pointer;font-size:17px;color:var(--ink)}
+.cats button[aria-pressed=true]{border-color:var(--fl);background:var(--fll)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:#fff;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.card .ic{background:var(--bg);border-radius:12px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.card .ic svg{width:60%;height:auto}
+.card .sp{font-size:16px;color:var(--mute)}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:8px}
+.card .pr{font-weight:700;font-size:22px;color:var(--ink)}
+
+/* календарь */
+.cal{background:var(--lake);color:#DCE7EC}
+.cal h2{color:#fff}
+.cw{overflow-x:auto;background:rgba(255,255,255,.06);border-radius:16px;padding:8px}
+.cal table{border-collapse:collapse;width:100%;min-width:760px}
+.cal th,.cal td{padding:10px 6px;text-align:center;font-size:16px}
+.cal th{color:#AFC3CC;font-weight:400}
+.cal th.r{text-align:left;color:#fff;font-weight:700;font-size:18px;padding-left:12px}
+.cal .now{background:rgba(255,90,31,.18)}
+.cal thead .now{color:#fff;font-weight:700}
+.dot{display:inline-block;border-radius:50%;background:var(--fl)}
+.d0{width:6px;height:6px;background:rgba(255,255,255,.18)}
+.d1{width:10px;height:10px;opacity:.55}
+.d2{width:16px;height:16px;opacity:.8}
+.d3{width:22px;height:22px}
+.leg{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-top:14px;font-size:16px;color:#AFC3CC}
+.leg span{display:inline-flex;align-items:center;gap:8px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.two img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.two ul{margin:16px 0 0;padding-left:22px}
+.two li{margin:6px 0}
+.faq{max-width:860px}
+.faq details{background:#fff;border-radius:14px;margin-bottom:8px}
+.faq summary{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;position:relative;font:700 19px/1.3 var(--d);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:22px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--fl);box-shadow:0 -6px 0 -3px #fff,0 -7px 0 -2px var(--fl)}
+.faq details[open] summary::after{background:var(--ink)}
+.faq details p{padding:0 20px 20px;max-width:46em}
+
+/* корзина */
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(27,43,51,.55)}
+.dp{width:min(440px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--w);border-bottom:1px solid var(--line)}
+.dh h2{font-size:24px}
+.x{width:44px;height:44px;border:0;border-radius:22px;background:var(--bg);color:var(--ink);font-size:24px;cursor:pointer}
+.db{flex:1;overflow:auto;padding:14px 20px}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.li b{color:var(--ink)}
+.li .m{font-size:16px;color:var(--mute)}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:20px;height:38px}
+.qty button{width:34px;height:100%;border:0;background:none;cursor:pointer;font-size:19px;color:var(--ink)}
+.qty span{min-width:24px;text-align:center;font-weight:700;color:var(--ink)}
+.lnk{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer;font-size:16px}
+.df{padding:16px 20px;background:#fff;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:700;color:var(--ink);font-size:21px}
+.dl{display:grid;gap:6px}
+.dl label,.agree{display:flex;gap:10px;align-items:flex-start;font-size:17px;cursor:pointer}
+.dl input,.agree input{width:20px;height:20px;margin:3px 0 0;flex:none;accent-color:var(--fl)}
+.agree{font-size:16px;line-height:1.4}
+.f{display:grid;gap:4px}
+.f label{font-size:16px;font-weight:700;color:var(--ink)}
+.f input{height:48px;border:2px solid var(--line);border-radius:12px;padding:0 12px;font-size:17px;color:var(--ink);background:var(--bg)}
+.f input:focus{border-color:var(--ink);background:#fff;outline:none}
+.err{color:#B3261E;font-size:16px}
+.ok{background:var(--fll);border-radius:14px;padding:16px;color:#7A2E0E}
+.ok b{display:block;font:700 20px var(--d);color:var(--ink);margin-bottom:4px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;border-radius:22px;padding:12px 20px;font-size:17px;max-width:calc(100vw - 32px)}
+dialog{border:0;border-radius:16px;padding:26px;width:min(480px,calc(100vw - 24px));color:var(--text)}
+dialog::backdrop{background:rgba(27,43,51,.55)}
+dialog p{margin:10px 0;font-size:17px}
+
+.foot{background:var(--ink);color:#AFC3CC;padding:46px 0 34px;font-size:16px}
+.foot a{color:#fff}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.legal button{border:0;background:none;padding:0;color:#AFC3CC;text-decoration:underline;cursor:pointer;font-size:16px}
+
+@media (max-width:1080px){
+  .nav{display:none}
+  .cartb{margin-left:auto}
+  .pick,.two{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  body{font-size:18px}
+  .hero .wrap{min-height:620px;padding-bottom:36px}
+  .lead{font-size:19px}
+  .sec{padding:60px 0}
+  .opts button{padding:0 14px;font-size:17px}
+  .kh,.tip,.kr,.kf,.warn{padding-left:14px;padding-right:14px}
+  .kr{grid-template-columns:44px minmax(0,1fr);gap:10px}
+  .kr .ic{width:44px;height:44px}
+  .kr .ic svg{width:32px;height:32px}
+  .kr .p{grid-column:2}
+  .kf .btn{width:100%}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:10px}
+  .card .row{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#"><svg viewBox="0 0 16 34" aria-hidden="true"><path d="M8 0v6" stroke="#1B2B33" stroke-width="2"/><path d="M8 6c4 0 7 5 7 11S11 28 8 34C5 28 1 23 1 17S4 6 8 6z" fill="#fff" stroke="#1B2B33" stroke-width="1.6"/><path d="M8 6c4 0 7 5 7 11H1C1 11 4 6 8 6z" fill="#FF5A1F"/></svg>Клёв</a>
+    <nav class="nav" aria-label="Разделы"><a href="#pick">Подбор снастей</a><a href="#catalog">Каталог</a><a href="#calendar">Календарь клёва</a><a href="#faq">Вопросы</a></nav>
+    <button class="cartb" type="button" id="cartBtn">Корзина <span class="num" id="cc">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <picture><source media="(max-width:720px)" srcset="img/herom-600.webp 600w, img/herom-900.webp 900w" sizes="100vw"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="100vw" width="1400" height="788" alt="Рыбак со спиннингом на берегу лесного озера" fetchpriority="high"></picture>
+  <div class="wrap">
+    <h1>Снасти под вашу рыбу и&nbsp;ваш водоём</h1>
+    <p class="lead">Скажите, на&nbsp;кого и&nbsp;где собираетесь, соберём комплект: удилище с&nbsp;нужным тестом, катушку, леску и&nbsp;приманки, которые работают в&nbsp;этом месяце.</p>
+    <div class="cta"><a class="btn" href="#pick">Подобрать снасти</a><a class="btn out" href="#catalog">Каталог</a></div>
+  </div>
+</section>
+
+<section class="sec" id="pick">
+  <div class="wrap">
+    <div class="sh"><h2>Подбор снастей</h2><p>Четыре вопроса, и&nbsp;справа готовый комплект. Можно купить целиком со&nbsp;скидкой или взять отдельные позиции.</p></div>
+    <div class="pick">
+      <div class="q">
+        <div><h3>Кого ловим</h3><div class="opts" id="fish" role="group" aria-label="Рыба"></div></div>
+        <div><h3>Как</h3><div class="opts" id="meth" role="group" aria-label="Способ ловли"></div></div>
+        <div><h3>Где</h3><div class="opts" id="wat" role="group" aria-label="Водоём"></div></div>
+        <div><h3><label for="mon">Когда</label></h3><select id="mon"></select></div>
+      </div>
+      <div class="kit" aria-live="polite">
+        <div class="kh"><h3 id="kT"></h3><span id="kS"></span></div>
+        <div class="tip"><svg viewBox="0 0 16 34" aria-hidden="true"><path d="M8 6c4 0 7 5 7 11S11 28 8 34C5 28 1 23 1 17S4 6 8 6z" fill="#fff" stroke="#7A2E0E" stroke-width="1.6"/><path d="M8 6c4 0 7 5 7 11H1C1 11 4 6 8 6z" fill="#FF5A1F"/></svg><span id="kTip"></span></div>
+        <div id="kL"></div>
+        <div class="warn" id="kW" hidden></div>
+        <div class="kf"><div class="t num" id="kSum"></div><button class="btn" type="button" id="kGo">Комплект в корзину</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="catalog" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Каталог</h2></div>
+    <div class="cats" id="cats" role="group" aria-label="Раздел"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec cal" id="calendar">
+  <div class="wrap">
+    <div class="sh"><h2>Календарь клёва</h2><p style="color:#C8D6DC">Когда какая рыба активнее в&nbsp;средней полосе. Текущий месяц подсвечен.</p></div>
+    <div class="cw"><table id="calT"></table></div>
+    <div class="leg"><span><i class="dot d3"></i>отлично</span><span><i class="dot d2"></i>хорошо</span><span><i class="dot d1"></i>слабо</span><span><i class="dot d0"></i>почти не клюёт</span></div>
+    <p style="margin-top:14px;font-size:16px;color:#AFC3CC;max-width:52em">Это усреднённые наблюдения, а&nbsp;не&nbsp;прогноз. Весной действует нерестовый запрет: сроки и&nbsp;разрешённые снасти смотрите в&nbsp;правилах рыболовства своего региона.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap two">
+    <img src="img/box-1000.webp" srcset="img/box-600.webp 600w, img/box-1000.webp 1000w" sizes="(max-width:1080px) 92vw, 580px" width="1000" height="750" alt="Рыболовный ящик с красно-белыми поплавками" loading="lazy" decoding="async">
+    <div>
+      <h2 style="font-size:clamp(30px,3.2vw,42px);line-height:1.1">Отправим в&nbsp;день заказа</h2>
+      <ul><li>Заказ до 15:00 уходит сегодня, по&nbsp;Москве курьер в&nbsp;тот же вечер</li><li>Удилища до&nbsp;2&nbsp;м в&nbsp;тубусе, длинные&nbsp;— в&nbsp;жёсткой коробке</li><li>Намотаем леску на&nbsp;катушку бесплатно, если купили вместе</li><li>Самовывоз из&nbsp;магазина у&nbsp;метро Речной вокзал</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap two" style="align-items:start">
+    <div class="faq">
+      <h2 style="font-size:clamp(30px,3.2vw,42px);margin-bottom:20px">Вопросы</h2>
+      <details><summary>Не знаю, какой тест нужен</summary><p>Тест&nbsp;— это вес приманок, которые удилище нормально забрасывает. Подбор выше выставит его сам: под окуня лёгкий, под щуку и&nbsp;судака на&nbsp;реке&nbsp;— тяжелее.</p></details>
+      <details><summary>Шнур или леска?</summary><p>Шнур не&nbsp;тянется и&nbsp;лучше передаёт поклёвку, поэтому его ставят на&nbsp;спиннинг и&nbsp;фидер. Леска мягче и&nbsp;прощает ошибки: её&nbsp;берут на&nbsp;поплавок и&nbsp;для зимней ловли.</p></details>
+      <details><summary>Можно вернуть удилище?</summary><p>Да, в&nbsp;течение 14 дней, если вы&nbsp;им&nbsp;не&nbsp;ловили и&nbsp;сохранили упаковку.</p></details>
+      <details><summary>Есть подарочные сертификаты?</summary><p>Да, от&nbsp;2&nbsp;000 до&nbsp;30&nbsp;000&nbsp;₽, электронные или в&nbsp;конверте.</p></details>
+    </div>
+    <img src="img/lure-1000.webp" srcset="img/lure-600.webp 600w, img/lure-1000.webp 1000w" sizes="(max-width:1080px) 92vw, 580px" width="1000" height="750" alt="Вращающаяся блесна на конце удилища" loading="lazy" decoding="async">
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row"><div><a class="logo" href="#" style="color:#fff">Клёв</a><p style="margin-top:10px">Рыболовный магазин. Москва, у&nbsp;метро Речной вокзал</p></div><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p></div>
+    <div class="legal"><span>ИП Карпов А.Н.</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Корзина</h2><button class="x" type="button" id="dX" aria-label="Закрыть корзину">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT" style="font-size:22px">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;адрес нужны, чтобы доставить заказ. Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам, кроме курьерской службы.</p><p>Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn sm dk">Понятно</button></form></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2400)}
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+
+/* рисунки */
+var IC={
+ rod:'<path d="M8 56L58 6" stroke="#1B2B33" stroke-width="3" stroke-linecap="round"/><path d="M8 56l8-8" stroke="#8C6A4F" stroke-width="7" stroke-linecap="round"/><circle cx="24" cy="40" r="2.6" fill="none" stroke="#1B2B33" stroke-width="1.6"/><circle cx="36" cy="28" r="2" fill="none" stroke="#1B2B33" stroke-width="1.6"/><circle cx="48" cy="16" r="1.6" fill="none" stroke="#1B2B33" stroke-width="1.4"/><path d="M58 6q4 24 0 40" fill="none" stroke="#FF5A1F" stroke-width="1.4" stroke-dasharray="3 3"/>',
+ feeder:'<path d="M6 58L58 6" stroke="#1B2B33" stroke-width="3" stroke-linecap="round"/><path d="M6 58l9-9" stroke="#2C4A5A" stroke-width="7" stroke-linecap="round"/><path d="M54 10l4-4" stroke="#FF5A1F" stroke-width="4" stroke-linecap="round"/><rect x="40" y="38" width="12" height="16" rx="2" fill="#FFE7DC" stroke="#1B2B33" stroke-width="1.6"/><path d="M42 44h8M42 48h8" stroke="#1B2B33" stroke-width="1.2"/>',
+ reel:'<circle cx="30" cy="34" r="16" fill="#E3E9EB" stroke="#1B2B33" stroke-width="2.4"/><circle cx="30" cy="34" r="7" fill="#fff" stroke="#1B2B33" stroke-width="2"/><path d="M30 18V8h14" fill="none" stroke="#1B2B33" stroke-width="3" stroke-linecap="round"/><path d="M46 34h8l2 6" fill="none" stroke="#1B2B33" stroke-width="3" stroke-linecap="round"/><circle cx="56" cy="42" r="3.4" fill="#FF5A1F"/><rect x="18" y="50" width="24" height="5" rx="2" fill="#1B2B33"/>',
+ line:'<ellipse cx="32" cy="16" rx="20" ry="7" fill="#E3E9EB" stroke="#1B2B33" stroke-width="2"/><path d="M12 16v28c0 4 9 7 20 7s20-3 20-7V16" fill="#E3E9EB" stroke="#1B2B33" stroke-width="2"/><path d="M14 24c4 2 32 2 36 0M14 30c4 2 32 2 36 0M14 36c4 2 32 2 36 0" stroke="#2C4A5A" stroke-width="1.6" fill="none"/><path d="M52 30q8 10 4 24" fill="none" stroke="#FF5A1F" stroke-width="1.6"/>',
+ wobbler:'<path d="M8 32q10-14 30-12t18 12q-2 10-18 12T8 32z" fill="#7BA05B" stroke="#1B2B33" stroke-width="2"/><path d="M14 32q12-8 36-4" stroke="#F6E27A" stroke-width="3" fill="none"/><circle cx="46" cy="28" r="3" fill="#fff" stroke="#1B2B33" stroke-width="1.4"/><path d="M54 34l6 8" stroke="#1B2B33" stroke-width="3" stroke-linecap="round"/><path d="M22 44l-4 8m4-8l2 9M38 44l-2 8m2-8l4 8" stroke="#1B2B33" stroke-width="1.6"/>',
+ jig:'<circle cx="16" cy="32" r="8" fill="#FF5A1F" stroke="#1B2B33" stroke-width="2"/><path d="M20 26q20-18 30-2" fill="none" stroke="#1B2B33" stroke-width="2"/><path d="M22 32q14-6 34 2q-4 6-12 4q-10 2-22-6z" fill="#C9A15B" stroke="#1B2B33" stroke-width="1.6"/><path d="M50 36q6 0 10 6" stroke="#1B2B33" stroke-width="1.6" fill="none"/>',
+ spoon:'<path d="M30 8q14 8 8 34q-4 12-10 14q-8-4-8-20q0-20 10-28z" fill="#D8C27A" stroke="#1B2B33" stroke-width="2"/><path d="M30 8V2" stroke="#1B2B33" stroke-width="2"/><path d="M28 56l-4 6m4-6l4 6" stroke="#1B2B33" stroke-width="1.8"/><path d="M30 20q4 10 0 22" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>',
+ floatb:'<path d="M32 2v12" stroke="#1B2B33" stroke-width="2"/><path d="M32 14c8 0 12 10 12 20s-6 18-12 26c-6-8-12-16-12-26s4-20 12-20z" fill="#fff" stroke="#1B2B33" stroke-width="2"/><path d="M32 14c8 0 12 10 12 20H20c0-10 4-20 12-20z" fill="#FF5A1F"/><path d="M32 60v4" stroke="#1B2B33" stroke-width="2"/>',
+ hooks:'<path d="M20 8v34q0 12 10 12t10-10" fill="none" stroke="#1B2B33" stroke-width="2.4" stroke-linecap="round"/><path d="M40 44l-5 2" stroke="#1B2B33" stroke-width="2.4"/><path d="M44 12v26q0 8 6 8t6-6" fill="none" stroke="#5F6F77" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="2.4" fill="none" stroke="#1B2B33" stroke-width="1.6"/>',
+ feed:'<path d="M14 14h36l-4 44H18z" fill="#FFE7DC" stroke="#1B2B33" stroke-width="2" stroke-linejoin="round"/><path d="M14 14l4-8h28l4 8" fill="#FF5A1F" stroke="#1B2B33" stroke-width="2" stroke-linejoin="round"/><path d="M22 30q10 8 20 0" stroke="#8C6A4F" stroke-width="3" fill="none"/><circle cx="26" cy="42" r="2" fill="#8C6A4F"/><circle cx="36" cy="46" r="2" fill="#8C6A4F"/>',
+ ice:'<rect x="24" y="30" width="14" height="22" rx="4" fill="#2C4A5A" stroke="#1B2B33" stroke-width="2"/><path d="M31 30V8" stroke="#1B2B33" stroke-width="2.4"/><circle cx="31" cy="44" r="4" fill="#E3E9EB" stroke="#1B2B33" stroke-width="1.4"/><path d="M31 8q14 4 14 20v24" fill="none" stroke="#FF5A1F" stroke-width="1.4" stroke-dasharray="3 3"/><path d="M40 52h10l-5 6z" fill="#D8C27A" stroke="#1B2B33" stroke-width="1.4"/><path d="M6 60h52" stroke="#9FC4D6" stroke-width="3"/>',
+ trap:'<path d="M8 50h48" stroke="#9FC4D6" stroke-width="3"/><path d="M32 50V10" stroke="#1B2B33" stroke-width="2.6"/><path d="M32 14l18 6" stroke="#1B2B33" stroke-width="2.2"/><path d="M50 20l-6 10h12z" fill="#FF5A1F" stroke="#1B2B33" stroke-width="1.4"/><circle cx="32" cy="36" r="8" fill="#E3E9EB" stroke="#1B2B33" stroke-width="2"/><path d="M14 50l18-10 18 10" fill="none" stroke="#1B2B33" stroke-width="2.2"/>',
+ box:'<rect x="6" y="20" width="52" height="34" rx="4" fill="#2C4A5A" stroke="#1B2B33" stroke-width="2"/><path d="M6 32h52" stroke="#1B2B33" stroke-width="2"/><rect x="24" y="12" width="16" height="10" rx="3" fill="none" stroke="#1B2B33" stroke-width="2.4"/><rect x="28" y="28" width="8" height="8" rx="2" fill="#FF5A1F"/>'
+};
+function ico(k){return '<svg viewBox="0 0 64 64" aria-hidden="true">'+IC[k]+'</svg>'}
+
+/* каталог: название, раздел, рисунок, описание, цена */
+var P={
+ s24:['Спиннинг 2,4 м, тест 10–35 г','Удилища','rod','Средний строй, для джига и воблеров',6490],
+ s27:['Спиннинг 2,7 м, тест 10–40 г','Удилища','rod','Для реки и дальних забросов',7890],
+ s21:['Спиннинг 2,1 м, тест 2–12 г','Удилища','rod','Лёгкий, для окуня и микроджига',5290],
+ s21t:['Спиннинг 2,1 м, тест 1–8 г','Удилища','rod','Ультралайт для форели',5690],
+ f36:['Фидер 3,6 м, до 100 г','Удилища','feeder','Три сменных кончика',7490],
+ f39:['Фидер 3,9 м, до 120 г','Удилища','feeder','Для течения и дальних забросов',8790],
+ m6:['Маховое удилище 6 м','Удилища','rod','Без колец, лёгкий углепластик',3490],
+ b5:['Болонское удилище 5 м','Удилища','rod','С кольцами под катушку',4290],
+ r2:['Катушка 2000, 6 подшипников','Катушки','reel','Для лёгкого спиннинга',4190],
+ r3:['Катушка 3000, 8 подшипников','Катушки','reel','Универсальная для спиннинга',5490],
+ r4:['Катушка 4000 с байтраннером','Катушки','reel','Для фидера и карпа',6890],
+ br8:['Шнур 8 жил, 0,08 мм, 150 м','Лески и шнуры','line','Разрывная 4,5 кг',1690],
+ br12:['Шнур 8 жил, 0,12 мм, 150 м','Лески и шнуры','line','Разрывная 8 кг',1790],
+ br14:['Шнур 8 жил, 0,14 мм, 150 м','Лески и шнуры','line','Разрывная 10 кг',1890],
+ m16:['Леска 0,16 мм, 150 м','Лески и шнуры','line','Мягкая, для поплавка',490],
+ m18:['Леска 0,18 мм, 150 м','Лески и шнуры','line','Прозрачная',520],
+ m25:['Леска 0,25 мм, 200 м','Лески и шнуры','line','Для фидера и карпа',690],
+ w1:['Воблеры-минноу, 3 шт','Приманки','wobbler','90 мм, плавающие',2390],
+ j1:['Набор для джига: головки и силикон','Приманки','jig','Головки 14–28 г, силикон 3–4″',1490],
+ mj:['Микроджиг: головки 3–5 г и силикон','Приманки','jig','Для окуня',890],
+ sp1:['Вертушки №1–2, 5 шт','Приманки','spoon','Для окуня и форели',1190],
+ sp2:['Колеблющиеся блёсны, 5 шт','Приманки','spoon','Микроколебалки 2–4 г',1290],
+ fl1:['Поплавки 2–4 г, 5 шт','Поплавки и крючки','floatb','Для стоячей воды',590],
+ fl2:['Поплавки 4–6 г, 5 шт','Поплавки и крючки','floatb','Для течения',690],
+ h8:['Крючки №8, 20 шт','Поплавки и крючки','hooks','Для карпа и бойлов',290],
+ h12:['Крючки №12–14, 20 шт','Поплавки и крючки','hooks','Для леща и плотвы',290],
+ fd:['Кормушки 40–80 г, 4 шт','Прикормка','feed','Сетчатые и пуля',690],
+ gc:['Прикормка «Карп», 1 кг','Прикормка','feed','С кукурузой и клубникой',390],
+ gl:['Прикормка «Лещ», 1 кг','Прикормка','feed','Ваниль и печенье',350],
+ ir:['Зимняя удочка с катушкой','Зимняя рыбалка','ice','Хлыст 40 см, сторожок',990],
+ bal:['Балансиры, 3 шт','Зимняя рыбалка','spoon','5–7 см, для окуня и судака',1390],
+ mor:['Мормышки, 10 шт','Зимняя рыбалка','hooks','Вольфрам, 2–4 мм',790],
+ zh:['Жерлицы на щуку, 5 шт','Зимняя рыбалка','trap','С флажком и леской 0,35',2490],
+ lw:['Леска зимняя 0,12 мм, 30 м','Зимняя рыбалка','line','Мягкая на морозе',290],
+ bx:['Ящик рыболовный','Аксессуары','box','Два яруса, поднос для мелочи',2190],
+ lead:['Поводки флюорокарбон и титан, 6 шт','Аксессуары','hooks','От щучьих зубов',590]
+};
+/* комплект: [способ][рыба] = [удилище, катушка, леска, приманки…] */
+var K={spin:{pike:['s24','r3','br14','w1','j1','lead'],zander:['s27','r3','br12','j1','lead'],perch:['s21','r2','br8','mj','sp1'],trout:['s21t','r2','m18','sp2']},
+ feeder:{carp:['f36','r4','m25','fd','gc','h8'],bream:['f36','r4','br12','fd','gl','h12']},
+ float:{carp:['m6','m18','fl1','h8','gc'],bream:['b5','r3','m16','fl2','h12','gl'],trout:['b5','r2','m18','fl1','h12']},
+ ice:{pike:['zh','bx'],perch:['ir','bal','mor','lw'],zander:['ir','bal','lw'],bream:['ir','mor','lw']}};
+var FISH=[['pike','Щука'],['zander','Судак'],['perch','Окунь'],['carp','Карп'],['bream','Лещ'],['trout','Форель']];
+var METH=[['spin','Спиннинг'],['feeder','Фидер'],['float','Поплавок'],['ice','Со льда']];
+var WAT=[['river','Река'],['lake','Озеро'],['pond','Пруд или платник']];
+var MON=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+var CAL={pike:[2,1,1,1,2,2,1,2,3,3,2,2],zander:[2,1,1,1,1,2,2,2,3,3,2,2],perch:[2,2,3,2,2,2,2,2,3,3,2,3],carp:[0,0,0,1,2,3,3,3,2,1,0,0],bream:[1,1,2,2,2,3,2,3,2,1,1,1],trout:[2,2,3,3,2,1,1,1,2,3,3,2]};
+var TIPS={pike:['По первому льду ставьте жерлицы на свалах у травы.','Весной после нереста щука стоит на мелководье у травы.','Летом ловите утром и вечером, днём щука уходит на глубину.','Осень — лучшее время: щука жирует перед зимой, берите приманки крупнее.'],
+ zander:['Зимой ищите ямы и бровки, судак берёт на балансир у дна.','Весной судак активен после нереста, на джиг у дна.','Летом судак выходит кормиться ночью и на рассвете.','Осенью судак сбивается в стаи на ямах: джиг потяжелее.'],
+ perch:['Окунь стаями ходит под льдом: балансир и мормышка.','Весной окунь подходит к берегу, хватает мелкие вертушки.','Летом ищите котлы: окунь гоняет малька у поверхности.','Осенью окунь крупнеет и уходит глубже, микроджиг у дна.'],
+ carp:['Зимой карп почти не кормится. Лучше подождать до весны.','Весной карп просыпается в мае на прогретом мелководье.','Летом лучший клёв на рассвете, прикармливайте точку заранее.','В сентябре карп ещё ловится на тёплых прудах, дальше затихает.'],
+ bream:['Зимой лещ стоит на ямах и аккуратно берёт мормышку с мотылём.','Весной лещ подходит к берегам перед нерестом.','Летом лещ кормится ночью и на зорьке, нужна прикормка.','Осенью лещ уходит на глубину, ловите на фидер с дальним забросом.'],
+ trout:['На платниках форель активна и зимой, со льда на блесну.','Весной форель на платниках клюёт лучше всего.','Летом в жару форель вялая: ловите рано утром.','Осенью на платниках снова хороший клёв, вода остывает.']};
+var ACC={pike:'Щуку',zander:'Судака',perch:'Окуня',carp:'Карпа',bream:'Леща',trout:'Форель'},MP={spin:'на спиннинг',feeder:'на фидер',float:'на поплавок',ice:'со льда'};
+var fish='pike',meth='spin',wat='lake',mon=new Date().getMonth(),off={};
+function okM(f,m){return !!(K[m]&&K[m][f])}
+function seg(id,list,get,set){$(id).innerHTML=list.map(function(o){return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(o[0]===get())+'">'+o[1]+'</button>'}).join('');
+  $(id).querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.v);off={};ui()})})}
+$('mon').innerHTML=MON.map(function(m,i){return '<option value="'+i+'"'+(i===mon?' selected':'')+'>'+m[0].toUpperCase()+m.slice(1)+(i===new Date().getMonth()?', сейчас':'')+'</option>'}).join('');
+$('mon').addEventListener('change',function(){mon=+this.value;ui()});
+function season(m){return m===11||m<=1?0:m<=4?1:m<=7?2:3}
+function ui(){
+  var note='';
+  if(!okM(fish,meth)){var alt=METH.filter(function(m){return okM(fish,m[0])})[0];note=ACC[fish]+' '+MP[meth]+' обычно не ловят, переключили '+MP[alt[0]].replace('со льда','на ловлю со льда')+'.';meth=alt[0]}
+  if(meth==='ice'&&wat==='river'&&fish!=='trout')note=(note?note+' ':'')+'На реке лёд ненадёжный у течения: выходите только на крепкий лёд у берега.';
+  var sea=season(mon);if(meth==='ice'&&sea!==0)note=(note?note+' ':'')+'Ловля со льда возможна обычно с декабря по март.';
+  if(meth!=='ice'&&sea===0&&wat!=='river'&&fish!=='trout')note=(note?note+' ':'')+'Зимой озёра и пруды подо льдом: посмотрите вариант «Со льда».';
+  seg('fish',FISH,function(){return fish},function(v){fish=v});
+  seg('meth',METH,function(){return meth},function(v){meth=v});
+  seg('wat',WAT,function(){return wat},function(v){wat=v});
+  $('meth').querySelectorAll('button').forEach(function(b){b.disabled=!okM(fish,b.dataset.v)});
+  var items=K[meth][fish].slice();
+  if(meth==='spin'&&fish==='zander'&&wat!=='river')items[0]='s24';
+  if(meth==='feeder'&&fish==='bream'&&wat==='river')items[0]='f39';
+  var s=0;
+  $('kL').innerHTML=items.map(function(k,j){var p=P[k],on=!off[j];if(on)s+=p[4];return '<label class="kr"'+(on?'':' style="opacity:.45"')+'><span class="ic">'+ico(p[2])+'</span><span><b>'+esc(p[0])+'</b><span class="s">'+esc(p[3])+'</span></span><span class="p num"><input type="checkbox" data-j="'+j+'"'+(on?' checked':'')+' aria-label="Включить в комплект" style="width:18px;height:18px;margin:0 8px 0 0;vertical-align:-3px;accent-color:#FF5A1F">'+rub(p[4])+'</span></label>'}).join('');
+  $('kL').querySelectorAll('input').forEach(function(c){c.addEventListener('change',function(){off[c.dataset.j]=!c.checked;ui()})});
+  var fn=FISH.filter(function(f){return f[0]===fish})[0][1],mn=METH.filter(function(m){return m[0]===meth})[0][1],wn=WAT.filter(function(w){return w[0]===wat})[0][1];
+  $('kT').textContent=fn+': '+mn.toLowerCase();$('kS').textContent=wn+', '+MON[mon]+'. Клёв в этом месяце: '+['почти не клюёт','слабый','хороший','отличный'][CAL[fish][mon]]+'.';
+  $('kTip').textContent=TIPS[fish][sea];
+  $('kW').hidden=!note;$('kW').textContent=note;
+  var d=Math.round(s*.93);$('kSum').innerHTML=rub(d)+'<small>вместо '+rub(s)+', скидка 7% на комплект</small>';
+  $('kGo').disabled=!s;
+  cur=items.filter(function(_,j){return !off[j]});
+}
+var cur=[];
+$('kGo').addEventListener('click',function(){cur.forEach(function(k){cart[k]=(cart[k]||0)+1;kitK[k]=1});cnt();toast('Комплект в корзине: '+cur.length+' позиций')});
+
+/* каталог */
+var cat='Удилища';
+var CATS=['Удилища','Катушки','Лески и шнуры','Приманки','Поплавки и крючки','Прикормка','Зимняя рыбалка','Аксессуары'];
+$('cats').innerHTML=CATS.map(function(c){return '<button type="button" aria-pressed="'+(c===cat)+'">'+c+'</button>'}).join('');
+$('cats').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){cat=b.textContent;$('cats').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+function draw(){$('grid').innerHTML=Object.keys(P).filter(function(k){return P[k][1]===cat}).map(function(k){var p=P[k];return '<article class="card"><div class="ic">'+ico(p[2])+'</div><h3>'+esc(p[0])+'</h3><p class="sp">'+esc(p[3])+'</p><div class="row"><span class="pr num">'+rub(p[4])+'</span><button class="btn sm dk" type="button" data-add="'+k+'">В корзину</button></div></article>'}).join('');
+  $('grid').querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.add;cart[k]=(cart[k]||0)+1;cnt();toast('«'+P[k][0]+'» в корзине')})})}
+
+/* календарь */
+(function(){var now=new Date().getMonth(),h='<thead><tr><th></th>'+MON.map(function(m,i){return '<th class="'+(i===now?'now':'')+'">'+m.slice(0,3)+'</th>'}).join('')+'</tr></thead><tbody>';
+  FISH.forEach(function(f){h+='<tr><th class="r" scope="row">'+f[1]+'</th>'+CAL[f[0]].map(function(v,i){return '<td class="'+(i===now?'now':'')+'"><i class="dot d'+v+'" aria-label="'+['почти не клюёт','слабо','хорошо','отлично'][v]+'"></i></td>'}).join('')+'</tr>'});
+  $('calT').innerHTML=h+'</tbody>'})();
+
+/* корзина */
+var cart={},kitK={},dlv='msk';
+function cnt(){var n=0;for(var k in cart)n+=cart[k];$('cc').textContent=n}
+function openD(){$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;$('cartBtn').focus()}
+$('cartBtn').addEventListener('click',openD);$('dX').addEventListener('click',closeD);
+$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('drawer').hidden)closeD()});
+function render(){
+  var ks=Object.keys(cart);
+  if(!ks.length){kitK={};$('dB').innerHTML='<p>Корзина пуста. Соберите комплект в подборе: укажите рыбу и водоём, остальное подскажем.</p>';$('dF').innerHTML='';return}
+  var s=0;$('dB').innerHTML=ks.map(function(k){var p=P[k],q=cart[k];s+=p[4]*q;return '<div class="li"><b>'+esc(p[0])+'</b><span class="num" style="font-weight:700;color:var(--ink)">'+rub(p[4]*q)+'</span><span class="qty"><button type="button" data-k="'+k+'" data-d="-1" aria-label="Меньше">−</button><span class="num">'+q+'</span><button type="button" data-k="'+k+'" data-d="1" aria-label="Больше">+</button></span><span class="m" style="justify-self:end">'+p[1]+'</span></div>'}).join('');
+  var disc=Math.round(ks.filter(function(k){return kitK[k]}).reduce(function(a,k){return a+P[k][4]},0)*.07),ship=dlv==='pick'?0:(s-disc>=3000?0:dlv==='msk'?300:450);
+  $('dF').innerHTML=(disc?'<div style="display:flex;justify-content:space-between;color:var(--fld);font-weight:700"><span>Скидка на комплект, 7%</span><span class="num">−'+rub(disc)+'</span></div>':'')+'<div class="tot num"><span>Итого</span><span>'+rub(s-disc+ship)+'</span></div>'+
+   '<div class="dl" role="radiogroup" aria-label="Получение"><label><input type="radio" name="dl" value="msk"'+(dlv==='msk'?' checked':'')+'>Курьер по Москве сегодня вечером, бесплатно от 3 000 ₽</label><label><input type="radio" name="dl" value="ru"'+(dlv==='ru'?' checked':'')+'>Пункт выдачи по России, 2–5 дней</label><label><input type="radio" name="dl" value="pick"'+(dlv==='pick'?' checked':'')+'>Самовывоз из магазина у метро Речной вокзал</label></div>'+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oP">Телефон</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div>'+(dlv!=='pick'?'<div class="f"><label for="oA">'+(dlv==='msk'?'Адрес':'Город и пункт выдачи')+'</label><input id="oA" autocomplete="street-address"></div>':'')+
+   '<label class="agree"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Оформить заказ</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-d]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k,q=cart[k]+(+b.dataset.d);if(q>0)cart[k]=Math.min(20,q);else{delete cart[k];delete kitK[k]}cnt();render()})});
+  $('dF').querySelectorAll('input[name=dl]').forEach(function(r){r.addEventListener('change',function(){dlv=r.value;render()})});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя.';$('oN').focus();return}
+    if($('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон: позвоним подтвердить заказ.';$('oP').focus();return}
+    if(dlv!=='pick'&&!$('oA').value.trim()){e.textContent=dlv==='msk'?'Укажите адрес доставки.':'Укажите город и пункт выдачи.';$('oA').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var hasR=Object.keys(cart).some(function(k){return P[k][1]==='Катушки'})&&Object.keys(cart).some(function(k){return P[k][1]==='Лески и шнуры'});cart={};kitK={};cnt();
+    $('dB').innerHTML='<div class="ok"><b>Заказ принят</b>'+(dlv==='pick'?'Соберём за час и пришлём СМС, когда можно забирать.':'Отправим сегодня, трек пришлём в СМС.')+(hasR?' Леску намотаем на катушку.':'')+'</div>';$('dF').innerHTML='';
+  });
+}
+
+ui();draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /d/
+Disallow: /clients/
+Sitemap: https://ysdprojects.space/sitemap.xml

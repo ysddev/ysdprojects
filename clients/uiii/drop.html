@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UIII — первый дроп 20 декабря</title>
+<meta name="description" content="Первая коллекция UIII — 20 декабря 2026 года, 20:00 по Москве.">
+<meta property="og:title" content="UIII — первый дроп">
+<meta property="og:description" content="20 декабря 2026 года, 20:00 по Москве.">
+<meta property="og:image" content="https://ysdprojects.space/clients/uiii/img/og.jpg?v=2">
+<meta name="theme-color" content="#422C21">
+<link rel="icon" href="logo/UIII-logo-blue-on-espresso.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/commissioner-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="base.css?v=2">
+<style>
+html,body{min-height:100%;background:var(--espresso);color:var(--blue)}
+body{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto}
+.top{padding:22px clamp(20px,5vw,80px)}
+.top .mark{height:46px;color:var(--blue)}
+.drop{display:grid;align-content:center;justify-items:center;text-align:center;padding:24px clamp(20px,5vw,80px) 48px}
+.drop h1{font-size:clamp(54px,11vw,168px);line-height:.9;letter-spacing:-.045em}
+.drop h1 span{display:block}
+.date{margin-top:clamp(20px,3vw,36px);font-size:clamp(18px,1.8vw,24px);font-weight:300;color:rgba(182,221,246,.85)}
+.count{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,3vw,40px);width:min(100%,880px)}
+.count li{display:grid;gap:10px;justify-items:center;padding:clamp(18px,2.6vw,32px) 8px;border:1px solid rgba(182,221,246,.25);border-radius:24px}
+.count b{font-size:clamp(44px,7.4vw,112px);font-weight:200;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.count span{font-size:clamp(13px,1.2vw,16px);font-weight:500;color:rgba(182,221,246,.7)}
+.ftr{padding:0 clamp(20px,5vw,80px) 18px;font-size:12px;color:rgba(182,221,246,.45)}
+.ftr a{text-decoration:none}
+html.ready .drop>*{animation:rise .9s var(--ease) both}
+html.ready .drop .date{animation-delay:.1s}html.ready .drop .count{animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:560px){
+  .count{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="uiii" viewBox="296 439 407 781.5"><path fill="currentColor" d="M703 439H440C356.48 439 296 507.46 296 602C296 696.54 356.48 765 440 765H703V676H446C405.98 676 377 644.71 377 601.5C377 558.29 405.98 527 446 527H703Z"/><rect fill="currentColor" x="315" y="821" width="388" height="90.5"/><rect fill="currentColor" x="315" y="975.5" width="388" height="90.5"/><rect fill="currentColor" x="315" y="1130" width="388" height="90.5"/></symbol></svg>
+<header class="top"><a class="mark" href="intro.html" aria-label="UIII — на главную"><svg viewBox="0 0 407 781.5"><use href="#uiii"/></svg></a></header>
+
+<main class="drop">
+  <h1><span class="lt">Первый</span><span class="bk">дроп</span></h1>
+  <p class="date">20 декабря 2026 года, 20:00 по Москве</p>
+  <ul class="count" id="count" aria-label="До запуска осталось">
+    <li><b data-u="d">00</b><span data-l="d">дней</span></li>
+    <li><b data-u="h">00</b><span data-l="h">часов</span></li>
+    <li><b data-u="m">00</b><span data-l="m">минут</span></li>
+    <li><b data-u="s">00</b><span data-l="s">секунд</span></li>
+  </ul>
+</main>
+
+<footer class="ftr"><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></footer>
+
+<script>
+(function(){
+  // 20 декабря 2026, 20:00 МСК = 17:00 UTC — одинаково для посетителя в любом часовом поясе
+  var END=Date.UTC(2026,11,20,17,0,0);
+  var W={d:['день','дня','дней'],h:['час','часа','часов'],m:['минута','минуты','минут'],s:['секунда','секунды','секунд']};
+  function plural(n,f){var a=n%10,b=n%100;return f[(a===1&&b!==11)?0:(a>=2&&a<=4&&(b<12||b>14))?1:2]}
+  var el={},lb={};['d','h','m','s'].forEach(function(k){el[k]=document.querySelector('[data-u="'+k+'"]');lb[k]=document.querySelector('[data-l="'+k+'"]')});
+  var timer;
+  function tick(){
+    var left=Math.max(0,Math.floor((END-Date.now())/1000));
+    var v={d:Math.floor(left/86400),h:Math.floor(left%86400/3600),m:Math.floor(left%3600/60),s:left%60};
+    for(var k in v){el[k].textContent=String(v[k]).padStart(2,'0');lb[k].textContent=plural(v[k],W[k])}
+    if(left===0)return;
+    timer=setTimeout(tick,1000-Date.now()%1000+15); // тик ровно на смене секунды
+  }
+  tick();
+  document.documentElement.classList.add('ready');
+})();
+</script>
+</body>
+</html>

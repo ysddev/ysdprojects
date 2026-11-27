@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Новый сотрудник · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-user-new.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a aria-current="page" href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="narrow stack">
+<p><a href="admin-users.html">← Сотрудники</a></p>
+<form action="#" class="panel stack" data-to="admin-users-new.html" method="post" novalidate="">
+ <h1 style="font-size:26px">Новый сотрудник</h1>
+<label class="field"><span>ФИО</span><input data-login-src="" name="name" placeholder="Смирнова Анна Петровна" required="" value=""/></label>
+<div class="grid2">
+<label class="field"><span>Логин</span><input autocapitalize="none" data-login-dst="" name="login" placeholder="anna.smirnova" required="" spellcheck="false" value=""/><small class="hint">Латиница. Подставится из ФИО.</small></label>
+<label class="field"><span>Почта (необязательно)</span><input name="email" type="email" value=""/><small class="hint">Для писем-подтверждений заказа.</small></label>
+</div>
+<label class="field"><span>Компания</span>
+<select name="company_id"><option value="">— выберите —</option><option value="2">АО «Томскнефтесервис»</option><option value="3">Клиника «Здоровье+»</option><option value="1">ООО «Сибирь-Софт»</option></select>
+</label>
+<label class="field"><span>Временный пароль</span><input autocomplete="off" name="password" placeholder="оставьте пустым — придумаем сами" value=""/><small class="hint">Сотрудник сменит его при первом входе.</small></label>
+<label class="check"><input name="role" type="checkbox" value="admin"/><span>Администратор — видит заказы, меню и отчёты. Для помощника или бухгалтера.</span></label>
+<div class="row"><button class="btn" type="submit">Создать</button><a class="btn ghost" href="admin-users.html">Отмена</a></div>
+</form>
+</div>
+</div>
+</main>
+</body>
+</html>

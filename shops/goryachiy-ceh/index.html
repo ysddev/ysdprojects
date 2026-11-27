@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Горячий цех — оборудование для кафе, кофеен, пекарен и столовых под ключ, лизинг и монтаж</title>
+<meta name="description" content="Профессиональное оборудование для общепита: комплект под формат заведения, расчёт мощности и лизинга, доставка, монтаж и сервис. Пароконвектоматы, холодильные шкафы, кофемашины, посудомоечные машины.">
+<meta name="theme-color" content="#10302A">
+<link rel="preload" href="fonts/alumni-sans-cyrillic-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/overpass-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Alumni';font-weight:800;font-display:swap;src:url(fonts/alumni-sans-cyrillic-800-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Alumni';font-weight:800;font-display:swap;src:url(fonts/alumni-sans-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alumni';font-weight:800;font-display:swap;src:url(fonts/alumni-sans-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Overpass';font-weight:400;font-display:swap;src:url(fonts/overpass-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Overpass';font-weight:600;font-display:swap;src:url(fonts/overpass-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#F4F5F5;--w:#FFFFFF;--ink:#10302A;--text:#33463F;--mute:#5C6D66;--fl:#1F5BFF;--fld:#1746C9;--fll:#E3EAFF;--steel:#E3E8E9;--line:#D6DDDE;--amber:#B86E00;--d:'Alumni','Overpass',sans-serif;--t:'Overpass',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.55 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{color:var(--ink);margin:0}
+h1,h2{font-family:var(--d);font-weight:800;letter-spacing:.005em}
+h3{font:600 18px/1.3 var(--t)}
+p{margin:0}
+a{color:var(--fl)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--fl);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1260px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border:0;border-radius:2px;background:var(--fl);color:#fff;font:600 16px/1.2 var(--t);cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:var(--fld)}
+.btn.ink{background:var(--ink)}
+.btn.ink:hover{background:#0A2420}
+.btn.sm{min-height:42px;padding:0 14px;font-size:15px}
+.btn.out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.btn.out:hover{background:rgba(255,255,255,.1)}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:30;background:var(--ink);color:#fff}
+.bar{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:800 30px/1 var(--d);color:#fff;text-decoration:none}
+.logo svg{width:26px;height:30px}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{color:#CFE0DA;text-decoration:none;font-size:16px}
+.nav a:hover{color:#fff}
+.tel{color:#fff;text-decoration:none;font-weight:600;white-space:nowrap}
+.reqb{min-height:44px;padding:0 16px;border-radius:2px;border:0;background:var(--fl);color:#fff;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+
+/* первый экран */
+.hero{background:var(--ink);color:#D7E4DF;position:relative;overflow:hidden}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:0;min-height:560px}
+.ht{padding:56px 48px 56px 0;display:flex;flex-direction:column;justify-content:center}
+.hero h1{color:#fff;font-size:clamp(48px,5.4vw,84px);line-height:.94}
+.lead{font-size:19px;margin-top:20px;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hp{position:absolute;top:0;bottom:0;left:50%;right:0}
+.hp img{width:100%;height:100%;object-fit:cover}
+.hp::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0,rgba(16,48,42,0) 18%)}
+.fmts{position:relative;background:var(--w);border-bottom:1px solid var(--line)}
+.fmts .wrap{display:grid;grid-template-columns:auto repeat(5,minmax(0,1fr));align-items:stretch}
+.fmts .lb{display:flex;align-items:center;padding-right:20px;font-weight:600;color:var(--ink);font-size:16px}
+.fmts button{display:flex;align-items:center;gap:10px;padding:16px 14px;border:0;border-left:1px solid var(--line);background:none;cursor:pointer;font-size:16px;font-weight:600;color:var(--ink);text-align:left;min-height:72px}
+.fmts button:hover{background:var(--fll)}
+.fmts button svg{width:34px;height:34px;flex:none}
+
+/* конфигуратор */
+.sec{padding:84px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.sh h2{font-size:clamp(44px,5vw,72px);line-height:.95}
+.sh p{max-width:36em;margin-top:10px}
+.cfg{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+.ftabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.ftabs button{min-height:44px;padding:0 16px;border-radius:2px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink)}
+.ftabs button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.kit{background:#fff;border:1px solid var(--line)}
+.kr{display:grid;grid-template-columns:28px 64px minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.kr:last-child{border-bottom:0}
+.kr input[type=checkbox]{width:20px;height:20px;margin:0;accent-color:var(--fl)}
+.kr .ic{width:64px;height:52px;background:var(--steel);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.kr .ic svg{width:44px;height:44px}
+.kr b{display:block;color:var(--ink);font-weight:600}
+.kr span.s{font-size:15px;color:var(--mute)}
+.kr .qn{font-size:15px;color:var(--mute);white-space:nowrap}
+.kr .p{font-weight:600;color:var(--ink);white-space:nowrap;text-align:right;min-width:110px}
+.kr.off{opacity:.45}
+.total{position:sticky;top:90px;background:var(--ink);color:#D7E4DF;padding:24px}
+.total .big{font:800 56px/1 var(--d);color:#fff;margin:6px 0 4px}
+.total dl{display:grid;grid-template-columns:1fr auto;gap:8px 12px;margin:18px 0;font-size:16px}
+.total dt{color:#AFC5BD}
+.total dd{margin:0;color:#fff;font-weight:600;text-align:right}
+.warn{background:rgba(255,255,255,.08);border-left:3px solid #F0B44C;padding:10px 12px;font-size:15px;margin-bottom:16px}
+.total .btn{width:100%}
+
+/* каталог */
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px}
+.ctl .v{margin-left:auto;display:flex;gap:6px}
+.cats button,.ctl .v button{min-height:42px;padding:0 14px;border-radius:2px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink)}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cats button[aria-pressed=true],.ctl .v button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.card .ic{background:var(--steel);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative}
+.card .ic svg{width:46%;height:auto}
+.card .vt{position:absolute;left:10px;top:10px;background:#fff;color:var(--ink);font-size:14px;font-weight:600;padding:2px 8px;border-radius:2px}
+.card .vt.h{background:#FFF1DA;color:#7A4A00}
+.cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cb .sp{font-size:15px;color:var(--mute)}
+.cb .pr{font-weight:600;font-size:20px;color:var(--ink);margin-top:auto;padding-top:6px}
+.cb .ls{font-size:15px;color:var(--fld)}
+.cb .btn{margin-top:8px}
+
+/* лизинг */
+.lz{position:relative;background:var(--ink);color:#D7E4DF;overflow:hidden}
+.lz .bgp{position:absolute;inset:0;opacity:.25}
+.lz .bgp img{width:100%;height:100%;object-fit:cover}
+.lz .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.lz h2{color:#fff}
+.calc{background:#fff;color:var(--text);padding:26px}
+.calc label{display:block;font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px}
+.calc .row{margin-bottom:18px}
+.calc input[type=range]{width:100%;accent-color:var(--fl)}
+.calc .val{display:flex;justify-content:space-between;font-size:15px;color:var(--mute)}
+.calc .val b{color:var(--ink);font-size:17px}
+.calc .sum{width:100%;height:48px;border:2px solid var(--line);border-radius:2px;padding:0 12px;font-size:18px;font-weight:600;color:var(--ink)}
+.calc .sum:focus{border-color:var(--fl);outline:none}
+.terms{display:flex;gap:6px}
+.terms button{flex:1;min-height:44px;border-radius:2px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-weight:600;color:var(--ink)}
+.terms button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink);margin-top:6px}
+.res div{padding:14px 0 0}
+.res span{display:block;font-size:14px;color:var(--mute)}
+.res b{font:800 34px/1.1 var(--d);color:var(--ink)}
+.res div:first-child b{color:var(--fl)}
+
+/* сервис */
+.svc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:center}
+.svc figure{margin:0}
+.svc img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:20px;border-top:1px solid var(--line)}
+.list div{padding:16px 16px 16px 0;border-bottom:1px solid var(--line)}
+.list div:nth-child(odd){border-right:1px solid var(--line)}
+.list div:nth-child(even){padding-left:16px}
+.list b{display:block;color:var(--ink);font-weight:600}
+.list p{font-size:16px}
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 44px 18px 0;position:relative;font-weight:600;font-size:18px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:8px;font:800 34px var(--d);color:var(--fl)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 18px;max-width:46em}
+
+/* заявка */
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(16,48,42,.55)}
+.dp{width:min(460px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--ink)}
+.dh h2{color:#fff;font-size:38px;line-height:1}
+.x{width:44px;height:44px;border:0;border-radius:2px;background:rgba(255,255,255,.12);color:#fff;font-size:24px;cursor:pointer}
+.db{flex:1;overflow:auto;padding:14px 20px}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;background:#fff;border:1px solid var(--line);padding:12px 14px;margin-bottom:8px}
+.li b{color:var(--ink);font-weight:600}
+.li .m{font-size:15px;color:var(--mute)}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);height:38px;border-radius:2px}
+.qty button{width:34px;height:100%;border:0;background:none;cursor:pointer;font-size:18px;color:var(--ink)}
+.qty span{min-width:28px;text-align:center;font-weight:600;color:var(--ink)}
+.lnk{border:0;background:none;padding:0;color:var(--fl);text-decoration:underline;cursor:pointer;font-size:15px}
+.df{padding:16px 20px;background:#fff;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:600;color:var(--ink);font-size:19px}
+.opt{display:flex;gap:10px;align-items:flex-start;font-size:15px;cursor:pointer}
+.opt input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--fl)}
+.f{display:grid;gap:5px}
+.f label{font-size:15px;font-weight:600;color:var(--ink)}
+.f input{height:48px;border:1.5px solid var(--line);border-radius:2px;padding:0 12px;font-size:16px;color:var(--ink);background:var(--bg)}
+.f input:focus{border-color:var(--fl);background:#fff;outline:none}
+.err{color:#B3261E;font-size:15px}
+.ok{background:var(--fll);padding:16px;color:var(--fld)}
+.ok b{display:block;color:var(--ink);font-size:19px;margin-bottom:4px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;border-radius:2px;padding:12px 18px;font-size:16px;max-width:calc(100vw - 32px)}
+dialog{border:0;border-radius:2px;padding:26px;width:min(480px,calc(100vw - 24px));color:var(--text)}
+dialog::backdrop{background:rgba(16,48,42,.55)}
+dialog p{margin:10px 0;font-size:16px}
+
+.foot{background:var(--ink);color:#AFC5BD;padding:46px 0 34px;font-size:15px}
+.foot a{color:#fff}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.legal button{border:0;background:none;padding:0;color:#AFC5BD;text-decoration:underline;cursor:pointer;font-size:15px}
+
+@media (max-width:1120px){
+  .nav{display:none}
+  .tel{margin-left:auto}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cfg{grid-template-columns:1fr}
+  .total{position:static}
+  .fmts .wrap{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}
+  .fmts .lb{display:none}
+}
+@media (max-width:860px){
+  .hg{grid-template-columns:1fr;min-height:0}
+  .hp{position:static}
+  .hp img{aspect-ratio:16/10;height:auto}
+  .hp::after{display:none}
+  .ht{padding:30px 0 40px}
+  .lz .wrap,.svc{grid-template-columns:1fr}
+  .svc figure{max-width:420px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fmts .wrap{display:flex;overflow-x:auto}
+  .fmts button{flex:none;border-left:0;border-right:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .bar{gap:12px}
+  .tel{display:none}
+  .reqb{margin-left:auto}
+  .lead{font-size:17px}
+  .sec{padding:60px 0}
+  .kr{grid-template-columns:24px 48px minmax(0,1fr);gap:4px 10px;padding:12px}
+  .kr .ic{width:48px;height:44px}
+  .kr .ic svg{width:34px;height:34px}
+  .kr input[type=checkbox],.kr .ic{grid-row:1 / span 2}
+  .kr .qn{grid-column:3;grid-row:2}
+  .kr .p{grid-column:3;grid-row:2;justify-self:end;min-width:0}
+  .ctl .v{margin-left:0}
+  .grid{gap:10px}
+  .cb{padding:12px}
+  .cb .btn{padding:0 10px}
+  .calc{padding:18px 14px}
+  .res b{font-size:28px}
+  .list{grid-template-columns:1fr}
+  .list div:nth-child(odd){border-right:0}
+  .list div:nth-child(even){padding-left:0}
+}
+@media (max-width:420px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#"><svg viewBox="0 0 26 30" aria-hidden="true"><path d="M13 1c2 6 9 9 9 17a9 9 0 0 1-18 0c0-4 2-6 4-8 0 3 1 5 3 5-1-5 0-9 2-14z" fill="#1F5BFF"/><path d="M13 13c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 1 1 2 2 2-1-2 0-4 0-6z" fill="#fff"/></svg>Горячий цех</a>
+    <nav class="nav" aria-label="Разделы"><a href="#kit">Комплект</a><a href="#catalog">Каталог</a><a href="#leasing">Лизинг</a><a href="#service">Монтаж и сервис</a></nav>
+    <a class="tel" href="tel:+74950000000">+7 495 000-00-00</a>
+    <button class="reqb" type="button" id="reqBtn">Заявка <span class="num" id="rc">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hp"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="(max-width:860px) 100vw, 50vw" width="1400" height="875" alt="Светлая профессиональная кухня с пароконвектоматами и вытяжкой" fetchpriority="high"></div>
+  <div class="wrap hg">
+    <div class="ht">
+      <h1>Кухня для кафе под ключ: от&nbsp;кофемашины до&nbsp;посудомойки</h1>
+      <p class="lead">Соберём комплект под ваш формат, посчитаем мощность и&nbsp;лизинг, привезём, подключим и&nbsp;обучим поваров.</p>
+      <div class="cta"><a class="btn" href="#kit">Собрать комплект</a><a class="btn out" href="#leasing">Рассчитать лизинг</a></div>
+    </div>
+  </div>
+</section>
+<nav class="fmts" aria-label="Комплект под формат"><div class="wrap" id="fmts"><span class="lb">Комплект для:</span></div></nav>
+
+<section class="sec" id="kit">
+  <div class="wrap">
+    <div class="sh"><div><h2>Комплект под ваш формат</h2><p>Мы&nbsp;уже собрали базовый набор для пяти форматов. Снимите галочку с&nbsp;того, что у&nbsp;вас есть, и&nbsp;увидите итог, мощность и&nbsp;платёж по&nbsp;лизингу.</p></div></div>
+    <div class="ftabs" id="ftabs" role="group" aria-label="Формат заведения"></div>
+    <div class="cfg">
+      <div class="kit" id="kitList"></div>
+      <aside class="total" aria-live="polite">
+        <span id="tFmt"></span>
+        <div class="big num" id="tSum"></div>
+        <dl><dt>Позиций</dt><dd class="num" id="tN"></dd><dt>Мощность</dt><dd class="num" id="tP"></dd><dt>В лизинг на 36 мес.</dt><dd class="num" id="tL"></dd></dl>
+        <div class="warn" id="tW"></div>
+        <button class="btn" type="button" id="tGo">Добавить комплект в заявку</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="catalog" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><h2>Каталог</h2><p>Цены с&nbsp;НДС. Всё в&nbsp;наличии на&nbsp;складе в&nbsp;Москве, поставка от&nbsp;одного дня.</p></div></div>
+    <div class="ctl"><div class="cats" id="cats" role="group" aria-label="Раздел"></div><div class="v" id="volt" role="group" aria-label="Питание"></div></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec lz" id="leasing">
+  <div class="bgp" aria-hidden="true"><img src="img/stove-1400.webp" srcset="img/stove-800.webp 800w, img/stove-1400.webp 1400w" sizes="100vw" width="1400" height="933" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <div>
+      <h2 style="font-size:clamp(44px,5vw,72px);line-height:.95">Лизинг: откройтесь, а&nbsp;платите из&nbsp;выручки</h2>
+      <p style="margin-top:14px;max-width:30em">Работаем с&nbsp;шестью лизинговыми компаниями. Решение за&nbsp;один день, для ИП и&nbsp;ООО от&nbsp;трёх месяцев работы.</p>
+    </div>
+    <div class="calc">
+      <div class="row"><label for="lS">Стоимость оборудования, ₽</label><input class="sum num" id="lS" inputmode="numeric" value="1 200 000"></div>
+      <div class="row"><label for="lA">Аванс</label><input type="range" id="lA" min="10" max="49" value="20"><div class="val"><span>10%</span><b class="num" id="lAv"></b><span>49%</span></div></div>
+      <div class="row"><span style="display:block;font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px" id="lTl">Срок</span><div class="terms" id="terms" role="group" aria-labelledby="lTl"></div></div>
+      <div class="res" aria-live="polite"><div><span>В месяц</span><b class="num" id="rM"></b></div><div><span>Аванс</span><b class="num" id="rA"></b></div><div><span>Всего по договору</span><b class="num" id="rT"></b></div></div>
+      <p style="font-size:14px;color:var(--mute);margin-top:12px">Предварительный расчёт при удорожании 11% в год. Точные условия пришлём после одобрения.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="service">
+  <div class="wrap svc">
+    <figure><img src="img/coffee-900.webp" srcset="img/coffee-600.webp 600w, img/coffee-900.webp 900w" sizes="(max-width:860px) 92vw, 440px" width="900" height="1125" alt="Кофемашина наливает два эспрессо в стеклянные стаканы" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2 style="font-size:clamp(44px,5vw,72px);line-height:.95">Привезём, подключим и&nbsp;обучим</h2>
+      <div class="list">
+        <div><b>Проект кухни</b><p>Расставим оборудование по&nbsp;плану помещения и&nbsp;посчитаем нагрузку на&nbsp;сеть.</p></div>
+        <div><b>Доставка и&nbsp;подъём</b><p>По&nbsp;Москве бесплатно от&nbsp;300&nbsp;000&nbsp;₽, в&nbsp;регионы транспортной компанией.</p></div>
+        <div><b>Монтаж и&nbsp;пусконаладка</b><p>Подключаем к&nbsp;воде, сети и&nbsp;вытяжке, оформляем акты для гарантии.</p></div>
+        <div><b>Обучение персонала</b><p>Технолог покажет поварам программы пароконвектомата, бариста настроит помол.</p></div>
+        <div><b>Гарантия 12 месяцев</b><p>На&nbsp;всё оборудование, на&nbsp;кофемашины и&nbsp;пароконвектоматы&nbsp;— 24 месяца.</p></div>
+        <div><b>Сервис за&nbsp;24 часа</b><p>Инженер приезжает на&nbsp;следующий день, на&nbsp;время ремонта даём подменный аппарат.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Вопросы</h2></div>
+    <div class="faq">
+      <details><summary>У&nbsp;меня в&nbsp;помещении только 220&nbsp;В. Что делать?</summary><p>Комплект для кофейни работает от&nbsp;220&nbsp;В. Для пароконвектомата, индукционной плиты и&nbsp;печей нужно 380&nbsp;В: в&nbsp;заявке отметим, сколько киловатт просить у&nbsp;арендодателя, и&nbsp;подскажем альтернативы на&nbsp;220&nbsp;В.</p></details>
+      <details><summary>Можно ли&nbsp;вернуть оборудование?</summary><p>Новое оборудование в&nbsp;упаковке&nbsp;— в&nbsp;течение 14 дней. После подключения&nbsp;— только по&nbsp;гарантии.</p></details>
+      <details><summary>Работаете с&nbsp;сетями и&nbsp;франшизами?</summary><p>Да. Фиксируем цены на&nbsp;год, держим запас на&nbsp;складе под открытия и&nbsp;отгружаем комплекты по&nbsp;графику.</p></details>
+      <details><summary>Есть ли&nbsp;бывшее в&nbsp;употреблении оборудование?</summary><p>Иногда берём технику после закрытия заведений и&nbsp;восстанавливаем её. Напишите, что ищете, пришлём варианты с&nbsp;гарантией 6 месяцев.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row"><div><a class="logo" href="#" style="font-size:26px">Горячий цех</a><p style="margin-top:10px">Оборудование для общепита. Шоурум и&nbsp;склад в&nbsp;Москве</p></div><p><a href="tel:+74950000000">+7 495 000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p></div>
+    <div class="legal"><span>ООО «Горячий цех»</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Заявка</h2><button class="x" type="button" id="dX" aria-label="Закрыть">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT" style="font-size:20px">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;почта нужны, чтобы прислать коммерческое предложение и&nbsp;согласовать поставку. Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам, кроме лизинговой компании, если вы&nbsp;попросили расчёт.</p><p>Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn sm ink">Понятно</button></form></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function kw(n){return (Math.round(n*10)/10).toLocaleString('ru-RU')+' кВт'}
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2400)}
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+
+/* рисунки */
+var S='fill="#F7F9F9" stroke="#10302A" stroke-width="2.2" stroke-linejoin="round"',B='fill="none" stroke="#1F5BFF" stroke-width="2.2" stroke-linecap="round"';
+var ICO={
+ combi:'<rect x="8" y="8" width="48" height="48" rx="3" '+S+'/><rect x="13" y="13" width="30" height="38" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><path d="M18 22h20M18 30h20M18 38h20" '+B+'/><circle cx="50" cy="20" r="2.5" fill="#10302A"/><rect x="47.5" y="28" width="5" height="12" rx="1" fill="#10302A"/>',
+ induct:'<rect x="6" y="22" width="52" height="30" rx="3" '+S+'/><rect x="6" y="16" width="52" height="8" rx="2" '+S+'/><path d="M14 20h10M40 20h10" '+B+'/><rect x="12" y="30" width="40" height="16" rx="2" fill="#10302A"/><circle cx="20" cy="38" r="3" fill="#1F5BFF"/><circle cx="32" cy="38" r="3" fill="#1F5BFF"/><circle cx="44" cy="38" r="3" fill="#1F5BFF"/>',
+ fryer:'<rect x="8" y="24" width="48" height="30" rx="3" '+S+'/><path d="M14 24v-8h14v8M36 24v-8h14v8" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><path d="M21 16V8M43 16V8" stroke="#10302A" stroke-width="2.2" stroke-linecap="round"/><path d="M16 36q4-4 8 0t8 0 8 0 8 0" '+B+'/>',
+ pizza:'<rect x="6" y="8" width="52" height="22" rx="3" '+S+'/><rect x="6" y="32" width="52" height="22" rx="3" '+S+'/><path d="M14 22h36M14 46h36" stroke="#10302A" stroke-width="3" stroke-linecap="round"/><path d="M16 15q16-5 32 0M16 39q16-5 32 0" '+B+'/>',
+ grill:'<path d="M8 32h48v16a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z" '+S+'/><path d="M10 30L16 14h32l6 16z" '+S+'/><path d="M14 40h36M14 45h36" '+B+'/><path d="M30 14v-4h4v4" stroke="#10302A" stroke-width="2"/>',
+ fridge:'<rect x="14" y="4" width="36" height="56" rx="3" '+S+'/><rect x="18" y="9" width="28" height="40" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><path d="M22 20h20M22 30h20M22 40h20" stroke="#10302A" stroke-width="1.6"/><rect x="40" y="52" width="6" height="3" fill="#10302A"/><path d="M28 54h-6" '+B+'/>',
+ ftable:'<rect x="4" y="18" width="56" height="34" rx="3" '+S+'/><path d="M22 18v34M41 18v34" stroke="#10302A" stroke-width="2"/><path d="M9 26h8M27 26h9M46 26h9" stroke="#10302A" stroke-width="2.2" stroke-linecap="round"/><path d="M4 18h56" stroke="#10302A" stroke-width="4"/><path d="M10 44l3-3 3 3-3 3z" fill="#1F5BFF"/>',
+ ice:'<rect x="10" y="10" width="44" height="44" rx="3" '+S+'/><rect x="16" y="26" width="32" height="22" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><rect x="21" y="34" width="7" height="7" fill="#fff" stroke="#1F5BFF" stroke-width="2"/><rect x="31" y="31" width="7" height="7" fill="#fff" stroke="#1F5BFF" stroke-width="2"/><rect x="35" y="39" width="7" height="7" fill="#fff" stroke="#1F5BFF" stroke-width="2"/><path d="M16 18h12" stroke="#10302A" stroke-width="2.2" stroke-linecap="round"/>',
+ coffee:'<rect x="6" y="10" width="52" height="22" rx="3" '+S+'/><rect x="6" y="32" width="52" height="20" rx="2" '+S+'/><path d="M18 32v6M44 32v6" stroke="#10302A" stroke-width="2.2"/><path d="M12 38h12M38 38h12" stroke="#10302A" stroke-width="3" stroke-linecap="round"/><rect x="14" y="44" width="8" height="6" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/><rect x="40" y="44" width="8" height="6" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/><circle cx="32" cy="21" r="4" fill="none" stroke="#1F5BFF" stroke-width="2.2"/>',
+ grinder:'<path d="M20 4h24l-6 18H26z" fill="#DDE5FF" stroke="#10302A" stroke-width="2.2" stroke-linejoin="round"/><rect x="18" y="22" width="28" height="24" rx="3" '+S+'/><path d="M26 46h12v6H26z" fill="#10302A"/><rect x="12" y="52" width="40" height="6" rx="2" '+S+'/><circle cx="32" cy="34" r="4" fill="none" stroke="#1F5BFF" stroke-width="2.2"/>',
+ dwfront:'<rect x="10" y="6" width="44" height="52" rx="3" '+S+'/><path d="M10 16h44" stroke="#10302A" stroke-width="2"/><circle cx="18" cy="11" r="2" fill="#1F5BFF"/><rect x="16" y="22" width="32" height="30" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><path d="M22 30q10 6 20 0M22 40q10 6 20 0" '+B+'/>',
+ dwhood:'<path d="M12 30V14a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v16z" fill="#DDE5FF" stroke="#10302A" stroke-width="2.2" stroke-linejoin="round"/><rect x="4" y="30" width="56" height="8" rx="1" '+S+'/><path d="M14 38v18M50 38v18" stroke="#10302A" stroke-width="2.4"/><path d="M32 6v4" stroke="#10302A" stroke-width="2.4"/><path d="M22 20q10 6 20 0" '+B+'/>',
+ table:'<rect x="4" y="18" width="56" height="6" rx="1" '+S+'/><path d="M10 24v30M54 24v30" stroke="#10302A" stroke-width="2.6"/><path d="M10 44h44" stroke="#10302A" stroke-width="2.2"/><path d="M8 14l48 0" '+B+'/>',
+ rack:'<path d="M12 4v56M52 4v56" stroke="#10302A" stroke-width="2.6"/><path d="M12 12h40M12 26h40M12 40h40M12 54h40" stroke="#10302A" stroke-width="2.4"/><rect x="18" y="18" width="10" height="8" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/><rect x="32" y="32" width="14" height="8" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/>',
+ sink:'<rect x="4" y="22" width="56" height="10" rx="1" '+S+'/><rect x="9" y="25" width="20" height="5" rx="1" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/><rect x="35" y="25" width="20" height="5" rx="1" fill="#DDE5FF" stroke="#10302A" stroke-width="1.6"/><path d="M32 22V10h-8" fill="none" stroke="#10302A" stroke-width="2.4"/><path d="M10 32v24M54 32v24" stroke="#10302A" stroke-width="2.6"/><path d="M24 14v4" '+B+'/>',
+ mixer:'<path d="M12 6h34v12H24v18" fill="none" stroke="#10302A" stroke-width="3" stroke-linejoin="round"/><path d="M14 34h30l-4 18H18z" fill="#DDE5FF" stroke="#10302A" stroke-width="2.2" stroke-linejoin="round"/><path d="M29 24q-6 8 0 16" '+B+'/><rect x="10" y="52" width="38" height="6" rx="2" '+S+'/><rect x="44" y="6" width="10" height="46" rx="2" '+S+'/>',
+ proof:'<rect x="12" y="4" width="40" height="56" rx="3" '+S+'/><rect x="16" y="9" width="32" height="44" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><path d="M20 16h24M20 24h24M20 32h24M20 40h24M20 48h24" stroke="#10302A" stroke-width="1.6"/><path d="M24 20q2-2 4 0M36 28q2-2 4 0" '+B+'/>',
+ conv:'<rect x="6" y="8" width="52" height="44" rx="3" '+S+'/><rect x="11" y="13" width="32" height="34" rx="2" fill="#DDE5FF" stroke="#10302A" stroke-width="2"/><circle cx="27" cy="30" r="8" fill="none" stroke="#1F5BFF" stroke-width="2.2"/><path d="M27 22v16M19 30h16" '+B+'/><circle cx="51" cy="20" r="2.5" fill="#10302A"/><circle cx="51" cy="30" r="2.5" fill="#10302A"/>'
+};
+function ico(k){return '<svg viewBox="0 0 64 64" aria-hidden="true">'+ICO[k]+'</svg>'}
+var FI={coffee:'<path d="M10 20h34v16a12 12 0 0 1-12 12h-10a12 12 0 0 1-12-12z" fill="none" stroke="#10302A" stroke-width="3"/><path d="M44 24h4a6 6 0 0 1 0 12h-5" fill="none" stroke="#10302A" stroke-width="3"/><path d="M20 4q-3 4 0 8M30 4q-3 4 0 8" '+B+'/>',
+ bakery:'<path d="M8 36q0-18 24-18t24 18v6H8z" fill="none" stroke="#10302A" stroke-width="3" stroke-linejoin="round"/><path d="M22 22l4 12M32 20v14M42 22l-4 12" '+B+'/>',
+ pizza:'<path d="M32 6L56 50H8z" fill="none" stroke="#10302A" stroke-width="3" stroke-linejoin="round"/><circle cx="30" cy="34" r="3" fill="#1F5BFF"/><circle cx="38" cy="42" r="3" fill="#1F5BFF"/><circle cx="24" cy="44" r="3" fill="#1F5BFF"/>',
+ burger:'<path d="M8 26q0-16 24-16t24 16z" fill="none" stroke="#10302A" stroke-width="3" stroke-linejoin="round"/><path d="M6 34h52" '+B+' stroke-width="4"/><path d="M8 42h48v4a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6z" fill="none" stroke="#10302A" stroke-width="3"/>',
+ canteen:'<rect x="6" y="14" width="52" height="36" rx="4" fill="none" stroke="#10302A" stroke-width="3"/><path d="M6 30h52M32 14v36" stroke="#10302A" stroke-width="2.4"/><circle cx="19" cy="22" r="3" fill="#1F5BFF"/><circle cx="45" cy="40" r="3" fill="#1F5BFF"/>'};
+function fico(k){return '<svg viewBox="0 0 64 56" aria-hidden="true">'+FI[k]+'</svg>'}
+
+/* каталог: название, раздел, рисунок, цена, кВт, вольт, описание */
+var P=[
+ ['Пароконвектомат 6 уровней GN 1/1','Тепловое','combi',389000,10.5,380,'Программы, щуп, мойка, 30–150 порций'],
+ ['Плита индукционная 4 конфорки','Тепловое','induct',118000,14,380,'4 × 3,5 кВт, нагрев за 2 минуты'],
+ ['Фритюрница 2 × 8 л','Тепловое','fryer',46000,7,220,'Две ванны, холодная зона, 25 кг картофеля в час'],
+ ['Печь для пиццы 2 камеры, 4 + 4','Тепловое','pizza',152000,12,380,'Под из шамота, до 400 °C, 60 пицц в час'],
+ ['Гриль контактный, рифлёный','Тепловое','grill',32000,2.2,220,'Для бургеров и панини, 300 °C'],
+ ['Шкаф холодильный 700 л','Холодильное','fridge',126000,0.4,220,'Нержавейка, от 0 до +6 °C, 6 полок'],
+ ['Стол холодильный 3 двери','Холодильное','ftable',98000,0.3,220,'Столешница 1800 × 700, борт, GN-ёмкости'],
+ ['Льдогенератор 40 кг в сутки','Холодильное','ice',89000,0.5,220,'Кубик, бункер 15 кг, нужен подвод воды'],
+ ['Кофемашина 2 группы, автомат','Кофе','coffee',420000,5.2,220,'Два бойлера, дозировка, 300 чашек в день'],
+ ['Кофемолка 64 мм с дозатором','Кофе','grinder',58000,0.4,220,'Помол по времени, 2 кг в час'],
+ ['Посудомоечная машина фронтальная','Мойка','dwfront',168000,4.9,220,'Цикл 2 минуты, 500 тарелок в час'],
+ ['Купольная посудомоечная машина','Мойка','dwhood',345000,9.5,380,'Цикл 60 секунд, 1 000 тарелок в час'],
+ ['Мойка 2-секционная','Мойка','sink',21000,0,0,'Нержавейка, 1200 × 600, борт'],
+ ['Стол производственный 1200 × 600','Нейтральное','table',14500,0,0,'Нержавейка, полка снизу'],
+ ['Стеллаж кухонный 4 полки','Нейтральное','rack',12900,0,0,'Нагрузка 150 кг на полку'],
+ ['Тестомес спиральный 20 л','Пекарня','mixer',89000,1.1,220,'До 12 кг теста, 2 скорости'],
+ ['Расстоечный шкаф 12 уровней','Пекарня','proof',112000,1.8,220,'Влажность и температура, противни 600 × 400'],
+ ['Печь конвекционная 4 уровня','Пекарня','conv',135000,6.4,380,'Пар, противни 600 × 400, выпечка и гриль']
+];
+/* комплекты: индекс товара и количество */
+var F={coffee:['Кофейня','до 30 мест',[[8,1],[9,2],[7,1],[6,1],[10,1],[12,1],[13,1],[14,1]]],
+ bakery:['Пекарня-кафе','выпечка на месте',[[15,1],[16,1],[17,1],[5,1],[13,2],[14,2],[12,1],[8,1]]],
+ pizza:['Пиццерия','до 60 пицц в час',[[3,1],[6,1],[15,1],[5,1],[13,2],[12,1],[10,1],[14,1]]],
+ burger:['Бургерная','гриль и фритюр',[[4,2],[2,1],[1,1],[6,1],[5,1],[13,2],[12,1],[10,1]]],
+ canteen:['Столовая','до 200 обедов в день',[[0,1],[1,1],[5,2],[11,1],[13,4],[14,3],[12,2],[15,1]]]};
+var fmt='coffee',off={};
+
+$('fmts').insertAdjacentHTML('beforeend',Object.keys(F).map(function(k){return '<button type="button" data-f="'+k+'">'+fico(k)+F[k][0]+'</button>'}).join(''));
+$('fmts').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setF(b.dataset.f);$('kit').scrollIntoView()})});
+$('ftabs').innerHTML=Object.keys(F).map(function(k){return '<button type="button" data-f="'+k+'" aria-pressed="'+(k===fmt)+'">'+F[k][0]+'</button>'}).join('');
+$('ftabs').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setF(b.dataset.f)})});
+function setF(k){fmt=k;off={};$('ftabs').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.f===k)});kit()}
+function lease(sum,adv,n){var a=sum*adv/100,body=sum-a,tot=body*(1+.11*n/12);return{m:tot/n,a:a,t:tot+a}}
+function kit(){
+  var f=F[fmt],s=0,p=0,n=0,v380=false;
+  $('kitList').innerHTML=f[2].map(function(it,j){var x=P[it[0]],on=!off[j];if(on){s+=x[3]*it[1];p+=x[4]*it[1];n+=it[1];if(x[5]===380)v380=true}
+    return '<label class="kr'+(on?'':' off')+'"><input type="checkbox" data-j="'+j+'"'+(on?' checked':'')+'><span class="ic">'+ico(x[2])+'</span><span><b>'+esc(x[0])+'</b><span class="s">'+esc(x[6])+'</span></span><span class="qn">'+it[1]+' шт</span><span class="p num">'+rub(x[3]*it[1])+'</span></label>'}).join('');
+  $('kitList').querySelectorAll('input').forEach(function(c){c.addEventListener('change',function(){off[c.dataset.j]=!c.checked;kit()})});
+  $('tFmt').textContent=f[0]+', '+f[1];$('tSum').textContent=rub(s);$('tN').textContent=n+' шт';$('tP').textContent=kw(p);
+  $('tL').textContent=s?'от '+rub(lease(s,20,36).m)+' в мес.':'—';
+  $('tW').textContent=v380?'Нужна сеть 380 В и не меньше '+Math.ceil(p*1.15)+' кВт выделенной мощности.':'Всё работает от 220 В, выделенная мощность — около '+Math.ceil(p*1.15)+' кВт.';
+}
+$('tGo').addEventListener('click',function(){var f=F[fmt],c=0;f[2].forEach(function(it,j){if(!off[j]){req[it[0]]=(req[it[0]]||0)+it[1];c++}});cnt();toast('Комплект «'+f[0]+'» в заявке: '+c+' позиций')});
+
+/* каталог */
+var cat='Все',volt=0;
+$('cats').innerHTML=['Все','Тепловое','Холодильное','Кофе','Мойка','Нейтральное','Пекарня'].map(function(c){return '<button type="button" aria-pressed="'+(c===cat)+'">'+c+'</button>'}).join('');
+$('cats').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){cat=b.textContent;$('cats').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+$('volt').innerHTML=[[0,'Любое питание'],[220,'Только 220 В']].map(function(v){return '<button type="button" data-v="'+v[0]+'" aria-pressed="'+(v[0]===volt)+'">'+v[1]+'</button>'}).join('');
+$('volt').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){volt=+b.dataset.v;$('volt').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+function draw(){
+  var a=P.map(function(_,i){return i}).filter(function(i){return(cat==='Все'||P[i][1]===cat)&&(!volt||P[i][5]!==380)});
+  $('grid').innerHTML=a.map(function(i){var x=P[i];return '<article class="card"><div class="ic">'+ico(x[2])+(x[5]?'<span class="vt'+(x[5]===380?' h':'')+'">'+x[5]+' В'+(x[4]?', '+kw(x[4]):'')+'</span>':'')+'</div><div class="cb"><h3>'+esc(x[0])+'</h3><p class="sp">'+esc(x[6])+'</p><p class="pr num">'+rub(x[3])+'</p>'+(x[3]>=40000?'<p class="ls num">или '+rub(lease(x[3],20,36).m)+' в мес. в лизинг</p>':'')+'<button class="btn sm ink" type="button" data-add="'+i+'">В заявку</button></div></article>'}).join('');
+  $('grid').querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.add;req[i]=(req[i]||0)+1;cnt();toast('«'+P[i][0]+'» в заявке')})});
+}
+
+/* лизинг */
+var term=24;
+$('terms').innerHTML=[12,24,36].map(function(n){return '<button type="button" data-n="'+n+'" aria-pressed="'+(n===term)+'">'+n+' мес.</button>'}).join('');
+$('terms').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){term=+b.dataset.n;$('terms').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});calc()})});
+function calc(){var s=parseInt($('lS').value.replace(/\D/g,''),10)||0,a=+$('lA').value,r=lease(s,a,term);$('lAv').textContent=a+'%, '+rub(r.a);$('rM').textContent=rub(r.m);$('rA').textContent=rub(r.a);$('rT').textContent=rub(r.t)}
+$('lS').addEventListener('input',calc);$('lS').addEventListener('blur',function(){var s=parseInt(this.value.replace(/\D/g,''),10)||0;this.value=s.toLocaleString('ru-RU').replace(/\s/g,' ')});$('lA').addEventListener('input',calc);
+
+/* заявка */
+var req={},mount=false,want=false;
+function cnt(){var n=0;for(var k in req)n+=req[k];$('rc').textContent=n;var s=0;for(var k2 in req)s+=P[k2][3]*req[k2];if(s){$('lS').value=s.toLocaleString('ru-RU').replace(/\s/g,' ');calc()}}
+function openD(){$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;$('reqBtn').focus()}
+$('reqBtn').addEventListener('click',openD);$('dX').addEventListener('click',closeD);
+$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('drawer').hidden)closeD()});
+function render(){
+  var ks=Object.keys(req);
+  if(!ks.length){$('dB').innerHTML='<p>Заявка пуста. Выберите формат заведения выше: соберём базовый комплект за вас.</p>';$('dF').innerHTML='';return}
+  var s=0,p=0;$('dB').innerHTML=ks.map(function(k){var x=P[k],q=req[k];s+=x[3]*q;p+=x[4]*q;return '<div class="li"><b>'+esc(x[0])+'</b><span class="num" style="font-weight:600;color:var(--ink)">'+rub(x[3]*q)+'</span><span class="qty"><button type="button" data-k="'+k+'" data-d="-1" aria-label="Меньше">−</button><span class="num">'+q+'</span><button type="button" data-k="'+k+'" data-d="1" aria-label="Больше">+</button></span><button class="lnk" type="button" data-rm="'+k+'" style="justify-self:end">Убрать</button></div>'}).join('');
+  var m=mount?Math.round(s*.05):0,dl=s>=300000?0:6500;
+  $('dF').innerHTML='<div class="tot num"><span>Оборудование</span><span>'+rub(s)+'</span></div><p style="font-size:15px;color:var(--mute);margin-top:-6px">Мощность '+kw(p)+'. Доставка по Москве '+(dl?rub(dl):'бесплатно')+'.</p>'+
+   '<label class="opt"><input type="checkbox" id="oM"'+(mount?' checked':'')+'><span>Монтаж, пусконаладка и обучение, 5% — '+rub(Math.round(s*.05))+'</span></label><label class="opt"><input type="checkbox" id="oL"'+(want?' checked':'')+'><span>Рассчитать лизинг: от '+rub(lease(s+m,20,36).m)+' в мес.</span></label>'+
+   '<div class="tot num"><span>Итого</span><span>'+rub(s+m+dl)+'</span></div>'+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oP">Телефон</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div><div class="f"><label for="oE2">Почта для КП</label><input id="oE2" type="email" inputmode="email" autocomplete="email"></div>'+
+   '<label class="opt"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Получить коммерческое предложение</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-d]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k,q=req[k]+(+b.dataset.d);if(q>0)req[k]=Math.min(20,q);else delete req[k];cnt();render()})});
+  $('dB').querySelectorAll('[data-rm]').forEach(function(b){b.addEventListener('click',function(){delete req[b.dataset.rm];cnt();render()})});
+  $('oM').addEventListener('change',function(){mount=this.checked;render()});$('oL').addEventListener('change',function(){want=this.checked});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя.';$('oN').focus();return}
+    if($('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон: инженер позвонит уточнить помещение.';$('oP').focus();return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('oE2').value.trim())){e.textContent='Проверьте почту: на неё придёт КП.';$('oE2').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var mail=$('oE2').value.trim(),lz=want;req={};mount=false;want=false;cnt();
+    $('dB').innerHTML='<div class="ok"><b>Заявка принята</b>Коммерческое предложение с наличием и сроками поставки пришлём на '+esc(mail)+' в течение часа'+(lz?', расчёт лизинга от трёх компаний — до конца дня':'')+'.</div>';$('dF').innerHTML='';
+  });
+}
+
+kit();draw();calc();
+})();
+</script>
+</body>
+</html>

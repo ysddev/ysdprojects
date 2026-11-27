@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Меню · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-dishes.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a aria-current="page" href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="page-head">
+<div><h1>Меню</h1><p class="mut">Порядок здесь = порядок карточек у сотрудников. Скрытые обеды никто не видит.</p></div>
+<span class="spacer"></span>
+<a class="btn" href="admin-dish-new.html">Добавить обед</a>
+</div>
+<div class="tbl-wrap">
+<table class="tbl stackable">
+<thead><tr><th></th><th>Обед</th><th class="num">Цена</th><th>Дни</th><th>Порядок</th><th></th></tr></thead>
+<tbody>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1648726445011-9fbf3a5ddb90?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Сибирский»</a> <div class="tiny">250 / 200 / 100 г · 820 ккал</div></td>
+<td class="num" data-l="Цена">390 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="1"/>
+<button aria-label="Выше" class="btn soft sm" disabled="" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Лёгкий»</a> <div class="tiny">250 / 180 / 100 г · 540 ккал · Лёгкий</div></td>
+<td class="num" data-l="Цена">360 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="2"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1577004686904-1a4f118acf61?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Рыбный»</a> <div class="tiny">250 / 220 / 100 г · 610 ккал · С рыбой</div></td>
+<td class="num" data-l="Цена">420 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="3"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Овощной»</a> <div class="tiny">250 / 220 / 100 г · 580 ккал · Без мяса, Лёгкий</div></td>
+<td class="num" data-l="Цена">340 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="4"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1667819575968-42a9677a4ec7?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Домашний»</a> <div class="tiny">250 / 230 / 100 г · 790 ккал</div></td>
+<td class="num" data-l="Цена">380 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="5"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1785571903557-dce44dcf3eab?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Плов»</a> <div class="tiny">250 / 250 / 100 г · 880 ккал · Острое</div></td>
+<td class="num" data-l="Цена">400 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="6"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1741796105489-33ea406ac1b7?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Постный»</a> <div class="tiny">250 / 200 / 100 г · 520 ккал · Без мяса</div></td>
+<td class="num" data-l="Цена">330 ₽</td>
+<td data-l="Дни">каждый день</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="7"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+<tr class="">
+<td><img alt="" class="thumb" loading="lazy" src="https://images.unsplash.com/photo-1612152328178-4a6c83d96429?auto=format&amp;fit=crop&amp;w=128&amp;h=96&amp;q=72"/></td>
+<td><a href="admin-dish.html">Комплекс «Пятничный»</a> <div class="tiny">250 / 230 / 120 г · 940 ккал</div></td>
+<td class="num" data-l="Цена">450 ₽</td>
+<td data-l="Дни">пт</td>
+<td>
+<form action="#" class="actions" data-to="stay" method="post"><input name="id" type="hidden" value="8"/>
+<button aria-label="Выше" class="btn soft sm" name="action" value="up">↑</button>
+<button aria-label="Ниже" class="btn soft sm" disabled="" name="action" value="down">↓</button>
+<button class="btn ghost sm" name="action" value="toggle">Скрыть</button>
+</form>
+</td>
+<td><a class="btn soft sm" href="admin-dish.html">Изменить</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body>
+</html>

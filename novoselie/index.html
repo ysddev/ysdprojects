@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Новоселье — квартирные и офисные переезды в Воронеже: опись вещей и цена до звонка</title>
+<meta name="description" content="Переезды в Воронеже: отметьте, что везёте, — посчитаем объём, машину, грузчиков и цену. Упаковка, разборка мебели, страховка груза. Работаем каждый день с 7:00 до 23:00.">
+<meta name="theme-color" content="#EEF0F7">
+<link rel="preload" href="fonts/rubik-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/rubik-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/rubik-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/rubik-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/rubik-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/rubik-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/rubik-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/rubik-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --bg:#EEF0F7;--white:#FFFFFF;--ink:#1B1D3A;--muted:#575B78;--line:rgba(27,29,58,.13);
+  --tape:#FFB547;--tape-d:#E89A20;--tape-soft:#FFEACB;--indigo:#2D3170;--ok:#2F8F5B;
+  --f:'Rubik',system-ui,-apple-system,'Segoe UI',sans-serif;--r:22px;--wrap:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tape-d);outline-offset:2px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(32px,4.2vw,54px)}
+h3{font-weight:500;font-size:21px;line-height:1.2}
+p{margin:0}
+.sec{padding:clamp(64px,8vw,112px) 0}
+.sec-h{display:grid;grid-template-columns:1fr 1fr;gap:16px 56px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.sec-h p{color:var(--muted);max-width:30em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:16px;border:0;background:var(--ink);color:#fff;font-weight:500;font-size:17px;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn:hover{background:var(--indigo)}
+.btn:active{transform:translateY(1px)}
+.btn.tape{background:var(--tape);color:var(--ink)}
+.btn.tape:hover{background:var(--tape-d)}
+.link{font-weight:500;text-decoration:underline;text-decoration-color:var(--tape-d);text-decoration-thickness:3px;text-underline-offset:5px}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(238,240,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:26px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px;text-decoration:none}
+.logo svg{width:34px;height:34px}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--muted);font-size:16px}
+.nav a:hover{color:var(--ink)}
+.tel{font-weight:500;text-decoration:none;white-space:nowrap}
+.top .btn{min-height:44px;padding:0 18px;font-size:16px}
+@media (max-width:980px){.nav{display:none}.tel{margin-left:auto}}
+@media (max-width:560px){.tel{display:none}.top .btn{margin-left:auto}}
+
+.hero{padding:clamp(28px,4vw,56px) 0 clamp(56px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.hero h1{font-size:clamp(42px,5.6vw,78px);margin-bottom:22px}
+.hero h1 span{display:inline-block;background:var(--tape);padding:0 .14em;border-radius:6px;transform:rotate(-1.5deg)}
+.hero .lead{font-size:20px;color:var(--muted);max-width:29em;margin-bottom:30px}
+.acts{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center}
+.ticks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;font-size:16px;color:var(--muted)}
+.ticks span::before{content:"✓ ";color:var(--ok);font-weight:700}
+.photo{position:relative}
+.photo .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;background:#D9DCEA}
+.photo .ph img{width:100%;height:100%;object-fit:cover;object-position:55% 50%}
+.photo .note{position:absolute;right:-10px;bottom:-22px;background:var(--white);border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -24px rgba(27,29,58,.5);font-size:15px;transform:rotate(1.5deg)}
+.photo .note b{display:block;font-size:24px;font-weight:700}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr}.photo .note{right:10px}}
+
+/* опись */
+.inv{background:var(--white)}
+.iv{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,48px);align-items:start}
+.group{margin-bottom:22px}
+.group h3{margin-bottom:10px;font-size:18px}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px}
+.it{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 8px 8px 14px;border-radius:14px;background:var(--bg);font-size:16px}
+.it.on{background:var(--tape-soft)}
+.it .st{display:flex;align-items:center;gap:4px}
+.it button{width:34px;height:34px;border-radius:10px;border:0;background:var(--white);cursor:pointer;font-size:18px;line-height:1}
+.it button:hover{background:var(--ink);color:#fff}
+.it output{min-width:20px;text-align:center;font-weight:500}
+.boxes{display:grid;grid-template-columns:1fr 90px;gap:14px;align-items:center;background:var(--bg);border-radius:14px;padding:12px 14px}
+.boxes input{width:100%;accent-color:var(--ink)}
+.boxes output{text-align:right;font-weight:500}
+.where{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.where fieldset{border:0;margin:0;padding:12px 14px;background:var(--bg);border-radius:14px;min-width:0}
+.where legend{font-weight:500;font-size:16px;padding:0;margin-bottom:8px;float:left;width:100%}
+.where .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;clear:both}
+.where select{min-height:40px;border-radius:10px;border:1px solid var(--line);background:var(--white);padding:0 8px;font-size:16px}
+.where label{display:inline-flex;gap:6px;align-items:center;font-size:16px;cursor:pointer}
+.where input[type=checkbox]{width:18px;height:18px;accent-color:var(--ink)}
+.extra{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.extra label{position:relative}
+.extra input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.extra span{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border-radius:12px;border:1px solid var(--line);font-size:15px}
+.extra input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.extra input:focus-visible+span{outline:3px solid var(--tape-d);outline-offset:2px}
+.sum{position:sticky;top:88px;background:var(--ink);color:#fff;border-radius:26px;padding:clamp(20px,3vw,30px)}
+.truck{width:100%;height:auto;margin-bottom:14px}
+.truck .load{transition:width .35s}
+.sum .vol{color:#B9BCD8;font-size:15px}
+.sum .vol b{color:#fff;font-size:17px;font-weight:500}
+.sum .price{font-size:clamp(44px,4.6vw,58px);font-weight:700;line-height:1;margin:14px 0 4px;letter-spacing:-.02em}
+.sum .per{color:#B9BCD8;font-size:15px;margin-bottom:18px}
+.sum dl{display:grid;grid-template-columns:1fr auto;gap:8px 14px;margin:0 0 20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:16px}
+.sum dt{color:#B9BCD8}
+.sum dd{margin:0;text-align:right;font-weight:500}
+.sum .btn{width:100%}
+.sum small{display:block;color:#B9BCD8;font-size:14px;margin-top:10px}
+@media (max-width:920px){.iv{grid-template-columns:1fr}.sum{position:relative;top:auto}}
+@media (max-width:560px){.where{grid-template-columns:1fr}.items{grid-template-columns:1fr}.it{padding-left:12px}.it button{width:30px;height:30px}}
+
+/* как проходит */
+.day{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.day li{background:var(--white);border-radius:var(--r);padding:20px;position:relative}
+.day time{display:inline-block;background:var(--tape);font-weight:700;border-radius:8px;padding:2px 8px;font-size:16px;margin-bottom:12px}
+.day h3{margin-bottom:6px;font-size:19px}
+.day p{color:var(--muted);font-size:15px}
+@media (max-width:1000px){.day{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.day{grid-template-columns:1fr}}
+
+.pics{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:230px;gap:12px;margin-top:20px}
+.pics figure{margin:0;border-radius:18px;overflow:hidden;background:#D9DCEA;position:relative}
+.pics img{width:100%;height:100%;object-fit:cover}
+.pics figcaption{position:absolute;left:10px;bottom:10px;background:var(--white);border-radius:10px;padding:4px 10px;font-size:14px}
+.pics .t{grid-row:span 2}
+@media (max-width:860px){.pics{grid-template-columns:1fr 1fr;grid-auto-rows:180px}}
+
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.promise div{background:var(--white);border-radius:var(--r);padding:22px;border-top:6px solid var(--tape)}
+.promise b{display:block;font-size:21px;font-weight:700;margin-bottom:8px}
+.promise p{color:var(--muted);font-size:16px}
+@media (max-width:860px){.promise{grid-template-columns:1fr}}
+
+.faq{max-width:880px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-weight:500;font-size:19px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:26px;line-height:1;color:var(--tape-d);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 20px;max-width:42em}
+
+.book{background:var(--ink);color:#fff}
+.bk{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,72px);align-items:start}
+.bk .side p{color:#B9BCD8;margin-top:16px;max-width:26em}
+.bk .side a.t{display:inline-block;margin-top:20px;font-size:26px;font-weight:700;color:#fff;text-decoration:none}
+.form{background:var(--white);color:var(--ink);border-radius:26px;padding:clamp(20px,3vw,32px)}
+.f{display:grid;gap:6px;margin:0 0 16px;padding:0;border:0;min-width:0}
+.f label,.f legend{font-weight:500;font-size:16px;padding:0}
+.f input,.f select,.f textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg);font-size:16px}
+.f textarea{min-height:80px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--ink);background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.calcline{display:none;background:var(--tape-soft);border-radius:12px;padding:12px 14px;font-size:15px;margin-bottom:16px}
+.calcline.on{display:block}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--muted);margin:4px 0 16px;cursor:pointer}
+.agree input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--ink)}
+.agree button{border:0;background:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:14px}
+.err{color:#B3261E;font-weight:500;font-size:15px;margin-bottom:10px}
+.err:empty{display:none}
+.form .btn{width:100%}
+.done h3{font-size:30px;font-weight:700;margin-bottom:10px}
+.done p{color:var(--muted)}
+@media (max-width:860px){.bk{grid-template-columns:1fr}.sec-h{grid-template-columns:1fr}}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+
+.foot{background:var(--ink);color:#A9ACC9;padding:0 0 calc(32px + env(safe-area-inset-bottom));font-size:15px}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:28px 0 20px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.foot .logo{color:#fff;margin-bottom:6px}
+.foot a{text-decoration:none}
+.foot a:hover{color:#fff}
+.legal{display:flex;flex-wrap:wrap;gap:10px 24px;padding-top:18px;font-size:14px;align-items:baseline}
+.legal button{border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+dialog{border:0;border-radius:var(--r);padding:28px;max-width:520px;background:var(--white);color:var(--ink)}
+dialog::backdrop{background:rgba(27,29,58,.6)}
+dialog h3{margin-bottom:12px;font-weight:700}
+dialog p{color:var(--muted);font-size:16px;margin-bottom:12px}
+@media (max-width:560px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="9" width="28" height="22" rx="4" fill="#C9965B"/><rect x="3" y="9" width="28" height="7" rx="3" fill="#B07E44"/><rect x="14" y="9" width="6" height="22" fill="#FFB547"/><path d="M8 9 17 3l9 6" fill="none" stroke="#1B1D3A" stroke-width="2.2" stroke-linejoin="round"/></svg>Новоселье</a>
+    <nav class="nav" aria-label="Разделы"><a href="#calc">Опись и&nbsp;цена</a><a href="#day">Как проходит</a><a href="#faq">Вопросы</a></nav>
+    <a class="tel" href="tel:+74730000000">+7&nbsp;(473)&nbsp;000-00-00</a>
+    <a class="btn tape" href="#calc">Посчитать переезд</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Переезд без нервов и&nbsp;сюрпризов в&nbsp;чеке</h1>
+      <p class="lead">Отметьте, что везёте,&nbsp;— сразу увидите машину, грузчиков и&nbsp;цену. Квартиры, дома и&nbsp;офисы по&nbsp;Воронежу и&nbsp;области.</p>
+      <div class="acts"><a class="btn" href="#calc">Составить опись</a><a class="link" href="#book">Позвать на&nbsp;бесплатную оценку</a></div>
+      <p class="ticks"><span>Цена в&nbsp;договоре не&nbsp;меняется</span><span>Мебель разбираем и&nbsp;собираем</span><span>Груз застрахован</span></p>
+    </div>
+    <div class="photo">
+      <div class="ph"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="(max-width:880px) 100vw, 50vw" width="1400" height="933" alt="Пара смеётся с коробкой и цветком в новой квартире" fetchpriority="high"></div>
+      <div class="note"><b>3 часа 40 минут</b>средний квартирный переезд в&nbsp;этом месяце</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec inv" id="calc">
+  <div class="wrap">
+    <div class="sec-h"><h2>Опись и&nbsp;цена</h2><p>Отметьте крупные вещи и&nbsp;примерно, сколько коробок. Машина и&nbsp;грузчики подберутся сами, цена&nbsp;— за&nbsp;весь переезд, с&nbsp;подачей машины.</p></div>
+    <div class="iv">
+      <div>
+        <div class="group"><h3>Мебель</h3><div class="items" data-g="furn"></div></div>
+        <div class="group"><h3>Техника</h3><div class="items" data-g="tech"></div></div>
+        <div class="group"><h3>Коробки и&nbsp;сумки</h3><div class="boxes"><input type="range" id="bx" min="0" max="80" value="20" aria-label="Сколько коробок"><output id="bxO">20 шт.</output></div></div>
+        <div class="group"><h3>Откуда и&nbsp;куда</h3>
+          <div class="where">
+            <fieldset><legend>Откуда</legend><div class="row"><label>этаж <select id="f1"></select></label><label><input type="checkbox" id="l1" checked>лифт</label></div></fieldset>
+            <fieldset><legend>Куда</legend><div class="row"><label>этаж <select id="f2"></select></label><label><input type="checkbox" id="l2" checked>лифт</label></div></fieldset>
+          </div>
+          <div class="extra">
+            <label><input type="checkbox" id="xPack"><span>Упакуем вещи сами</span></label>
+            <label><input type="checkbox" id="xAsm"><span>Разборка и&nbsp;сборка мебели</span></label>
+            <label><input type="checkbox" id="xOut"><span>Переезд за&nbsp;город</span></label>
+            <label><input type="checkbox" id="xJunk"><span>Вывезти старую мебель</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="sum" aria-live="polite">
+        <svg class="truck" viewBox="0 0 320 120" role="img" aria-labelledby="trT"><title id="trT">Заполнение кузова</title>
+          <rect x="8" y="14" width="210" height="76" rx="8" fill="none" stroke="#B9BCD8" stroke-width="2"/>
+          <rect class="load" id="load" x="12" y="18" width="0" height="68" rx="5" fill="#FFB547"/>
+          <path d="M222 40h46l26 26v24h-72z" fill="#2D3170" stroke="#B9BCD8" stroke-width="2"/>
+          <path d="M236 48h28l16 16h-44z" fill="#B9BCD8" opacity=".5"/>
+          <circle cx="60" cy="98" r="14" fill="#1B1D3A" stroke="#B9BCD8" stroke-width="3"/><circle cx="256" cy="98" r="14" fill="#1B1D3A" stroke="#B9BCD8" stroke-width="3"/>
+          <text id="pct" x="113" y="58" text-anchor="middle" font-family="Rubik, sans-serif" font-size="18" font-weight="700" fill="#1B1D3A">0%</text>
+        </svg>
+        <p class="vol">Объём <b id="vol">0 м³</b>, машина <b id="car"></b></p>
+        <p class="price" id="price">—</p>
+        <p class="per" id="per"></p>
+        <dl><dt>Грузчики</dt><dd id="men"></dd><dt>Время</dt><dd id="hrs"></dd><dt>Упаковка</dt><dd id="pk">своя</dd></dl>
+        <a class="btn tape" href="#book" id="toBook">Забронировать дату</a>
+        <small>Без предоплаты. Платите после переезда, если всё на&nbsp;месте.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="day">
+  <div class="wrap">
+    <div class="sec-h"><h2>День переезда</h2><p>Пример обычного переезда двухкомнатной квартиры: 4&nbsp;грузчика, удлинённая «Газель», третий этаж без лифта.</p></div>
+    <ol class="day">
+      <li><time>9:00</time><h3>Приезжаем</h3><p>Бригадир сверяет опись, грузчики стелят защиту на&nbsp;пол и&nbsp;углы.</p></li>
+      <li><time>9:20</time><h3>Разбираем и&nbsp;пакуем</h3><p>Мебель&nbsp;— в&nbsp;плёнку и&nbsp;картон, винты&nbsp;— в&nbsp;подписанные пакеты.</p></li>
+      <li><time>10:30</time><h3>Грузим и&nbsp;едем</h3><p>Тяжёлое&nbsp;— вниз и&nbsp;к&nbsp;стенкам кузова, хрупкое&nbsp;— сверху и&nbsp;с&nbsp;пометкой.</p></li>
+      <li><time>11:30</time><h3>Расставляем</h3><p>Вы показываете, где что стоит. Собираем кровати и&nbsp;шкафы.</p></li>
+      <li><time>12:40</time><h3>Готово</h3><p>Сверяем опись, забираем мусор. Оплата только после этого.</p></li>
+    </ol>
+    <div class="pics">
+      <figure class="t"><img src="img/unload-800.webp" srcset="img/unload-800.webp 800w, img/unload-1400.webp 1400w" sizes="(max-width:860px) 50vw, 40vw" width="800" height="533" alt="Грузчики выгружают мебель из фургона" loading="lazy" decoding="async"><figcaption>Выгрузка у&nbsp;подъезда</figcaption></figure>
+      <figure><img src="img/wrap-800.webp" srcset="img/wrap-800.webp 800w, img/wrap-1400.webp 1400w" sizes="(max-width:860px) 50vw, 28vw" width="800" height="533" alt="Грузчики упаковывают диван в плёнку" loading="lazy" decoding="async"><figcaption>Упаковка дивана</figcaption></figure>
+      <figure><img src="img/van-800.webp" srcset="img/van-800.webp 800w, img/van-1400.webp 1400w" sizes="(max-width:860px) 50vw, 28vw" width="800" height="533" alt="Фургон и грузчик с коробками на улице" loading="lazy" decoding="async"><figcaption>Коробки по&nbsp;описи</figcaption></figure>
+      <figure><img src="img/pack-800.webp" srcset="img/pack-800.webp 800w, img/pack-1400.webp 1400w" sizes="(max-width:860px) 50vw, 28vw" width="800" height="533" alt="Девушка складывает вещи с полок в коробку" loading="lazy" decoding="async"><figcaption>Сборы накануне</figcaption></figure>
+      <figure><img src="img/after-800.webp" srcset="img/after-800.webp 800w, img/after-1400.webp 1400w" sizes="(max-width:860px) 50vw, 28vw" width="800" height="533" alt="Подруги вешают картину в новой квартире" loading="lazy" decoding="async"><figcaption>Вечер на&nbsp;новом месте</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="promise">
+      <div><b>Цена не&nbsp;растёт</b><p>Цена из&nbsp;описи попадает в&nbsp;договор. Если переезд затянулся по&nbsp;нашей вине&nbsp;— время сверх доплачивать не&nbsp;нужно.</p></div>
+      <div><b>Груз застрахован</b><p>Каждый переезд застрахован на&nbsp;500&nbsp;000&nbsp;₽. Царапину на&nbsp;шкафу отремонтируем или возместим.</p></div>
+      <div><b>Свои грузчики</b><p>Не берём случайных людей с&nbsp;улицы: бригады в&nbsp;штате, работают у&nbsp;нас от&nbsp;двух лет.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><h2>Вопросы</h2><p>Если сомневаетесь в&nbsp;объёме&nbsp;— позовите оценщика, это бесплатно.</p></div>
+    <div class="faq">
+      <details><summary>Нужно ли самим собирать коробки?</summary><p>Как удобно. Можем привезти коробки, скотч и&nbsp;плёнку накануне или упаковать всё сами в&nbsp;день переезда&nbsp;— отметьте «Упакуем вещи сами» в&nbsp;описи.</p></details>
+      <details><summary>Что если вещей окажется больше?</summary><p>Если в&nbsp;машину всё помещается и&nbsp;грузчики успевают&nbsp;— цена та&nbsp;же. Если нужна вторая машина, предупредим до&nbsp;погрузки, без сюрпризов.</p></details>
+      <details><summary>Перевозите пианино и&nbsp;сейфы?</summary><p>Да, со&nbsp;специальными ремнями и&nbsp;такелажниками. Стоимость назовём после фото или осмотра.</p></details>
+      <details><summary>Работаете в&nbsp;выходные и&nbsp;вечером?</summary><p>Каждый день с&nbsp;7:00 до&nbsp;23:00. Выходные разбирают за&nbsp;неделю, лучше бронировать заранее.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book">
+  <div class="wrap bk">
+    <div class="side">
+      <h2>Забронировать дату</h2>
+      <p>Перезвоним за&nbsp;10&nbsp;минут, уточним адреса и&nbsp;закрепим машину. Предоплата не&nbsp;нужна.</p>
+      <a class="t" href="tel:+74730000000">+7&nbsp;(473)&nbsp;000-00-00</a>
+    </div>
+    <div class="form">
+      <form id="bf" novalidate>
+        <p class="calcline" id="calcline"></p>
+        <div class="two">
+          <div class="f"><label for="bd">Дата переезда</label><input type="date" id="bd"></div>
+          <div class="f"><label for="bty">Что перевозим</label><select id="bty"><option>Квартиру</option><option>Комнату</option><option>Дом</option><option>Офис</option><option>Несколько вещей</option></select></div>
+        </div>
+        <div class="two">
+          <div class="f"><label for="ba1">Откуда</label><input type="text" id="ba1" placeholder="Улица, дом"></div>
+          <div class="f"><label for="ba2">Куда</label><input type="text" id="ba2" placeholder="Улица, дом"></div>
+        </div>
+        <div class="two">
+          <div class="f"><label for="bn">Имя</label><input type="text" id="bn" autocomplete="given-name"></div>
+          <div class="f"><label for="bt">Телефон</label><input type="tel" id="bt" autocomplete="tel" inputmode="tel" placeholder="+7"></div>
+        </div>
+        <label class="agree"><input type="checkbox" id="ag"><span>Даю согласие на&nbsp;обработку персональных данных по&nbsp;<button type="button" data-open="policy">политике конфиденциальности</button></span></label>
+        <p class="err" id="er" role="alert"></p>
+        <button class="btn" type="submit">Забронировать</button>
+      </form>
+      <div class="done" id="dn" hidden tabindex="-1"><h3>Дата за&nbsp;вами</h3><p id="dnP"></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div><a class="logo" href="#">Новоселье</a><p>Переезды по&nbsp;Воронежу и&nbsp;области, каждый день 7:00–23:00</p></div>
+      <p><a href="tel:+74730000000">+7&nbsp;(473)&nbsp;000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a></p>
+    </div>
+    <div class="legal">
+      <span>ООО «Новоселье»</span>
+      <button type="button" data-open="policy">Политика конфиденциальности</button>
+      <a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a>
+    </div>
+  </div>
+</footer>
+
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;адреса нужны, чтобы закрепить машину и&nbsp;приехать вовремя. Данные получает только диспетчер «Новоселья».</p><p>Данные не&nbsp;передаются третьим лицам. Удалить их&nbsp;можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn">Понятно</button></form></dialog>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function rub(n){return (Math.round(n/100)*100).toLocaleString('ru-RU').replace(/ /g,' ')+' ₽'}
+/* объём, м³ */
+var IT={furn:[['Диван',2.5,1],['Шкаф',2.5,1],['Кровать',2,1],['Комод',1,1],['Стол',.8,1],['Стулья',.2,4],['Кресло',.9,0],['Стеллаж',.8,0]],
+        tech:[['Холодильник',1,1],['Стиральная',.6,1],['Телевизор',.3,1],['Плита',.5,0],['Посудомойка',.4,0],['Компьютер',.3,0]]};
+var cnt={};
+Object.keys(IT).forEach(function(g){var box=document.querySelector('.items[data-g='+g+']');IT[g].forEach(function(x){
+  cnt[x[0]]=x[2];
+  var d=document.createElement('div');d.className='it';
+  d.innerHTML='<span>'+x[0]+'</span><span class="st"><button type="button" aria-label="Меньше: '+x[0]+'">−</button><output>'+x[2]+'</output><button type="button" aria-label="Больше: '+x[0]+'">+</button></span>';
+  var bs=d.querySelectorAll('button'),o=d.querySelector('output');
+  function upd(){o.textContent=cnt[x[0]];d.classList.toggle('on',cnt[x[0]]>0);calc()}
+  bs[0].addEventListener('click',function(){cnt[x[0]]=Math.max(0,cnt[x[0]]-1);upd()});
+  bs[1].addEventListener('click',function(){cnt[x[0]]=Math.min(20,cnt[x[0]]+1);upd()});
+  d.classList.toggle('on',x[2]>0);box.appendChild(d);
+})});
+for(var i=1;i<=17;i++){[$('f1'),$('f2')].forEach(function(s){var o=document.createElement('option');o.value=i;o.textContent=i;s.appendChild(o)})}
+$('f1').value='3';$('f2').value='7';
+var CARS=[['«Газель», 9 м³',9,1200],['удлинённая «Газель», 16 м³',16,1500],['5-тонник, 30 м³',30,2200],['два 5-тонника',60,4400]];
+var last={};
+function calc(){
+  var v=0;Object.keys(IT).forEach(function(g){IT[g].forEach(function(x){v+=x[1]*cnt[x[0]]})});
+  var bx=+$('bx').value;$('bxO').textContent=bx+' шт.';v+=bx*.08;v=Math.round(v*10)/10;
+  var car=CARS.filter(function(c){return c[1]>=v*1.05})[0]||CARS[3];
+  var men=v<5?2:v<14?3:v<26?4:6;
+  var stairs=(($('l1').checked?0:+$('f1').value-1)+($('l2').checked?0:+$('f2').value-1));
+  var hrs=1+v/(men*2.2)+stairs*v/90+($('xAsm').checked?1:0)+($('xPack').checked?v/12:0)+($('xOut').checked?1.5:0);
+  hrs=Math.max(3,Math.round(hrs*2)/2);
+  var price=car[2]*hrs+men*600*hrs+($('xPack').checked?v*350:0)+($('xJunk').checked?2500:0)+($('xOut').checked?1500:0);
+  $('vol').textContent=String(v).replace('.',',')+' м³';$('car').textContent=car[0];
+  var fill=Math.min(1,v/car[1]);$('load').setAttribute('width',Math.max(0,fill*202));$('pct').textContent=Math.round(fill*100)+'%';
+  $('price').textContent=rub(price);$('per').textContent='за весь переезд, '+String(hrs).replace('.',',')+' ч работы';
+  $('men').textContent=men+(men>4?' человек':' человека');
+  $('hrs').textContent='около '+String(hrs).replace('.',',')+' ч';
+  $('pk').textContent=$('xPack').checked?'наша, '+rub(v*350):'своя';
+  last={v:v,car:car[0],men:men,hrs:hrs,price:price};
+}
+['bx','f1','f2','l1','l2','xPack','xAsm','xOut','xJunk'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
+calc();
+$('toBook').addEventListener('click',function(){$('calcline').textContent='По описи: '+String(last.v).replace('.',',')+' м³, '+last.car+', '+last.men+(last.men>4?' грузчиков':' грузчика')+', около '+String(last.hrs).replace('.',',')+' ч — '+rub(last.price)+'. Цену закрепим в договоре.';$('calcline').classList.add('on')});
+var tm=new Date();tm.setDate(tm.getDate()+1);$('bd').min=new Date().toISOString().slice(0,10);$('bd').value=tm.toISOString().slice(0,10);
+document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){var d=$(b.getAttribute('data-open'));if(d&&d.showModal)d.showModal()})});
+$('bf').addEventListener('submit',function(e){
+  e.preventDefault();var er=$('er');er.textContent='';
+  if($('bt').value.replace(/\D/g,'').length<10){er.textContent='Укажите телефон — перезвоним и закрепим машину.';$('bt').focus();return}
+  if(!$('ag').checked){er.textContent='Отметьте согласие на обработку данных — без него бронь не уйдёт.';return}
+  var n=$('bn').value.trim(),d=$('bd').value?new Date($('bd').value).toLocaleDateString('ru-RU',{day:'numeric',month:'long'}):'';
+  $('dnP').textContent=(n?n+', ':'')+(d?d+' ':'')+'придержали за вами. Диспетчер перезвонит в течение 10 минут, уточнит адреса и время подачи машины.';
+  this.hidden=true;$('dn').hidden=false;$('dn').focus();
+});
+})();
+</script>
+</body>
+</html>

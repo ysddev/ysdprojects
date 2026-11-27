@@ -1,0 +1,5 @@
+# Файлы, которые сборка сайта (mirror.yml) скачивает при публикации: <куда> <откуда>
+img/logo.jpg https://gost-sport.ru/wp-content/uploads/2020/09/niipbss.jpg
+img/rsscss.jpg https://gost-sport.ru/wp-content/uploads/r_logo.jpg
+img/slide-stadion.jpg https://gost-sport.ru/wp-content/uploads/slajd-stadion.jpg
+img/news-vorota.jpg https://gost-sport.ru/wp-content/uploads/depositphotos_163627694_xl-2015-600x338.jpg

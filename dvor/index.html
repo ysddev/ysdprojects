@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Двор — объявления соседей в Перми: купить и продать рядом с домом</title>
+<meta name="description" content="Доска объявлений Перми по районам: мебель, техника, детское, спорт, хобби, животные. Продавцы подтверждают телефон, объявления проверяем за 15 минут. Подать объявление — бесплатно.">
+<meta name="theme-color" content="#F2F3EC">
+<link rel="preload" href="fonts/dela-gothic-one-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/commissioner-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Dela Gothic One';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dela-gothic-one-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Dela Gothic One';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dela-gothic-one-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/commissioner-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/commissioner-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/commissioner-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/commissioner-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --bg:#F2F3EC;--card:#FFFFFF;--soft:#E6E8DE;--ink:#1C211D;--muted:#5A625C;--line:rgba(28,33,29,.13);
+  --green:#1D6A46;--green-d:#14533A;--sticker:#FFD53D;--red:#C8402B;
+  --head:'Dela Gothic One','Arial Black',Impact,sans-serif;--body:'Commissioner',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:16px;--wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-weight:400}
+h1,h2{font-family:var(--head);letter-spacing:-.01em;line-height:1.02}
+h2{font-size:clamp(28px,3.2vw,42px)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;border:0;background:var(--green);color:#fff;font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--green-d)}
+.btn.ghost{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:20;background:rgba(242,243,236,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--head);font-size:26px;line-height:1}
+.logo svg{width:34px;height:34px}
+.city{display:inline-flex;align-items:center;gap:6px;font-size:15px;color:var(--muted);border:0;background:none;padding:6px 8px;border-radius:8px;cursor:pointer}
+.city svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.top .sp{flex:1}
+.fav{position:relative;display:inline-flex;align-items:center;gap:8px;border:0;background:none;cursor:pointer;font-size:15px;padding:8px;border-radius:10px}
+.fav svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:1.8}
+.fav b{min-width:20px;height:20px;border-radius:10px;background:var(--red);color:#fff;font-size:14px;display:none;align-items:center;justify-content:center;padding:0 6px}
+.fav b.on{display:inline-flex}
+@media (max-width:720px){.fav span,.city span{display:none}.top .btn{padding:0 14px;font-size:15px;min-height:42px}.logo{font-size:22px}}
+
+/* первый экран */
+.hero{padding:clamp(28px,4vw,56px) 0 clamp(36px,4vw,56px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center}
+.hero h1{font-size:clamp(38px,5vw,66px);line-height:1.06;margin-bottom:26px}
+.hero .lead{font-size:18px;color:var(--muted);max-width:32em;margin-bottom:26px}
+.search{display:grid;grid-template-columns:1fr 210px auto;gap:0;background:var(--card);border-radius:16px;padding:6px;box-shadow:0 1px 0 var(--line),0 14px 34px -22px rgba(28,33,29,.5)}
+.search label{display:flex;align-items:center;gap:10px;padding:0 12px}
+.search label+label{border-left:1px solid var(--line)}
+.search svg{flex:none;width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2}
+.search input,.search select{width:100%;border:0;background:transparent;min-height:50px;font-size:16px;outline:none}
+.search select{cursor:pointer;appearance:none;-webkit-appearance:none}
+.search .btn{min-height:50px}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.cats button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:15px;font-weight:600}
+.cats button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cats button span{font-weight:400;color:var(--muted)}
+.cats button[aria-pressed=true] span{color:rgba(255,255,255,.7)}
+.pile{position:relative;height:560px}
+.pol{position:absolute;width:56%;background:var(--card);padding:10px 10px 14px;border-radius:14px;box-shadow:0 22px 40px -24px rgba(28,33,29,.55)}
+.pol .ph{aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--soft)}
+.pol img{width:100%;height:100%;object-fit:cover}
+.pol p{font-size:15px;font-weight:600;margin-top:10px;line-height:1.3}
+.pol small{display:block;color:var(--muted);font-size:14px}
+.pol:nth-child(1){left:0;top:120px;transform:rotate(-5deg)}
+.pol:nth-child(2){left:24%;top:0;transform:rotate(2deg);z-index:2}
+.pol:nth-child(3){right:0;top:150px;transform:rotate(7deg)}
+.tag{position:absolute;top:-10px;right:-8px;background:var(--sticker);color:var(--ink);font:400 17px/1 var(--head);padding:10px 12px 9px;border-radius:6px;transform:rotate(6deg);box-shadow:0 6px 12px -8px rgba(0,0,0,.5);white-space:nowrap}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.pile{display:none}}
+@media (max-width:640px){.search{grid-template-columns:1fr;padding:6px}.search label+label{border-left:0;border-top:1px solid var(--line)}.search .btn{width:100%;margin-top:6px}}
+
+/* лента */
+.feed{padding:12px 0 clamp(56px,7vw,96px)}
+.bar{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.bar h2 span{color:var(--muted);font-family:var(--body);font-size:18px;font-weight:600;margin-left:8px;letter-spacing:0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tools select,.tools input{min-height:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:0 12px;font-size:15px}
+.tools label{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--muted)}
+.tools .free{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer;color:var(--ink)}
+.tools .free input{min-height:0;width:18px;height:18px;accent-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.item{position:relative;background:var(--card);border-radius:var(--r);overflow:visible;display:flex;flex-direction:column}
+.item .open{all:unset;cursor:pointer;display:flex;flex-direction:column;border-radius:var(--r);height:100%}
+.item .open:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.item .ph{aspect-ratio:4/3;border-radius:var(--r) var(--r) 0 0;overflow:hidden;background:var(--soft);position:relative}
+.item .ph img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.item:hover .ph img{transform:scale(1.03)}
+.item .tag{top:10px;left:10px;right:auto;font-size:16px;transform:rotate(-3deg)}
+.item .tag.free{background:#BDE7C9}
+.item .tx{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.item h3{font-size:16px;font-weight:600;line-height:1.3}
+.item .meta{font-size:14px;color:var(--muted);margin-top:auto}
+.item .new{position:absolute;bottom:10px;left:10px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;padding:4px 8px;border-radius:6px}
+.heart{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;z-index:2}
+.heart svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.8;transition:transform .2s}
+.heart[aria-pressed=true] svg{fill:var(--red);stroke:var(--red);transform:scale(1.08)}
+.empty{grid-column:1/-1;background:var(--card);border-radius:var(--r);padding:40px 24px;text-align:center}
+.empty b{display:block;font-family:var(--head);font-weight:400;font-size:24px;margin-bottom:8px}
+.empty p{color:var(--muted);margin-bottom:16px}
+.pending{outline:2px dashed var(--green);outline-offset:-2px}
+@media (max-width:1060px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.item .tx{padding:10px 10px 12px}.item h3{font-size:15px}.tools{width:100%}.tools select{flex:1;min-width:0}}
+
+/* как продать */
+.sell{background:var(--ink);color:#F2F3EC;border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,72px)}
+.sell h2{margin-bottom:16px}
+.sell>div>p{color:rgba(242,243,236,.72);margin-bottom:24px}
+.sell .btn{background:var(--sticker);color:var(--ink)}
+.sell .btn:hover{background:#F2C31C}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;background:rgba(242,243,236,.07);border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);font-family:var(--head);font-size:28px;line-height:1;width:56px;height:56px;border-radius:14px;background:var(--sticker);color:var(--ink);display:grid;place-items:center}
+.steps b{display:block;font-size:18px;margin-bottom:4px}
+.steps span{color:rgba(242,243,236,.72);font-size:15px}
+@media (max-width:860px){.sell{grid-template-columns:1fr;border-radius:20px}}
+
+/* безопасность */
+.safe{padding:clamp(56px,7vw,96px) 0}
+.safe .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.safe article{background:var(--card);border-radius:var(--r);padding:22px}
+.safe svg{width:32px;height:32px;fill:none;stroke:var(--green);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
+.safe h3{font-size:19px;font-weight:600;margin-bottom:6px}
+.safe article p{color:var(--muted);font-size:15px}
+.safe .head{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px;align-items:end}
+.safe .head p{color:var(--muted)}
+@media (max-width:860px){.safe .grid3{grid-template-columns:1fr}.safe .head{grid-template-columns:1fr}}
+
+/* подать */
+.post{background:var(--soft);padding:clamp(56px,7vw,96px) 0}
+.pf{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px);align-items:start}
+.pf .side p{color:var(--muted);margin-top:14px;max-width:26em}
+.pf .side ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.pf .side li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.pf .side li svg{flex:none;width:20px;height:20px;margin-top:2px;fill:none;stroke:var(--green);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.form{background:var(--card);border-radius:20px;padding:clamp(20px,3vw,32px)}
+.f{display:grid;gap:7px;margin:0 0 16px;padding:0;border:0;min-width:0}
+.f label,.f legend{font-size:15px;font-weight:600;padding:0}
+.f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:12px 13px;font-size:16px}
+.f textarea{min-height:100px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(29,106,70,.15);background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.drop{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.drop .add{aspect-ratio:1;border:2px dashed rgba(28,33,29,.25);border-radius:12px;display:grid;place-items:center;text-align:center;font-size:14px;color:var(--muted);cursor:pointer;position:relative;padding:6px}
+.drop .add:hover{border-color:var(--green);color:var(--green)}
+.drop .add svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;display:block;margin:0 auto 4px}
+.drop .add input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop .add:focus-within{outline:3px solid var(--green);outline-offset:2px}
+.drop .th{aspect-ratio:1;border-radius:12px;overflow:hidden;position:relative;background:var(--soft)}
+.drop .th img{width:100%;height:100%;object-fit:cover}
+.drop .th button{position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(28,33,29,.75);color:#fff;cursor:pointer;font-size:16px;line-height:1}
+.drop .th i{position:absolute;left:4px;bottom:4px;background:var(--sticker);font-style:normal;font-size:14px;font-weight:600;padding:2px 6px;border-radius:4px}
+.hint{font-size:14px;color:var(--muted)}
+.pricebox{display:flex;gap:12px;align-items:center}
+.pricebox .f{flex:1;margin:0}
+.chk{display:inline-flex;align-items:center;gap:8px;font-size:15px;cursor:pointer;white-space:nowrap;margin-top:28px}
+.chk input{width:18px;height:18px;accent-color:var(--green)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--muted);margin:6px 0 16px;cursor:pointer}
+.agree input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--green)}
+.agree button{border:0;background:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:14px}
+.err{color:var(--red);font-weight:600;font-size:15px;margin-bottom:10px}
+.err:empty{display:none}
+.form .btn{width:100%}
+.done{text-align:left}
+.done b{display:block;font-family:var(--head);font-weight:400;font-size:28px;margin-bottom:8px}
+.done p{color:var(--muted);margin-bottom:16px}
+@media (max-width:860px){.pf{grid-template-columns:1fr}}
+@media (max-width:520px){.two{grid-template-columns:1fr}.pricebox{flex-direction:column;align-items:stretch}.chk{margin-top:0}}
+
+.foot{padding:40px 0 calc(36px + env(safe-area-inset-bottom));font-size:15px;color:var(--muted)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:22px}
+.foot .logo{color:var(--ink);font-size:22px;margin-bottom:8px}
+.foot nav{display:flex;flex-wrap:wrap;gap:10px 24px}
+.foot nav{align-items:baseline}
+.foot nav a,.foot nav button{text-decoration:none;border:0;background:none;padding:0;cursor:pointer;font:inherit;line-height:1.5;color:inherit}
+.foot nav a:hover,.foot nav button:hover{color:var(--ink)}
+.legal{display:flex;flex-wrap:wrap;gap:10px 24px;padding-top:18px;font-size:14px}
+
+/* карточка объявления */
+dialog{border:0;padding:0;border-radius:22px;max-width:min(940px,calc(100vw - 24px));width:100%;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(28,33,29,.6)}
+.dlg{display:grid;grid-template-columns:1.1fr .9fr}
+.dlg .ph{background:var(--soft);min-height:100%;position:relative}
+.dlg .ph img{width:100%;height:100%;object-fit:cover;min-height:320px}
+.dlg .ph .tag{top:16px;left:16px;right:auto;font-size:22px;transform:rotate(-3deg)}
+.dlg .in{padding:26px 26px 24px;display:flex;flex-direction:column;gap:12px}
+.dlg h3{font-size:24px;font-weight:600;line-height:1.25;padding-right:40px}
+.dlg .meta{font-size:14px;color:var(--muted)}
+.dlg .cond{display:flex;flex-wrap:wrap;gap:6px}
+.dlg .cond span{font-size:14px;background:var(--bg);border-radius:6px;padding:4px 8px}
+.seller{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:14px}
+.seller .av{width:44px;height:44px;border-radius:50%;background:var(--sticker);display:grid;place-items:center;font-family:var(--head);font-size:18px}
+.seller b{display:block;font-weight:600}
+.seller span{font-size:14px;color:var(--muted)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msg{display:none;gap:8px;flex-direction:column}
+.msg.on{display:flex}
+.msg textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:76px;font-size:16px;background:var(--bg)}
+.ok{font-size:15px;color:var(--green);font-weight:600}
+.note{font-size:14px;color:var(--muted);background:var(--bg);border-radius:10px;padding:10px 12px}
+.x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);cursor:pointer;font-size:22px;line-height:1;z-index:3}
+@media (max-width:440px){.acts{grid-template-columns:1fr}}
+@media (max-width:760px){.dlg{grid-template-columns:1fr}.dlg .ph img{min-height:0;aspect-ratio:4/3}.dlg .in{padding:20px}}
+#policy .in{padding:28px}
+#policy h3{margin-bottom:6px}
+#policy p{color:var(--muted);font-size:15px}
+@media (max-width:560px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1D6A46"/><path d="M8 25V14l9-6 9 6v11h-6v-6h-6v6z" fill="#FFD53D"/></svg>Двор</a>
+    <button class="city" type="button" aria-label="Город: Пермь"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Пермь</span></button>
+    <div class="sp"></div>
+    <button class="fav" type="button" id="favBtn" aria-label="Избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-9.3-9.2C1.6 7.6 3.8 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.2 0 5.4 3.1 4.3 6.3C19.5 15.4 12 20 12 20z"/></svg><span>Избранное</span><b id="favN">0</b></button>
+    <a class="btn" href="#post">Подать объявление</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Купить и&nbsp;продать у&nbsp;соседей</h1>
+      <p class="lead">Объявления от&nbsp;людей из&nbsp;вашего района Перми. Каждый продавец подтверждает телефон, а&nbsp;забрать покупку можно по&nbsp;дороге домой.</p>
+      <form class="search" id="search" role="search">
+        <label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Что ищете</span><input type="search" id="q" placeholder="Кресло, велосипед, коляска…" autocomplete="off"></label>
+        <label><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="sr">Район</span><select id="dist"><option value="">Все районы</option></select></label>
+        <button class="btn" type="submit">Найти</button>
+      </form>
+      <div class="cats" id="cats" aria-label="Категории"></div>
+    </div>
+    <div class="pile" aria-hidden="true">
+      <div class="pol"><div class="ph"><img src="img/pchair-480.webp" srcset="img/pchair-480.webp 480w, img/pchair-800.webp 800w" sizes="22vw" width="480" height="600" alt=""></div><p>Кресло вельветовое</p><small>Ленинский, 20 минут назад</small><span class="tag">12 000 ₽</span></div>
+      <div class="pol"><div class="ph"><img src="img/pbike-480.webp" srcset="img/pbike-480.webp 480w, img/pbike-800.webp 800w" sizes="22vw" width="480" height="600" alt=""></div><p>Шоссейный велосипед</p><small>Мотовилиха, 1 час назад</small><span class="tag">18 000 ₽</span></div>
+      <div class="pol"><div class="ph"><img src="img/pguitar-480.webp" srcset="img/pguitar-480.webp 480w, img/pguitar-800.webp 800w" sizes="22vw" width="480" height="600" alt=""></div><p>Гитара с&nbsp;чехлом</p><small>Индустриальный, вчера</small><span class="tag">9 000 ₽</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="feed" id="feed">
+  <div class="wrap">
+    <div class="bar">
+      <h2 id="feedH">Свежие объявления <span id="cnt"></span></h2>
+      <div class="tools">
+        <label class="free"><input type="checkbox" id="onlyFree">Только даром</label>
+        <label><span class="sr">Цена до</span><input type="number" id="maxP" inputmode="numeric" placeholder="Цена до, ₽" min="0" step="500" style="width:150px"></label>
+        <label><span class="sr">Сортировка</span><select id="sort"><option value="new">Сначала новые</option><option value="cheap">Сначала дешевле</option><option value="dear">Сначала дороже</option></select></label>
+      </div>
+    </div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sell">
+      <div>
+        <h2>Продать&nbsp;— быстрее, чем выбросить</h2>
+        <p>Объявление на&nbsp;Дворе бесплатное и&nbsp;видно всем соседям вашего района первым. Обычно вещи уходят за&nbsp;2–3 дня.</p>
+        <a class="btn" href="#post">Подать объявление</a>
+      </div>
+      <ol class="steps">
+        <li><div><b>Сфотографируйте при дневном свете</b><span>Три-четыре фото с&nbsp;разных сторон, крупно&nbsp;— царапины и&nbsp;бирки, если есть.</span></div></li>
+        <li><div><b>Напишите цену и&nbsp;пару слов</b><span>Сколько лет вещи, почему продаёте, есть&nbsp;ли коробка и&nbsp;чек.</span></div></li>
+        <li><div><b>Договоритесь в&nbsp;чате</b><span>Телефон видят только те, кому вы его покажете. Встречайтесь у&nbsp;подъезда или в&nbsp;людном месте.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="safe">
+  <div class="wrap">
+    <div class="head">
+      <h2>Чтобы сделка прошла спокойно</h2>
+      <p>Мы проверяем каждое объявление и&nbsp;блокируем тех, кто просит предоплату или уводит переписку на&nbsp;сторонние сайты.</p>
+    </div>
+    <div class="grid3">
+      <article><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>Без предоплаты</h3><p>Платите при встрече, когда посмотрели вещь. Если продавец просит перевести заранее&nbsp;— это повод насторожиться.</p></article>
+      <article><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Проверка за&nbsp;15 минут</h3><p>Модератор смотрит каждое объявление. Ночью&nbsp;— чуть дольше, но&nbsp;не&nbsp;больше часа.</p></article>
+      <article><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20l1-4.3A8 8 0 1 1 21 12z"/><path d="M8 11h8M8 14h5"/></svg><h3>Переписка на&nbsp;Дворе</h3><p>Ссылки на&nbsp;оплату и&nbsp;«доставку» из&nbsp;чата не&nbsp;открываются. Если что-то пошло не&nbsp;так, у&nbsp;нас останется история.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="post" id="post">
+  <div class="wrap pf">
+    <div class="side">
+      <h2>Подать объявление</h2>
+      <p>Бесплатно. Объявление появится в&nbsp;ленте после проверки, обычно за&nbsp;15&nbsp;минут.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>До 10 фото, первое станет обложкой</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Телефон не&nbsp;виден, пока вы сами его не&nbsp;покажете</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Объявление живёт 30 дней, продлить&nbsp;— в&nbsp;одно нажатие</li>
+      </ul>
+    </div>
+    <div class="form">
+      <form id="pform" novalidate>
+        <div class="f">
+          <span style="font-size:15px;font-weight:600">Фотографии</span>
+          <div class="drop" id="drop">
+            <label class="add"><input type="file" id="files" accept="image/*" multiple aria-label="Добавить фото"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Добавить фото</span></label>
+          </div>
+          <p class="hint">Можно перетащить файлы сюда. JPG или PNG, до 10 штук.</p>
+        </div>
+        <div class="f"><label for="ttl">Название</label><input type="text" id="ttl" maxlength="60" placeholder="Например, детский велосипед 16 дюймов"></div>
+        <div class="two">
+          <div class="f"><label for="cat">Категория</label><select id="cat"></select></div>
+          <div class="f"><label for="pdist">Район</label><select id="pdist"></select></div>
+        </div>
+        <div class="pricebox">
+          <div class="f"><label for="price">Цена, ₽</label><input type="number" id="price" inputmode="numeric" min="0" step="100" placeholder="0"></div>
+          <label class="chk"><input type="checkbox" id="free">Отдам даром</label>
+        </div>
+        <div class="f" style="margin-top:16px"><label for="desc">Описание</label><textarea id="desc" placeholder="Состояние, размеры, почему продаёте"></textarea></div>
+        <div class="two">
+          <div class="f"><label for="pname">Ваше имя</label><input type="text" id="pname" autocomplete="given-name"></div>
+          <div class="f"><label for="ptel">Телефон</label><input type="tel" id="ptel" autocomplete="tel" inputmode="tel" placeholder="+7"></div>
+        </div>
+        <label class="agree"><input type="checkbox" id="agree"><span>Принимаю <button type="button" data-open="rules">правила Двора</button> и&nbsp;даю согласие на&nbsp;обработку персональных данных по&nbsp;<button type="button" data-open="policy">политике конфиденциальности</button></span></label>
+        <p class="err" id="perr" role="alert"></p>
+        <button class="btn" type="submit">Отправить на проверку</button>
+      </form>
+      <div class="done" id="pdone" hidden tabindex="-1">
+        <b>Объявление на&nbsp;проверке</b>
+        <p id="pdoneP">Обычно это занимает 15 минут. Пришлём СМС, когда оно появится в&nbsp;ленте.</p>
+        <a class="btn ghost" href="#feed">Посмотреть в&nbsp;ленте</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div><a class="logo" href="#"><svg viewBox="0 0 34 34" aria-hidden="true" style="width:28px;height:28px"><rect width="34" height="34" rx="9" fill="#1D6A46"/><path d="M8 25V14l9-6 9 6v11h-6v-6h-6v6z" fill="#FFD53D"/></svg>Двор</a><p>Объявления соседей, Пермь</p></div>
+      <nav aria-label="О сервисе"><a href="#post">Подать объявление</a><button type="button" data-open="rules">Правила</button><a href="mailto:hello@ysdprojects.space">Поддержка</a><button type="button" data-open="policy">Политика конфиденциальности</button></nav>
+    </div>
+    <div class="legal">
+      <span>Двор не&nbsp;продаёт товары и&nbsp;не&nbsp;участвует в&nbsp;сделках между пользователями</span>
+      <a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a>
+    </div>
+  </div>
+</footer>
+
+<dialog id="item" aria-labelledby="iT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div class="dlg" id="itemBody"></div></dialog>
+<dialog id="rules" aria-labelledby="rT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div class="in" style="padding:28px"><h3 id="rT" style="font-size:24px;font-weight:600;margin-bottom:10px">Правила Двора</h3><p style="color:var(--muted);margin-bottom:8px">Нельзя продавать лекарства, оружие, алкоголь, животных из&nbsp;Красной книги и&nbsp;чужие вещи. Одна вещь&nbsp;— одно объявление.</p><p style="color:var(--muted)">Нельзя просить предоплату и&nbsp;отправлять ссылки на&nbsp;оплату. За&nbsp;нарушение аккаунт блокируется.</p></div></dialog>
+<dialog id="policy" aria-labelledby="pT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div class="in" style="padding:28px"><h3 id="pT" style="font-size:24px;font-weight:600;margin-bottom:10px">Политика конфиденциальности</h3><p style="color:var(--muted);margin-bottom:8px">Имя и&nbsp;телефон нужны, чтобы подтвердить, что вы реальный человек, и&nbsp;сообщить о&nbsp;проверке объявления. Телефон видят только те, кому вы его покажете.</p><p style="color:var(--muted)">Данные не&nbsp;передаются третьим лицам. Удалить аккаунт и&nbsp;данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p></div></dialog>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var DIST=['Дзержинский','Индустриальный','Кировский','Ленинский','Мотовилихинский','Орджоникидзевский','Свердловский'];
+var CATS=[['furn','Мебель'],['kids','Детское'],['tech','Техника'],['sport','Спорт'],['hobby','Хобби'],['home','Дом и сад'],['wear','Одежда'],['pets','Животные']];
+var L=[
+ {id:1,img:'armchair',t:'Кресло 60-х, перетянуто заново',p:7500,c:'furn',d:'Свердловский',m:12,cond:['Б/у, отличное','Самовывоз'],s:'Ирина',since:2023,txt:'Кресло на деревянных ножках, ткань поменяли в прошлом году. Ширина 68 см, глубина 74. Ни пятен, ни запаха.'},
+ {id:2,img:'greenchair',t:'Кресло вельветовое, вращается',p:12000,c:'furn',d:'Ленинский',m:20,cond:['Б/у, хорошее'],s:'Марат',since:2022,txt:'Покупали в шоурум, переезжаем — не помещается. Вельвет зелёный, механизм вращения тихий. Есть небольшая потёртость на подлокотнике.'},
+ {id:3,img:'bike',t:'Шоссейный велосипед, рама 56',p:18000,c:'sport',d:'Мотовилихинский',m:65,cond:['Б/у, хорошее','Торг'],s:'Денис',since:2021,txt:'Стальная рама, 16 скоростей, новые покрышки. Подойдёт на рост 175–185. Отдам с насосом и замком.'},
+ {id:4,img:'camera',t:'Плёночный фотоаппарат, рабочий',p:6500,c:'hobby',d:'Дзержинский',m:90,cond:['Б/у, рабочее'],s:'Ольга',since:2024,txt:'Дальномер 70-х, проверен — плёнка отснята, кадры чёткие. Экспонометр работает. В подарок ремень и одна плёнка.'},
+ {id:5,img:'guitar',t:'Акустическая гитара с чехлом',p:9000,c:'hobby',d:'Индустриальный',m:1440,cond:['Б/у, хорошее'],s:'Никита',since:2022,txt:'Играл два года, струны поменял месяц назад. Звучит громко, гриф ровный. Мягкий чехол с карманом.'},
+ {id:6,img:'stroller',t:'Коляска прогулочная, складная',p:5500,c:'kids',d:'Кировский',m:180,cond:['Б/у, хорошее'],s:'Анастасия',since:2023,txt:'Весит 7 кг, складывается одной рукой и влезает в багажник. Капюшон до бампера, есть дождевик.'},
+ {id:7,img:'plant',t:'Монстера 90 см с горшком',p:2500,c:'home',d:'Свердловский',m:240,cond:['Самовывоз'],s:'Вера',since:2024,txt:'Разрослась, не помещается у окна. Восемь листьев, два с прорезями. Горшок керамический, 26 см.'},
+ {id:8,img:'sneakers',t:'Кеды, 42 размер, носил месяц',p:2000,c:'wear',d:'Ленинский',m:300,cond:['Б/у, как новые'],s:'Артём',since:2023,txt:'Не подошли по полноте. Стелька 27 см. Без потёртостей, коробки нет.'},
+ {id:9,img:'coffee',t:'Капельная кофеварка, 1,25 л',p:3200,c:'tech',d:'Орджоникидзевский',m:420,cond:['Б/у, рабочее'],s:'Сергей',since:2021,txt:'Перешли на рожковую. Работает исправно, колба без сколов, есть многоразовый фильтр.'},
+ {id:10,img:'sofa',t:'Диван трёхместный, серый',p:22000,c:'furn',d:'Мотовилихинский',m:600,cond:['Б/у, хорошее','Помогу вынести'],s:'Елена',since:2022,txt:'Длина 220 см, рогожка, съёмные чехлы на подушках. Не раскладывается. Отдаём из-за ремонта.'},
+ {id:11,img:'kitten',t:'Отдам котёнка в добрые руки',p:0,c:'pets',d:'Кировский',m:45,cond:['Даром','Приучен к лотку'],s:'Татьяна',since:2020,txt:'Мальчик, 2,5 месяца, рыжий. Ест сухой корм, к лотку приучен. Отдадим с переноской на первое время.'},
+ {id:12,img:'books',t:'Книги пачкой, 14 штук',p:1400,c:'hobby',d:'Ленинский',m:720,cond:['Б/у'],s:'Павел',since:2024,txt:'Современная проза и пара детективов, читали один раз. Отдаю только все вместе.'},
+ {id:13,img:'snowboard',t:'Сноуборд 156 см с креплениями',p:11000,c:'sport',d:'Дзержинский',m:960,cond:['Б/у, хорошее','Торг'],s:'Кирилл',since:2022,txt:'Катался три сезона, кант без зазубрин, скользяк обслужен в октябре. Крепления размер L.'},
+ {id:14,img:'lamp',t:'Лампа настольная, белая',p:1800,c:'home',d:'Индустриальный',m:1300,cond:['Б/у, отличное'],s:'Юлия',since:2023,txt:'Высота 42 см, абажур из матового стекла, тёплый свет. Лампочка в комплекте.'}
+];
+function money(p){return p===0?'Даром':p.toLocaleString('ru-RU').replace(/ /g,' ')+' ₽'}
+function ago(m){if(m<60)return m+' мин назад';if(m<1440){var h=Math.round(m/60);return h+' '+(h===1?'час':h<5?'часа':'часов')+' назад'}return m<2880?'вчера':Math.round(m/1440)+' дн назад'}
+var favs=[];try{favs=JSON.parse(localStorage.getItem('dvor-fav')||'[]')}catch(e){}
+function saveFav(){try{localStorage.setItem('dvor-fav',JSON.stringify(favs))}catch(e){};var n=$('favN');n.textContent=favs.length;n.classList.toggle('on',favs.length>0)}
+saveFav();
+
+/* районы и категории */
+DIST.forEach(function(d){[$('dist'),$('pdist')].forEach(function(s){var o=document.createElement('option');o.value=d;o.textContent=d;s.appendChild(o)})});
+CATS.forEach(function(c){var o=document.createElement('option');o.value=c[0];o.textContent=c[1];$('cat').appendChild(o)});
+var state={q:'',d:'',c:'',free:false,max:0,sort:'new',fav:false};
+function catBtns(){
+  var box=$('cats');box.innerHTML='';
+  [['','Все']].concat(CATS).forEach(function(c){
+    var n=L.filter(function(x){return !c[0]||x.c===c[0]}).length;
+    var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',state.c===c[0]);
+    b.innerHTML=esc(c[1])+' <span>'+n+'</span>';
+    b.addEventListener('click',function(){state.c=c[0];state.fav=false;catBtns();render(true)});
+    box.appendChild(b);
+  });
+}
+function card(x){
+  var el=document.createElement('article');el.className='item'+(x.pending?' pending':'');
+  var src=x.src||('img/'+x.img+'-480.webp'),srcset=x.src?'':' srcset="img/'+x.img+'-480.webp 480w, img/'+x.img+'-960.webp 960w" sizes="(max-width:760px) 48vw, 24vw"';
+  el.innerHTML='<button class="open" type="button"><div class="ph"><img src="'+src+'"'+srcset+' width="480" height="360" alt="'+esc(x.t)+'" loading="lazy" decoding="async"><span class="tag'+(x.p===0?' free':'')+'">'+money(x.p)+'</span>'+(x.pending?'<span class="new">На проверке</span>':'')+'</div><div class="tx"><h3>'+esc(x.t)+'</h3><p class="meta">'+esc(x.d)+', '+(x.pending?'только что':ago(x.m))+'</p></div></button>'+
+    '<button class="heart" type="button" aria-pressed="'+(favs.indexOf(x.id)>-1)+'" aria-label="В избранное: '+esc(x.t)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-9.3-9.2C1.6 7.6 3.8 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.2 0 5.4 3.1 4.3 6.3C19.5 15.4 12 20 12 20z"/></svg></button>';
+  el.querySelector('.open').addEventListener('click',function(){openItem(x)});
+  var h=el.querySelector('.heart');
+  h.addEventListener('click',function(){var i=favs.indexOf(x.id);if(i>-1)favs.splice(i,1);else favs.push(x.id);h.setAttribute('aria-pressed',i===-1);saveFav();if(state.fav)render()});
+  return el;
+}
+function render(scroll){
+  var q=state.q.toLowerCase().trim();
+  var list=L.filter(function(x){
+    return (!q||(x.t+' '+x.txt).toLowerCase().indexOf(q)>-1)&&(!state.d||x.d===state.d)&&(!state.c||x.c===state.c)&&
+      (!state.free||x.p===0)&&(!state.max||x.p<=state.max)&&(!state.fav||favs.indexOf(x.id)>-1);
+  });
+  list.sort(function(a,b){return state.sort==='cheap'?a.p-b.p:state.sort==='dear'?b.p-a.p:(a.pending?-1:b.pending?1:a.m-b.m)});
+  var g=$('grid');g.innerHTML='';
+  list.forEach(function(x){g.appendChild(card(x))});
+  var cat=CATS.filter(function(c){return c[0]===state.c})[0];
+  $('feedH').firstChild.textContent=state.fav?'Избранное ':cat?cat[1]+' ':q?'Нашлось по запросу ':'Свежие объявления ';
+  $('cnt').textContent=list.length;
+  if(!list.length){
+    var e=document.createElement('div');e.className='empty';
+    e.innerHTML=state.fav?'<b>В избранном пусто</b><p>Нажмите на сердечко у объявления — оно сохранится здесь.</p><button class="btn" type="button">Смотреть все</button>':
+      '<b>Ничего не нашли</b><p>Попробуйте другое слово или уберите фильтр района и цены.</p><button class="btn" type="button">Сбросить фильтры</button>';
+    e.querySelector('button').addEventListener('click',reset);g.appendChild(e);
+  }
+  if(scroll)$('feed').scrollIntoView({behavior:'smooth'});
+}
+function reset(){state={q:'',d:'',c:'',free:false,max:0,sort:state.sort,fav:false};$('q').value='';$('dist').value='';$('onlyFree').checked=false;$('maxP').value='';catBtns();render()}
+$('search').addEventListener('submit',function(e){e.preventDefault();state.q=$('q').value;state.d=$('dist').value;state.fav=false;render(true)});
+$('dist').addEventListener('change',function(){state.d=this.value;render()});
+$('onlyFree').addEventListener('change',function(){state.free=this.checked;render()});
+$('maxP').addEventListener('input',function(){state.max=+this.value||0;render()});
+$('sort').addEventListener('change',function(){state.sort=this.value;render()});
+$('favBtn').addEventListener('click',function(){state.fav=true;state.c='';catBtns();render(true)});
+catBtns();render();
+
+/* карточка объявления */
+var dlg=$('item');
+function openItem(x){
+  var src=x.src||('img/'+x.img+'-960.webp');
+  $('itemBody').innerHTML='<div class="ph"><img src="'+src+'" width="960" height="720" alt="'+esc(x.t)+'"><span class="tag'+(x.p===0?' free':'')+'">'+money(x.p)+'</span></div>'+
+   '<div class="in"><h3 id="iT">'+esc(x.t)+'</h3><p class="meta">'+esc(x.d)+' район, '+(x.pending?'на проверке':ago(x.m))+'</p>'+
+   '<div class="cond">'+(x.cond||[]).map(function(c){return '<span>'+esc(c)+'</span>'}).join('')+'</div><p>'+esc(x.txt)+'</p>'+
+   '<div class="seller"><div class="av">'+esc(x.s[0])+'</div><div><b>'+esc(x.s)+'</b><span>На Дворе с '+x.since+' года, телефон подтверждён</span></div></div>'+
+   (x.pending?'<p class="note">Объявление проверяется модератором — обычно 15 минут.</p>':
+   '<div class="acts"><button class="btn" type="button" id="wr">Написать</button><button class="btn ghost" type="button" id="ph">Показать телефон</button></div>'+
+   '<div class="msg" id="msg"><label for="mt" class="sr">Сообщение продавцу</label><textarea id="mt">Здравствуйте! Ещё продаёте? Могу забрать сегодня вечером.</textarea><button class="btn" type="button" id="ms">Отправить</button></div>'+
+   '<p class="note">Не переводите деньги заранее. Встречайтесь в людном месте и проверяйте вещь на месте.</p>')+'</div>';
+  if(!x.pending){
+    $('wr').addEventListener('click',function(){$('msg').classList.add('on');$('mt').focus()});
+    $('ph').addEventListener('click',function(){this.textContent='+7 (342) 000-00-'+String(10+x.id).slice(-2);this.disabled=true});
+    $('ms').addEventListener('click',function(){var m=$('msg');m.innerHTML='<p class="ok">Сообщение отправлено. '+esc(x.s)+' обычно отвечает в течение часа — ответ придёт СМС и сюда, в чат.</p>'});
+  }
+  if(dlg.showModal)dlg.showModal();
+}
+document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
+document.querySelectorAll('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
+document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){var d=$(b.getAttribute('data-open'));if(d&&d.showModal)d.showModal()})});
+
+/* подать объявление */
+var shots=[],drop=$('drop'),add=drop.querySelector('.add');
+function drawShots(){
+  [].slice.call(drop.querySelectorAll('.th')).forEach(function(t){t.remove()});
+  shots.forEach(function(u,i){
+    var t=document.createElement('div');t.className='th';
+    t.innerHTML='<img src="'+u+'" alt="Фото '+(i+1)+'">'+(i===0?'<i>Обложка</i>':'')+'<button type="button" aria-label="Убрать фото '+(i+1)+'">×</button>';
+    t.querySelector('button').addEventListener('click',function(){shots.splice(i,1);drawShots()});
+    drop.insertBefore(t,add);
+  });
+  add.style.display=shots.length>=10?'none':'';
+}
+function take(files){[].slice.call(files).filter(function(f){return /^image\//.test(f.type)}).slice(0,10-shots.length).forEach(function(f){shots.push(URL.createObjectURL(f))});drawShots()}
+$('files').addEventListener('change',function(){take(this.files);this.value=''});
+['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();add.style.borderColor='var(--green)'})});
+drop.addEventListener('dragleave',function(){add.style.borderColor=''});
+drop.addEventListener('drop',function(e){e.preventDefault();add.style.borderColor='';take(e.dataTransfer.files)});
+$('free').addEventListener('change',function(){$('price').disabled=this.checked;if(this.checked)$('price').value=''});
+$('pform').addEventListener('submit',function(e){
+  e.preventDefault();var err=$('perr');err.textContent='';
+  var t=$('ttl').value.trim(),p=$('free').checked?0:parseInt($('price').value,10),tel=$('ptel').value.replace(/\D/g,'');
+  if(t.length<3){err.textContent='Напишите, что продаёте — хотя бы пару слов в названии.';$('ttl').focus();return}
+  if(!$('free').checked&&!(p>0)){err.textContent='Укажите цену или отметьте «Отдам даром».';$('price').focus();return}
+  if(tel.length<10){err.textContent='Укажите телефон — пришлём на него код подтверждения.';$('ptel').focus();return}
+  if(!$('agree').checked){err.textContent='Отметьте согласие с правилами — без него объявление не отправится.';return}
+  var n=$('pname').value.trim()||'Вы';
+  L.unshift({id:Date.now(),src:shots[0]||'',img:shots[0]?'':'lamp',t:t,p:p,c:$('cat').value,d:$('pdist').value,m:0,cond:['На проверке'],s:n,since:new Date().getFullYear(),txt:$('desc').value.trim()||'Описание появится после проверки.',pending:true});
+  if(!shots[0])L[0].img='lamp';
+  catBtns();render();
+  this.hidden=true;$('pdoneP').textContent='Обычно это занимает 15 минут. Пришлём СМС на номер, который вы указали, когда «'+t+'» появится в ленте.';$('pdone').hidden=false;$('pdone').focus();
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="same-origin" name="referrer"/>
+<meta content="#1E3328" name="theme-color"/>
+<title>Инструкция · Обеды</title>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="assets/fonts/onest-cyrillic-400-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/unbounded-cyrillic-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/app.css?v=m1" rel="stylesheet"/>
+<script defer="" src="assets/app.js?v=m1"></script>
+<script defer="" src="assets/mock.js"></script></head>
+<body data-page="admin-help.html">
+<header class="atop">
+<div class="wrap">
+<a class="brand" href="admin-orders.html"><svg aria-hidden="true" height="34" viewbox="0 0 34 34" width="34"><rect fill="none" height="4" rx="2" stroke="#EEF2EC" stroke-width="2" width="10" x="12" y="2.5"></rect><rect fill="#F08A24" height="9" rx="3.5" width="24" x="5" y="7"></rect><rect fill="#EEF2EC" height="7" rx="3" width="24" x="5" y="17.5"></rect><rect fill="#C3CEC6" height="6" rx="3" width="24" x="5" y="26"></rect></svg>
+<span><b>Обеды</b><small>Управление</small></span></a>
+<nav aria-label="Разделы управления" class="atabs">
+<a href="admin-orders.html">Заказы</a>
+<a href="admin-dishes.html">Меню</a>
+<a href="admin-companies.html">Компании</a>
+<a href="admin-users.html">Сотрудники</a>
+<a href="admin-report.html">Отчёт</a>
+<a href="admin-settings.html">Настройки</a>
+<a aria-current="page" href="admin-help.html">Инструкция</a>
+</nav>
+<span class="spacer"></span>
+<a class="linkbtn hide-sm" href="menu-admin.html" style="color:var(--dkm)">Меню глазами сотрудника</a>
+<form action="#" class="inline" data-to="index.html" method="post"><button class="linkbtn" type="submit">Выйти</button></form>
+</div>
+</header>
+<main>
+<div class="wrap stack" style="--gap:14px;margin-bottom:14px"></div>
+<div class="wrap"><div class="help" style="max-width:760px">
+<h1>Инструкция администратора</h1>
+<p class="mut" style="margin-top:8px">Всё, что нужно для ежедневной работы. Время на сайте — томское.</p>
+<h2>1. Первый день</h2>
+<ol>
+<li><a href="admin-settings.html">Настройки</a>: время окончания приёма, дни доставки, почта для заказов. Нажмите «Отправить тестовое письмо» и проверьте, что оно пришло (загляните в «Спам»).</li>
+<li><a href="admin-dishes.html">Меню</a>: добавьте обеды с фото, составом и ценой.</li>
+<li><a href="admin-companies.html">Компании</a>: добавьте партнёров с адресом доставки.</li>
+<li><a href="admin-users.html">Сотрудники</a>: создайте учётные записи по одной или «Загрузить списком».</li>
+</ol>
+<h2>2. Как выдать доступ сотруднику</h2>
+<ul>
+<li>После создания сайт один раз покажет логин и временный пароль. Отправьте их сотруднику или нажмите «Скачать списком» и перешлите файл офис-менеджеру компании.</li>
+<li>При первом входе сотрудник сам придумает пароль и даст согласие на обработку данных.</li>
+<li>Забыл пароль — откройте сотрудника → «Выдать новый пароль».</li>
+<li>Уволился — «Отключить доступ». Заказы останутся в отчётах.</li>
+<li>Компания перестала сотрудничать — отключите компанию: войти не сможет никто из её сотрудников.</li>
+</ul>
+<h2>3. Каждый день</h2>
+<ul>
+<li>Каждый заказ приходит письмом. После окончания приёма — одна сводка: сколько каких обедов и куда везти.</li>
+<li>В «Заказах» то же самое видно на экране: блоки «На кухню» и «Доставка».</li>
+<li>Статусы: <b>Новый</b> — сотрудник ещё может отменить (пока идёт приём). <b>Принят</b> — взят в работу, отменить сам уже не может. <b>Выполнен</b> — доставлен. Кнопка «Принять все новые» меняет статус разом.</li>
+</ul>
+<h2>4. Меню</h2>
+<ul>
+<li>«Скрыть» убирает обед из меню, не удаляя. Удобно на время.</li>
+<li>Для меню по дням недели отметьте у обеда только нужные дни.</li>
+<li>Стрелки ↑↓ меняют порядок карточек.</li>
+<li>Изменение цены не трогает уже оформленные заказы: в них остаётся цена на момент заказа.</li>
+</ul>
+<h2>5. Отчёт</h2>
+<ul>
+<li><a href="admin-report.html">Отчёт</a> → период → компания (или все) → «Скачать .xlsx».</li>
+<li>Для счёта компании выберите её и прошлый месяц: лист «По компаниям» даст итог.</li>
+</ul>
+<h2>6. Безопасность</h2>
+<ul>
+<li>Меню, цены и фото видны только после входа, поисковики сайт не индексируют.</li>
+<li>После 5 неверных паролей вход по этому логину блокируется на 15 минут.</li>
+<li>Пароли не видит никто, даже администратор: можно только выдать новый.</li>
+</ul>
+</div>
+</div>
+</main>
+</body>
+</html>

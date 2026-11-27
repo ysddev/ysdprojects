@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Мелина и Георгий · 12–13 июня · Ереван</title>
+<meta name="description" content="Приглашение на свадьбу Мелины и Георгия: два дня в Ереване, программа, дорога и анкета гостя.">
+<meta property="og:title" content="Мелина и Георгий · 12–13 июня · Ереван">
+<meta property="og:description" content="Два дня, одна река. Приглашение на нашу свадьбу.">
+<meta name="theme-color" content="#F4D7C2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='22' fill='%23A3243B'/%3E%3Cpath d='M24 14h16l-3 8H27z' fill='%23C98B3A'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+@font-face{font-family:Cormorant;font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-cyrillic-500-italic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Cormorant;font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cormorant;font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Cormorant;font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Jost;font-style:normal;font-weight:300;font-display:swap;src:url(fonts/jost-cyrillic-300-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Jost;font-style:normal;font-weight:300;font-display:swap;src:url(fonts/jost-latin-300-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Jost;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jost-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Jost;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --ink:#3A1420;--ink-soft:#6E3B40;--paper:#FBF1E6;--gold:#C98B3A;--gold-l:#E8B96A;--pom:#A3243B;--pom-d:#6B1328;--night:#2A0F1C;
+  --ease:cubic-bezier(.23,1,.32,1);--m:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:#2A0F1C}
+body{font-family:Jost,system-ui,sans-serif;font-weight:300;color:var(--ink);overflow-x:hidden;
+  background:linear-gradient(180deg,#F4D7C2 0%,#FBEADB 9%,#FCF3E7 22%,#F9E2C2 38%,#F2BE8C 52%,#D9774F 64%,#A3243B 76%,#5C1430 88%,#2A0F1C 100%);
+  min-height:100vh;line-height:1.6;font-size:clamp(16px,1.05vw,18px)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+::selection{background:var(--pom);color:#fff}
+
+/* река */
+#river{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
+.page{position:relative;z-index:1}
+
+#sparks ellipse{opacity:0;animation:spark 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spark{0%,100%{opacity:0;transform:scale(.4)}45%{opacity:.85;transform:scale(1)}}
+/* конверт */
+.env{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 30%,#FBEADB 0%,#F4D7C2 60%,#E9BFA3 100%);transition:opacity .9s var(--ease),visibility .9s}
+.env.gone{opacity:0;visibility:hidden}
+.env-card{position:relative;width:min(560px,86vw);aspect-ratio:1.45;perspective:1400px}
+.env-back{position:absolute;inset:0;background:#EFD3B6;border-radius:6px;box-shadow:0 30px 60px -30px rgba(90,20,40,.45)}
+.env-letter{position:absolute;left:6%;right:6%;top:8%;bottom:8%;background:var(--paper);border-radius:4px;display:grid;place-items:center;text-align:center;padding:6%;transition:transform 1.1s var(--ease) .35s}
+.env-letter p{font-family:Cormorant;font-style:italic;font-size:clamp(26px,5vw,40px);line-height:1.05;color:var(--pom-d)}
+.env-letter small{display:block;font-family:Jost;font-style:normal;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
+.env-front{position:absolute;inset:0;pointer-events:none}
+.env-front svg{width:100%;height:100%;display:block}
+.env-flap{position:absolute;left:0;right:0;top:0;height:58%;transform-origin:50% 0;transition:transform .9s var(--ease);z-index:3}
+.env-flap svg{width:100%;height:100%;display:block}
+.seal{position:absolute;left:50%;top:58%;width:84px;height:84px;margin:-42px 0 0 -42px;border:0;background:none;cursor:pointer;z-index:4;border-radius:50%;transition:transform .5s var(--ease),opacity .5s}
+.seal svg{width:100%;height:100%;filter:drop-shadow(0 6px 10px rgba(80,10,30,.35))}
+@media (hover:hover) and (pointer:fine){.seal:hover{transform:scale(1.06)}}
+.seal:active{transform:scale(.95)}
+.env-hint{position:absolute;bottom:-58px;left:0;right:0;text-align:center;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+.env.open .env-flap{transform:rotateX(178deg)}
+.env.open .seal{opacity:0;transform:scale(.6) rotate(-20deg)}
+.env.open .env-letter{transform:translateY(-34%)}
+.env-skip{position:absolute;top:18px;right:18px;background:none;border:0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding:12px;cursor:pointer}
+
+/* типографика и разделы */
+.sec{position:relative;min-height:88vh;display:flex;align-items:center;padding:12vh var(--m)}
+.sec .in{width:min(520px,100%)}
+.sec.r{justify-content:flex-end}
+.sec.c{justify-content:center;text-align:center}
+.sec.c .in{width:min(760px,100%)}
+.k{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft)}
+h1,h2{font-family:Cormorant;font-style:italic;font-weight:500;line-height:.95;letter-spacing:-.01em}
+h1{font-size:clamp(64px,13vw,190px);color:var(--pom-d)}
+h1 .amp{font-style:normal;color:var(--gold);font-size:.6em;vertical-align:.18em;margin:0 .06em}
+h2{font-size:clamp(44px,6vw,92px);margin:14px 0 22px;color:var(--pom-d)}
+.lead{font-size:clamp(18px,1.6vw,22px);max-width:34ch}
+.sec.c .lead{margin-inline:auto}
+.date{font-family:Cormorant;font-style:italic;font-size:clamp(28px,3.4vw,46px);color:var(--ink);margin-top:18px}
+.date b{font-weight:500;color:var(--pom)}
+.count{display:flex;gap:clamp(18px,3vw,40px);justify-content:center;margin-top:36px;font-variant-numeric:tabular-nums}
+.count div{min-width:64px}
+.count b{display:block;font-family:Cormorant;font-weight:500;font-style:normal;font-size:clamp(40px,5vw,64px);line-height:1;color:var(--pom-d)}
+.count span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.scrollcue{margin-top:48px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+.scrollcue i{display:block;width:1px;height:46px;margin:12px auto 0;background:linear-gradient(var(--pom),transparent);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* программа */
+.prog{list-style:none;margin-top:8px}
+.prog li{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:14px 0;border-top:1px solid rgba(110,59,64,.22)}
+.prog li:last-child{border-bottom:1px solid rgba(110,59,64,.22)}
+.prog time{font-family:Cormorant;font-weight:500;font-size:26px;line-height:1.1;color:var(--pom);font-variant-numeric:tabular-nums}
+.prog strong{display:block;font-weight:400;font-size:18px}
+.prog span{color:var(--ink-soft);font-size:15px}
+.day-note{margin-top:18px;font-family:Cormorant;font-style:italic;font-size:22px;color:var(--ink-soft)}
+
+/* тёплая и тёмная части */
+.dark,.dark .k,.dark .prog span,.dark .day-note{color:#F6E3CF}
+.dark h2{color:#FBEADB}
+.dark .prog time{color:var(--gold-l)}
+.dark .prog li{border-color:rgba(246,227,207,.22)}
+.dusk h2{color:#FBEADB}.dusk{color:#FFF4E8}.dusk .k,.dusk .day-note,.dusk .prog span{color:#FFE6D2}
+.dusk .prog time{color:#FFE2B0}.dusk .prog li{border-color:rgba(255,240,225,.3)}
+
+/* дорога */
+.road{display:grid;gap:22px;margin-top:6px}
+.road div{padding-left:22px;border-left:2px solid var(--gold)}
+.road b{display:block;font-weight:400;font-size:18px}
+.road p{font-size:15px}
+.mapbtn{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:14px 22px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;transition:background .3s var(--ease),color .3s}
+@media (hover:hover) and (pointer:fine){.mapbtn:hover{background:#FFF4E8;color:var(--pom-d)}}
+
+/* анкета */
+form{display:grid;gap:18px;margin-top:10px;text-align:left}
+label{display:grid;gap:6px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F2D8C4}
+input,textarea{width:100%;background:rgba(255,240,228,.06);border:0;border-bottom:1px solid rgba(246,227,207,.45);padding:12px 2px;font-size:18px;letter-spacing:0;text-transform:none;color:#FFF4E8;border-radius:0}
+input::placeholder,textarea::placeholder{color:rgba(246,227,207,.45)}
+textarea{min-height:70px;resize:vertical}
+.days{display:flex;flex-wrap:wrap;gap:10px}
+.days button{min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid rgba(246,227,207,.5);background:none;color:#FFF4E8;font-size:15px;cursor:pointer;transition:background .3s var(--ease),color .3s,border-color .3s}
+.days button[aria-pressed=true]{background:var(--gold-l);color:var(--night);border-color:var(--gold-l)}
+.days button:active,.send:active{transform:scale(.97)}
+.send{justify-self:start;min-height:52px;padding:14px 32px;border:0;border-radius:999px;background:var(--gold-l);color:var(--night);font-size:15px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:transform .2s var(--ease),background .3s}
+@media (hover:hover) and (pointer:fine){.send:hover{background:#F3CD8A}}
+.err{font-size:13px;color:#FFB3A6;min-height:1em;text-transform:none;letter-spacing:0}
+.thanks{display:none;text-align:center}
+.thanks.on{display:block;animation:rise .9s var(--ease) both}
+.thanks p{font-family:Cormorant;font-style:italic;font-size:clamp(30px,4vw,48px);color:#FBEADB;line-height:1.1}
+.thanks small{display:block;margin-top:16px;font-size:13px;color:#E8CDB8}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+footer{position:relative;z-index:1;text-align:center;padding:10vh var(--m) 7vh;color:#E8CDB8}
+footer .sign{font-family:Cormorant;font-style:italic;font-size:clamp(34px,5vw,64px);color:#FBEADB}
+footer small{display:block;margin-top:26px;font-size:11px;letter-spacing:.12em;opacity:.6}
+
+/* появление */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.on{opacity:1;transform:none}
+.js h1 .w{display:inline-block;opacity:0;transform:translateY(40%);transition:opacity 1.2s var(--ease),transform 1.3s var(--ease);transition-delay:calc(var(--d,0)*140ms + 200ms)}
+.js .ready h1 .w{opacity:1;transform:none}
+
+@media (max-width:760px){
+  .sec,.sec.r{justify-content:center;text-align:left;min-height:auto;padding:16vh 24px}
+  .sec .in{width:100%;max-width:440px}
+  .sec .in{background:none}
+  .count div{min-width:54px}
+  .prog li{grid-template-columns:62px 1fr}
+  .dusk h2{color:var(--pom-d)}.dusk,.dusk .k,.dusk .day-note,.dusk .prog span{color:var(--ink)}
+  .dusk .prog time{color:var(--pom)}.dusk .prog li{border-color:rgba(110,59,64,.22)}
+  .env-hint{bottom:-50px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv,.js h1 .w{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="env" id="env" role="dialog" aria-label="Приглашение">
+  <button class="env-skip" id="skip" type="button">Пропустить</button>
+  <div class="env-card">
+    <div class="env-back"></div>
+    <div class="env-letter"><p>Мелина<br>и Георгий<small>приглашают вас</small></p></div>
+    <div class="env-front"><svg viewBox="0 0 580 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 L290 230 L580 0 V400 H0 Z" fill="#F3DCC3"/><path d="M0 400 L290 210 L580 400" fill="none" stroke="#E2BE9C" stroke-width="2"/></svg></div>
+    <div class="env-flap"><svg viewBox="0 0 580 232" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H580 L290 232 Z" fill="#EACAAB"/><path d="M14 8 H566 L290 218 Z" fill="none" stroke="#C98B3A" stroke-width="1.5" stroke-dasharray="2 6"/></svg></div>
+    <button class="seal" id="seal" type="button" aria-label="Открыть приглашение">
+      <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="38" fill="#8E1B33"/><circle cx="42" cy="42" r="31" fill="none" stroke="#C54A5E" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="42" cy="46" r="15" fill="#B32C45"/><path d="M35 30 h14 l-3 6 h-8 z" fill="#E8B96A"/><circle cx="37" cy="45" r="2" fill="#F2A3AE"/><circle cx="45" cy="49" r="2" fill="#F2A3AE"/><circle cx="44" cy="42" r="1.6" fill="#F2A3AE"/></svg>
+    </button>
+    <div class="env-hint">Нажмите на печать</div>
+  </div>
+</div>
+
+<svg id="river" aria-hidden="true">
+  <defs>
+    <linearGradient id="water" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000">
+      <stop offset="0" stop-color="#F6B9A2"/><stop offset=".22" stop-color="#9FC7C9"/><stop offset=".45" stop-color="#7FB2B8"/>
+      <stop offset=".62" stop-color="#E7925C"/><stop offset=".78" stop-color="#C2405A"/><stop offset="1" stop-color="#7A2B55"/>
+    </linearGradient>
+    <linearGradient id="bank" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000">
+      <stop offset="0" stop-color="#E7B98F"/><stop offset=".5" stop-color="#D99A64"/><stop offset="1" stop-color="#5C1430"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-5%" width="140%" height="110%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <mask id="flowMask" maskUnits="userSpaceOnUse"><path id="rMask" fill="none" stroke="#fff" stroke-linecap="round" pathLength="1"/></mask>
+  <path id="rCenter" fill="none" stroke="none"/>
+  <g mask="url(#flowMask)">
+    <path id="rBank" fill="url(#bank)" opacity=".28" filter="url(#soft)"/>
+    <path id="rWater" fill="url(#water)"/>
+    <path id="rEdge" fill="none" stroke="#FFF8EF" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/>
+    <g id="streaks" fill="none" stroke="#FFFFFF" stroke-linecap="round"></g>
+    <g id="sparks" fill="#FFFFFF"></g>
+  </g>
+  <g id="blooms"></g>
+</svg>
+
+<main class="page" id="page">
+  <section class="sec c" id="top" data-river="c">
+    <div class="in" id="hero">
+      <p class="k rv">Свадьба · Ереван</p>
+      <h1><span class="w" style="--d:0">Мелина</span><br><span class="w amp" style="--d:1">и</span> <span class="w" style="--d:2">Георгий</span></h1>
+      <p class="date rv" style="--d:3"><b>12</b> и <b>13</b> июня 2027</p>
+      <p class="lead rv" style="--d:4">Два дня, одна река. Пройдите по ней от рассвета первого дня до ночи второго: здесь всё, что нужно знать гостю.</p>
+      <div class="count rv" style="--d:5" aria-label="До свадьбы">
+        <div><b id="cd-d">000</b><span>дней</span></div><div><b id="cd-h">00</b><span>часов</span></div><div><b id="cd-m">00</b><span>минут</span></div>
+      </div>
+      <p class="scrollcue rv" style="--d:6">вниз по реке<i></i></p>
+    </div>
+  </section>
+
+  <section class="sec" id="day1" data-river="r">
+    <div class="in">
+      <p class="k rv">День первый · 12 июня</p>
+      <h2 class="rv" style="--d:1">Рассвет<br>в Ереване</h2>
+      <ul class="prog">
+        <li class="rv" style="--d:2"><time>[11:00]</time><div><strong>Сбор гостей</strong><span>[место встречи]</span></div></li>
+        <li class="rv" style="--d:3"><time>[12:00]</time><div><strong>Венчание</strong><span>[церковь]</span></div></li>
+        <li class="rv" style="--d:4"><time>[14:00]</time><div><strong>Фотопрогулка по городу</strong><span>для молодых, гостям свободное время</span></div></li>
+      </ul>
+      <p class="day-note rv" style="--d:5">Река только проснулась: светлое утро, первые клятвы.</p>
+    </div>
+  </section>
+
+  <section class="sec r" id="day1b" data-river="l">
+    <div class="in">
+      <p class="k rv">Вечер первого дня</p>
+      <h2 class="rv" style="--d:1">Вечер<br>у воды</h2>
+      <ul class="prog">
+        <li class="rv" style="--d:2"><time>[18:00]</time><div><strong>Банкет</strong><span>[ресторан, адрес]</span></div></li>
+        <li class="rv" style="--d:3"><time>[20:00]</time><div><strong>Первый танец</strong><span>и семейные традиции</span></div></li>
+        <li class="rv" style="--d:4"><time>[23:00]</time><div><strong>Огни над водой</strong><span>[салют или свечи на воде]</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec dusk" id="day2" data-river="r">
+    <div class="in">
+      <p class="k rv">День второй · 13 июня</p>
+      <h2 class="rv" style="--d:1">Гранатовый<br>день</h2>
+      <ul class="prog">
+        <li class="rv" style="--d:2"><time>[13:00]</time><div><strong>Поздний завтрак для всех</strong><span>[место]</span></div></li>
+        <li class="rv" style="--d:3"><time>[16:00]</time><div><strong>Загородный праздник</strong><span>[площадка, трансфер от гостиницы]</span></div></li>
+        <li class="rv" style="--d:4"><time>[20:00]</time><div><strong>Закат и армянские танцы</strong><span>до последнего гостя</span></div></li>
+      </ul>
+      <p class="day-note rv" style="--d:5">Тёплые тона, гранат и орнамент: день для семьи и друзей.</p>
+    </div>
+  </section>
+
+  <section class="sec r dark" id="road" data-river="l">
+    <div class="in">
+      <p class="k rv">Для тех, кто летит издалека</p>
+      <h2 class="rv" style="--d:1">Как добраться<br>и где остановиться</h2>
+      <div class="road">
+        <div class="rv" style="--d:2"><b>Перелёт</b><p>Аэропорт Звартноц, около 20 минут до центра Еревана. [кто встречает гостей]</p></div>
+        <div class="rv" style="--d:3"><b>Где жить</b><p>[гостиница, где забронирован блок номеров]</p></div>
+        <div class="rv" style="--d:4"><b>Трансфер</b><p>[от гостиницы к месту праздника в оба дня]</p></div>
+        <div class="rv" style="--d:5"><b>Дресс-код</b><p>[цвета или пожелания по одежде]</p></div>
+      </div>
+      <a class="mapbtn rv" style="--d:6" href="https://yandex.ru/maps/?text=%D0%95%D1%80%D0%B5%D0%B2%D0%B0%D0%BD" target="_blank" rel="noopener">Открыть на карте</a>
+    </div>
+  </section>
+
+  <section class="sec c dark" id="rsvp" data-river="c">
+    <div class="in">
+      <p class="k rv">До [1 мая] ответьте, пожалуйста</p>
+      <h2 class="rv" style="--d:1">Вы с нами?</h2>
+      <form id="form" novalidate class="rv" style="--d:2">
+        <label>Имя и фамилия<input name="guest" autocomplete="name" placeholder="Как к вам обращаться"><span class="err" id="e-guest"></span></label>
+        <div><label id="days-l">Какие дни будете</label><div class="days" role="group" aria-labelledby="days-l">
+          <button type="button" data-day="1" aria-pressed="true">12 июня</button><button type="button" data-day="2" aria-pressed="true">13 июня</button><button type="button" data-day="0" aria-pressed="false">Не смогу</button>
+        </div></div>
+        <label>Сколько вас будет<input name="count" type="number" inputmode="numeric" min="1" max="10" value="1"></label>
+        <label>Пожелания<textarea name="note" placeholder="Аллергия, трансфер, детское меню"></textarea></label>
+        <button class="send" type="submit">Ответить</button>
+      </form>
+      <div class="thanks" id="thanks" role="status"><p>Спасибо! Ждём вас у реки.</p><small>Это первый вариант приглашения: ответ пока никуда не отправляется.</small></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="sign">Мелина &amp; Георгий</p>
+  <small>Сайт-приглашение · YSD DEV</small>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var svg=document.getElementById('river'),center=document.getElementById('rCenter'),water=document.getElementById('rWater'),
+      bank=document.getElementById('rBank'),edge=document.getElementById('rEdge'),maskP=document.getElementById('rMask'),
+      streaksG=document.getElementById('streaks'),sparksG=document.getElementById('sparks'),blooms=document.getElementById('blooms');
+  var total=0,bl=[],streaks=[];
+  var NS='http://www.w3.org/2000/svg';
+  function f(n){return n.toFixed(1)}
+
+  function build(){
+    var W=document.documentElement.clientWidth,H=document.documentElement.scrollHeight,mob=W<760;
+    svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.style.height=H+'px';
+    ['water','bank'].forEach(function(id){document.getElementById(id).setAttribute('y2',H)});
+    // русло: изгибы от раздела к разделу, текст всегда на другом берегу
+    var pts=[[W*(mob?.82:.5),-60]];
+    [].forEach.call(document.querySelectorAll('[data-river]'),function(s,i){
+      var r=s.getBoundingClientRect(),y=r.top+scrollY,h=r.height,side=s.dataset.river;
+      var x=side==='c'?W*(mob?(i%2?.12:.88):.5):side==='r'?W*(mob?.9:.76):W*(mob?.1:.24);
+      if(side==='c'&&!mob){pts.push([W*(i?.12:.62),y+h*.12]);pts.push([W*(i?.08:.88),y+h*.8]);}
+      else{pts.push([x,y+h*.3]);pts.push([x+(side==='r'?-1:1)*W*(mob?.04:.05),y+h*.75]);}
+    });
+    pts.push([W*.5,H+60]);
+    var d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=1;i<pts.length;i++){var p=pts[i-1],q=pts[i],my=(p[1]+q[1])/2;d+=' C'+p[0]+' '+my+' '+q[0]+' '+my+' '+q[0]+' '+q[1];}
+    center.setAttribute('d',d);maskP.setAttribute('d',d);
+    total=center.getTotalLength();
+    var base=mob?34:Math.max(54,Math.min(110,W*.07));
+    // точки вдоль русла и нормали; ширина «дышит»: река то шире, то уже, как настоящая
+    var S=[],step=7;
+    for(var L=0;L<=total;L+=step){
+      var a=center.getPointAtLength(L),b=center.getPointAtLength(Math.min(total,L+1)),dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy)||1;
+      var w=base*(0.82+0.22*Math.sin(L/310)+0.1*Math.sin(L/97+1.3)+0.06*Math.sin(L/41+.4));
+      S.push({x:a.x,y:a.y,nx:-dy/len,ny:dx/len,w:w,L:L});
+    }
+    function ribbon(k){var l='',r='';for(var i=0;i<S.length;i++){var p=S[i],h=p.w*k/2;
+        l+=(i?'L':'M')+f(p.x+p.nx*h)+' '+f(p.y+p.ny*h);}
+      for(var j=S.length-1;j>=0;j--){var q=S[j],g=q.w*k/2;r+='L'+f(q.x-q.nx*g)+' '+f(q.y-q.ny*g);}
+      return l+r+'Z';}
+    function line(o,jit){var s='';for(var i=0;i<S.length;i++){var p=S[i],oo=(o+jit*Math.sin(p.L/180+o*9))*p.w;
+        s+=(i?'L':'M')+f(p.x+p.nx*oo)+' '+f(p.y+p.ny*oo);}return s;}
+    water.setAttribute('d',ribbon(1));bank.setAttribute('d',ribbon(2.1));edge.setAttribute('d',line(.47,0));
+    maskP.setAttribute('stroke-width',base*3);maskP.style.strokeDasharray='1 1';
+    // течение: длинные светлые струи с разной скоростью
+    streaksG.innerHTML='';streaks=[];
+    [[-.3,.04,.32,1.6,'140 90 60 220',.55],[-.12,.05,.26,1.2,'220 160 90 300',.8],[.06,.04,.3,2.2,'90 70 160 240',.65],
+     [.24,.05,.14,1.1,'260 140 40 200',.9],[.36,.03,.12,1,'60 120 110 260',.5]].forEach(function(c){
+      var el=document.createElementNS(NS,'path');el.setAttribute('d',line(c[0],c[1]));el.setAttribute('stroke-opacity',c[2]);
+      el.setAttribute('stroke-width',mob?c[3]*.7:c[3]);el.setAttribute('stroke-dasharray',c[4]);streaksG.appendChild(el);
+      streaks.push({el:el,v:c[5],o:Math.random()*400});
+    });
+    // блики на воде
+    sparksG.innerHTML='';
+    var nS=Math.round(H/(mob?140:90));
+    for(var k=0;k<nS;k++){var p=S[Math.floor(Math.random()*S.length)],o=(Math.random()-.5)*.7*p.w,ang=Math.atan2(p.ny,p.nx)*180/Math.PI+90;
+      var e=document.createElementNS(NS,'ellipse');e.setAttribute('cx',f(p.x+p.nx*o));e.setAttribute('cy',f(p.y+p.ny*o));
+      e.setAttribute('rx',(2+Math.random()*4).toFixed(1));e.setAttribute('ry','1.1');e.setAttribute('transform','rotate('+f(ang)+' '+f(p.x+p.nx*o)+' '+f(p.y+p.ny*o)+')');
+      e.style.animationDelay=(-Math.random()*3.2).toFixed(2)+'s';e.style.animationDuration=(2.4+Math.random()*2).toFixed(2)+'s';sparksG.appendChild(e);}
+    svg.style.opacity=mob?.6:1;
+    // гранатовые цветы на берегах
+    blooms.innerHTML='';bl=[];
+    var n=Math.round(H/(mob?420:300));
+    for(k=1;k<n;k++){
+      var idx=Math.floor(S.length*k/n),p2=S[idx],side=k%2?1:-1,off=p2.w*.62+10;
+      var x=p2.x+p2.nx*off*side,y=p2.y+p2.ny*off*side,g=document.createElementNS(NS,'g');
+      g.setAttribute('transform','translate('+f(x)+' '+f(y)+') scale('+(mob?.7:1)+')');
+      g.innerHTML='<g style="transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform 1.2s cubic-bezier(.23,1,.32,1)">'+
+        '<path d="M0 0 C -14 -4 -18 -16 -10 -22 C -4 -26 2 -20 0 -14 C -2 -20 4 -26 10 -22 C 18 -16 14 -4 0 0Z" fill="#C2334C"/>'+
+        '<path d="M0 0 C -6 -8 -6 -14 0 -18 C 6 -14 6 -8 0 0Z" fill="#E8B96A" opacity=".9"/>'+
+        '<path d="M0 2 C '+(side*22)+' 10 '+(side*30)+' 4 '+(side*38)+' 14" stroke="#6E8A4A" stroke-width="2" fill="none"/>'+
+        '<ellipse cx="'+(side*30)+'" cy="8" rx="8" ry="3.4" fill="#7C9A55" transform="rotate('+(side*25)+' '+(side*30)+' 8)"/></g>';
+      blooms.appendChild(g);bl.push({el:g.firstChild,at:p2.L/total});
+    }
+    update();
+  }
+
+  function update(){
+    if(!total)return;
+    var H=document.documentElement.scrollHeight,vh=innerHeight;
+    var prog=reduce?1:Math.min(1,(scrollY+vh*.85)/H);
+    maskP.style.strokeDashoffset=(1-prog).toFixed(4);
+    for(var i=0;i<bl.length;i++){var on=bl[i].at<prog-.01;if(on!==bl[i].on){bl[i].on=on;bl[i].el.style.transform=on?'scale(1)':'scale(0)'}}
+  }
+  var tick=false;
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;update()})}},{passive:true});
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});
+
+  // вода течёт вниз: струи бегут с разной скоростью
+  if(!reduce){(function flow(){for(var i=0;i<streaks.length;i++){var st=streaks[i];st.o-=st.v;st.el.style.strokeDashoffset=st.o}requestAnimationFrame(flow)})();}
+  else{sparksG.style.display='none'}
+
+  // появление
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+  [].forEach.call(document.querySelectorAll('.rv'),function(el){io.observe(el)});
+
+  // конверт
+  var env=document.getElementById('env');
+  function openEnv(fast){
+    env.classList.add('open');
+    setTimeout(function(){env.classList.add('gone');document.getElementById('hero').classList.add('ready');document.body.style.overflow='';
+      [].forEach.call(document.querySelectorAll('#hero .rv'),function(el){el.classList.add('on')});build();},fast||reduce?0:1500);
+  }
+  document.body.style.overflow='hidden';
+  document.getElementById('seal').addEventListener('click',function(){openEnv()});
+  document.getElementById('skip').addEventListener('click',function(){openEnv(true)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!env.classList.contains('gone'))openEnv(true)});
+
+  // обратный отсчёт до 12 июня 2027, 12:00 по Еревану (UTC+4)
+  var target=Date.UTC(2027,5,12,8,0,0);
+  function pad(n,l){n=String(n);while(n.length<l)n='0'+n;return n}
+  function cd(){var s=Math.max(0,target-Date.now())/1000;
+    document.getElementById('cd-d').textContent=pad(Math.floor(s/86400),2);
+    document.getElementById('cd-h').textContent=pad(Math.floor(s%86400/3600),2);
+    document.getElementById('cd-m').textContent=pad(Math.floor(s%3600/60),2);}
+  cd();setInterval(cd,30000);
+
+  // анкета
+  var days=document.querySelectorAll('.days button');
+  [].forEach.call(days,function(b){b.addEventListener('click',function(){
+    var no=b.dataset.day==='0';
+    if(no){[].forEach.call(days,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})}
+    else{days[2].setAttribute('aria-pressed','false');b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')}
+  })});
+  var form=document.getElementById('form');
+  form.addEventListener('submit',function(e){e.preventDefault();
+    var g=form.querySelector('[name=guest]'),err=document.getElementById('e-guest');
+    if(g.value.trim().length<2){err.textContent='Напишите, пожалуйста, имя';g.focus();return}
+    err.textContent='';form.style.display='none';document.getElementById('thanks').classList.add('on');setTimeout(build,50);
+  });
+
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(build);
+  addEventListener('load',build);build();
+})();
+</script>
+</body>
+</html>

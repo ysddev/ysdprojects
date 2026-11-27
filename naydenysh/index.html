@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Найдёныш — фонд помощи бездомным животным, Воронеж: взять собаку или кошку, помочь приюту</title>
+<meta name="description" content="Благотворительный фонд «Найдёныш»: приют для собак и кошек в Воронеже. Питомцы, которые ищут дом, ежемесячная помощь, что нужно приюту сейчас, волонтёрство и отчёты.">
+<meta name="theme-color" content="#1F7A6B">
+<link rel="preload" href="fonts/balsamiq-sans-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/raleway-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Balsamiq Sans';font-weight:700;font-display:swap;src:url(fonts/balsamiq-sans-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Balsamiq Sans';font-weight:700;font-display:swap;src:url(fonts/balsamiq-sans-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Balsamiq Sans';font-weight:700;font-display:swap;src:url(fonts/balsamiq-sans-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Raleway';font-weight:400;font-display:swap;src:url(fonts/raleway-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Raleway';font-weight:400;font-display:swap;src:url(fonts/raleway-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Raleway';font-weight:400;font-display:swap;src:url(fonts/raleway-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Raleway';font-weight:600;font-display:swap;src:url(fonts/raleway-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Raleway';font-weight:600;font-display:swap;src:url(fonts/raleway-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Raleway';font-weight:600;font-display:swap;src:url(fonts/raleway-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#EEF4F2;--card:#FFFFFF;--ink:#1E2D2B;--text:#3C4B48;--mute:#5F6E6B;--rule:#D2DEDA;--teal:#1F7A6B;--teal-d:#155C50;--mint:#DCEEE8;--sun:#F4B740;--sun-l:#FDF1D3;--d:'Balsamiq Sans',system-ui,sans-serif;--t:'Raleway',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--t);font-variant-numeric:lining-nums;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--d);font-weight:700;color:var(--ink);margin:0}
+p{margin:0}
+a{color:var(--teal-d)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;background:var(--teal);color:#fff;font:600 17px/1.2 var(--t);border:0;border-radius:16px;cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:var(--teal-d)}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn.sm{min-height:44px;padding:0 18px;font-size:15px;border-radius:12px}
+
+/* шапка */
+.top{background:var(--bg);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:30px;height:72px}
+.logo{display:inline-flex;align-items:center;gap:8px;font:700 26px/1 var(--d);color:var(--ink);text-decoration:none}
+.logo svg{width:26px;height:26px}
+.nav{display:flex;gap:24px;margin-left:auto}
+.nav a{color:var(--ink);text-decoration:none;font-size:16px;font-weight:600}
+.nav a:hover{color:var(--teal)}
+.tel{color:var(--ink);font-weight:600;text-decoration:none;white-space:nowrap}
+
+/* первый экран */
+.hero{padding:56px 0 88px}
+.hg{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,5.4vw,74px);line-height:1.02}
+.lead{font-size:19px;margin-top:22px;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.goal{margin-top:34px;background:var(--card);border-radius:18px;padding:18px 20px;max-width:470px}
+.goal p{font-size:16px}
+.goal b{color:var(--ink)}
+.meter{height:12px;background:var(--sun-l);border-radius:6px;margin:12px 0 8px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--sun);border-radius:6px}
+.goal small{font-size:14px;color:var(--mute)}
+.hp{position:relative}
+.hp .ph{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#CFDCD8}
+.hp .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.hp .tag{position:absolute;left:-22px;bottom:34px;background:var(--card);border-radius:16px;padding:12px 16px;box-shadow:0 14px 30px rgba(30,45,43,.16);max-width:270px}
+.hp .tag b{display:block;font:700 19px/1.25 var(--d);color:var(--ink)}
+.hp .tag span{font-size:15px;color:var(--mute)}
+
+/* секции */
+.sec{padding:96px 0}
+.sh{max-width:42em;margin-bottom:36px}
+.sh h2,.adopt h2,.hl h2{font-size:clamp(32px,3.8vw,50px);line-height:1.08}
+.sh p{margin-top:14px;font-size:18px}
+.white{background:var(--card)}
+
+/* помощь */
+.hl{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.hl>div:first-child p{margin-top:14px;font-size:18px}
+.give{background:var(--bg);border-radius:24px;padding:30px}
+.mode{display:inline-flex;background:#fff;border-radius:14px;padding:4px;border:1px solid var(--rule)}
+.mode button{min-height:42px;padding:0 18px;border:0;border-radius:10px;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink)}
+.mode button[aria-pressed=true]{background:var(--ink);color:#fff}
+.amts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.amts button{min-height:48px;min-width:84px;padding:0 16px;border-radius:14px;border:2px solid var(--rule);background:#fff;cursor:pointer;font:700 18px var(--d);color:var(--ink)}
+.amts button[aria-pressed=true]{border-color:var(--teal);background:var(--mint);color:var(--teal-d)}
+.own{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:15px}
+.own input{width:140px;height:44px;border:2px solid var(--rule);border-radius:12px;padding:0 12px;font-size:17px;background:#fff}
+.what{margin-top:22px;background:#fff;border-radius:18px;padding:20px 20px 18px}
+.what .big{font:700 26px/1.25 var(--d);color:var(--ink)}
+.bowls{display:flex;flex-wrap:wrap;gap:4px;margin:14px 0 6px;min-height:28px}
+.bowls svg{width:26px;height:20px}
+.what ul{margin:12px 0 0;padding:0;list-style:none;font-size:16px}
+.what li{padding:6px 0;border-top:1px solid var(--rule)}
+.what li b{color:var(--ink)}
+.dform{display:grid;gap:14px;margin-top:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f{display:grid;gap:6px;border:0;padding:0;margin:0;min-width:0}
+.f label,.f legend{font-weight:600;color:var(--ink);font-size:15px;padding:0}
+.f input,.f select{height:50px;border:1px solid var(--rule);border-radius:12px;background:#fff;padding:0 14px;font-size:17px;color:var(--ink);width:100%}
+.f input:focus,.f select:focus,.own input:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(31,122,107,.18)}
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;cursor:pointer}
+.agree input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--teal)}
+.plk{background:none;border:0;padding:0;color:var(--teal-d);text-decoration:underline;cursor:pointer;font-size:inherit}
+.err{color:#B3261E;font-size:15px}
+.done{background:var(--mint);border-radius:16px;padding:18px 20px;color:#174A41}
+.done b{display:block;font:700 20px/1.3 var(--d);color:var(--ink);margin-bottom:4px}
+.safe{font-size:14px;color:var(--mute)}
+
+/* питомцы */
+.flt{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:22px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{min-height:44px;padding:0 18px;border-radius:14px;border:2px solid var(--rule);background:#fff;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.flt select{height:44px;border:2px solid var(--rule);border-radius:14px;background:#fff;padding:0 12px;font-size:15px;font-weight:600;color:var(--ink)}
+.flt label.ck{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--ink);cursor:pointer}
+.flt label.ck input{width:20px;height:20px;accent-color:var(--teal)}
+.pets{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pc{background:var(--card);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.pc figure{margin:0;aspect-ratio:1;background:#CFDCD8}
+.pc figure img{width:100%;height:100%;object-fit:cover}
+.pc .b{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.pc h3{font-size:26px;line-height:1.15}
+.pc .age{font-size:15px;color:var(--mute);margin-top:2px}
+.pc .tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.pc .tags span{font-size:14px;background:var(--mint);color:var(--teal-d);border-radius:8px;padding:3px 9px}
+.pc .story{font-size:16px;margin-bottom:16px}
+.pc .btn{margin-top:auto;align-self:flex-start}
+.empty{background:var(--card);border-radius:24px;padding:28px;grid-column:1/-1}
+
+/* как взять */
+.adopt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.adopt figure{margin:0;border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#CFDCD8}
+.adopt figure img{width:100%;height:100%;object-fit:cover}
+.adopt ol{list-style:none;margin:24px 0 0;padding:0;counter-reset:s}
+.adopt li{counter-increment:s;display:grid;grid-template-columns:50px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--rule)}
+.adopt li::before{content:counter(s);width:42px;height:42px;border-radius:14px;background:var(--mint);color:var(--teal-d);font:700 20px/42px var(--d);text-align:center}
+.adopt li b{display:block;color:var(--ink);font-size:18px}
+.adopt li p{font-size:16px;margin-top:2px}
+
+/* нужно */
+.need{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.nl{list-style:none;margin:0;padding:0;background:var(--card);border-radius:24px;padding:8px 24px}
+.nl li{padding:16px 0;border-bottom:1px solid var(--rule)}
+.nl li:last-child{border-bottom:0}
+.nl .r{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.nl b{color:var(--ink)}
+.nl .c{font-size:15px;color:var(--mute);white-space:nowrap}
+.nl .meter{margin:8px 0 0;height:8px;background:#EEF1E9}
+.nl .meter i{background:var(--teal)}
+.drop{background:var(--sun-l);border-radius:24px;padding:24px}
+.drop h3{font-size:24px}
+.drop p{margin-top:10px;font-size:16px}
+
+/* волонтёрам */
+.vg{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.vg figure{margin:0;border-radius:28px;overflow:hidden;aspect-ratio:3/2;background:#CFDCD8}
+.vg figure img{width:100%;height:100%;object-fit:cover}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ro{background:var(--bg);border-radius:20px;padding:20px}
+.ro h3{font-size:21px}
+.ro p{font-size:15px;margin-top:6px}
+.ro .when{font-size:14px;color:var(--teal-d);font-weight:600;margin-top:10px}
+.vg .btn{margin-top:20px}
+
+/* отчёт */
+.rep{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.rep div{background:var(--card);border-radius:20px;padding:18px 20px}
+.rep b{display:block;font:700 34px/1.1 var(--d);color:var(--ink)}
+.rep span{font-size:15px}
+.spend{background:var(--card);border-radius:24px;padding:24px}
+.spend h3{font-size:22px}
+.stack{display:flex;height:22px;border-radius:11px;overflow:hidden;margin:16px 0 14px}
+.stack i{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 18px;font-size:15px}
+.legend span{display:flex;gap:8px;align-items:baseline}
+.legend em{flex:none;width:12px;height:12px;border-radius:4px;transform:translateY(1px)}
+.legend b{color:var(--ink);white-space:nowrap}
+
+/* подвал */
+.foot{padding:48px 0 40px;font-size:15px;color:var(--mute);border-top:1px solid var(--rule)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.foot p{margin-top:10px}
+.foot a{color:var(--ink)}
+.legal{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-size:14px}
+.legal button{background:none;border:0;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:14px}
+
+dialog{border:0;border-radius:24px;padding:30px;width:min(480px,calc(100vw - 24px));color:var(--text)}
+dialog::backdrop{background:rgba(30,45,43,.55)}
+dialog h3{font-size:26px;padding-right:44px}
+dialog .wt{font-size:16px;color:var(--mute);margin:6px 0 16px}
+#dg form{display:grid;gap:14px}
+.x{position:absolute;top:14px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:var(--bg);font-size:24px;cursor:pointer;color:var(--ink)}
+#policy p{font-size:16px;margin:10px 0}
+
+@media (max-width:1020px){
+  .nav{display:none}
+  .tel{margin-left:auto}
+  .hg,.hl,.adopt,.need,.vg{grid-template-columns:1fr;gap:36px}
+  .hp{max-width:520px}
+  .pets{grid-template-columns:1fr 1fr}
+  .rep{grid-template-columns:1fr 1fr}
+  .legend{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .bar{height:62px}
+  .logo{font-size:23px}
+  .hero{padding:28px 0 64px}
+  .lead{font-size:17px}
+  .hp .ph{border-radius:22px}
+  .hp .tag{left:12px;bottom:12px}
+  .sec{padding:64px 0}
+  .sh p,.hl>div:first-child p{font-size:17px}
+  .give{padding:20px 16px}
+  .amts button{min-width:0;flex:1 1 28%}
+  .two{grid-template-columns:1fr}
+  .pets{grid-template-columns:1fr;gap:20px}
+  .pc figure{aspect-ratio:4/3}
+  .roles{grid-template-columns:1fr}
+  .rep b{font-size:28px}
+  .legend{grid-template-columns:1fr}
+  .nl{padding:4px 16px}
+  dialog{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#"><svg viewBox="0 0 26 26" aria-hidden="true"><g fill="#1F7A6B"><ellipse cx="13" cy="17.5" rx="6" ry="5"/><circle cx="5.5" cy="10.5" r="2.6"/><circle cx="10" cy="6" r="2.6"/><circle cx="16" cy="6" r="2.6"/><circle cx="20.5" cy="10.5" r="2.6"/></g></svg>Найдёныш</a>
+    <nav class="nav" aria-label="Разделы"><a href="#pets">Питомцы</a><a href="#help">Помочь</a><a href="#adopt">Как взять</a><a href="#need">Нужно приюту</a><a href="#report">Отчёт</a></nav>
+    <a class="tel" href="tel:+74730000000">+7&nbsp;(473)&nbsp;000-00-00</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hg">
+    <div>
+      <h1>Найдёныши ищут дом</h1>
+      <p class="lead">Фонд «Найдёныш» с&nbsp;2016 года помогает бездомным собакам и&nbsp;кошкам Воронежа: лечим, стерилизуем и&nbsp;ищем им&nbsp;семьи. Сейчас в&nbsp;приюте <b>142&nbsp;животных</b>, и&nbsp;каждое держится на&nbsp;пожертвованиях.</p>
+      <div class="cta"><a class="btn" href="#help">Помогать каждый месяц</a><a class="btn line" href="#pets">Выбрать питомца</a></div>
+      <div class="goal">
+        <p>На&nbsp;декабрь нужно <b>320&nbsp;000&nbsp;₽</b>: корм, лечение и&nbsp;аренда вольеров</p>
+        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="320000" aria-valuenow="186400" aria-label="Собрано на декабрь"><i style="width:58%"></i></div>
+        <small>Собрано 186&nbsp;400&nbsp;₽, помогают 412 человек каждый месяц</small>
+      </div>
+    </div>
+    <figure class="hp" style="margin:0">
+      <div class="ph"><img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w" sizes="(max-width:1020px) 92vw, 48vw" width="1400" height="933" alt="Чёрная собака в бандане радуется на зелёной лужайке приюта" fetchpriority="high"></div>
+      <figcaption class="tag"><b>Граф нашёл семью</b><span>Прожил в&nbsp;приюте 2&nbsp;года, теперь живёт за&nbsp;городом</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec white" id="help">
+  <div class="wrap hl">
+    <div>
+      <h2>Что изменит ваша помощь</h2>
+      <p>Выберите сумму&nbsp;— покажем, во&nbsp;что она превратится в&nbsp;приюте. Ежемесячная помощь важнее разовой: по&nbsp;ней мы&nbsp;планируем корм и&nbsp;операции на&nbsp;месяц вперёд.</p>
+      <p class="safe" style="margin-top:18px">Отменить ежемесячное пожертвование можно в&nbsp;любой момент по&nbsp;ссылке из&nbsp;письма.</p>
+    </div>
+    <div class="give">
+      <div class="mode" id="mode" role="group" aria-label="Как помогать"><button type="button" aria-pressed="true" data-m="1">Каждый месяц</button><button type="button" aria-pressed="false" data-m="0">Один раз</button></div>
+      <div class="amts" id="amts" role="group" aria-label="Сумма"></div>
+      <label class="own">Своя сумма <input type="number" id="own" min="100" max="500000" step="50" inputmode="numeric" placeholder="₽"></label>
+      <div class="what" aria-live="polite">
+        <p class="big" id="wBig"></p>
+        <div class="bowls" id="bowls" aria-hidden="true"></div>
+        <ul id="wList"></ul>
+      </div>
+      <form class="dform" id="df" novalidate>
+        <div class="two"><div class="f"><label for="dN">Имя</label><input id="dN" type="text" autocomplete="given-name"></div><div class="f"><label for="dE">Почта для чека</label><input id="dE" type="email" autocomplete="email" inputmode="email"></div></div>
+        <label class="agree"><input type="checkbox" id="dC"><span>Согласен на&nbsp;обработку персональных данных по&nbsp;<button type="button" class="plk" data-open="policy">политике конфиденциальности</button></span></label>
+        <button class="btn" type="submit" id="dGo">Помогать</button>
+        <p class="err" id="dEr" role="alert"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pets">
+  <div class="wrap">
+    <div class="sh"><h2>Ищут дом прямо сейчас</h2><p>Все привиты, обработаны от&nbsp;паразитов и&nbsp;стерилизованы по&nbsp;возрасту. О&nbsp;характере каждого рассказывает куратор, который с&nbsp;ним гуляет.</p></div>
+    <div class="flt">
+      <div class="chips" id="fK" role="group" aria-label="Кто"><button type="button" aria-pressed="true" data-k="">Все</button><button type="button" aria-pressed="false" data-k="d">Собаки</button><button type="button" aria-pressed="false" data-k="c">Кошки</button></div>
+      <select id="fA" aria-label="Возраст"><option value="">Любой возраст</option><option value="0">До года</option><option value="1">1–5 лет</option><option value="5">Старше 5 лет</option></select>
+      <label class="ck"><input type="checkbox" id="fKid"> Ладит с&nbsp;детьми</label>
+    </div>
+    <div class="pets" id="pl" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec white" id="adopt">
+  <div class="wrap adopt">
+    <figure><img src="img/pet-1400.webp" srcset="img/pet-800.webp 800w, img/pet-1400.webp 1400w" sizes="(max-width:1020px) 92vw, 46vw" width="1400" height="933" alt="Рука гладит собаку в приюте" loading="lazy" decoding="async" style="object-position:30% 50%"></figure>
+    <div>
+      <h2>Как взять питомца</h2>
+      <ol>
+        <li><div><b>Анкета</b><p>Пять вопросов о&nbsp;доме и&nbsp;опыте. Куратор позвонит в&nbsp;течение дня.</p></div></li>
+        <li><div><b>Знакомство в&nbsp;приюте</b><p>Погуляете вместе, приходите всей семьёй и&nbsp;хоть два раза.</p></div></li>
+        <li><div><b>Договор</b><p>Договор ответственного содержания и&nbsp;ветпаспорт. Животное отдаём бесплатно.</p></div></li>
+        <li><div><b>Первый месяц дома</b><p>Куратор на&nbsp;связи, ветеринар фонда консультирует бесплатно.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="need">
+  <div class="wrap">
+    <div class="sh"><h2>Что нужно приюту на&nbsp;этой неделе</h2><p>Список обновляем по&nbsp;понедельникам. Если удобнее купить и&nbsp;привезти, а&nbsp;не&nbsp;переводить деньги&nbsp;— вот что заканчивается.</p></div>
+    <div class="need">
+      <ul class="nl" id="nl"></ul>
+      <div class="drop"><h3>Куда привезти</h3><p>Приют: посёлок Отрадное, ул.&nbsp;Лесная, 1. Принимаем каждый день с&nbsp;10:00 до&nbsp;18:00.</p><p>Пункт в&nbsp;городе: ул.&nbsp;Кольцовская, 35, зоомагазин «Хвост», с&nbsp;9:00 до&nbsp;21:00.</p><p>Если вещей много, напишите&nbsp;— заберёт автоволонтёр.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec white" id="vol">
+  <div class="wrap vg">
+    <div>
+      <div class="sh" style="margin-bottom:24px"><h2>Помочь руками</h2><p>Волонтёров у&nbsp;нас около 60, и&nbsp;каждый занят тем, на&nbsp;что есть время.</p></div>
+      <figure><img src="img/green-1400.webp" srcset="img/green-800.webp 800w, img/green-1400.webp 1400w" sizes="(max-width:1020px) 92vw, 40vw" width="1400" height="933" alt="Собака в зелёной бандане на прогулке" loading="lazy" decoding="async"></figure>
+    </div>
+    <div>
+      <div class="roles">
+        <div class="ro"><h3>Выгул</h3><p>Прогулка с&nbsp;собаками, которые редко выходят из&nbsp;вольера.</p><p class="when">Сб и&nbsp;Вс, с&nbsp;11:00</p></div>
+        <div class="ro"><h3>Автоволонтёр</h3><p>Отвезти животное к&nbsp;ветеринару или забрать корм из&nbsp;пункта сбора.</p><p class="when">Когда удобно вам</p></div>
+        <div class="ro"><h3>Фото и&nbsp;тексты</h3><p>Хорошее фото и&nbsp;честная история ускоряют поиск семьи в&nbsp;разы.</p><p class="when">Раз в&nbsp;месяц, 2–3 часа</p></div>
+        <div class="ro"><h3>Передержка</h3><p>Взять щенка или кошку домой на&nbsp;время лечения. Корм и&nbsp;лекарства от&nbsp;фонда.</p><p class="when">От&nbsp;двух недель</p></div>
+      </div>
+      <button class="btn" type="button" id="volGo">Стать волонтёром</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="report">
+  <div class="wrap">
+    <div class="sh"><h2>Октябрь в&nbsp;приюте</h2><p>Отчёт за&nbsp;каждый месяц с&nbsp;чеками и&nbsp;актами публикуем в&nbsp;Telegram-канале фонда до&nbsp;10-го числа.</p></div>
+    <div class="rep">
+      <div><b>23</b><span>животных нашли семью</span></div>
+      <div><b>41</b><span>стерилизацию сделали</span></div>
+      <div><b>17</b><span>новых найдёнышей приняли</span></div>
+      <div><b>4,2&nbsp;т</b><span>корма съели</span></div>
+    </div>
+    <div class="spend">
+      <h3>Куда ушли 412&nbsp;600&nbsp;₽</h3>
+      <div class="stack" id="stack" role="img" aria-label="Расходы за октябрь по статьям"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div><a class="logo" href="#"><svg viewBox="0 0 26 26" aria-hidden="true"><g fill="#1F7A6B"><ellipse cx="13" cy="17.5" rx="6" ry="5"/><circle cx="5.5" cy="10.5" r="2.6"/><circle cx="10" cy="6" r="2.6"/><circle cx="16" cy="6" r="2.6"/><circle cx="20.5" cy="10.5" r="2.6"/></g></svg>Найдёныш</a><p>Благотворительный фонд помощи бездомным животным<br>Воронеж, ул.&nbsp;Кольцовская, 35, офис 12</p></div>
+      <p><a href="tel:+74730000000">+7&nbsp;(473)&nbsp;000-00-00</a><br><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a><br>Приют открыт для гостей каждый день 10:00–18:00</p>
+    </div>
+    <div class="legal">
+      <span>Благотворительный фонд «Найдёныш»</span>
+      <button type="button" data-open="policy">Политика конфиденциальности</button>
+      <a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dg" aria-labelledby="dgT">
+  <button class="x" type="button" id="dgX" aria-label="Закрыть">×</button>
+  <h3 id="dgT"></h3>
+  <p class="wt" id="dgW"></p>
+  <form id="dgF" novalidate>
+    <div class="f" id="dgRoleF" hidden><label for="dgRole">Чем хотите помогать</label><select id="dgRole"><option>Выгул</option><option>Автоволонтёр</option><option>Фото и тексты</option><option>Передержка</option></select></div>
+    <div class="f"><label for="gN">Имя</label><input id="gN" type="text" autocomplete="given-name"></div>
+    <div class="f"><label for="gT">Телефон</label><input id="gT" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7"></div>
+    <label class="agree"><input type="checkbox" id="gC"><span>Согласен на&nbsp;обработку персональных данных по&nbsp;<button type="button" class="plk" data-open="policy">политике конфиденциальности</button></span></label>
+    <button class="btn" type="submit" id="gGo"></button>
+    <p class="err" id="gE" role="alert"></p>
+  </form>
+</dialog>
+
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT">Политика конфиденциальности</h3><p>Имя, телефон и&nbsp;почта нужны, чтобы связаться с&nbsp;вами по&nbsp;заявке и&nbsp;прислать чек о&nbsp;пожертвовании. Данные получает только фонд «Найдёныш».</p><p>Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам. Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn">Понятно</button></form></dialog>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sp(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')}
+function pl(n,a,b,c){n=Math.abs(n)%100;var m=n%10;return n>10&&n<20?c:m===1?a:m>1&&m<5?b:c}
+document.querySelectorAll('[data-open=policy]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+
+/* помощь */
+var A=[300,500,1000,2500,5000],st={m:1,a:500};
+$('amts').innerHTML=A.map(function(a){return '<button type="button" aria-pressed="'+(a===st.a)+'" data-a="'+a+'">'+sp(a)+' ₽</button>'}).join('');
+function pick(a){st.a=a;$('amts').querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.a===a)});what()}
+$('amts').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){$('own').value='';pick(+b.dataset.a)})});
+$('own').addEventListener('input',function(){var v=Math.round(+this.value);if(v>=100)pick(v)});
+$('mode').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){st.m=+b.dataset.m;$('mode').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});what()})});
+var BOWL='<svg viewBox="0 0 26 20"><path d="M2 8h22a11 11 0 0 1-22 0z" fill="#1F7A6B"/><ellipse cx="13" cy="7" rx="9" ry="2.6" fill="#F4B740"/></svg>';
+function what(){
+  var a=st.a,days=Math.floor(a/70);
+  $('wBig').textContent=sp(a)+' ₽ — это '+(days>=1?days+' '+pl(days,'день','дня','дней')+' корма для взрослой собаки':'игрушка и лакомство для щенка');
+  $('bowls').innerHTML=new Array(Math.min(days,30)+1).join(BOWL)+(days>30?'<span style="font-size:15px;color:#5F6E6B;align-self:center">и ещё '+(days-30)+'</span>':'');
+  var L=[];
+  if(a>=350)L.push(['Обработка от блох и клещей',350]);
+  if(a>=900)L.push(['Анализы крови перед операцией',900]);
+  if(a>=1200)L.push(['Комплексная прививка щенку',1200]);
+  if(a>=3500)L.push(['Стерилизация кошки',3500]);
+  if(a>=6000)L.push(['Стерилизация собаки',6000]);
+  var y=a*12;
+  $('wList').innerHTML=(L.length?L.slice(-3).reverse().map(function(x){var n=Math.floor(a/x[1]);return '<li>или <b>'+x[0].toLowerCase()+'</b>'+(n>1?' — на '+n+' '+pl(n,'животное','животных','животных'):'')+'</li>'}).join(''):'')+(st.m?'<li>За год вместе: <b>'+sp(y)+' ₽</b>'+(y>=6000?(Math.floor(y/6000)===1?', это стерилизация одной собаки':', это '+Math.floor(y/6000)+' '+pl(Math.floor(y/6000),'стерилизация','стерилизации','стерилизаций')+' собак'):'')+'</li>':'');
+  $('dGo').textContent=(st.m?'Помогать по ':'Помочь ')+sp(a)+' ₽'+(st.m?' в месяц':'');
+}
+what();
+$('df').addEventListener('submit',function(e){
+  e.preventDefault();
+  var er=$('dEr'),n=$('dN').value.trim(),m=$('dE').value.trim();
+  if(!n){er.textContent='Напишите, как к вам обращаться.';$('dN').focus();return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){er.textContent='Проверьте почту: на неё придёт чек.';$('dE').focus();return}
+  if(!$('dC').checked){er.textContent='Отметьте согласие на обработку данных.';return}
+  this.innerHTML='<div class="done"><b>'+esc(n)+', спасибо!</b>Сейчас откроется страница оплаты банка. После оплаты чек придёт на '+esc(m)+(st.m?', а раз в месяц будем присылать, кого вылечили и пристроили на ваши деньги.':'.')+'</div>';
+});
+
+/* питомцы: [фото, имя, вид, возраст в годах, пол, с детьми, история, сколько в приюте] */
+var P=[
+ ['d1','Бим','d',3,'м',1,'Спокойный и внимательный, ходит рядом без поводка. Любит долгие прогулки.','8 месяцев'],
+ ['d2','Лаки','d',2,'м',1,'Улыбается всем подряд и знает команды «сидеть» и «лапу».','3 месяца'],
+ ['d3','Пуговка','d',.4,'ж',1,'Щенок, вырастет средней. Уже просится на улицу.','месяц'],
+ ['k1','Тень','c',.5,'м',1,'Котёнок-исследователь: проверит каждый шкаф и уснёт на коленях.','2 месяца'],
+ ['d4','Барон','d',6,'м',0,'Взрослый и солидный, нужен дом без маленьких детей и кошек.','2 года'],
+ ['k2','Снежка','c',2,'ж',1,'Тихая, любит подоконники и мягкие пледы. Приучена к лотку.','5 месяцев'],
+ ['k3','Марсик','c',4,'м',0,'Независимый: сам решает, когда его гладить. Идеален для одного хозяина.','год'],
+ ['d5','Шоколадка','d',8,'ж',1,'Добрейшая собака-пенсионерка. Ей нужен диван и неспешные прогулки.','3 года'],
+ ['k4','Маркиза','c',7,'ж',1,'Ласковая домашняя кошка, которую оставили при переезде.','4 месяца']
+];
+var INS={"Бим": "Бимом", "Лаки": "Лаки", "Пуговка": "Пуговкой", "Тень": "Тенью", "Барон": "Бароном", "Снежка": "Снежкой", "Марсик": "Марсиком", "Шоколадка": "Шоколадкой", "Маркиза": "Маркизой"};
+var fk='',fa='';
+function age(y){if(y<1){var m=Math.round(y*12);return m+' '+pl(m,'месяц','месяца','месяцев')}return y+' '+pl(y,'год','года','лет')}
+function draw(){
+  var kid=$('fKid').checked;
+  var a=P.filter(function(p){return (!fk||p[2]===fk)&&(!kid||p[5])&&(fa===''||(fa==='0'?p[3]<1:fa==='1'?p[3]>=1&&p[3]<=5:p[3]>5))});
+  if(!a.length){$('pl').innerHTML='<div class="empty"><p>Под эти условия сейчас никого нет. Оставьте заявку&nbsp;— куратор расскажет о&nbsp;новеньких, которых ещё не&nbsp;успели сфотографировать.</p><button class="btn sm" type="button" id="anyGo" style="margin-top:14px">Оставить заявку</button></div>';$('anyGo').addEventListener('click',function(){open('Подобрать питомца','Куратор расскажет о новеньких и подберёт под ваш дом и семью.','Оставить заявку','pick')});return}
+  $('pl').innerHTML=a.map(function(p){var t=[p[2]==='d'?(p[4]==='м'?'Привит':'Привита'):(p[4]==='м'?'Привит':'Привита')];if(p[3]>=.5)t.push(p[4]==='м'?'Кастрирован':'Стерилизована');if(p[5])t.push('Ладит с детьми');
+    return '<article class="pc"><figure><img src="img/'+p[0]+'-600.webp" srcset="img/'+p[0]+'-600.webp 600w, img/'+p[0]+'-900.webp 900w" sizes="(max-width:720px) 92vw, (max-width:1020px) 46vw, 31vw" width="600" height="600" alt="'+(p[2]==='d'?'Собака':'Кошка')+' '+esc(p[1])+'" loading="lazy" decoding="async"></figure><div class="b"><h3>'+esc(p[1])+'</h3><p class="age">'+(p[4]==='м'?'Мальчик':'Девочка')+', '+age(p[3])+', в приюте '+p[7]+'</p><div class="tags">'+t.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div><p class="story">'+esc(p[6])+'</p><button class="btn sm" type="button" data-p="'+P.indexOf(p)+'">Познакомиться с '+esc(INS[p[1]]||p[1])+'</button></div></article>'}).join('');
+  $('pl').querySelectorAll('[data-p]').forEach(function(b){b.addEventListener('click',function(){var p=P[+b.dataset.p];open('Знакомство: '+p[1],'Куратор позвонит в течение дня и договорится о встрече в приюте. Приходите всей семьёй.','Записаться на знакомство','meet')})});
+}
+$('fK').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fk=b.dataset.k;$('fK').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+$('fA').addEventListener('change',function(){fa=this.value;draw()});
+$('fKid').addEventListener('change',draw);
+draw();
+
+/* нужно приюту */
+var N=[['Сухой корм для взрослых собак, мешки 15 кг',12,40,'мешков'],['Корм для котят',9,20,'упаковок'],['Наполнитель для лотков',6,30,'мешков'],['Пелёнки 60×90',150,400,'штук'],['Капли от блох и клещей',18,60,'пипеток']];
+$('nl').innerHTML=N.map(function(x){return '<li><div class="r"><b>'+x[0]+'</b><span class="c">есть '+x[1]+' из '+x[2]+'</span></div><div class="meter"><i style="width:'+Math.round(x[1]/x[2]*100)+'%"></i></div></li>'}).join('');
+
+/* отчёт */
+var S=[['Ветеринария',168400,'#1F7A6B'],['Корм',142000,'#F4B740'],['Аренда и отопление вольеров',64200,'#7FB5A9'],['Транспорт и прочее',38000,'#C9D5D1']];
+$('stack').innerHTML=S.map(function(s){return '<i style="width:'+(s[1]/412600*100).toFixed(1)+'%;background:'+s[2]+'"></i>'}).join('');
+$('legend').innerHTML=S.map(function(s){return '<span><em style="background:'+s[2]+'"></em><span>'+s[0]+' <b>'+sp(s[1])+' ₽</b></span></span>'}).join('');
+
+/* окно */
+var kind='';
+function open(t,w,btn,k){kind=k;$('dgT').textContent=t;$('dgW').textContent=w;$('gGo').textContent=btn;$('gE').textContent='';$('dgRoleF').hidden=k!=='vol';$('dgF').hidden=false;var d=$('dgDone');if(d)d.remove();$('dg').showModal()}
+$('volGo').addEventListener('click',function(){open('Стать волонтёром','Расскажем, как устроена работа, и пригласим на вводную встречу в субботу.','Отправить заявку','vol')});
+$('dgX').addEventListener('click',function(){$('dg').close()});
+$('dg').addEventListener('click',function(e){if(e.target===this)this.close()});
+$('dgF').addEventListener('submit',function(e){
+  e.preventDefault();
+  var er=$('gE'),n=$('gN').value.trim(),p=$('gT').value.replace(/\D/g,'');
+  if(!n){er.textContent='Напишите, как к вам обращаться.';$('gN').focus();return}
+  if(p.length<10){er.textContent='Проверьте телефон: нужно 10 цифр после +7.';$('gT').focus();return}
+  if(!$('gC').checked){er.textContent='Отметьте согласие на обработку данных.';return}
+  this.hidden=true;
+  this.insertAdjacentHTML('afterend','<div class="done" id="dgDone"><b>'+esc(n)+', спасибо!</b>'+(kind==='vol'?'Координатор волонтёров позвонит в течение двух дней.':'Куратор позвонит сегодня или завтра, с 10:00 до 20:00.')+'</div>');
+});
+})();
+</script>
+</body>
+</html>

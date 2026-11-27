@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ремесло — онлайн-курсы керамики, резьбы по дереву, кожи и вязания с набором материалов</title>
+<meta name="description" content="Онлайн-школа ремёсел «Ремесло»: видеоуроки по шагам, куратор проверяет каждую работу, набор материалов привезём до старта. Керамика, дерево, кожа, вязание. Оплата частями.">
+<meta name="theme-color" content="#F2F4EF">
+<link rel="preload" href="fonts/bitter-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Bitter';font-weight:700;font-display:swap;src:url(fonts/bitter-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Bitter';font-weight:700;font-display:swap;src:url(fonts/bitter-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Bitter';font-weight:700;font-display:swap;src:url(fonts/bitter-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-weight:400;font-display:swap;src:url(fonts/jost-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+20BD}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-weight:500;font-display:swap;src:url(fonts/jost-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+20BD}
+:root{--bg:#F2F4EF;--ink:#1C2A21;--text:#36443A;--mute:#5F6C63;--co:#2347C5;--cod:#1A379E;--col:#DFE6FA;--sage:#DCE4D6;--w:#FFFFFF;--rule:#D2D9CC;--d:'Bitter',Georgia,serif;--t:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--t);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--d);font-weight:700;color:var(--ink);margin:0;letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--co)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--co);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border:0;border-radius:6px;background:var(--co);color:#fff;font:500 16px/1.2 var(--t);cursor:pointer;text-decoration:none;text-align:center}
+.btn:hover{background:var(--cod)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--w)}
+.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+.seam{border:0;border-top:2px dashed var(--co);margin:0}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:30;background:rgba(242,244,239,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:30px;height:68px}
+.logo{font:700 24px/1 var(--d);color:var(--ink);text-decoration:none;padding-bottom:5px;border-bottom:2px dashed var(--co)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{color:var(--ink);text-decoration:none;font-size:16px}
+.nav a:hover{color:var(--co)}
+.tb{display:flex;gap:8px}
+.tbb{min-height:44px;padding:0 14px;border-radius:6px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;font-weight:500;font-size:15px;color:var(--ink)}
+.tbb b{display:inline-block;min-width:22px;height:22px;line-height:22px;border-radius:11px;background:var(--co);color:#fff;font-size:14px;margin-left:6px;text-align:center}
+
+/* первый экран */
+.hero{padding:52px 0 0}
+.hg{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:48px;align-items:end;margin-bottom:36px}
+.hero h1{font-size:clamp(40px,5.3vw,78px);line-height:1.02}
+.lead{font-size:18px;max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hf{position:relative;margin:0;border-radius:10px;overflow:hidden;background:var(--sage)}
+.hf img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.ticket{position:absolute;left:24px;bottom:24px;background:var(--w);border-radius:8px;padding:16px 20px;max-width:330px;box-shadow:0 14px 34px rgba(28,42,33,.18)}
+.ticket::before{content:"";position:absolute;inset:6px;border:1.5px dashed var(--co);border-radius:5px;pointer-events:none}
+.ticket b{display:block;font:700 20px/1.25 var(--d);color:var(--ink)}
+.ticket span{display:block;font-size:15px;color:var(--mute);margin-top:4px}
+
+/* курсы */
+.sec{padding:96px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.sh h2{font-size:clamp(32px,3.6vw,50px);line-height:1.06}
+.sh p{max-width:34em;margin-top:12px}
+.flt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:26px}
+.flt button{min-height:42px;padding:0 16px;border-radius:21px;border:1.5px solid var(--rule);background:var(--w);cursor:pointer;font-size:15px;font-weight:500;color:var(--ink)}
+.flt button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+.card{display:flex;flex-direction:column;background:var(--w);border-radius:10px;overflow:hidden}
+.card .ph{display:block;border:0;padding:0;cursor:pointer;background:var(--sage);position:relative}
+.card .ph img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card .cr{position:absolute;left:12px;top:12px;background:var(--w);color:var(--ink);border-radius:14px;padding:3px 11px;font-size:14px;font-weight:500}
+.cb{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cb h3{font-size:21px;line-height:1.2}
+.facts{font-size:15px;color:var(--mute)}
+.res{font-size:15px}
+.cf{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:10px}
+.pr{font:500 19px/1.2 var(--t);color:var(--ink)}
+.empty{grid-column:1/-1;background:var(--w);border-radius:10px;padding:28px}
+
+/* как учимся */
+.how{background:var(--sage)}
+.hw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.hw figure{margin:0;border-radius:10px;overflow:hidden}
+.hw figure img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:16px 0 16px 58px;border-top:1.5px dashed rgba(35,71,197,.45)}
+.steps li:last-child{border-bottom:1.5px dashed rgba(35,71,197,.45)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:14px;width:40px;height:40px;border-radius:50%;background:var(--w);color:var(--co);font:700 18px/40px var(--d);text-align:center}
+.steps b{display:block;color:var(--ink);font-weight:500}
+.steps p{font-size:16px}
+
+/* наборы */
+.kit{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.kit figure{margin:0;border-radius:10px;overflow:hidden;background:var(--sage)}
+.kit figure img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.kt{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 18px}
+.kt button{min-height:40px;padding:0 14px;border-radius:6px;border:1.5px solid var(--rule);background:transparent;cursor:pointer;font-size:15px;color:var(--ink)}
+.kt button[aria-selected=true]{border-color:var(--co);background:var(--col);color:var(--cod);font-weight:500}
+.kbox{background:var(--w);border-radius:10px;padding:22px 24px;position:relative}
+.kbox::before{content:"";position:absolute;inset:7px;border:1.5px dashed var(--rule);border-radius:6px;pointer-events:none}
+.kbox ul{margin:10px 0 16px;padding-left:20px}
+.kbox li{margin:4px 0}
+.kbox .kr{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;position:relative}
+
+.faq{max-width:840px}
+.faq details{border-top:1px solid var(--rule)}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font:700 19px/1.35 var(--d);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:28px;width:12px;height:12px;border-right:2px solid var(--co);border-bottom:2px solid var(--co);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);top:33px}
+.faq details p{padding:0 0 20px;max-width:44em}
+
+/* окно курса */
+dialog{border:0;padding:0;border-radius:12px;color:var(--text);background:var(--bg)}
+dialog::backdrop{background:rgba(28,42,33,.55)}
+#course{width:min(960px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto}
+.x{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;border:0;background:var(--w);color:var(--ink);font-size:24px;line-height:44px;cursor:pointer;z-index:3;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.ch{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);background:var(--w)}
+.ch img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.chb{padding:30px 30px 26px;display:grid;gap:10px;align-content:start}
+.chb h2{font-size:30px;line-height:1.12;padding-right:40px}
+.chb .who{font-size:15px;color:var(--mute)}
+.cs{padding:26px 30px;border-top:1.5px dashed var(--rule)}
+.cs h3{font-size:22px;margin-bottom:14px}
+.mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.mods details{background:var(--w);border-radius:8px;padding:0 16px}
+.mods summary{cursor:pointer;padding:13px 0;font-weight:500;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:10px}
+.mods summary::-webkit-details-marker{display:none}
+.mods summary span{color:var(--mute);font-weight:400;font-size:15px;white-space:nowrap}
+.mods ol{margin:0;padding:0 0 14px 20px;font-size:15px}
+.mods li{margin:3px 0}
+.tar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tar label{position:relative;background:var(--w);border-radius:8px;padding:16px 16px 18px;cursor:pointer;border:2px solid transparent;display:grid;gap:6px;align-content:start}
+.tar label:has(input:checked){border-color:var(--co)}
+.tar input{position:absolute;opacity:0;pointer-events:none}
+.tar b{font:700 19px/1.2 var(--d);color:var(--ink)}
+.tar .p{font-weight:500;color:var(--ink);font-size:18px}
+.tar ul{margin:2px 0 0;padding-left:18px;font-size:15px}
+.tar .left{font-size:14px;color:var(--co);font-weight:500}
+.tar label:has(input:focus-visible){outline:3px solid var(--co);outline-offset:2px}
+.opt{display:flex;gap:12px;align-items:flex-start;background:var(--w);border-radius:8px;padding:16px;cursor:pointer}
+.opt input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--co)}
+.opt b{color:var(--ink);font-weight:500}
+.opt span{display:block;font-size:15px;color:var(--mute)}
+.pay{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.pay label{display:flex;gap:8px;align-items:center;background:var(--w);border-radius:8px;padding:12px 14px;cursor:pointer;font-size:15px}
+.pay input{width:18px;height:18px;margin:0;accent-color:var(--co)}
+.cfoot{position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 30px;background:var(--ink);color:#fff}
+.cfoot .t{font:700 24px/1.2 var(--d)}
+.cfoot .s{font-size:15px;color:#C9D3CB}
+.cfoot .btn{background:#fff;color:var(--ink)}
+.cfoot .btn:hover{background:var(--col)}
+
+/* урок */
+#lesson{width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto}
+#lesson img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.lb{padding:26px 30px 30px;display:grid;gap:14px}
+.lb h2{font-size:28px;line-height:1.15}
+.lb ol{margin:0;padding-left:22px}
+.lb li{margin:6px 0}
+.need{background:var(--w);border-radius:8px;padding:14px 16px;font-size:15px}
+
+/* корзина и кабинет */
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(28,42,33,.5)}
+.dp{width:min(440px,100%);height:100%;background:var(--bg);display:flex;flex-direction:column}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--rule);background:var(--w)}
+.dh h2{font-size:24px}
+.dh .x{position:static;box-shadow:none;background:var(--bg)}
+dialog>.x{position:sticky;top:12px;display:block;margin:12px 12px -56px auto}
+.db{flex:1;overflow:auto;padding:16px 20px}
+.it{background:var(--w);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.it b{display:block;color:var(--ink);font-weight:500}
+.it .m{font-size:15px;color:var(--mute)}
+.it .r{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:10px}
+.lnk{border:0;background:none;padding:0;color:var(--co);text-decoration:underline;cursor:pointer;font-size:15px}
+.df{padding:16px 20px;border-top:1px solid var(--rule);background:var(--w);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:500;color:var(--ink);font-size:18px}
+.sub{font-size:15px;color:var(--mute);margin-top:-6px}
+.f{display:grid;gap:5px}
+.f label{font-size:15px;font-weight:500;color:var(--ink)}
+.f input{height:48px;border:1.5px solid var(--rule);border-radius:6px;padding:0 12px;background:var(--bg);font-size:16px;color:var(--ink)}
+.f input:focus{border-color:var(--co);outline:none;background:#fff}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;cursor:pointer}
+.agree input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--co)}
+.err{color:#B3261E;font-size:15px}
+.cab{background:var(--w);border-radius:8px;padding:16px;margin-bottom:12px;display:grid;gap:8px}
+.cab b{font:700 19px/1.25 var(--d);color:var(--ink)}
+.bar2{height:8px;border-radius:4px;background:var(--sage);overflow:hidden}
+.bar2 i{display:block;height:100%;width:4%;background:var(--co)}
+.ok{background:var(--col);border-radius:8px;padding:14px 16px;color:var(--cod);margin-bottom:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;border-radius:8px;padding:12px 18px;font-size:15px;max-width:calc(100vw - 32px)}
+#policy{width:min(480px,calc(100vw - 24px));padding:26px}
+#policy p{margin:10px 0;font-size:15px}
+
+.foot{padding:48px 0 36px;border-top:1px solid var(--rule);font-size:15px;color:var(--mute)}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.legal{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.legal button{border:0;background:none;padding:0;color:var(--mute);text-decoration:underline;cursor:pointer;font-size:15px}
+
+@media (max-width:1080px){
+  .nav{display:none}
+  .tb{margin-left:auto}
+  .hg{grid-template-columns:1fr;gap:20px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hw,.kit{grid-template-columns:1fr;gap:32px}
+  .kit figure{max-width:520px}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .bar{gap:12px}
+  .tbb{padding:0 10px}
+  .hero{padding-top:26px}
+  .lead{font-size:17px}
+  .hf img{aspect-ratio:4/5}
+  .ticket{left:12px;right:12px;bottom:12px;max-width:none}
+  .sec{padding:64px 0}
+  .grid{grid-template-columns:1fr}
+  .ch{grid-template-columns:1fr}
+  .ch img{min-height:0;aspect-ratio:16/10;height:auto}
+  .chb,.cs{padding:20px 16px}
+  .chb h2{font-size:25px}
+  .mods,.tar{grid-template-columns:1fr}
+  .cfoot{padding:14px 16px}
+  .cfoot .btn{width:100%}
+  .lb{padding:20px 16px 24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#">Ремесло</a>
+    <nav class="nav" aria-label="Разделы"><a href="#courses">Курсы</a><a href="#how">Как учимся</a><a href="#kits">Наборы</a><a href="#faq">Вопросы</a></nav>
+    <div class="tb"><button class="tbb" type="button" id="cabBtn">Кабинет</button><button class="tbb" type="button" id="cartBtn">Корзина<b class="num" id="cc">0</b></button></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hg">
+      <h1>Научитесь ремеслу дома: глина, дерево, кожа и&nbsp;пряжа</h1>
+      <div>
+        <p class="lead">Видеоуроки по&nbsp;шагам, куратор проверяет каждую работу по&nbsp;фото, а&nbsp;набор материалов и&nbsp;инструментов привезём до&nbsp;старта.</p>
+        <div class="cta"><a class="btn" href="#courses">Выбрать курс</a><button class="btn ghost" type="button" id="freeBtn">Пройти урок бесплатно</button></div>
+      </div>
+    </div>
+    <figure class="hf">
+      <picture>
+        <source media="(max-width:760px)" srcset="img/herom-600.webp 600w, img/herom-900.webp 900w" sizes="100vw">
+        <img src="img/hero-1400.webp" srcset="img/hero-800.webp 800w, img/hero-1400.webp 1400w, img/hero-2000.webp 2000w" sizes="(max-width:1240px) 100vw, 1176px" width="1400" height="788" alt="Ученица формует чашу на гончарном круге в светлой мастерской" fetchpriority="high">
+      </picture>
+      <div class="ticket"><b>Старт потока 8&nbsp;декабря</b><span>Наборы отправляем до&nbsp;3&nbsp;декабря. С&nbsp;куратором осталось 14&nbsp;мест из&nbsp;40.</span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="courses">
+  <div class="wrap">
+    <div class="sh"><div><h2>Курсы</h2><p>Нажмите на&nbsp;курс, чтобы открыть программу по&nbsp;урокам, выбрать тариф и&nbsp;набор материалов.</p></div></div>
+    <div class="flt" role="group" aria-label="Ремесло"><span id="crafts" style="display:contents"></span></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec how" id="how">
+  <div class="wrap hw">
+    <figure><img src="img/how-1400.webp" srcset="img/how-800.webp 800w, img/how-1400.webp 1400w" sizes="(max-width:1080px) 92vw, 560px" width="1400" height="933" alt="Ноутбук, режущий коврик и инструменты на рабочем столе" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2 style="font-size:clamp(30px,3.2vw,44px);line-height:1.08">Как проходит обучение</h2>
+      <ol class="steps">
+        <li><b>Выбираете курс и&nbsp;тариф</b><p>Можно сразу или частями: 4&nbsp;платежа без переплаты.</p></li>
+        <li><b>Набор приезжает до&nbsp;старта</b><p>Курьером или в&nbsp;пункт выдачи, трек-номер придёт на&nbsp;почту.</p></li>
+        <li><b>Урок через день</b><p>Видео на&nbsp;15–25 минут и&nbsp;задание. Смотреть можно в&nbsp;любое время, уроки остаются у&nbsp;вас навсегда.</p></li>
+        <li><b>Фото работы&nbsp;— разбор за&nbsp;сутки</b><p>Куратор отмечает на&nbsp;фото, что поправить, и&nbsp;открывает следующий шаг.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kits">
+  <div class="wrap kit">
+    <figure><img src="img/kit-1000.webp" srcset="img/kit-600.webp 600w, img/kit-1000.webp 1000w" sizes="(max-width:1080px) 92vw, 520px" width="1000" height="1000" alt="Инструменты для работы с кожей, разложенные на коврике" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2 style="font-size:clamp(30px,3.2vw,44px);line-height:1.08">Всё для курса приедет одной коробкой</h2>
+      <p style="margin-top:12px;max-width:32em">Ничего не&nbsp;нужно искать по&nbsp;магазинам: в&nbsp;наборе ровно то, что используется в&nbsp;уроках. Его можно взять к&nbsp;любому тарифу.</p>
+      <div class="kt" role="tablist" aria-label="Набор к курсу" id="kt"></div>
+      <div class="kbox" role="tabpanel" id="kbox" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Вопросы</h2></div>
+    <div class="faq">
+      <details><summary>Нет места под мастерскую&nbsp;— получится?</summary><p>Все курсы, кроме гончарного круга, рассчитаны на&nbsp;обычный стол. Как защитить стол и&nbsp;пол от&nbsp;пыли и&nbsp;глины, рассказываем во&nbsp;втором уроке.</p></details>
+      <details><summary>Что если у&nbsp;меня не&nbsp;получится?</summary><p>Куратор разберёт работу по&nbsp;фото и&nbsp;подскажет, что поправить. Если курс не&nbsp;подошёл, вернём деньги до&nbsp;открытия третьего урока.</p></details>
+      <details><summary>Где обжигать керамику?</summary><p>В&nbsp;курсе есть список мастерских с&nbsp;обжигом в&nbsp;40 городах. Без обжига подойдёт самотвердеющая глина&nbsp;— напишите нам, положим её&nbsp;в&nbsp;набор вместо обычной.</p></details>
+      <details><summary>Сколько длится доступ?</summary><p>Видеоуроки остаются у&nbsp;вас навсегда. Проверка работ на&nbsp;тарифах с&nbsp;куратором и&nbsp;наставником&nbsp;— три месяца с&nbsp;начала потока.</p></details>
+      <details><summary>Можно подарить курс?</summary><p>Да. Напишите нам&nbsp;— оформим сертификат на&nbsp;любой курс и&nbsp;тариф, а&nbsp;набор отправим получателю.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <div><a class="logo" href="#" style="font-size:20px">Ремесло</a><p style="margin-top:12px">Онлайн-школа ремёсел с&nbsp;наборами материалов</p></div>
+      <p><a href="mailto:hello@ysdprojects.space">hello@ysdprojects.space</a><br>Кураторы на&nbsp;связи ежедневно 9:00–21:00</p>
+    </div>
+    <div class="legal"><span>ИП Седова М.А.</span><button type="button" data-pol>Политика конфиденциальности</button><a href="https://ysddev.com/" target="_blank" rel="noopener" style="color:inherit">Разработан с душой студией YSD DEV</a></div>
+  </div>
+</footer>
+
+<dialog id="course" aria-labelledby="cT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div id="cIn"></div></dialog>
+<dialog id="lesson" aria-labelledby="lT"><button class="x" type="button" data-close aria-label="Закрыть">×</button><div id="lIn"></div></dialog>
+<div class="drawer" id="drawer" hidden><div class="dp" role="dialog" aria-modal="true" aria-labelledby="dT"><div class="dh"><h2 id="dT">Корзина</h2><button class="x" type="button" id="dX" aria-label="Закрыть">×</button></div><div class="db" id="dB"></div><div class="df" id="dF"></div></div></div>
+<dialog id="policy" aria-labelledby="pT"><h3 id="pT" style="font-size:22px">Политика конфиденциальности</h3><p>Имя, почта и&nbsp;телефон нужны, чтобы открыть доступ к&nbsp;урокам, прислать чек и&nbsp;доставить набор. Мы&nbsp;не&nbsp;передаём их&nbsp;третьим лицам, кроме службы доставки.</p><p>Удалить данные можно по&nbsp;запросу на&nbsp;hello@ysdprojects.space (152-ФЗ).</p><form method="dialog"><button class="btn sm">Понятно</button></form></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rub(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽'}
+function r100(n){return Math.round(n/100)*100}
+function lessonsWord(n){var m=n%10,h=n%100;return n+' '+(m===1&&h!==11?'урок':m>=2&&m<=4&&(h<12||h>14)?'урока':'уроков')}
+
+var C=[
+ {id:'hand',craft:'Глина',title:'Керамика без гончарного круга',img:'c_hand',alt:'Руки лепят изделие из глины на столе',weeks:5,zero:true,res:'пиалы, тарелку, вазу и подсвечник',price:6900,teacher:'Вера Лапина, керамист, 9 лет ведёт мастерскую в Казани',
+  mods:[['Знакомство с глиной',['Какая глина нужна и как её хранить','Щипковая пиала','Почему изделия трескаются']],['Жгуты и пласт',['Ваза из жгутов','Тарелка из пласта','Фактуры и оттиски']],['Форма и детали',['Ручки, ножки и носики','Подсвечник','Изделие из нескольких частей']],['Декор и обжиг',['Ангобы и роспись','Сушка без трещин','Обжиг: мастерская рядом или мини-печь']]],
+  kit:[3400,['5 кг белой глины','стеки и петли, 6 штук','губка, скребок и струна','3 ангоба: синий, белый и охра']]},
+ {id:'wheel',craft:'Глина',title:'Гончарный круг: первые формы',img:'c_wheel',alt:'Руки выравнивают глиняный сосуд на гончарном круге',weeks:6,zero:false,need:'нужен круг: свой или в мастерской',res:'цилиндры, чашки и миску',price:9900,teacher:'Илья Седов, гончар, 12 лет работает на круге',
+  mods:[['Центровка',['Замес глины','Центровка без боли в руках','Вскрытие и дно']],['Цилиндр',['Подъём стенки','Ровный край','Цилиндр высотой 15 см']],['Формы',['Чашка','Миска','Тарелка на круге']],['Обточка и ручки',['Обточка ножки','Ручка для чашки','Глазурь и обжиг']]],
+  kit:[2600,['петли для обточки, 3 штуки','стеки и шило','струна и губка на палке','кронциркуль']]},
+ {id:'carve',craft:'Дерево',title:'Резьба по дереву: ложка, лопатка и доска',img:'c_carve',alt:'Резчик стамеской снимает стружку с деревянной заготовки',weeks:4,zero:true,res:'ложку, лопатку и доску с узором',price:7400,teacher:'Степан Гуров, резчик, 10 лет делает посуду из дерева',
+  mods:[['Нож и древесина',['Как держать нож и не порезаться','Липа, берёза, вишня: что выбрать','Заточка на бруске']],['Ложка',['Разметка и черновая форма','Выборка черпака','Финишная обработка']],['Лопатка и доска',['Лопатка из одной заготовки','Геометрическая резьба','Узор на разделочной доске']],['Отделка',['Масло и воск','Уход за деревянной посудой']]],
+  kit:[4200,['нож-косяк и ложкорез','2 полукруглые стамески','3 липовые заготовки','брусок для заточки и масло']]},
+ {id:'joinery',craft:'Дерево',title:'Столярка на балконе: полка и табурет',img:'c_joinery',alt:'Столяр работает стамеской над деревянной деталью',weeks:7,zero:true,res:'полку на стену и табурет',price:12900,teacher:'Антон Белов, столяр-мебельщик, 15 лет делает мебель на заказ',
+  mods:[['Мастерская на 2 м²',['Минимальный набор инструментов','Верстак из двух табуретов','Разметка и измерения']],['Пилим и строгаем',['Ровный пропил ножовкой','Выборка паза стамеской','Шлифовка без пыли в квартире']],['Соединения',['Шип и паз','Соединение на шкантах','Клей и струбцины']],['Изделия',['Полка на стену','Табурет','Масло, лак или краска']]],
+  kit:[6900,['японская ножовка','3 стамески: 6, 12 и 20 мм','2 струбцины','сосновые заготовки на полку и табурет']]},
+ {id:'leather',craft:'Кожа',title:'Кожаные изделия: кошелёк, ремень и сумка',img:'c_leather',alt:'Мастер пробивает отверстия для шва в коже',weeks:6,zero:true,res:'кошелёк, ремень и сумку-шопер',price:8900,teacher:'Дарья Кольцова, мастер по коже, шьёт сумки на заказ 8 лет',
+  mods:[['Материал',['Виды кожи и где её покупать','Инструменты для начала','Выкройка из картона']],['Кошелёк',['Раскрой ножом','Пробивка и седельный шов','Обработка торцов']],['Ремень',['Раскрой полосы','Пряжка и фурнитура','Тиснение инициалов']],['Сумка',['Выкройка шопера','Сборка и ручки','Пропитка и уход']]],
+  kit:[4900,['кожа растительного дубления на 3 изделия','пробойники на 4 и 6 зубцов','нитки, иглы и воск','нож, линейка и коврик']]},
+ {id:'knit',craft:'Пряжа',title:'Вязание спицами: свитер по своим меркам',img:'c_knit',alt:'Руки вяжут спицами полотно из синей пряжи',weeks:8,zero:true,res:'свитер, который сидит по фигуре',price:6400,teacher:'Ольга Мерц, дизайнер вязаной одежды',
+  mods:[['Основы',['Набор петель','Лицевые и изнаночные','Как читать схему']],['Образец и мерки',['Образец и плотность вязания','Снимаем мерки','Расчёт свитера под себя']],['Свитер',['Реглан сверху','Рукава','Резинки и горловина']],['Отделка',['Влажно-тепловая обработка','Исправляем ошибки без распускания']]],
+  kit:[3900,['7 мотков шерсти на свитер','круговые спицы 4 и 4,5 мм','маркеры и булавки','сантиметр и игла для швов']]}
+];
+C.forEach(function(c){c.n=c.mods.reduce(function(s,m){return s+m[1].length},0)});
+var T=[['Сам',1,['видеоуроки и задания','доступ навсегда','чат учеников']],['С куратором',1.6,['всё из тарифа «Сам»','проверка каждой работы по фото','ответ за сутки, сертификат']],['С наставником',2.6,['всё из тарифа «С куратором»','3 видеосозвона с преподавателем','свой проект в конце курса']]];
+function tprice(c,t){return t===0?c.price:r100(c.price*T[t][1])}
+function byId(id){for(var i=0;i<C.length;i++)if(C[i].id===id)return C[i]}
+
+/* каталог */
+var craft='Все';
+$('crafts').innerHTML=['Все','Глина','Дерево','Кожа','Пряжа'].map(function(x){return '<button type="button" aria-pressed="'+(x===craft)+'">'+x+'</button>'}).join('');
+$('crafts').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){craft=b.textContent;$('crafts').querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed',y===b)});draw()})});
+function img(name,alt,sizes,lazy){return '<img src="img/'+name+'-900.webp" srcset="img/'+name+'-600.webp 600w, img/'+name+'-900.webp 900w" sizes="'+sizes+'" width="900" height="675" alt="'+esc(alt)+'"'+(lazy?' loading="lazy" decoding="async"':'')+'>'}
+function draw(){
+  var a=C.filter(function(c){return craft==='Все'||c.craft===craft});
+  $('grid').innerHTML=a.length?a.map(function(c){return '<article class="card"><button class="ph" type="button" data-open="'+c.id+'" aria-label="Программа и тарифы: '+esc(c.title)+'">'+img(c.img,c.alt,'(max-width:760px) 92vw, (max-width:1080px) 46vw, 380px',true)+'<span class="cr">'+c.craft+'</span></button><div class="cb"><h3>'+esc(c.title)+'</h3><p class="facts">'+c.weeks+' недель, '+lessonsWord(c.n)+(c.zero?', с нуля':', '+c.need)+'</p><p class="res">Сделаете: '+esc(c.res)+'</p><div class="cf"><span class="pr num">от '+rub(c.price)+'</span><button class="btn sm" type="button" data-open="'+c.id+'">Программа и тарифы</button></div></div></article>'}).join('')
+  :'<div class="empty">Курсов по этому ремеслу пока нет. Посмотрите все курсы.</div>';
+  $('grid').querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){openCourse(b.dataset.open)})});
+}
+draw();
+
+/* окно курса */
+var cur=null;
+function openCourse(id,o){
+  var c=byId(id);o=o||{};var inCart=cart.filter(function(x){return x.id===id})[0];
+  cur={id:id,t:inCart?inCart.t:1,kit:inCart?inCart.kit:(o.kit!==undefined?o.kit:true),parts:inCart?inCart.parts:false};
+  $('cIn').innerHTML='<div class="ch">'+img(c.img,c.alt,'(max-width:760px) 96vw, 450px',false)+'<div class="chb"><h2 id="cT">'+esc(c.title)+'</h2><p>'+c.weeks+' недель, '+lessonsWord(c.n)+(c.zero?', с нуля':', '+c.need)+'. Старт потока 8 декабря.</p><p>Сделаете: '+esc(c.res)+'.</p><p class="who">Ведёт '+esc(c.teacher)+'</p></div></div>'+
+   '<div class="cs"><h3>Программа</h3><div class="mods">'+c.mods.map(function(m,i){return '<details'+(i===0?' open':'')+'><summary>'+esc(m[0])+'<span>'+lessonsWord(m[1].length)+'</span></summary><ol>'+m[1].map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ol></details>'}).join('')+'</div></div>'+
+   '<div class="cs"><h3>Тариф</h3><div class="tar">'+T.map(function(t,i){return '<label><input type="radio" name="tar" value="'+i+'"'+(i===cur.t?' checked':'')+'><b>'+t[0]+'</b><span class="p num">'+rub(tprice(c,i))+'</span><ul>'+t[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+(i===2?'<span class="left">осталось 4 места</span>':'')+'</label>'}).join('')+'</div></div>'+
+   '<div class="cs"><h3>Набор и оплата</h3><label class="opt"><input type="checkbox" id="kitOn"'+(cur.kit?' checked':'')+'><div><b>Набор материалов, '+rub(c.kit[0])+'</b><span>'+esc(c.kit[1].join(', '))+'. Привезём до 3 декабря.</span></div></label>'+
+   '<div class="pay" role="radiogroup" aria-label="Оплата"><label><input type="radio" name="pp" value="0"'+(cur.parts?'':' checked')+'>Сразу</label><label><input type="radio" name="pp" value="1"'+(cur.parts?' checked':'')+'>Частями: 4 платежа без переплаты</label></div></div>'+
+   '<div class="cfoot"><div><div class="t num" id="cTot"></div><div class="s" id="cSub"></div></div><button class="btn" type="button" id="cAdd">'+(inCart?'Обновить в корзине':'Добавить в корзину')+'</button></div>';
+  var d=$('cIn');
+  d.querySelectorAll('input[name=tar]').forEach(function(r){r.addEventListener('change',function(){cur.t=+r.value;sumC()})});
+  $('kitOn').addEventListener('change',function(){cur.kit=this.checked;sumC()});
+  d.querySelectorAll('input[name=pp]').forEach(function(r){r.addEventListener('change',function(){cur.parts=r.value==='1';sumC()})});
+  $('cAdd').addEventListener('click',function(){addCart(cur);$('course').close()});
+  sumC();$('course').showModal();$('course').scrollTop=0;
+}
+function total(x){var c=byId(x.id);return tprice(c,x.t)+(x.kit?c.kit[0]:0)}
+function sumC(){var s=total(cur),c=byId(cur.id);
+  $('cTot').textContent=cur.parts?'4 × '+rub(Math.ceil(s/4)):rub(s);
+  $('cSub').textContent=T[cur.t][0]+(cur.kit?', с набором':', без набора')+(cur.parts?'. Итого '+rub(s)+', первый платёж сейчас':'');
+}
+document.querySelectorAll('dialog [data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close()})});
+['course','lesson'].forEach(function(id){$(id).addEventListener('click',function(e){if(e.target===this)this.close()})});
+
+/* наборы */
+var kitSel='leather';
+$('kt').innerHTML=C.map(function(c){return '<button type="button" role="tab" aria-selected="'+(c.id===kitSel)+'" data-k="'+c.id+'">'+esc(c.title.split(':')[0])+'</button>'}).join('');
+$('kt').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){kitSel=b.dataset.k;$('kt').querySelectorAll('button').forEach(function(y){y.setAttribute('aria-selected',y===b)});kitDraw()})});
+function kitDraw(){var c=byId(kitSel);$('kbox').innerHTML='<b style="position:relative;font:700 20px/1.25 var(--d);color:var(--ink)">'+esc(c.title)+'</b><ul style="position:relative">'+c.kit[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul><div class="kr"><span class="pr num">'+rub(c.kit[0])+'</span><button class="btn sm" type="button" id="kGo">Выбрать курс с набором</button></div>';
+  $('kGo').addEventListener('click',function(){openCourse(c.id,{kit:true})})}
+kitDraw();
+
+/* бесплатный урок */
+$('freeBtn').addEventListener('click',function(){
+  $('lIn').innerHTML='<img src="img/c_hand-900.webp" srcset="img/c_hand-600.webp 600w, img/c_hand-900.webp 900w" sizes="(max-width:760px) 96vw, 720px" width="900" height="506" alt="Руки лепят изделие из глины на столе"><div class="lb"><h2 id="lT">Урок 2 курса «Керамика без гончарного круга»: щипковая пиала</h2><p>25 минут. Этот урок открыт бесплатно: после него понятно, ваше ли это.</p><div class="need"><b style="color:var(--ink);font-weight:500">Понадобится:</b> 500 г любой глины, миска с водой, губка и ложка. Подойдёт и самотвердеющая глина из магазина для творчества.</div><ol><li>Скатайте шар размером с апельсин и постучите им о стол, чтобы выгнать воздух.</li><li>Вдавите большой палец в центр, оставив дно толщиной в палец.</li><li>Вращайте шар и сжимайте стенку большим и указательным пальцами, поднимаясь снизу вверх.</li><li>Выровняйте край влажной губкой и ложкой сгладьте следы пальцев внутри.</li><li>Сушите пиалу под пакетом два дня, затем ещё неделю на воздухе, и только после этого обжигайте.</li></ol><button class="btn" type="button" id="lGo">Весь курс: программа и тарифы</button></div>';
+  $('lGo').addEventListener('click',function(){$('lesson').close();openCourse('hand')});$('lesson').showModal();$('lesson').scrollTop=0;
+});
+
+/* корзина и кабинет */
+var cart=[],mine=[],mode='cart';
+function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},2400)}
+function addCart(x){var i=-1;cart.forEach(function(y,k){if(y.id===x.id)i=k});var copy={id:x.id,t:x.t,kit:x.kit,parts:x.parts};
+  if(i>=0){cart[i]=copy;toast('Обновили в корзине')}else{cart.push(copy);toast('«'+byId(x.id).title+'» в корзине')}$('cc').textContent=cart.length}
+function openD(m){mode=m;$('drawer').hidden=false;render();$('dX').focus()}
+function closeD(){$('drawer').hidden=true;(mode==='cart'?$('cartBtn'):$('cabBtn')).focus()}
+$('cartBtn').addEventListener('click',function(){openD('cart')});$('cabBtn').addEventListener('click',function(){openD('cab')});
+$('dX').addEventListener('click',closeD);$('drawer').addEventListener('click',function(e){if(e.target===this)closeD()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('drawer').hidden)closeD()});
+document.querySelectorAll('[data-pol]').forEach(function(b){b.addEventListener('click',function(){$('policy').showModal()})});
+function render(){
+  $('dT').textContent=mode==='cart'?'Корзина':'Кабинет';
+  if(mode==='cab'){$('dF').innerHTML='';
+    $('dB').innerHTML=mine.length?mine.map(function(x){var c=byId(x.id);return '<div class="cab"><b>'+esc(c.title)+'</b><span style="font-size:15px;color:var(--mute)">Тариф «'+T[x.t][0]+'». Старт 8 декабря, первый урок откроется в 10:00.</span><div class="bar2" aria-label="Пройдено 0 из '+c.n+'"><i></i></div><span style="font-size:15px">Пройдено 0 из '+lessonsWord(c.n)+'</span>'+(x.kit?'<span style="font-size:15px">Набор собираем, отправим до 3 декабря. Трек-номер придёт на почту.</span>':'')+'<button class="lnk" type="button" data-prep="'+x.id+'" style="justify-self:start">Что подготовить до старта</button></div>'}).join('')
+      :'<p>Здесь появятся ваши курсы, уроки и статус набора. Начните с бесплатного урока, чтобы понять, ваше ли это.</p><button class="btn" type="button" id="cabFree" style="margin-top:14px">Открыть бесплатный урок</button>';
+    var f=$('cabFree');if(f)f.addEventListener('click',function(){closeD();$('freeBtn').click()});
+    $('dB').querySelectorAll('[data-prep]').forEach(function(b){b.addEventListener('click',function(){var c=byId(b.dataset.prep);toast(c.craft==='Глина'?'Застелите стол клеёнкой и найдите место для сушки изделий':c.craft==='Дерево'?'Нужен устойчивый стол и пылесос для стружки':c.craft==='Кожа'?'Нужен стол и хорошая лампа над ним':'Пока ничего: с первого урока вяжем образец')})});
+    return}
+  if(!cart.length){$('dB').innerHTML='<p>Корзина пуста. Выберите курс: в каждом можно посмотреть программу по урокам и взять набор материалов.</p>';$('dF').innerHTML='';return}
+  var s=0,parts=false,hasKit=false;
+  $('dB').innerHTML=cart.map(function(x,i){var c=byId(x.id),p=total(x);s+=p;if(x.parts)parts=true;if(x.kit)hasKit=true;return '<div class="it"><b>'+esc(c.title)+'</b><span class="m">Тариф «'+T[x.t][0]+'»'+(x.kit?', с набором':'')+(x.parts?', частями':'')+'</span><div class="r"><span class="pr num" style="font-size:17px">'+rub(p)+'</span><span><button class="lnk" type="button" data-ed="'+x.id+'">Изменить</button>&nbsp;&nbsp;<button class="lnk" type="button" data-rm="'+i+'">Убрать</button></span></div></div>'}).join('');
+  var now=cart.reduce(function(a,x){var p=total(x);return a+(x.parts?Math.ceil(p/4):p)},0);
+  $('dF').innerHTML='<div class="tot num"><span>Итого</span><span>'+rub(s)+'</span></div>'+(parts?'<p class="sub">Сейчас '+rub(now)+', остальное тремя платежами раз в месяц</p>':'')+
+   '<div class="f"><label for="oN">Имя</label><input id="oN" autocomplete="name"></div><div class="f"><label for="oM">Почта для доступа к урокам</label><input id="oM" type="email" inputmode="email" autocomplete="email"></div>'+(hasKit?'<div class="f"><label for="oP">Телефон для доставки набора</label><input id="oP" type="tel" inputmode="tel" autocomplete="tel"></div>':'')+
+   '<label class="agree"><input type="checkbox" id="oC"><span>Согласен на обработку персональных данных по <button type="button" class="lnk" id="oPol">политике</button></span></label><button class="btn" type="button" id="oGo">Оплатить '+rub(now)+'</button><p class="err" id="oE" role="alert"></p>';
+  $('dB').querySelectorAll('[data-rm]').forEach(function(b){b.addEventListener('click',function(){cart.splice(+b.dataset.rm,1);$('cc').textContent=cart.length;render()})});
+  $('dB').querySelectorAll('[data-ed]').forEach(function(b){b.addEventListener('click',function(){closeD();openCourse(b.dataset.ed)})});
+  $('oPol').addEventListener('click',function(){$('policy').showModal()});
+  $('oGo').addEventListener('click',function(){var e=$('oE');e.textContent='';
+    if(!$('oN').value.trim()){e.textContent='Укажите имя — так куратор будет к вам обращаться.';$('oN').focus();return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('oM').value.trim())){e.textContent='Проверьте почту — на неё откроем доступ к урокам.';$('oM').focus();return}
+    if(hasKit&&$('oP').value.replace(/\D/g,'').length<10){e.textContent='Проверьте телефон — по нему курьер договорится о доставке.';$('oP').focus();return}
+    if(!$('oC').checked){e.textContent='Отметьте согласие на обработку данных.';return}
+    var mail=$('oM').value.trim();cart.forEach(function(x){if(!mine.some(function(y){return y.id===x.id}))mine.push(x)});cart=[];$('cc').textContent='0';
+    mode='cab';render();$('dB').insertAdjacentHTML('afterbegin','<div class="ok">Оплата прошла. Доступ к урокам и чек отправили на '+esc(mail)+'.</div>');
+  });
+}
+})();
+</script>
+</body>
+</html>

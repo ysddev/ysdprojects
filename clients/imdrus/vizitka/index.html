@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
+<title>Визитка IMDRUS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap">
+<style>
+*{box-sizing:border-box} body{margin:0}
+
+/* Layout: одна колонка — превью двух сторон и кнопки скачивания */
+:root {
+  --bg: #F2F2EE; --fg: #1F1E1C; --muted: #5C5A55; --card: #FFFFFF;
+  --accent: #E3C800; --line: #DAD8D0;
+  --font: "Manrope", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1B1A18; --fg: #F2F1EC; --muted: #A9A69E; --card: #26251F; --accent: #E3C800; --line: #3A3933; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #1B1A18; --fg: #F2F1EC; --muted: #A9A69E; --card: #26251F; --accent: #E3C800; --line: #3A3933; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); }
+.wrap { max-width: 640px; margin: 0 auto; padding-block: 32px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0; }
+h1 { font-size: 26px; line-height: 1.2; margin: 0; text-wrap: balance; }
+p.lead { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.sides { display: grid; gap: 14px; }
+.sides figure { margin: 0; display: grid; gap: 6px; }
+.sides img { width: 100%; max-width: 100%; display: block; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 6px 20px rgba(0,0,0,.08); }
+figcaption { font-size: 13px; color: var(--muted); }
+.actions { display: grid; gap: 10px; }
+.btn { text-decoration: none; font: inherit; font-size: 16px; font-weight: 700; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--card); color: var(--fg); cursor: pointer; text-align: left; display: flex; justify-content: space-between; gap: 12px; }
+.btn.primary { background: var(--accent); color: #1F1E1C; border-color: var(--accent); }
+.btn small { font-weight: 600; opacity: .7; }
+.btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+
+.status { min-height: 1.4em; font-size: 14px; color: var(--muted); margin: 0; }
+.spec { font-size: 13px; color: var(--muted); line-height: 1.5; border-top: 1px solid var(--line); padding-top: 14px; margin: 0; }
+</style></head><body>
+
+<div class="wrap">
+  <p class="eyebrow">IMDRUS · макет для печати</p>
+  <h1>Визитка Мироновой Ирины Геннадьевны</h1>
+  <p class="lead">Нажмите «Скачать PDF» и отправьте файл в типографию. Картинки сторон — запасной вариант, если типография просит JPG.</p>
+
+  <div class="actions">
+    <a class="btn primary" href="vizitka_IMDRUS.pdf" download>Скачать PDF для типографии <small>2 стороны</small></a>
+    <a class="btn" href="vizitka_IMDRUS_licevaya.jpg" download>Лицевая сторона, JPG <small>300 dpi</small></a>
+    <a class="btn" href="vizitka_IMDRUS_oborot.jpg" download>Оборот, JPG <small>300 dpi</small></a>
+    
+  </div>
+
+  <div class="sides">
+    <figure><img src="front.jpg" alt="Лицевая сторона визитки"><figcaption>Лицевая сторона</figcaption></figure>
+    <figure><img src="back.jpg" alt="Оборотная сторона визитки"><figcaption>Оборот</figcaption></figure>
+  </div>
+
+  <p class="spec">Формат 90×50 мм, вылеты по 2 мм с каждой стороны (файл 94×54 мм). Двусторонняя печать, тираж 100 шт.</p>
+</div>
+
+</body></html>
